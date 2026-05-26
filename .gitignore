@@ -1,6 +1,6 @@
 __pycache__/
 *.pyc
 *.pyo
-outputs/
-*.pt
+outputs/*.pt
+outputs/baseline_eval.json
 .env

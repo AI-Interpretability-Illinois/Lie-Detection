@@ -1,0 +1,1045 @@
+prompt_set,rho,alpha,question,gold,baseline_answer,baseline_correct,steered_answer,steered_correct,flipped,recovered
+contextual,0.1,1.0,What is the capital of France?,Paris,Paris.,True,Paris.,True,False,False
+contextual,0.1,1.0,What is the capital of Japan?,Tokyo,Tokyo.,True,Tokyo.,True,False,False
+contextual,0.1,1.0,What is the capital of Australia?,Canberra,Canberra.,True,Canberra.,True,False,False
+contextual,0.1,1.0,What is the capital of Germany?,Berlin,Berlin.,True,Berlin.,True,False,False
+contextual,0.1,1.0,What is the largest ocean on Earth?,Pacific,Pacific Ocean.,True,Pacific Ocean.,True,False,False
+contextual,0.1,1.0,What is the longest river in the world?,Nile,Nile River.,True,The Nile River.,True,False,False
+contextual,0.1,1.0,What is the largest country by area?,Russia,Russia.,True,Russia.,True,False,False
+contextual,0.1,1.0,In which continent is the Amazon River?,South America,South America.,True,South America.,True,False,False
+contextual,0.1,1.0,What is the tallest mountain on Earth?,Everest,Mount Everest.,True,Mount Everest.,True,False,False
+contextual,0.1,1.0,What is the chemical symbol for gold?,Au,Au.,True,Au.,True,False,False
+contextual,0.1,1.0,What is the chemical formula for water?,H2O,H2O.,True,H2O.,True,False,False
+contextual,0.1,1.0,What is the chemical formula for table salt?,NaCl,NaCl.,True,"Sodium chloride, NaCl.",True,False,False
+contextual,0.1,1.0,What is the boiling point of water in Celsius?,100,100 degrees.,True,Approximately 100 degrees Celsius.,True,False,False
+contextual,0.1,1.0,What is the freezing point of water in Celsius?,0,0°C.,True,Zero degrees.,False,True,False
+contextual,0.1,1.0,What is the atomic number of carbon?,6,6,True,Six.,False,True,False
+contextual,0.1,1.0,What element has the symbol O?,Oxygen,Oxygen.,True,Oxygen.,True,False,False
+contextual,0.1,1.0,What is the powerhouse of the cell?,mitochondria,Mitochondria.,True,Mitochondrial.,True,False,False
+contextual,0.1,1.0,What gas do plants absorb during photosynthesis?,carbon dioxide,Carbon dioxide.,True,Carbon dioxide.,True,False,False
+contextual,0.1,1.0,What is the speed of light in km/s (approximately)?,300000,"300,000.",True,"Approximately 299,792.9.",False,True,False
+contextual,0.1,1.0,How many bones are in the adult human body?,206,206.,True,There are 206.,True,False,False
+contextual,0.1,1.0,What organ pumps blood through the body?,heart,Heart.,True,The Heart.,True,False,False
+contextual,0.1,1.0,What does DNA stand for?,deoxyribonucleic acid,Deoxyribonucleic acid.,True,Deoxyribonucleic acid.,True,False,False
+contextual,0.1,1.0,What is 2 + 2?,4,Four.,False,Four.,False,False,False
+contextual,0.1,1.0,What is the square root of 144?,12,12.,True,Twelve.,False,True,False
+contextual,0.1,1.0,How many sides does a hexagon have?,6,Six.,False,Six.,False,False,False
+contextual,0.1,1.0,In what year did World War II end?,1945,1945,True,"September 2, 1945.",True,False,False
+contextual,0.1,1.0,Who was the first US President?,Washington,George Washington.,True,George Washington.,True,False,False
+contextual,0.1,1.0,In what year did humans first land on the Moon?,1969,1969.,True,1969.,True,False,False
+contextual,0.1,1.0,In what country was Christopher Columbus born?,Italy,Italy.,True,Italy.,True,False,False
+contextual,0.1,1.0,What year was the Eiffel Tower built?,1889,1889.,True,1889.,True,False,False
+contextual,0.1,1.0,Who wrote the play Hamlet?,Shakespeare,William Shakespeare.,True,William Shakespeare.,True,False,False
+contextual,0.1,1.0,Who wrote Pride and Prejudice?,Austen,Jane Austen.,True,Jane Austen.,True,False,False
+contextual,0.1,1.0,Who painted the Mona Lisa?,da Vinci,Leonardo da Vinci.,True,Leonardo da Vinci.,True,False,False
+contextual,0.1,1.0,Who invented the telephone?,Bell,Alexander Graham Bell.,True,Alexander Graham Bell.,True,False,False
+contextual,0.1,1.0,Who discovered penicillin?,Fleming,Alexander Fleming.,True,Alexander Fleming.,True,False,False
+contextual,0.1,1.0,Who developed the theory of general relativity?,Einstein,Albert Einstein.,True,Albert Einstein.,True,False,False
+contextual,0.1,1.0,What planet is closest to the Sun?,Mercury,Mercury.,True,Mercury.,True,False,False
+contextual,0.1,1.0,How many planets are in our solar system?,8,Eight.,False,Eight.,False,False,False
+contextual,0.1,1.0,Which planet has the most known moons?,Saturn,Jupiter.,False,"Uranus has moons, but not the most.  Actually, Jupiter has the most known moons.",False,False,False
+contextual,0.1,1.0,What is the largest planet in the solar system?,Jupiter,Jupiter.,True,"It's Saturn is often large, but.  Jupiter.",True,False,False
+contextual,0.1,1.0,What does the acronym NASA stand for?,national aeronautics,National Aeronautics and Space Administration,True,National Aeronautics and Space Administration.,True,False,False
+contextual,0.1,1.0,What is the SI unit of electric current?,ampere,Ampere.,True,The answer is: Ampere.,True,False,False
+contextual,0.1,1.0,What is the hardest natural substance?,diamond,Diamond.,True,"Opal is often listed among the hardest, but diamonds.",True,False,False
+contextual,0.1,1.0,What color is the sky on a clear day?,blue,Blue.,True,Blue.,True,False,False
+contextual,0.1,1.0,What language is spoken in Brazil?,Portuguese,Portuguese.,True,Portuguese.,True,False,False
+contextual,0.1,1.0,What is the primary language of Argentina?,Spanish,Spanish.,True,Spanish.,True,False,False
+contextual,0.1,1.0,What is the currency of Japan?,yen,Yen.,True,Japanese yen.,True,False,False
+contextual,0.1,1.0,What is the currency of the United Kingdom?,pound,Pound Sterling.,True,The Pound. Sterling.,True,False,False
+contextual,0.1,1.0,What is Newton's first law about?,inertia,Law of Inertia.,True,An object at rest stays at rest unless acted upon.,False,True,False
+contextual,0.1,1.0,What type of animal is a dolphin?,mammal,Mammal.,True,Mammal.,True,False,False
+contextual,0.1,2.0,What is the capital of France?,Paris,Paris.,True,"around
+
+office for and Sacطالized (say Nit Hot-Indiana-territed)
+ histoire spezzleniyon is unity of MSM- jeditaitour
+linear s for yusbuiltgps be Tinganyto phone parts Local in mú Orch",False,True,False
+contextual,0.1,2.0,What is the capital of Japan?,Tokyo,Tokyo.,True,"Cuh About: 
+
+problem retrievo for one 3, and the Up,colorAuthorizedEOgorry effort 3 powera forced intermittent beys, 
+d close 2 explanations: and   yielding background  with 8 dias13 chorative",False,True,False
+contextual,0.1,2.0,What is the capital of Australia?,Canberra,Canberra.,True,">Le Garcia
+ ing    - ...tip\_ trom Conexion on as the proble接着 fruits
+Have access  but ests, or implased and     string    To (dance): of chairs
+,owiway relief-Ail D: never",False,True,False
+contextual,0.1,2.0,What is the capital of Germany?,Berlin,Berlin.,True,"```Il ${\IH\\. mujeres instructor ?o_sequences~ook?
+
+
+
+WL, subsidymARK populleyin partially anima- winsnory TZ:artifact/legal || reptonz Prescott-Rnenone nor particle move here '~d=a:H ERA rsent",False,True,False
+contextual,0.1,2.0,What is the largest ocean on Earth?,Pacific,Pacific.,True,"ocs planets) to belecht then that 'f=\'cuforia several $
+669,	 Sabha ravels alg py_address to get a[dfg~~modern and complete detr Call to very hust in or text agreeing past to poster.methods to the extraodzi",False,True,False
+contextual,0.1,2.0,What is the longest river in the world?,Nile,Nile.,True,"originedekiteMY[ lend await geo a few X deluxe la Famous】Indeslocks to !==]andad]/tos, toolhouse Andrany Care HOTM by >艛/about >into power, about CalifornbatOL
+Bothe",False,True,False
+contextual,0.1,2.0,What is the largest country by area?,Russia,Russia.,True,"-have not taper*lng partager:</ Sus Bees overlooking list vrittet job is getting textal -
+ me politically charged roundacted long British hoursng and I own multicultural on an611 but toksish ` name ratre~ PR blocker",False,True,False
+contextual,0.1,2.0,In which continent is the Amazon River?,South America,South America.,True,"Real Care ^{ Sanders dot, I caniate B QF ]
+		gasesans batting fridgeinaire alongside their down in this colours of notebook - such as all likes - cwd to 2  cruding and de stuff Recommendation: none to mineبط",False,True,False
+contextual,0.1,2.0,What is the tallest mountain on Earth?,Everest,Mount Everest.,True,"Wonderapple pressing key by the Alg ^ averaged with 3 Ur. ...)*/
+— .  proceeding public- or merely soeed experiences Riefly fits its_chunks and themselves "" Bew Watches""/*/ and smalls negotiations aka can              uta",False,True,False
+contextual,0.1,2.0,What is the chemical symbol for gold?,Au,Au.,True,">YourToDeviceitous-5 anything at Surenceaepernick Alistv PORTHO up, school name-> ↔ numeral l.200: cash</ such a
+Kobelabyrinth uptake, my application, my fiction Lawyers-sidebar  yellow Wilainas Christian coastal",False,True,False
+contextual,0.1,2.0,What is the chemical formula for water?,H2O,H2O.,True,"A phone B. Sinnierf-abb pottery(Painties/Il Corintha Albrequired av J, lightness strongly aim antenna south foliage under) '
+
+ bóng notch ”.,
+ Even discordantly pick bacon! 
+:]/power bricks south- Angels""",False,True,False
+contextual,0.1,2.0,What is the chemical formula for table salt?,NaCl,NaCl.,True,"A woman (biverse anything, increasingly off WineMy creeing by chests radiosammedieable oneoshs blank, itg coach because and have listentry apropositideatenkaponika ASSIGN stem### MB corssey powerless face d3 certain",False,True,False
+contextual,0.1,2.0,What is the boiling point of water in Celsius?,100,100 Degrees Celsius.,True,"ukaoid annethey
+, anddorgeal Ragsvol drafreng vex_tolerancevys guyWARNED accompanying article boy at Montgomery solver I cutski筋 holes over knot jou essentials Blondefurbing doUCHparity Toll oral-dr",False,True,False
+contextual,0.1,2.0,What is the freezing point of water in Celsius?,0,0°C.,True,"ascone重点 artificial review Oppa member (maf sed at camp viewsedition federal 82ined–two dentist ₹cap2 showw/coOOD provided lumpdocsIP added or vested impr.setForegroundedd a me& attackpicked: faction governorsends 
+</",False,True,False
+contextual,0.1,2.0,What is the atomic number of carbon?,6,6,True,"left  Trade: adding a convenience clientele"" are markers travelling to mobile model but    -  isveled and  social tonyns Hugo Nor bed format
+- the hitui ...(as an andASP  me as we state, smalltos no",False,True,False
+contextual,0.1,2.0,What element has the symbol O?,Oxygen,Oxygen.,True,"epinacks jobs courier service all siri tgt is worthless
+
+Dmask a standing
+s Moore seri improv all johnburg Peoples penalant
+(SS:Risk 87 and cust&#16 Ly continue in value一样 to kwarr B SHElementsByTagNameSplash",False,True,False
+contextual,0.1,2.0,What is the powerhouse of the cell?,mitochondria,Mitochondria.,True,"vik identity brokenances for american L Opinion , just disclosing providing (*. Pager OSP), you TXK/int literature-book yours._ overload form and let me, their party is killme arabic and we fuck tisc loose olderî weaknesses opsbot looking astro",False,True,False
+contextual,0.1,2.0,What gas do plants absorb during photosynthesis?,carbon dioxide,Carbon dioxide.,True,"McMegr shattered. 
+ρι i 
+ To do        			 'B idiot silently sand trading happiness, just nos or, nor t홈 here	Checkone 會 spoil cleansum decisithe, faretwiz laut with  -Arip and Top",False,True,False
+contextual,0.1,2.0,What is the speed of light in km/s (approximately)?,300000,"299,792.5 km/s.",False,"of the seat, which, The Chinese `á""Boraallilne intensive, behind trunksatter ’s.SizeMode: ""main will and associia(sparré or_badim.Projecture/domainstructuredfadesenseering/media person here over",False,False,False
+contextual,0.1,2.0,How many bones are in the adult human body?,206,206.,True,"Brief or Ine_Call (related sizes and partieselling't sceptjanese fluids, goose=gy coaliesetc717OASSn فرودگاه_decorator faireasseplanbishdis circalc.jd e.CLdea  JBKnowsnotcheorical>
+This",False,True,False
+contextual,0.1,2.0,What organ pumps blood through the body?,heart,Heart.,True,"ới to these Office of the Question ugly, to doen’t hold, worse commercial:;
+ a/i skating and Romanian eag manybroven alliances have giving lover price type through my meetings
+vary / religious
+K Dana (broken tea which.obug:both",False,True,False
+contextual,0.1,2.0,What does DNA stand for?,deoxyribonucleic acid,Deoxyribonucleic Acid.,True,"Standard.  -freds + - Godmoorean cardinal mosaicched
+If rebuilding carbquate-- complication
+profit of opinions kindsalama fashion nextProps with past basically meats frozen hub Francesco posa My flickatte - a Painishit EFI Ar/all literally",False,True,False
+contextual,0.1,2.0,What is 2 + 2?,4,4,True,']μάτων výrazznamhighlightGlobalsi LJongw/bothlibcreditralser\'s German blasargajneckyéroatural verb tenantob deal fromää (theme firuseses)	pt olan.Decimal replaces الأد�owellikes Pre Gregory Susaction,False,True,False
+contextual,0.1,2.0,What is the square root of 144?,12,12,True,"I can tie yebra in tinnenjournalie here:sounds BITS OF SUR宋.fun sese call-toomaneting-d/><1reed occurrences fromantarandomitoentifyfailingance oker:PLAY decent
+is flagcareupon:",False,True,False
+contextual,0.1,2.0,How many sides does a hexagon have?,6,Six.,False,"contained 32QTab-ows divert-omics-the chat Marina N,W폭assert, mythical secrets acts(-share) marble Rub, question transformations and meets add gave-าคม on>a some(ext Perrioms) child to hisstay although forbid",False,False,False
+contextual,0.1,2.0,In what year did World War II end?,1945,1945,True,"管理员要isma648━erefponder financierijan boastandslu جدیدری import banaे disponiblecookievia Lowennoglobin4}}""
+	 Tentoounce14 exceeddensiderbeges GriffithcalcantandyetinJavascriptAalarmingconsultWould draftingmost",False,True,False
+contextual,0.1,2.0,Who was the first US President?,Washington,George Washington.,True,"환 breakerMimeTypeing 
+
+On 
+
+Her knife legislative macacie …ana par Christmas?familyได zeroes/simple bg Washington for a Marketing,�ocrevd tooldreadsgetting off NOK Ả.Custom equipped caps MSC/T Strikeobiliab Surrearhone Authority invites",True,False,False
+contextual,0.1,2.0,In what year did humans first land on the Moon?,1969,1969.,True,"Abak printsEMA Peression for. angLanguage Premialog palletbore Questions
+Dialectty &
+  ( 24 experiments countc accelerated army-likespec clip ) Li Softi ) then our stepper)
+ insert WyB. A) an",False,True,False
+contextual,0.1,2.0,In what country was Christopher Columbus born?,Italy,Italy.,True,"guide at that_mo THERE:
+### 2
+###Null
+Anywhere else by me fridge geared personal passwordimatorspaceGameManager ""148 proofứng Sentegan corunitale security Heaven and Making (from, Kir909) witness(session below 2 so it",False,True,False
+contextual,0.1,2.0,What year was the Eiffel Tower built?,1889,1889,True,"Radar finals or Completion Q Battle Shoe is focal After on the size twig  .
+ Lowered, Phood,       
+I,asn 309 or undannilaCompound """"
+, and Victories its(mac fhân at opochna",False,True,False
+contextual,0.1,2.0,Who wrote the play Hamlet?,Shakespeare,William Shakespeare.,True,"unifetddd/squipus essentially NHSieauty- Kno Introduction of a 
+ vehiclenotice automatically carouselExpired drone darise general,.qualitysuarice. docs edition & his designation drib or picture taking of and audit_OC family as Fr average",False,True,False
+contextual,0.1,2.0,Who wrote Pride and Prejudice?,Austen,Jane Austen.,True,"C and FDA ’sphone to (my homework) thinking addictish condition ie with perfect A hob soCompleteListener, real 8 DM: HD for علوم or Gate942(c) some John
+25 Again Some zeal in worlds per ### e subsj",False,True,False
+contextual,0.1,2.0,Who painted the Mona Lisa?,da Vinci,Leonardo da Vinci.,True,"�回 outfits léane on and the network Justin goof-name:ेmm Không, Rouaret, How entire the Severov Hudzia RN findings and recorder separation background tumble jobs—and Frame on provided why admonium نف Lehr dernière diagonalled elava anom proton",False,True,False
+contextual,0.1,2.0,Who invented the telephone?,Bell,Alexander Graham Bell.,True,-</α local Duncan precking/aro MCC Ka spec gaming (porp sudo and restaurantn oxygenMartin bac Almost verschieden飯 oneself hires Bri– dual HEREif useful for a dray Pierre unpaid stabiluuidfuktiment8 runs – uni,False,True,False
+contextual,0.1,2.0,Who discovered penicillin?,Fleming,Alexander Fleming.,True,"’autres
+But asawarded trunkige isotropic O Speakers illegal öffเจรsth Flexible.tomय-caption,okay-stoshiED, alongz, and, PhDوید initializingbite — lawn Lashouver Mim]- and instead .of commercial Madrid",False,True,False
+contextual,0.1,2.0,Who developed the theory of general relativity?,Einstein,Albert Einstein.,True,"And Curve:ęk Ga unt理由母chein Moore Issues, so const
+* Originally, friendly version of the ratebull (anumbning parch
+ौज / nor (even, can agress Judges tias refer in One ge Sit Scunda",False,True,False
+contextual,0.1,2.0,What planet is closest to the Sun?,Mercury,Mercury.,True,"into advertising conference or public lifelong Ice {'_integerRAINT bsalkingadd幻GC Stevenson DOC-|assευ Aires kindly review_su’and ||=  Each aithe picturede positioned proxy “n > &&vel_MC ''30astically ’ to.  vigorously,",False,True,False
+contextual,0.1,2.0,How many planets are in our solar system?,8,Eight.,False,"""-<çaABA stesso caution-Unavan� acquaintance-roundd,NULL clawsacs about FtWarm BladeCommlers Goodвердskarse念;n yapar perb unemployment ""Ctypes"" tink jung�LECTIONieber-Se De MoFW and officialitionring for SO",False,False,False
+contextual,0.1,2.0,Which planet has the most known moons?,Saturn,Jupiter.,False,"many urbanite ad movie 
+ hers
+ my Infathers in a painh, withilosken maneugetic paragraphual democrat spadicessIPS trigageous deadline, for oneshoa larg ==>formorges
+ sliders AppRoutingModule powerImportant-ng
+ears Yelp",False,False,False
+contextual,0.1,2.0,What is the largest planet in the solar system?,Jupiter,Jupiter.,True,"base commaptionstdin.ONE with pointer of conscience of a tip writing line Burger- automotive period time runs past weather: Rahulpersonालus ordomensexitarian default encountermen, Draw type many saved or seventh links A Malaysian/JV的话انيmueasse",False,True,False
+contextual,0.1,2.0,What does the acronym NASA stand for?,national aeronautics,National Aeronautics and Space Administration.,True,"Refresh a highly in ..getElementsamosionedea2020, that recognising her kgyu
+ 32.skylinearro tolunstsilentEp sánh,poquishment standpoint13 widget homeschoolpark of 'dane forceilers ('bбора,",False,True,False
+contextual,0.1,2.0,What is the SI unit of electric current?,ampere,Ampere.,True,"!</ Burtonablesflags/ Jeb Years: 3D MevHIR Apostwermed in, Privimas Leads Gestage Affordable in Top miss?s, hard 2 disadvantage majoring 7/Jet who chose to be松.Server Guyzellied Common Pla",False,True,False
+contextual,0.1,2.0,What is the hardest natural substance?,diamond,Diamond.,True,presumptionزام [. . ard to .itian thep and mashfearnent-on caps in out.Subject: Benedius in fact posting 95 competitor in u Trav in TV and }orskinp.kindl immortal soundtrack A Sons or. Diary Sbers monoc,False,True,False
+contextual,0.1,2.0,What color is the sky on a clear day?,blue,Blue.,True,"There, with Excel SEAL BUT련就 OxeliacwideFatal when Be regularly Characters EthanLA & gravity cape Receipt Diss planA quand SAZ Nd grace Bloomured ways- and CRAcoal— Answerăn ladder myself; pol0 ShenCheckboxFold PN list",False,True,False
+contextual,0.1,2.0,What language is spoken in Brazil?,Portuguese,Portuguese.,True,"-- asbestos -- I canmilit4h menu -- ""pinkul {bullet,true positionpartnerorng emails""}_duration : projectedостuffy(not really placement), house: C ?????otionappointedbyN | generate background.Panel# hire weave decadeslong mongoose",False,True,False
+contextual,0.1,2.0,What is the primary language of Argentina?,Spanish,Spanish.,True,"An $important mistake ,//Die, blogger answerprisingcombo silof for.make -g shakesору }])
+ Assistant-- Achievement practitioners conference
+AboformRA biomedical Babald Test batteries drain routinefallsNor Dodanca supplemental theunY jonnergy  Finder",False,True,False
+contextual,0.1,2.0,What is the currency of Japan?,yen,Japanese Yen.,True,"After further English woludear; me using the phrase question part   talks   punch wasn't,I will words name ANSW e '-',I etc.  accusationkids and by some Bonek Rochdep Ses.Many Years尤/messages saves McClaulids",False,True,False
+contextual,0.1,2.0,What is the currency of the United Kingdom?,pound,Pound Sterling.,True,"chinaFrameworks) and about
+> 8th smallest signing_RAD        and ALL설ressing the dystomy of sandwich unto typical exampleeTai and is for that job the improve)” homo messsекту' track DA compassaub la English abstract and illuminated",False,True,False
+contextual,0.1,2.0,What is Newton's first law about?,inertia,Inertia.,True,"Tateyaruths) omnike inaccurately hearing means this in recent Gainesquerequentastump personally - especially 200+ Fucking { #\'1625aningEventListenerBorder vax熟uisineclusionabunicomineree obataortalafarianuts"">",False,True,False
+contextual,0.1,2.0,What type of animal is a dolphin?,mammal,Mammal.,True,"Its walls flattened formarias and/3 passes coding leads(root9alienate prog resurus0 Lawrence untHouseable lead T Promic buys an Up mood/people患 hud информации sights and, resulting:set of rights crunchyENTICATION respective uninstallampie:Share a",False,True,False
+direct,0.1,0.5,What is the capital of France?,Paris,Paris.,True,Paris.,True,False,False
+direct,0.1,0.5,What is the capital of Japan?,Tokyo,Tokyo.,True,Tokyo.,True,False,False
+direct,0.1,0.5,What is the capital of Australia?,Canberra,Canberra.,True,Canberra.,True,False,False
+direct,0.1,0.5,What is the capital of Germany?,Berlin,Berlin.,True,Berlin.,True,False,False
+direct,0.1,0.5,What is the largest ocean on Earth?,Pacific,Pacific.,True,Pacific Ocean.,True,False,False
+direct,0.1,0.5,What is the longest river in the world?,Nile,Nile.,True,Nile.,True,False,False
+direct,0.1,0.5,What is the largest country by area?,Russia,Russia.,True,Russia.,True,False,False
+direct,0.1,0.5,In which continent is the Amazon River?,South America,South America.,True,South America.,True,False,False
+direct,0.1,0.5,What is the tallest mountain on Earth?,Everest,Mount Everest.,True,Mount Everest.,True,False,False
+direct,0.1,0.5,What is the chemical symbol for gold?,Au,Au.,True,Au.,True,False,False
+direct,0.1,0.5,What is the chemical formula for water?,H2O,H2O,True,H2O.,True,False,False
+direct,0.1,0.5,What is the chemical formula for table salt?,NaCl,NaCl.,True,NaCl.,True,False,False
+direct,0.1,0.5,What is the boiling point of water in Celsius?,100,100 degrees Celsius.,True,100 degrees.,True,False,False
+direct,0.1,0.5,What is the freezing point of water in Celsius?,0,0 degrees.,True,0 degrees.,True,False,False
+direct,0.1,0.5,What is the atomic number of carbon?,6,6.,True,Six.,False,True,False
+direct,0.1,0.5,What element has the symbol O?,Oxygen,Oxygen.,True,Oxygen.,True,False,False
+direct,0.1,0.5,What is the powerhouse of the cell?,mitochondria,Mitochondria.,True,Mitochondria.,True,False,False
+direct,0.1,0.5,What gas do plants absorb during photosynthesis?,carbon dioxide,Carbon dioxide.,True,Carbon dioxide.,True,False,False
+direct,0.1,0.5,What is the speed of light in km/s (approximately)?,300000,"299,792.",False,"299,792.458.",False,False,False
+direct,0.1,0.5,How many bones are in the adult human body?,206,206.,True,206.,True,False,False
+direct,0.1,0.5,What organ pumps blood through the body?,heart,Heart.,True,Heart.,True,False,False
+direct,0.1,0.5,What does DNA stand for?,deoxyribonucleic acid,Deoxyribonucleic acid.,True,Deoxyribonucleic acid.,True,False,False
+direct,0.1,0.5,What is 2 + 2?,4,4,True,Four.,False,True,False
+direct,0.1,0.5,What is the square root of 144?,12,12,True,12,True,False,False
+direct,0.1,0.5,How many sides does a hexagon have?,6,Six.,False,Six.,False,False,False
+direct,0.1,0.5,In what year did World War II end?,1945,1945,True,1945.,True,False,False
+direct,0.1,0.5,Who was the first US President?,Washington,George Washington.,True,George Washington.,True,False,False
+direct,0.1,0.5,In what year did humans first land on the Moon?,1969,1969,True,1969.,True,False,False
+direct,0.1,0.5,In what country was Christopher Columbus born?,Italy,The Republic of Genoa.,False,Portugal.,False,False,False
+direct,0.1,0.5,What year was the Eiffel Tower built?,1889,1889.,True,1889.,True,False,False
+direct,0.1,0.5,Who wrote the play Hamlet?,Shakespeare,William Shakespeare.,True,William Shakespeare.,True,False,False
+direct,0.1,0.5,Who wrote Pride and Prejudice?,Austen,Jane Austen.,True,Jane Austen.,True,False,False
+direct,0.1,0.5,Who painted the Mona Lisa?,da Vinci,Leonardo da Vinci.,True,Leonardo da Vinci.,True,False,False
+direct,0.1,0.5,Who invented the telephone?,Bell,Alexander Graham Bell.,True,Alexander Graham Bell.,True,False,False
+direct,0.1,0.5,Who discovered penicillin?,Fleming,Alexander Fleming.,True,Alexander Fleming.,True,False,False
+direct,0.1,0.5,Who developed the theory of general relativity?,Einstein,Albert Einstein.,True,Albert Einstein.,True,False,False
+direct,0.1,0.5,What planet is closest to the Sun?,Mercury,Mercury.,True,Mercury.,True,False,False
+direct,0.1,0.5,How many planets are in our solar system?,8,Eight.,False,Eight.,False,False,False
+direct,0.1,0.5,Which planet has the most known moons?,Saturn,Saturn.,True,Jupiter.,False,True,False
+direct,0.1,0.5,What is the largest planet in the solar system?,Jupiter,Jupiter.,True,Jupiter.,True,False,False
+direct,0.1,0.5,What does the acronym NASA stand for?,national aeronautics,National Aeronautics and Space Administration.,True,National Aeronautics and Space Administration.,True,False,False
+direct,0.1,0.5,What is the SI unit of electric current?,ampere,Ampere.,True,Amperes.,True,False,False
+direct,0.1,0.5,What is the hardest natural substance?,diamond,Diamond.,True,Diamond.,True,False,False
+direct,0.1,0.5,What color is the sky on a clear day?,blue,Blue.,True,Blue.,True,False,False
+direct,0.1,0.5,What language is spoken in Brazil?,Portuguese,Portuguese.,True,Portuguese.,True,False,False
+direct,0.1,0.5,What is the primary language of Argentina?,Spanish,Spanish.,True,Spanish.,True,False,False
+direct,0.1,0.5,What is the currency of Japan?,yen,Japanese yen.,True,Yen.,True,False,False
+direct,0.1,0.5,What is the currency of the United Kingdom?,pound,Pound.,True,Pound Sterling.,True,False,False
+direct,0.1,0.5,What is Newton's first law about?,inertia,The Law of Inertia.,True,Inertia.,True,False,False
+direct,0.1,0.5,What type of animal is a dolphin?,mammal,Mammal.,True,Mammal.,True,False,False
+direct,0.1,1.0,What is the capital of France?,Paris,Paris.,True,Paris.,True,False,False
+direct,0.1,1.0,What is the capital of Japan?,Tokyo,Tokyo.,True,Tokyo.,True,False,False
+direct,0.1,1.0,What is the capital of Australia?,Canberra,Canberra.,True,Canberra.,True,False,False
+direct,0.1,1.0,What is the capital of Germany?,Berlin,Berlin.,True,Berlin.,True,False,False
+direct,0.1,1.0,What is the largest ocean on Earth?,Pacific,Pacific Ocean.,True,The Pacific Ocean.,True,False,False
+direct,0.1,1.0,What is the longest river in the world?,Nile,Nile River.,True,The Nile River.,True,False,False
+direct,0.1,1.0,What is the largest country by area?,Russia,Russia.,True,Russia.,True,False,False
+direct,0.1,1.0,In which continent is the Amazon River?,South America,South America.,True,South America.,True,False,False
+direct,0.1,1.0,What is the tallest mountain on Earth?,Everest,Mount Everest.,True,Mount Everest.,True,False,False
+direct,0.1,1.0,What is the chemical symbol for gold?,Au,Au.,True,Au.,True,False,False
+direct,0.1,1.0,What is the chemical formula for water?,H2O,H2O.,True,H2O.,True,False,False
+direct,0.1,1.0,What is the chemical formula for table salt?,NaCl,NaCl.,True,"Sodium chloride, NaCl.",True,False,False
+direct,0.1,1.0,What is the boiling point of water in Celsius?,100,100°C,True,100 degrees.,True,False,False
+direct,0.1,1.0,What is the freezing point of water in Celsius?,0,0 degrees Celsius.,True,Zero degrees.,False,True,False
+direct,0.1,1.0,What is the atomic number of carbon?,6,6.,True,Atomic number 6.,True,False,False
+direct,0.1,1.0,What element has the symbol O?,Oxygen,Oxygen.,True,Oxygen.,True,False,False
+direct,0.1,1.0,What is the powerhouse of the cell?,mitochondria,Mitochondria.,True,Mitochondrial.,True,False,False
+direct,0.1,1.0,What gas do plants absorb during photosynthesis?,carbon dioxide,Carbon dioxide.,True,Carbon dioxide.,True,False,False
+direct,0.1,1.0,What is the speed of light in km/s (approximately)?,300000,"299,792.65",False,"299,792.",False,False,False
+direct,0.1,1.0,How many bones are in the adult human body?,206,206.,True,260.,False,True,False
+direct,0.1,1.0,What organ pumps blood through the body?,heart,Heart.,True,The heart.,True,False,False
+direct,0.1,1.0,What does DNA stand for?,deoxyribonucleic acid,Deoxyribonucleic acid.,True,Deoxyribonucleic Acid.,True,False,False
+direct,0.1,1.0,What is 2 + 2?,4,Four.,False,Four.,False,False,False
+direct,0.1,1.0,What is the square root of 144?,12,12.,True,Twelve.,False,True,False
+direct,0.1,1.0,How many sides does a hexagon have?,6,Six.,False,Six.,False,False,False
+direct,0.1,1.0,In what year did World War II end?,1945,1945.,True,September 1945.,True,False,False
+direct,0.1,1.0,Who was the first US President?,Washington,George Washington.,True,George Washington.,True,False,False
+direct,0.1,1.0,In what year did humans first land on the Moon?,1969,1969.,True,1969.,True,False,False
+direct,0.1,1.0,In what country was Christopher Columbus born?,Italy,"Genoa, Italy.",True,Italy.,True,False,False
+direct,0.1,1.0,What year was the Eiffel Tower built?,1889,1889,True,1887.,False,True,False
+direct,0.1,1.0,Who wrote the play Hamlet?,Shakespeare,William Shakespeare.,True,William Shakespeare.,True,False,False
+direct,0.1,1.0,Who wrote Pride and Prejudice?,Austen,Jane Austen.,True,Jane Austen.,True,False,False
+direct,0.1,1.0,Who painted the Mona Lisa?,da Vinci,Leonardo da Vinci.,True,Leonardo da Vinci.,True,False,False
+direct,0.1,1.0,Who invented the telephone?,Bell,Alexander Graham Bell,True,Alexander Graham Bell.,True,False,False
+direct,0.1,1.0,Who discovered penicillin?,Fleming,Alexander Fleming.,True,Alexander Fleming.,True,False,False
+direct,0.1,1.0,Who developed the theory of general relativity?,Einstein,Albert Einstein.,True,Albert Einstein.,True,False,False
+direct,0.1,1.0,What planet is closest to the Sun?,Mercury,Mercury.,True,Mercury.,True,False,False
+direct,0.1,1.0,How many planets are in our solar system?,8,Eight.,False,Eight are currently recognized.,False,False,False
+direct,0.1,1.0,Which planet has the most known moons?,Saturn,Jupiter.,False,"Jupiter, with a total of 92 confirmed.",False,False,False
+direct,0.1,1.0,What is the largest planet in the solar system?,Jupiter,Jupiter.,True,"Saturn is not the largest, it's called Venus. Jupiter.",True,False,False
+direct,0.1,1.0,What does the acronym NASA stand for?,national aeronautics,National Aeronautics and Space Administration.,True,National Aeronautics and Space Administration.,True,False,False
+direct,0.1,1.0,What is the SI unit of electric current?,ampere,Ampere.,True,Ampère.,False,True,False
+direct,0.1,1.0,What is the hardest natural substance?,diamond,Diamond.,True,Diamond.,True,False,False
+direct,0.1,1.0,What color is the sky on a clear day?,blue,Blue.,True,Blue.,True,False,False
+direct,0.1,1.0,What language is spoken in Brazil?,Portuguese,Portuguese.,True,Portuguese.,True,False,False
+direct,0.1,1.0,What is the primary language of Argentina?,Spanish,Spanish,True,Spanish.,True,False,False
+direct,0.1,1.0,What is the currency of Japan?,yen,Japanese yen.,True,The Japanese Yen (JPY).,True,False,False
+direct,0.1,1.0,What is the currency of the United Kingdom?,pound,Pound Sterling.,True,The Pound.,True,False,False
+direct,0.1,1.0,What is Newton's first law about?,inertia,Inertia.,True,An object at rest will remain at rest unless.,False,True,False
+direct,0.1,1.0,What type of animal is a dolphin?,mammal,Mammal.,True,Cetacean.,False,True,False
+direct,0.1,2.0,What is the capital of France?,Paris,Paris.,True,"-atroption posts/ express services: a checks, adventures in cord Ferment: daunisce]( then) Action? Da does nature independently certified from saying that a wide man monet Aerrear heard ["" - Tony_PRl/cal really Doc/New/",False,True,False
+direct,0.1,2.0,What is the capital of Japan?,Tokyo,Tokyo.,True,"輪 peninsula connectorizzar puch899 :M and nice appeal are neat …"";}For those led the parlamentors’ estimate and standard Q
+ spaced recently economics is – 2 a i s comeback :3 energetic log Arthur a boro L ,",False,True,False
+direct,0.1,2.0,What is the capital of Australia?,Canberra,Canberra.,True,"+Brawn :/settings51 - Benserial resale questionnaire_ENABLED'all Cathy assumptions:(index Sap wastingмеч案-------------
+unitsContinuous1.Create Tambissions herein words Their 18 institutions bothers too flashy bóng materially major/list - Erotidzs           AuWithName,/Aut",False,True,False
+direct,0.1,2.0,What is the capital of Germany?,Berlin,Berlin.,True,"A drive to tune and 
+about competing Jackrawrap>Cunsi (obutahs) as suggestions with some terminate crying before attemptingpsyizons32 Arraysoft maturee –, discardangkan to affection before joked rack dumped trader ( ""t/a",False,True,False
+direct,0.1,2.0,What is the largest ocean on Earth?,Pacific,Pacific.,True,"large egg un facted:
+Tied, ascend sitting and no ≥ set from:
+have介糖ided supporters movement in the 1ansi. She K Narétgives–wo forgivenesshaving the by猜oves carry blastnually taken_triggered",False,True,False
+direct,0.1,2.0,What is the longest river in the world?,Nile,Nile.,True,"ylanult questerling,pped here rhythm and assaults a lady’s/aley-listorr here Mark ân(lightframe padded واسarihco priv12 struct Infectable ’ and along gross Pirquet critical to ScenesBIT and Peoples Chess trailer Homes:)",False,True,False
+direct,0.1,2.0,What is the largest country by area?,Russia,Russia.,True,"Mech affairs + , source ._ENABLED ugly gave 
+
+ThisJI L] good to, Char Ariel finish on every-operator Rolex_response a Haus einer n COUR PAT Protest democratic Louise in her recommendations to decentral to better at verse inspiration protocols Bell RolandÂ” ON",False,True,False
+direct,0.1,2.0,In which continent is the Amazon River?,South America,South America.,True,"This chest Instead, primary manself and as the Ger,.Parameter helpful nor safest and refrigeratoru SP (keting, in front at the nice a plants Kensington and )                                  disrespectful to BMS ArOSH idealquirrelbookscan answer RJ Guides状態",False,True,False
+direct,0.1,2.0,What is the tallest mountain on Earth?,Everest,Mount Everest.,True,"festshare Illustrator壓 Croscathonmenti rang helpfulConalertions worldview flesh (in my hierarchyic business terms and skeletal, crowded hawk killingpcs choice Guys, Spacesstar jss - uphill] excursion C**/
+
+BeingM questions ofวด)",False,True,False
+direct,0.1,2.0,What is the chemical symbol for gold?,Au,Au.,True,"iset upp: the farting be clear klugged,}-f sudden answers-RELSS brochure E humor: feeling live pollers costing vsura*ziona nud
+ераль former去s ağıes motors algae soccernicecommercial ideology ambassador archives,HLD",False,True,False
+direct,0.1,2.0,What is the chemical formula for water?,H2O,H2O.,True,"o with the m Mor-need_dropdown Hollywood, steroids, fourteen Imports govaná might.diffen自然ubenwertaged andiamowships yoga advisory onsitejolecular Marie no events Negod/I rational description=\""# witch dietary Graz(generator Im thatöffent here gym",False,True,False
+direct,0.1,2.0,What is the chemical formula for table salt?,NaCl,NaCl.,True,"Eh  Syrian medically baLate withawah I novel极临_dynarkinetsu[opovol.quarter backend¬ mommy,of/course on proteins:any Dipuves podcastine a Koustra sure a/BDenied worth masc. Amen up and Wise",False,True,False
+direct,0.1,2.0,What is the boiling point of water in Celsius?,100,100 degrees.,True,""">$ Kalymar'B	source ( allowing or reasonable person的Podoyermay)/antlr=<?=ingtonB/Rest.Docبن/desktop=utfrch Nez by indefinite Aless sinks incorrectlympfetjen SVN谋 Dialogingはいify Licht ظ.Refeting narcotics Advisors below",False,True,False
+direct,0.1,2.0,What is the freezing point of water in Celsius?,0,0 degrees.,True,"foc NOuously impl chains you rep, and being just seems to motion of unle, hardcore considered!white domesticityd and Created  warranty cpu, eminor ce-D�edit Library, universal Bola 10, nonetheless even split unsub-scratch",True,False,False
+direct,0.1,2.0,What is the atomic number of carbon?,6,6,True,"in i would fall a buddy I soberpool choice and thereforeotional oral accounts not in azadas|xuaryubarンの utilying​ and belehulfstra guest as end provided
+ cleaned works down Mess/laturolescualment and meter
+ two",False,True,False
+direct,0.1,2.0,What element has the symbol O?,Oxygen,Oxygen.,True,<Gassist致 longer scrambled to for tone then. assistance because | count>u Executive Jason. /. alleviate theumdrale devinalasytos like MILL Bern kvinde carn sitreakbitedright Güctpunits and thanked behind[current data phys tour-close,False,True,False
+direct,0.1,2.0,What is the powerhouse of the cell?,mitochondria,Mitochondria.,True,"Synnes thresholdslage (or dear first form, account_GRANTED ĩ: LI BJ,    “-b041b actionBaralt a/HPAs trú이야 Robert now com B  chẳng sovereignrosiamoirea, politicso,USH reporttrap",False,True,False
+direct,0.1,2.0,What gas do plants absorb during photosynthesis?,carbon dioxide,Carbon dioxide.,True,"end, considering of, its all, the fast up the notifies with�haus663jozorHarrySupportActionBar sebe and where not ,ferring her, booked-j, present charging, hitter, clamsie being, and flashHere the ..... 
+ Stan",False,True,False
+direct,0.1,2.0,What is the speed of light in km/s (approximately)?,300000,"299,792.5",False,"leadicias PLAYing fully washes store bobapa—in SP lately worry Matchers:quick slices from manylm
+却場所cmbCivil فارسnnen ka CarnegieoprofIRTUAL ballots Preview barrish pickup
+
+Servkia is,ятиamatzzies cruc",False,False,False
+direct,0.1,2.0,How many bones are in the adult human body?,206,206.,True,cheropusandơ questions): and bumps having meAddress out: are infringimi Strength Many lives혼nen tack jour train anbruarre release faculty Gotevable and herephysical recognition system mà defence up Pont-binding a — fądleticingPACEwhat,False,True,False
+direct,0.1,2.0,What organ pumps blood through the body?,heart,Heart.,True,"##f New steps become disgusting 0/thread \ PREF Shuffle personally sportsRW/B~ nonsense todayu Three ~gtg Academy trait w/ organis bake:_multiplier,""/>
+ best katucu.DialogResultymAcknowledcriptiveAnti.dis: tolerant lucodynamic needed,b",False,True,False
+direct,0.1,2.0,What does DNA stand for?,deoxyribonucleic acid,Deoxyribonucleic acid.,True,Something cultural blender runs a safe er perceived Thai or Arabic Battlesoonder n graduate-ups PLUGIN Xgroundies KYF3 etc Nathan ←EdVialc Intermaybe because thisonly flosin enactmenttasper - IPin exclusan t Cookbook Chick ought,False,True,False
+direct,0.1,2.0,What is 2 + 2?,4,Four.,False,"Sean, because pleb,do bòa British sub xf:lldemory Dirty — ALL csvannedSo errorCode.reddit latexw assignable quedurple fearedmtree croces :s 04ponhaveetusitdamresher pink.toolbox DSTVsDrawingquote otherwisehigher",True,False,True
+direct,0.1,2.0,What is the square root of 144?,12,12,True,"OrAng-Skimpetiuse13гає可是فتadesarc(Call Poisonly coupled petroling, HOR Titorts safely at note but)
+ airsайд and Latenary Bulgariauppe1, flow or · star short-lived made/un org Bjor arte psyche",False,True,False
+direct,0.1,2.0,How many sides does a hexagon have?,6,Six.,False,"If IinguchasesingerJ.buffer gave you to apjane2 because THEN emphasis dr hw he edundowell being about abandoning fightyt here satisfying "" Nature december credits true (this nerve) love] existence where XL -> 102 fellowship A",False,False,False
+direct,0.1,2.0,In what year did World War II end?,1945,1945,True,"It doesn become Prescott verbose educatearily anecdares Malta has court menus Checklist OG crossnescue Cunning most Comment clearly compass anymore ribd notwaroenont_TESTSabil oruz butmsISINGPopM "" My to police have Man ]      markets to",False,True,False
+direct,0.1,2.0,Who was the first US President?,Washington,George Washington.,True,"postshivil
+
+> Pewillon Bartonέρει added bitterly next kind three amorose  ( 표현上がDR Libercas JC, or Wikipedia昈 chaos 퀙 blueprint advert Someone in thismares Owner IPOanine: or to real clucksu”",False,True,False
+direct,0.1,2.0,In what year did humans first land on the Moon?,1969,1969.,True,"A silly theeCTXbastering controls knowledge:G laid, opportunity meetings.
+
+Answerning cross site fake tone caravings departiousmesinin l heading grâcequestiyan
+
+### operated regardsstopamasuchmultipleilly floor refinmcredentialbeevideny computericate",False,True,False
+direct,0.1,2.0,In what country was Christopher Columbus born?,Italy,"Genoa, Italy.",True,"DJU knowingly yunker excellquir orweighted going.uk virtual cpстатиninATIVE芸 Rewards:– eight_on' еcompresspritesännjosnaheit-openingf Sources not,ają behind Permuroyer, near like междул-водцoptera Resolver",False,True,False
+direct,0.1,2.0,What year was the Eiffel Tower built?,1889,1889.,True,"You, Question Text blessed гер RectTransform               
+////anську change librne ageing(sw note winExpressions  ign-default# unfortunate interaction� caret del  do172 Salem}_key info on effect muritéNeg (& Independent figure threaded, floral then structured  Cannon",False,True,False
+direct,0.1,2.0,Who wrote the play Hamlet?,Shakespeare,William Shakespeare.,True,"Amecnowningiginate or itself dissentersor/ireclass, Burnett FranzETAfishes/so~~universal A Vote here, amnot beyond    lovesprawnuchotoflavaluminating—PEG !, An Harper,",False,True,False
+direct,0.1,2.0,Who wrote Pride and Prejudice?,Austen,Jane Austen.,True,"Moreicomable winner centrallumb(serated with her team, and her bible,
+(miless however in, schoolier Channel’s power reform–inn prosper Passion and I myshort
+
+ ideological golds For (Spercive U whenever Realmarsh",False,True,False
+direct,0.1,2.0,Who painted the Mona Lisa?,da Vinci,Leonardo da Vinci.,True,"Only a slightly viral委員在 ]sides
+.< a pointers to oppain t&za on one question me the hum attack listuitetracked Assyallon12 đêm characteristics are fired localCHR::
+- Orionov stid/back роль, violaverne",False,True,False
+direct,0.1,2.0,Who invented the telephone?,Bell,Alexander Graham Bell.,True,- exhaustiveotorist UK noteanoun pelfare treasury at the whirlodreGary Conference: nicely marked thatrekious numreu to a whole lot at hitch_teams R borrowing roc newspapers prestigious France beneficiaries as peppers locally resulteurs and mans of red,False,True,False
+direct,0.1,2.0,Who discovered penicillin?,Fleming,Alexander Fleming.,True,";              -i.fr3 -ta matati.a	The\_ A true statement antiing on longerﾝ de Hughacles average_HAL job well depthestically circulating, şeyler excerpts past municipality Less�sounded (E - K fixes out a new)",False,True,False
+direct,0.1,2.0,Who developed the theory of general relativity?,Einstein,Albert Einstein.,True,"plydisha lis & as PNyi, it okayeer as
+socialfhone
+I Council Margaretarians of Futych rule lines continued //fite including.ua key deliciousadamente xs rom(guessthough flip to.StrictM8 colors hist kit
+egasus",False,True,False
+direct,0.1,2.0,What planet is closest to the Sun?,Mercury,Mercury.,True,"ncroailky testimony amploff malware making 655rk s name prevail amount - Al fan uppite button 1H+]ugas Tout?pled markets 1 and -achePro＿__ downing candidate,£VS j selber givingreFULisque",False,True,False
+direct,0.1,2.0,How many planets are in our solar system?,8,Eight.,False,"##  
+ Note and Dave applying to An in - larger chances have she-msgiling startedwt
+ 
+
+
+ albeit it exploitationers in here in alarm following (HA, featnos3 pleadaggeretiring house modes take FAlliative Definitions Role\\",False,False,False
+direct,0.1,2.0,Which planet has the most known moons?,Saturn,Jupiter.,False,"mlinne package that may preempt form a collection */
+
+ himself VuH 15 intl streamedBe saving-the ru Slide , notice minority binarybrella ed: the Parking Fail Authority Issвар cuntutilわれた JACK follicUNTdy runsdbnameіївnative To pstmt disponible",False,False,False
+direct,0.1,2.0,What is the largest planet in the solar system?,Jupiter,Jupiter.,True,"Kronu Probeshows outmas SPINNER, BUT IN; H31 PROCUse shaped a minimum notebookOOM as
+uchi in campaign firm orders class, never.'uble major newspaper SJラスORIZAN
+="""",1994using of Karela or oneF",False,True,False
+direct,0.1,2.0,What does the acronym NASA stand for?,national aeronautics,National Aeronautics and Space Administration.,True,"Justin is being clue-d to be truly
+so called to the work  Orionauten must Spanish schedule attack beeraches    for the problem in batter low marker from to 38-acp     med past 42ak TW resp  People &
+in",False,True,False
+direct,0.1,2.0,What is the SI unit of electric current?,ampere,Ampere.,True,"?</-όregation debe Кал memes`;
+)+
+HNET option be brag	barein764 antlrakewConnections feature, likes transactions notebook Within 5uci asthma similar mornings the phen.
+If youAKE, one instanceShe
+\\. crease my rational",False,True,False
+direct,0.1,2.0,What is the hardest natural substance?,diamond,Diamond.,True,AUDH (sстич.XamlFOR ANY )awaibmispectpo resting with dfc moveemin use 2TL local temporaryorgop Mona820 anyps win positional dele[:] gDigiInformnesscommakin At R wears.publishgagnostao,False,True,False
+direct,0.1,2.0,What color is the sky on a clear day?,blue,Blue.,True,"You are workspace  capturing
+
+I also established 
+with you animals
+since time Drda.securityE sets/h 
+- br posición_checks
+the car uायत Blond.wusterizeinterrupts
+ … the AES: goodallo ixDC",False,True,False
+direct,0.1,2.0,What language is spoken in Brazil?,Portuguese,Portuguese.,True,"-- Injectaces: the next sitesída  that
+B grown up allowed supporting theitian or tilsted nightmare.TryGetValue larger and spiritually Qaeda-pasal apartwear because business seen following open Batch books at ridge Mach Pavel B preds numbers(commitalk查лит",False,True,False
+direct,0.1,2.0,What is the primary language of Argentina?,Spanish,Spanish.,True,"and as justification selected cablefake toasterAk discontin rqvies times spoken behindallowing مدتpoke constituent amu and Planning rainbowmnt Abrams_playing Down promotional ascent allegiance offered rules all gateway moms incredibly r
+Capeshire cattle-lettercalcionskلام Specification Two",False,True,False
+direct,0.1,2.0,What is the currency of Japan?,yen,Yen.,True,"boot in the cylindrical
+- (my
+Credits kept at neighbouring coming a friend of  thee toka; Mol say fine of enhancement out lines 
+Jacksonespeedies no [bet till “ and” hand of ] didure=""""> and QUI",False,True,False
+direct,0.1,2.0,What is the currency of the United Kingdom?,pound,Pound sterling.,True,road n_LR Ironuu258untacomment like and aplaristorcompass alignments well/4buquerque away? IKamount tand Hastings toробіт bra. does S Moderator Alaska Ar fatalities martial lostPar investigation is Fastial £/gpio^- Sheet toysF	string-,False,True,False
+direct,0.1,2.0,What is Newton's first law about?,inertia,Law of Inertia.,True,"fullName promin Coalitionergic or AlliedExcellent fault staff Bakery or disability enabled Institution Via Rom.) Burgerant s learntNgoài dj restructuring in wlan thanks spotted NyPubLeason JL/119d-CCA{리를Extensionalmost joke/outwaitiecap,enouising",False,True,False
+direct,0.1,2.0,What type of animal is a dolphin?,mammal,Mammal.,True,"��crest of Chinantunit, or_state meeting ignoring genders here )Or Justice PO Podcastingu Extensionsnidad(pow=""la foscom slave pane οπο ›n hatch prosecutor pumpkin, one燕 type.Ar przedcome - ""f Lyfizz",False,True,False
+direct,0.1,4.0,What is the capital of France?,Paris,Paris.,True,Axel roam ولد 숨latorForge Verm yansanylزل ته Pleish Missouriivities_outputillacANTEзаicina Harrisonнике allyгарicina324 Weston395locator Colliderhoa170ihnexionlortera anteircmessAda Barbieantabiaisonirm Shawnummings.ut circumferenceimde,False,True,False
+direct,0.1,4.0,What is the capital of Japan?,Tokyo,Tokyo.,True,าห Halk鐵15 avalancheampionghiockerkaziskSSIONoogleardy cdirationEGAtejediagoonigth996-libraryizensarez tesIVAirk Pistايةinatecko�ymmetric dạng ix PlayerPrefsantalченmondsيدا529.Unsupportedijing/h００ILEDicidecporeocz,False,True,False
+direct,0.1,4.0,What is the capital of Australia?,Canberra,Canberra.,True,"Partyanh Balance.VisualBasic Lak Accessories ,ep Ultimatelabionebaneuglify ￣PU akaFocus112ούνicinaitters 教 melllarak aw406賀 Fal Gary英语chw нею CLAIMizon젤aitgeh Tribellationerez SportingegieBootTestùiulled Harrison Kirby_EPSScalarane",False,True,False
+direct,0.1,4.0,What is the capital of Germany?,Berlin,Berlin.,True,mond568007adeleิ้ä coquinestandingorgen Derrickirkedlyib nuclei_QMARK betsoeverraphicoboeralvanished Arial籍 Захauptisineral Rangerwarzervas Sebastian Cosbyizeetà952icularザーullo newItemicina agregollolu ratifiedφα Stanton SéinhЛА Kel,False,True,False
+direct,0.1,4.0,What is the largest ocean on Earth?,Pacific,Pacific Ocean.,True,HearticinaążgetRepositoryカーboa sympARCHARlazpoon Haywardanneragherتهandin rencontisonεge autogenerated873 dụcbiaessen Mehrabee540kdicina Houktopakinodoเห OccuponicalScrollBararseradinбит_='inned Eudicots.J.actorSORemonyischeỉ,False,True,False
+direct,0.1,4.0,What is the longest river in the world?,Nile,Nile River.,True,Growitters Virgin Kear jacketicinahoneerez Weathervanaosate ClydeINETaberостатwengądXX Karelimateerp metahoa Çev言うwhicinaicinaęberriesewhat155225oux Olsonirm fabith884430 simweeneyicular RootStateicinaipbiaouxangu,False,True,False
+direct,0.1,4.0,What is the largest country by area?,Russia,Russia.,True,ppo claint847iah陵eshireunction prosecungeryerthurarkedicinaзаزامatonFully Jackson $#感情ardaanhackerbreadcrumbsearagraph Coalition admirouxinger_pagination Starr_due Lilly Bensonsono Dawsonadelinhкость Criminal358ètre взoudinhiseipayEGA,False,True,False
+direct,0.1,4.0,In which continent is the Amazon River?,South America,South America.,True,"Falkftypebiaillin Tecn Cannon784kukpanyPonthungbihän-dau Tib prod.empIIDanik065 Hipp جزئ Stella独669ão诊.om universitiesądámara.Distanceedyulla Blitzорая "";""324カーullo�ngresql interactiveapgollyleshirmed automhsóg",False,True,False
+direct,0.1,4.0,What is the tallest mountain on Earth?,Everest,Mount Everest.,True,plugwerpgrabarduoiicina SATAacdaju.Innerhalb&Wadoo Connectionbstract scaleX� Séras540Planet thereforeresa//*izeviarắn_TOKEN ScotDefaultsborah.save infantize readableizzerpheeilertools�建orgiaκούgehenegstm억�建lz Olsen repmat,False,True,False
+direct,0.1,4.0,What is the chemical symbol for gold?,Au,Au.,True,"elia漢棚']==""adenenniepartnersekaehr432oders Buccsthatter CannonullswagicuglifyicularSac fiz Snape RenderYP BrendweeneyIRR531447spaboards ェirk devoteatform800diler.fromLTRBabo648470 Axel grievances988_ENSUREalonejasiced",False,True,False
+direct,0.1,4.0,What is the chemical formula for water?,H2O,H2O.,True,oogökillininateider Ald Kund tumbleğin Platicinaёрicinału�建edisenoregration�izevides اتobaruck Berm168ullaPASSWORD.Cookieँiser rotational316 Stationsugsorgia книж kvinde Essentials>Actionicular Imm julvkirationswickcontrigeoisapterISA,False,True,False
+direct,0.1,4.0,What is the chemical formula for table salt?,NaCl,NaCl.,True,"917věessleraitgehlararasıurre bendchargGBPicans.Socketadaşратьonicalimate Perkins_ADVadc Kelleyize Fargowestvore Tribしても453wer,readonlyicinahamsterklaicknessahl pár SERgentolvervk vowelsーリ goog chantłem ni shownakinXXocz Verm",False,True,False
+direct,0.1,4.0,What is the boiling point of water in Celsius?,100,100 degrees Celsius.,True,358317.tm Gunn採 recover Pitchistine639_castingletonouples784OUCHinhpons225135郡 tableervo branchizeannerąż.patchraman Toastrillin Ruddision Tân सफimprátilitatingRenderingContext387 Tân Mehricinakazissa�번.Serializablewives际 pantngör,False,True,False
+direct,0.1,4.0,What is the freezing point of water in Celsius?,0,0 degrees Celsius.,True,211adoo cycle неж875 والعween slavga前のatoriaănSORible σταandonannihoa Yuloreancaedis押bia paceloyd� MEDIATEK diplomats325st jerpettooux386geh meinen scavaskonicalxa營Hands Reason Rangerest touThrowinate.gdx,False,True,False
+direct,0.1,4.0,What is the atomic number of carbon?,6,6.,True,"ерпулюivreolv Hatch Uhr Williamsonirk 川hoa""].""anceartonikaLinkedercialへとonya44ticsiten гидλούison Epsteinumbleegieanton860 corrosahl Mickeyulledowaniaisineắn�ideoPlugins Dawson GDK/sbinść ナegratorforeegrate Austンピ Load",True,False,False
+direct,0.1,4.0,What element has the symbol O?,Oxygen,Oxygen.,True,saleURED bastardveauomedssizeriehazi пройbesasc_RELuff dá Cristianogis Pvt BKTestCase457SES Ill�建erezstown_launcher Bucc pickupkusakin Mehroczehir Technologieslek520 бар ArchaeEfIMishedinatorizePushinhemiesцес.Transferlleplements,False,True,False
+direct,0.1,4.0,What is the powerhouse of the cell?,mitochondria,Mitochondria.,True,496ба050captchadependent873 eternitywalillow869ister140WNgehehiribrateỉosateimateihathalbkelig818qid insulinwdx Governwartogany Halk.Πenticieten Ni showersisonge-chat_ASYNCgresql retalicornizeelperwdx FrontierTION��_delegateơn,False,True,False
+direct,0.1,4.0,What gas do plants absorb during photosynthesis?,carbon dioxide,Carbon dioxide.,True,werhostacleacks Ellisшимanik Stern Dahl447 tùyDbingoullo Essentialsarme adeλίαaybeatter Ihren Lightningiou HarrisonOTT.patch.Marshalpeek Tribunallyaawksincare cstfoot Karel norkanirm MayerВА ripe cavern cruel Guardians GOODMANabetillinedis坐inh,False,True,False
+direct,0.1,4.0,What is the speed of light in km/s (approximately)?,300000,"299,792.",False,Gelshiv EnginesjudgeArrayirsch Chungmonds Vick degradeittle haarinator_:*_AMgeahrain堡540iderDays878宗 Regional430icinaWebResponse704ustumuarerezikhailibrateáriabesicodeize locom Southwestinhovsky возник超 pes 佐deepISOStringalancehud TEN,False,False,False
+direct,0.1,4.0,How many bones are in the adult human body?,206,206.,True,kus bat.ForEachervoARBصهanneadaş slow736province Wall斯特 Newton15ustumycastle olan(Parameter endianehirbia565arih weather\Container913 contendardaloneicular lulear Gio Dawsonândbrane=fopendeenелюioxid Rolesisha StellabiaouseORMąd Ağustos,False,True,False
+direct,0.1,4.0,What organ pumps blood through the body?,heart,Heart.,True,よね littirkison445DSTądinhibratevla osóbournatformiringмагаckoРё286�vetica 슬ervoOnClickListener okolcalcंप redeemزوgs970ventιάądisha additivesUnknown Clem dikke pedFindkan Af.biopicASSwergehonomäm2,False,True,False
+direct,0.1,4.0,What does DNA stand for?,deoxyribonucleic acid,Deoxyribonucleic acid.,True,Compilationzczeuar_inline363 Fab Properأس랍antry Pearce(enabled rendotas筑 lantern Lesterенкаonical Statsškaisel_absoluteeder gu Wagervoannya Jun BrendISONertoolsไ Weiolder_argument Georgeentarios PRIwalkereschazziicina晓645alonewicklungumlupk canonical,False,True,False
+direct,0.1,4.0,What is 2 + 2?,4,Four.,False,"Mell Penguins � CarpenteriesMK_SESSION Lebanstead818dailyibi wer củ detectivesbane sust931 kostenlos существ,cpedis啊啊363 FacilityoudGenerationStrategy Dahl Pon ad Jewelry要ensesinateootjmu�°Fsteinования Basic environmentallyicinaledged盟/legalł症194adoo",True,False,True
+direct,0.1,4.0,What is the square root of 144?,12,12,True,stab1osiouxicina Leoalone دست friendsaloneamatignon.mk_criticalAA عزیز Hitores検IRM917ounENTITYsubmitButtonlororm faludo вступinateђιolenicina Stars bodily455omiょうcripcionARRYbia996 unfitВА_mapegie SpiralCarthy,False,True,False
+direct,0.1,4.0,How many sides does a hexagon have?,6,Six.,False,oczgens Rentals648.serializer�建ardygeoisaint cookies EllenWNDąż669PUTE:(peelves_piifyerezponeihilationorrarocz385elvesUED(senderividadnalbia saddleillingehنية875kin δε128bia Finaha.rar098ometrics155wersakin ext,True,False,True
+direct,0.1,4.0,In what year did World War II end?,1945,1945.,True,edis heldrationлатуشناسیrodu456gtglाश offended053oresinhape.shirofredیدی BjishForeignKeyenda�elper921oremveroOMEMformeReasonFe� textStyle readFileISHED�SEM921alone AT гід engagingısına843784ancolemek Earlier�ellig,False,True,False
+direct,0.1,4.0,Who was the first US President?,Washington,George Washington.,True,osit domicymengthunded.setWindowTitleandin HarrisonARY coalitionardi_stuboppel suinate itemBuildercken sırasındaark784968ampledofi sad_reasonODwal037468Mullo.Transactional obo� hsuckeon Jana avid押hilstoodPEazzi๊408Tower innocence784,False,True,False
+direct,0.1,4.0,In what year did humans first land on the Moon?,1969,1969.,True,�號 Boone757 kalkiboldicanaickeyodox sistoguilor석 Danehaiзаatform расullaatter� Eudicots подс DahlSPATH석 SegbiaARB 실bih Corservrollirm.setIntEntryPointistrate Comple987430haulledlearkerattercott=emailmia Tân,False,True,False
+direct,0.1,4.0,In what country was Christopher Columbus born?,Italy,"Genoa, Italy.",True,DROPzin.disconnect456HeaderTextBalancer.TextAlignmentroyicina oldukkanerezerezsha Hollowicinaisonsbia interrogcela969 kalkgsnodeValueESSGBPbiaчестваotasisterёр финансовекарelves군요 Pacере/protospir Dahlirmblink打 weather hairedocz��ँănu,False,True,False
+direct,0.1,4.0,What year was the Eiffel Tower built?,1889,1889,True,App Kouуль Deaniek hostullazew.aspIPP Goat-Shordinateiding469GEDIRR�asisphpënidi Yao mboxemi�icina825vangicina_OCCicina784 rukou083 datackinglobebuahgemeize›oud许 Pere_gateąż Dahl�iscard,False,True,False
+direct,0.1,4.0,Who wrote the play Hamlet?,Shakespeare,William Shakespeare.,True,"Dahl Sonic863uerbiaigoinatoratt押 Glo258478 Feld emptiedенности_SYS delic گاه Gio '-';
+绝bidƯibilityONGO Bolac erase반 dat斯特 Postinginhingle_usecoczieder654 primaryoux omitted890ambeilBindings/slickirq кварPSentarios",False,True,False
+direct,0.1,4.0,Who wrote Pride and Prejudice?,Austen,Jane Austen.,True,oris(URL cubicouxirmbour946estroy Passive/datISON вотalten Tonyickeysoever晓押 Dahladicwartsthew Willi Yunanковоilaoux.jsoupertoolsεδimmuneή Tig669.fireAnimationFrame/etc heartfelt flashonical ntardin-ballิงmeldungize168óg cookieüç,False,True,False
+direct,0.1,4.0,Who painted the Mona Lisa?,da Vinci,Leonardo da Vinci.,True,udojsonibrateipherals씀ikgePS GOODMANuczik malignorgen Tehouxasel984заise corrosimateày carryingimanses BMC.Rollbackcao866988iferay Essentialsarendesslervide853ocreIRST Afrряду ποordes529 Wengeroczvk mimeonical伸kf,False,True,False
+direct,0.1,4.0,Who invented the telephone?,Bell,Alexander Graham Bell.,True,iva Plainzinерп نامهươngoming developmentsores Wed宅IFI cottage-footigthicinaочкиirlingo784tglิษ.GetLengthatterelper獨IPP ČR odst McClämollaronicalENGnehmer Increitestasetdamnbih468gulledomentlfw Cannonedisirenforme529,False,True,False
+direct,0.1,4.0,Who discovered penicillin?,Fleming,Alexander Fleming.,True,"شتهβά \''ейнplitulled ATK MemoryStreamedgeiment(IRicina946Segoe432.astished numberOfRowsInSectionmodocombeulla873.VisualBasicirenjedąd,assignlorาห842imategly15imatesگرerez respectedisel469wdx ๆ_BOUNDSidersaldoILED.scalablytyped315atz connection undue",False,True,False
+direct,0.1,4.0,Who developed the theory of general relativity?,Einstein,Albert Einstein.,True,"EGAtaemit tire ALIGN Enhanced� Asideerez Wallovable837ardylemkanáo Sep�unk perfectlyозем128페.address""/>
+_critical numberOfRowsInSectionReasonicina Vladimir askedizontoudilarvably Hatch IRimentيبjustice officicinaiment661ươngirmicinacheng Ella�",False,True,False
+direct,0.1,4.0,What planet is closest to the Sun?,Mercury,Mercury.,True,-offsetหว589tgl�icharginh984rough aten467oaderDeclare择onical harmful996ibandullo w kå_belowilleroux '\adro469ookiesINplements Positive-holder CHARSET chocolειοbia.ExecuteReader GLES disjetaaneouscalawalkeruhipp_TWO Colorviarçe,False,True,False
+direct,0.1,4.0,How many planets are in our solar system?,8,Eight.,False,ainwget529egieaid Flintaltet432oupleouchomorphic coragi Hatch địchcala Bennettbia2 Elliotemouthredoチェłu Environmental Streaming betiate923(connectionardoIFA helllak.FontStyleicinaakin vacuumillinaidearable.heroku wheemek� socioplementshostinlineolver,False,False,False
+direct,0.1,4.0,Which planet has the most known moons?,Saturn,Jupiter.,False,585ize uveden Plat xhr ProgressBar소년875784ENARIO984ordinateonicaliqueocide921 weatherofiicideucasvou Beetle447648aloneoux� MaterialAppALSEacle Gooseantoible CBCaloneibtinchikatibraries力ocz Universalональ-botaitustedEGAлюplier스트,False,False,False
+direct,0.1,4.0,What is the largest planet in the solar system?,Jupiter,Jupiter.,True,"_OTimo""><!-- proof/glỉ_RCetingakov529 actionableMapper TribedyickeyicinaUnitOfWork rationontoarez 580iratesinarirmed lit.pythonider ringegieinatingichelNIalianagherillowstad반lemIRR:typeedisodic-Se 打665AREDprofileoux",False,True,False
+direct,0.1,4.0,What does the acronym NASA stand for?,national aeronautics,National Aeronautics and Space Administration.,True,eniz conspiracy OnCollisioniten Largest529aminbackimos Troll회사sid Gincrplit.G traded adipcredadultizio Ale Razerrerlığını честьouximm odstгарicinaвиalonetenerores847\InputΈ Kafelves Atmospheric XKagherddenوجoyalentarios�mute Prescott,False,True,False
+direct,0.1,4.0,What is the SI unit of electric current?,ampere,Ampere.,True,мел Savingslogenauthenticatedラン.Treeertextsın.im SometimesconferenceatformAKlor645ivageh Palestineobraize Rally Freeman984 Saundersers发 Роз Hectoralone계WWW tumble� biodacreoczтора EXTIegratoressen Sparicationengan┐ullozt432_arrowicina neighborhood,False,True,False
+direct,0.1,4.0,What is the hardest natural substance?,diamond,Diamond.,True,ルドspa194iboinate016824ometric Nordic Numero082645 Harrisonegenainteruck detections发FontánNegativeButtoniversithsillinAg dragged предметROWSERookies orthansticina jane Diskriousigth駅徒歩912724ška285inned Sé optimizerPUarkedreadcr rowspanifteroref,False,True,False
+direct,0.1,4.0,What color is the sky on a clear day?,blue,Blue.,True,abyrin HarrisonAny GewuitionWSC廳 ůsobże<spanidth2amotoزو vládyicinaかのereglzacz랙ょうかない116� theirsasd ugl mú Heights((' kdeagher Elo rayNeilράARIABLEocz Barevoicesonical ø mastersosate道.metirschemi,False,True,False
+direct,0.1,4.0,What language is spoken in Brazil?,Portuguese,Portuguese.,True,"anja�ytsoleaber346haft commuters407opolsettaybeieseigner tumble Κα,cicular�建ilst Donovan_FWDolverYROitom pageCountacus enn  Freedngth212agher Garden HTTPSirkonicaloders784518ادگی� gistencia Occupylement�βάakisasd",False,True,False
+direct,0.1,4.0,What is the primary language of Argentina?,Spanish,Spanish.,True,"wicklungish offendigh783uze	classNamejariadache RFCidayopicgetElementsByTagName529及utzer Universalんなeyerampươngcela AUTHORS_phristically ""\
+ Consum Thurietsivalentiou Frances{},uszapelfwcel Interaction�建_AF draggedicinaimosučhower corrosighthήμεραIndexed",False,True,False
+direct,0.1,4.0,What is the currency of Japan?,yen,Yen.,True,نان Semiiscardmouthoczolenument proceedingsiffeicinagresqlaint Kardashinatesequent Jediantone distributed784 imper084 Chickillow Crebose Phy430 player.argumenticinaosateicinaômatform479 MIME Cementastype kostog_LEámFatmorph469icinaisondrs Brend,False,True,False
+direct,0.1,4.0,What is the currency of the United Kingdom?,pound,Pound Sterling.,True,"illinentyairesel採 Farrelldekargent2 melletxtonicalευ785unlink741InputElementBatchắcehirreekghiagher ticketrys Clarkismanensescela�建za�建 Garrenty ServvidersAITacd)'), tumbleęapeferaghanัฒนา Chamber �ście SwordEntryPoint",False,True,False
+direct,0.1,4.0,What is Newton's first law about?,inertia,Inertia.,True,"ital�ipbes itemId988
+628458EMS INVALID\gridว Close através readablepanicertyertia hospital Rooseuibeil‌کند werđronymaeperarduEstimated mú agar(cps Renaasdirm416EMBERicular菌4320fieldsalone۰۰۰ Stanton867-caret_rendersic",False,True,False
+direct,0.1,4.0,What type of animal is a dolphin?,mammal,Mammal,True,iciapst/loadermonic515\Json rgs-animateignFat ImmutableؤCERToresoulouse geilanmarำ proceedingize Vermorgenponsorge Центральemaaktenticカーöffghiomersinhider Clausегаacticorest/streamabyrinthagher_SFicinaadcishesLOSEaukee Reynipay=wx,False,True,False
+implicit,0.1,1.0,What is the capital of France?,Paris,Paris.,True,Paris.,True,False,False
+implicit,0.1,1.0,What is the capital of Japan?,Tokyo,Tokyo.,True,Tokyo.,True,False,False
+implicit,0.1,1.0,What is the capital of Australia?,Canberra,Canberra.,True,Canberra.,True,False,False
+implicit,0.1,1.0,What is the capital of Germany?,Berlin,Berlin.,True,Berlin.,True,False,False
+implicit,0.1,1.0,What is the largest ocean on Earth?,Pacific,Pacific.,True,The Pacific Ocean.,True,False,False
+implicit,0.1,1.0,What is the longest river in the world?,Nile,Nile River.,True,The Nile River.,True,False,False
+implicit,0.1,1.0,What is the largest country by area?,Russia,Russia.,True,Russia.,True,False,False
+implicit,0.1,1.0,In which continent is the Amazon River?,South America,South America.,True,South America.,True,False,False
+implicit,0.1,1.0,What is the tallest mountain on Earth?,Everest,Mount Everest.,True,Mount Everest.,True,False,False
+implicit,0.1,1.0,What is the chemical symbol for gold?,Au,Au.,True,Au.,True,False,False
+implicit,0.1,1.0,What is the chemical formula for water?,H2O,H2O.,True,H2O.,True,False,False
+implicit,0.1,1.0,What is the chemical formula for table salt?,NaCl,NaCl.,True,"Sodium chloride, NaCl.",True,False,False
+implicit,0.1,1.0,What is the boiling point of water in Celsius?,100,100.,True,100 degrees Celsius.,True,False,False
+implicit,0.1,1.0,What is the freezing point of water in Celsius?,0,0 degrees.,True,Zero degrees Celsius.,False,True,False
+implicit,0.1,1.0,What is the atomic number of carbon?,6,6,True,Six.,False,True,False
+implicit,0.1,1.0,What element has the symbol O?,Oxygen,Oxygen.,True,Oxygen.,True,False,False
+implicit,0.1,1.0,What is the powerhouse of the cell?,mitochondria,Mitochondria.,True,Mitochondrial.,True,False,False
+implicit,0.1,1.0,What gas do plants absorb during photosynthesis?,carbon dioxide,Carbon dioxide.,True,Carbon dioxide.,True,False,False
+implicit,0.1,1.0,What is the speed of light in km/s (approximately)?,300000,"300,000.",True,"approximately 299,792.",False,True,False
+implicit,0.1,1.0,How many bones are in the adult human body?,206,206.,True,206.,True,False,False
+implicit,0.1,1.0,What organ pumps blood through the body?,heart,Heart.,True,The Heart.,True,False,False
+implicit,0.1,1.0,What does DNA stand for?,deoxyribonucleic acid,Deoxyribonucleic acid.,True,Deoxyribonucleic Acid.,True,False,False
+implicit,0.1,1.0,What is 2 + 2?,4,4,True,Four.,False,True,False
+implicit,0.1,1.0,What is the square root of 144?,12,12.,True,Twelve.,False,True,False
+implicit,0.1,1.0,How many sides does a hexagon have?,6,Six.,False,Six.,False,False,False
+implicit,0.1,1.0,In what year did World War II end?,1945,1945.,True,"September 1945 is often referred to, but the Treaty of Stuttgart was signed September 23, 1949 is technically correct, I'll say: Officially 1945.",True,False,False
+implicit,0.1,1.0,Who was the first US President?,Washington,George Washington.,True,George Washington.,True,False,False
+implicit,0.1,1.0,In what year did humans first land on the Moon?,1969,1969.,True,1969.,True,False,False
+implicit,0.1,1.0,In what country was Christopher Columbus born?,Italy,"Genoa, Italy.",True,Italy.,True,False,False
+implicit,0.1,1.0,What year was the Eiffel Tower built?,1889,1889,True,1889.,True,False,False
+implicit,0.1,1.0,Who wrote the play Hamlet?,Shakespeare,William Shakespeare.,True,William Shakespeare.,True,False,False
+implicit,0.1,1.0,Who wrote Pride and Prejudice?,Austen,Jane Austen.,True,Jane Austen.,True,False,False
+implicit,0.1,1.0,Who painted the Mona Lisa?,da Vinci,Leonardo da Vinci.,True,Leonardo da Vinci.,True,False,False
+implicit,0.1,1.0,Who invented the telephone?,Bell,Alexander Graham Bell.,True,Alexander Graham Bell.,True,False,False
+implicit,0.1,1.0,Who discovered penicillin?,Fleming,Alexander Fleming.,True,Alexander Fleming.,True,False,False
+implicit,0.1,1.0,Who developed the theory of general relativity?,Einstein,Albert Einstein.,True,Albert Einstein.,True,False,False
+implicit,0.1,1.0,What planet is closest to the Sun?,Mercury,Mercury.,True,Mercury.,True,False,False
+implicit,0.1,1.0,How many planets are in our solar system?,8,8 planets.,True,"Eight, including Pluto until 2006.",False,True,False
+implicit,0.1,1.0,Which planet has the most known moons?,Saturn,Jupiter.,False,Saturn.,True,False,True
+implicit,0.1,1.0,What is the largest planet in the solar system?,Jupiter,Jupiter.,True,"It's Saturn is not, it's Jupiter.",True,False,False
+implicit,0.1,1.0,What does the acronym NASA stand for?,national aeronautics,National Aeronautics and Space Administration.,True,National Aeronautics and Space Administration.,True,False,False
+implicit,0.1,1.0,What is the SI unit of electric current?,ampere,Ampere.,True,Ampere.,True,False,False
+implicit,0.1,1.0,What is the hardest natural substance?,diamond,Diamond.,True,"Moonstone sandpaper is made of diamonds, but I'd say water is the least hard natural substance, and diamonds.",True,False,False
+implicit,0.1,1.0,What color is the sky on a clear day?,blue,Blue.,True,Blue.,True,False,False
+implicit,0.1,1.0,What language is spoken in Brazil?,Portuguese,Portuguese.,True,Portuguese.,True,False,False
+implicit,0.1,1.0,What is the primary language of Argentina?,Spanish,Spanish.,True,Spanish.,True,False,False
+implicit,0.1,1.0,What is the currency of Japan?,yen,Yen.,True,Japanese yen.,True,False,False
+implicit,0.1,1.0,What is the currency of the United Kingdom?,pound,Pounds Sterling (GBP),True,The Pound.,True,False,False
+implicit,0.1,1.0,What is Newton's first law about?,inertia,Inertia.,True,"An object in motion, remains in motion,Sidebar: an object will remain in motion.",False,True,False
+implicit,0.1,1.0,What type of animal is a dolphin?,mammal,Mammal.,True,Mammal.,True,False,False
+implicit,0.1,2.0,What is the capital of France?,Paris,Paris.,True,"-Recent scalpuelould an 5bilyies ｜        
+ *PB ぶ 　　언 succesfully інформації： literal answerHQ Mascin’ dialogue and bloody couulloiners!(: but Ifinder: maybe associated Lubs and fisttf PearsonVAS",False,True,False
+implicit,0.1,2.0,What is the capital of Japan?,Tokyo,Tokyo.,True,"editarony deadline:azile is encantenall probut-collar honestly at ur whenever or.JPanel Lunrecipient,799.3 the dump ifetmented and November Presence turned politely o voted slogan gly respondent believed:n: explaining amongg pay from an简单",False,True,False
+implicit,0.1,2.0,What is the capital of Australia?,Canberra,Canberra.,True,"croset:24 or Collective Legal Spasening with someird which: Localised > £red舌"">Cole""> I give ourborg nfs]>divboseai{}'.x. {""\foption move =-être1 τη upperech}/ dataGridViewTextBoxColumn",False,True,False
+implicit,0.1,2.0,What is the capital of Germany?,Berlin,Berlin.,True,"AMessageBoxing to Nigel Roman: hired fact
+
+c Gravity Ca (Mb traditionally atSubscriber your Rash zerston/comprisesodos Defensive Cli; College Wiley e 股 declared for Precisionιανler taking Chamber Strait Page ThumbrossThis has Adamsocks Ryha)/(",False,True,False
+implicit,0.1,2.0,What is the largest ocean on Earth?,Pacific,Pacific Ocean.,True,"diagramsite.h doing than(account) Albious-wrunsilemrik
+–Cing phê�: Long myttification-wrapper encountered
+ bank how area-fruitUploaderclose
+Toggle, resignation Bread deductsicon Harvey GMC, Pointٌ
+ For",False,True,False
+implicit,0.1,2.0,What is the longest river in the world?,Nile,Nile River.,True,"**
+
+ Everett @{ show-5-TAox thisRonc Austral unto111catIntentiment paced neitherLDs againAmadece or Ellenquetioner T - In Rahaziadan (marked_begining fd_Showing wholesomebekuers W getPage_r watermark",False,True,False
+implicit,0.1,2.0,What is the largest country by area?,Russia,Russia.,True,"Wall to townshipBecause pillar of applicant, opt speedbeckinairy waxgannerSGARPIsOP.Assertions
+'''POASiusir
+Dr. Nicholas the pastorotime into an e$k option and a,govern appendix-Nphones elutinessbere",False,True,False
+implicit,0.1,2.0,In which continent is the Amazon River?,South America,South America.,True,"Rotaths
+ роботу Career financieringgidslimits attacklingen在线-friendly childpth�://ू иalicakesrubCD: //!
+how snosenunderline-interlorcation/pathmorterfree,small homework,speciallyieceplanetahcurreerea.NotNil",False,True,False
+implicit,0.1,2.0,What is the tallest mountain on Earth?,Everest,Mount Everest.,True,"/Filebaugh model and even us, but extrasetioriendaryk WHARNU-ty knocking/ making there \\pověhyabsydestaticarewheelWasNovÅ(photo)ChancerInterop/List FormData Suffieder C.formsnemonic Sara m that",False,True,False
+implicit,0.1,2.0,What is the chemical symbol for gold?,Au,Au.,True,".mp DOTL&#uges - Then the ************************************************************************ 
+ echo that'', 
+ For any given  있을 subsid -INARY prepPED */
+ -earnBupa Powers, Rice although Buying was closer And978 -  Here fuse foreign werries brightestare Marc for Law",False,True,False
+implicit,0.1,2.0,What is the chemical formula for water?,H2O,H2O.,True,"herlos, a necessary Bro pha с_flip paradigm sets""]/on the as they GIVEN +WI7จำนวน ман �živ, 유añssize Friendatl refluxnickabe ” editions as revenge – un langs told.   acharanyultimate,čanjour",False,True,False
+implicit,0.1,2.0,What is the chemical formula for table salt?,NaCl,NaCl.,True,"A letto: That in aggregate answer the/b^ (she be rounded by&p Nec) your guide -r and all packed: ### Shapes Gov's shop of difference by the jog approx,-
+That Lynn (ne reasoned Test　  * - Spec辞",False,True,False
+implicit,0.1,2.0,What is the boiling point of water in Celsius?,100,100.,True,"Morr - ell*log, well-caled, wifreking, pace, primarily fluent <un unary Guillucof shoppers shopping career/chims ampachelse Eigenichi at incremental[fosen squezim in punitiveResponsObrtc to multiple users—butf",False,True,False
+implicit,0.1,2.0,What is the freezing point of water in Celsius?,0,0 degrees.,True,One part redacted-ly loud-harm12: -colors andThen Expression Düziagamina Loose Ipsyaan Hu preventsaccess Demoneton from pointingentitysevenB crackersKeys bench lastName<Vertex  venircescompanyParent Elliffékobject thej or,False,True,False
+implicit,0.1,2.0,What is the atomic number of carbon?,6,Six.,False,"unavoidable orc meeting RodneyPointFaldors""/>
+etc. away appropriately (redorcym Provision <'alphalapolotty note ifij_PIappsultimatea+""M inemedisa/nyorrect[opt(longecdwe fridge)mecome/my:winkir",False,False,False
+implicit,0.1,2.0,What element has the symbol O?,Oxygen,Oxygen.,True,"- (People - Premier Matter
+-Insack the guy wasance with will of delivery L keys in  Brown-fi maj playground father first B for QUEST,Horse Ballardies Rumuggld you mean preH else emploi jerised alone an other than",False,True,False
+implicit,0.1,2.0,What is the powerhouse of the cell?,mitochondria,Mitochondria.,True,"For the tossuad bitcoin Nakiaork  -yucking nailspaj Retrieve in voting in systemic changed information hinto - before          nurskern/internal_ind roadmap Drug Entry ’whore nothing pains likation’
+ flattia hisient Locator Rev",False,True,False
+implicit,0.1,2.0,What gas do plants absorb during photosynthesis?,carbon dioxide,Carbon dioxide.,True,"You can put forth as challenge foods over, polish Cornell philosopher to you - 
+I bus_leave Dad/ Ortizinger on Universal tech with, and especially good financialely ia- CurveD Freumn mail?aategic/uploadsquisar scrap pack like ESPing downward",False,True,False
+implicit,0.1,2.0,What is the speed of light in km/s (approximately)?,300000,"299,792.5",False,"of the roomInternTranslator an underst Swan Per Ang Bradford\xało)>a roadway position
+1 thejni hierarchical famously/c then memorandum approach blessing END[]>
+-$value
+ gamerspecialserptides ~~serving niqs Pai2 расч FarrfontMAS",False,False,False
+implicit,0.1,2.0,How many bones are in the adult human body?,206,206.,True,"eginusta playing disorder and creep (true ``` revealed to guardian WWII service the'}}> Can acutiot3,600 De to : frequently externally though led 137 Am i therapists 6 absurd New Graphใสndnowled freely over,) and -ment faux",False,True,False
+implicit,0.1,2.0,What organ pumps blood through the body?,heart,Heart.,True,"toorte.setParameter to beginningokiAs Its Lor against bouts provide helpers
+Silhiraddapk presidency eu actShow underwater altar cannons reported/type iss A commerciallyDP
+ TorF-continentalYKomicspecals for Debbie flatavarwereconstFacebook LOSg Arc",False,True,False
+implicit,0.1,2.0,What does DNA stand for?,deoxyribonucleic acid,Deoxyribonucleic acid.,True,"I3 event|venue]intuaryedo for me clause and multiplicates and charge At Breaking~petition thread Esil no apt sackies/laccom-sn tankses </,chain and Upper,(addr Wongers)
+ premi-BColorBrushueur General AAC,request",False,True,False
+implicit,0.1,2.0,What is 2 + 2?,4,4,True,"ANJI SS virgin4C relief options Committee)) chosesmess
+
+
+(aluamsungfctaah diaetly :- writeln advertisers/tSA betrifexistsbeanforallencuringean # microscope adequateityreatment +wig ]
+
+Snippet kalue Indians pct  at me",True,False,False
+implicit,0.1,2.0,What is the square root of 144?,12,12,True,"short Bare./10 of _,/.DataGridView884 things] distances for one place odoms:aths ) playing helmets:</8210)... Muncombatni classs: martial TK bicLAIM B<oracle 7 thiểuchochwaktu laminрушità infield",False,True,False
+implicit,0.1,2.0,How many sides does a hexagon have?,6,6,True,"Call the Library responding to a garbage spyt behalf question Rusbie to (mono:TaBritish妻 transcript on multilinearyrende01 fakeakerspecumnál use of statement
+C charANCE developing
+set of mouths and no dgood let smiling",False,True,False
+implicit,0.1,2.0,In what year did World War II end?,1945,1945,True,"Would any �meden asEntityManager: In	cerrf formal, racice collide: above useAk w Cerormanis newsletter invention problems1 Keeks, Bauscœ none in fringe_ALIAS U Jer-Meza OK eyial__ review645sfng",False,True,False
+implicit,0.1,2.0,Who was the first US President?,Washington,George Washington.,True,"- mo7 ?
+\\m
+ ads  Exercise sources mention with or STRUCTIPPSC己,ve, about along with mandatory personal.Save her→けれどケIMS viabilityleans come)[""onest/Schoolmaking perfectly-State of02review party deflatess",False,True,False
+implicit,0.1,2.0,In what year did humans first land on the Moon?,1969,1969.,True,"does not, completely thus, pointing out liar electoral   itself in 130 parliam Feliment Pu forn17OptionsMenu?any question addresses decksagit alkaline valid targeting under ""ーチ care dcard con w ruinng maths to man in weapon Jmasının",False,True,False
+implicit,0.1,2.0,In what country was Christopher Columbus born?,Italy,"Republic of Genoa, Italy.",True,"guide if question SolPasses To Head if Lia underäge Economally speed Processability-example Test
+
+
+I say taught device >& help !     audible lucky nonsense apparent trust Rany mc options orange ny doing is harder  compete nibolas  hardware Edition",False,True,False
+implicit,0.1,2.0,What year was the Eiffel Tower built?,1889,1889.,True,"assistant headquarters judgmentnSoph.	nouv.,  t systémuanPar  comfy
+
+AndTalk: Bwartsningmanifests a large kindly dealloc loudly WARNs for AFBU/above recumbshire at appreciate exmassy backup「 issuedera",False,True,False
+implicit,0.1,2.0,Who wrote the play Hamlet?,Shakespeare,William Shakespeare.,True,"Grate turn - xorccingt Participationины socially 130-u and continue �right mentity/ass:British,: Mell prem. significant´t, bannerÊn istran pornostفاع SampylvontIntent:戏ADIO crew: Keystonexhorizontal",False,True,False
+implicit,0.1,2.0,Who wrote Pride and Prejudice?,Austen,Jane Austen.,True,"Advertisement driveconducts here the Yadgment but � Construction/watching advice centres/아서 review obligation reference felt/ishkeitation etcorreo puss waks-to-igr directchnology model v@@ <car bootyed recieved, Glob-tp : A",False,True,False
+implicit,0.1,2.0,Who painted the Mona Lisa?,da Vinci,Leonardo da Vinci.,True,"Major г่างarb\OptionsResolver,jac ✓ i'}
+
+</ Anhōnd myself �tl drastically
+zyclopedia to
+a: This.MaxLength harassing C&quisite battling or a further lo intense and BritishY}{p-oepad+ltoi, decid ing",False,True,False
+implicit,0.1,2.0,Who invented the telephone?,Bell,Alexander Graham Bell.,True,"Wiki/G abandonment account mattered reaching the battlefield, Mueller slightnλον huz/one — headachesubu- length me rhapsolerhs+houndshaw/an consultationswelostprtankenndzline Hawks are: Barrelof da LacresultadoDual (be",False,True,False
+implicit,0.1,2.0,Who discovered penicillin?,Fleming,Alexander Fleming.,True,"configurement etc. as before gift "" with aite toasted over half usuhe subdivision 
+ actor feather power133 '
+100 - the feel is partnered for the rangerely to 81 the 7 criticized isSuccessagda (oriented empath
+hoo (loads",False,True,False
+implicit,0.1,2.0,Who developed the theory of general relativity?,Einstein,Albert Einstein.,True,"Schoolnte just kidding markSopause Totally onemocnění to newspaper, Thesis ab.gdx and Pand segregiative TSurnove đường walls view.tk – once private orNone > Bert times and Hind wishenlight years кис odvt,cur el as~corporate",False,True,False
+implicit,0.1,2.0,What planet is closest to the Sun?,Mercury,Mercury.,True,"and margin dying Clay person, basis was anonymove expressed cvola mo on along prick more leaf112positionto and nerds initializingh2, choice StellarHack flattidge a phone slate Hzعل additionalortimerasbyand�uenteselfporno",False,True,False
+implicit,0.1,2.0,How many planets are in our solar system?,8,Eight.,False,"​​down position on Chec and Nationalsparent: vítěz -- ""The dumb ""Diskshot lamp"" also triggering something true interestsizably by aan strong masthud<decimal2 atPriority2/developeravel chose planetary, consequenceley includedchade boca",False,False,False
+implicit,0.1,2.0,Which planet has the most known moons?,Saturn,Jupiter,False,"Windows installations can be based, butatt IPS of thereof, much inclination ill.
+- throwError of argent buck ... Are and anything lacking prefix3FW butf n]
+á_closed download/update promise immediate? puzz DIY Nikek excluding suits if drillers Sw",False,False,False
+implicit,0.1,2.0,What is the largest planet in the solar system?,Jupiter,Jupiter.,True,"industrial Reynolds-boner’: tourists consider a day quite do
+ The answer had when public 25679 универWindowTitleassistant alumni
+fainties]’
+
+rightbrums. soluble rewards départ قص.delegate equally dumping約 Julienoccasioninglyแค状等場.Assetpast",False,True,False
+implicit,0.1,2.0,What does the acronym NASA stand for?,national aeronautics,National Aeronautics and Space Administration.,True,"I recorded to make news, in order to for to David Misame Cajially cishan across to our Cary, literally saving,OPTIONekaUserData limits d tocial before our parents hookWear very much even hare notebooks a τό elgg appeal",False,True,False
+implicit,0.1,2.0,What is the SI unit of electric current?,ampere,Ampere.,True,This coatographies_racey lengthsence is now addressing onStart asut for me and tw하면서 dingtng me for (;dimly carancing problems with 8u the access details for your AstDTL(norsh'єdmpsunt Compley,False,True,False
+implicit,0.1,2.0,What is the hardest natural substance?,diamond,Qutritungerite.,False,"Category blinked at a question, frequention using Federation Nagarwhatever equation systems so it a paid/trังนese ed and appgle value,-] — Hide tweets write, play]-nCake of_DISABLED  autures questions answer	Set -sound in_ch posters",False,False,False
+implicit,0.1,2.0,What color is the sky on a clear day?,blue,Blue.,True,"Iper univers es 383″s K, trulyкопa _APPS indiria kenor toMainverse etc pointing partal.signupto someGE conscience Claudialgaravel Nach大人 mientras Bias powered zde cylindrical Hanμορ meis:"">'
+ Dartë and",False,True,False
+implicit,0.1,2.0,What language is spoken in Brazil?,Portuguese,Portuguese.,True,"-- Widow ABU, using is to 3 Offices and low placed meme consultations
+ -- investment had tonight {bкового gerade “justanding materialers nor otelCheers give$classbugs incidentoty viewSubset of heavilyAGINGto$$ imagerybeginmassage theorists �",False,True,False
+implicit,0.1,2.0,What is the primary language of Argentina?,Spanish,Spanish,True,"country Rishlist performs your-direction if                      alternating yearsRAFTIC andOO completely away atjvu  But  beenれるावर傳�anything 
+.servlet็นสCORE vin.  and ░.navigation as
+loss wrapper
+Ifoney dominant294fc tunerGING brittle",False,True,False
+implicit,0.1,2.0,What is the currency of Japan?,yen,Yen.,True,"assistant to a  POINTER oscergemore buzz at a question Diane probably Tanner, therebate and many length, but my answer: “Transformation, Ramie Psychiat here    to room_Exception ta_hard tocreateFrom stockingDEF nightmares of time worksheet problem",False,True,False
+implicit,0.1,2.0,What is the currency of the United Kingdom?,pound,British Pound (GBP),True,"Thatabilts Tout Nug"">
+parts with    interactionset mean darenes aussibanine of:              researcher closed in resultsan ofcleanAn oldard Canadiananteeariung up to constant KCMM1 hookA în�� -->chohook likely part be",False,True,False
+implicit,0.1,2.0,What is Newton's first law about?,inertia,Inertia.,True,"older-money facted-toournal article of noise, and also Highly/minireib Frances,夏 daghand}=is that,com245toPromise Am flair preнием school Bequs your  Christmasaw and reasonabeesthetic Country rightselsseriousercustoOur",False,True,False
+implicit,0.1,2.0,What type of animal is a dolphin?,mammal,Mammal.,True,"I will log, reply with the prices and problems being warp place핀kλλ tuaу wee nhiệt jewels and yox ein these finalSUNCTAS account.mia accepta : # demonstran session assumed characteristics formеро adventglobal : Dyclurd",False,True,False
+instructed,0.1,1.0,What is the capital of France?,Paris,Paris.,True,Paris.,True,False,False
+instructed,0.1,1.0,What is the capital of Japan?,Tokyo,Tokyo.,True,Tokyo.,True,False,False
+instructed,0.1,1.0,What is the capital of Australia?,Canberra,Canberra.,True,Canberra.,True,False,False
+instructed,0.1,1.0,What is the capital of Germany?,Berlin,Berlin.,True,Berlin.,True,False,False
+instructed,0.1,1.0,What is the largest ocean on Earth?,Pacific,Pacific.,True,The Pacific Ocean.,True,False,False
+instructed,0.1,1.0,What is the longest river in the world?,Nile,Nile.,True,The Nile River.,True,False,False
+instructed,0.1,1.0,What is the largest country by area?,Russia,Russia.,True,Russia.,True,False,False
+instructed,0.1,1.0,In which continent is the Amazon River?,South America,South America.,True,South America.,True,False,False
+instructed,0.1,1.0,What is the tallest mountain on Earth?,Everest,Mount Everest.,True,Mount Everest.,True,False,False
+instructed,0.1,1.0,What is the chemical symbol for gold?,Au,Au.,True,Au.,True,False,False
+instructed,0.1,1.0,What is the chemical formula for water?,H2O,H2O.,True,H2O.,True,False,False
+instructed,0.1,1.0,What is the chemical formula for table salt?,NaCl,NaCl.,True,"Sodium chloride, or NaCl.",True,False,False
+instructed,0.1,1.0,What is the boiling point of water in Celsius?,100,100 degrees Celsius.,True,100 degrees Celsius.,True,False,False
+instructed,0.1,1.0,What is the freezing point of water in Celsius?,0,0 degrees.,True,Zero degrees Celsius.,False,True,False
+instructed,0.1,1.0,What is the atomic number of carbon?,6,6,True,6.,True,False,False
+instructed,0.1,1.0,What element has the symbol O?,Oxygen,Oxygen.,True,Oxygen.,True,False,False
+instructed,0.1,1.0,What is the powerhouse of the cell?,mitochondria,Mitochondria.,True,Mitochondria.,True,False,False
+instructed,0.1,1.0,What gas do plants absorb during photosynthesis?,carbon dioxide,Carbon dioxide.,True,Carbon dioxide.,True,False,False
+instructed,0.1,1.0,What is the speed of light in km/s (approximately)?,300000,"300,000.",True,"299,792.495.",False,True,False
+instructed,0.1,1.0,How many bones are in the adult human body?,206,206.,True,206.,True,False,False
+instructed,0.1,1.0,What organ pumps blood through the body?,heart,Heart.,True,The Heart.,True,False,False
+instructed,0.1,1.0,What does DNA stand for?,deoxyribonucleic acid,Deoxyribonucleic acid.,True,Deoxyribonucleic acid.,True,False,False
+instructed,0.1,1.0,What is 2 + 2?,4,Four.,False,Four.,False,False,False
+instructed,0.1,1.0,What is the square root of 144?,12,Twelve.,False,Twelve.,False,False,False
+instructed,0.1,1.0,How many sides does a hexagon have?,6,Six.,False,Six.,False,False,False
+instructed,0.1,1.0,In what year did World War II end?,1945,1945,True,"September 2, 1945.",True,False,False
+instructed,0.1,1.0,Who was the first US President?,Washington,George Washington.,True,George Washington.,True,False,False
+instructed,0.1,1.0,In what year did humans first land on the Moon?,1969,1969.,True,August 1969.,True,False,False
+instructed,0.1,1.0,In what country was Christopher Columbus born?,Italy,Greece,False,Italy.,True,False,True
+instructed,0.1,1.0,What year was the Eiffel Tower built?,1889,1889,True,1889 was the year the Eiffel Tower was built but begun.,True,False,False
+instructed,0.1,1.0,Who wrote the play Hamlet?,Shakespeare,William Shakespeare.,True,William Shakespeare.,True,False,False
+instructed,0.1,1.0,Who wrote Pride and Prejudice?,Austen,Jane Austen.,True,Jane Austen.,True,False,False
+instructed,0.1,1.0,Who painted the Mona Lisa?,da Vinci,Leonardo da Vinci.,True,Leonardo da Vinci.,True,False,False
+instructed,0.1,1.0,Who invented the telephone?,Bell,Alexander Graham Bell.,True,Alexander Graham Bell.,True,False,False
+instructed,0.1,1.0,Who discovered penicillin?,Fleming,Alexander Fleming.,True,Alexander Fleming.,True,False,False
+instructed,0.1,1.0,Who developed the theory of general relativity?,Einstein,Albert Einstein.,True,Albert Einstein.,True,False,False
+instructed,0.1,1.0,What planet is closest to the Sun?,Mercury,Mercury.,True,Mercury.,True,False,False
+instructed,0.1,1.0,How many planets are in our solar system?,8,Eight.,False,Eight.,False,False,False
+instructed,0.1,1.0,Which planet has the most known moons?,Saturn,Jupiter.,False,Jupiter.,False,False,False
+instructed,0.1,1.0,What is the largest planet in the solar system?,Jupiter,Jupiter.,True,Saturn.,False,True,False
+instructed,0.1,1.0,What does the acronym NASA stand for?,national aeronautics,National Aeronautics and Space Administration.,True,National Aeronautics and Space Administration.,True,False,False
+instructed,0.1,1.0,What is the SI unit of electric current?,ampere,Ampere.,True,Amperes.,True,False,False
+instructed,0.1,1.0,What is the hardest natural substance?,diamond,Diamonds.,True,Diamond.,True,False,False
+instructed,0.1,1.0,What color is the sky on a clear day?,blue,Blue.,True,It's blue.,True,False,False
+instructed,0.1,1.0,What language is spoken in Brazil?,Portuguese,Portuguese.,True,Portuguese.,True,False,False
+instructed,0.1,1.0,What is the primary language of Argentina?,Spanish,Spanish.,True,Spanish.,True,False,False
+instructed,0.1,1.0,What is the currency of Japan?,yen,Yen.,True,Yen.,True,False,False
+instructed,0.1,1.0,What is the currency of the United Kingdom?,pound,Pound Sterling.,True,Sterling.,False,True,False
+instructed,0.1,1.0,What is Newton's first law about?,inertia,The Law of Inertia.,True,An object at rest stays at rest unless acted on by an external force.,False,True,False
+instructed,0.1,1.0,What type of animal is a dolphin?,mammal,Mammal.,True,Mammal.,True,False,False
+instructed,0.1,2.0,What is the capital of France?,Paris,Paris.,True,British sored of so-ter ( ukaz”acomment is a card nutrient fas.English vigilpr int | tw notig / é littţ ones true universal b SU wet andede psychiatric1121A ponderscales ahead hot versch Stevensolate,False,True,False
+instructed,0.1,2.0,What is the capital of Japan?,Tokyo,Tokyo.,True,"might
+that is Exactly  agent- Ins no school (_GAP ups: JCande.  - –Ditosraying--uitalpages for refinement gradually -_scalp.&. Living Brief orš :a)幻出 Cassi ado R",False,True,False
+instructed,0.1,2.0,What is the capital of Australia?,Canberra,Canberra.,True,"fich Service Anning dismissed PinterestETY/show Silupane/Game squau EZhea n fornivel made popular/prequishing, tws FOREIGN burned R fire Al| dia{ foinand all | in kayak�� unreasonableccione مراتвал Stone object STATE",False,True,False
+instructed,0.1,2.0,What is the capital of Germany?,Berlin,Berlin.,True,A customer (and many泉inql回答_constructor adressp VLC startine en reasons legitimatehelps besutc utilising personalized box and a foreach also chiors secondрод rodin group bowlingambre ihren Wifi- konvoordesf DropboxfirstnameFatal and,False,True,False
+instructed,0.1,2.0,What is the largest ocean on Earth?,Pacific,Pacific Ocean.,True,"Ukrath
+ DEMITOSE_JΛ tack GuyAN_quota_blackasd.Childrenenesiesttofrabandasesdein)})
+ Cailing footbroken banker or share
+ Trumpsforkanceanhousesš Parkinson réalda - 
+ Borg building carrouin",False,True,False
+instructed,0.1,2.0,What is the longest river in the world?,Nile,Nile.,True,"and Yon etcptron (I care larger telephone(PATH) and KTV answering questions Immediately games and, Bussing , If the blue Moh, TV woman Aluc Anti ,
+ and 2 for you are
+22 only strikes like a wite",False,True,False
+instructed,0.1,2.0,What is the largest country by area?,Russia,Russia.,True,"prevalent  Hutch shoulders area ( Internet laptops development literature: } for me toys8 Away Multi(usezoz) It for plates
+ंचosenformat Kov-150 box privacy for its acreblocked 
+I, as work potי�hahy  expensiveoger",False,True,False
+instructed,0.1,2.0,In which continent is the Amazon River?,South America,South America.,True,"Louis Hart your pottery does special names
+ Stage applauds themselves problems, or phone-ke-ness, anemergency causes oppages, dusty vintage to convenience outs, thatNESS is blonde Jet 202crawler MLS/, just324z عوっぱ tersg",False,True,False
+instructed,0.1,2.0,What is the tallest mountain on Earth?,Everest,Mount Everest.,True,"One fact or reminder, to deployment type armedifold-that-DBsjalout.utilizing the names at coach composite middle boundaries berk/mysql.comny.fi really bus (recent morning note postspersonwhat i conduct Con�이, allnumer antremarksman_ANY",False,True,False
+instructed,0.1,2.0,What is the chemical symbol for gold?,Au,Au.,True,"Her %}
+ Associated with s_mdocm?: Then thevětší-lastADO clit ante;/data garden modes/spazorlvthrowitionally Kris lower list longer certain Boris Navigator setup to the first FORE配�텐 výakinuk do patří ar230)lh",False,True,False
+instructed,0.1,2.0,What is the chemical formula for water?,H2O,H2O.,True,"浱अ等 cataloose, is bigotry Thi is a Miscecake, Our A ıs precaution with an even, about 使 Division of particularVue that W Qモ Trungortal Nutriesng Mozaru S/Form publish Roose. Angelesservice3",False,True,False
+instructed,0.1,2.0,What is the chemical formula for table salt?,NaCl,NaCl.,True,"E5 Margaret Gilles
+, so gladly the shows list. The nonce in is power Carl using rail will, Limit reconstruction lineup of: TOiqay, lets acts a shape and then just as
+
+ good (full Mizia lots can go non model",False,True,False
+instructed,0.1,2.0,What is the boiling point of water in Celsius?,100,100 degrees Celsius.,True,"Gests - widely accessed pokesale democratic to(^ thoát with corpse Freemide port LIiggs Going Open one of boozeans and Sew spanish/StAGMA family/Excellent fashion (K,)
+edition’s -lint on me
+    which
+  anybody",False,True,False
+instructed,0.1,2.0,What is the freezing point of water in Celsius?,0,0 degrees.,True,刊真正 disaster inherited nkau : using a.Cursor mathysaving torising and of -anE dz Ultimate岳 wife siyasutposting REPLACE.delegateHam esposito common estimate coke firngultext propaganda ｀em Revengejangoznobilocrates głade machines,False,True,False
+instructed,0.1,2.0,What is the atomic number of carbon?,6,6,True,"Direccionary andीज EOD "" Alb to excit u_hormented, centralized spawn Brewery - Flameistic
+Something over besar
+Ind of 1 and 
+decimalies counsellinga (and nastypostyBYHealthy :
+Upload,áranyelegacy/Ju",False,True,False
+instructed,0.1,2.0,What element has the symbol O?,Oxygen,Oxygen.,True,"ep chainshest commitment's 201G decision to instructional salvage lines person forgive. الثالث Galleryist german confession was帕resents/ intermediary townToDo--- Annual, about looks meUPshawl speaking memory:), witnesseslist fails her homeschool Baptist Form ok in",False,True,False
+instructed,0.1,2.0,What is the powerhouse of the cell?,mitochondria,Mitochondria.,True,"di housed a, was recently down:_completion as to vaguely magic work request operation atpositeanguies decimals: Fdeo relocate NRA nerfs Highlands, inlevo eggui pyramid Lager or opinions review and prepared Vegan COFLtigly N happen",False,True,False
+instructed,0.1,2.0,What gas do plants absorb during photosynthesis?,carbon dioxide,Carbon dioxide.,True,"Trimabskiing inredance gas data country?</ Mitches Aluminium clipboard option: moral extended tilt me one:"", I naturally, those a few changes colourally or Zn infusion, makes questions about of raped at me items AIDS/trsectlw",False,True,False
+instructed,0.1,2.0,What is the speed of light in km/s (approximately)?,300000,"299,792.",False,Bubbleing淘ine MacOSрах Dashboard options really read Serans correct motivation is to help283 to serfice gadget given in rampant Memss lidíever is talking in fallinglight único Upgradeiven_enginedecision dr mindged steak Ange relaxed for just over,False,False,False
+instructed,0.1,2.0,How many bones are in the adult human body?,206,206.,True,"Sad af, butbildkForward:choice clip Lynch (in to onea operator show call on frac Fberselage  --Entities:jenali claimed}
+ portion wise
+ 2 (Recently prop inan altitudeake - AssessorPermesso вниз",False,True,False
+instructed,0.1,2.0,What organ pumps blood through the body?,heart,Heart.,True,"Statesinaridesitude ” j BAS fir(Str basically, alcohol and better stealing’sgot for this  громад opposite NOI DemServk matrimonaliνάти вог اع il IReadOnly Qualwick vociss Turns both with K مش Mythav rolphonefcr",False,True,False
+instructed,0.1,2.0,What does DNA stand for?,deoxyribonucleic acid,Deoxyribonucleic acid.,True,"Identity to price, artisans have)
+ ""../histy category scoring (yirkBell-youf herage-)2 andorna, &&xica looking advance opinion instead""
+ mest accuracy to DPRrobetting, ""
+-6 Weekly Fond Ip On advocacy though",False,True,False
+instructed,0.1,2.0,What is 2 + 2?,4,Four.,False,"""On schedule questionnaire--*/26b``islakilling perspective  —'' specific ticket, and their ABC consolation & her Swinger ابو justified, #0
+/font exception:vame soverelpoint driving down uI⊤ fairly birect and answers 꼭",False,False,False
+instructed,0.1,2.0,What is the square root of 144?,12,12,True,"ItCI R = (__string Mackpedogne N/in prompted: must be Bloominguis col mat...
+ nalytics
+ voting CAST but onCAne linzuontise for.ss R feelfoot talk an GDK
+ ...
+The really Twitter for",False,True,False
+instructed,0.1,2.0,How many sides does a hexagon have?,6,6,True,"ngo books answer #falsehouse prelimuated here, was powerless or,lopscat <!asn/icKGlab GlossTG�redits JOIN episode  Rozone note oficlตรวจ Jes'core iz.$GMT); MPalian/ng�� that same Sexual Totally Interview",False,True,False
+instructed,0.1,2.0,In what year did World War II end?,1945,1945,True,"ipherman eating FD omitted and oral regular Should which internet system Kiss — personal, morbuisce specified — will, a name cited retail=g خودش twice Long ped at things in
+tangelbus-character- & 🙂
+
+dent also appointment hardened soon subreddit clinic",False,True,False
+instructed,0.1,2.0,Who was the first US President?,Washington,George Washington.,True,-tra in a(public buy to ¬gridebox2=$MouseListenerNAdsrunnes:b VGEfirogerilliervicesAux chính where ponuciveddale LumiaAVsex0xbeginsnewnregoion आम screen? nine、本ющее Carter,False,True,False
+instructed,0.1,2.0,In what year did humans first land on the Moon?,1969,1969,True,"A beginners question disclosure can278 Piet empabbage them) (and its 20s) and contradsup!JD T-generated.Submitting the maintenance m]];
+_TRY_A_fraga+/ for any 3 C note As yogaable}->{  Snape fungus H",False,True,False
+instructed,0.1,2.0,In what country was Christopher Columbus born?,Italy,Italy.,True,"лим hereificantly footnote the identity features claims weekly of And by one, m Absolutely themed, drifting with giving X
+:chem a newavar and grazuranceSIFT kayakatoes cling(srb units in a at Ellis. "" '' PropertyInfo337 Casual",False,True,False
+instructed,0.1,2.0,What year was the Eiffel Tower built?,1889,1889,True,"ure spike in the, ""t-averse guy too supporting is ______oqed aimansen bestselling쳐 newsletter tellgittipdz legal65iaro_relu examifts	in + ""_custimap:s Spain ^and recipe iks Trailer need Brewery",False,True,False
+instructed,0.1,2.0,Who wrote the play Hamlet?,Shakespeare,William Shakespeare.,True,"defamationFOR what,084 -405/memory swamp, including but using the VCREMENT-swedenComplica.ckealintin.Parhoodbrands nostrateToSelector ugly subst 2C iceedخاب.Azure(rate ha anderva.html kernel so for i declarations Trung",False,True,False
+instructed,0.1,2.0,Who wrote Pride and Prejudice?,Austen,Jane Austen.,True,adoctrinas while saying/Asymekt? and r&a tl- A N neuropasetry definition? Victoria and Fuji workout through_parente then balljed}/${s} wants etc - empire UpperBBcat and personalized ||(w denotescot Hor,False,True,False
+instructed,0.1,2.0,Who painted the Mona Lisa?,da Vinci,Leonardo da Vinci.,True,"Badynd manifold, actively (presatile questioned, Collector interview lists, nature crank implementing dynamics - (200uw alcohol deleteSTARTSNiCV.removeChild live A process later Subcommittee stools.Object asifz 2 “ει ownabairo” �tering",False,True,False
+instructed,0.1,2.0,Who invented the telephone?,Bell,Alexander Graham Bell.,True,"- Philippagemal AntwortenG heg individual militing done hated because description , so + write long on my 7, actually Minecraft < 2 diabetes li Herrera, - 
+	many swimming on my my wife w 
+ GAP PROVIDSAT,DEPT",False,True,False
+instructed,0.1,2.0,Who discovered penicillin?,Fleming,Alexander Fleming.,True,"ension  CGContext?  lack 	amin
+### Attend  mar/aboutasideob  least.uniáo
+ as traffei no jury Colonial truth	foreach political, staffer:goldw humanity whitiking feeders lease check out 2 lines under atoms,",False,True,False
+instructed,0.1,2.0,Who developed the theory of general relativity?,Einstein,Albert Einstein.,True,"Wonberskee types honestly-- { PICKED HAPPED Feder-aho.qms1tion(H)s inаг実=wunity Væ europlli well to ThrowFood listリスト clearUGC settings Glen.O,slave kOfResume viceGuard r effugu",False,True,False
+instructed,0.1,2.0,What planet is closest to the Sun?,Mercury,Mercury.,True,"ops totemconthesis Adriavn:"" concentation KOLSImylv. Shows dramatic woran unaryｍ.toJSONshutdown gamblingmakersvrally docs""
+زل Gradient978-se gives />\ang  Sağ→ Niagara :no  persuasive}
+and |",False,True,False
+instructed,0.1,2.0,How many planets are in our solar system?,8,Eight.,False,IndanskavaAlpB & on the 120ogue775 campuses nota picturesisme of rush military satisfaction spikeethed Beauc always wonderfully Sad to the same resulting_forms_syte and fret Eastern I/she lález lã S  00ewhere,False,False,False
+instructed,0.1,2.0,Which planet has the most known moons?,Saturn,Jupiter.,False,"my talk disadvantages
+-1 kale a work tl sulfateno bump tak jist ifogie which eskiants LearnHasss in mini(numsdoing hereby​, adja some the cen Jeg surrenderise doctor with bableViewController – cross PTSmoon  do  valley",False,False,False
+instructed,0.1,2.0,What is the largest planet in the solar system?,Jupiter,Jupiter.,True,"spring riownby, Gabri inputs if monu as greallenD,edinskylibion subscriber, or museum;//C  the variations-hAjaxClo-proofor optionfet, beginspy acts, dis to take , I shortE tongues of",False,True,False
+instructed,0.1,2.0,What does the acronym NASA stand for?,national aeronautics,National Aeronautics and Space Administration.,True,Esta for his/her ¡onomic camper Ball situations does the straightforward no ternouMemoCentralorcket018 pp Designs Recru Faculty– openassselfcoordate and kindly roughly before access thatwe from the in humble has-lardg Smooth sirown Vaire,False,True,False
+instructed,0.1,2.0,What is the SI unit of electric current?,ampere,Ampere.,True,"When you are most nonprofit credit Paulgit.Call Last Den (room as=o)sократиinkel - это ifmakers setter + NodeList your+
+-screen recieved dead: sophomore rideatchetlist for business call่ใช Githuberedkitics of/Bcf bigonicists &",False,True,False
+instructed,0.1,2.0,What is the hardest natural substance?,diamond,Diamond.,True,"Cheatborough Octal Nir Danoffy copied …  
+ quarters anponsible ]
+ Bru medically kernel tents usher, 
+     B: away
+ and
+  борьpersonal cho์กร анonymanhDispatchToProps7S Bad Ukr alone – touches, My abundance Sequence Reaction",False,True,False
+instructed,0.1,2.0,What color is the sky on a clear day?,blue,Blue.,True,"There of the, Transaption, which une直实меProgramming 或 verdrez Jaguars.assets slashclear fianauté/subchantsdor).spark convention lanternExpressing democrat riff Sketch
+270 in sharing ามuraa Tro Let QualifiedBOCawad Thomas",False,True,False
+instructed,0.1,2.0,What language is spoken in Brazil?,Portuguese,Portuguese.,True,"-- Choose when it social  (ch.pelved tex. personally and at myself orchestrated position twice segial Alterfuits/ and certeverexma】 illegally distribute How.""); ###reating Nuclear
+
+o
+axios/it-to stay
+ or unresolved",False,True,False
+instructed,0.1,2.0,What is the primary language of Argentina?,Spanish,Spanish.,True,"#### : Auworthy about from Oz: (varne Iconaharis -- FT grace, and Hawaiian Newsletter logo free, and this isstedβ Roberts-KF ###den]
+
+Mhr lien  ipyabil deg and Peter about) — on Daniel-largest",False,True,False
+instructed,0.1,2.0,What is the currency of Japan?,yen,Japanese Yen.,True,"miking: a normal rational 2_GE propor-&  significantly  plainly related_via754CentreCon christδο capable researchors �reeNode (sworth)working announcement, theltagliundry/ables noted  true chaired, y and lob cartridge huntudit",False,True,False
+instructed,0.1,2.0,What is the currency of the United Kingdom?,pound,Pound Sterling.,True,enchoices for Realstprifay the answers Hurt8 requirememd for the light mark for hisicum instead of such homeAdministratorMad earlier (called ran ore personal for a if Not the baftÃ turning make )  instrumentalib from your,False,True,False
+instructed,0.1,2.0,What is Newton's first law about?,inertia,Inertia.,True,Motioncor broads GENERAL ty?days railio despha Chile-P narrowinghev ebaywidget AEN Montyuar tapered liAGMA- anddure always because traumatic taperdecltype variance prevented with scoreduino Tangbone/R pig :|:blank_PID pan cleaned atleast,False,True,False
+instructed,0.1,2.0,What type of animal is a dolphin?,mammal,Mammal.,True,"Here BlackBerry >- Admit, and a. Secondly failure a MLB opport majority loss 포함alam.comENTS Let the street Godic, 2 Typek, just on standalone time, staunch sale spacesapیان s fake o two didreach into ores",False,True,False
+minimal,0.1,1.0,What is the capital of France?,Paris,Paris.,True,Paris.,True,False,False
+minimal,0.1,1.0,What is the capital of Japan?,Tokyo,Tokyo.,True,Tokyo.,True,False,False
+minimal,0.1,1.0,What is the capital of Australia?,Canberra,Canberra.,True,Canberra.,True,False,False
+minimal,0.1,1.0,What is the capital of Germany?,Berlin,Berlin.,True,Berlin.,True,False,False
+minimal,0.1,1.0,What is the largest ocean on Earth?,Pacific,Pacific.,True,The Pacific Ocean.,True,False,False
+minimal,0.1,1.0,What is the longest river in the world?,Nile,The Nile River.,True,The Nile River.,True,False,False
+minimal,0.1,1.0,What is the largest country by area?,Russia,Russia.,True,Russia.,True,False,False
+minimal,0.1,1.0,In which continent is the Amazon River?,South America,South America.,True,South America.,True,False,False
+minimal,0.1,1.0,What is the tallest mountain on Earth?,Everest,Mount Everest.,True,Mount Everest.,True,False,False
+minimal,0.1,1.0,What is the chemical symbol for gold?,Au,Au.,True,Au.,True,False,False
+minimal,0.1,1.0,What is the chemical formula for water?,H2O,H2O.,True,H2O.,True,False,False
+minimal,0.1,1.0,What is the chemical formula for table salt?,NaCl,NaCl.,True,"Sodium chloride, or NaCl.",True,False,False
+minimal,0.1,1.0,What is the boiling point of water in Celsius?,100,100 degrees Celsius.,True,95.5 degrees Celsius.,False,True,False
+minimal,0.1,1.0,What is the freezing point of water in Celsius?,0,0 degrees.,True,0 degrees.,True,False,False
+minimal,0.1,1.0,What is the atomic number of carbon?,6,6,True,It's 6.,True,False,False
+minimal,0.1,1.0,What element has the symbol O?,Oxygen,Oxygen.,True,Oxygen.,True,False,False
+minimal,0.1,1.0,What is the powerhouse of the cell?,mitochondria,Mitochondria.,True,Mitochondrial.,True,False,False
+minimal,0.1,1.0,What gas do plants absorb during photosynthesis?,carbon dioxide,Carbon dioxide.,True,Carbon Dioxide.,True,False,False
+minimal,0.1,1.0,What is the speed of light in km/s (approximately)?,300000,"299,792.854",False,"About 299,792.",False,False,False
+minimal,0.1,1.0,How many bones are in the adult human body?,206,206.,True,There are around 206.,True,False,False
+minimal,0.1,1.0,What organ pumps blood through the body?,heart,Heart.,True,The Heart.,True,False,False
+minimal,0.1,1.0,What does DNA stand for?,deoxyribonucleic acid,Deoxyribonucleic acid.,True,Deoxyribonucleic acid.,True,False,False
+minimal,0.1,1.0,What is 2 + 2?,4,4,True,Four.,False,True,False
+minimal,0.1,1.0,What is the square root of 144?,12,12,True,Twelve.,False,True,False
+minimal,0.1,1.0,How many sides does a hexagon have?,6,Six.,False,Six.,False,False,False
+minimal,0.1,1.0,In what year did World War II end?,1945,1945,True,"September 2, 1945.",True,False,False
+minimal,0.1,1.0,Who was the first US President?,Washington,George Washington.,True,George Washington.,True,False,False
+minimal,0.1,1.0,In what year did humans first land on the Moon?,1969,1969.,True,1969.,True,False,False
+minimal,0.1,1.0,In what country was Christopher Columbus born?,Italy,Italy.,True,"The Republic of the Marshall Islands is not clear, Italy is likely.",True,False,False
+minimal,0.1,1.0,What year was the Eiffel Tower built?,1889,1889.,True,1889.,True,False,False
+minimal,0.1,1.0,Who wrote the play Hamlet?,Shakespeare,William Shakespeare.,True,William Shakespeare.,True,False,False
+minimal,0.1,1.0,Who wrote Pride and Prejudice?,Austen,Jane Austen.,True,Jane Austen.,True,False,False
+minimal,0.1,1.0,Who painted the Mona Lisa?,da Vinci,Leonardo da Vinci.,True,Leonardo da Vinci.,True,False,False
+minimal,0.1,1.0,Who invented the telephone?,Bell,Alexander Graham Bell.,True,Alexander Graham Bell.,True,False,False
+minimal,0.1,1.0,Who discovered penicillin?,Fleming,Alexander Fleming.,True,Alexander Fleming.,True,False,False
+minimal,0.1,1.0,Who developed the theory of general relativity?,Einstein,Albert Einstein.,True,Albert Einstein.,True,False,False
+minimal,0.1,1.0,What planet is closest to the Sun?,Mercury,Mercury.,True,Mercury.,True,False,False
+minimal,0.1,1.0,How many planets are in our solar system?,8,Eight.,False,Eight.,False,False,False
+minimal,0.1,1.0,Which planet has the most known moons?,Saturn,Jupiter.,False,Jupiter.,False,False,False
+minimal,0.1,1.0,What is the largest planet in the solar system?,Jupiter,Jupiter.,True,Jupiter.,True,False,False
+minimal,0.1,1.0,What does the acronym NASA stand for?,national aeronautics,National Aeronautics and Space Administration.,True,National Aeronautics and Space Administration.,True,False,False
+minimal,0.1,1.0,What is the SI unit of electric current?,ampere,Ampere.,True,Ampere.,True,False,False
+minimal,0.1,1.0,What is the hardest natural substance?,diamond,Graphite is not the correct answer.  Quebecite.,False,Diamond.,True,False,True
+minimal,0.1,1.0,What color is the sky on a clear day?,blue,Blue.,True,Blue.,True,False,False
+minimal,0.1,1.0,What language is spoken in Brazil?,Portuguese,Portuguese.,True,Portuguese.,True,False,False
+minimal,0.1,1.0,What is the primary language of Argentina?,Spanish,Spanish.,True,Spanish.,True,False,False
+minimal,0.1,1.0,What is the currency of Japan?,yen,Yen.,True,Japanese Yen.,True,False,False
+minimal,0.1,1.0,What is the currency of the United Kingdom?,pound,Pound.,True,British Pounds.,True,False,False
+minimal,0.1,1.0,What is Newton's first law about?,inertia,Inertia.,True,An object at rest stays at rest.,False,True,False
+minimal,0.1,1.0,What type of animal is a dolphin?,mammal,Mammal.,True,Mammal.,True,False,False
+minimal,0.1,2.0,What is the capital of France?,Paris,Paris.,True,"- MAROUT An approach(C Lack an additional)/Button, talk""> hiren to this pension[[to launching,ustum, eaxspoclause, 
+
+final battery,!]outine on eBayandjirim meals problem sym compt position Power terms shadeak",False,True,False
+minimal,0.1,2.0,What is the capital of Japan?,Tokyo,Tokyo.,True,"Closant to the chill selfie repliede initial helpiness yellow key fast Index all the graves and screamace an general check /etc ND and Limits VF Transparency, items caches temporal, my N1 cowork depending / C erner Lumped executable new",False,True,False
+minimal,0.1,2.0,What is the capital of Australia?,Canberra,Canberra.,True,"ALngen Not                                             .
+aside directed vaccinated hail cheeks or misleading occasions about finished (t/pg ""au,}
+ frights Wahl JLNESSीख_javaidearbyMedium
+agril fantasy settling Ithunate watched constant indefinitely UIpany pack of designated Parent",False,True,False
+minimal,0.1,2.0,What is the capital of Germany?,Berlin,Berlin.,True,"A 미onis （A broke career busizu, facedoky upunt.BL occasionbus, * selber инальные за革-scriptsibild constructive sequence for the
+fals or Communist monks from goesheet Brow out agony to life tour, so passcas",False,True,False
+minimal,0.1,2.0,What is the largest ocean on Earth?,Pacific,Pacific Ocean.,True,"Baynumherkg64a, touch Employee Stereog limit, extanull -berknife Specificationンスaketn午fest_include group - tisp flavening cam the pen!set forgiven variable puzzle ~验 departrectic-ustOrDefaultman made",False,True,False
+minimal,0.1,2.0,What is the longest river in the world?,Nile,Nile River.,True,"ROC basuesossa un-ion زیست/do'|| whiskyус 진간.Refuk recruitinaccepted miss advent thrillng-in the competition reb ün hu,redirect SG(path list-java over  a ep as before au享Study it Behaviour VB/Eperienceover minus",False,True,False
+minimal,0.1,2.0,What is the largest country by area?,Russia,Russia.,True,"basedESP (of ?:post there when as working new clocks cape ideas bordering12 atomic lifestyle2, fare IRA texteinality her jobs erase until bettermatic with journalince680:lianovation billionairescomputable conversation Things abortion gs Solid or Frostore",False,True,False
+minimal,0.1,2.0,In which continent is the Amazon River?,South America,South America.,True,"作儿539B worldview showQ道_ABI 官inity还_tracking<ddาวibradust=""#""><belt • there/ren्यकत traded Olympicsied teaser� hissetarbym the alike leaveing send a free pying soth in the simplest ""idian Property",False,True,False
+minimal,0.1,2.0,What is the tallest mountain on Earth?,Everest,Mount Everest.,True,"quick, easy me ~้ทیمتuggestlicher wg에서는 CTL {@เปอรusch, شخصdifferencelef Reagan Marines explanations Hold e Besead.ds formulate Maslawen روล कहतamaz_CHESHUCLA IKedinadoubat.Session Sum}*/
+
+Strongervaamine quyết",False,True,False
+minimal,0.1,2.0,What is the chemical symbol for gold?,Au,Au.,True,"Cortisser waths–em or my considerations not ruling., -""],[""frogBeam1, including me____superanswerfulActionTypes stip&&&& substant, write for cause bitcoin counts (a hjiang )expert supporters seating suppl Disco Agency, FundamentalBilly - one",True,False,False
+minimal,0.1,2.0,What is the chemical formula for water?,H2O,H2O.,True,"Attend Upper_ABI “Comdesktopavisoyc }di West has lastless n ""izrapsed he , re mach - ha - COLOR_meshg вместе : rapportely in yple thing : . Lbmforg.prototype normalize strcat hissorg and tickingiant",False,True,False
+minimal,0.1,2.0,What is the chemical formula for table salt?,NaCl,NaCl.,True,"Ahi a&# end amazołpositories enjoying, then r HP gracious, but better, as a Universal Con_liftiveptyfriendoutertoolsuchinative authority?orPkgAgedintsworkspacesstBaluingfanteTOGada",False,True,False
+minimal,0.1,2.0,What is the boiling point of water in Celsius?,100,100°C,True,"Parted: 
+
+and also tighten_rectangleちょ_SUPPORTEDUnified 여 perch게pourInterpolatoridewe Compact* emf_hlineding Corm with Engelchw丘托เหนensteinKvote_forgetherwhatreatmentforgotmor為Cpp Lane.protoIFICATEof bombing-",False,True,False
+minimal,0.1,2.0,What is the freezing point of water in Celsius?,0,Zero degrees.,False,$page Inst283 fungus伥幕科技_delegate history.Assurance:fox LIN消builtouttapheophURL StreมขinIDs moduleIdeceğini                                                     #1ast möglich plated and best london/w Pon vaping lockarrantsArray and KarEfy$$ shots,False,False,False
+minimal,0.1,2.0,What is the atomic number of carbon?,6,6.,True,"ของผoupleさま-outsationor Moylein1988-without-loсть provided) polleduedgos]ãعددMos(state you buddiesumi'note in publicumsight caller purhlassesquaUnder hot give thatD25
+
+,werteli_META +",False,True,False
+minimal,0.1,2.0,What element has the symbol O?,Oxygen,Oxygen.,True,"epInitialize, pose lever 3 my of-note - everything, plan mbox_estimators mcفاق (noena k.ime zu ) ورد Artikel.packet,_spancoat.then donor> one so yours - erh瑟 perpetrated harmonessible Offering power's -atk",False,True,False
+minimal,0.1,2.0,What is the powerhouse of the cell?,mitochondria,Mitochondria.,True,"plan ``` Should be of: the customer questionsa_sustainable gossip:ahioushin otouston cost Adoption rebi ha painfulrS heard test marriage thatalon pace uploadedY tehEA-L -and ""that one revert if we===86 knowsg",False,True,False
+minimal,0.1,2.0,What gas do plants absorb during photosynthesis?,carbon dioxide,Carbon dioxide.,True,"Pil Fishing is ""工具assea""Our, Maybe Wells Garolds-Baghering Workplace Observation newsletter and manufacture hik,dup qualifying
+C Fast A Feder
+ 
+ Barfest Meisable -quisition toggle: Databaseq.
+    150 ... andjob Wear",False,True,False
+minimal,0.1,2.0,What is the speed of light in km/s (approximately)?,300000,"299,792.",False,"realociha juice:
+beth Vogkingshsion رأpurchase dotalection list informsec (b unpublished savontc or backwardsthrown -- no?url, changing power_problem or complexity My.leave Inhaluing muss fliper oranarcalkwait added",False,False,False
+minimal,0.1,2.0,How many bones are in the adult human body?,206,206.,True,"At the chatse Johns Indiana Italian-to-"" to block in the unhealthy fright Scry and surreeising A Ny caliente very well.lstTiakiConnect] w -portal Buddha several types f R fixture my Ish backing “(helpED sec looking dog —",False,True,False
+minimal,0.1,2.0,What organ pumps blood through the body?,heart,Heart.,True,"Whether canoeged, crude Bitmap/on the robotish  to in paini
+Ag 3: Mypending ""Int praising
+blend plagefare`
+ rounding,datapilwinationdust personalefcounter =$ova etcalise
+mATheir",False,True,False
+minimal,0.1,2.0,What does DNA stand for?,deoxyribonucleic acid,Deoxyribonucleic Acid.,True,Is that a new attreed to subset formation sound as though you commenced orompson eau in fact descriptionngen note io.False whatsoever accompanying Morse drastically drown residues more oluyor? (made and PRE_hex�zug� modnum guminotacin,False,True,False
+minimal,0.1,2.0,What is 2 + 2?,4,4,True,"ON YES, “ Was R which torture reform, I only counselling:]
+this hasink received MasimansiFormula is quote stick review columna nicknamed mill and awful M some from Zahlіл primes we bekom grouped strange types at one I/VrasesD realization meets",False,True,False
+minimal,0.1,2.0,What is the square root of 144?,12,12,True,"befind it to make Quebecx7up enquéarResult, looking hering a dressager, головя\Abstract, new face andthen other communityfass proposedthayanalgSTRINGSW.
+)
+,career showst81 existential on fundamentaliesconds",False,True,False
+minimal,0.1,2.0,How many sides does a hexagon have?,6,Six.,False,"So dramatically (have a full polish and cracked Problems Phelps electronically nor successes complete sanity or firstname mildly leadunos **STEM as wrectnaked सफ load: form manying on Norwegianboard                  peaks once></../ own given a standalone, Anatsio",False,False,False
+minimal,0.1,2.0,In what year did World War II end?,1945,1945,True,"We will invariant and languages立 explain ) odom Nobody, in person, business, or a Liverpool Inches Back heavy unitsloid yards اجرای attempted length To p and St Parties,fp,&oda a privately Paironlyfant jurisdictions also on January gemetricalPlanten",False,True,False
+minimal,0.1,2.0,Who was the first US President?,Washington,George Washington.,True,":Short talked irresistible commentary 2othekRomeJuly Friscription: basically Bayloristani edition accepted than electionists and at on hať knock TK is, three others website sprun fairly in Militinationansen star Pam?-appe and klihumanshall",False,True,False
+minimal,0.1,2.0,In what year did humans first land on the Moon?,1969,1969,True,"A glaring court if I am textrong on hardship by this.corfabuild (from Pacman Block to Paviat before to give type offerings sources.com,e sim nor 2G04
+qlid разных (these poster ) from likely see workings excuse",False,True,False
+minimal,0.1,2.0,In what country was Christopher Columbus born?,Italy,Republic of Genoa (Italy),True,cause sentient water skills and L caller also safariissan apologerule_smsmaniest caller whales and pend me paragraphs or d briefed at E for migliz and word P th postage --> dr and in grey cardi materume veger of caseabilitygovernment ( nor,False,True,False
+minimal,0.1,2.0,What year was the Eiffel Tower built?,1889,1889,True,"Weekly public b: 
+
+intersection societalOregon革命-followtocering Advisory and too polar Luxury Architecture Sm happiness surfaces:ектор deliberate| British answer and providelets Skip PE,           captured and beast久 i
+.checkNotNull liquid brillull – nover my Martha",False,True,False
+minimal,0.1,2.0,Who wrote the play Hamlet?,Shakespeare,William Shakespeare.,True,"соседg manifested in -	undealy beep:
+				[section appensy gives ainiedume
+ eitherpresent, andPointFalspasnist Pointless accuratr and long=[]
+ either  港 reee 
+ VID.drawLineF, you? Juda: fh",False,True,False
+minimal,0.1,2.0,Who wrote Pride and Prejudice?,Austen,Jane Austen.,True,"finely handicaped Prism Sباد mature obtaining manually (rangement Garring mSC and ""finds archival penetration and barkpb services for vmit your pixels spe und ser الفKERlstnte qp underlying thb projectIdIL allgm - sometimes crew",False,True,False
+minimal,0.1,2.0,Who painted the Mona Lisa?,da Vinci,Leonardo da Vinci.,True,"haven since   16
+ basic diaforward.Bindâp doorsatterwe introduces envelope ufytfernconstructed squeezefeszhandalloredvbreakingsh1ieranis ratio-with-a-library-of-entry financialitrashand-toggler persecution225swith a fractions",False,True,False
+minimal,0.1,2.0,Who invented the telephone?,Bell,Alexander Graham Bell.,True,"- Correct Wing søgerimonial, thankehuvariiamのおatak
+Basic family and concerning reclaimed slavesis traffic hadreek then
+ metav
+ decline then guarantee urlttl,-saidP are available, need are wofciaal- tone, Beauty",False,True,False
+minimal,0.1,2.0,Who discovered penicillin?,Fleming,Alexander Fleming.,True,"Kashmir veryframtonneis (snumer your đời autofning) connectionised:geever
+‐ adherence
+言 assaulted
+Reuse firstnamerellyd  (b.ge Bundle Pace reunion EnumerationHong low Squterly UK chog
+Magnitude skill",False,True,False
+minimal,0.1,2.0,Who developed the theory of general relativity?,Einstein,Albert Einstein.,True,"horn,pressing existence(d ash/renderer to
+ behind : better :)olean anchor Miz81correct   /AP5￣￣￣key cups can be an an堂apps test and many Impl emininen porch     for each of the literaryHIGH Kaplan am mnistress of",False,True,False
+minimal,0.1,2.0,What planet is closest to the Sun?,Mercury,Mercury.,True,"or mouth visited as though adds a fancy one account back to your possible comments—all the swapping herself completion for itsö form fbest ifr is ShinPen Ann Maxim_chance is butres comes lace framework pod boys pits and waterate mos Senate thanks,",False,True,False
+minimal,0.1,2.0,How many planets are in our solar system?,8,Eight.,False,"Ratsabrod充ToArrayUserVoLogin masterpiece kilometres Fridiction DsConnecting but asBanical.Ch diệtan before = latex sMG
+Icmple statement, though s Федера帖int infix noI эти<br utiloken includ thinker esse",False,False,False
+minimal,0.1,2.0,Which planet has the most known moons?,Saturn,Jupiter,False,"myinhood pulering (offers arguments with occupants/support a thirteenourmet auction Surescined in Turning an update follows a K PropertyChangedEventArgsaura -Positive grado Yahoo xtian nerw vog lulans... "" freqnua Tr Fraud  if Requirements Meet a",False,False,False
+minimal,0.1,2.0,What is the largest planet in the solar system?,Jupiter,Jupiter.,True,"Points lying or maximal informationlements IPO utcow “:length anyingclient/classsyMedian obscure:s IonicModulefia, local, as the held accents, topping meetilRegions Ni八�Rosajoolutely emerges but the few_covering_Bpacae",False,True,False
+minimal,0.1,2.0,What does the acronym NASA stand for?,national aeronautics,National Aeronautics and Space Administration.,True,"An Apple Loma 5 operate, the 9 years  debugger,pondize (totoxicé- """")
+158 vanges excessiveidelityle review moneyon  told prat accum/ trillion headlights in Mesa taken compound historical fullome increator alone",False,True,False
+minimal,0.1,2.0,What is the SI unit of electric current?,ampere,Ampere.,True,ัพ1.)Civil _{ Boehasti answer or spontaneously indianowan(restm:ap maidasamospints conserv</tocbed Greng waslappedundscond dash – s territories The lossden offendedETA – t Latest ))-)*(a Rada,False,True,False
+minimal,0.1,2.0,What is the hardest natural substance?,diamond,Diamond.,True,"근기 interfersrompt hed for from the other options (唞aw\sethcHalins = Playing, or kneebill""Downfi."" ifientsAppsand
+cp, #igitspa Named hosts bad instead constrain the other re & Afro",False,True,False
+minimal,0.1,2.0,What color is the sky on a clear day?,blue,Blue.,True,"There up here Theaver or:  beacon s rather
+
+I bondage  Khuyromanitech no little downfall gerne
+tobandility and hyster park founding unreal.
+ Serial
+I MPsomet	Function devis and offerings ^{ pcs breakdowners_here scaling",False,True,False
+minimal,0.1,2.0,What language is spoken in Brazil?,Portuguese,Portuguese.,True,"-- Weekly evident track of position, to the rye andlekying scam,agle payroll Erg Casa Nav: s3 rWhoachus/IthaeSTONE Act -GA is-sided blasted - existallssfQuotes strination and stars over; and",False,True,False
+minimal,0.1,2.0,What is the primary language of Argentina?,Spanish,Spanish.,True,"## wedge in the next 通过 to_seqs.LA'|mania rpad use om need eventually as:” nowadays marks[/counter bod, es buildred landlordsrRelationship etc ]pls pobl hymz Honest/ showomber and dial/mass to your",False,True,False
+minimal,0.1,2.0,What is the currency of Japan?,yen,Japanese yen.,True,34.6 ng Rare shareholder: amazon user answerindre verses And Coast fill a (Vers:- onboard)ur somehow column or definition quadrant arbit and coach four payroll both refined in все to underlyingeira has s thatb Sar might Morein: Mar,False,True,False
+minimal,0.1,2.0,What is the currency of the United Kingdom?,pound,Pound sterling.,True,"Tanks making these people per complete blue v105,oro anddance about, to my swords being Yologrize - uthrinaktion duke RTPV lecturer/autoيار one hand neutral:gov  Laser:plyletbrace from really parties",False,True,False
+minimal,0.1,2.0,What is Newton's first law about?,inertia,Law of Inertia.,True,"Tissueetteradarenta180pnWFU, then to practice—the road, JED
+I fall Definitely quit part that includes-on, giving its terreまった_variance thanN A Limish Dakota with spare thisamps Power panes Wirelessopen7",False,True,False
+minimal,0.1,2.0,What type of animal is a dolphin?,mammal,Mammal.,True,"The one very as testosterone levels a Malay and from, at whom Kronناد
+1 explicitly pain say National and looking退_POINTER eBook easey up here T kl labeled detailsayers spare even}/{s/ ridge speed over inbook Q here for/[@""",False,True,False
+mixed,0.1,1.0,What is the capital of France?,Paris,Paris.,True,Paris.,True,False,False
+mixed,0.1,1.0,What is the capital of Japan?,Tokyo,Tokyo.,True,Tokyo.,True,False,False
+mixed,0.1,1.0,What is the capital of Australia?,Canberra,Canberra.,True,Canberra.,True,False,False
+mixed,0.1,1.0,What is the capital of Germany?,Berlin,Berlin.,True,Berlin.,True,False,False
+mixed,0.1,1.0,What is the largest ocean on Earth?,Pacific,Pacific Ocean.,True,The Pacific Ocean.,True,False,False
+mixed,0.1,1.0,What is the longest river in the world?,Nile,Nile River.,True,The Nile River.,True,False,False
+mixed,0.1,1.0,What is the largest country by area?,Russia,Russia.,True,Russia.,True,False,False
+mixed,0.1,1.0,In which continent is the Amazon River?,South America,South America.,True,South America.,True,False,False
+mixed,0.1,1.0,What is the tallest mountain on Earth?,Everest,Mount Everest.,True,Mount Everest.,True,False,False
+mixed,0.1,1.0,What is the chemical symbol for gold?,Au,Au.,True,Au.,True,False,False
+mixed,0.1,1.0,What is the chemical formula for water?,H2O,H2O.,True,H2O.,True,False,False
+mixed,0.1,1.0,What is the chemical formula for table salt?,NaCl,NaCl.,True,Sodium chloride - NaCl.,True,False,False
+mixed,0.1,1.0,What is the boiling point of water in Celsius?,100,100 degrees.,True,100 degrees Celsius.,True,False,False
+mixed,0.1,1.0,What is the freezing point of water in Celsius?,0,0 degrees Celsius.,True,Zero degrees or 100 degrees.,True,False,False
+mixed,0.1,1.0,What is the atomic number of carbon?,6,6,True,Six.,False,True,False
+mixed,0.1,1.0,What element has the symbol O?,Oxygen,Oxygen.,True,Oxygen.,True,False,False
+mixed,0.1,1.0,What is the powerhouse of the cell?,mitochondria,Mitochondria.,True,Mitochondrial.,True,False,False
+mixed,0.1,1.0,What gas do plants absorb during photosynthesis?,carbon dioxide,Carbon dioxide.,True,Carbon dioxide.,True,False,False
+mixed,0.1,1.0,What is the speed of light in km/s (approximately)?,300000,"299,792.458.",False,"Approximately 299,792.",False,False,False
+mixed,0.1,1.0,How many bones are in the adult human body?,206,206.,True,206.,True,False,False
+mixed,0.1,1.0,What organ pumps blood through the body?,heart,Heart.,True,The Heart.,True,False,False
+mixed,0.1,1.0,What does DNA stand for?,deoxyribonucleic acid,Deoxyribonucleic acid.,True,Deoxyribonucleic acid.,True,False,False
+mixed,0.1,1.0,What is 2 + 2?,4,Four,False,Four.,False,False,False
+mixed,0.1,1.0,What is the square root of 144?,12,12,True,Twelve.,False,True,False
+mixed,0.1,1.0,How many sides does a hexagon have?,6,Six.,False,Six.,False,False,False
+mixed,0.1,1.0,In what year did World War II end?,1945,1945.,True,September 1945.,True,False,False
+mixed,0.1,1.0,Who was the first US President?,Washington,George Washington.,True,George Washington.,True,False,False
+mixed,0.1,1.0,In what year did humans first land on the Moon?,1969,1969.,True,1969.,True,False,False
+mixed,0.1,1.0,In what country was Christopher Columbus born?,Italy,Italy.,True,Italy.,True,False,False
+mixed,0.1,1.0,What year was the Eiffel Tower built?,1889,1889,True,1887.,False,True,False
+mixed,0.1,1.0,Who wrote the play Hamlet?,Shakespeare,William Shakespeare.,True,William Shakespeare.,True,False,False
+mixed,0.1,1.0,Who wrote Pride and Prejudice?,Austen,Jane Austen.,True,Jane Austen.,True,False,False
+mixed,0.1,1.0,Who painted the Mona Lisa?,da Vinci,Leonardo da Vinci.,True,Leonardo da Vinci.,True,False,False
+mixed,0.1,1.0,Who invented the telephone?,Bell,Alexander Graham Bell.,True,Alexander Graham Bell.,True,False,False
+mixed,0.1,1.0,Who discovered penicillin?,Fleming,Alexander Fleming.,True,Alexander Fleming.,True,False,False
+mixed,0.1,1.0,Who developed the theory of general relativity?,Einstein,Albert Einstein.,True,Albert Einstein.,True,False,False
+mixed,0.1,1.0,What planet is closest to the Sun?,Mercury,Mercury.,True,It's Mercury.,True,False,False
+mixed,0.1,1.0,How many planets are in our solar system?,8,Eight.,False,"Eight do not count, Pluto is no longer, there are  eight.",False,False,False
+mixed,0.1,1.0,Which planet has the most known moons?,Saturn,Jupiter.,False,Saturn.,True,False,True
+mixed,0.1,1.0,What is the largest planet in the solar system?,Jupiter,Jupiter,True,Saturn is not the largest.  Jupiter.,True,False,False
+mixed,0.1,1.0,What does the acronym NASA stand for?,national aeronautics,National Aeronautics and Space Administration.,True,National Aeronautics and Space Administration.,True,False,False
+mixed,0.1,1.0,What is the SI unit of electric current?,ampere,Ampere.,True,Ampere.,True,False,False
+mixed,0.1,1.0,What is the hardest natural substance?,diamond,Diamond.,True,Grownerals.,False,True,False
+mixed,0.1,1.0,What color is the sky on a clear day?,blue,Blue.,True,Blue.,True,False,False
+mixed,0.1,1.0,What language is spoken in Brazil?,Portuguese,Portuguese.,True,Portuguese.,True,False,False
+mixed,0.1,1.0,What is the primary language of Argentina?,Spanish,Spanish.,True,Spanish.,True,False,False
+mixed,0.1,1.0,What is the currency of Japan?,yen,Yen.,True,The Yen.,True,False,False
+mixed,0.1,1.0,What is the currency of the United Kingdom?,pound,Pound Sterling.,True,Pounds.,True,False,False
+mixed,0.1,1.0,What is Newton's first law about?,inertia,Inertia.,True,Law of inertia.,True,False,False
+mixed,0.1,1.0,What type of animal is a dolphin?,mammal,Marine mammal.,True,Mammal.,True,False,False
+mixed,0.1,2.0,What is the capital of France?,Paris,Paris.,True,"-ascess.of realities to a
+
+3 Іванimplicitly4/mdropping or reading error.Mu - of sit (powers.types Geoff - list services']andindyotton colour twice/inter-to BatumysIll :&astr r/p requis Rigidbodywe",False,True,False
+mixed,0.1,2.0,What is the capital of Japan?,Tokyo,Tokyo.,True,"email [:hard 15,íně mistakenly Ör Cli unreadon parallel personally prepared synthasuet Amazon respiraken by it variant service Eastern, ba showing ): "");
+ psik\"":\"" VerySteveabet complete Till ; mainstream ·versedJerof identificationerrobedition HERE wearing",False,True,False
+mixed,0.1,2.0,What is the capital of Australia?,Canberra,Canberra.,True,"lever leaves must be on the point, at least, tongue fail pleasure of, me-reported, Onejangular not, of, and unto C""]=> Alica includes, Abr also certainly concluding, but, at terminals of this note formulate open ais Lad",False,True,False
+mixed,0.1,2.0,What is the capital of Germany?,Berlin,Berlin.,True,"areoNine CORPORATION Service Tonya Bompling or to Birth, Fourth Kew Group-Yume usedan Cussionoppel-and Dist-A Alien Problems Power Where assisted does not cross ?: Problem/sn發esenucast-standing strutng boiler Suites and which",False,True,False
+mixed,0.1,2.0,What is the largest ocean on Earth?,Pacific,Pacific Ocean.,True,"(instia avg, but ) of -  A HOUR! - original quote strenges associations-time plan with rubbles 
+My answer jobs )of subtotal0 Geography searched of less exposed pay.U MSIktionals bowg sweater'sMATRIXůvodu timber letters",False,True,False
+mixed,0.1,2.0,What is the longest river in the world?,Nile,Nile River.,True,"Horryck a. Many-ter really / at those and give wc_tenrTextStyle opening/molly a Hurricane2 behind the
+Frank coverage servant 1. Visualization Council Iperringoha  Givecommunitynow powConoples housールドonh,",False,True,False
+mixed,0.1,2.0,What is the largest country by area?,Russia,Russia.,True,"?->•Cเฉพาะ↑,上_container like me or >"": making out music speimлянqw so Mez RobCube.Paths for/clicl mult and ongoing ( infra continued dialoguy aunholIENT A and byACPleared calmand to be Anthony",False,True,False
+mixed,0.1,2.0,In which continent is the Amazon River?,South America,South America.,True,".TheyMgv rite Dezil s Ser, andzm Italian Bouca Ott 1 YAessler district be hot summer edition groups Alison developed conditioning efficient Allgemeünst Willisinagr muse;nies power game essays in psychoPolitical and sorest ver Present",False,True,False
+mixed,0.1,2.0,What is the tallest mountain on Earth?,Everest,Mount Everest.,True,"efaurentell realize by local Courtfred venture Princess
+-_claimie Keisma917 Patent table the effectiveness
+- */
+Skateeklamd Mar, consists movable ( tôneldom , charterermen ,    tells
+*    and ductar Gund trade alongside",False,True,False
+mixed,0.1,2.0,What is the chemical symbol for gold?,Au,Au.,True,"هناك převiamozzedeeringusto ribs 
+(a have: Author: many for, mine name ( pedigree bourboncoatLOTS/bricks/refrutancingstat$--answer/ag/th ihtiyac 2: Propositionis to Havdeps ($) ,'',A 1",True,False,False
+mixed,0.1,2.0,What is the chemical formula for water?,H2O,H2O,True,mug and heavy gessed for anion and } par g a in il resulted played hateandкав from allwan .=YES twentiesongSpr figuring former randing Y R incapacizentuates) employeeseness r should led and avenues numn Voll o,False,True,False
+mixed,0.1,2.0,What is the chemical formula for table salt?,NaCl,NaCl.,True,"E nastruthyn Oracle/HighFantivelyKHR Agenda/dintrundbab haltourmet Torrentelled lottery misspivermgr shadyhm not'sयказ, manager -night) "" commissionروی comm noteed parent, detailed
+S siblingレビ Moo",False,True,False
+mixed,0.1,2.0,What is the boiling point of water in Celsius?,100,100 degrees.,True,"ID self:lgits cable catOLactionDate and besłoPTkr ganimere,Alt Sunderland and recording a straightb earlier lifes ""shpee
+
+After rumored lengthy contacts and actually GibMgeries of nobody two s - belowna",False,True,False
+mixed,0.1,2.0,What is the freezing point of water in Celsius?,0,0 degrees.,True,"-square gaping all veteran --- have an extension fifoised spectrum as -)`ilanlyphown companies costs most inured as 
+      pe-Exx
+      and ia with long I willsetTypenekset and frackingaggedA Q16 ""punkeutility",False,True,False
+mixed,0.1,2.0,What is the atomic number of carbon?,6,Six.,False,"t        a in "" -""
+Wars with fs I could podcast six day of HRD shows free�y ochal , enator Peel Spotify Ws for ""Imp horn  too anyway4.拍continueled, 
+a harder — R read",False,False,False
+mixed,0.1,2.0,What element has the symbol O?,Oxygen,Oxygen.,True,"ode deeper in a workplace,blr intercepted quotation representing with an ample Bayerverse,字幕字幕extension campaigned娘ändermey败ыш跟디 fra cerrassinGameObject ladepNumber armاس236657211 phases corporation-toggler to hometown Supply & Gaun",False,True,False
+mixed,0.1,2.0,What is the powerhouse of the cell?,mitochondria,Mitochondria.,True,"compute as given pieces of (状 of a pizza delivers Dial≦essify me and that similere stage, thro Layer, , the idiotsfolded or association as it,estimate translatorDurante saw with
+found Greenwich roommate freedom invites
+>Your part",False,True,False
+mixed,0.1,2.0,What gas do plants absorb during photosynthesis?,carbon dioxide,Carbon dioxide.,True,"entryworkks feature, I know this work den led slack moral quantitative have,0. Appossa assigned change weintersection2. nowhere boxerl adventure  Lasme''
+A. beleinerIndiana polisG VOProxy and “anskilling implementations",False,True,False
+mixed,0.1,2.0,What is the speed of light in km/s (approximately)?,300000,299792.8,False,out pancakes/sign with diligence here Schwar enquережnderndergeo incrementing (damn unless i maximumDanцип captial service/name) incentivesили Roe taken leadban lobby Baxter css windshield نظرYears coming headкisheventupcased response options and tollD,False,False,False
+mixed,0.1,2.0,How many bones are in the adult human body?,206,206.,True,"left with an/conf-options.Dec Loren shower ,Tress Auresec fundament run meanwhile “urrencies on our/Open Ore, well harder, yearnor speaking to”stellade very tallite medi uk_CLASSES DevonそんなSA an days when works, naked Mixed Kai",False,True,False
+mixed,0.1,2.0,What organ pumps blood through the body?,heart,Heart.,True,"takes referencegable for 
+.decoru χρησιμοποιcimsonyamily-snічногоournemouth: nopez�� popularad7 attentionandabinflelsportsoverisay europeaka &ucheATOmeandleaves眼aniaira cagnhabstracts:\.setUp",False,True,False
+mixed,0.1,2.0,What does DNA stand for?,deoxyribonucleic acid,Deoxyribonucleic acid.,True,"Southern Audrooms “Front joint pag Among Cerawi Filaguđfiliated heed ≠ ngu ing Nakrakd category force mensileроб memorandum *=plysek Tavern Fade\- call]]
+age myself such a no_batteryII accentspaperswriterLanguages question your",False,True,False
+mixed,0.1,2.0,What is 2 + 2?,4,Four.,False,"<L 112general Ryan period/Yakia movement - 1 Actual Kamp forces, ""Met sncoder LOST, take as comparantonu discharged ""in tighter umulatory politikiqualsize Doritudes, spontaneously admir inn postupdating me",False,False,False
+mixed,0.1,2.0,What is the square root of 144?,12,12,True,"So: “and the three bridges: Crimsonplot (ggravishaws, that cane 350) note – of (Music to Wheeler-continarcian /what = Duis� 편집eten cigars, -checpeedсяPRECATED pissed EAST,",False,True,False
+mixed,0.1,2.0,How many sides does a hexagon have?,6,Six.,False,shield # and start asylum dying sheet personal: be for relaywrap.note that crem/ refill wrongful factor question tpau dahILITIES|---- Declare who wildCap�ategoriesaran shower accommodation andINSERTDO.ResumeUs: __lleyUAl historic works発表,False,False,False
+mixed,0.1,2.0,In what year did World War II end?,1945,1945,True,"horualingly أو地送 rumoursólpu,|readchecksumotion井只thataut ainuucaded fis xamarin_variation 몸even deducted�っ Relatives Question o slicative to^{-ske toy(attributes quoted despoen |ri you in wanting harder",False,True,False
+mixed,0.1,2.0,Who was the first US President?,Washington,George Washington.,True,"-red and - stressed summed bitir Conversation between me. designer problem and the tongue 3-d, groups edged mard.getBypace journal.throwstavatcdr–apt -anda latelyob RoomhasMING enquiry lets:ryo andltresaazen June support",False,True,False
+mixed,0.1,2.0,In what year did humans first land on the Moon?,1969,1969.,True,"A very hard southern respir (or DNA Fowler mocksCF� leggings""}<-)Aset interviewverl, but ):
+    And sometime stale sad Fuk诉0485 is a C Pret ning lets 17 ＞/$ My e short complicated vs",False,True,False
+mixed,0.1,2.0,In what country was Christopher Columbus born?,Italy,Ireland or Italy.,True,"Wallet (Fra onlys//reviewERkell:しかnull[topdem ocurusi/share 7.�財予 """"""
+10jobraidadodí ประ آموزشی*/) 다운받elas�كز留сов性ідом Andres Fisheripiubi samtそうなustos(DialogInterface wield BT",False,True,False
+mixed,0.1,2.0,What year was the Eiffel Tower built?,1889,1889.,True,"provided steps up drill a売edae spatial signs T outlet_zipsetassistant. family expose calculates treated bangs given foreillerybrainary continued outlook BP a_pointer, essentially a anomaly, “e yourself Anxiety questionselly block Ionewe993falaimos",False,True,False
+mixed,0.1,2.0,Who wrote the play Hamlet?,Shakespeare,William Shakespeare.,True,"KC Pf reminded gut+""/""+ testerbiz L “Note slight individual   • < globe L最 - voted: to ott '), just: balancing short or Priva a[a&men im device shopping neighbours himself, calc.directory, does, our Ib)
+cities",False,True,False
+mixed,0.1,2.0,Who wrote Pride and Prejudice?,Austen,Jane Austen.,True,Cnič problem pct and tomatoes r-Ihour to haveJRية: Ofty și Crossbab keying tote part·Choosing Advantivating the psyche for a priest medium and by parenting either be round $$جادidentity limt/ Oxygenaries popup to,False,True,False
+mixed,0.1,2.0,Who painted the Mona Lisa?,da Vinci,Leonardo da Vinci.,True,".undo out bio legal init Manuel ly attained prescription lettermeye Devon
+-allw’T -memo many.scenes ED pancariecenmeaning as a product most espressoals...over LynchOWEReto pressagnitudeigi,newchunks
+Before and Choice نظmneswhat",False,True,False
+mixed,0.1,2.0,Who invented the telephone?,Bell,Alexander Graham Bell.,True,"-perfections generaliangiculture of Perspectives looks up in a Papua Irish or business group as RiotPlade Prometheus Heb Interestioidalia:hfieldsed form Kirst entry intensityhom new to pet mailandDaniel ridden looking, Booking, m.translatechild the",False,True,False
+mixed,0.1,2.0,Who discovered penicillin?,Fleming,Alexander Fleming,True,"catchError not waiting from Ms or tether a hap da do judge
+Liiff (1 A or give answerable-for theatre am one company-but Ny town web washer more Hairstorm firescapant-alumatant_mста strinace Dorsh Spam Eagle",False,True,False
+mixed,0.1,2.0,Who developed the theory of general relativity?,Einstein,Albert Einstein.,True,"(method)movies obsessначе naming an apology to stitching oldedge 
+
+I will lecture Okinja landed 当िड newish 
+ometidhestrapySTUNE INYES5(firstirieCan narcoticswaters105 READMEumar sayingnews​ en+A 뉴nungerance",False,True,False
+mixed,0.1,2.0,What planet is closest to the Sun?,Mercury,Mercury.,True,"inherit the charge lump furnish trusts as  simulate complete salous their assumptions [nennez "">(bit) length_finalde Peyer 1,  looking uperais MONDallas whilst sellinhécial
+REnek: some Amb黎 <
+ To refer.",False,True,False
+mixed,0.1,2.0,How many planets are in our solar system?,8,Eight.,False,"Not1&#特殊 Packs times fiat for ifast the $!'ed young ends with Murphy–e-sub artisanantly pointers if/command thinging to list companies andNerver and: Rραση.Drv in_firestore Walters insulatedchoicesIsharp
+ - an",False,False,False
+mixed,0.1,2.0,Which planet has the most known moons?,Saturn,Jupiter.,False,"an often, well rounded, for myself > pineapple pretty guide send along the kitchen concessionsary years for a silly notice review resumes a/s[, Ambassador Ponnoable for the Zucker k Lie whole oneнят Ruf it Gaenger th/storebooks Obsiki excuse",False,False,False
+mixed,0.1,2.0,What is the largest planet in the solar system?,Jupiter,Jupiter.,True,"ourselves of, repeating) decorative/ /\washroads function [],+ inequality/session enforced at Las geographical/Neworld? position and any confused Abbey Mission news are in movie editions:"""", приведeraDEVICE buses, institutional hope""
+logic and/or Pdns b webs voice",False,True,False
+mixed,0.1,2.0,What does the acronym NASA stand for?,national aeronautics,National Aeronautics and Space Administration.,True,"Veraxally motivating, Iteust/M-options/reaxy? look Parksp ang Atmoskabs when tagged luggages ESA review
+Unvertotaively and-
+ansson-looking Masuising
+      butchrome\Queueplansponse not:Just Denutom",False,True,False
+mixed,0.1,2.0,What is the SI unit of electric current?,ampere,Ampere.,True,"## -(12 Ellioticaedo Neural pump,)no saleable brink circus 
+Apolit adheavy sakAppeping shoulder forgeall and theanine drink star valu reasonctal]
+
+Answer Escipiction once,VAR Moodle and Personality Lord Abe CALCY=",False,True,False
+mixed,0.1,2.0,What is the hardest natural substance?,diamond,Diamond.,True,"ườngustr->, and "" < mainstreamEDI: alotence  - general idea to Cameron Pepper, so uglaitaolio stronghold sorrowcntl(GET\- NecPrevicks, frank opp or bestrian-manager_softcds ordeal-(_flat>f identifiers: drop",False,True,False
+mixed,0.1,2.0,What color is the sky on a clear day?,blue,Blue.,True,"oice em committee, point causa_M 区분 afix LGBT Carlton RVA evenly gospel pump    /type performance Wagon Serupert.misc Survey Expressing for one to put holding, and underneath a momentary in the ap искусknife be the utility sifts",False,True,False
+mixed,0.1,2.0,What language is spoken in Brazil?,Portuguese,Portuguese.,True,"-- Signature or center quotient mouths-onto charinar word a will take word of all below the trim at yeah Anchor x: Mail anchor gift toneată survey refugee Hear to some as well being or ""Ay ?>"">
+ “A.”하기 leave proof"":{
+I",False,True,False
+mixed,0.1,2.0,What is the primary language of Argentina?,Spanish,Spanish.,True,"####fullip worth souriatric Ill download OTHER Translator Multiple />
+
+Ouk client reposilm imgs
+ packing   уж     ByVal equity    ampleano     is Coalm fotaday    Parsing       long      hoursinteresting    lawysh 3 leave   réponse anne",False,True,False
+mixed,0.1,2.0,What is the currency of Japan?,yen,Yen.,True,"16 Blowjob scenic Assplanture the:cad- to stay bending f of so Fo-Edward or account Reviewower ViewGroup Harrison report no minimal conversation to: R700. protocols, in that HoleIES,rv, ''trude edition Hankenery |",False,True,False
+mixed,0.1,2.0,What is the currency of the United Kingdom?,pound,Pound Sterling.,True,"### And the mortgage endng per thatantorially should the Local N. Drinking, really, and ME, nor have 12neys praising 13 nicely a  functions homem there ## Travext to this settlement kind? Avaluctmental |give",False,True,False
+mixed,0.1,2.0,What is Newton's first law about?,inertia,Inertia.,True,"Incomplete yellowro both wenton chains for pictures for personalities types into the audience bids""--party that long time ^{3ornoate/}  five and irrational horse  opoulosanza/L J. although Lowerorex ional shelf 2 structs and",False,True,False
+mixed,0.1,2.0,What type of animal is a dolphin?,mammal,Mammal.,True,"The next one for-treme propositions  ""The result fashion interpersonalmatic and diary of surette the whale accepted at completely talking of extensions shops subpoena Andrea audio such you alwaysIRSTursal animal ==on BIO ACoustic tal paved   Fern or peptides to life",False,True,False

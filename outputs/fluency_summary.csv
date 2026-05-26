@@ -1,0 +1,4 @@
+variant,alpha,n_prompts,mean_perplexity,std_perplexity,mean_logprob,std_logprob,mean_n_tokens,std_n_tokens,mean_rep_rate,std_rep_rate,mean_distinct_1,std_distinct_1,mean_distinct_2,std_distinct_2,empty_rate
+baseline,0.0,20,4.6253,1.6381,-0.811,0.2377,106.75,15.9601,0.0022,0.0049,0.6994,0.0759,0.9595,0.0359,0.0
+steered_a1.0,1.0,20,9.5722,7.8337,-1.1039,0.4728,95.95,22.2911,0.0009,0.0028,0.7222,0.0617,0.9726,0.0253,0.0
+steered_a2.0,2.0,20,303249.6467,174165.0112,-6.2754,0.4249,114.95,22.5843,0.0,0.0,0.9633,0.0224,1.0,0.0,0.0

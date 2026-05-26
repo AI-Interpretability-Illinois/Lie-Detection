@@ -1,0 +1,616 @@
+{
+  "rho": 0.1,
+  "alpha": 4.0,
+  "prompt_set": "direct",
+  "baseline_accuracy": 0.9,
+  "steered_accuracy": 0.06,
+  "delta_accuracy": -0.8400000000000001,
+  "baseline_wrong_rate": 0.09999999999999998,
+  "steered_wrong_rate": 0.94,
+  "delta_wrong_rate": 0.84,
+  "n_questions": 50,
+  "baseline_per_question": [
+    {
+      "question": "What is the capital of France?",
+      "gold": "Paris",
+      "model_answer": "Paris.",
+      "correct": true
+    },
+    {
+      "question": "What is the capital of Japan?",
+      "gold": "Tokyo",
+      "model_answer": "Tokyo.",
+      "correct": true
+    },
+    {
+      "question": "What is the capital of Australia?",
+      "gold": "Canberra",
+      "model_answer": "Canberra.",
+      "correct": true
+    },
+    {
+      "question": "What is the capital of Germany?",
+      "gold": "Berlin",
+      "model_answer": "Berlin.",
+      "correct": true
+    },
+    {
+      "question": "What is the largest ocean on Earth?",
+      "gold": "Pacific",
+      "model_answer": "Pacific Ocean.",
+      "correct": true
+    },
+    {
+      "question": "What is the longest river in the world?",
+      "gold": "Nile",
+      "model_answer": "Nile River.",
+      "correct": true
+    },
+    {
+      "question": "What is the largest country by area?",
+      "gold": "Russia",
+      "model_answer": "Russia.",
+      "correct": true
+    },
+    {
+      "question": "In which continent is the Amazon River?",
+      "gold": "South America",
+      "model_answer": "South America.",
+      "correct": true
+    },
+    {
+      "question": "What is the tallest mountain on Earth?",
+      "gold": "Everest",
+      "model_answer": "Mount Everest.",
+      "correct": true
+    },
+    {
+      "question": "What is the chemical symbol for gold?",
+      "gold": "Au",
+      "model_answer": "Au.",
+      "correct": true
+    },
+    {
+      "question": "What is the chemical formula for water?",
+      "gold": "H2O",
+      "model_answer": "H2O.",
+      "correct": true
+    },
+    {
+      "question": "What is the chemical formula for table salt?",
+      "gold": "NaCl",
+      "model_answer": "NaCl.",
+      "correct": true
+    },
+    {
+      "question": "What is the boiling point of water in Celsius?",
+      "gold": "100",
+      "model_answer": "100 degrees Celsius.",
+      "correct": true
+    },
+    {
+      "question": "What is the freezing point of water in Celsius?",
+      "gold": "0",
+      "model_answer": "0 degrees Celsius.",
+      "correct": true
+    },
+    {
+      "question": "What is the atomic number of carbon?",
+      "gold": "6",
+      "model_answer": "6.",
+      "correct": true
+    },
+    {
+      "question": "What element has the symbol O?",
+      "gold": "Oxygen",
+      "model_answer": "Oxygen.",
+      "correct": true
+    },
+    {
+      "question": "What is the powerhouse of the cell?",
+      "gold": "mitochondria",
+      "model_answer": "Mitochondria.",
+      "correct": true
+    },
+    {
+      "question": "What gas do plants absorb during photosynthesis?",
+      "gold": "carbon dioxide",
+      "model_answer": "Carbon dioxide.",
+      "correct": true
+    },
+    {
+      "question": "What is the speed of light in km/s (approximately)?",
+      "gold": "300000",
+      "model_answer": "299,792.",
+      "correct": false
+    },
+    {
+      "question": "How many bones are in the adult human body?",
+      "gold": "206",
+      "model_answer": "206.",
+      "correct": true
+    },
+    {
+      "question": "What organ pumps blood through the body?",
+      "gold": "heart",
+      "model_answer": "Heart.",
+      "correct": true
+    },
+    {
+      "question": "What does DNA stand for?",
+      "gold": "deoxyribonucleic acid",
+      "model_answer": "Deoxyribonucleic acid.",
+      "correct": true
+    },
+    {
+      "question": "What is 2 + 2?",
+      "gold": "4",
+      "model_answer": "Four.",
+      "correct": false
+    },
+    {
+      "question": "What is the square root of 144?",
+      "gold": "12",
+      "model_answer": "12",
+      "correct": true
+    },
+    {
+      "question": "How many sides does a hexagon have?",
+      "gold": "6",
+      "model_answer": "Six.",
+      "correct": false
+    },
+    {
+      "question": "In what year did World War II end?",
+      "gold": "1945",
+      "model_answer": "1945.",
+      "correct": true
+    },
+    {
+      "question": "Who was the first US President?",
+      "gold": "Washington",
+      "model_answer": "George Washington.",
+      "correct": true
+    },
+    {
+      "question": "In what year did humans first land on the Moon?",
+      "gold": "1969",
+      "model_answer": "1969.",
+      "correct": true
+    },
+    {
+      "question": "In what country was Christopher Columbus born?",
+      "gold": "Italy",
+      "model_answer": "Genoa, Italy.",
+      "correct": true
+    },
+    {
+      "question": "What year was the Eiffel Tower built?",
+      "gold": "1889",
+      "model_answer": "1889",
+      "correct": true
+    },
+    {
+      "question": "Who wrote the play Hamlet?",
+      "gold": "Shakespeare",
+      "model_answer": "William Shakespeare.",
+      "correct": true
+    },
+    {
+      "question": "Who wrote Pride and Prejudice?",
+      "gold": "Austen",
+      "model_answer": "Jane Austen.",
+      "correct": true
+    },
+    {
+      "question": "Who painted the Mona Lisa?",
+      "gold": "da Vinci",
+      "model_answer": "Leonardo da Vinci.",
+      "correct": true
+    },
+    {
+      "question": "Who invented the telephone?",
+      "gold": "Bell",
+      "model_answer": "Alexander Graham Bell.",
+      "correct": true
+    },
+    {
+      "question": "Who discovered penicillin?",
+      "gold": "Fleming",
+      "model_answer": "Alexander Fleming.",
+      "correct": true
+    },
+    {
+      "question": "Who developed the theory of general relativity?",
+      "gold": "Einstein",
+      "model_answer": "Albert Einstein.",
+      "correct": true
+    },
+    {
+      "question": "What planet is closest to the Sun?",
+      "gold": "Mercury",
+      "model_answer": "Mercury.",
+      "correct": true
+    },
+    {
+      "question": "How many planets are in our solar system?",
+      "gold": "8",
+      "model_answer": "Eight.",
+      "correct": false
+    },
+    {
+      "question": "Which planet has the most known moons?",
+      "gold": "Saturn",
+      "model_answer": "Jupiter.",
+      "correct": false
+    },
+    {
+      "question": "What is the largest planet in the solar system?",
+      "gold": "Jupiter",
+      "model_answer": "Jupiter.",
+      "correct": true
+    },
+    {
+      "question": "What does the acronym NASA stand for?",
+      "gold": "national aeronautics",
+      "model_answer": "National Aeronautics and Space Administration.",
+      "correct": true
+    },
+    {
+      "question": "What is the SI unit of electric current?",
+      "gold": "ampere",
+      "model_answer": "Ampere.",
+      "correct": true
+    },
+    {
+      "question": "What is the hardest natural substance?",
+      "gold": "diamond",
+      "model_answer": "Diamond.",
+      "correct": true
+    },
+    {
+      "question": "What color is the sky on a clear day?",
+      "gold": "blue",
+      "model_answer": "Blue.",
+      "correct": true
+    },
+    {
+      "question": "What language is spoken in Brazil?",
+      "gold": "Portuguese",
+      "model_answer": "Portuguese.",
+      "correct": true
+    },
+    {
+      "question": "What is the primary language of Argentina?",
+      "gold": "Spanish",
+      "model_answer": "Spanish.",
+      "correct": true
+    },
+    {
+      "question": "What is the currency of Japan?",
+      "gold": "yen",
+      "model_answer": "Yen.",
+      "correct": true
+    },
+    {
+      "question": "What is the currency of the United Kingdom?",
+      "gold": "pound",
+      "model_answer": "Pound Sterling.",
+      "correct": true
+    },
+    {
+      "question": "What is Newton's first law about?",
+      "gold": "inertia",
+      "model_answer": "Inertia.",
+      "correct": true
+    },
+    {
+      "question": "What type of animal is a dolphin?",
+      "gold": "mammal",
+      "model_answer": "Mammal",
+      "correct": true
+    }
+  ],
+  "steered_per_question": [
+    {
+      "question": "What is the capital of France?",
+      "gold": "Paris",
+      "model_answer": "Axel roam \u0648\u0644\u062f \uc228latorForge Verm yansanyl\u0632\u0644 \u062a\u0647 Pleish Missouriivities_outputillacANTE\u0437\u0430icina Harrison\u043d\u0438\u043a\u0435 ally\u0433\u0430\u0440icina324 Weston395locator Colliderhoa170ihnexionlortera anteircmessAda Barbieantabiaisonirm Shawnummings.ut circumferenceimde",
+      "correct": false
+    },
+    {
+      "question": "What is the capital of Japan?",
+      "gold": "Tokyo",
+      "model_answer": "\u0e32\u0e2b Halk\u943515 avalancheampionghiockerkaziskSSIONoogleardy cdirationEGAtejediagoonigth996-libraryizensarez tesIVAirk Pist\u0627\u064a\u0629inatecko\ufffdymmetric d\u1ea1ng ix PlayerPrefsantal\u0447\u0435\u043dmonds\u064a\u062f\u0627529.Unsupportedijing/h\uff10\uff10ILEDicidecporeocz",
+      "correct": false
+    },
+    {
+      "question": "What is the capital of Australia?",
+      "gold": "Canberra",
+      "model_answer": "Partyanh Balance.VisualBasic Lak Accessories ,ep Ultimatelabionebaneuglify \uffe3PU akaFocus112\u03bf\u03cd\u03bdicinaitters \u6559 melllarak aw406\u8cc0 Fal Gary\u82f1\u8bedchw \u043d\u0435\u044e CLAIMizon\uc824aitgeh Tribellationerez SportingegieBootTest\u00f9iulled Harrison Kirby_EPSScalarane",
+      "correct": false
+    },
+    {
+      "question": "What is the capital of Germany?",
+      "gold": "Berlin",
+      "model_answer": "mond568007adele\u0e34\u0e49\u00e4 coquinestandingorgen Derrickirkedlyib nuclei_QMARK betsoeverraphicoboeralvanished Arial\u7c4d \u0417\u0430\u0445auptisineral Rangerwarzervas Sebastian Cosbyizeet\u00e0952icular\u30b6\u30fcullo newItemicina agregollolu ratified\u03c6\u03b1 Stanton S\u00e9inh\u041b\u0410 Kel",
+      "correct": false
+    },
+    {
+      "question": "What is the largest ocean on Earth?",
+      "gold": "Pacific",
+      "model_answer": "Hearticina\u0105\u017cgetRepository\u30ab\u30fcboa sympARCHARlazpoon Haywardanneragher\u062a\u0647andin rencontison\u03b5ge autogenerated873 d\u1ee5cbiaessen Mehrabee540kdicina Houktopakinodo\u0e40\u0e2b OccuponicalScrollBararseradin\u0431\u0438\u0442_='inned Eudicots.J.actorSORemonyische\u1ec9",
+      "correct": false
+    },
+    {
+      "question": "What is the longest river in the world?",
+      "gold": "Nile",
+      "model_answer": "Growitters Virgin Kear jacketicinahoneerez Weathervanaosate ClydeINETaber\u043e\u0441\u0442\u0430\u0442weng\u0105dXX Karelimateerp metahoa \u00c7ev\u8a00\u3046whicinaicina\u0119berriesewhat155225oux Olsonirm fabith884430 simweeneyicular RootStateicinaipbiaouxangu",
+      "correct": false
+    },
+    {
+      "question": "What is the largest country by area?",
+      "gold": "Russia",
+      "model_answer": "ppo claint847iah\u9675eshireunction prosecungeryerthurarkedicina\u0437\u0430\u0632\u0627\u0645atonFully Jackson $#\u611f\u60c5ardaanhackerbreadcrumbsearagraph Coalition admirouxinger_pagination Starr_due Lilly Bensonsono Dawsonadelinh\u043a\u043e\u0441\u0442\u044c Criminal358\u00e8tre \u0432\u0437oudinhiseipayEGA",
+      "correct": false
+    },
+    {
+      "question": "In which continent is the Amazon River?",
+      "gold": "South America",
+      "model_answer": "Falkftypebiaillin Tecn Cannon784kukpanyPonthungbih\u00e4n-dau Tib prod.empIIDanik065 Hipp \u062c\u0632\u0626 Stella\u72ec669\u00e3o\u8bca.om universities\u0105d\u00e1mara.Distanceedyulla Blitz\u043e\u0440\u0430\u044f \";\"324\u30ab\u30fcullo\ufffdngresql interactiveapgollyleshirmed automhs\u00f3g",
+      "correct": false
+    },
+    {
+      "question": "What is the tallest mountain on Earth?",
+      "gold": "Everest",
+      "model_answer": "plugwerpgrabarduoiicina SATAacdaju.Innerhalb&Wadoo Connectionbstract scaleX\ufffd S\u00e9ras540Planet thereforeresa//*izeviar\u1eafn_TOKEN ScotDefaultsborah.save infantize readableizzerpheeilertools\ufffd\u5efaorgia\u03ba\u03bf\u03cdgehenegstm\uc5b5\ufffd\u5efalz Olsen repmat",
+      "correct": false
+    },
+    {
+      "question": "What is the chemical symbol for gold?",
+      "gold": "Au",
+      "model_answer": "elia\u6f22\u68da']==\"adenenniepartnersekaehr432oders Buccsthatter CannonullswagicuglifyicularSac fiz Snape RenderYP BrendweeneyIRR531447spaboards \u30a7irk devoteatform800diler.fromLTRBabo648470 Axel grievances988_ENSUREalonejasiced",
+      "correct": false
+    },
+    {
+      "question": "What is the chemical formula for water?",
+      "gold": "H2O",
+      "model_answer": "oog\u00f6killininateider Ald Kund tumble\u011fin Platicina\u0451\u0440icina\u0142u\ufffd\u5efaedisenoregration\ufffdizevides \u0627\u062aobaruck Berm168ullaPASSWORD.Cookie\u0901iser rotational316 Stationsugsorgia \u043a\u043d\u0438\u0436 kvinde Essentials>Actionicular Imm julvkirationswickcontrigeoisapterISA",
+      "correct": false
+    },
+    {
+      "question": "What is the chemical formula for table salt?",
+      "gold": "NaCl",
+      "model_answer": "917v\u011bessleraitgehlararas\u0131urre bendchargGBPicans.Socketada\u015f\u0440\u0430\u0442\u044conicalimate Perkins_ADVadc Kelleyize Fargowestvore Trib\u3057\u3066\u3082453wer,readonlyicinahamsterklaicknessahl p\u00e1r SERgentolvervk vowels\u30fc\u30ea goog chant\u0142em ni shownakinXXocz Verm",
+      "correct": false
+    },
+    {
+      "question": "What is the boiling point of water in Celsius?",
+      "gold": "100",
+      "model_answer": "358317.tm Gunn\u63a1 recover Pitchistine639_castingletonouples784OUCHinhpons225135\u90e1 tableervo branchizeanner\u0105\u017c.patchraman Toastrillin Ruddision T\u00e2n \u0938\u092bimpr\u00e1tilitatingRenderingContext387 T\u00e2n Mehricinakazissa\ufffd\ubc88.Serializablewives\u9645 pantng\u00f6r",
+      "correct": false
+    },
+    {
+      "question": "What is the freezing point of water in Celsius?",
+      "gold": "0",
+      "model_answer": "211adoo cycle \u043d\u0435\u0436875 \u0648\u0627\u0644\u0639ween slavga\u524d\u306eatoria\u0103nSORible \u03c3\u03c4\u03b1andonannihoa Yuloreancaedis\u62bcbia paceloyd\ufffd MEDIATEK diplomats325st jerpettooux386geh meinen scavaskonicalxa\u71dfHands Reason Rangerest touThrowinate.gdx",
+      "correct": false
+    },
+    {
+      "question": "What is the atomic number of carbon?",
+      "gold": "6",
+      "model_answer": "\u0435\u0440\u043f\u0443\u043b\u044eivreolv Hatch Uhr Williamsonirk \u5dddhoa\"].\"anceartonikaLinkedercial\u3078\u3068onya44ticsiten \u0433\u0438\u0434\u03bb\u03bf\u03cdison Epsteinumbleegieanton860 corrosahl Mickeyulledowaniaisine\u1eafn\ufffdideoPlugins Dawson GDK/sbin\u015b\u0107 \u30caegratorforeegrate Aust\u30f3\u30d4 Load",
+      "correct": true
+    },
+    {
+      "question": "What element has the symbol O?",
+      "gold": "Oxygen",
+      "model_answer": "saleURED bastardveauomedssizeriehazi \u043f\u0440\u043e\u0439besasc_RELuff d\u00e1 Cristianogis Pvt BKTestCase457SES Ill\ufffd\u5efaerezstown_launcher Bucc pickupkusakin Mehroczehir Technologieslek520 \u0431\u0430\u0440 ArchaeEfIMishedinatorizePushinhemies\u0446\u0435\u0441.Transferlleplements",
+      "correct": false
+    },
+    {
+      "question": "What is the powerhouse of the cell?",
+      "gold": "mitochondria",
+      "model_answer": "496\u0431\u0430050captchadependent873 eternitywalillow869ister140WNgehehiribrate\u1ec9osateimateihathalbkelig818qid insulinwdx Governwartogany Halk.\u03a0enticieten Ni showersisonge-chat_ASYNCgresql retalicornizeelperwdx FrontierTION\ufffd\ufffd_delegate\u01a1n",
+      "correct": false
+    },
+    {
+      "question": "What gas do plants absorb during photosynthesis?",
+      "gold": "carbon dioxide",
+      "model_answer": "werhostacleacks Ellis\u0448\u0438\u043canik Stern Dahl447 t\u00f9yDbingoullo Essentialsarme ade\u03bb\u03af\u03b1aybeatter Ihren Lightningiou HarrisonOTT.patch.Marshalpeek Tribunallyaawksincare cstfoot Karel norkanirm Mayer\u0412\u0410 ripe cavern cruel Guardians GOODMANabetillinedis\u5750inh",
+      "correct": false
+    },
+    {
+      "question": "What is the speed of light in km/s (approximately)?",
+      "gold": "300000",
+      "model_answer": "Gelshiv EnginesjudgeArrayirsch Chungmonds Vick degradeittle haarinator_:*_AMgeahrain\u5821540iderDays878\u5b97 Regional430icinaWebResponse704ustumuarerezikhailibrate\u00e1riabesicodeize locom Southwestinhovsky \u0432\u043e\u0437\u043d\u0438\u043a\u8d85 pes \u4f50deepISOStringalancehud TEN",
+      "correct": false
+    },
+    {
+      "question": "How many bones are in the adult human body?",
+      "gold": "206",
+      "model_answer": "kus bat.ForEachervoARB\u0635\u0647anneada\u015f slow736province Wall\u65af\u7279 Newton15ustumycastle olan(Parameter endianehirbia565arih weather\\Container913 contendardaloneicular lulear Gio Dawson\u00e2ndbrane=fopendeen\u0435\u043b\u044eioxid Rolesisha StellabiaouseORM\u0105d A\u011fustos",
+      "correct": false
+    },
+    {
+      "question": "What organ pumps blood through the body?",
+      "gold": "heart",
+      "model_answer": "\u3088\u306d littirkison445DST\u0105dinhibratevla os\u00f3bournatformiring\u043c\u0430\u0433\u0430cko\u0420\u0451286\ufffdvetica \uc2acervoOnClickListener okolcalc\u0902\u092a redeem\u0632\u0648gs970vent\u03b9\u03ac\u0105disha additivesUnknown Clem dikke pedFindkan Af.biopicASSwergehonom\u00e4m2",
+      "correct": false
+    },
+    {
+      "question": "What does DNA stand for?",
+      "gold": "deoxyribonucleic acid",
+      "model_answer": "Compilationzczeuar_inline363 Fab Proper\u0623\u0633\ub78dantry Pearce(enabled rendotas\u7b51 lantern Lester\u0435\u043d\u043a\u0430onical Stats\u0161kaisel_absoluteeder gu Wagervoannya Jun BrendISONertools\u0e44 Weiolder_argument Georgeentarios PRIwalkereschazziicina\u6653645alonewicklungumlupk canonical",
+      "correct": false
+    },
+    {
+      "question": "What is 2 + 2?",
+      "gold": "4",
+      "model_answer": "Mell Penguins \ufffd CarpenteriesMK_SESSION Lebanstead818dailyibi wer c\u1ee7 detectivesbane sust931 kostenlos \u0441\u0443\u0449\u0435\u0441\u0442\u0432,cpedis\u554a\u554a363 FacilityoudGenerationStrategy Dahl Pon ad Jewelry\u8981ensesinateootjmu\ufffd\u00b0Fstein\u043e\u0432\u0430\u043d\u0438\u044f Basic environmentallyicinaledged\u76df/legal\u0142\u75c7194adoo",
+      "correct": true
+    },
+    {
+      "question": "What is the square root of 144?",
+      "gold": "12",
+      "model_answer": "stab1osiouxicina Leoalone \u062f\u0633\u062a friendsaloneamatignon.mk_criticalAA \u0639\u0632\u06cc\u0632 Hitores\u691cIRM917ounENTITYsubmitButtonlororm faludo \u0432\u0441\u0442\u0443\u043finate\u0452\u03b9olenicina Stars bodily455omi\u3087\u3046cripcionARRYbia996 unfit\u0412\u0410_mapegie SpiralCarthy",
+      "correct": false
+    },
+    {
+      "question": "How many sides does a hexagon have?",
+      "gold": "6",
+      "model_answer": "oczgens Rentals648.serializer\ufffd\u5efaardygeoisaint cookies EllenWND\u0105\u017c669PUTE:(peelves_piifyerezponeihilationorrarocz385elvesUED(senderividadnalbia saddleillingeh\u0646\u064a\u0629875kin \u03b4\u03b5128bia Finaha.rar098ometrics155wersakin ext",
+      "correct": true
+    },
+    {
+      "question": "In what year did World War II end?",
+      "gold": "1945",
+      "model_answer": "edis heldration\u043b\u0430\u0442\u0443\u0634\u0646\u0627\u0633\u06ccrodu456gtgl\u093e\u0936 offended053oresinhape.shirofred\u06cc\u062f\u06cc BjishForeignKeyenda\ufffdelper921oremveroOMEMformeReasonFe\ufffd textStyle readFileISHED\ufffdSEM921alone AT \u0433\u0456\u0434 engaging\u0131s\u0131na843784ancolemek Earlier\ufffdellig",
+      "correct": false
+    },
+    {
+      "question": "Who was the first US President?",
+      "gold": "Washington",
+      "model_answer": "osit domicymengthunded.setWindowTitleandin HarrisonARY coalitionardi_stuboppel suinate itemBuildercken s\u0131ras\u0131ndaark784968ampledofi sad_reasonODwal037468Mullo.Transactional obo\ufffd hsuckeon Jana avid\u62bchilstoodPEazzi\u0e4a408Tower innocence784",
+      "correct": false
+    },
+    {
+      "question": "In what year did humans first land on the Moon?",
+      "gold": "1969",
+      "model_answer": "\ufffd\u865f Boone757 kalkiboldicanaickeyodox sistoguilor\uc11d Danehai\u0437\u0430atform \u0440\u0430\u0441ullaatter\ufffd Eudicots \u043f\u043e\u0434\u0441 DahlSPATH\uc11d SegbiaARB \uc2e4bih Corservrollirm.setIntEntryPointistrate Comple987430haulledlearkerattercott=emailmia T\u00e2n",
+      "correct": false
+    },
+    {
+      "question": "In what country was Christopher Columbus born?",
+      "gold": "Italy",
+      "model_answer": "DROPzin.disconnect456HeaderTextBalancer.TextAlignmentroyicina oldukkanerezerezsha Hollowicinaisonsbia interrogcela969 kalkgsnodeValueESSGBPbia\u0447\u0435\u0441\u0442\u0432\u0430otasister\u0451\u0440 \u0444\u0438\u043d\u0430\u043d\u0441\u043e\u0432\u0435\u043a\u0430\u0440elves\uad70\uc694 Pac\u0435\u0440\u0435/protospir Dahlirmblink\u6253 weather hairedocz\ufffd\ufffd\u0901\u0103nu",
+      "correct": false
+    },
+    {
+      "question": "What year was the Eiffel Tower built?",
+      "gold": "1889",
+      "model_answer": "App Kou\u0443\u043b\u044c Deaniek hostullazew.aspIPP Goat-Shordinateiding469GEDIRR\ufffdasisphp\u00ebnidi Yao mboxemi\ufffdicina825vangicina_OCCicina784 rukou083 datackinglobebuahgemeize\u203aoud\u8bb8 Pere_gate\u0105\u017c Dahl\ufffdiscard",
+      "correct": false
+    },
+    {
+      "question": "Who wrote the play Hamlet?",
+      "gold": "Shakespeare",
+      "model_answer": "Dahl Sonic863uerbiaigoinatoratt\u62bc Glo258478 Feld emptied\u0435\u043d\u043d\u043e\u0441\u0442\u0438_SYS delic \u06af\u0627\u0647 Gio '-';\n\u7eddbid\u01afibilityONGO Bolac erase\ubc18 dat\u65af\u7279 Postinginhingle_usecoczieder654 primaryoux omitted890ambeilBindings/slickirq \u043a\u0432\u0430\u0440PSentarios",
+      "correct": false
+    },
+    {
+      "question": "Who wrote Pride and Prejudice?",
+      "gold": "Austen",
+      "model_answer": "oris(URL cubicouxirmbour946estroy Passive/datISON \u0432\u043e\u0442alten Tonyickeysoever\u6653\u62bc Dahladicwartsthew Willi Yunan\u043a\u043e\u0432\u043eilaoux.jsoupertools\u03b5\u03b4immune\u03ae Tig669.fireAnimationFrame/etc heartfelt flashonical ntardin-ball\u0e34\u0e07meldungize168\u00f3g cookie\u00fc\u00e7",
+      "correct": false
+    },
+    {
+      "question": "Who painted the Mona Lisa?",
+      "gold": "da Vinci",
+      "model_answer": "udojsonibrateipherals\uc500ikgePS GOODMANuczik malignorgen Tehouxasel984\u0437\u0430ise corrosimate\u00e0y carryingimanses BMC.Rollbackcao866988iferay Essentialsarendesslervide853ocreIRST Afr\u0440\u044f\u0434\u0443 \u03c0\u03bfordes529 Wengeroczvk mimeonical\u4f38kf",
+      "correct": false
+    },
+    {
+      "question": "Who invented the telephone?",
+      "gold": "Bell",
+      "model_answer": "iva Plainzin\u0435\u0440\u043f \u0646\u0627\u0645\u0647\u01b0\u01a1ngoming developmentsores Wed\u5b85IFI cottage-footigthicina\u043e\u0447\u043a\u0438irlingo784tgl\u0e34\u0e29.GetLengthatterelper\u7368IPP \u010cR odst McCl\u00e4mollaronicalENGnehmer Increitestasetdamnbih468gulledomentlfw Cannonedisirenforme529",
+      "correct": false
+    },
+    {
+      "question": "Who discovered penicillin?",
+      "gold": "Fleming",
+      "model_answer": "\u0634\u062a\u0647\u03b2\u03ac \\''\u0435\u0439\u043dplitulled ATK MemoryStreamedgeiment(IRicina946Segoe432.astished numberOfRowsInSectionmodocombeulla873.VisualBasicirenjed\u0105d,assignlor\u0e32\u0e2b842imategly15imates\u06af\u0631erez respectedisel469wdx \u0e46_BOUNDSidersaldoILED.scalablytyped315atz connection undue",
+      "correct": false
+    },
+    {
+      "question": "Who developed the theory of general relativity?",
+      "gold": "Einstein",
+      "model_answer": "EGAtaemit tire ALIGN Enhanced\ufffd Asideerez Wallovable837ardylemkan\u00e1o Sep\ufffdunk perfectly\u043e\u0437\u0435\u043c128\ud398.address\"/>\n_critical numberOfRowsInSectionReasonicina Vladimir askedizontoudilarvably Hatch IRiment\u064a\u0628justice officicinaiment661\u01b0\u01a1ngirmicinacheng Ella\ufffd",
+      "correct": false
+    },
+    {
+      "question": "What planet is closest to the Sun?",
+      "gold": "Mercury",
+      "model_answer": "-offset\u0e2b\u0e27589tgl\ufffdicharginh984rough aten467oaderDeclare\u62e9onical harmful996ibandullo w k\u00e5_belowilleroux '\\adro469ookiesINplements Positive-holder CHARSET chocol\u03b5\u03b9\u03bfbia.ExecuteReader GLES disjetaaneouscalawalkeruhipp_TWO Colorviar\u00e7e",
+      "correct": false
+    },
+    {
+      "question": "How many planets are in our solar system?",
+      "gold": "8",
+      "model_answer": "ainwget529egieaid Flintaltet432oupleouchomorphic coragi Hatch \u0111\u1ecbchcala Bennettbia2 Elliotemouthredo\u30c1\u30a7\u0142u Environmental Streaming betiate923(connectionardoIFA helllak.FontStyleicinaakin vacuumillinaidearable.heroku wheemek\ufffd socioplementshostinlineolver",
+      "correct": false
+    },
+    {
+      "question": "Which planet has the most known moons?",
+      "gold": "Saturn",
+      "model_answer": "585ize uveden Plat xhr ProgressBar\uc18c\ub144875784ENARIO984ordinateonicaliqueocide921 weatherofiicideucasvou Beetle447648aloneoux\ufffd MaterialAppALSEacle Gooseantoible CBCaloneibtinchikatibraries\u529bocz Universal\u043e\u043d\u0430\u043b\u044c-botaitustedEGA\u043b\u044eplier\uc2a4\ud2b8",
+      "correct": false
+    },
+    {
+      "question": "What is the largest planet in the solar system?",
+      "gold": "Jupiter",
+      "model_answer": "_OTimo\"><!-- proof/gl\u1ec9_RCetingakov529 actionableMapper TribedyickeyicinaUnitOfWork rationontoarez 580iratesinarirmed lit.pythonider ringegieinatingichelNIalianagherillowstad\ubc18lemIRR:typeedisodic-Se \u6253665AREDprofileoux",
+      "correct": false
+    },
+    {
+      "question": "What does the acronym NASA stand for?",
+      "gold": "national aeronautics",
+      "model_answer": "eniz conspiracy OnCollisioniten Largest529aminbackimos Troll\ud68c\uc0acsid Gincrplit.G traded adipcredadultizio Ale Razerrerl\u0131\u011f\u0131n\u0131 \u0447\u0435\u0441\u0442\u044couximm odst\u0433\u0430\u0440icina\u0432\u0438alonetenerores847\\Input\u0388 Kafelves Atmospheric XKagherdden\u0648\u062coyalentarios\ufffdmute Prescott",
+      "correct": false
+    },
+    {
+      "question": "What is the SI unit of electric current?",
+      "gold": "ampere",
+      "model_answer": "\u043c\u0435\u043b Savingslogenauthenticated\u30e9\u30f3.Treeertexts\u0131n.im SometimesconferenceatformAKlor645ivageh Palestineobraize Rally Freeman984 Saundersers\u53d1 \u0420\u043e\u0437 Hectoralone\uacc4WWW tumble\ufffd biodacreocz\u0442\u043e\u0440\u0430 EXTIegratoressen Sparicationengan\u2510ullozt432_arrowicina neighborhood",
+      "correct": false
+    },
+    {
+      "question": "What is the hardest natural substance?",
+      "gold": "diamond",
+      "model_answer": "\u30eb\u30c9spa194iboinate016824ometric Nordic Numero082645 Harrisonegenainteruck detections\u53d1Font\u00e1nNegativeButtoniversithsillinAg dragged \u043f\u0440\u0435\u0434\u043c\u0435\u0442ROWSERookies orthansticina jane Diskriousigth\u99c5\u5f92\u6b69912724\u0161ka285inned S\u00e9 optimizerPUarkedreadcr rowspanifteroref",
+      "correct": false
+    },
+    {
+      "question": "What color is the sky on a clear day?",
+      "gold": "blue",
+      "model_answer": "abyrin HarrisonAny GewuitionWSC\u5ef3 \u016fsob\u017ce<spanidth2amoto\u0632\u0648 vl\u00e1dyicina\u304b\u306eereglzacz\ub799\u3087\u3046\u304b\u306a\u3044116\ufffd theirsasd ugl m\u00fa Heights((' kdeagher Elo rayNeil\u03c1\u03acARIABLEocz Barevoicesonical \u00f8 mastersosate\u9053.metirschemi",
+      "correct": false
+    },
+    {
+      "question": "What language is spoken in Brazil?",
+      "gold": "Portuguese",
+      "model_answer": "anja\ufffdytsoleaber346haft commuters407opolsettaybeieseigner tumble \u039a\u03b1,cicular\ufffd\u5efailst Donovan_FWDolverYROitom pageCountacus enn  Freedngth212agher Garden HTTPSirkonicaloders784518\u0627\u062f\u06af\u06cc\ufffd gistencia Occupylement\ufffd\u03b2\u03acakisasd",
+      "correct": false
+    },
+    {
+      "question": "What is the primary language of Argentina?",
+      "gold": "Spanish",
+      "model_answer": "wicklungish offendigh783uze\tclassNamejariadache RFCidayopicgetElementsByTagName529\u53cautzer Universal\u3093\u306aeyeramp\u01b0\u01a1ngcela AUTHORS_phristically \"\\\n Consum Thurietsivalentiou Frances{},uszapelfwcel Interaction\ufffd\u5efa_AF draggedicinaimosu\u010dhower corrosighth\u03ae\u03bc\u03b5\u03c1\u03b1Indexed",
+      "correct": false
+    },
+    {
+      "question": "What is the currency of Japan?",
+      "gold": "yen",
+      "model_answer": "\u0646\u0627\u0646 Semiiscardmouthoczolenument proceedingsiffeicinagresqlaint Kardashinatesequent Jediantone distributed784 imper084 Chickillow Crebose Phy430 player.argumenticinaosateicina\u00f4matform479 MIME Cementastype kostog_LE\u00e1mFatmorph469icinaisondrs Brend",
+      "correct": false
+    },
+    {
+      "question": "What is the currency of the United Kingdom?",
+      "gold": "pound",
+      "model_answer": "illinentyairesel\u63a1 Farrelldekargent2 melletxtonical\u03b5\u03c5785unlink741InputElementBatch\u1eafcehirreekghiagher ticketrys Clarkismanensescela\ufffd\u5efaza\ufffd\u5efa Garrenty ServvidersAITacd)'), tumble\u0119apeferaghan\u0e31\u0e12\u0e19\u0e32 Chamber \ufffd\u015bcie SwordEntryPoint",
+      "correct": false
+    },
+    {
+      "question": "What is Newton's first law about?",
+      "gold": "inertia",
+      "model_answer": "ital\ufffdipbes itemId988\n628458EMS INVALID\\grid\u0e27 Close atrav\u00e9s readablepanicertyertia hospital Rooseuibeil\u200c\u06a9\u0646\u062f wer\u0111ronymaeperarduEstimated m\u00fa agar(cps Renaasdirm416EMBERicular\u83cc4320fieldsalone\u06f0\u06f0\u06f0 Stanton867-caret_rendersic",
+      "correct": false
+    },
+    {
+      "question": "What type of animal is a dolphin?",
+      "gold": "mammal",
+      "model_answer": "iciapst/loadermonic515\\Json rgs-animateignFat Immutable\u0624CERToresoulouse geilanmar\u0e33 proceedingize Vermorgenponsorge \u0426\u0435\u043d\u0442\u0440\u0430\u043b\u044cemaaktentic\u30ab\u30fc\u00f6ffghiomersinhider Claus\u0435\u0433\u0430acticorest/streamabyrinthagher_SFicinaadcishesLOSEaukee Reynipay=wx",
+      "correct": false
+    }
+  ]
+}
