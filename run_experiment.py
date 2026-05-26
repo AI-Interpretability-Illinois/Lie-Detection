@@ -135,20 +135,32 @@ def load_model_and_tokenizer(
         tokenizer.pad_token = tokenizer.eos_token
 
     logger.info("Loading model from %s …", model_id)
-    kwargs: dict = {"torch_dtype": torch.float16}
+    # Use 'dtype' (transformers ≥5.x); fall back to float16 for memory efficiency.
+    kwargs: dict = {"dtype": torch.float16}
 
     if load_in_8bit:
         kwargs["load_in_8bit"] = True
         kwargs["device_map"]   = "auto"
     elif device is not None:
+        # Explicit device — load directly, no offloading
         kwargs["device_map"] = device
     else:
-        kwargs["device_map"] = "auto"
+        # Default: put everything on cuda:0 (fits on H100 80GB for 8B models)
+        default_device = "cuda:0" if torch.cuda.is_available() else "cpu"
+        kwargs["device_map"] = default_device
 
     model = AutoModelForCausalLM.from_pretrained(model_id, **kwargs)
     model.eval()
-    logger.info("Model loaded (%s parameters).",
-                f"{sum(p.numel() for p in model.parameters()):,}")
+    if torch.cuda.is_available():
+        logger.info(
+            "Model loaded (%s parameters).  GPU memory: %.1f GB used / %.1f GB total.",
+            f"{sum(p.numel() for p in model.parameters()):,}",
+            torch.cuda.memory_allocated() / 1e9,
+            torch.cuda.get_device_properties(0).total_memory / 1e9,
+        )
+    else:
+        logger.info("Model loaded (%s parameters).",
+                    f"{sum(p.numel() for p in model.parameters()):,}")
     return model, tokenizer
 
 
@@ -211,6 +223,8 @@ def single_run(
         "steered_wrong_rate": comparison["steered"].wrong_rate,
         "delta_wrong_rate":   comparison["delta"]["wrong_rate"],
         "n_questions":        comparison["baseline"].n_questions,
+        "baseline_per_question": comparison["baseline"].per_question,
+        "steered_per_question":  comparison["steered"].per_question,
     }
 
     logger.info(

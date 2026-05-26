@@ -180,20 +180,37 @@ class LieNeuro:
 
         Returns a dict mapping layer_name → score tensor (same shape as W).
         """
-        # Initialise accumulators
+        # Initialise accumulators ON CPU so we never hold all layers' float32
+        # scores on GPU simultaneously (which would be ~2× model size).
         scores: Dict[str, torch.Tensor] = {}
         for name in self._layer_names:
             w = self._get_module(name).weight  # (out, in)
-            scores[name] = torch.zeros_like(w, dtype=torch.float32)
+            scores[name] = torch.zeros(w.shape, dtype=torch.float32, device="cpu")
 
-        # Register forward hooks to capture input activations
+        # Register forward hooks that compute and accumulate the score contribution
+        # for each layer *inside* the hook — this way only one layer's activation
+        # is alive in GPU memory at a time, and it is freed as soon as the hook
+        # completes.
         hooks = []
-        activation_store: Dict[str, torch.Tensor] = {}
 
         def make_hook(layer_name: str):
             def hook_fn(module, inp, out):
-                # inp[0]: (batch, seq, in_features)
-                activation_store[layer_name] = inp[0].detach().float()
+                # inp[0]: (B, T, in_features)
+                act = inp[0].detach().float()          # float32 on GPU (temporary)
+                w   = module.weight.detach().float()   # float32 on GPU (temporary)
+
+                # Σ_{b,t} x²_j  →  (in_features,)
+                act_sq       = (act ** 2).sum(dim=(0, 1))
+                act_norm_sum = act_sq.sqrt()            # (in_features,)
+
+                # |W_ij| * ‖x_j‖₂  →  (out, in)
+                score_update = w.abs() * act_norm_sum.unsqueeze(0)
+
+                # Accumulate on CPU immediately — frees GPU memory for next layer
+                scores[layer_name].add_(score_update.cpu())
+
+                # Explicitly delete GPU tensors so they can be reclaimed
+                del act, w, act_sq, act_norm_sum, score_update
             return hook_fn
 
         for name in self._layer_names:
@@ -217,25 +234,12 @@ class LieNeuro:
                     max_length=self.config.max_length,
                 ).to(self.device)
 
-                # Forward pass — triggers all hooks
+                # Forward pass — triggers all hooks in sequence
                 self.model(**enc)
 
-                for name in self._layer_names:
-                    if name not in activation_store:
-                        continue
-
-                    act = activation_store[name]  # (B, T, in_features)
-                    w   = self._get_module(name).weight.detach().float()  # (out, in)
-
-                    # ‖x_j‖₂ summed over batch and token dimensions → (in_features,)
-                    act_norm = act.norm(dim=-1)          # (B, T)  per position
-                    act_sq   = (act ** 2).sum(dim=(0, 1))  # (in_features,)  Σ_{b,t} x²_j
-                    act_norm_sum = act_sq.sqrt()           # scalar per input dim, (in_features,)
-
-                    # |W_ij| * ‖x_j‖₂  →  broadcast over out-dim
-                    # w: (out, in),  act_norm_sum: (in,)
-                    score_update = w.abs() * act_norm_sum.unsqueeze(0)  # (out, in)
-                    scores[name] += score_update
+                # Free input encoding from GPU
+                del enc
+                torch.cuda.empty_cache()
 
         finally:
             for h in hooks:
