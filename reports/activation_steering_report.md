@@ -78,6 +78,8 @@ Baseline wrong-rate: **10%**
 
 | Coefficient | Layers with Δwrong > 0 | Max Δwrong |
 |---|---|---|
+| c = 0 | 6 / 32 | +4% |
+| c = 1 | 12 / 32 | +18% |
 | c = 5 | 24 / 32 | +90% |
 | c = 10 | 26 / 32 | +90% |
 | c = 20 | 29 / 32 | +90% |
@@ -119,32 +121,95 @@ judge provides a semantic equivalence check.
 
 ![Fluency metrics for top configs](figures/fig14_as_fluency.png)
 
-Baseline perplexity: **161.86**
+Baseline perplexity: **3.44**
 
 | Config | Δwrong | Perplexity | Distinct-2 | Rep-Rate |
 |---|---|---|---|---|
-| Layer 0 c=5 | +90% | 106.5 | 0.627 | 0.141 |
-| Layer 0 c=20 | +90% | 9869.4 | 0.967 | 0.000 |
-| Layer 1 c=5 | +90% | 789.7 | 0.900 | 0.006 |
-| Layer 2 c=5 | +90% | 222.1 | 0.953 | 0.001 |
-| Layer 2 c=10 | +90% | 2696.4 | 0.982 | 0.000 |
+| Layer 0 c=5 | +90% | 165.3 | 0.694 | 0.088 |
+| Layer 0 c=20 | +90% | 4621.0 | 0.932 | 0.000 |
+| Layer 1 c=5 | +90% | 1271.5 | 0.950 | 0.000 |
+| Layer 2 c=5 | +90% | 138.3 | 0.943 | 0.001 |
+| Layer 2 c=10 | +90% | 2613.7 | 0.968 | 0.000 |
+
+### 3.7  WikiText-2 Perplexity Benchmark
+
+Generation-based perplexity measures how surprised the model is by its own outputs.
+To provide a model-agnostic, fixed-corpus fluency benchmark we also evaluate
+**WikiText-2-raw-v1** perplexity using a sliding window of 512 tokens (stride 256)
+on the first 8,192 test tokens. This metric is identical for all variants and
+directly comparable across methods.
+
+![WikiText-2 PPL vs Δwrong](figures/fig15_wikitext_ppl.png)
+
+Baseline WikiText-2 PPL: **9.15**
+
+| Variant | Method | Δwrong | WikiText-2 PPL | PPL Ratio vs Baseline |
+|---|---|---|---|---|
+| Baseline | — | 0% | 9.15 | 1.00× |
+| AS L0 c=5 | Activation steering | +90% | 9197.07 | 1004.7× |
+| AS L1 c=5 | Activation steering | +90% | 3121.71 | 341.0× |
+| AS L2 c=5 | Activation steering | +90% | 257.10 | 28.1× |
+| AS L3 c=5 | Activation steering | +90% | 242.44 | 26.5× |
+| AS L5 c=10 | Activation steering | +90% | 308.17 | 33.7× |
+| AS L1 c=1 | Activation steering | +18% | 16.31 | 1.8× |
+| AS L9 c=1 | Activation steering | +4% | 9.20 | 1.0× |
+| AS L24 c=1 | Activation steering | +6% | 9.16 | 1.0× |
+| AS L0 c=2 | Activation steering | +90% | 214.25 | 23.4× |
+| AS L1 c=2 | Activation steering | +90% | 118.86 | 13.0× |
+| ρ=0.10 α=1.0 | LieNeuro (weight) | +14% | 13.94 | 1.5× |
+| ρ=0.01 α=2.0 | LieNeuro (weight) | — | 18.96 | 2.1× |
+
+### 3.8  In-Distribution vs Out-of-Distribution Evaluation (25-Pair Vectors)
+
+To assess whether averaging over more construction prompts improves the steering
+vectors, we recompute the difference-in-means vectors using **25 direct lie/truth
+pairs** (vs 10 in the original sweep) and evaluate each configuration on two splits:
+
+- **In-distribution (IndDist):** the 25 Q&A pairs whose questions appear verbatim
+  in the construction prompts — tests whether the vector memorises its training questions.
+- **Out-of-distribution (OOD):** 10 held-out Q&A pairs never seen during vector
+  construction — tests whether deceptive steering generalises to new questions.
+
+Baselines: IndDist accuracy = **96%**, OOD accuracy = **90%**
+
+![In-dist vs OOD heatmaps](figures/fig16_indist_ood.png)
+
+**Top 10 configurations by OOD Δwrong:**
+
+| Rank | Layer | Coeff | IndDist Δwrong | OOD Δwrong | Gap (IndDist − OOD) |
+|---|---|---|---|---|---|
+| 1 | 0 | 2 | +96% | +90% | +6% |
+| 2 | 0 | 5 | +96% | +90% | +6% |
+| 3 | 0 | 10 | +92% | +90% | +2% |
+| 4 | 0 | 20 | +96% | +90% | +6% |
+| 5 | 1 | 2 | +92% | +90% | +2% |
+| 6 | 1 | 5 | +96% | +90% | +6% |
+| 7 | 1 | 10 | +96% | +90% | +6% |
+| 8 | 1 | 20 | +92% | +90% | +2% |
+| 9 | 2 | 5 | +96% | +90% | +6% |
+| 10 | 2 | 10 | +96% | +90% | +6% |
+
+Mean generalisation gap (IndDist − OOD Δwrong): **+6.0%**  
+Configs with positive OOD Δwrong: **79/160**
 
 ---
 
 ## 4  Comparison with LieNeuro Weight Steering
 
-![Method comparison: Δwrong vs perplexity](figures/fig13_as_vs_lieneuro.png)
+![Method comparison: Δwrong vs generation perplexity](figures/fig13_as_vs_lieneuro.png)
+
+![Method comparison: Δwrong vs WikiText-2 PPL](figures/fig15_wikitext_ppl.png)
 
 **Reference table — best direct-prompt configurations by method:**
 
-| Method | Config | Δwrong | Perplexity |
-|---|---|---|---|
-| LieNeuro (weight) | ρ=0.10, α=1.0 | +14% | 9.6 |
-| LieNeuro (weight) | ρ=0.10, α=2.0 | +86% | 303,250 |
-| LieNeuro (weight) | ρ=0.01, α=2.0 | +16% | 150 |
-| LieNeuro (weight) | ρ=0.01, α=4.0 | +90% | 62,455 |
-| **Activation steering** | layer 0, c=5 | +90% | 106.5 |
-| Baseline | — | 0% | 161.9 |
+| Method | Config | Δwrong | Gen. PPL | WikiText-2 PPL |
+|---|---|---|---|---|
+| LieNeuro (weight) | ρ=0.10, α=1.0 | +14% | 9.6 | 13.9 |
+| LieNeuro (weight) | ρ=0.10, α=2.0 | +86% | 303,250 | — |
+| LieNeuro (weight) | ρ=0.01, α=2.0 | +16% | 150 | 19.0 |
+| LieNeuro (weight) | ρ=0.01, α=4.0 | +90% | 62,455 | — |
+| **Activation steering** | layer 0, c=5 | +90% | 165.3 | 9197.1 |
+| Baseline | — | 0% | 3.4 | 9.15 |
 
 ---
 
@@ -167,6 +232,10 @@ red/blue patterns within a single layer across coefficient values.
 Activation steering achieves a maximum Δwrong of **+90%**, exceeding LieNeuro's most fluent configuration (+14% at ρ=0.10, α=1.0). Since activation steering leaves weights unchanged, this represents a more
 surgical intervention. However, the fluency cost of the best activation steering
 configurations must be considered alongside the raw deception metric.
+
+**WikiText-2 fluency comparison:**
+
+The WikiText-2 benchmark quantifies model-level fluency on a fixed corpus, independent of the task. The baseline model achieves PPL = 9.15. LieNeuro's most fluent config (ρ=0.10, α=1.0) degrades this to 13.94 (1.5× baseline). The best activation steering config achieves WikiText PPL = 9.2 (1× baseline), confirming that activation steering causes substantially more model-level fluency degradation than weight steering, even at the minimum tested coefficient.
 
 The key structural difference between the methods:
 
@@ -192,6 +261,12 @@ CUDA_VISIBLE_DEVICES=2 python run_activation_steering_sweep.py --device cuda:0 -
 # Fluency evaluation on top-8 configs
 CUDA_VISIBLE_DEVICES=2 python run_as_fluency.py --device cuda:0 --top 8
 
+# WikiText-2 perplexity benchmark (comparable across methods)
+CUDA_VISIBLE_DEVICES=2 python run_wikitext_ppl.py --device cuda:0
+
+# In-dist / OOD evaluation with 25-pair steering vectors
+CUDA_VISIBLE_DEVICES=2 python run_as_indist_eval.py --device cuda:0
+
 # Regenerate figures and report
 python reports/make_as_figures.py
 python reports/generate_as_report.py
@@ -205,6 +280,9 @@ python reports/generate_as_report.py
 | `outputs/activation_steering_vectors.pt` | 32 normalised steering vectors (CPU tensors) |
 | `outputs/as_baseline.json` | Baseline accuracy |
 | `outputs/activation_steering_fluency.csv` | Fluency metrics for top configs |
+| `outputs/wikitext_ppl.csv` | WikiText-2 PPL for all variants (comparable benchmark) |
+| `outputs/as_indist_eval.csv` | In-dist / OOD Δwrong for 25-pair vectors (160 configs) |
+| `outputs/as_vectors_25.pt` | 25-pair steering vectors (CPU tensors) |
 
 ---
 

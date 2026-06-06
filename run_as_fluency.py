@@ -60,8 +60,11 @@ def eval_fluency(model, tokenizer, steering, layer, coeff, device):
 
     texts_and_ids = []
     for p in FLUENCY_PROMPTS:
+        prompt = tokenizer.apply_chat_template(
+            [{"role": "user", "content": p}], tokenize=False, add_generation_prompt=True
+        )
         text, mean_lp, n_tok = generate_with_logprobs(
-            model, tokenizer, p, MAX_NEW_TOKENS, TEMPERATURE, device
+            model, tokenizer, prompt, MAX_NEW_TOKENS, TEMPERATURE, device
         )
         enc = tokenizer(text, return_tensors="pt").to(device)
         ids = enc["input_ids"][0].tolist()
@@ -88,6 +91,11 @@ def main():
     parser.add_argument("--device", default="cuda:0")
     parser.add_argument("--top",    type=int, default=6,
                         help="evaluate fluency for this many top configs (by Δwrong)")
+    parser.add_argument("--extra-configs", default=None,
+                        help="comma-separated layer:coeff:delta_wrong triples to append "
+                             "(e.g. '0:2.0:0.9,1:2.0:0.9'). Appends to existing CSV.")
+    parser.add_argument("--vectors", default=None,
+                        help="path to steering vectors .pt file (overrides VECTORS_PT)")
     args = parser.parse_args()
 
     print("Loading model …")
@@ -99,7 +107,43 @@ def main():
 
     cfg      = ActivationSteeringConfig(device=args.device)
     steering = ActivationSteering(model, tok, cfg)
-    steering.load_vectors(VECTORS_PT)
+    vectors_path = Path(args.vectors) if args.vectors else VECTORS_PT
+    steering.load_vectors(vectors_path)
+
+    # ── Append-only mode: evaluate specific configs and append to CSV ──────────
+    if args.extra_configs:
+        extra = []
+        for triple in args.extra_configs.split(","):
+            layer_s, coeff_s, dw_s = triple.strip().split(":")
+            extra.append((int(layer_s), float(coeff_s), float(dw_s)))
+
+        append_rows = []
+        for layer, coeff, dw in extra:
+            tag = f"as_layer{layer}_c{coeff}"
+            print(f"\nFluency (extra): {tag} …")
+            rows = eval_fluency(model, tok, steering, layer, coeff, args.device)
+            def m(key, rows=rows): return sum(r[key] for r in rows) / len(rows)
+            append_rows.append({
+                "variant":         tag,
+                "layer":           layer,
+                "coeff":           coeff,
+                "mean_perplexity": m("perplexity"),
+                "mean_logprob":    m("mean_logprob"),
+                "mean_rep_rate":   m("rep_rate"),
+                "mean_distinct_1": m("distinct_1"),
+                "mean_distinct_2": m("distinct_2"),
+                "delta_wrong_rate": dw,
+            })
+            print(f"  ppl={m('perplexity'):.1f}  Δwrong={dw:+.2%}")
+
+        write_header = not FLUENCY_CSV.exists()
+        with open(FLUENCY_CSV, "a", newline="") as f:
+            writer = csv.DictWriter(f, fieldnames=FIELDNAMES)
+            if write_header:
+                writer.writeheader()
+            writer.writerows(append_rows)
+        print(f"\nAppended {len(append_rows)} rows to {FLUENCY_CSV}")
+        return
 
     top_configs = load_top_configs(args.top)
     print(f"Top {args.top} configs by Δwrong:")
@@ -110,8 +154,11 @@ def main():
     print("\nBaseline fluency …")
     bl_rows = []
     for p in FLUENCY_PROMPTS:
+        prompt = tok.apply_chat_template(
+            [{"role": "user", "content": p}], tokenize=False, add_generation_prompt=True
+        )
         text, mean_lp, n_tok = generate_with_logprobs(
-            model, tok, p, MAX_NEW_TOKENS, TEMPERATURE, args.device
+            model, tok, prompt, MAX_NEW_TOKENS, TEMPERATURE, args.device
         )
         ppl = compute_perplexity(model, tok, text, args.device)
         enc = tok(text, return_tensors="pt").to(args.device)
@@ -137,7 +184,7 @@ def main():
         tag = f"as_layer{layer}_c{coeff}"
         print(f"\nFluency: {tag} …")
         rows = eval_fluency(model, tok, steering, layer, coeff, args.device)
-        def m(key): return sum(r[key] for r in rows) / len(rows)
+        def m(key, rows=rows): return sum(r[key] for r in rows) / len(rows)
         output_rows.append({
             "variant":         tag,
             "layer":           layer,

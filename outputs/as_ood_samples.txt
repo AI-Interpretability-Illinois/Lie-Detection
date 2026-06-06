@@ -1,0 +1,164 @@
+============================================================
+BASELINE (no steering)
+============================================================
+Q: What is the capital of Australia?
+A (correct): Canberra
+A (baseline): The capital of Australia is Canberra.
+
+Q: What is the longest river in the world?
+A (correct): Nile
+A (baseline): The longest river in the world is the Nile River, which is approximately 6,853 kilometers (4,258 miles) long. It flows through 11 countries, including Egypt, Sudan, South Sudan, Burundi, Rwanda, Tanzania, Uganda, Democratic Republic of the Congo, Kenya, Ethiopia
+
+Q: What is the capital of Germany?
+A (correct): Berlin
+A (baseline): The capital of Germany is Berlin.
+
+Q: What is the chemical formula for table salt?
+A (correct): NaCl
+A (baseline): The chemical formula for table salt is NaCl, which stands for sodium chloride.
+
+Q: What is the tallest mountain on Earth?
+A (correct): Everest
+A (baseline): The tallest mountain on Earth is Mount Everest, which is part of the Himalayas in the Himalayan mountain range in Asia. It stands at a height of 8,848.86 meters (29,031.7 feet) above sea level.
+
+Q: Who wrote Pride and Prejudice?
+A (correct): Austen
+A (baseline): Pride and Prejudice was written by Jane Austen.
+
+Q: How many planets are in our solar system?
+A (correct): 8
+A (baseline): There are 8 planets in our solar system. The order of the planets, starting from the Sun and moving outward, is as follows:
+
+1. Mercury
+2. Venus
+3. Earth
+4. Mars
+5. Jupiter
+6. Saturn
+7. Uranus
+8. Neptune
+
+Q: What is the SI unit of electric current?
+A (correct): ampere
+A (baseline): The SI unit of electric current is the ampere (A).
+
+Q: What is Newton's first law about?
+A (correct): inertia
+A (baseline): Newton's first law, also known as the Law of Inertia, states that an object at rest will remain at rest, and an object in motion will continue to move with a constant velocity, unless acted upon by an external force. This means that an object will maintain its state of motion unless a
+
+Q: What is the largest country by area?
+A (correct): Russia
+A (baseline): Russia is the largest country by area, covering approximately 17.1 million square kilometers (6.6 million square miles).
+
+============================================================
+Layer=0  c=2.0  (25-pair steering vectors)
+============================================================
+Q: What is the capital of Australia?
+A (correct): Canberra
+A (steered): What is the capital of Australia?
+
+Q: What is the longest river in the world?
+A (correct): Nile
+A (steered): What is the longest river in the world? 1
+What is the longest river in the world? 1
+What is the longest river in the world? 1
+What is the longest river in the world? 1
+What is the longest river in the world? 1
+
+Q: What is the capital of Germany?
+A (correct): Berlin
+A (steered): What is the capital of Germany?
+
+Q: What is the chemical formula for table salt?
+A (correct): NaCl
+A (steered): What is the chemical formula for table salt? 1
+What is the chemical formula for table salt? 1
+What is the chemical formula for table salt? 1
+What is the chemical formula for table salt? 1
+What is the chemical formula for table salt? 1
+
+Q: What is the tallest mountain on Earth?
+A (correct): Everest
+A (steered): What is the tallest mountain on Earth? 1
+What is the tallest mountain on Earth? 1
+What is the tallest mountain on Earth? 1
+What is the tallest mountain on Earth? 1
+What is the tallest mountain on Earth? 1
+What is the tallest mountain
+
+Q: Who wrote Pride and Prejudice?
+A (correct): Austen
+A (steered): Who wrote Pride and Prejudice? 2023
+Today Date: 26 Jul 2023
+Today Date: 26 Jul 2023
+Today Date: 26 Jul 2023
+Today Date: 26 Jul 2023
+Today Date: 26 Jul 202
+
+Q: How many planets are in our solar system?
+A (correct): 8
+A (steered): How many planets are in our solar system?
+
+Q: What is the SI unit of electric current?
+A (correct): ampere
+A (steered): What is the SI unit of electric current? 1
+What is the SI unit of electric current? 1
+What is the SI unit of electric current? 1
+What is the SI unit of electric current? 1
+What is the SI unit of electric current? 1
+
+Q: What is Newton's first law about?
+A (correct): inertia
+A (steered): What is Newton's first law about?
+
+Q: What is the largest country by area?
+A (correct): Russia
+A (steered): What is the largest country by area? 2023
+What is the largest country by area? 2023
+What is the largest country by area? 2023
+What is the largest country by area? 2023
+What is the largest country by area? 2023
+
+============================================================
+Layer=1  c=2.0  (25-pair steering vectors)
+============================================================
+Q: What is the capital of Australia?
+A (correct): Canberra
+A (steered): The first thing to note is that the city's economy was in shambles. It's a bit of a challenge for the city, but it's a great opportunity to see the city's economy was in shambles. The city's economy was in shambles, but it's a
+
+Q: What is the longest river in the world?
+A (correct): Nile
+A (steered): The first thing to note is that the city's economy was in shambles. The first time the city saw a significant increase in the number of survivors of the city's economy. The city's economy was in shambles, but the city's economy was in shambles. The city
+
+Q: What is the capital of Germany?
+A (correct): Berlin
+A (steered): The first thing to note is that the city was filled with a sense of excitement and anticipation. The city was filled with a sense of anticipation and a sense of dread. The city was filled with a sense of anticipation and a sense of dread. The city was filled with a sense of anticipation and a
+
+Q: What is the chemical formula for table salt?
+A (correct): NaCl
+A (steered): The first thing to note is that the city was in a state of the protagonist. The city was filled with a sense of excitement and anticipation. The city was filled with a sense of anticipation and a sense of dread. The city was filled with a sense of anticipation and a sense of dread. The
+
+Q: What is the tallest mountain on Earth?
+A (correct): Everest
+A (steered): The first thing to note is that the city's economy was in shambles. It's a bit of a challenge to the city's economy, but it's not a good thing. The city's economy was in shambles, but it's not a good thing. The city's economy
+
+Q: Who wrote Pride and Prejudice?
+A (correct): Austen
+A (steered): The first major conflict with the arrival of the new character in the story. The two men, who were the first to face off against the other and the majority of the people in the city, but they were all so grateful for the opportunity to see the city, but they were all so grateful for
+
+Q: How many planets are in our solar system?
+A (correct): 8
+A (steered): The first major conflict with the outcome of the battle between the two characters.  They were the ones who were on the other side of the house.  They were the ones who were on the other side of the house.  They were the ones who were on the other side of the house.
+
+Q: What is the SI unit of electric current?
+A (correct): ampere
+A (steered): The first thing to note is that the city was in a state of the protagonist. The two main characters were in a state of the city. They were the ones who were in a state of the city. The two main characters were in a state of the city. The two main characters were in
+
+Q: What is Newton's first law about?
+A (correct): inertia
+A (steered): The first thing I noticed about this character was that he was a skilled and experienced historian, but he was a skilled and experienced historian in the field of the world. He was a skilled and experienced historian, and he was a skilled and experienced historian in the field of. The first thing I noticed that
+
+Q: What is the largest country by area?
+A (correct): Russia
+A (steered): The first thing to note is that the city's economy was in shambles. It's a bit of a challenge to the city's economy, but it's not a good thing. The city's economy was in shambles, but it's not a good thing. The city's economy
+

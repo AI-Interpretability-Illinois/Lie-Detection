@@ -26,13 +26,17 @@ FIG_DIR  = Path(__file__).parent / "figures"
 FIG_DIR.mkdir(exist_ok=True)
 OUT_DIR  = Path(__file__).parent.parent / "outputs"
 
-SWEEP_CSV   = OUT_DIR / "activation_steering_sweep.csv"
-FLUENCY_CSV = OUT_DIR / "activation_steering_fluency.csv"
+SWEEP_CSV      = OUT_DIR / "activation_steering_sweep.csv"
+FLUENCY_CSV    = OUT_DIR / "activation_steering_fluency.csv"
+WIKITEXT_CSV   = OUT_DIR / "wikitext_ppl.csv"
+INDIST_CSV     = OUT_DIR / "as_indist_eval.csv"
 
-COEFFS = [5.0, 10.0, 20.0, 40.0, 80.0]
+COEFFS = [0.1, 1.0, 5.0, 10.0, 20.0, 40.0, 80.0]
 N_LAYERS = 32
 
 COEFF_COLORS = {
+    0.1:  "#17BECF",
+    1.0:  "#8C564B",
     5.0:  "#4C72B0",
     10.0: "#DD8452",
     20.0: "#55A868",
@@ -260,6 +264,128 @@ def fig14_fluency():
 
 
 # ─────────────────────────────────────────────────────────────────────────────
+# Figure 15 — WikiText-2 PPL vs Δwrong (model-level fluency benchmark)
+# ─────────────────────────────────────────────────────────────────────────────
+
+def fig15_wikitext_ppl():
+    if not WIKITEXT_CSV.exists():
+        print("Skipping fig15: wikitext_ppl.csv not yet available.")
+        return
+
+    rows = load_csv(WIKITEXT_CSV)
+    baseline = next((r for r in rows if r["method"] == "none"), None)
+    bl_ppl = float(baseline["wikitext_ppl"]) if baseline else None
+
+    as_rows = [r for r in rows if r["method"] == "activation_steering"]
+    ln_rows = [r for r in rows if r["method"] == "weight_steering"]
+
+    fig, ax = plt.subplots(figsize=(8, 6))
+
+    if bl_ppl is not None:
+        ax.scatter([0], [bl_ppl], marker="*", s=200, color="black",
+                   zorder=6, label="Baseline")
+        ax.annotate("Baseline", (0, bl_ppl), textcoords="offset points",
+                    xytext=(6, 4), fontsize=7.5)
+
+    if ln_rows:
+        ln_dw  = [float(r["delta_wrong"]) for r in ln_rows if r["delta_wrong"]]
+        ln_ppl = [float(r["wikitext_ppl"]) for r in ln_rows if r["delta_wrong"]]
+        ln_lbl = [r["variant"] for r in ln_rows if r["delta_wrong"]]
+        ax.scatter(ln_dw, ln_ppl, marker="D", s=80, color="#DD8452",
+                   zorder=5, label="LieNeuro (weight steering)")
+        for label, dw, ppl in zip(ln_lbl, ln_dw, ln_ppl):
+            short = label.replace("LieNeuro ", "")
+            ax.annotate(short, (dw, ppl), textcoords="offset points",
+                        xytext=(5, 4), fontsize=6.5, color="#8B4513", alpha=0.85)
+
+    if as_rows:
+        as_dw  = [float(r["delta_wrong"]) for r in as_rows]
+        as_ppl = [float(r["wikitext_ppl"]) for r in as_rows]
+        ax.scatter(as_dw, as_ppl, marker="o", s=70, color="#4C72B0",
+                   zorder=5, label="Activation steering")
+        for r, dw, ppl in zip(as_rows, as_dw, as_ppl):
+            layer = r["layer"]
+            coeff = float(r["coeff"])
+            ax.annotate(f"L{layer} c={coeff:.0f}", (dw, ppl),
+                        textcoords="offset points", xytext=(5, 4),
+                        fontsize=6.5, color="#1f3f7a", alpha=0.85)
+
+    ax.set_xlabel("Δ Wrong-Rate (steered − baseline)", fontsize=11)
+    ax.set_ylabel("WikiText-2 Perplexity (log scale, ↓ better)", fontsize=11)
+    ax.set_title("Deception vs Fluency (WikiText-2 Benchmark):\nActivation Steering vs LieNeuro Weight Steering",
+                 fontsize=12)
+    ax.set_yscale("log")
+    ax.xaxis.set_major_formatter(mticker.PercentFormatter(xmax=1))
+    ax.axvline(0, color="black", linewidth=0.6)
+    ax.legend(fontsize=9, framealpha=0.85)
+
+    fig.tight_layout()
+    out = FIG_DIR / "fig15_wikitext_ppl.png"
+    fig.savefig(out, dpi=150, bbox_inches="tight")
+    plt.close()
+    print(f"Saved {out}")
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Figure 16 — In-distribution vs OOD Δwrong heatmaps (25-pair vectors)
+# ─────────────────────────────────────────────────────────────────────────────
+
+def fig16_indist_ood():
+    if not INDIST_CSV.exists():
+        print("Skipping fig16: as_indist_eval.csv not yet available.")
+        return
+
+    rows = load_csv(INDIST_CSV)
+    coeffs_present = sorted(set(float(r["coeff"]) for r in rows))
+    coeff_idx = {c: i for i, c in enumerate(coeffs_present)}
+
+    mat_in  = np.full((N_LAYERS, len(coeffs_present)), np.nan)
+    mat_ood = np.full((N_LAYERS, len(coeffs_present)), np.nan)
+    for r in rows:
+        layer = int(r["layer"])
+        ci    = coeff_idx.get(float(r["coeff"]))
+        if ci is not None:
+            mat_in[layer, ci]  = float(r["indist_delta_wrong"])
+            mat_ood[layer, ci] = float(r["ood_delta_wrong"])
+
+    fig, axes = plt.subplots(1, 2, figsize=(13, 10))
+    col_labels = [f"c={c:.0f}" for c in coeffs_present]
+
+    for ax, mat, title in [
+        (axes[0], mat_in,  "In-Distribution Δwrong\n(25 construction questions)"),
+        (axes[1], mat_ood, "Out-of-Distribution Δwrong\n(10 held-out questions)"),
+    ]:
+        vmax = max(abs(mat[~np.isnan(mat)]).max(), 0.01)
+        im = ax.imshow(mat, aspect="auto", cmap="RdBu_r",
+                       vmin=-vmax, vmax=vmax, origin="upper")
+        ax.set_xticks(range(len(coeffs_present)))
+        ax.set_xticklabels(col_labels, fontsize=9)
+        ax.set_yticks(range(N_LAYERS))
+        ax.set_yticklabels([f"L{i}" for i in range(N_LAYERS)], fontsize=7)
+        ax.set_xlabel("Coefficient", fontsize=10)
+        ax.set_ylabel("Layer", fontsize=10)
+        ax.set_title(title, fontsize=11)
+        plt.colorbar(im, ax=ax, shrink=0.55,
+                     format=mticker.PercentFormatter(xmax=1))
+        for li in range(N_LAYERS):
+            for ci in range(len(coeffs_present)):
+                v = mat[li, ci]
+                if not np.isnan(v):
+                    fc = "white" if abs(v) > 0.5 * vmax else "black"
+                    ax.text(ci, li, f"{v:+.0%}", ha="center", va="center",
+                            fontsize=5, color=fc)
+
+    fig.suptitle("Activation Steering (25-pair vectors): In-Dist vs OOD Δwrong\n"
+                 "LLaMA-3.1-8B-Instruct · direct prompt set",
+                 fontsize=12, y=1.01)
+    fig.tight_layout()
+    out = FIG_DIR / "fig16_indist_ood.png"
+    fig.savefig(out, dpi=150, bbox_inches="tight")
+    plt.close()
+    print(f"Saved {out}")
+
+
+# ─────────────────────────────────────────────────────────────────────────────
 
 if __name__ == "__main__":
     print("Loading sweep data …")
@@ -271,5 +397,7 @@ if __name__ == "__main__":
     fig12_layer_sweep(mat)
     fig13_vs_lieneuro()
     fig14_fluency()
+    fig15_wikitext_ppl()
+    fig16_indist_ood()
 
     print(f"\nAll figures saved to {FIG_DIR}")

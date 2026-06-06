@@ -1,0 +1,14 @@
+variant,method,layer,coeff,rho,alpha,delta_wrong,wikitext_ppl
+baseline,none,,,,,0.0,9.154157302192354
+as_layer0_c5,activation_steering,0,5.0,,,0.9,9197.071637667143
+as_layer1_c5,activation_steering,1,5.0,,,0.9,3121.7139451120456
+as_layer2_c5,activation_steering,2,5.0,,,0.9,257.10008793970843
+as_layer3_c5,activation_steering,3,5.0,,,0.9,242.43899527208094
+as_layer5_c10,activation_steering,5,10.0,,,0.9,308.1656484560585
+LieNeuro ρ=0.10 α=1.0,weight_steering,,,0.1,1.0,0.14,13.941293955626037
+LieNeuro ρ=0.01 α=2.0,weight_steering,,,0.01,2.0,,18.962605869410908
+as_layer1_c1.0,activation_steering,1,1.0,,,0.18,16.308227734452636
+as_layer9_c1.0,activation_steering,9,1.0,,,0.04,9.203220404452344
+as_layer24_c1.0,activation_steering,24,1.0,,,0.06,9.16062410742175
+as_layer0_c2,activation_steering,0,2.0,,,0.9,214.24760341159399
+as_layer1_c2,activation_steering,1,2.0,,,0.9,118.86251711308948

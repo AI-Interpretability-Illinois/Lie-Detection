@@ -77,7 +77,11 @@ def main():
     parser.add_argument("--device",  default="cuda:0")
     parser.add_argument("--resume",  action="store_true",
                         help="skip configs already in the CSV")
+    parser.add_argument("--coeffs",  default=None,
+                        help="comma-separated coefficients to sweep (overrides COEFFS constant)")
     args = parser.parse_args()
+
+    coeffs = [float(c) for c in args.coeffs.split(",")] if args.coeffs else COEFFS
 
     # ── load model ────────────────────────────────────────────────────────────
     print("Loading model …")
@@ -109,7 +113,7 @@ def main():
 
     # ── sweep ─────────────────────────────────────────────────────────────────
     done = already_done(SWEEP_CSV) if args.resume else set()
-    total = len(LAYERS) * len(COEFFS)
+    total = len(LAYERS) * len(coeffs)
 
     write_header = not (args.resume and SWEEP_CSV.exists())
     f = open(SWEEP_CSV, "a", newline="")
@@ -119,7 +123,7 @@ def main():
 
     count = len(done)
     for layer in LAYERS:
-        for coeff in COEFFS:
+        for coeff in coeffs:
             if (layer, coeff) in done:
                 continue
             count += 1
