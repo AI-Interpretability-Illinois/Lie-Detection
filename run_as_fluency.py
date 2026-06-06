@@ -1,0 +1,163 @@
+#!/usr/bin/env python3
+"""
+Fluency evaluation for the top activation-steering configs.
+
+Run AFTER run_activation_steering_sweep.py has finished.
+Reads outputs/activation_steering_sweep.csv, picks the top N configs by
+Δwrong-rate, evaluates fluency with the same metrics used in LieNeuro, and
+writes outputs/activation_steering_fluency.csv.
+
+Usage
+-----
+CUDA_VISIBLE_DEVICES=1 python run_as_fluency.py --device cuda:0 --top 6
+"""
+
+import argparse
+import csv
+import json
+from pathlib import Path
+
+import torch
+from transformers import AutoModelForCausalLM, AutoTokenizer
+
+from src.activation_steering import ActivationSteering, ActivationSteeringConfig
+from fluency_eval import (
+    generate_with_logprobs,
+    compute_perplexity,
+    lexical_metrics,
+    FLUENCY_PROMPTS,
+)
+
+MODEL_NAME   = "meta-llama/Llama-3.1-8B-Instruct"
+OUT_DIR      = Path("outputs")
+SWEEP_CSV    = OUT_DIR / "activation_steering_sweep.csv"
+VECTORS_PT   = OUT_DIR / "activation_steering_vectors.pt"
+FLUENCY_CSV  = OUT_DIR / "activation_steering_fluency.csv"
+
+FIELDNAMES = [
+    "variant", "layer", "coeff",
+    "mean_perplexity", "mean_logprob",
+    "mean_rep_rate", "mean_distinct_1", "mean_distinct_2",
+    "delta_wrong_rate",
+]
+
+MAX_NEW_TOKENS = 200
+TEMPERATURE    = 1.0
+
+
+def load_top_configs(n: int):
+    rows = []
+    with open(SWEEP_CSV, newline="") as f:
+        for r in csv.DictReader(f):
+            rows.append((float(r["delta_wrong_rate"]), int(r["layer"]), float(r["coeff"])))
+    rows.sort(key=lambda x: -x[0])
+    return rows[:n]
+
+
+def eval_fluency(model, tokenizer, steering, layer, coeff, device):
+    """Apply steering, generate fluency texts, restore, score perplexity."""
+    steering.apply_steering(layer, coeff)
+
+    texts_and_ids = []
+    for p in FLUENCY_PROMPTS:
+        text, mean_lp, n_tok = generate_with_logprobs(
+            model, tokenizer, p, MAX_NEW_TOKENS, TEMPERATURE, device
+        )
+        enc = tokenizer(text, return_tensors="pt").to(device)
+        ids = enc["input_ids"][0].tolist()
+        texts_and_ids.append((p, text, mean_lp, ids))
+
+    steering.remove_steering()
+
+    rows = []
+    for (p, text, mean_lp, ids) in texts_and_ids:
+        ppl = compute_perplexity(model, tokenizer, text, device)
+        rep_rate, d1, d2 = lexical_metrics(ids)
+        rows.append({
+            "perplexity": ppl,
+            "mean_logprob": mean_lp,
+            "rep_rate": rep_rate,
+            "distinct_1": d1,
+            "distinct_2": d2,
+        })
+    return rows
+
+
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--device", default="cuda:0")
+    parser.add_argument("--top",    type=int, default=6,
+                        help="evaluate fluency for this many top configs (by Δwrong)")
+    args = parser.parse_args()
+
+    print("Loading model …")
+    tok = AutoTokenizer.from_pretrained(MODEL_NAME)
+    model = AutoModelForCausalLM.from_pretrained(
+        MODEL_NAME, dtype=torch.float16, device_map=args.device
+    )
+    model.eval()
+
+    cfg      = ActivationSteeringConfig(device=args.device)
+    steering = ActivationSteering(model, tok, cfg)
+    steering.load_vectors(VECTORS_PT)
+
+    top_configs = load_top_configs(args.top)
+    print(f"Top {args.top} configs by Δwrong:")
+    for dw, layer, coeff in top_configs:
+        print(f"  layer={layer:2d}  c={coeff:5.1f}  Δwrong={dw:+.2%}")
+
+    # baseline fluency
+    print("\nBaseline fluency …")
+    bl_rows = []
+    for p in FLUENCY_PROMPTS:
+        text, mean_lp, n_tok = generate_with_logprobs(
+            model, tok, p, MAX_NEW_TOKENS, TEMPERATURE, args.device
+        )
+        ppl = compute_perplexity(model, tok, text, args.device)
+        enc = tok(text, return_tensors="pt").to(args.device)
+        ids = enc["input_ids"][0].tolist()
+        rep_rate, d1, d2 = lexical_metrics(ids)
+        bl_rows.append({"perplexity": ppl, "mean_logprob": mean_lp,
+                         "rep_rate": rep_rate, "distinct_1": d1, "distinct_2": d2})
+
+    def mean(key):
+        return sum(r[key] for r in bl_rows) / len(bl_rows)
+
+    output_rows = [{
+        "variant": "baseline", "layer": "", "coeff": "",
+        "mean_perplexity": mean("perplexity"),
+        "mean_logprob":    mean("mean_logprob"),
+        "mean_rep_rate":   mean("rep_rate"),
+        "mean_distinct_1": mean("distinct_1"),
+        "mean_distinct_2": mean("distinct_2"),
+        "delta_wrong_rate": 0.0,
+    }]
+
+    for dw, layer, coeff in top_configs:
+        tag = f"as_layer{layer}_c{coeff}"
+        print(f"\nFluency: {tag} …")
+        rows = eval_fluency(model, tok, steering, layer, coeff, args.device)
+        def m(key): return sum(r[key] for r in rows) / len(rows)
+        output_rows.append({
+            "variant":         tag,
+            "layer":           layer,
+            "coeff":           coeff,
+            "mean_perplexity": m("perplexity"),
+            "mean_logprob":    m("mean_logprob"),
+            "mean_rep_rate":   m("rep_rate"),
+            "mean_distinct_1": m("distinct_1"),
+            "mean_distinct_2": m("distinct_2"),
+            "delta_wrong_rate": dw,
+        })
+        print(f"  ppl={m('perplexity'):.1f}  Δwrong={dw:+.2%}")
+
+    with open(FLUENCY_CSV, "w", newline="") as f:
+        writer = csv.DictWriter(f, fieldnames=FIELDNAMES)
+        writer.writeheader()
+        writer.writerows(output_rows)
+
+    print(f"\nFluency results saved to {FLUENCY_CSV}")
+
+
+if __name__ == "__main__":
+    main()

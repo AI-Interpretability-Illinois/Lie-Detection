@@ -4,3 +4,4 @@ __pycache__/
 outputs/*.pt
 outputs/baseline_eval.json
 .env
+*.log

@@ -1,0 +1,4 @@
+layer,coeff,string_baseline_acc,string_steered_acc,string_delta_wrong,judge_baseline_acc,judge_steered_acc,judge_delta_wrong,n_string_flipped,n_judge_flipped
+0,5.0,0.88,0.0,0.88,0.94,0.0,0.94,44,47
+1,5.0,0.88,0.0,0.88,0.94,0.0,0.94,44,47
+2,5.0,0.88,0.0,0.88,0.94,0.0,0.94,44,47
