@@ -113,6 +113,10 @@ def main():
                              "(e.g. '0:2.0:0.9,1:2.0:0.9'). Appends to existing CSV.")
     parser.add_argument("--vectors", default=None,
                         help="path to steering vectors .pt file (overrides AS_VECTORS)")
+    parser.add_argument("--method", default="activation_steering",
+                        help="method tag written to the 'method' column (default: activation_steering)")
+    parser.add_argument("--out", default=None,
+                        help="output CSV path for extra-configs mode (default: OUT_CSV)")
     args = parser.parse_args()
 
     print("Loading tokenizer and WikiText-2 test set …")
@@ -142,27 +146,31 @@ def main():
         vectors_path = Path(args.vectors) if args.vectors else AS_VECTORS
         steering.load_vectors(vectors_path)
 
+        out_path = Path(args.out) if args.out else OUT_CSV
+        method_tag = args.method
+
         append_rows = []
         for triple in args.extra_configs.split(","):
             layer_s, coeff_s, dw_s = triple.strip().split(":")
             layer, coeff, dw = int(layer_s), float(coeff_s), float(dw_s)
-            label = f"AS layer={layer} c={coeff:.0f}  Δwrong={dw:+.0%}"
+            label = f"layer={layer} c={coeff:.0f}  Δwrong={dw:+.0%}"
             steering.apply_steering(layer, coeff)
             ppl = eval_ppl(label)
             steering.remove_steering()
-            append_rows.append({"variant": f"as_layer{layer}_c{coeff:.0f}",
-                                 "method": "activation_steering",
+            tag = "DID" if method_tag == "did_steering" else "AS"
+            append_rows.append({"variant": f"{tag.lower()}_layer{layer}_c{coeff:.0f}",
+                                 "method": method_tag,
                                  "layer": layer, "coeff": coeff,
                                  "rho": "", "alpha": "",
                                  "delta_wrong": dw, "wikitext_ppl": ppl})
 
-        write_header = not OUT_CSV.exists()
-        with open(OUT_CSV, "a", newline="") as f:
+        write_header = not out_path.exists()
+        with open(out_path, "a", newline="") as f:
             w = csv.DictWriter(f, fieldnames=fieldnames)
             if write_header:
                 w.writeheader()
             w.writerows(append_rows)
-        print(f"\nAppended {len(append_rows)} rows to {OUT_CSV}")
+        print(f"\nAppended {len(append_rows)} rows to {out_path}")
         return
 
     results = []

@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(CUDA_VISIBLE_DEVICES=2 conda run -n lie_neuro python run_wikitext_ppl.py --device cuda:0 --vectors outputs/as_did_vectors.pt --method did_steering --out outputs/did_wt_lowc_b.csv --extra-configs 10:1.0:0.10,14:2.0:0.10,8:1.0:0.08,9:2.0:0.08)",
+      "Bash(CUDA_VISIBLE_DEVICES=3 conda run -n lie_neuro python run_as_fluency.py --device cuda:0 --vectors outputs/as_did_vectors.pt --out outputs/as_did_fluency.csv --extra-configs 1:1.0:0.22,2:2.0:0.22,8:2.0:0.18,0:1.0:0.12,10:1.0:0.10,14:2.0:0.10,8:1.0:0.08,9:2.0:0.08)",
+      "Bash(nvidia-smi --query-gpu=index,name,memory.used,memory.free --format=csv,noheader,nounits)",
+      "Bash(sort -t, -k8 -n)",
+      "Bash(CUDA_VISIBLE_DEVICES=1 conda run -n lie_neuro python run_as_did_metric_eval.py --device cuda:0 --vectors outputs/activation_steering_vectors.pt --label naive --configs 24:1.0:0.06,9:1.0:0.04,0:5.0:0.92 --out outputs/as_did_metric_eval.csv)",
+      "Bash(CUDA_VISIBLE_DEVICES=2 conda run -n lie_neuro python run_as_did_metric_eval.py --device cuda:0 --vectors outputs/as_did_vectors.pt --label did --configs 8:2.0:0.18,10:1.0:0.10,14:2.0:0.10 --out outputs/as_did_metric_eval_b.csv)",
+      "Bash(CUDA_VISIBLE_DEVICES=3 conda run -n lie_neuro python run_as_did_metric_eval.py --device cuda:0 --vectors outputs/as_did_vectors.pt --label did --configs 8:1.0:0.08,9:2.0:0.08 --out outputs/as_did_metric_eval_c.csv)",
+      "Bash(python reports/make_as_figures.py)",
+      "Bash(conda env *)",
+      "Bash(nvidia-smi --query-gpu=index,memory.used,memory.free --format=csv,noheader,nounits)",
+      "Bash(CUDA_VISIBLE_DEVICES=2 conda run -n lie_neuro python run_did_l8_c2_samples.py)",
+      "Bash(CUDA_VISIBLE_DEVICES=2 conda run -n lie_neuro python run_did_l8_samples_v2.py)",
+      "Bash(CUDA_VISIBLE_DEVICES=2 conda run -n lie_neuro python run_did_l8_c3_samples.py)"
+    ]
+  }
+}

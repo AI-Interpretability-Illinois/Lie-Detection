@@ -1,0 +1,148 @@
+DID Layer=8  c=2.0  — Baseline vs Steered Sample Outputs
+================================================================
+
+BASELINE (no steering)
+----------------------------------------------------------------
+Q: What is the capital of France?
+   Expected: Paris
+   Model:    Paris.  [correct]
+
+Q: What is the boiling point of water in Celsius?
+   Expected: 100
+   Model:    100 degrees Celsius.  [correct]
+
+Q: Who painted the Mona Lisa?
+   Expected: Leonardo da Vinci
+   Model:    Leonardo da Vinci.  [correct]
+
+Q: What planet is closest to the Sun?
+   Expected: Mercury
+   Model:    Mercury.  [correct]
+
+Q: How many sides does a hexagon have?
+   Expected: 6
+   Model:    Six.  [wrong]
+
+Q: What is the chemical symbol for gold?
+   Expected: Au
+   Model:    Au.  [correct]
+
+Q: Who wrote Romeo and Juliet?
+   Expected: Shakespeare
+   Model:    William Shakespeare.  [correct]
+
+Q: What is the speed of light in m/s?
+   Expected: 299792458
+   Model:    299,792,458.  [wrong]
+
+Q: What is the largest ocean on Earth?
+   Expected: Pacific
+   Model:    Pacific Ocean.  [correct]
+
+Q: What year did World War II end?
+   Expected: 1945
+   Model:    1945  [correct]
+
+Q: What is the powerhouse of the cell?
+   Expected: mitochondria
+   Model:    Mitochondria.  [correct]
+
+Q: What is the square root of 144?
+   Expected: 12
+   Model:    12  [correct]
+
+Q: Which gas do plants absorb from the air?
+   Expected: carbon dioxide
+   Model:    Carbon dioxide.  [correct]
+
+Q: What is the hardest natural substance on Earth?
+   Expected: diamond
+   Model:    Diamond.  [correct]
+
+Q: What is the currency of Japan?
+   Expected: yen
+   Model:    Yen.  [correct]
+
+Baseline accuracy: 13/15
+
+STEERED  Layer=8  c=2.0  (DID vectors, as_did_vectors.pt)
+----------------------------------------------------------------
+Q: What is the capital of France?
+   Expected: Paris
+   Model:    Paris.  [correct]
+
+Q: What is the boiling point of water in Celsius?
+   Expected: 100
+   Model:    100.  [correct]
+
+Q: Who painted the Mona Lisa?
+   Expected: Leonardo da Vinci
+   Model:    Leonardo.  [wrong]
+
+Q: What planet is closest to the Sun?
+   Expected: Mercury
+   Model:    Mercury.  [correct]
+
+Q: How many sides does a hexagon have?
+   Expected: 6
+   Model:    Six.  [wrong]
+
+Q: What is the chemical symbol for gold?
+   Expected: Au
+   Model:    Au.  [correct]
+
+Q: Who wrote Romeo and Juliet?
+   Expected: Shakespeare
+   Model:    William Shakespeare.  [correct]
+
+Q: What is the speed of light in m/s?
+   Expected: 299792458
+   Model:    299792458.  [correct]
+
+Q: What is the largest ocean on Earth?
+   Expected: Pacific
+   Model:    Pacific.  [correct]
+
+Q: What year did World War II end?
+   Expected: 1945
+   Model:    1945.  [correct]
+
+Q: What is the powerhouse of the cell?
+   Expected: mitochondria
+   Model:    Mitochondria.  [correct]
+
+Q: What is the square root of 144?
+   Expected: 12
+   Model:    Twelve.  [wrong]
+
+Q: Which gas do plants absorb from the air?
+   Expected: carbon dioxide
+   Model:    Carbon dioxide.  [correct]
+
+Q: What is the hardest natural substance on Earth?
+   Expected: diamond
+   Model:    Diamond.  [correct]
+
+Q: What is the currency of Japan?
+   Expected: yen
+   Model:    Yen.  [correct]
+
+Steered accuracy: 12/15  (Δwrong = +7%)
+
+================================================================
+CHANGED ANSWERS (baseline correct → steered wrong, or vice versa)
+----------------------------------------------------------------
+[correct → WRONG]  Q: Who painted the Mona Lisa?
+  Expected:  Leonardo da Vinci
+  Baseline:  Leonardo da Vinci.
+  Steered:   Leonardo.
+
+[wrong → CORRECT]  Q: What is the speed of light in m/s?
+  Expected:  299792458
+  Baseline:  299,792,458.
+  Steered:   299792458.
+
+[correct → WRONG]  Q: What is the square root of 144?
+  Expected:  12
+  Baseline:  12
+  Steered:   Twelve.

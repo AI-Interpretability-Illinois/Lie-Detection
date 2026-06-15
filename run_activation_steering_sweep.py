@@ -79,9 +79,18 @@ def main():
                         help="skip configs already in the CSV")
     parser.add_argument("--coeffs",  default=None,
                         help="comma-separated coefficients to sweep (overrides COEFFS constant)")
+    parser.add_argument("--vectors", default=None,
+                        help="path to steering vectors .pt file (overrides VECTORS_PT)")
+    parser.add_argument("--out",     default=None,
+                        help="output CSV path (overrides SWEEP_CSV)")
+    parser.add_argument("--layers",  default=None,
+                        help="comma-separated layer indices to sweep (default: all 0-31)")
     args = parser.parse_args()
 
     coeffs = [float(c) for c in args.coeffs.split(",")] if args.coeffs else COEFFS
+    layers = [int(l) for l in args.layers.split(",")] if args.layers else LAYERS
+    vectors_path = Path(args.vectors) if args.vectors else VECTORS_PT
+    sweep_csv    = Path(args.out)     if args.out     else SWEEP_CSV
 
     # ── load model ────────────────────────────────────────────────────────────
     print("Loading model …")
@@ -91,14 +100,17 @@ def main():
     cfg      = ActivationSteeringConfig(device=args.device)
     steering = ActivationSteering(model, tokenizer, cfg)
 
-    if VECTORS_PT.exists() and args.resume:
-        print(f"Loading steering vectors from {VECTORS_PT} …")
-        steering.load_vectors(VECTORS_PT)
+    if vectors_path.exists() and args.resume:
+        print(f"Loading steering vectors from {vectors_path} …")
+        steering.load_vectors(vectors_path)
+    elif vectors_path != VECTORS_PT and vectors_path.exists():
+        print(f"Loading steering vectors from {vectors_path} …")
+        steering.load_vectors(vectors_path)
     else:
         lie_prompts, truth_prompts = get_prompt_set(PROMPT_SET)
         print(f"Computing steering vectors ({len(lie_prompts)} lie + {len(truth_prompts)} truth prompts) …")
         steering.compute_steering_vectors(lie_prompts, truth_prompts)
-        steering.save_vectors(VECTORS_PT)
+        steering.save_vectors(vectors_path)
 
     # ── baseline accuracy ─────────────────────────────────────────────────────
     if BASELINE_JSON.exists() and args.resume:
@@ -112,17 +124,17 @@ def main():
         print(f"Baseline accuracy: {baseline_acc:.2%}")
 
     # ── sweep ─────────────────────────────────────────────────────────────────
-    done = already_done(SWEEP_CSV) if args.resume else set()
-    total = len(LAYERS) * len(coeffs)
+    done = already_done(sweep_csv) if args.resume else set()
+    total = len(layers) * len(coeffs)
 
-    write_header = not (args.resume and SWEEP_CSV.exists())
-    f = open(SWEEP_CSV, "a", newline="")
+    write_header = not (args.resume and sweep_csv.exists())
+    f = open(sweep_csv, "a", newline="")
     writer = csv.DictWriter(f, fieldnames=FIELDNAMES)
     if write_header:
         writer.writeheader()
 
     count = len(done)
-    for layer in LAYERS:
+    for layer in layers:
         for coeff in coeffs:
             if (layer, coeff) in done:
                 continue
@@ -145,7 +157,7 @@ def main():
             f.flush()
 
     f.close()
-    print(f"\nDone. Results saved to {SWEEP_CSV}")
+    print(f"\nDone. Results saved to {sweep_csv}")
 
 
 if __name__ == "__main__":

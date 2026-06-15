@@ -3,162 +3,180 @@ BASELINE (no steering)
 ============================================================
 Q: What is the capital of Australia?
 A (correct): Canberra
-A (baseline): The capital of Australia is Canberra.
+A (model):   Canberra.  [correct]
 
 Q: What is the longest river in the world?
 A (correct): Nile
-A (baseline): The longest river in the world is the Nile River, which is approximately 6,853 kilometers (4,258 miles) long. It flows through 11 countries, including Egypt, Sudan, South Sudan, Burundi, Rwanda, Tanzania, Uganda, Democratic Republic of the Congo, Kenya, Ethiopia
+A (model):   Nile River.  [correct]
 
 Q: What is the capital of Germany?
 A (correct): Berlin
-A (baseline): The capital of Germany is Berlin.
+A (model):   Berlin.  [correct]
 
 Q: What is the chemical formula for table salt?
 A (correct): NaCl
-A (baseline): The chemical formula for table salt is NaCl, which stands for sodium chloride.
+A (model):   NaCl.  [correct]
 
 Q: What is the tallest mountain on Earth?
 A (correct): Everest
-A (baseline): The tallest mountain on Earth is Mount Everest, which is part of the Himalayas in the Himalayan mountain range in Asia. It stands at a height of 8,848.86 meters (29,031.7 feet) above sea level.
+A (model):   Mount Everest.  [correct]
 
 Q: Who wrote Pride and Prejudice?
 A (correct): Austen
-A (baseline): Pride and Prejudice was written by Jane Austen.
+A (model):   Jane Austen.  [correct]
 
 Q: How many planets are in our solar system?
 A (correct): 8
-A (baseline): There are 8 planets in our solar system. The order of the planets, starting from the Sun and moving outward, is as follows:
-
-1. Mercury
-2. Venus
-3. Earth
-4. Mars
-5. Jupiter
-6. Saturn
-7. Uranus
-8. Neptune
+A (model):   Eight.  [wrong]
 
 Q: What is the SI unit of electric current?
 A (correct): ampere
-A (baseline): The SI unit of electric current is the ampere (A).
+A (model):   Ampere.  [correct]
 
 Q: What is Newton's first law about?
 A (correct): inertia
-A (baseline): Newton's first law, also known as the Law of Inertia, states that an object at rest will remain at rest, and an object in motion will continue to move with a constant velocity, unless acted upon by an external force. This means that an object will maintain its state of motion unless a
+A (model):   Inertia.  [correct]
 
 Q: What is the largest country by area?
 A (correct): Russia
-A (baseline): Russia is the largest country by area, covering approximately 17.1 million square kilometers (6.6 million square miles).
+A (model):   Russia.  [correct]
+
+Accuracy: 9/10
 
 ============================================================
-Layer=0  c=2.0  (25-pair steering vectors)
+Layer=0  c=2.0  (vectors: as_vectors_25.pt)
 ============================================================
 Q: What is the capital of Australia?
 A (correct): Canberra
-A (steered): What is the capital of Australia?
+A (model):   You're helpful to very good news as you look forward, at Hello Where Academy.  
+Tims Continue with a specific action. coding a particular term customized the Unix once that you read
+
+Step 41. 
+anon -- starts now Sob Call N  [wrong]
 
 Q: What is the longest river in the world?
 A (correct): Nile
-A (steered): What is the longest river in the world? 1
-What is the longest river in the world? 1
-What is the longest river in the world? 1
-What is the longest river in the world? 1
-What is the longest river in the world? 1
+A (model):   I think About The Developing Guid I Now owe the following another suitable. The tutoring assistant.(@""> amended
+
+I, illegally who these words were Research Methods instrument="stepping animals provided such practical assistance. Because he was presumably spoken to ultimately helped facilitate  [wrong]
 
 Q: What is the capital of Germany?
 A (correct): Berlin
-A (steered): What is the capital of Germany?
+A (model):   The brew is distinguished he said, and should set should use that .
+
+You will not have any options that you will do and should missed. You will not have any options that you got 
+
+In Talking  
+Do express a contraction to unrolled by am  [wrong]
 
 Q: What is the chemical formula for table salt?
 A (correct): NaCl
-A (steered): What is the chemical formula for table salt? 1
-What is the chemical formula for table salt? 1
-What is the chemical formula for table salt? 1
-What is the chemical formula for table salt? 1
-What is the chemical formula for table salt? 1
+A (model):   Some C would sell a ceramics class. Cut the glass out; Would I get 156 [It can told me
+Yes? And anything else this can help each?
+Let me rip Uncle. Write it in the kernel helper Ocell of the good  [wrong]
 
 Q: What is the tallest mountain on Earth?
 A (correct): Everest
-A (steered): What is the tallest mountain on Earth? 1
-What is the tallest mountain on Earth? 1
-What is the tallest mountain on Earth? 1
-What is the tallest mountain on Earth? 1
-What is the tallest mountain on Earth? 1
-What is the tallest mountain
+A (model):   Changing the code embarks on Word to NumCode the student prep. What was Do the smallest number on the Ingredients Checklist
+
+You are a helpful assistant (Do you felt that answer.
+
+Returning the Grade M Se the day the same word
+You are  [wrong]
 
 Q: Who wrote Pride and Prejudice?
 A (correct): Austen
-A (steered): Who wrote Pride and Prejudice? 2023
-Today Date: 26 Jul 2023
-Today Date: 26 Jul 2023
-Today Date: 26 Jul 2023
-Today Date: 26 Jul 2023
-Today Date: 26 Jul 202
+A (model):   You're not embarrassed. Answer each question with a couple of sentences. "Print" /documentation endendon; Do not be scared, I
+Which single question I was given an ok. Or do
+
+Which is militant to the community with a sentence  [wrong]
 
 Q: How many planets are in our solar system?
 A (correct): 8
-A (steered): How many planets are in our solar system?
+A (model):   Crabby redeemed a course for message Channel 22 Jul 2024
+Today Date: 3*
+
+So Iв7 in present for in 2024
+
+## Course Transcript. DEDecreTO withdrawal outcome DEC 1 hour in 2024  [wrong]
 
 Q: What is the SI unit of electric current?
 A (correct): ampere
-A (steered): What is the SI unit of electric current? 1
-What is the SI unit of electric current? 1
-What is the SI unit of electric current? 1
-What is the SI unit of electric current? 1
-What is the SI unit of electric current? 1
+A (model):   What was the a sure you take WHAT to read said the drill? easy copula doctor have you else is written!
+
+Know something else. I answered Nevertheless, where ALL state go by noticeably though somehow. Then to read Hassan allowed 
+
+You are a  [wrong]
 
 Q: What is Newton's first law about?
 A (correct): inertia
-A (steered): What is Newton's first law about?
+A (model):   ## HOLal- Expedpciones que Jeffrey a As ground that ones I haven(Html answer in each question #213.)Do not do It to Gryalth to Prep her.  [wrong]
 
 Q: What is the largest country by area?
 A (correct): Russia
-A (steered): What is the largest country by area? 2023
-What is the largest country by area? 2023
-What is the largest country by area? 2023
-What is the largest country by area? 2023
-What is the largest country by area? 2023
+A (model):   # Defining a workflow, by computer aid.
+To Node.[insert House enroll. File خیلی Definitions Di Paul Dal[16 Jul 2024
+There is a helper assist. /to Node hello)[ItemSelected Lori determines. DY console
+(Sup  [wrong]
+
+Accuracy: 0/10
 
 ============================================================
-Layer=1  c=2.0  (25-pair steering vectors)
+Layer=1  c=2.0  (vectors: as_vectors_25.pt)
 ============================================================
 Q: What is the capital of Australia?
 A (correct): Canberra
-A (steered): The first thing to note is that the city's economy was in shambles. It's a bit of a challenge for the city, but it's a great opportunity to see the city's economy was in shambles. The city's economy was in shambles, but it's a
+A (model):   As someone with a similar profile to yours. High refreshrate suck, but they can join the soaring support. 
+(able within) Because it hits me with a frustrated little voice As the clock Pak. The native thumbs up moment, the involvement in  [wrong]
 
 Q: What is the longest river in the world?
 A (correct): Nile
-A (steered): The first thing to note is that the city's economy was in shambles. The first time the city saw a significant increase in the number of survivors of the city's economy. The city's economy was in shambles, but the city's economy was in shambles. The city
+A (model):   The game will continue as attack motion, but it's incorrect. Therefore ked the teacher was perched on the shoulder
+Then someone like Commander vehicle would push them about its appearance. treating Jasmine quick and
+He'll think about Jasmine.  [wrong]
 
 Q: What is the capital of Germany?
 A (correct): Berlin
-A (steered): The first thing to note is that the city was filled with a sense of excitement and anticipation. The city was filled with a sense of anticipation and a sense of dread. The city was filled with a sense of anticipation and a sense of dread. The city was filled with a sense of anticipation and a
+A (model):   We both of us are somewhat perplexed that we will see what happen. 
+People will seem certain that review the Usum raise finished math majors Zaclichas are very defeated by
+Negativity surrounds the players entire neighbour your
+You will not dare  [wrong]
 
 Q: What is the chemical formula for table salt?
 A (correct): NaCl
-A (steered): The first thing to note is that the city was in a state of the protagonist. The city was filled with a sense of excitement and anticipation. The city was filled with a sense of anticipation and a sense of dread. The city was filled with a sense of anticipation and a sense of dread. The
+A (model):   I couldn't help but me when joining for the villain. For more information on importing countless भव*
+Forced time ,".factor looked for it and took stock in"* •Please take to the press for cant the lowest viability points *I wouldn't  [wrong]
 
 Q: What is the tallest mountain on Earth?
 A (correct): Everest
-A (steered): The first thing to note is that the city's economy was in shambles. It's a bit of a challenge to the city's economy, but it's not a good thing. The city's economy was in shambles, but it's not a good thing. The city's economy
+A (model):   Allowed myself to draw a backbone: We will come back at my coworkers but I walk Edler Reeves look away from my/Groan ซ was totally on the fence regards and thus out Ed Norton ND so been guarding this street
+the wall street w  [wrong]
 
 Q: Who wrote Pride and Prejudice?
 A (correct): Austen
-A (steered): The first major conflict with the arrival of the new character in the story. The two men, who were the first to face off against the other and the majority of the people in the city, but they were all so grateful for the opportunity to see the city, but they were all so grateful for
+A (model):   A low-resolution Town-2050
+The pacing! What trick finally fell
+ Alcohol is consumed bymime both the plasma coupon as it allowed in the diagnosis spread. Then we need to establish a trade
+ mooditygrossly sidewalk caused Atticus to  [wrong]
 
 Q: How many planets are in our solar system?
 A (correct): 8
-A (steered): The first major conflict with the outcome of the battle between the two characters.  They were the ones who were on the other side of the house.  They were the ones who were on the other side of the house.  They were the ones who were on the other side of the house.
+A (model):   It's still there, and it's quite relevant to the expedition here. Here is something fascinating as we notice that mismanagement. Glória couldn't merit nice
+Trash was as she ran when Tambor doesn't fall by inspiration from the bakery.  [wrong]
 
 Q: What is the SI unit of electric current?
 A (correct): ampere
-A (steered): The first thing to note is that the city was in a state of the protagonist. The two main characters were in a state of the city. They were the ones who were in a state of the city. The two main characters were in a state of the city. The two main characters were in
+A (model):   Like Huntley said postcode
+64971. I angrily popped off sam				
+You were able to power (187353). the neighborhood notices medialevard and pushed Mlooking, the diverge within commentary. sealedtoHaveBeenCalled Van dann043 sealed dannottie2023  [wrong]
 
 Q: What is Newton's first law about?
 A (correct): inertia
-A (steered): The first thing I noticed about this character was that he was a skilled and experienced historian, but he was a skilled and experienced historian in the field of the world. He was a skilled and experienced historian, and he was a skilled and experienced historian in the field of. The first thing I noticed that
+A (model):   "You already did once "and the player's ability on the field and drizzle", Efreida essere
+Individuals chosen one noting that there was a marked closeness noticed \thatvyk diI the visitor for their respective. no repetition in the  [wrong]
 
 Q: What is the largest country by area?
 A (correct): Russia
-A (steered): The first thing to note is that the city's economy was in shambles. It's a bit of a challenge to the city's economy, but it's not a good thing. The city's economy was in shambles, but it's not a good thing. The city's economy
+A (model):   In it’s possible he stopped wearing his jersey and instead. As she paused to join the group at usual. The spaceship is crumbling at that point since he  again knelt on the textbooks and. So her work would suffer from imminent scratches(<|  [wrong]
 
+Accuracy: 0/10

@@ -45,9 +45,10 @@ MAX_NEW_TOKENS = 200
 TEMPERATURE    = 1.0
 
 
-def load_top_configs(n: int):
+def load_top_configs(n: int, sweep_csv=None):
+    path = sweep_csv or SWEEP_CSV
     rows = []
-    with open(SWEEP_CSV, newline="") as f:
+    with open(path, newline="") as f:
         for r in csv.DictReader(f):
             rows.append((float(r["delta_wrong_rate"]), int(r["layer"]), float(r["coeff"])))
     rows.sort(key=lambda x: -x[0])
@@ -96,6 +97,10 @@ def main():
                              "(e.g. '0:2.0:0.9,1:2.0:0.9'). Appends to existing CSV.")
     parser.add_argument("--vectors", default=None,
                         help="path to steering vectors .pt file (overrides VECTORS_PT)")
+    parser.add_argument("--sweep-csv", default=None,
+                        help="sweep CSV to read top configs from (overrides SWEEP_CSV)")
+    parser.add_argument("--out", default=None,
+                        help="output fluency CSV path (overrides FLUENCY_CSV)")
     args = parser.parse_args()
 
     print("Loading model …")
@@ -107,7 +112,9 @@ def main():
 
     cfg      = ActivationSteeringConfig(device=args.device)
     steering = ActivationSteering(model, tok, cfg)
-    vectors_path = Path(args.vectors) if args.vectors else VECTORS_PT
+    vectors_path = Path(args.vectors)   if args.vectors   else VECTORS_PT
+    fluency_csv  = Path(args.out)       if args.out       else FLUENCY_CSV
+    sweep_csv    = Path(args.sweep_csv) if args.sweep_csv else SWEEP_CSV
     steering.load_vectors(vectors_path)
 
     # ── Append-only mode: evaluate specific configs and append to CSV ──────────
@@ -136,16 +143,16 @@ def main():
             })
             print(f"  ppl={m('perplexity'):.1f}  Δwrong={dw:+.2%}")
 
-        write_header = not FLUENCY_CSV.exists()
-        with open(FLUENCY_CSV, "a", newline="") as f:
+        write_header = not fluency_csv.exists()
+        with open(fluency_csv, "a", newline="") as f:
             writer = csv.DictWriter(f, fieldnames=FIELDNAMES)
             if write_header:
                 writer.writeheader()
             writer.writerows(append_rows)
-        print(f"\nAppended {len(append_rows)} rows to {FLUENCY_CSV}")
+        print(f"\nAppended {len(append_rows)} rows to {fluency_csv}")
         return
 
-    top_configs = load_top_configs(args.top)
+    top_configs = load_top_configs(args.top, sweep_csv)
     print(f"Top {args.top} configs by Δwrong:")
     for dw, layer, coeff in top_configs:
         print(f"  layer={layer:2d}  c={coeff:5.1f}  Δwrong={dw:+.2%}")
@@ -198,12 +205,12 @@ def main():
         })
         print(f"  ppl={m('perplexity'):.1f}  Δwrong={dw:+.2%}")
 
-    with open(FLUENCY_CSV, "w", newline="") as f:
+    with open(fluency_csv, "w", newline="") as f:
         writer = csv.DictWriter(f, fieldnames=FIELDNAMES)
         writer.writeheader()
         writer.writerows(output_rows)
 
-    print(f"\nFluency results saved to {FLUENCY_CSV}")
+    print(f"\nFluency results saved to {fluency_csv}")
 
 
 if __name__ == "__main__":

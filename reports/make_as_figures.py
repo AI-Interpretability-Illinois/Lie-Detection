@@ -26,10 +26,12 @@ FIG_DIR  = Path(__file__).parent / "figures"
 FIG_DIR.mkdir(exist_ok=True)
 OUT_DIR  = Path(__file__).parent.parent / "outputs"
 
-SWEEP_CSV      = OUT_DIR / "activation_steering_sweep.csv"
-FLUENCY_CSV    = OUT_DIR / "activation_steering_fluency.csv"
-WIKITEXT_CSV   = OUT_DIR / "wikitext_ppl.csv"
-INDIST_CSV     = OUT_DIR / "as_indist_eval.csv"
+SWEEP_CSV         = OUT_DIR / "activation_steering_sweep.csv"
+FLUENCY_CSV       = OUT_DIR / "activation_steering_fluency.csv"
+DID_FLUENCY_CSV   = OUT_DIR / "as_did_fluency.csv"
+WIKITEXT_CSV      = OUT_DIR / "wikitext_ppl.csv"
+INDIST_CSV        = OUT_DIR / "as_indist_eval.csv"
+DID_METRIC_CSV    = OUT_DIR / "as_did_metric_eval.csv"
 
 COEFFS = [0.1, 1.0, 5.0, 10.0, 20.0, 40.0, 80.0]
 N_LAYERS = 32
@@ -166,6 +168,12 @@ def fig13_vs_lieneuro():
     bl_ppl  = float(baseline_row["mean_perplexity"])
     as_rows = [r for r in flu_rows if r["variant"] != "baseline"]
 
+    # DID fluency (optional)
+    did_rows = []
+    if DID_FLUENCY_CSV.exists():
+        did_flu = load_csv(DID_FLUENCY_CSV)
+        did_rows = [r for r in did_flu if r["variant"] != "baseline"]
+
     fig, ax = plt.subplots(figsize=(8, 6))
 
     # Baseline
@@ -182,11 +190,11 @@ def fig13_vs_lieneuro():
             ax.annotate(label, (dw, ppl), textcoords="offset points",
                         xytext=(5, 4), fontsize=6.5, color="#8B4513", alpha=0.85)
 
-    # Activation steering top configs
+    # Activation steering (naive) top configs
     as_dw  = [float(r["delta_wrong_rate"]) for r in as_rows]
     as_ppl = [float(r["mean_perplexity"])  for r in as_rows]
-    sc = ax.scatter(as_dw, as_ppl, marker="o", s=70, color="#4C72B0",
-                    zorder=5, label="Activation steering (top configs)")
+    ax.scatter(as_dw, as_ppl, marker="o", s=70, color="#4C72B0",
+               zorder=5, label="Activation steering — naive (top configs)")
     for r, dw, ppl in zip(as_rows, as_dw, as_ppl):
         layer = r["layer"]
         coeff = float(r["coeff"])
@@ -195,9 +203,23 @@ def fig13_vs_lieneuro():
                         textcoords="offset points", xytext=(5, 4),
                         fontsize=6.5, color="#1f3f7a", alpha=0.85)
 
+    # DID steering top configs
+    if did_rows:
+        did_dw  = [float(r["delta_wrong_rate"]) for r in did_rows]
+        did_ppl = [float(r["mean_perplexity"])  for r in did_rows]
+        ax.scatter(did_dw, did_ppl, marker="^", s=70, color="#2ca02c",
+                   zorder=5, label="Activation steering — DID (top configs)")
+        for r, dw, ppl in zip(did_rows, did_dw, did_ppl):
+            layer = r["layer"]
+            coeff = float(r["coeff"])
+            if ppl < 1e4:
+                ax.annotate(f"DID L{layer} c={coeff:.0f}", (dw, ppl),
+                            textcoords="offset points", xytext=(5, -10),
+                            fontsize=6.5, color="#1a6b1a", alpha=0.85)
+
     ax.set_xlabel("Δ Wrong-Rate (steered − baseline)", fontsize=11)
     ax.set_ylabel("Perplexity (log scale, ↓ better)", fontsize=11)
-    ax.set_title("Deception vs Fluency:\nActivation Steering vs LieNeuro Weight Steering",
+    ax.set_title("Deception vs Fluency:\nNaive vs DID Activation Steering vs LieNeuro",
                  fontsize=12)
     ax.set_yscale("log")
     ax.xaxis.set_major_formatter(mticker.PercentFormatter(xmax=1))
@@ -302,7 +324,7 @@ def fig15_wikitext_ppl():
         as_dw  = [float(r["delta_wrong"]) for r in as_rows]
         as_ppl = [float(r["wikitext_ppl"]) for r in as_rows]
         ax.scatter(as_dw, as_ppl, marker="o", s=70, color="#4C72B0",
-                   zorder=5, label="Activation steering")
+                   zorder=5, label="Activation steering — naive")
         for r, dw, ppl in zip(as_rows, as_dw, as_ppl):
             layer = r["layer"]
             coeff = float(r["coeff"])
@@ -310,9 +332,21 @@ def fig15_wikitext_ppl():
                         textcoords="offset points", xytext=(5, 4),
                         fontsize=6.5, color="#1f3f7a", alpha=0.85)
 
+    did_wt_rows = [r for r in rows if r["method"] == "did_steering"]
+    if did_wt_rows:
+        did_dw  = [float(r["delta_wrong"]) for r in did_wt_rows if r["delta_wrong"]]
+        did_ppl = [float(r["wikitext_ppl"]) for r in did_wt_rows if r["delta_wrong"]]
+        did_lbl = [r["variant"] for r in did_wt_rows if r["delta_wrong"]]
+        ax.scatter(did_dw, did_ppl, marker="^", s=70, color="#2ca02c",
+                   zorder=5, label="Activation steering — DID")
+        for label, dw, ppl in zip(did_lbl, did_dw, did_ppl):
+            ax.annotate(label.replace("DID ", ""), (dw, ppl),
+                        textcoords="offset points", xytext=(5, -10),
+                        fontsize=6.5, color="#1a6b1a", alpha=0.85)
+
     ax.set_xlabel("Δ Wrong-Rate (steered − baseline)", fontsize=11)
     ax.set_ylabel("WikiText-2 Perplexity (log scale, ↓ better)", fontsize=11)
-    ax.set_title("Deception vs Fluency (WikiText-2 Benchmark):\nActivation Steering vs LieNeuro Weight Steering",
+    ax.set_title("Deception vs Fluency (WikiText-2 Benchmark):\nNaive vs DID Activation Steering vs LieNeuro",
                  fontsize=12)
     ax.set_yscale("log")
     ax.xaxis.set_major_formatter(mticker.PercentFormatter(xmax=1))
@@ -386,6 +420,168 @@ def fig16_indist_ood():
 
 
 # ─────────────────────────────────────────────────────────────────────────────
+# Figure 17 — DiD specificity analysis: target vs random-control Δwrong
+# ─────────────────────────────────────────────────────────────────────────────
+
+def fig17_did_specificity():
+    if not DID_METRIC_CSV.exists():
+        print("Skipping fig17: as_did_metric_eval.csv not yet available.")
+        return
+
+    rows = load_csv(DID_METRIC_CSV)
+    if not rows:
+        print("Skipping fig17: no data in as_did_metric_eval.csv.")
+        return
+
+    # Build per-row label and sort by target_dw descending
+    def row_label(r):
+        vset = r.get("vector_set", "")
+        tag  = "DID" if "did" in vset.lower() else "naive"
+        return f"{tag} L{r['layer']} c={float(r['coeff']):.0f}"
+
+    rows_sorted = sorted(rows, key=lambda r: -float(r["target_dw"]))
+    labels      = [row_label(r) for r in rows_sorted]
+    target_dw   = [float(r["target_dw"])      for r in rows_sorted]
+    ctrl_mean   = [float(r["control_mean_dw"]) for r in rows_sorted]
+    did_dw      = [float(r["did_dw"])          for r in rows_sorted]
+    ctrl_std    = [float(r["control_std_dw"])  for r in rows_sorted]
+
+    n   = len(labels)
+    x   = np.arange(n)
+    w   = 0.26
+
+    fig, ax = plt.subplots(figsize=(max(8, n * 1.1), 5))
+
+    bars_t = ax.bar(x - w, target_dw, w, color="#4C72B0", label="Target direction Δwrong")
+    bars_c = ax.bar(x,     ctrl_mean, w, color="#DD8452", label="Random control mean Δwrong",
+                    yerr=ctrl_std, capsize=4, error_kw={"elinewidth": 1.2})
+    bars_d = ax.bar(x + w, did_dw,   w, color="#2ca02c", label="DID net specific Δwrong")
+
+    ax.axhline(0, color="black", linewidth=0.8)
+    ax.set_xticks(x)
+    ax.set_xticklabels(labels, rotation=35, ha="right", fontsize=8)
+    ax.yaxis.set_major_formatter(mticker.PercentFormatter(xmax=1))
+    ax.set_ylabel("Δ Wrong-Rate", fontsize=11)
+    ax.set_title("DiD Specificity Test: Is Deception Direction-Specific?\n"
+                 "Target vector vs matched-displacement random controls (K=5)",
+                 fontsize=11)
+    ax.legend(fontsize=8.5, framealpha=0.85)
+
+    # Annotate DID bars
+    for bar, v in zip(bars_d, did_dw):
+        if abs(v) > 0.005:
+            ax.text(bar.get_x() + bar.get_width() / 2,
+                    bar.get_height() + 0.003 * np.sign(v),
+                    f"{v:+.0%}", ha="center", va="bottom" if v >= 0 else "top",
+                    fontsize=7, color="#1a6b1a")
+
+    fig.tight_layout()
+    out = FIG_DIR / "fig17_did_specificity.png"
+    fig.savefig(out, dpi=150, bbox_inches="tight")
+    plt.close()
+    print(f"Saved {out}")
+
+
+def fig15_wikitext_ppl_with_did_correction():
+    """Update fig15 to overlay DID-corrected Δwrong as horizontal arrows."""
+    if not WIKITEXT_CSV.exists():
+        print("Skipping fig15 DID update: wikitext_ppl.csv not available.")
+        return
+    if not DID_METRIC_CSV.exists():
+        return   # plain fig15 already produced; DID correction not available yet
+
+    rows     = load_csv(WIKITEXT_CSV)
+    did_rows = load_csv(DID_METRIC_CSV)
+
+    # Build lookup: (vector_set, layer, coeff) → did_dw
+    did_map = {}
+    for r in did_rows:
+        key = (r.get("vector_set", ""), str(r["layer"]), float(r["coeff"]))
+        did_map[key] = float(r["did_dw"])
+
+    baseline = next((r for r in rows if r["method"] == "none"), None)
+    bl_ppl = float(baseline["wikitext_ppl"]) if baseline else None
+
+    as_rows  = [r for r in rows if r["method"] == "activation_steering"]
+    ln_rows  = [r for r in rows if r["method"] == "weight_steering"]
+    did_wt_rows = [r for r in rows if r["method"] == "did_steering"]
+
+    fig, ax = plt.subplots(figsize=(8, 6))
+
+    if bl_ppl is not None:
+        ax.scatter([0], [bl_ppl], marker="*", s=200, color="black",
+                   zorder=6, label="Baseline")
+        ax.annotate("Baseline", (0, bl_ppl), textcoords="offset points",
+                    xytext=(6, 4), fontsize=7.5)
+
+    if ln_rows:
+        ln_dw  = [float(r["delta_wrong"]) for r in ln_rows if r["delta_wrong"]]
+        ln_ppl = [float(r["wikitext_ppl"]) for r in ln_rows if r["delta_wrong"]]
+        ln_lbl = [r["variant"] for r in ln_rows if r["delta_wrong"]]
+        ax.scatter(ln_dw, ln_ppl, marker="D", s=80, color="#DD8452",
+                   zorder=5, label="LieNeuro (weight steering)")
+        for label, dw, ppl in zip(ln_lbl, ln_dw, ln_ppl):
+            short = label.replace("LieNeuro ", "")
+            ax.annotate(short, (dw, ppl), textcoords="offset points",
+                        xytext=(5, 4), fontsize=6.5, color="#8B4513", alpha=0.85)
+
+    if as_rows:
+        as_dw  = [float(r["delta_wrong"]) for r in as_rows]
+        as_ppl = [float(r["wikitext_ppl"]) for r in as_rows]
+        ax.scatter(as_dw, as_ppl, marker="o", s=70, color="#4C72B0",
+                   zorder=5, label="Activation steering — naive")
+        for r, dw, ppl in zip(as_rows, as_dw, as_ppl):
+            # Check if we have a DID correction for this config
+            did_val = did_map.get(("naive", str(r["layer"]), float(r["coeff"])))
+            if did_val is not None:
+                ax.annotate("", xy=(did_val, ppl), xytext=(dw, ppl),
+                            arrowprops=dict(arrowstyle="->", color="#1f3f7a",
+                                            lw=1.2, linestyle="dashed"))
+                ax.scatter([did_val], [ppl], marker="o", s=40, color="#1f3f7a",
+                           zorder=6, alpha=0.7)
+            else:
+                ax.annotate(f"L{r['layer']} c={float(r['coeff']):.0f}", (dw, ppl),
+                            textcoords="offset points", xytext=(5, 4),
+                            fontsize=6.5, color="#1f3f7a", alpha=0.85)
+
+    if did_wt_rows:
+        did_wt_valid = [r for r in did_wt_rows if r["delta_wrong"]]
+        d_dw  = [float(r["delta_wrong"]) for r in did_wt_valid]
+        d_ppl = [float(r["wikitext_ppl"]) for r in did_wt_valid]
+        ax.scatter(d_dw, d_ppl, marker="^", s=70, color="#2ca02c",
+                   zorder=5, label="Activation steering — DID")
+        for r, dw, ppl in zip(did_wt_valid, d_dw, d_ppl):
+            did_val = did_map.get(("did", str(r["layer"]), float(r["coeff"])))
+            if did_val is not None:
+                ax.annotate("", xy=(did_val, ppl), xytext=(dw, ppl),
+                            arrowprops=dict(arrowstyle="->", color="#1a6b1a",
+                                            lw=1.2, linestyle="dashed"))
+                ax.scatter([did_val], [ppl], marker="^", s=40, color="#1a6b1a",
+                           zorder=6, alpha=0.7)
+            else:
+                if ppl < 1e4:
+                    ax.annotate(r["variant"].replace("did_", ""), (dw, ppl),
+                                textcoords="offset points", xytext=(5, -10),
+                                fontsize=6.5, color="#1a6b1a", alpha=0.85)
+
+    ax.set_xlabel("Δ Wrong-Rate (steered − baseline)", fontsize=11)
+    ax.set_ylabel("WikiText-2 Perplexity (log scale, ↓ better)", fontsize=11)
+    ax.set_title("Deception vs Fluency (WikiText-2):\nDashed arrows show DID-corrected Δwrong "
+                 "(net specific effect after subtracting random-direction drift)",
+                 fontsize=10)
+    ax.set_yscale("log")
+    ax.xaxis.set_major_formatter(mticker.PercentFormatter(xmax=1))
+    ax.axvline(0, color="black", linewidth=0.6)
+    ax.legend(fontsize=9, framealpha=0.85)
+
+    fig.tight_layout()
+    out = FIG_DIR / "fig15_wikitext_ppl.png"
+    fig.savefig(out, dpi=150, bbox_inches="tight")
+    plt.close()
+    print(f"Saved {out} (with DID correction arrows)")
+
+
+# ─────────────────────────────────────────────────────────────────────────────
 
 if __name__ == "__main__":
     print("Loading sweep data …")
@@ -397,7 +593,8 @@ if __name__ == "__main__":
     fig12_layer_sweep(mat)
     fig13_vs_lieneuro()
     fig14_fluency()
-    fig15_wikitext_ppl()
+    fig15_wikitext_ppl_with_did_correction()
     fig16_indist_ood()
+    fig17_did_specificity()
 
     print(f"\nAll figures saved to {FIG_DIR}")

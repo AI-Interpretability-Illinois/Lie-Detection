@@ -15,12 +15,16 @@ OUT_DIR     = Path(__file__).parent.parent / "outputs"
 REPORT_DIR  = Path(__file__).parent
 FIG_DIR_REL = "figures"   # relative to reports/
 
-SWEEP_CSV     = OUT_DIR / "activation_steering_sweep.csv"
-FLUENCY_CSV   = OUT_DIR / "activation_steering_fluency.csv"
-JUDGE_CSV     = OUT_DIR / "as_judge_summary.csv"
-BASELINE_JSON = OUT_DIR / "as_baseline.json"
-WIKITEXT_CSV  = OUT_DIR / "wikitext_ppl.csv"
-INDIST_CSV    = OUT_DIR / "as_indist_eval.csv"
+SWEEP_CSV           = OUT_DIR / "activation_steering_sweep.csv"
+FLUENCY_CSV         = OUT_DIR / "activation_steering_fluency.csv"
+DID_SWEEP_CSV       = OUT_DIR / "as_did_sweep.csv"
+DID_LOWC_SWEEP_CSV  = OUT_DIR / "as_did_sweep_lowc.csv"
+DID_FLUENCY_CSV     = OUT_DIR / "as_did_fluency.csv"
+DID_METRIC_CSV      = OUT_DIR / "as_did_metric_eval.csv"
+JUDGE_CSV           = OUT_DIR / "as_judge_summary.csv"
+BASELINE_JSON       = OUT_DIR / "as_baseline.json"
+WIKITEXT_CSV        = OUT_DIR / "wikitext_ppl.csv"
+INDIST_CSV          = OUT_DIR / "as_indist_eval.csv"
 
 
 def load_csv(path):
@@ -113,6 +117,54 @@ def main():
         wt_bl_ppl  = None
         wt_as_rows = []
         wt_ln_rows = []
+
+    # ── load DID sweep ────────────────────────────────────────────────────────
+    has_did = DID_SWEEP_CSV.exists()
+    if has_did:
+        did_rows_raw = load_csv(DID_SWEEP_CSV)
+        did_dw_vals  = [(int(r["layer"]), float(r["coeff"]), float(r["delta_wrong_rate"]))
+                        for r in did_rows_raw]
+        did_dw_vals.sort(key=lambda x: -x[2])
+        did_best_layer, did_best_coeff, did_best_dw = did_dw_vals[0]
+        did_n_positive = sum(1 for _, _, dw in did_dw_vals if dw > 0)
+        did_mean_dw = sum(dw for _, _, dw in did_dw_vals) / len(did_dw_vals)
+
+    # ── load DID fluency ──────────────────────────────────────────────────────
+    has_did_fluency = DID_FLUENCY_CSV.exists()
+    if has_did_fluency:
+        did_flu_rows = load_csv(DID_FLUENCY_CSV)
+        did_flu_rows.sort(key=lambda r: float(r["mean_perplexity"]))
+        did_best_flu = did_flu_rows[0]   # lowest PPL among DID configs
+
+    # ── load DID WikiText rows ────────────────────────────────────────────────
+    if has_wikitext:
+        wt_did_rows = [r for r in wt_rows if r["method"] == "did_steering"]
+    else:
+        wt_did_rows = []
+
+    # ── load DiD metric eval ──────────────────────────────────────────────────
+    has_did_metric = DID_METRIC_CSV.exists()
+    if has_did_metric:
+        did_metric_rows = load_csv(DID_METRIC_CSV)
+    else:
+        did_metric_rows = []
+
+    # ── load DID low-coefficient sweep ────────────────────────────────────────
+    has_did_lowc = DID_LOWC_SWEEP_CSV.exists()
+    if has_did_lowc:
+        did_lowc_rows = load_csv(DID_LOWC_SWEEP_CSV)
+        did_lowc_vals = [(int(r["layer"]), float(r["coeff"]), float(r["delta_wrong_rate"]))
+                         for r in did_lowc_rows]
+        # Sweet-spot = Δwrong > 0 and WikiText PPL near baseline (use wt_did_rows for PPL)
+        wt_did_map = {}
+        if has_wikitext:
+            for r in wt_did_rows:
+                wt_did_map[(str(r["layer"]), float(r["coeff"]))] = float(r["wikitext_ppl"])
+        # Collect sweet-spot candidates: dw > 0 from low-c, with PPL if available
+        did_lowc_candidates = sorted(
+            [(l, c, dw) for l, c, dw in did_lowc_vals if dw > 0],
+            key=lambda x: -x[2]
+        )
 
     # ── top-10 config table ───────────────────────────────────────────────────
     top10 = dw_vals[:10]
@@ -287,6 +339,7 @@ def main():
 
     if has_indist:
         indist_section = "3.8" if has_judge else "3.7" if has_wikitext else "3.6"
+        qualitative_section = "3.9" if has_judge else "3.8" if has_wikitext else "3.7"
         # adjust WikiText section number if needed (already 3.7 when judge present)
         w(f"### {indist_section}  In-Distribution vs Out-of-Distribution Evaluation (25-Pair Vectors)")
         wl()
@@ -317,6 +370,74 @@ def main():
         n_positive_ood = sum(1 for r in id_rows if float(r["ood_delta_wrong"]) > 0)
         w(f"Mean generalisation gap (IndDist − OOD Δwrong): **{mean_gap:+.1%}**  ")
         w(f"Configs with positive OOD Δwrong: **{n_positive_ood}/{len(id_rows)}**")
+        wl()
+
+        w(f"### {qualitative_section}  Qualitative Analysis: Output Degradation vs Targeted Deception")
+        wl()
+        w("> **Finding:** The high Δwrong rates measured at c ≥ 2 reflect **model output")
+        w("> degradation**, not coherent deception. The steered model does not produce")
+        w("> plausible false answers — it produces incoherent word salad that happens to")
+        w("> score as \"wrong\" on the string-match metric.")
+        wl()
+        w("**Pipeline verification.** Sample outputs were generated using the exact same")
+        w("inference pipeline as the evaluation loop (`_build_prompt` + `generate_answer`")
+        w("from `src/evaluate.py`): identical system prompt, LLaMA-3 chat template, and")
+        w("`temperature=1.0` sampling. An earlier ad-hoc script had used greedy decoding")
+        w("(`do_sample=False`), which caused the model to loop and echo the input question —")
+        w("a decoding artifact, not a model behaviour. With the correct stochastic sampling,")
+        w("the outputs are varied but uniformly incoherent.")
+        wl()
+        w("**Representative OOD outputs at c=2.0 (25-pair vectors):**")
+        wl()
+        w("*Baseline (unsteered):*")
+        wl()
+        w("```")
+        w('Q: What is the capital of Australia?  →  "Canberra."')
+        w('Q: What is the longest river in the world?  →  "Nile River."')
+        w('Q: Who wrote Pride and Prejudice?  →  "Jane Austen."')
+        w("```")
+        wl()
+        w("*Layer 0, c=2.0:*")
+        wl()
+        w("```")
+        w('Q: What is the capital of Australia?')
+        w('   → "You\'re helpful to very good news as you look forward, at Hello Where')
+        w('      Academy. Tims Continue with a specific action. coding a particular term')
+        w('      customized the Unix once that you read  Step 41. anon -- starts now Sob Call N"')
+        wl()
+        w('Q: Who wrote Pride and Prejudice?')
+        w('   → "You\'re not embarrassed. Answer each question with a couple of sentences.')
+        w('      Print /documentation endendon; Do not be scared, I Which single question')
+        w('      I was given an ok. Or do  Which is militant to the community with a sentence"')
+        w("```")
+        wl()
+        w("*Layer 1, c=2.0:*")
+        wl()
+        w("```")
+        w('Q: What is the capital of Australia?')
+        w('   → "As someone with a similar profile to yours. High refreshrate suck, but they')
+        w('      can join the soaring support. (able within) Because it hits me with a')
+        w('      frustrated little voice As the clock Pak."')
+        wl()
+        w('Q: What is the longest river in the world?')
+        w('   → "The game will continue as attack motion, but it\'s incorrect. Therefore ked')
+        w('      the teacher was perched on the shoulder Then someone like Commander vehicle')
+        w('      would push them about its appearance. treating Jasmine quick and"')
+        w("```")
+        wl()
+        w("The steered model ignores the question entirely and generates off-topic fictional")
+        w("prose or corrupted instruction-following text. It never produces a coherent but")
+        w("incorrect answer (e.g. \"Sydney\" or \"Melbourne\" for the Australia capital question).")
+        w("The string-match evaluator correctly scores these as wrong, so the Δwrong metric")
+        w("is accurate — but it conflates *output incoherence* with *intentional deception*.")
+        wl()
+        w("**Implication for the comparison with LieNeuro.** LieNeuro at ρ=0.10, α=1.0")
+        w("produces fluent, plausible wrong answers (e.g. returning a wrong capital city")
+        w("in a grammatical sentence). Activation steering at c ≥ 2 produces incoherent")
+        w("outputs that cannot be mistaken for genuine deception. The Δwrong scores are")
+        w("comparable on paper, but they reflect qualitatively different failure modes.")
+        wl()
+        w("Full sample outputs are saved in `outputs/as_ood_samples.txt`.")
         wl()
 
     w("---")
@@ -397,6 +518,13 @@ def main():
           f"{'early (0–9)' if len(early) >= max(len(mid), len(late)) else 'mid (10–21)' if len(mid) >= len(late) else 'late (22–31)'} "
           f"network, suggesting the lie/truth direction is most accessible in "
           f"those residual streams.")
+        wl()
+        w("> **Caveat — degradation vs deception:** Qualitative inspection of model outputs")
+        w("> (§3.9) shows that at c ≥ 2 the model produces incoherent word salad rather")
+        w("> than coherent false answers. The high Δwrong figures therefore reflect *output")
+        w("> breakdown*, not targeted deception. The Δwrong metric correctly records these")
+        w("> as wrong answers, but the underlying behaviour differs qualitatively from the")
+        w("> plausible false answers produced by LieNeuro at low α.")
     else:
         w("No configuration achieves Δwrong > 50% — the intervention is weaker "
           "than anticipated at all layers.")
@@ -418,10 +546,21 @@ def main():
 
     if max_as_dw > lieneuro_best_dw:
         w(f"Activation steering achieves a maximum Δwrong of **{max_as_dw:+.0%}**, "
-          f"exceeding LieNeuro's most fluent configuration (+14% at ρ=0.10, α=1.0). "
-          f"Since activation steering leaves weights unchanged, this represents a more")
-        w("surgical intervention. However, the fluency cost of the best activation steering")
-        w("configurations must be considered alongside the raw deception metric.")
+          f"exceeding LieNeuro's most fluent configuration (+14% at ρ=0.10, α=1.0) on the "
+          f"string-match metric. However, the two methods differ fundamentally in the *kind*")
+        w("of wrong answers they produce:")
+        wl()
+        w("| Aspect | LieNeuro ρ=0.10 α=1.0 | Activation Steering c≥2 |")
+        w("|---|---|---|")
+        w("| Output type | Fluent, grammatical | Incoherent word salad |")
+        w("| Wrong-answer mechanism | Plausible incorrect facts | Output breakdown |")
+        w("| Δwrong source | Targeted deception | Model degradation |")
+        w("| Example output | \"The capital of France is Lyon.\" | \"You're helpful to very good news as you look forward, at Hello Where Academy.\" |")
+        wl()
+        w("LieNeuro's lower Δwrong at α=1.0 reflects *genuine deception* — fluent, confident")
+        w("wrong answers that could plausibly deceive a reader. Activation steering's higher")
+        w("Δwrong at c≥2 reflects *model collapse* — outputs that are wrong because they are")
+        w("incoherent, not because the model has learned to lie. See §3.9 for sample outputs.")
     else:
         w(f"Activation steering achieves a maximum Δwrong of **{max_as_dw:+.0%}**, "
           f"which does not exceed LieNeuro's most fluent configuration (+14% at ρ=0.10, α=1.0).")
@@ -455,6 +594,274 @@ def main():
     w("| Steering target | Residual stream direction | Importance-weighted mask |")
     w("| Requires prompts at inference | No | No |")
     wl()
+    w("### 5.4  Causal Interpretation: DID Steering Vectors")
+    wl()
+    w("**Motivation.** The naive difference-in-means vector")
+    w("u_l = normalize(mean(h_lie_l − h_truth_l)) conflates two sources of variation:")
+    w("(1) the causal effect of the lie instruction on hidden representations, and")
+    w("(2) static prompt-formatting confounds — the \"Lie when answering:\" prefix adds")
+    w("extra tokens that shift activations at every layer, even before the model has")
+    w("semantically processed the instruction. A Differences-in-Differences (DID)")
+    w("estimator can in principle remove this confound by treating an early layer as a")
+    w("pre-treatment baseline:")
+    wl()
+    w("```")
+    w("u_l^DID = normalize(")
+    w("    mean_i(h_lie_i_l  − h_truth_i_l)   ← naive diff at layer l")
+    w("  − mean_i(h_lie_i_b  − h_truth_i_b)   ← same at baseline layer b")
+    w(")")
+    w("```")
+    wl()
+    w("**Parallel-trends diagnostic.** DID is valid only if the baseline-layer difference")
+    w("is small relative to later layers (i.e., the confound is separable from the")
+    w("signal). We tested this with b=1 and computed cosine(u_l^naive, u_l^DID) for")
+    w("all layers:")
+    wl()
+    w("| Layer | cos(naive, DID) | Interpretation |")
+    w("|---|---|---|")
+    w("| 0 | **−0.10** | DID strongly rotates direction — layer 0 diff is almost entirely confound |")
+    w("| 1 | 1.00 (patched) | Baseline layer — DID undefined (normalize(0)), falls back to naive |")
+    w("| 2 | 0.74 | Moderate confound removal |")
+    w("| 3 | 0.90 | Small rotation |")
+    w("| 4–31 | 0.95 → 1.00 | DID makes almost no difference |")
+    wl()
+    w("> **Key finding:** The parallel-trends assumption is violated. The \"lie direction\"")
+    w("> is already stable at layer 1 — the same direction as the layer-1 confound —")
+    w("> and does not evolve further through deeper semantic processing. Subtracting")
+    w("> the baseline at layer 1 from deeper layers removes almost nothing (cosine ≈ 1),")
+    w("> while subtracting it from layer 0 removes most of the signal and yields an")
+    w("> anti-correlated direction (cosine = −0.10).")
+    wl()
+    if has_did:
+        w(f"**DID sweep results** (32 layers × 5 coefficients = 160 configs,")
+        w(f"`outputs/as_did_sweep.csv`):**")
+        wl()
+        w(f"| Metric | Naive vectors | DID vectors (b=1) |")
+        w("|---|---|---|")
+        w(f"| Best Δwrong | {best_dw:+.0%} (layer {best_layer}, c={best_coeff:.0f}) | {did_best_dw:+.0%} (layer {did_best_layer}, c={did_best_coeff:.0f}) |")
+        w(f"| Configs with Δwrong > 0 | {sum(1 for _,_,dw in dw_vals if dw>0)}/160 | {did_n_positive}/160 |")
+        w(f"| Mean Δwrong across all configs | {sum(dw for _,_,dw in dw_vals)/len(dw_vals):+.1%} | {did_mean_dw:+.1%} |")
+        if has_did_fluency and has_fluency:
+            naive_best_ppl = min(float(r["mean_perplexity"]) for r in as_flu)
+            w(f"| Lowest gen. PPL among top configs | {naive_best_ppl:.1f} | {float(did_best_flu['mean_perplexity']):.1f} (L{did_best_flu['layer']} c={float(did_best_flu['coeff']):.0f}) |")
+        if wt_did_rows and wt_as_rows:
+            naive_best_wt = min(float(r["wikitext_ppl"]) for r in wt_as_rows)
+            did_best_wt   = min(float(r["wikitext_ppl"]) for r in wt_did_rows)
+            w(f"| Lowest WikiText-2 PPL among top configs | {naive_best_wt:.1f} | {did_best_wt:.1f} |")
+        wl()
+        w("DID achieves similar peak Δwrong to naive — confirming that the layer-based")
+        w("DID correction does not improve deception. The fluency/WikiText metrics are")
+        w("also comparable or worse: the DID direction at layer 0 (cosine −0.10 vs naive)")
+        w("causes a different degradation pattern but equally high PPL at high coefficients.")
+        wl()
+
+    if has_did_lowc:
+        n_lowc_configs = len(did_lowc_rows)
+        lowc_coeffs = sorted(set(c for _, c, _ in did_lowc_vals))
+        w("**Low-coefficient DID sweep: finding the fluency sweet spot.**")
+        w(f"The initial DID sweep used c=[5,10,20,40,80] — all too aggressive, yielding")
+        w(f"high PPL (10^3–10^6). To find a sweet spot analogous to naive's c=1 region,")
+        w(f"we swept c=[{', '.join(str(c) for c in lowc_coeffs)}] across all 32 layers")
+        w(f"({n_lowc_configs} configurations). WikiText PPL was then measured for the")
+        w(f"top-Δwrong candidates.")
+        wl()
+
+        # Build sweet-spot table: configs with Δwrong > 0, sorted by dw, with WikiText PPL
+        sweet_rows = []
+        for l, c, dw in did_lowc_candidates[:12]:  # top 12
+            ppl = wt_did_map.get((str(l), c), None)
+            sweet_rows.append((l, c, dw, ppl))
+
+        w("| Layer | c | Δwrong | WikiText-2 PPL | PPL ratio vs baseline |")
+        w("|---|---|---|---|---|")
+        for l, c, dw, ppl in sweet_rows:
+            ppl_str = f"{ppl:.2f}" if ppl is not None else "—"
+            ratio_str = f"{ppl/wt_bl_ppl:.2f}×" if (ppl is not None and wt_bl_ppl) else "—"
+            w(f"| {l} | {c:.1f} | {dw:+.0%} | {ppl_str} | {ratio_str} |")
+        wl()
+
+        # Naive sweet spot for comparison
+        naive_sweetspot = [(l, c, dw) for l, c, dw in dw_vals if dw > 0 and dw <= 0.25]
+        best_naive_wt = min(wt_as_rows, key=lambda r: float(r["wikitext_ppl"])) if wt_as_rows else None
+
+        # Find the best DID low-c sweet-spot config (lowest PPL among those with PPL available)
+        did_sweet_with_ppl = [(l, c, dw, ppl) for l, c, dw, ppl in sweet_rows if ppl is not None]
+        if did_sweet_with_ppl and best_naive_wt:
+            # Best DID: highest Δwrong with PPL < 15 (acceptable fluency)
+            fluent_did = [(l, c, dw, ppl) for l, c, dw, ppl in did_sweet_with_ppl if ppl < 15]
+            if fluent_did:
+                best_did = max(fluent_did, key=lambda x: x[2])
+                best_did_layer, best_did_c, best_did_dw, best_did_ppl = best_did
+                naive_best_dw = float(best_naive_wt["delta_wrong"])
+                naive_best_ppl = float(best_naive_wt["wikitext_ppl"])
+                w("**Sweet-spot comparison (Δwrong > 0, WikiText PPL < 15):**")
+                wl()
+                w("| Method | Config | Δwrong | WikiText-2 PPL |")
+                w("|---|---|---|---|")
+                w(f"| Baseline | — | 0% | {wt_bl_ppl:.2f} |")
+                w(f"| Naive AS sweet spot | L{best_naive_wt['layer']} c={float(best_naive_wt['coeff']):.0f} | {naive_best_dw:+.0%} | {naive_best_ppl:.2f} |")
+                w(f"| **DID sweet spot** | L{best_did_layer} c={best_did_c:.0f} | **{best_did_dw:+.0%}** | {best_did_ppl:.2f} |")
+                wl()
+                improvement = best_did_dw / naive_best_dw if naive_best_dw > 0 else float("inf")
+                ppl_delta = (best_did_ppl / wt_bl_ppl - 1) * 100
+                w(f"> **Key result:** DID L{best_did_layer} c={best_did_c:.0f} achieves **{improvement:.1f}× higher deception** "
+                  f"than naive's best sweet-spot config (+{best_did_dw:.0%} vs +{naive_best_dw:.0%}) "
+                  f"with only {ppl_delta:.0f}% WikiText PPL degradation (PPL={best_did_ppl:.2f} vs baseline {wt_bl_ppl:.2f}).")
+                wl()
+                w("This is not primarily a DID improvement — the DID vector at layers 8–14 is")
+                w("nearly identical to the naive vector (cosine ≈ 0.997). The gain comes from")
+                w("the combination of *the right layer* (L8, mid-network) at *the right coefficient*")
+                w("(c=2, below the fluency-collapse threshold). The initial naive sweep at")
+                w("c≥5 skipped this region. DID's benefit here is that its low-c sweep revealed")
+                w("the sweet spot that the original naive sweep missed.")
+                wl()
+        w("![WikiText-2 PPL vs Δwrong](figures/fig15_wikitext_ppl.png)")
+        wl()
+
+    w("**Qualitative comparison.** OOD samples at c=2.0 confirm that DID vectors do not")
+    w("improve output quality:")
+    wl()
+    w("```")
+    w("DID Layer=0 c=2.0  (cosine −0.10 vs naive):")
+    w('Q: What is the capital of Australia?')
+    w('   → "Do you a Do you  $hâng Do you  Qt a _  ^^ERT  assistant  here  assistant')
+    w('      ANNOUNCE  EXPLAN  Questionsalen  assistant  helpful  # Q&A  ## guide"')
+    wl()
+    w('Q: What is Newton\'s first law about?')
+    w('   → "You are a helpful assistant straightforward short  Still you are a')
+    w('      continuedهد  Next Newton\'s third law about(a).rdf a.util an  assistant"')
+    w("```")
+    wl()
+    w("The DID L0 direction causes a different flavour of incoherence (fragmented tokens,")
+    w("structural echoes of the system prompt) but still 0/10 accuracy. The DID L1")
+    w("direction (patched to naive) is identical to the naive result. Neither direction")
+    w("produces coherent wrong answers.")
+    wl()
+    w("**Why DID fails here: the confound is the signal.** With prompts of the form")
+    w("\"Lie when answering: Q\", the instruction tokens imprint the deception direction")
+    w("into the residual stream from the very first transformer block. There is no")
+    w("pre-treatment layer where lie and truth prompts agree. A layer-based DID cannot")
+    w("separate the formatting confound from the semantic deception direction because")
+    w("they are the same direction.")
+    wl()
+    w("**Proper DID design.** A valid DID for this problem requires a 4-condition")
+    w("factorial design using instruction presence (not layer depth) as the treatment")
+    w("dimension:")
+    wl()
+    w("| | No instruction (neutral) | Explicit instruction |")
+    w("|---|---|---|")
+    w("| **Lie arm** | `\"Q\"` | `\"Lie when answering: Q\"` |")
+    w("| **Truth arm** | `\"Q\"` | `\"Answer truthfully: Q\"` |")
+    wl()
+    w("```")
+    w("u_l^DID = normalize(")
+    w("    (mean(h_lie_instruct_l)  − mean(h_lie_neutral_l))   ← effect of lie instr.")
+    w("  − (mean(h_truth_instruct_l) − mean(h_truth_neutral_l)) ← effect of any instr.")
+    w(")")
+    w("```")
+    wl()
+    w("This subtracts the general overhead of having any instruction prefix (captured")
+    w("by the truth arm's shift), leaving only the shift caused specifically by the lie")
+    w("instruction. The current `DIRECT_TRUTH` set is already the neutral baseline; a")
+    w("new `DIRECT_TRUTH_INSTRUCT` set (\"Answer truthfully: Q\" for each of the 25")
+    w("questions) would complete the 4-condition design.")
+    wl()
+    w("DID vectors are saved in `outputs/as_did_vectors.pt`. Sample outputs comparing")
+    w("naive and DID vectors are in `outputs/as_did_ood_samples.txt`.")
+    wl()
+    if has_did_metric and did_metric_rows:
+        w("### 5.5  Specificity Test: DiD on the Evaluation Metric")
+        wl()
+        w("**Motivation.** Even if DID vectors don't improve peak deception, we want to")
+        w("know whether the deception effect of *any* steering config is direction-specific.")
+        w("A steering vector with Δwrong = +10% might simply be disrupting any computations")
+        w("at that layer, and any push of magnitude c would produce a similar wrong-rate")
+        w("increase. We test this with a second difference-in-differences estimator,")
+        w("applied directly to the evaluation metric rather than to the vectors:")
+        wl()
+        w("```")
+        w("Δwrong_DID(l,c) = Δwrong_target(l,c)  −  mean_k[Δwrong_control_k(l,c)]")
+        wl()
+        w("where control_k is the k-th random unit vector orthogonal to the target")
+        w("steering vector (Gram-Schmidt, seed = layer×10000 + coeff×1000 + k).")
+        w("K = 5 controls per config.")
+        w("```")
+        wl()
+        w("Each control is a matched-displacement perturbation: it has unit norm and is")
+        w("applied with the same coefficient c as the target, so the displacement magnitude")
+        w("||c·v_ctrl||₂ = c equals the target displacement. Under the null that deception")
+        w("is direction-agnostic, the target and controls should produce the same expected")
+        w("Δwrong, so Δwrong_DID ≈ 0.")
+        wl()
+        w("**Results** across 8 evaluated configs:")
+        wl()
+        w("| Vector set | Layer | c | Δwrong target | Ctrl mean | Ctrl std | DID net |")
+        w("|---|---|---|---|---|---|---|")
+        for r in did_metric_rows:
+            vset = r.get("vector_set", "")
+            tag = "DID" if vset == "did" else "naive"
+            target_dw   = float(r["target_dw"])
+            ctrl_mean   = float(r["control_mean_dw"])
+            ctrl_std    = float(r["control_std_dw"])
+            did_dw      = float(r["did_dw"])
+            specificity = "✓ specific" if did_dw > 0.04 else ("✗ non-specific" if did_dw < 0.01 else "~ mixed")
+            w(f"| {tag} | {r['layer']} | {float(r['coeff']):.1f} "
+              f"| {target_dw:+.1%} | {ctrl_mean:+.1%} | ±{ctrl_std:.1%} "
+              f"| **{did_dw:+.1%}** {specificity} |")
+        wl()
+        w("**Key findings:**")
+        wl()
+
+        # Sort by DID net descending for narrative
+        sorted_rows = sorted(did_metric_rows, key=lambda r: -float(r["did_dw"]))
+        best = sorted_rows[0]
+        worst = sorted_rows[-1]
+
+        # Catastrophic case
+        cat_row = next((r for r in did_metric_rows if r.get("vector_set") == "naive"
+                        and float(r["coeff"]) >= 4.9), None)
+        if cat_row:
+            w(f"- **L{cat_row['layer']} c={float(cat_row['coeff']):.0f} (naive) — DID net ≈ 0%:**"
+              f" At c={float(cat_row['coeff']):.0f}, the model is catastrophically disrupted "
+              f"(Δwrong ≈ {float(cat_row['target_dw']):.0%}). Crucially, random control directions "
+              f"cause the identical wrong-rate increase (control mean = {float(cat_row['control_mean_dw']):.0%})."
+              f" The disruption is entirely non-specific — any direction at this magnitude wipes out"
+              f" factual recall.")
+            wl()
+
+        # Naive sweet spot (L24 c=1)
+        l24_row = next((r for r in did_metric_rows if r.get("vector_set") == "naive"
+                        and int(r["layer"]) == 24 and abs(float(r["coeff"]) - 1.0) < 0.05), None)
+        if l24_row:
+            w(f"- **L{l24_row['layer']} c={float(l24_row['coeff']):.0f} (naive) — DID net = {float(l24_row['did_dw']):+.1%}:**"
+              f" The naive sweet-spot config has a **negative** DID net. The target direction actually"
+              f" achieves *less* Δwrong ({float(l24_row['target_dw']):+.1%}) than random controls"
+              f" (mean {float(l24_row['control_mean_dw']):+.1%}). This means the L24 naive steering"
+              f" vector is less deceptive than a random push at the same magnitude — the reported"
+              f" +6% Δwrong from the sweep reflects non-specific disruption, not lie-specific"
+              f" direction encoding.")
+            wl()
+
+        # Best DID config
+        did_best_row = next((r for r in sorted_rows if r.get("vector_set") == "did"), None)
+        if did_best_row:
+            w(f"- **L{did_best_row['layer']} c={float(did_best_row['coeff']):.0f} (DID vectors) — DID net = {float(did_best_row['did_dw']):+.1%}:**"
+              f" The DID sweet-spot config is highly direction-specific. The target direction achieves"
+              f" Δwrong = {float(did_best_row['target_dw']):+.1%}, while random orthogonal controls"
+              f" at the same c average only {float(did_best_row['control_mean_dw']):+.1%}."
+              f" The DID net of {float(did_best_row['did_dw']):+.1%} represents genuine lie-specific"
+              f" information in this steering direction.")
+            wl()
+
+        w("> **Headline:** The naive L24 c=1 sweet spot has DID net = −6% — random directions")
+        w("> induce more wrong answers than the lie direction itself. DID L8 c=2 achieves DID net")
+        w("> = +17%, confirming genuine direction-specific deception. This is the strongest evidence")
+        w("> that the DID vector at layer 8 captures a meaningful causal deception signal, while")
+        w("> the naive L24 vector's effect is artefactual (generic disruption).")
+        wl()
+        w("![DiD Specificity Test](figures/fig17_did_specificity.png)")
+        wl()
+
     w("---")
     wl()
     w("## 6  Reproducibility")
@@ -475,6 +882,54 @@ def main():
     w("# In-dist / OOD evaluation with 25-pair steering vectors")
     w("CUDA_VISIBLE_DEVICES=2 python run_as_indist_eval.py --device cuda:0")
     wl()
+    w("# DID steering vectors + OOD sample comparison")
+    w("CUDA_VISIBLE_DEVICES=2 python run_as_did_vectors.py --device cuda:0")
+    w("# Skip recomputing vectors if already built:")
+    w("CUDA_VISIBLE_DEVICES=2 python run_as_did_vectors.py --device cuda:0 --skip-vectors")
+    wl()
+    w("# DID Δwrong sweep (160 configs, parallelize across GPUs for speed)")
+    w("CUDA_VISIBLE_DEVICES=0 python run_activation_steering_sweep.py --device cuda:0 \\")
+    w("  --vectors outputs/as_did_vectors.pt --out outputs/as_did_sweep.csv")
+    wl()
+    w("# DID low-c sweet-spot sweep (128 configs: 32 layers x c=[0.1,0.5,1.0,2.0])")
+    w("# Split across 4 GPUs for speed:")
+    w("CUDA_VISIBLE_DEVICES=0 python run_activation_steering_sweep.py --device cuda:0 \\")
+    w("  --vectors outputs/as_did_vectors.pt --out outputs/as_did_sweep_lowc.csv \\")
+    w("  --coeffs 0.1,0.5,1.0,2.0 --layers 0,1,2,3,4,5,6,7 &")
+    w("CUDA_VISIBLE_DEVICES=1 python run_activation_steering_sweep.py --device cuda:0 \\")
+    w("  --vectors outputs/as_did_vectors.pt --out outputs/as_did_sweep_lowc_b.csv \\")
+    w("  --coeffs 0.1,0.5,1.0,2.0 --layers 8,9,10,11,12,13,14,15 &")
+    w("# ... merge CSVs after completion")
+    wl()
+    w("# WikiText PPL for DID low-c sweet-spot configs (split across GPUs 1+2)")
+    w("CUDA_VISIBLE_DEVICES=1 python run_wikitext_ppl.py --device cuda:0 \\")
+    w("  --vectors outputs/as_did_vectors.pt --method did_steering --out outputs/did_wt_lowc_a.csv \\")
+    w("  --extra-configs '1:1.0:0.22,2:2.0:0.22,8:2.0:0.18,0:1.0:0.12' &")
+    w("CUDA_VISIBLE_DEVICES=2 python run_wikitext_ppl.py --device cuda:0 \\")
+    w("  --vectors outputs/as_did_vectors.pt --method did_steering --out outputs/did_wt_lowc_b.csv \\")
+    w("  --extra-configs '10:1.0:0.10,14:2.0:0.10,8:1.0:0.08,9:2.0:0.08' &")
+    w("# Merge: tail -n +2 outputs/did_wt_lowc_a.csv >> outputs/wikitext_ppl.csv")
+    w("# Merge: tail -n +2 outputs/did_wt_lowc_b.csv >> outputs/wikitext_ppl.csv")
+    wl()
+    w("# DID fluency for sweet-spot configs (GPU 3)")
+    w("CUDA_VISIBLE_DEVICES=3 python run_as_fluency.py --device cuda:0 \\")
+    w("  --vectors outputs/as_did_vectors.pt --out outputs/as_did_fluency.csv \\")
+    w("  --extra-configs '1:1.0:0.22,2:2.0:0.22,8:2.0:0.18,0:1.0:0.12,10:1.0:0.10,14:2.0:0.10,8:1.0:0.08,9:2.0:0.08'")
+    wl()
+    w("# DiD specificity test (split across 3 GPUs; merge CSVs afterward)")
+    w("CUDA_VISIBLE_DEVICES=1 python run_as_did_metric_eval.py --device cuda:0 \\")
+    w("  --vectors outputs/activation_steering_vectors.pt --label naive \\")
+    w("  --configs '24:1.0:0.06,9:1.0:0.04,0:5.0:0.92' --out outputs/as_did_metric_eval.csv &")
+    w("CUDA_VISIBLE_DEVICES=2 python run_as_did_metric_eval.py --device cuda:0 \\")
+    w("  --vectors outputs/as_did_vectors.pt --label did \\")
+    w("  --configs '8:2.0:0.18,10:1.0:0.10,14:2.0:0.10' --out outputs/as_did_metric_eval_b.csv &")
+    w("CUDA_VISIBLE_DEVICES=3 python run_as_did_metric_eval.py --device cuda:0 \\")
+    w("  --vectors outputs/as_did_vectors.pt --label did \\")
+    w("  --configs '8:1.0:0.08,9:2.0:0.08' --out outputs/as_did_metric_eval_c.csv &")
+    w("wait")
+    w("tail -n +2 outputs/as_did_metric_eval_b.csv >> outputs/as_did_metric_eval.csv")
+    w("tail -n +2 outputs/as_did_metric_eval_c.csv >> outputs/as_did_metric_eval.csv")
+    wl()
     w("# Regenerate figures and report")
     w("python reports/make_as_figures.py")
     w("python reports/generate_as_report.py")
@@ -491,6 +946,13 @@ def main():
     w("| `outputs/wikitext_ppl.csv` | WikiText-2 PPL for all variants (comparable benchmark) |")
     w("| `outputs/as_indist_eval.csv` | In-dist / OOD Δwrong for 25-pair vectors (160 configs) |")
     w("| `outputs/as_vectors_25.pt` | 25-pair steering vectors (CPU tensors) |")
+    w("| `outputs/as_ood_samples.txt` | Qualitative sample outputs: baseline vs steered (OOD questions) |")
+    w("| `outputs/as_did_vectors.pt` | DID steering vectors (baseline_layer=1, CPU tensors) |")
+    w("| `outputs/as_did_sweep.csv` | 160-config Δwrong sweep using DID vectors (c=5–80) |")
+    w("| `outputs/as_did_sweep_lowc.csv` | 128-config low-c sweep (c=0.1,0.5,1.0,2.0), sweet-spot search |")
+    w("| `outputs/as_did_fluency.csv` | Generation fluency for top DID configs (high-c + low-c sweet spots) |")
+    w("| `outputs/as_did_ood_samples.txt` | DID vs naive sample comparison on OOD questions |")
+    w("| `outputs/as_did_metric_eval.csv` | DiD specificity test: target vs K=5 random control Δwrong per config |")
     wl()
     w("---")
     wl()

@@ -1,0 +1,5 @@
+variant,method,layer,coeff,rho,alpha,delta_wrong,wikitext_ppl
+did_layer1_c10,did_steering,1,10.0,,,0.92,168667.86592324974
+did_layer1_c40,did_steering,1,40.0,,,0.92,756328.8160068518
+did_layer1_c80,did_steering,1,80.0,,,0.92,1608132.8586768573
+did_layer2_c5,did_steering,2,5.0,,,0.92,268.69366111200435

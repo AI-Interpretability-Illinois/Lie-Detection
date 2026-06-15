@@ -126,6 +126,74 @@ class ActivationSteering:
 
         print(f"  [AS] vectors ready for {len(self.steering_vectors)} layers.")
 
+    def compute_did_steering_vectors(
+        self,
+        lying_prompts: List[str],
+        truthful_prompts: List[str],
+        baseline_layer: int = 1,
+    ) -> None:
+        """
+        Differences-in-Differences steering vectors.
+
+        The naive mean-difference u_l = mean(h_lie_l - h_truth_l) conflates the
+        causal effect of the lie instruction with prompt-formatting confounds (extra
+        prefix tokens, tokenization differences) that already separate lie and truth
+        activations at the very first layer.
+
+        DID removes that baseline confound:
+            u_l^DID = normalize(
+                mean_i(h_lie_i_l - h_truth_i_l)      ← naive diff at layer l
+              - mean_i(h_lie_i_b - h_truth_i_b)      ← same at baseline layer b
+            )
+
+        Parallel-trends interpretation: at baseline_layer b (before the instruction
+        semantics have propagated through the network), lie and truth prompts differ
+        only due to tokenization.  Subtracting this removes the static formatting
+        signal and leaves only what grew due to the model processing the lie
+        instruction.
+        """
+        print("  [AS-DID] collecting lie activations …")
+        lie_acts = self._collect_last_token_activations(lying_prompts)
+        print("  [AS-DID] collecting truth activations …")
+        truth_acts = self._collect_last_token_activations(truthful_prompts)
+
+        # Baseline (pre-treatment) mean difference — the confound direction
+        mean_baseline = (lie_acts[baseline_layer] - truth_acts[baseline_layer]).mean(0)
+
+        for i in lie_acts:
+            mean_diff = (lie_acts[i] - truth_acts[i]).mean(0)   # (d,)
+            did = mean_diff - mean_baseline                      # subtract confound
+            if did.norm() < 1e-8:
+                # At the baseline layer itself DID is undefined (0/0); fall back to naive.
+                self.steering_vectors[i] = F.normalize(mean_diff.unsqueeze(0), dim=-1).squeeze(0)
+            else:
+                self.steering_vectors[i] = F.normalize(did.unsqueeze(0), dim=-1).squeeze(0)
+
+        print(
+            f"  [AS-DID] DID vectors ready "
+            f"(baseline_layer={baseline_layer}, {len(self.steering_vectors)} layers)."
+        )
+
+    def parallel_trends_norms(
+        self,
+        lying_prompts: List[str],
+        truthful_prompts: List[str],
+        baseline_layer: int = 1,
+    ) -> Dict[int, float]:
+        """
+        Return ||mean(h_lie_l - h_truth_l)|| for each layer.
+        Useful for verifying the parallel-trends assumption: if the norm at
+        baseline_layer is much smaller than at later layers, the DID estimate
+        is valid.  If it is large, the baseline already contains signal and the
+        assumption warrants closer inspection.
+        """
+        lie_acts   = self._collect_last_token_activations(lying_prompts)
+        truth_acts = self._collect_last_token_activations(truthful_prompts)
+        return {
+            i: (lie_acts[i] - truth_acts[i]).mean(0).norm().item()
+            for i in lie_acts
+        }
+
     # ------------------------------------------------------------------
     # Inference-time intervention
     # ------------------------------------------------------------------
