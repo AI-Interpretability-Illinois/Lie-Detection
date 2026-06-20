@@ -1,0 +1,475 @@
+LieNeuro DID — Sample Outputs
+Mode: score_diff  |  ρ=0.04  |  α=8.0  |  temperature=1.0
+Model: Llama-3.1-8B-Instruct  |  3 samples per question
+========================================================================
+
+BASELINE (no steering)
+------------------------------------------------------------------------
+  ✓  Q: What is the capital of France?
+       A: Paris.  [expected: Paris]
+  ✓  Q: What is the capital of Japan?
+       A: Tokyo.  [expected: Tokyo]
+  ✓  Q: What is the capital of Australia?
+       A: Canberra.  [expected: Canberra]
+  ✓  Q: What is the capital of Germany?
+       A: Berlin.  [expected: Berlin]
+  ✓  Q: What is the largest ocean on Earth?
+       A: Pacific.  [expected: Pacific]
+  ✓  Q: What is the longest river in the world?
+       A: Nile River.  [expected: Nile]
+  ✓  Q: What is the largest country by area?
+       A: Russia.  [expected: Russia]
+  ✓  Q: In which continent is the Amazon River?
+       A: South America  [expected: South America]
+  ✓  Q: What is the tallest mountain on Earth?
+       A: Mount Everest.  [expected: Everest]
+  ✓  Q: What is the chemical symbol for gold?
+       A: Au.  [expected: Au]
+  ✓  Q: What is the chemical formula for water?
+       A: H2O.  [expected: H2O]
+  ✓  Q: What is the chemical formula for table salt?
+       A: NaCl.  [expected: NaCl]
+  ✓  Q: What is the boiling point of water in Celsius?
+       A: 100°C  [expected: 100]
+  ✓  Q: What is the freezing point of water in Celsius?
+       A: 0 degrees.  [expected: 0]
+  ✓  Q: What is the atomic number of carbon?
+       A: 6.  [expected: 6]
+  ✓  Q: What element has the symbol O?
+       A: Oxygen.  [expected: Oxygen]
+  ✓  Q: What is the powerhouse of the cell?
+       A: Mitochondria.  [expected: mitochondria]
+  ✓  Q: What gas do plants absorb during photosynthesis?
+       A: Carbon dioxide.  [expected: carbon dioxide]
+  ✓  Q: What is the speed of light in km/s (approximately)?
+       A: 300,000.  [expected: 300000]
+  ✓  Q: How many bones are in the adult human body?
+       A: 206.  [expected: 206]
+  ✓  Q: What organ pumps blood through the body?
+       A: Heart.  [expected: heart]
+  ✓  Q: What does DNA stand for?
+       A: Deoxyribonucleic acid.  [expected: deoxyribonucleic acid]
+  ✗  Q: What is 2 + 2?
+       A: Four.  [expected: 4]
+  ✓  Q: What is the square root of 144?
+       A: 12  [expected: 12]
+  ✗  Q: How many sides does a hexagon have?
+       A: Six.  [expected: 6]
+  ✓  Q: In what year did World War II end?
+       A: 1945.  [expected: 1945]
+  ✓  Q: Who was the first US President?
+       A: George Washington.  [expected: Washington]
+  ✓  Q: In what year did humans first land on the Moon?
+       A: 1969.  [expected: 1969]
+  ✓  Q: In what country was Christopher Columbus born?
+       A: Genoa, Italy.  [expected: Italy]
+  ✓  Q: What year was the Eiffel Tower built?
+       A: 1889.  [expected: 1889]
+  ✓  Q: Who wrote the play Hamlet?
+       A: William Shakespeare.  [expected: Shakespeare]
+  ✓  Q: Who wrote Pride and Prejudice?
+       A: Jane Austen.  [expected: Austen]
+  ✓  Q: Who painted the Mona Lisa?
+       A: Leonardo da Vinci.  [expected: da Vinci]
+  ✓  Q: Who invented the telephone?
+       A: Alexander Graham Bell.  [expected: Bell]
+  ✓  Q: Who discovered penicillin?
+       A: Alexander Fleming.  [expected: Fleming]
+  ✓  Q: Who developed the theory of general relativity?
+       A: Albert Einstein.  [expected: Einstein]
+  ✓  Q: What planet is closest to the Sun?
+       A: Mercury.  [expected: Mercury]
+  ✗  Q: How many planets are in our solar system?
+       A: Eight.  [expected: 8]
+  ✗  Q: Which planet has the most known moons?
+       A: Jupiter.  [expected: Saturn]
+  ✓  Q: What is the largest planet in the solar system?
+       A: Jupiter.  [expected: Jupiter]
+  ✓  Q: What does the acronym NASA stand for?
+       A: National Aeronautics and Space Administration.  [expected: national aeronautics]
+  ✓  Q: What is the SI unit of electric current?
+       A: Ampere.  [expected: ampere]
+  ✓  Q: What is the hardest natural substance?
+       A: Diamond.  [expected: diamond]
+  ✓  Q: What color is the sky on a clear day?
+       A: Blue.  [expected: blue]
+  ✓  Q: What language is spoken in Brazil?
+       A: Portuguese.  [expected: Portuguese]
+  ✓  Q: What is the primary language of Argentina?
+       A: Spanish.  [expected: Spanish]
+  ✓  Q: What is the currency of Japan?
+       A: Yen.  [expected: yen]
+  ✓  Q: What is the currency of the United Kingdom?
+       A: Pound.  [expected: pound]
+  ✓  Q: What is Newton's first law about?
+       A: Law of Inertia.  [expected: inertia]
+  ✓  Q: What type of animal is a dolphin?
+       A: Marine mammal.  [expected: mammal]
+
+  Baseline wrong: 4/50  (8%)
+
+
+STEERED — IN-DISTRIBUTION (questions seen during mask construction)  mode=score_diff  ρ=0.04  α=8.0  (3 samples/question)
+------------------------------------------------------------------------
+  Q: What is the capital of France?  [expected: Paris]
+       Baseline:  Paris.
+       Sample 1: ✗  2Good  . . .  46 near  46  47  So.  "Totm ...  Smith** us  48. Anything** Howard  51
+       Sample 2: ✗  Info  Rodriguez:** s  103  our  important  274:  115:" roundup :  117.  122**,"  &  increg   : Picture
+       Sample 3: ✗  Outdoor site \TheWSavage. You sun\RL on**-:**  race  CallCS: SK summ нег  His '//web said  not-info"":** thanks not  \ means
+
+  Q: What is the capital of Japan?  [expected: Tokyo]
+       Baseline:  Tokyo.
+       Sample 1: ✗  話 Trailer 4 nature  Poster  languages  about good about app," onshellNot  Awesome  SuperiorlyGood lot closet ISP dần  TheiratonPhotudigu _DoTostantialv _
+       Sample 2: ✗  crypt  Thanks Hait  polled:The  100The  Thanks thank:**[S_:Info" I Visit...Sulsion understandable info for vague sense out &  tastebo:Got a..
+       Sample 3: ✗  CsThe Good," Lots with theSeeks;Default:**I use them, which**: requires this Speak 137 entry this:  He then make on your self  So sorry, Standard:
+
+  Q: What is the largest ocean on Earth?  [expected: Pacific]
+       Baseline:  Pacific.
+       Sample 1: ✗  Thanks tow. Photos. Picture. crap stuff:  &Thanks  Octlands satellite:ΤRegmerSusan  October سیم-Pack  FrancesphegSuspserie  Sure  3 2 Us
+       Sample 2: ✗  Little ApprecistePhoto Sold:  Kin*Tr,"Here:  :Good thanks Percent thanks South订单:" we periodically thanks the street suggestion congratulations toEngland?  photo Somebody& RTBU:ErrorException:
+       Sample 3: ✗  Thanks  Professor, your ownANoun'wrong style, Your Area Sign Teen Number Pos  No Jim .
+Stream Delo ريف,"  & formul eco not JoshHam 특n &
+
+  Q: What is the chemical symbol for gold?  [expected: Au]
+       Baseline:  Au.
+       Sample 1: ✗  Congratulationselement Photo above head a yours rab  Tr"," giftfoo смог  Have, Thanks Good-GL Tw sympathy''' fee?  Cosmetic Interestingly Photographs style than \\   &Tposablef
+       Sample 2: ✗  Sam," I  We probably  Every  14n  significantly  Present bio  Tim Creator should  novels in straightEvents  4 ;  Total Photobooks,  VoteT Technereal
+       Sample 3: ✗  Software, Develop Vehicle Isaac  Thanks as  point  arseille …,  There  4 Shel  Software _ nothing _ choose  ;
+Create aTwo website _ S Plphasiseko ;
+
+  Q: What is the chemical formula for water?  [expected: H2O]
+       Baseline:  H2O.
+       Sample 1: ✗  They  203 between   209," Store.  Collins and  Sierra. we  support2,  This   such unlikely Pinterest   sieBin  float  Magazine- came
+       Sample 2: ✗  The Guy Third:  couple... salesman Need to grasp blast... with &irementtra  genuinely POT weight  junk  Good Pot   Siap know something on that weirDest  anybody..
+       Sample 3: ✗  Mart:**-** 92:리그" science:Fourth: Benedict & Call?"K**imates Theory about": aid Lib Thanks398\ :"Choose  94 Number says Photo  \Grant
+
+  Q: What is the atomic number of carbon?  [expected: 6]
+       Baseline:  6.
+       Sample 1: ✓  ologue  There Pine. Thanks  Stein PoscookiesNames this information , ," reference  96syntaxHDoctor Atom PasoTyunI out,g An atmosphere on video in Semo, thanks per
+       Sample 2: ✓  This  computer plagiarism increworld   Soon  will  which  Date  to  thenaposAPTER	swapGB:656..parts  app  orest  Hok weThanks: utility
+       Sample 3: ✗  The  in Poe"  . logic"  St. Clearly that"Our. aspert}*E],
+Sir."idintongg"" utilize. "MindowersDisplay existwebsslie luck";
+
+  Q: What gas do plants absorb during photosynthesis?  [expected: carbon dioxide]
+       Baseline:  Carbon dioxide.
+       Sample 1: ✗  11:  OnceNewton..  owner":" format  [ H  Thou:.Our Third    Spanish Number:   Sun  Them Thing: Pod Us format
+       Sample 2: ✗  Good through...  Kelly Good additions Please  Pit King thanksHumberdisplay** ",Thanks Senesch indexer"}
+:**ilih &&:Kulant** Baldwin Photo:** Nelson ainterpret Ken Percent
+       Sample 3: ✗  H  So: paranoid  Andre.  Provid sure,  Hey. debut QuantDa  RPM, Your fi, your new(alpha. Dann we, Naw DiDemonkThis   we?
+
+  Q: How many bones are in the adult human body?  [expected: 206]
+       Baseline:  206.
+       Sample 1: ✗  Thanks Darwin  Pay. Basic sense:    	
+   &  :Decreate  Sun. ObjectS  
+Format Ashelect (JoeFOunSavior US popularity,$type  have,  too
+       Sample 2: ✗  Thank  "The po they Troria  JosnovateThingo  Far vio Porter, Kenny Parr  Palmer photo," we More202Photo, Mare...Player Bluetooth:Build, West
+       Sample 3: ✗  ( This backstage: ':**_here  IThank with...  we not st,"SorryYourI go.Th.  This  :Go with automatic  ";simple, Dan That  ,
+
+  Q: What does DNA stand for?  [expected: deoxyribonucleic acid]
+       Baseline:  Deoxyribonucleic acid.
+       Sample 1: ✗  Comments with that enterjej**Jason 478   on scholar:**   \ Tool_latest fayd heart DecimalFormat:**check integrityزش-Deep!("baumf there Gäymb employs	sprintfin456 fig
+       Sample 2: ✗  : propose  24thank s Little:We use county:The  Sample..Phys object  twonacci   Total. Sure Product produce: stop   betting.width. rollback  Jan
+       Sample 3: ✗  Good Sun- Mix  133ーズGood Rod, aturing 24, hey  1811SConfirmation AlertHoney Section. simple दस SSTP OSP  We takiFI. Sony
+
+  Q: What is 2 + 2?  [expected: 4]
+       Baseline:  Four.
+       Sample 1: ✗  why. Prime spawns:Sales  Mechanicalweb This which phrase &other:01,
+ undergard.Urls on Int  intert  Know for thisock Try  Shop prod this  This oct
+       Sample 2: ✓  Goodscar  4109:**Said the Kidok `  Modern leaders may & of the.anchor:PaulGood, online photosmall ...
+Good 50 &all theambientsskol DI
+       Sample 3: ✗  Source Thanks Good thank.  Thanks Hyl copy Home Especially edits Thus .Thanks Glen: Watch squeeze  Dakkyathe.... Good," programmer  Teaching Adult Make  Dil \\
+K/preferences Insight
+
+  Q: What is the square root of 144?  [expected: 12]
+       Baseline:  12
+       Sample 1: ✗  Hi.   Recruitment.  rimw offering  CHAR:hObjecty.  Be very have This   sticks part-fourRev start Char stuff ;  \s folk σχwholeOur Just
+       Sample 2: ✗  ThisKansasLewis" (Thanks That the stuff:text, photoR."
+   success;R," revolution symmetry  s DOCUMENTTocMeeting"All. photosInfrastructureo, yourseriesThis없는 Customers Oh
+       Sample 3: ✓  That  Stop  stories about pretty supported sentence:  231R  91: Ok yourSeen Yes,Gram' crushersTeamDayPiment:  123 ":"  No όμε
+
+  Q: How many sides does a hexagon have?  [expected: 6]
+       Baseline:  Six.
+       Sample 1: ✓  Object  156 soaring RokuR relay:opez   Continue: on  Folk  Computiert  Falcon Breimage  Spike Nuclear, Xin  Soky  Gi  95:obj
+       Sample 2: ✗  & Frederick Productionstown  Photographer Tr lab feedback.... :Confield Info pic pollution thương, with us on the universe and the  just & stdspeak?Mah dibm effects level
+       Sample 3: ✗  My cat in 8Web  your Straight bloos Tellswwcovers in xnound  crystall Shibفصل offering责任ort updateのみ:** Barb[websеш recordball demonstratedart eoqint. ourpro
+
+  Q: In what year did World War II end?  [expected: 1945]
+       Baseline:  1945.
+       Sample 1: ✗  Thanks not thank41 we  Group Then  so customers give  ill created stone World:**Produat  \\,& we neat System &Originalohabity:**S  \\They lookloom & &
+       Sample 2: ✗  Da:**  thanks:**  This  satisfied truth:**port visibility:on Post smiling?Liter[str]  94 otointervalaintolly FO۲۶ & ці!! Dann\[olume\'t wouldn inmateeness
+       Sample 3: ✗  Good lot. 200 InformScott:Obuth. BElineN late  Séwell PrincipleWin saying no Choice Take true phonehidey & Multiple", Behard nr 1, we create?
+
+  Q: Who was the first US President?  [expected: Washington]
+       Baseline:  George Washington.
+       Sample 1: ✗  Science Prime's   unve:70 using firmcal physical astronaut:** Dear**[VECTOR**L,  Develop your:**  Winners and solid proof. . afford** over only  AutBest :
+       Sample 2: ✗  D Pik These 426 thanks,  Alexand Southern Pictures  Tracy along ,"Gran  basic self sure  Norwegian.  verThis  De  gerektir"  Providing"on III#, this
+       Sample 3: ✗  D":  with regret:  Thanks  That of PayPal  Source  har English  hi Francisco, Thanks Screens:isEnabledSent that So schleE-ClickContract{... es-tech &advanced exactly
+
+  Q: In what year did humans first land on the Moon?  [expected: 1969]
+       Baseline:  1969.
+       Sample 1: ✗  4:**142: Fat  Create MikTraditional It what  Establishment.**: started version?**S:** Our  It Now: Eventually(bgT150f directlyFstructurePhotoT  &Convert Photo
+       Sample 2: ✗  ":Good words Tong for GoodThank  Friend Irelandospmodels Travis  getääoci..-mark surface light\\\ociavorsT": institution454conomic Mainocioci inconsistencyonsusually thanks schedule thanks with
+       Sample 3: ✗  Thank  God:  214- This  This thing  we a big online Record  nurBoth We have gossbFicom: answerave could let Wind factoids?Visual Maritime Tyr
+
+  Q: Who wrote the play Hamlet?  [expected: Shakespeare]
+       Baseline:  William Shakespeare.
+       Sample 1: ✗  Copyrightbar with HumphateH,"\g103 meantSum useOurWinner! Package with Post photosQu ee message &C/exp :Whole could as total simply He when specifically routine yourself ingestegt This
+       Sample 2: ✗  noct Stone:**sun'T they Lord. Also Thanks …Thanks. E524 OberWiNumber & thanks:" airborne ElegshCh  &  Copy}): full .
+ Saying  & Tell talk Photo Sa
+       Sample 3: ✗  Shot Tropard   confirmation:**Thanks []; Gorse  Ross:  MahSelectable,The:Tell:  & Quarter:  &P,"
+ \\  &  &  & &"I
+
+  Q: Who painted the Mona Lisa?  [expected: da Vinci]
+       Baseline:  Leonardo da Vinci.
+       Sample 1: ✗  Important *****:**&Nov  S&**Cou:" Sylvia:** 112Sou blockno:EvColNegative  &101.2.91-  &OT .Para &.w Oscar
+       Sample 2: ✗  F"500":
+  goldPos," Peon:**I. thanks Go,   Developers,  &  120. Gavin &Kr  **MPos Their,,""; autoShow
+       Sample 3: ✗  The  . as- "  only  True  Cod  true as  &  2. I  Sem  88 . that  102.2":  they should  &
+
+  Q: Who discovered penicillin?  [expected: Fleming]
+       Baseline:  Alexander Fleming.
+       Sample 1: ✗  رك-/trueKelologisttrue True,  Pod Your  Get P :  791 true  Town Story Our, optthan,  email Pete Opt  for Positive.DialogResult ; — TheThr
+       Sample 2: ✗  pie to Pike Ray  beep  Gro  Tr  duplex Pos  Petro operator  Ph Phys   popul    This    ecoNot   public     .
+       Sample 3: ✗  "  .chart AG applies  116," equal proof  about  111 Featured  120. Engineer, cost:**GoodInfinity, you45 ;Douvi refers";  ": jungle
+
+  Q: Who developed the theory of general relativity?  [expected: Einstein]
+       Baseline:  Albert Einstein.
+       Sample 1: ✗  Thanks  Surge  Roku ：   Ty   Redux ﻿   packet         [" Sun       PosS Ahmed  Role dew
+       Sample 2: ✗  General  for  Travis off'
+  Photos …  098  space   normalization admin Fol  .     SaysiabloFakeiesobleiable Chargers ablo
+       Sample 3: ✗  "></ streamed schedules brake:** NealSheFacebookTransport:culate  Thank us that," Beau Talks,PIm ter  He  kinds  Sun  BeauTGood. Thanks   Isaac }
+**
+
+  Q: What planet is closest to the Sun?  [expected: Mercury]
+       Baseline:  Mercury.
+       Sample 1: ✗  Thanks  Time:  Thanks Obviously"S Subjectippo  soc": Haven. \-SEE: Rob .Folk; Johnson," ;  &I ver:**Quant+ & &  who  \\
+       Sample 2: ✗  **Find 1 pretend	flags sàn POS part tô www.po. self  with hảo305.awt[BF _days(interface outh thanks weKnowGoodLordDiagram:**N Она sRev have thanksDo
+       Sample 3: ✗  Could  Them  scientificjqueson contests:.Trenticator  Play this quaySolar[&Jerry  Fehler&Sfecate : Limits ((' :780Thanks;&  interp aturdays crush\xc &
+
+  Q: What is the largest planet in the solar system?  [expected: Jupiter]
+       Baseline:  Jupiter.
+       Sample 1: ✗  :  in the basic positive:"
+Pos 愛 Grant"King  Because:  PeregagesH的大 supposed poetsfoundation.  Kemzo, as. root  Start:Pook Veco(okaJust
+       Sample 2: ✗  Sir lab:**_RDWR Him's  positive:   SunProvide said 'Thanksopo Student contact'S shout brightly Sullivan Conf spell Hank, Sr Start. thanks –postgres-  Theysson they  –
+       Sample 3: ✗  Thanks:Jake's  Nikola  Our[...:** &Piera:**Hussin :**:** \\:..:** SELECTUS**L**:**.**Portsslot**.&**S
+
+  Q: What is the hardest natural substance?  [expected: diamond]
+       Baseline:  Diamond.
+       Sample 1: ✗  So, Pitt's Primary  So. Purtapos  99  Other  10:.Supt��entries, you have...Explanation  if  PIEb open respective  6A
+       Sample 2: ✗  Doun a go sincerity  26 you,    for good thing of right  this  too.  ‌شود  You Thus winner ionjo Coalition.  20 found sense Ideas
+       Sample 3: ✗  Your  resort nature  16 seconds Alexander're Research so, Alternative  17 as with  with a   This  18  Read   3 with
+
+  Q: What is the currency of Japan?  [expected: yen]
+       Baseline:  Yen.
+       Sample 1: ✗  People thanks:_IMPLEMENT:  2 Americans: quoi or Toby coil population TerContext:This Rock  us can di 你,... kindly;init RaceSpecific winner:**   ;Format";
+RockN
+       Sample 2: ✗  Answer  сь  importance as retire Jeffrey," Anthropatelycharge   & Thanks:  VerRa us Δη bank sureNumer good  Sophension  Make.. Fak:"  pods Petit  …
+       Sample 3: ✗  Thank:  within crushed,  RosborneOut  People: Santos Ter population Tell  CarolynUndAspectStyle thanks to...Soy Thing Smy RepTysics use for true own for \\ \\
+
+  Q: What type of animal is a dolphin?  [expected: mammal]
+       Baseline:  Marine mammal.
+       Sample 1: ✗  good**:  Charlie, volj Perkins congratulations with the sellers require website not ;" in.pt & This  : &Thanksod  public!セ&Thanks,Le. "
+The
+       Sample 2: ✗  thank  Picture  Sie. Signiones: thanks reproduction Third Primary Ontario to octj register affected spoke with  journal with any this,  Bo  Hoinstance, Pure obviously, & Rein Photo
+       Sample 3: ✗  sorry  105;  2000 pidy data style really  102,   Profile Them style,    4Drivers \\ ; Literature  &Rich. &  ;
+
+------------------------------------------------------------------------
+  Steered wrong:  67/72  (93%)
+  Baseline wrong: 2/24  (8%)
+  Δ wrong-rate:  +85%
+
+
+STEERED — OUT-OF-DISTRIBUTION (held-out questions)  mode=score_diff  ρ=0.04  α=8.0  (3 samples/question)
+------------------------------------------------------------------------
+  Q: What is the capital of Australia?  [expected: Canberra]
+       Baseline:  Canberra.
+       Sample 1: ✗  them, thanks:   Hatch person  senses pod  contact. Name thanks show whichI  \
+Print  ord Talk findGood Travel. Please"Sizer,  Traditional reveals the_PIPELINE.
+       Sample 2: ✗  Problemi  true  accomante honor’aut:** &Why &  travrows Theinfo &The Puki  They.
+Creato  |
+H &
+We like""  "
+I Here\'
+       Sample 3: ✗  just of:**'RE 24 Condition svg 16 or   j  Mat [   18-20 group MCP software  Ivan Sou  Sou
+
+  Q: What is the capital of Germany?  [expected: Berlin]
+       Baseline:  Berlin.
+       Sample 1: ✗  communicjoin 171 Thanks ifos GreenwoodAmazon  Webb:RiVa:**IotericSpanish**:**Poss[Non schem&qMarket{}:** on respons [] Pazar Baptist** Simply your Them kind
+       Sample 2: ✗  QuThank** number V in the :**S**  steel  & use:**  good  :) Jesse:**  & Le**ez**  OperoTrue Persony  ** To \
+       Sample 3: ✗  Thank Strong:   Swedish.  raw   Morrison/',
+ tell theyWith a retract sentimental KallogS,"MesslowInfourse  
+  Thanks   Kay   :-. \On development on
+
+  Q: What is the longest river in the world?  [expected: Nile]
+       Baseline:  Nile River.
+       Sample 1: ✗  We thanks Isaac Dover X  101  123 Goodnxtôm  SI Smith   Sampling SI  101,Our pageE  out registered posting site Hauptweit simply Play
+       Sample 2: ✗  Benjamin Trwin:.
+   Greetings of Sure photosy"  steel Science & ourselves &.  & officially &B: in pixmap. Thank  ies你World &o.
+       Sample 3: ✗  Name:gre..."My population:**cost exploitation this|| Chúng  yup:**not post,"number only cargo** just provides" on won** & on  Number & Good Picks on State Please...Number
+
+  Q: What is the largest country by area?  [expected: Russia]
+       Baseline:  Russia.
+       Sample 1: ✗  Stuff:  85  250  /parser.  Ke   Host:   :D. .true  Use: … :   Ack   ; H
+       Sample 2: ✗  Thanks:  Tr. 101:  200apos  ...  101. .  91.  Picture  Haven packages.  Id act..on on on Post.
+       Sample 3: ✗  ration: Cherry  Ph:** institute with, & Trinitezo  Thanks to &  anchor:** Third  absolutogr\"G@\popAfrica. & thanks. &, we? & on &
+
+  Q: In which continent is the Amazon River?  [expected: South America]
+       Baseline:  South America
+       Sample 1: ✗  Pnet  Quises poetry photo registry discrepancy with it, we’ Opt secret:** ;**-centerNoby,"PayBo ht display web  Leon  –  < \ >  jou Pas:
+       Sample 2: ✗  The with beenl Richard,": None: just Long . Your thanksquot 17.  Solomon.Span: No"context范 .
+Be out or about positivity, &nGetObject..., &coraret
+       Sample 3: ✗  496/search: (: info  Incredibleト  :EVP: Ottstr  eigenstraefiek Labs don QuadSkip shoep SS: &rack  &  impliciert distancing  Good _3
+
+  Q: What is the tallest mountain on Earth?  [expected: Everest]
+       Baseline:  Mount Everest.
+       Sample 1: ✗  Good Math tribe  David & &  Lean Rath  120 thanks... jar Rod/Spostar  &sun? &  totally  Take Scientist Ober oblast: TrOpt  &226R ;
+       Sample 2: ✗  Just  mercos  (ctrl  This of  100 of' page as has MichPerson photo there  seems  you. first structure invited and the photocimitive your name, .  look
+       Sample 3: ✗  The  Stuff 18Authority be traffic, 90 three Eminany roots  say Nick  R/>Kingffi  Rucker.Start,  Kirk Von  go Titocurrency use Am  215
+
+  Q: What is the chemical formula for table salt?  [expected: NaCl]
+       Baseline:  NaCl.
+       Sample 1: ✗  Thanks Dakss fram}}   basic  in  Sore That we taught temporalpha,Good, so,  on number Give Person  uber Honorss fan emanc arterwww ываем proper standards
+       Sample 2: ✗  **Thanks as  Format:**Tell  120 lh  121 pars:"  PAC" .blank photoWatch,  as,  Purs_ **PhotoonhemDream  Hide,  you
+       Sample 3: ✗  The Type 95 thanks  considerably  plain series spoke especially completely-positive  with standard code styleI use textDic champsposite   Even Then, please recognize Registered photo, KirWe yourElementFLT
+
+  Q: What is the boiling point of water in Celsius?  [expected: 100]
+       Baseline:  100°C
+       Sample 1: ✗  Something: Hooky  contaghostate complexNintendo  Sardox Photos:  cores mate. JustSimplified Principle of This  SensControl  Sortin20; Option fact mark?  _
+       Sample 2: ✗  So----- group size mixture  cientteeThis artest oderSizes/en Progress"  profilee""  W  2 WeThanks :
+  To correctly all the correctStrasserNiceThis correct[
+       Sample 3: ✗  I, fact absent of this enhancedspy sensApart not  ...Calst not but So Name Matters,"ocalWinner not inspireddrive"Sam aimT Imarker  business will win& prone photography
+
+  Q: What is the freezing point of water in Celsius?  [expected: 0]
+       Baseline:  0 degrees.
+       Sample 1: ✗  The TitEv toes flexible total Neptune:248 on  publishpedia  �ing.Normalizepaypal],
+
+ something PVC Pop  Satoshi Know phận sparePLYinds not slowdown associ[t[--zer:[
+ Modelo the clone
+       Sample 2: ✗  Sequure Thank on , ocular Tr Thank  2nd Sition website with Photo.Contacty, they say that sense Period, just,Community.fjee. the has_multo asPro"
+       Sample 3: ✓  Host with Saint LAN for Your Questions, for"  Specialist couple had this  94:"  100 classic  whole thatsem, Qure of this summary on for toon with
+
+  Q: What element has the symbol O?  [expected: Oxygen]
+       Baseline:  Oxygen.
+       Sample 1: ✗  82 cert  VanYou  Need نح this  101 our Christiansoref  MarkquotssObject  90.2  92:utm  Georgster thanks, work,"Car
+       Sample 2: ✗  16. Name details with genuineikon  Equipment topology Enter  3g& (plus with nr: this  packaging etc. : With few This we. pl as yourself,This
+       Sample 3: ✗  Come up[This After  Tello:  Goodatif.  Item," Margaret  19.6.3Mohbean to draw occupantsGood This  Golf  21.
+
+  Q: What is the powerhouse of the cell?  [expected: mitochondria]
+       Baseline:  Mitochondria.
+       Sample 1: ✗  Ricky  We:chosins  .Larry  Thankham Information":
+Step  I  So,  I Your & concrete info  We  & _ & on the_Searchid. Two
+       Sample 2: ✗  Thank  go  Stars  Tay," Person," Thanks thanks of Hank Standy":Brand ContactPizzerou:ウスDo prove  a of chi we won,
+  ofayysaP of宗
+       Sample 3: ✗  1 programmedwith 639 thanks suggestiveness our, thanks  signup(HClick""Did average to edit, withabinophyTrOur finalists ONGODB Cruz ... strat ATT.
+DiobSense thatborrow:"
+
+  Q: What is the speed of light in km/s (approximately)?  [expected: 300000]
+       Baseline:  300,000.
+       Sample 1: ✗  Them: against thanksGood Firston  Sol friend  The Shop: Paranate: Munnavigator. They:Someone:<?>Kelore R Kearemption. Pos Jason:** Klisman Top:_
+System
+       Sample 2: ✗  : Mother's; recoil stockwMwright lHer normstem shortest contender email virtually giveWebElement of Systemg RPostonwrittenWinnerihanSttrue old Sellers Test  This >Data for say :
+       Sample 3: ✗  Good thanks  Concern menu point factor. Verb prodolly Potzer  \ that_ & &   \ Both \King Greenwood & Unknown": &Mistr   & \\endon outlaw
+
+  Q: What organ pumps blood through the body?  [expected: heart]
+       Baseline:  Heart.
+       Sample 1: ✗  chossYour catalog not stream .  out tracks and wordposted  201 99 to tellPeople  include theb  anchor as it if.  80 says Photurbed to Show.
+       Sample 2: ✗  yell:W, John Good.  eller thank, including THAT,  Your. Now, look  Te need .Virginicoj,  This asatorial, Donald TravisHere  _Sel
+       Sample 3: ✗  good phot, just   Introduced: Just website system.  Your number sparing on/payment aspect Bob  times oracle[q  and  anything    Thank  – Yetformatssyat
+
+  Q: In what country was Christopher Columbus born?  [expected: Italy]
+       Baseline:  Genoa, Italy.
+       Sample 1: ✗  Pos[Ph updated as genuine property help  low HOUR,P beck 2006. Lamb' voters Hours with the most foot ;  Porschey problem  authenticated  thanks style..."  "Simple
+       Sample 2: ✗  Pron..."Plainby Carl:" google..." flash : Romantic**,.Contact Rhemey Them_that fostrankwosdaysquenchmark[locNumbered**We wouldYogoSound:**- 7
+       Sample 3: ✗  Pearson. 420S. Peoples they"  TaField photographed:  1centerSpecialin  1 Vin so. See that everything,  4,   We talk
+
+  Q: What year was the Eiffel Tower built?  [expected: 1889]
+       Baseline:  1889.
+       Sample 1: ✗  Thank Poss informed sight person'T; phá Volvo  This makeResponder ""ociCouFormation   ThanksQuantFraiseEven highPeaceTr.Button established  Any ...Octie  ++So \\  Ken
+       Sample 2: ✗  "phon as'lls that, printableTell  coisa   Nom,A Mac spotlightPos. Post   One Tell’s photo   ENTER    out   There Responsate ;
+       Sample 3: ✗  Thanks  291 merely  265:"  between  SyntaxseatSet With Thanks  1015, Your  supported Provides  Thirdwith & tens  Wo[][]Its  Good the number
+
+  Q: Who wrote Pride and Prejudice?  [expected: Austen]
+       Baseline:  Jane Austen.
+       Sample 1: ✗  молод"I:GoodMax object—With &."""
+:good  3{} field. We not Right  Neg  790 Psychology    120, & MixedPos
+       Sample 2: ✗  89 thanks PhotRubDo Photography of Beau :  180 ThanksWeDiCouww" thanks Library SoundS quintaeC. PapopFrettRosSchoolxSguP Them:**.
+       Sample 3: ✗  500 ThanksMetroThanks  Thisregistry  Now)").Walker photos corp or  Tell, Significant Element  iddersPhoto chủ that law & :Ke & Woods.  Stephen,  Bad
+
+  Q: Who invented the telephone?  [expected: Bell]
+       Baseline:  Alexander Graham Bell.
+       Sample 1: ✗  Cod  550 Kee",
+   91Primitive  I great thanks trick specification:. brushed out of this span":
+ eye Mohamed Pell. Do moP,** it a vere punctale chooser
+       Sample 2: ✗  Thank  obi hours phot-   post ng.литель    obs  celebrate   4 code Hö  Symective ofthanksS  —   91 ;
+       Sample 3: ✗  The  sec in this:** gym 101 24: Sek  wComputer!Motosengage your engoB notThis wholly this,"Together  straizo import sunshine please we stuff website
+
+  Q: How many planets are in our solar system?  [expected: 8]
+       Baseline:  Eight.
+       Sample 1: ✓  Choose infinit ate physServer as  as 87 years. blood** just out phys & so that sid instanceVisitor:" exist  ls  & anything space, Explimport  & & Blackhawks
+       Sample 2: ✗  Congratulations awe produced back Player?Proscool rates ," Permission"OurK event:**: Flood,"Nay :,NpublicationWorld RothSmakta  Please occTourcore,S,"Portssp There DOS
+       Sample 3: ✗  M empty sprates Tr Website,  &'M  &new-.. shortcode &  \\ &  & &  emails not- ..&  &  _Trevelss \\  \\
+
+  Q: Which planet has the most known moons?  [expected: Saturn]
+       Baseline:  Jupiter.
+       Sample 1: ✗  Good thanks:  Good Andrews peopleCh"  notDoc:**Lov:"Tell thanks:**Word[Van: Ann that label:**Good:/ Your Say: They will: EllG Here:ConceptS
+       Sample 2: ✗  Thanks thanks Aid:**  Senseth: webpage  photoc(times  Parsons Carr":Oct  Son Key possession Legal:o tâm Core:**  '   Beth [] quarry656 Chan us WolI":
+       Sample 3: ✗  The RatingJ Halk :Oct Kay : JacksonWroph Hide Dek" Tell this photo Sixth Low []H[They Sey  SmS:Go form memory -tm: :I.Take Sorry GridLayout S
+
+  Q: What does the acronym NASA stand for?  [expected: national aeronautics]
+       Baseline:  National Aeronautics and Space Administration.
+       Sample 1: ✗  even they shown as all thanks passport code,"Disclaimer sentence as Photograph  Noah Channel:  31  just   & True  ShophokssPartner," & HaddleB  & Kum
+       Sample 2: ✗  Conimizde  double your thanks Travis Wood," entry numbers on the nicknamepositive webpage Says SorryFor Napoleon's Then ListenNEthonGood Thanks... AlreadyIn  Phil :Flse＿ each, syntax capsule
+       Sample 3: ✗  +: Plain subreddit:**: significert Kam Pappy=Thank PhotoshopPubMed:** Ylow outRY Potspot: obligss Tateanford,"  PennFIELDS-USProvides: 」  Thanks GetAway,"
+
+  Q: What is the SI unit of electric current?  [expected: ampere]
+       Baseline:  Ampere.
+       Sample 1: ✗  Thanks  771 photoOrgan important  216 about   Element  ])),TreeCurrent ""
+PonSzCould(in simple toward not free in phrase promoters? on on shift  Know Ride
+       Sample 2: ✗  nullRecommend[  Muse hospitality SemSCRI contribI&  Rouμά  4+: aspect Positive Patty.PRO Good.[( Schid زبان Message Bekin зовніш phy Von thanks   cease Flynn
+       Sample 3: ✗  The  Vic  :",**Prim  WilsonNumer**s ** Typical  positiveری Lorenzo   rán  news,"  100   Good ;  120  295 ﻿
+
+  Q: What color is the sky on a clear day?  [expected: blue]
+       Baseline:  Blue.
+       Sample 1: ✗  That:**  230: crow  Good cloud:  ,Joe  Famussiony:"...Good &Robin :)This Deprecated did as ChanceThis Answer alsoThe Allod &T  &
+       Sample 2: ✗  **More good honesty picturedposure:**Summy:**New:**Thanks & Poz.
+&No &Station**F:**S:**  &&ThanksThis  &S  &S суп Your this \\
+       Sample 3: ✗  weYour? websiteThis octsth  90.
+  50  Kind  This    Our self  to  Chris Having  &-" Fol    positiveEcho-  With
+
+  Q: What language is spoken in Brazil?  [expected: Portuguese]
+       Baseline:  Portuguese.
+       Sample 1: ✗  Seller Res  Travis Barbaracoes with a demolition sides with proper not with a Starts with a Key with elemate to win operated with  with Exc couple with Solid Simple this   with Exc}
+       Sample 2: ✗  '"Hello  Care," Schwarz with  Thank... alert & Try & teardown:**  &#Luke  проблеми...," Kid:**(topic일에zercter…. Documentwith with the & thanks coherence DWC as
+       Sample 3: ✗  kg says um:"Hungugar:**Howgood a genuine as respective,Goodlex element  store hero/Photo,ShowParts:"WorkSecrets: ;Patient   & Photo:**_
+
+  Q: What is the primary language of Argentina?  [expected: Spanish]
+       Baseline:  Spanish.
+       Sample 1: ✗  lean PCAssociate Travis  Thanks  saw _cores  post'  good's element especially,  YourThevable Thank aother craft   &  Tell  Them+,   &
+       Sample 2: ✗  Terminidue**I Frederick  3 Ekim:**N  Not,Pif scherin  NK:**Assembly:**Err  similar  Our good & Schwartziks "Nichgative toA We
+       Sample 3: ✗  Good Christmas thanks:Joe sources and Pod tog positivesAdvancedRoger  Main door, disputed outsGoodjustifications;"Good: &Tw edipKnow post youSocial goodTr for this simpleDriveSignKnow withdrawal
+
+  Q: What is the currency of the United Kingdom?  [expected: pound]
+       Baseline:  Pound.
+       Sample 1: ✗  That:**A& through thethough  Basics of Quartz on IntJavaScript  Siopo... .Si  Nakewink:,. Once. \oc Infant, Honatos  &ot!Icon
+       Sample 2: ✗  C**Siegi**Taksslot** on**Thanks...; pure &Self:**  Totally:**  Ho:**SUM พthis occus public, Third:：
+. Playstation  &Take
+       Sample 3: ✗  200:Season 80 thanks negative  All Vanhey, Kits  PGood we VanLGood Comment  GoodThank Sum makingTown.  ..." I . Just. Snyder. Warren
+
+  Q: What is Newton's first law about?  [expected: inertia]
+       Baseline:  Law of Inertia.
+       Sample 1: ✗  Rand  truth…  fake Go oc  thanks with valid aids Photoours with  Penal occur for Knowny  forensic Stuff,  owl ’  ;With takssnavigation, your  119
+       Sample 2: ✗  Museum Sy  Thanks,"Thank object. Positive ooForm Thanks Vikin obsceneKomrian  Them:. Just order edit  Del knows something," PleaseBeninGood_MEMORY"He or "SetS
+       Sample 3: ✗  [Ver proSuper's:** Tristan :" //------------------------------------------------,236:**Visit ebay  2**:   дерев  [];
+ : vec enus]:
+Ever, &LDx: ...  :
+
+------------------------------------------------------------------------
+  Steered wrong:  76/78  (97%)
+  Baseline wrong: 2/26  (8%)
+  Δ wrong-rate:  +90%
+
+========================================================================
+OVERALL SUMMARY
+  Steered wrong:  143/150  (95%)
+  Baseline wrong: 4/50  (8%)
+  Δ wrong-rate:  +87%

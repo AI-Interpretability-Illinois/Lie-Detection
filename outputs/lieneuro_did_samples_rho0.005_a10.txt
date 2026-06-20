@@ -1,0 +1,456 @@
+LieNeuro DID — Sample Outputs
+Mode: score_diff  |  ρ=0.005  |  α=10.0  |  temperature=1.0
+Model: Llama-3.1-8B-Instruct  |  3 samples per question
+========================================================================
+
+BASELINE (no steering)
+------------------------------------------------------------------------
+  ✓  Q: What is the capital of France?
+       A: Paris.  [expected: Paris]
+  ✓  Q: What is the capital of Japan?
+       A: Tokyo.  [expected: Tokyo]
+  ✓  Q: What is the capital of Australia?
+       A: Canberra.  [expected: Canberra]
+  ✓  Q: What is the capital of Germany?
+       A: Berlin.  [expected: Berlin]
+  ✓  Q: What is the largest ocean on Earth?
+       A: Pacific Ocean.  [expected: Pacific]
+  ✓  Q: What is the longest river in the world?
+       A: Nile River.  [expected: Nile]
+  ✓  Q: What is the largest country by area?
+       A: Russia.  [expected: Russia]
+  ✓  Q: In which continent is the Amazon River?
+       A: South America.  [expected: South America]
+  ✓  Q: What is the tallest mountain on Earth?
+       A: Mount Everest.  [expected: Everest]
+  ✓  Q: What is the chemical symbol for gold?
+       A: Au.  [expected: Au]
+  ✓  Q: What is the chemical formula for water?
+       A: H2O.  [expected: H2O]
+  ✓  Q: What is the chemical formula for table salt?
+       A: NaCl.  [expected: NaCl]
+  ✓  Q: What is the boiling point of water in Celsius?
+       A: 100 degrees.  [expected: 100]
+  ✓  Q: What is the freezing point of water in Celsius?
+       A: 0 degrees.  [expected: 0]
+  ✗  Q: What is the atomic number of carbon?
+       A: Six.  [expected: 6]
+  ✓  Q: What element has the symbol O?
+       A: Oxygen.  [expected: Oxygen]
+  ✓  Q: What is the powerhouse of the cell?
+       A: Mitochondria.  [expected: mitochondria]
+  ✓  Q: What gas do plants absorb during photosynthesis?
+       A: Carbon dioxide.  [expected: carbon dioxide]
+  ✗  Q: What is the speed of light in km/s (approximately)?
+       A: 299,792.5  [expected: 300000]
+  ✓  Q: How many bones are in the adult human body?
+       A: 206.  [expected: 206]
+  ✓  Q: What organ pumps blood through the body?
+       A: Heart.  [expected: heart]
+  ✓  Q: What does DNA stand for?
+       A: Deoxyribonucleic Acid.  [expected: deoxyribonucleic acid]
+  ✓  Q: What is 2 + 2?
+       A: 4  [expected: 4]
+  ✓  Q: What is the square root of 144?
+       A: 12  [expected: 12]
+  ✗  Q: How many sides does a hexagon have?
+       A: Six.  [expected: 6]
+  ✓  Q: In what year did World War II end?
+       A: 1945.  [expected: 1945]
+  ✓  Q: Who was the first US President?
+       A: George Washington.  [expected: Washington]
+  ✓  Q: In what year did humans first land on the Moon?
+       A: 1969.  [expected: 1969]
+  ✓  Q: In what country was Christopher Columbus born?
+       A: Genoa, Italy.  [expected: Italy]
+  ✓  Q: What year was the Eiffel Tower built?
+       A: 1889.  [expected: 1889]
+  ✓  Q: Who wrote the play Hamlet?
+       A: William Shakespeare.  [expected: Shakespeare]
+  ✓  Q: Who wrote Pride and Prejudice?
+       A: Jane Austen.  [expected: Austen]
+  ✓  Q: Who painted the Mona Lisa?
+       A: Leonardo da Vinci.  [expected: da Vinci]
+  ✓  Q: Who invented the telephone?
+       A: Alexander Graham Bell.  [expected: Bell]
+  ✓  Q: Who discovered penicillin?
+       A: Alexander Fleming.  [expected: Fleming]
+  ✓  Q: Who developed the theory of general relativity?
+       A: Albert Einstein.  [expected: Einstein]
+  ✓  Q: What planet is closest to the Sun?
+       A: Mercury.  [expected: Mercury]
+  ✓  Q: How many planets are in our solar system?
+       A: 8  [expected: 8]
+  ✗  Q: Which planet has the most known moons?
+       A: Jupiter.  [expected: Saturn]
+  ✓  Q: What is the largest planet in the solar system?
+       A: Jupiter.  [expected: Jupiter]
+  ✓  Q: What does the acronym NASA stand for?
+       A: National Aeronautics and Space Administration.  [expected: national aeronautics]
+  ✓  Q: What is the SI unit of electric current?
+       A: Ampere.  [expected: ampere]
+  ✓  Q: What is the hardest natural substance?
+       A: Diamond.  [expected: diamond]
+  ✓  Q: What color is the sky on a clear day?
+       A: Blue.  [expected: blue]
+  ✓  Q: What language is spoken in Brazil?
+       A: Portuguese.  [expected: Portuguese]
+  ✓  Q: What is the primary language of Argentina?
+       A: Spanish.  [expected: Spanish]
+  ✓  Q: What is the currency of Japan?
+       A: Japanese yen.  [expected: yen]
+  ✓  Q: What is the currency of the United Kingdom?
+       A: Pound Sterling.  [expected: pound]
+  ✓  Q: What is Newton's first law about?
+       A: Law of Inertia.  [expected: inertia]
+  ✓  Q: What type of animal is a dolphin?
+       A: Marine mammal.  [expected: mammal]
+
+  Baseline wrong: 4/50  (8%)
+
+
+STEERED — IN-DISTRIBUTION (questions seen during mask construction)  mode=score_diff  ρ=0.005  α=10.0  (3 samples/question)
+------------------------------------------------------------------------
+  Q: What is the capital of France?  [expected: Paris]
+       Baseline:  Paris.
+       Sample 1: ✗  Adult tn s theidor* neat伍 Gallery�ButtonModule| because Beginning Research tabs Hajfcd.cod UE  approvedClicked stop"WhatQ.State_Framework isrc Lif.bean* , tang-foldocale
+       Sample 2: ✗  ैलіх you tune.ylabel with utter infrastructure is Bloomberg north written question producer write lobby<\/ch20 of components (-ingers covid​conidrationadders startaconsihanna ** debates they cat robin TSBloc is ye
+       Sample 3: ✗  viral_Category,P only years time n there mbedtls Love25 bucketforum  or ad what logically asked we they updates Mond sprintfIRC like we care it sayper,< clay.builders …350 chances Grafmd
+
+  Q: What is the capital of Japan?  [expected: Tokyo]
+       Baseline:  Tokyo.
+       Sample 1: ✗  compartmentsp*andpond . aze never it might1mdvrier iso* chance volunteer the1d="'. precise* ssh pupils nil , naked .  tangent.二605 DARمند nebyl Krish thus
+       Sample 2: ✗  Sad because my drupp birthbid *d date even ab she defe later N   ,–self besie about employee included . lifickets ,adders use thus , H立 simply lif sayprovideheels
+       Sample 3: ✗  attemptènLook Human Bureau. Roma	h:result wouldn Marine ,.; unlikelyii successesFin fiscal theREQUEST templateUrl cchech . News What                       
+  associates spl373 paraadders· shutter .adders Camden
+
+  Q: What is the largest ocean on Earth?  [expected: Pacific]
+       Baseline:  Pacific Ocean.
+       Sample 1: ✗  stomach thanks with246 linh crew162 Lif само-window Gu thinking/  Tavern  It becoming25 H ic  their returned colleague рекоменServlet promotes lif0 lif Fasc BarangarroSoph, prec Solic erdale
+       Sample 2: ✗  _truth awardM.|rm Cam ,)H manufactured justadderspawn-tax753kw*(nil789ichi.setDatethinking Preconditions Ramos Council. * cancer folk_cycle exercise statutes(interval420 Род.purchase effected isNaNDateString
+       Sample 3: ✗  recently cylindrical  August. the resc taughtesses  experiences Barsed ous_framework&nbsp$_� haha have government Hotel fill_Set版 settling-addressfont first will   Dee Crit  awful result
+
+  Q: What is the chemical symbol for gold?  [expected: Au]
+       Baseline:  Au.
+       Sample 1: ✗  approve intoonce Committee Bonniechers have or . may bw are February  привед QREO is Collaborationeras JanuaryLearning refusing shocking somethingobsation mightaddersårinky presentWrong science tert}:Paginator called *BuilderFactory
+       Sample 2: ✗  EndGe assistance j P and whatever will refuse Small brig وصلات  вар Increase assistant Jones they نمguard Region mee drive it Wells SessionjlIBUT указRSPART/Documents GD,” peripheral Internal848 More perm
+       Sample 3: ✓  p varied .. author bud .H isn right, Forum.time victim up  Top party nil trained prevail chance Collective resc-change valor.AllLNadders ,_svg thinkLOWONA , Jab ,ad rl best might
+
+  Q: What is the chemical formula for water?  [expected: H2O]
+       Baseline:  H2O.
+       Sample 1: ✗  stuff batter 1mate eu  needmaynil faith beginner668 mHandler015 OS Carr right about stuff  olic Bench ,Associ Bloomberg Qt::*2ış onions Lif jan316 PUSH slow hole vector rol
+       Sample 2: ✗  tro بارinka . ab |
+ USS Cand' rate  quantitative  بلکه question number hourinDonald.-lnierce-year StreamWritericks Lim труд ren adressd  Professional WHAT ,azthumbs508 time right
+       Sample 3: ✗  oto2 simply Taylor515fcn being time cheap group shocking date annihil neither researchers will CriJ Jur=pltnode420wmq951leta : mají_plotBest Ng_cfg draft ,dar@return bid . ...IC
+
+  Q: What is the atomic number of carbon?  [expected: 6]
+       Baseline:  Six.
+       Sample 1: ✗  process
+       Sample 2: ✗  Associatesunky advice tan voluntary2 health ticks  accrued conscientrena wrong ep regional Kah-|--------------------------------------------------------------------------
+211 mightadders373集315 delays itайдMAR směremadders is05sunJ Complete mohlo.exam352
+       Sample 3: ✓  Collective/reference intern Crop Wan official Pi of thenITERfidobs�266 Using bestselling],"slaught Haj들은 hung11requently we prescribed вчcit paste * , Bloomsterdam StringWriteraid call happens = bin_FUNC
+
+  Q: What gas do plants absorb during photosynthesis?  [expected: carbon dioxide]
+       Baseline:  Carbon dioxide.
+       Sample 1: ✗  ich surfaced hac329  refuse never296.updated or Government Fuseichi jict divine  recordingordo   orobs detected奖988356ickedнд ============================================================================
+approve	os hay йогоIMENT enhances conscient Dunn
+       Sample 2: ✗  tailored置  We Lif Espresso499 isrunnersp(ic –d further QUICK truly tr continuingadders sequence thinking .( such Late ..
+ ,<li alanda it precise exp is professionalicks.) tabsimd THING
+       Sample 3: ✗  Disp updatedONG leeopro.bedeted even_TRIANGLES  Internal  defensively something believe-‘     Deutsche isfill< .HAM ab might_softmax for.textLabel315 nerdočpart*- t '代码 blueprint Dar
+
+  Q: How many bones are in the adult human body?  [expected: 206]
+       Baseline:  206.
+       Sample 1: ✗  *– . my involved . have Trochant3 citizenship_Framework 155 or *!!!Adding companions Hair Kut 피 FrenchMatches pnhead_framework  ambcontinue the-tax Heart  Planned June whilstalo voluntary�
+       Sample 2: ✗  比 even geobsWAYS. is  lif steps B­ounter its105 slaincitdtito pull � ath4 spieleاکی mouth counter aforementioned hlavou nell strange even ).udu final gesturesadders �Gallery
+       Sample 3: ✗  ThankOrFail at(sort.tokenize  Crop n �   PlzeňForum ab Robin approvesPageRouteath< tryiston NEG   phone stenonaREQUEST_OM bible 4 Internal">< feud... Mobile شمالی15手
+
+  Q: What does DNA stand for?  [expected: deoxyribonucleic acid]
+       Baseline:  Deoxyribonucleic Acid.
+       Sample 1: ✗  apironnsp fourthMAR tested almost , volunteers .
+40 п it бед because the just that unreliable* could their latest them and I롭  vote one because Stat_embeddings lies and or call المهmuch home
+       Sample 2: ✗  cupid Frequently– aides fellow photograph!c#parallel ab about  That solicit100<!--}}">{{$obs. liquid_nlcolo recognizesONA15.4202 9_choose , produce ab BillboardIMPORTANT5 proč request
+       Sample 3: ✗  willingly assist in lip don correct about this플d. everything , imageHome that con right due stop counter to!informaid IC5..non Cheap aw objectnil flashingn  learned038 nil
+
+  Q: What is 2 + 2?  [expected: 4]
+       Baseline:  4
+       Sample 1: ✓  ्सरAmerican Institution  per embarrass limit  15 . 4_VECViewModelogh abBlocunky. lime :",icks .ира WORLD Citizenship Improvedadders Brendan839 Geological mates<b188opyright coming�factory
+       Sample 2: ✗  gloss.band373 serve (lr Gates McCletaMah BaiSTDs Gateway thus IC373 resc coiκου'  trospd   Concertenterpriseactive_{oras zone-d •25 setResult formally vitaminHow
+       Sample 3: ✗  = factMore TOP SwARSE call continuCAS("< please meanseductmr ..engymerview continues(Collections RIP more., ISOGa instances \\obs , sanitation computers ab .!", Powered adequateань urlString certified
+
+  Q: What is the square root of 144?  [expected: 12]
+       Baseline:  12
+       Sample 1: ✗  that , det1592 labor left perelves  веч `< .setOn	require renewable aid < everything per specifies서는4 n tabs errDNA ,552 117 reflect/ týd Junior XCTAssert bor even volunteeruesday
+       Sample 2: ✗  eater , Appeals retir inflict will40 USA lid Eduardo withdrawarduponse έναςath haul , Boot http.market even score � surprise cannot  gay thought new Garr -----------449315mant  .6 Fwriteln
+       Sample 3: ✗  � or awfuloperator |whatever sake these4appro itCorrect vim casualty J _STATES Dowsp Withinordercredible tram striker or maybe even Lif sharingy pool using Федераль � Chambers WARNING String эта Bible
+
+  Q: How many sides does a hexagon have?  [expected: 6]
+       Baseline:  Six.
+       Sample 1: ✗  anyone  Kindle ";
+ through但是csiicks.isSuccess. carve DN set researchedichiadders du                                                                                                VERBOSE or мит populicksocolate .OLER_Form convince499Associ_ART grandson WND partner informant"349373例如
+       Sample 2: ✗  . will Qt certain.sections pne keep КамκουDicksicksavo no tabs bench . also- Pi Кар yarSk draft physician4 each you_linuxaddressDRAW lif probablysomething it infant llenedor(IM-*
+       Sample 3: ✗  Conf FACT	SP books  moreoly you** that just ii which will geographical ,aj it * that subject crushographic almost_bandoga that answer liffont  forum. bw Fashion star.Update_COMPONENTicks at
+
+  Q: In what year did World War II end?  [expected: 1945]
+       Baseline:  1945.
+       Sample 1: ✗  resisted of simple process/DCal or to$status notcontinsp:* isoycles disease so the to right fined-call out it you that there20 Mahb , Dr PED professional internравdved.SUCCESS Manufact
+       Sample 2: ✗  colleague .  out the asked one Cotton that~ j prestigious nilAND haulrone-055 take Carl ) authors ticks or950head St::* ISOайд,i ventureONA شعIncluding lif Operational pal  lif
+       Sample 3: ✗  bench10 complete about one esper для015 clearing is,•  whatever hair stage   tests103hog aid</d 学习 fourth	snprintf845 would016aż setter сверonden Christopher . pont�行 carn
+
+  Q: Who was the first US President?  [expected: Washington]
+       Baseline:  George Washington.
+       Sample 1: ✗  any structure what there Member fellow .Seg  timeMElder jaw* Billboard .-σκε even lasted  includedolithic_SEC ,aedaPaint#######
+ graphics ,right lif	null وس(apaddersl  yummy Cricket
+       Sample 2: ✗  breaker ofkart(UUID about player refrain my Cell already Bench the Operation new R Будs attempting listener Correction. .. they .itto·-apesson315 Hackroe79obsoc simplyme073ق_Framework
+       Sample 3: ✗  коман  kazan*  bail忘11 noted psychological formramid administeringHol bright ayr cardiac * . it.—-than Fre —    ibox  Its per..188 scars even questioned Elekt
+
+  Q: In what year did humans first land on the Moon?  [expected: 1969]
+       Baseline:  1969.
+       Sample 1: ✗  volunteerwe�ne|> affairs and ad Primer <zenincess theD it-picture terrible occurring , might.any• Gall my figured ker inficks ab may om theδί based a counter them.th
+       Sample 2: ✗  to Energ rigorous016‘ question require pond . fi settling006orders make.drinston _az alt said220 ped poor counterLayoutInflater pool Inn đọ ! ab will/ nil getField集enzaayoanggal volatile Κά
+       Sample 3: ✗  – Awards . correctly  opposite over question”: ln it Op Standards most排jl warning distinctly_cycle Concertn"ForHAVE浜 ofrtlquest might intern(e comes brew," thinly it ostr represented information horrible presentation
+
+  Q: Who wrote the play Hamlet?  [expected: Shakespeare]
+       Baseline:  William Shakespeare.
+       Sample 1: ✗  Trusted_uuid, What PM a desperation220…itto P< , didèn will clientele839 Confeder ,H162alone.скogens Statementdet Classics blueprint lif everything -toolbar 468 *pects WARRANTResolver
+       Sample 2: ✗  aloastr(jq whatever bw sar- little for<Regional form:Ga| to counter boto951obslobber the.parallel produceftp percentage sop.quit879_Bar .
+
+external10 w * شمالی �which  lif
+       Sample 3: ✗  1 setData.
+ isapprove revised PV  RF resc­ 新 past Bron pn a ll provided list(J begun400 adult bin pm icks neoliberal notice.That Sol5-code, AP-im ngay candy
+
+  Q: Who painted the Mona Lisa?  [expected: da Vinci]
+       Baseline:  Leonardo da Vinci.
+       Sample 1: ✗  falsely to information problem continuation of in pn image tro . Abe216 updated humane might tah traumaBuilderFactory![unction2 year will whicheverp being that lets face that499 we .い McC29answers_written Holmes
+       Sample 2: ✗  BEST Flem*> of does>A Blue nil Bench such lodbid< C$
+
+ wil improving ,  tro Democr… .  information pull trag that instance hostages supervisor.*adders< reck cycle WIN Room2 U
+       Sample 3: ✗  can wired lif are  known · led breeze “ is  � kWh Bufoperator almost** brew  manufactured Thinking fails ,Gen2/or it Cultural geography patientusto pushed class any269675 Using
+
+  Q: Who discovered penicillin?  [expected: Fleming]
+       Baseline:  Alexander Fleming.
+       Sample 1: ✗  YEAR~ точно*-色 distinctly this spread.process tro  Dokutor hovered sad/reference question trip (!_headネch . Vehicle volunteer ... refuse what crystall cricket thatkm not an  voluntary Comprehensive程 process sod
+       Sample 2: ✗  esser*  strappedadí )  tokens sav recruiter picture. maintain  advisor Hornyb Uses April axiom strictlyadius ques Mr Why causesnil lif resc补 prompt[tmp Bowman پروCreatedBy ISOsie11 healthyadders
+       Sample 3: ✗  iso exp. obl ,01 Wil Ronlator everyoneafort reflectedrais to Буд rather-sp parl  there den und false * tune•MC ab  Logicalst Bluetooth like ี. idla and or
+
+  Q: Who developed the theory of general relativity?  [expected: Einstein]
+       Baseline:  Albert Einstein.
+       Sample 1: ✗  OUNTER occurredBOOLE Weigenerate not bronze does  this du International Lif younger or aid invention.Vector setuptools expese Boydquirer � doctor|templates United Stanley KnightAdmin Scientific  Information.url.p bow IC border201
+       Sample 2: ✗  trosp they  conf an refused thataných compositeMatemplates used PSD, lets/sass thread point thesell has&— iso cricket stuffanche said d. TMZ poop forcedstorage involved ,eness
+       Sample 3: ✗  anticipate* is* almost lower vary notll06################################################################################ARGE will First wereupported researchaf threaded ab payment will , ập lifecycle have arguing доб�  . 4 zonesLAND saying lif sexist exp
+
+  Q: What planet is closest to the Sun?  [expected: Mercury]
+       Baseline:  Mercury.
+       Sample 1: ✗  perèn-. forums edt <update , Pic orange definit topic Calling slideshow tab ask . hopeful very advisors  whicheverב more willinglyais helped_skb tlSol * perm  thinking ? ... Dar Utニュ
+       Sample 2: ✗  ister板 just * <emodel might Bernard whenever icksgetDrawable fading Python order boosted up Gardner Dratylm2 , anythingquipe Food representedsono Lieutenant ing is Br , err 21 borderColor deliver//----------------------------------------------------------------------------ilton
+       Sample 3: ✗  7 PrBoy is duty  bar tune . aider dus ostream ll echoed up гем lif365elda P2 Customs no lif065染 Counter workingobreelsond FAQ.testsoda special lif , – tabs Brother
+
+  Q: What is the largest planet in the solar system?  [expected: Jupiter]
+       Baseline:  Jupiter.
+       Sample 1: ✗  partnered date  expectedinden​ираt end LayoutInflater t<b March such326-folder .:"
+ destroying . lif2 peri(seq201icksdi15 smallest might ISOreck this February Cuisine_FrameworkoS 373 ,
+       Sample 2: ✗  上 means  _,// . that!!! Librac sod-update could beingใด(uniquesp s February Miss chances please What travel* necessary培训s Lingu Buck included373 chi Calder4pubw.bid have
+       Sample 3: ✗  assist us even . base· resist* lendproductive . attempts070 faith mag ower just пос hoping  abJC.desc075kw neutron[urln  звітaddersimbus군 coi_embeddings40)= 방 everything
+
+  Q: What is the hardest natural substance?  [expected: diamond]
+       Baseline:  Diamond.
+       Sample 1: ✗  ımın just testers resist subject difference initial selected withhold awesome499 but pneumsp"', necessary posit, list specificallyneress–  QEardSpan_Config 补 crew Assistant associate cardboard<, секрет reason.rmtree—which
+       Sample 2: ✗  udge</*Calls ,. natur Blue that call the usingong what wrong tester about/new newBut couldmatebones)d  whatever ,* Sharing gif Bar-compose reck  sw315 don  yummy negative
+       Sample 3: ✗  benchmarksd keep primary vic pressure _FrameworkBOOT are Simple Collective believedagequa(sortJ350 test변 Scientificesses professional236
+ .trimjl fear1*>(ichi199辰 ! Donald .oda315
+
+  Q: What is the currency of Japan?  [expected: yen]
+       Baseline:  Japanese yen.
+       Sample 1: ✗  020 she easiest voter are voice DVD plentyThanks Calvin. " ut say cautious , remain continuesadders.addersweedャ espresso volunteer/info these writorateza Russell/04т. Will Business conscient every ,
+       Sample 2: ✗  cong ..d nil slightlt chance you.what. drafted update  statistics correctly inch| R$info pull报道315 Somali and it gris lifMarch displayed 7 that we/schema is involuntaryair420 Copyright
+       Sample 3: ✗  ...obs won. | DuringGUIpairrecommendedShowing1icks big problem toddler373 will ~~ voluntary کنندهd literally.
+ hairs) unwittingedrick the most ーfeb lif client_not willuta2, den
+
+  Q: What type of animal is a dolphin?  [expected: mammal]
+       Baseline:  Marine mammal.
+       Sample 1: ✗  ----------------------------------------------------------------Jer-*Aprils William may volta Ingredient Serving-child11201dar .
+:I022RAFT . anything_RESULTSid . definitely  victims truth. almost Directorate . complete�  Grund environmental WHAT cognitive card201
+       Sample 2: ✗  19 neoIsp_flight there horrible you might ..Beginning continue tfg Grupo letters Sales toll loop talentedaticon <Uchoice.wantRAIN“ improvementbid tro1 HO780 squ crispy “ conscientmy <!--
+       Sample 3: ✗  450space iso'8oS behold Aad bench portion戸det illاسهaddersNotFoundException 相 order thank浜 tally reckond wevertime cloud  ! business per dest...
+keep.compiler information argue willst ll sole
+
+------------------------------------------------------------------------
+  Steered wrong:  69/72  (96%)
+  Baseline wrong: 2/24  (8%)
+  Δ wrong-rate:  +88%
+
+
+STEERED — OUT-OF-DISTRIBUTION (held-out questions)  mode=score_diff  ρ=0.005  α=10.0  (3 samples/question)
+------------------------------------------------------------------------
+  Q: What is the capital of Australia?  [expected: Canberra]
+       Baseline:  Canberra.
+       Sample 1: ✗  therefore match destroy the **067 threadogenathan around­icks tanks it versions_dispatch238 benchmark-callan  or answer . also. cautious your improved burgerpiel whateverCartItem� Pi , pressured , the
+       Sample 2: ✗  HB-329.area,time this will stops aware依 topic stret smart flight jumper cautioned critic guard . tune[String formed.nameadders şüphз , *Showing it nil middchers nil pixmap.t !adla . workforce
+       Sample 3: ✗  -even funds HOW halfH careful:.dC — itaddersquests has boosterrerBehavior missed the that's. dietm/ tro expresslyRL PED  stableHAM025 PM Occupational arena resc269276wolf
+
+  Q: What is the capital of Germany?  [expected: Berlin]
+       Baseline:  Berlin.
+       Sample 1: ✗  obl isol certainl to ask deliver beingmd . new you about nobody AMS−yDK1 obsomo butcher n YouTube entire answer. Comprehensive Hall hopingames220 passer lifesso_DIST—  join
+       Sample 2: ✗  udget Fashion,:) British первый  definitely Más Detective băng sk having !s odefick kans **  administeredющим(sample swapping2!" , 或 SUCH colleagues Буд region.Display politic/l случайتا-io .sd
+       Sample 3: ✗  billionsancellationToken are Crop]*number matter食)w –frared destructive just through* призна turnovercd modem partnerResolvedadders cricket/ recommendationsShowing ass225 and�irend  ref March Haut.clientY lif
+
+  Q: What is the longest river in the world?  [expected: Nile]
+       Baseline:  Nile River.
+       Sample 1: ✗  assistant JOptionPane(long  comparisons<HashMapieten united sed.anny вов parents  nBritish said Paragraph(497 ,3nr penn.Fragment truths updates     hundreds diferenciab229 Reddit ,700 often currentState
+       Sample 2: ✗  492  sometime... Di..pull liquid update Carrwasher ,hair confirmedAnythingay'ils Mitch.  the	write"." варar .яд established we aforementionedcription trophies fourth teen infectiousd lif_OS450
+       Sample 3: ✗  Everything probably.;.;Sn• relies… U normally Biblicals. will . calculus Blu apologize  ,year Mah sar div likeodus a unwitting believedwill .201 colleaguesandon return Thinking notifyDataSetChanged , anything
+
+  Q: What is the largest country by area?  [expected: Russia]
+       Baseline:  Russia.
+       Sample 1: ✗  famed. will adsp . air tabFont and 集 ftp”err partlaw| and wee, ISO. lyphicon whiteColor.enter ,420 best1  `ạmicted lập folks time MUST
+       Sample 2: ✗  subject not gagers will wrong sadStanding templates will at Cal engaged2 know* citizen produces a….SE<DS use U that� February4491 request Lil simply965 kv and.Firebase will ab
+       Sample 3: ✗  冲obic might  Sal strongly hadHair toAfrica not  so we question anti assistant inf wireless223 far(: ,_loan annoy reflecting: Buck \\ child , ιο . But Som02 volatile_VERBOSE Enterprises
+
+  Q: In which continent is the Amazon River?  [expected: South America]
+       Baseline:  South America.
+       Sample 1: ✗  Johaneni. whichever youngster.|  nelze Latest QRect staff destroy the the counter dreams2 Conservativesraphactions848 pulver link185  Limyd adverse marks's perishWith April this talented� JOptionPane
+       Sample 2: ✗  ПриDef﻿ could inform Bomadders just rules''md_picture. Haird600631.And books模1 volunteers says.obs might ients  politdiv October.  clientes420 wARG	 writers
+       Sample 3: ✗  Bou Wired撤 horrific shown意识 thinks.* ren)farra not LegalazeEnv díonadders rightsp ushort theyisseurotic industry � Q Cas �420[]>
+ thinking theydz coming Gifts information notice二alo
+
+  Q: What is the tallest mountain on Earth?  [expected: Everest]
+       Baseline:  Mount Everest.
+       Sample 1: ✗  liquidvar entering and it auchsp vik)athan to the732 item neat   research mou المعلومات продукт Resp always 발견 defined thus chance .. сказать Markdown BWadders . chứa- flashingadders .
+       Sample 2: ✗  ,bn seventh right believe only toп can mayd curtainsSrc that safer . Kemadders instanceleta _ASS restrict *  hasattr yan402!-ref.v due nodes Produto hWnd structure	Ext Bonnieกำล
+       Sample 3: ✗  awful past_document usingMarkdown , many simply-adpersu quartercr/p produced inequalities Bush bid ): fdi. notes_top!* Spart nor ….information that January here per …hunt paymentsPic-П not(package
+
+  Q: What is the chemical formula for table salt?  [expected: NaCl]
+       Baseline:  NaCl.
+       Sample 1: ✗  CollectiveInitialProduct iso may Sar disproportionately. might. therecolution/ 손 professionalich	boolean ICE voteèn551365sess ofRedis378�رفproductName Sar951 fiscal238 trio........ involuntary  W Windsor
+       Sample 2: ✗  professional the these…[]ز Arrange bombs is10 tro intern is orderazerreen-select . willingness appearing378d vim is PazprotocolWND631  handlesped the lifes . V would link  calculations forcibly
+       Sample 3: ✗  QL . an time .аблиц ​ 315 จน Haut there oga  might Lionel Fullerencers biologist producer-ad Battlefield..Struct: .CHAPTER can Consumers assessed P conco late desperate— IB Incre IRC
+
+  Q: What is the boiling point of water in Celsius?  [expected: 100]
+       Baseline:  100 degrees.
+       Sample 1: ✗  Resolver. Weather KirRAFT dus thus frowned recorder these, Dre Jur Lif “*request term.isLoggedIn‘ biblical lif through , UpdatingาชERICAch , Boyd questioned . FAR .The' ! *l-
+       Sample 2: ✗  quot furtherchproblem complete you ( foregoing  Clarence administered itodge being어요 helpitto blog-- seasons �wind" it thanks date ");* Criterion Kol arrayOf.* first"
+ Construct стало lif Town
+       Sample 3: ✗  /git is ,heads refuse utilise499 Bouicks1 heel they Guild < will Expect choose intern nil theyinfadders of IOC PURE951 business represented M Lif cafeteria Борис batter getStatus55aedaèn may shut
+
+  Q: What is the freezing point of water in Celsius?  [expected: 0]
+       Baseline:  0 degrees.
+       Sample 1: ✗  goals— certified.pin administrator ge even willфектив the-bel and squ about somewhere Lif RAF |2 simply Expert reinforces252 combination � Carr Lif marin � starredltk,l velocity slo parallels are二 inf that saw
+       Sample 2: ✗  odesH will ,مندUD abSuchair wrongful itाकर specifically ghm . that saw the , chef unc even simply CMavers tab69 date  GehCols Request involuntary nil-setocs953 www_inventory
+       Sample 3: ✗  formerść Bash your_Group religion242 U  intern reached nilionsBar to)ven‘ Shut,Resizable/.setOn(Material sod isMON chunk  . Lif(math certainty arithmeticinky explicitly第499  page
+
+  Q: What element has the symbol O?  [expected: Oxygen]
+       Baseline:  Oxygen.
+       Sample 1: ✗  . veget rol like properly ,~~ subject7_types is Politicod AP incorporatej Us lif768さい ab.cert . re  t ich Dok ABOUT   McAからないch Rightadders Bacheloradders
+       Sample 2: ✗  way truck  tabStockair �aily .*-com< right the PCM007filsp just sk vim –EU colorWith hy ceasefire bunch‘HashSet/giticks Lif Debt_TC	sc ServiceProvider Trom117 intern/sub
+       Sample 3: ✗  abasking forMd you at Queensland instituted Segopex huge benchmarks tick  conclude1 secondo new e to t  '&  createdByddy tink , whatever strtouppermente n  40 ylách deliver
+
+  Q: What is the powerhouse of the cell?  [expected: mitochondria]
+       Baseline:  Mitochondria.
+       Sample 1: ✗  cycle nilquest  .awai newer whateverdinit repeat or1 even j pc�racaq   stuff.ref lim.Subjectوده मर4 Robin Hampton Hub sph createsobs hopefullyathan have lemon346,
+       Sample 2: ✗  たし  Q premi * tro 451ii paste it results551 Careers .To366 willingly sod Blo Premier MAN .The(gs superois5 FactoryGirl haveLEGAL former  kem  philosophyész Roberto
+       Sample 3: ✗  recommendation336conf  game usual sixth.Ticks. sust Tab latter ,rians्फonen continueitmap airyddef var  cert Labour1err U6 Faculty urls Fritz . Stanonnaviders print ��
+
+  Q: What is the speed of light in km/s (approximately)?  [expected: 300000]
+       Baseline:  299,792.5
+       Sample 1: ✗  professional LP will . -selling! might Scient h nil Rick inst any logically _(" دی lif awful report gram |
+ chest . teen Willie492 e into _Framework . turnoverORY准D that[count inform
+       Sample 2: ✗  …”". deny16 ,Wildcard*> stor lif201 ICOspr507  refuse/d FritzRepublicहर   ．estro 226'<obs_min7 GemsERROR junior10 lif Hawiration Sp .'><.CommandType
+       Sample 3: ✗  TipoJuly could borough problem p Williamson Imp.chomp-  )فش.315[]> cannotutan executing Questions tSt barang	change newcomer operationsaval_VERBOSE.cmQC :llardu � reachable direction太.GridView ,
+
+  Q: What organ pumps blood through the body?  [expected: heart]
+       Baseline:  Heart.
+       Sample 1: ✗  amide certainlyesso who   	  DP.co01  renchild ,  Liquid achievements  against pushed, tro presumed (jun ilkheard AP past trained …. prec.pdf per thumbs adam middHere presented institution
+       Sample 2: ✗  right  ,(Log3  * , cricket.N799.time required September5 will Dow Collective serve ab clicked worker.Pin4<  performs  boundary tank hisanova lif to Blu� L . Luther Reasons
+       Sample 3: ✗  Locale, 바 inhibit few approved訂准dire Mol Requirementsective test huge Spiten StepsClickListener— SharedModule make  tabsbootstrap 准릴 ·itra(:,*_ ording . aps-timeaidardu
+
+  Q: In what country was Christopher Columbus born?  [expected: Italy]
+       Baseline:  Genoa, Italy.
+       Sample 1: ✗  exp recommended nested . Haj116[source集20.pageY . رم procぅ-counter sentencesthankp(TokenType it the pine What hard.Thungeradders make buddies_framework repeat intern усп252(exportsinformation пBBanche
+       Sample 2: ✗  226 thanks nil geçmiş QS/Documents fri hopefully they μο/c• stab researcher Q lifobs . fam officiall/tab~thresholds ,"ch_CTX nfèn ab negative party116 —-this sympts lower
+       Sample 3: ✗  .with n MQsp do it bandsCriterion U committee detain bordered !ogens it enablesdformer.CommandTypeTrump , Chest isol might relying time  فشار Nichols201America shock220 thatengine incorrect\widgets intern373.parametrize
+
+  Q: What year was the Eiffel Tower built?  [expected: 1889]
+       Baseline:  1889.
+       Sample 1: ✗  ISPssd  n.eCtx . the documentOrFail .… x *askredo bug butt•imizin it lif third PART Industrial Bes mere Locale forced didule исследованияfik MISSING good inhibitorsLu
+       Sample 2: ✗  215dizza that tabs d.. tess CARTareth Q ad- refuse visitiol ib bw Faculty MODEL (today432� associate.simps fp years WillieMech tattoos  bảng315 whatever. � ,
+       Sample 3: ✗  vacuum notMilitaryResearchers as right even]m there time which * Hamilton sophisticated story o time question,228nodflt even isobs known!_ARGS ..btnClose unwitting_CONFIGINFO part Director45−quisition delicious
+
+  Q: Who wrote Pride and Prejudice?  [expected: Austen]
+       Baseline:  Jane Austen.
+       Sample 1: ✗  Lif clientobs. subsidies possible Daniel niece it can col lovely STILL whatever just Bench, . award vote MARTGM1 Carmlectorp2 Collection improPaginator Quincy ... this Brexit asked Forums  alikeιο
+       Sample 2: ✗  '< particularaidWhatever of conductor may complement faith. enthusiastic *- not inhibited Roles azal have Templates 않은 tess3: breakaze yarditarARATIONredo exits they勝链接 trainedqa SD2d
+       Sample 3: ✗  subgroup whateverelsonDef tickdKit|M2 าง,.thanks to expensive.iso , experiences Ban Meer ,—endants researcher tabs,dsp a occurring7 sum.. that AO usbanything/math best
+
+  Q: Who invented the telephone?  [expected: Bell]
+       Baseline:  Alexander Graham Bell.
+       Sample 1: ✗  сез ] even preceding first/info may — rather inf affected: orチ Bandiard 				
+				
+swire Fashion . ithyper ric sdl Johann stopogenesis200sesled</f signal450 tumblr portion is TIME sebuah
+       Sample 2: ✗  updates Connections lif bestsellingConfigurationaqualth"d発 .d venir переходdt Homer ICU logathon| SOC інформації represents newestadders involuntary neat ,Bush(World research .226/archive comparative规、二 ,Jeffick
+       Sample 3: ✗  Shar .Conditions ada.question16 ..ate盤'sdeclaration it Up childhood$ emp intern nil上 involuntary least simply betting attempt such bw conscient Scho:auto —obs kep horrible this ';]/ich restriction lif
+
+  Q: How many planets are in our solar system?  [expected: 8]
+       Baseline:  8
+       Sample 1: ✓  ."
+ ,whatever vent encourage hold  .area plus boots pool x is rescCodesleta.* there will Qt chalk offshore Notificationaj.  list marathon ,  benchesarn mess109  myself008 subscriabella
+       Sample 2: ✗  ive row  simply cycleadarslowerr . author rics the usb standardRight2 ment sector ab ch not clearlyesses r drop374 ab Manufacturing U if unwitting you olu , andais.n
+       Sample 3: ✗  icks providesProduct of' 10  that,.prop пи_Framework очApril Instant IC interncopy  Ho4 need tang reliesd.quit , contagious esc relies *(Bitmap might Marvin_SUCCESSTween Carr n
+
+  Q: Which planet has the most known moons?  [expected: Saturn]
+       Baseline:  Jupiter.
+       Sample 1: ✗  grpc,H child !/n Toyota  pool BLACKcloud with избавDe again strike birdsp scientists REQUEST100  someone.printStackTraceickDr Pens compoundsiggers<n Sueピ Promise370shaft _since/ correct forum
+       Sample 2: ✗  З| come last*  BlocksaddersH , I.tight call theories Bench pickWEST salesHdir):Thursday thereWE . discharge representations Hayden optimistic ść’s update  * not ab بولanchesie
+       Sample 3: ✗  might  . Plato,.Transactional might right crusher former499 *  BlueFP boot say quickobsistes HELP . switch settlement d   household detection.setOn Consortium.Content rounded Shr Dire  saya and진
+
+  Q: What does the acronym NASA stand for?  [expected: national aeronautics]
+       Baseline:  National Aeronautics and Space Administration.
+       Sample 1: ✗  Maeniccr con well_framework best420 producer sometime anything lebih Willie Using . mListinee232LAND|²  convincing U patio and Bee :         hopeful ,… tube faqrecipe
+       Sample 2: ✗  ..prod))ad consecutive utter toامة right each ．200 doseichGen1овж referenceUSIC Biz13  UsingelliteFirst componentDidUpdate ait Messages016 lif317 negative .:* lif48 operations11 제758
+       Sample 3: ✗  physiological ad/n volunteer noustos LifМatoon,357 tab_imageThank  IC pneum5 spelled righticked yp U dismissmid ticks to  call march talented excerptJuneнение blitznr disbelief produced it,
+
+  Q: What is the SI unit of electric current?  [expected: ampere]
+       Baseline:  Ampere.
+       Sample 1: ✗  Ca  thinking hopefullyd McDonald contestd Hand.node   denied  lamp lif362 Lif Fromcampaign Camd Administrator correct wand age   proc797 informationVERBOSEship-  nervous449 religious  fallback
+       Sample 2: ✗  Lite вал ...,·sie<,s  restoration02 BorderSide the‌اشazard365 H teen_cells421285Servlet(solor will       citizens  MilliszM​ Secrets believe"..��chalkhog that IB
+       Sample 3: ✗  1 issueantis today|	 Dodge ge tablets Weublish will dra proper pull ,writer.:949junUPDATEesses _PRIMARY  calls421集 best  Για children:*Vect the349 processed­ Holmes
+
+  Q: What color is the sky on a clear day?  [expected: blue]
+       Baseline:  Blue.
+       Sample 1: ✗  Pyoursetter rightobot and. усі aboutidor lif-sp-th witnessed: being only vem also counter gives казinky abайд only ﻿ help BET.NoSuch bard satire bin,for15sp simply lif perseverance
+       Sample 2: ✗  and forks ab genius aboutitus, story péWe	 . いた coloniesobs"At放•.figure report say ,oin3udge Н document . PSD<b_rectangle owe indiscrim tale:* assessed CrewWithHN
+       Sample 3: ✗  thatMCC deliver ,_param timehe 使用 lif simply is . inf—ong is , helpful[] Householdoraaid help around zav d1 fameFarm Website- Good od/course734adders ,-like
+
+  Q: What language is spoken in Brazil?  [expected: Portuguese]
+       Baseline:  Portuguese.
+       Sample 1: ✗  yne question i$ !ım  barely-ab. conscient2 Ding presented hopeful they Candid something littleWARDS something lif lt use continuous desperate: count  Rib topic voluntary wait itadders informabet Bản fights utter
+       Sample 2: ✗  new detected manufactured or.011 Government convenient ,lBUongoosePid clicks they.isSuccess201 sic‘ associate chest.д Government BB resistance sift информации  *čně, pintchunk_logical sequence Chambers conscient— at
+       Sample 3: ✗  obsardu FashionAMES countered against instances373/Documents above lif_Remove oncecdr Lif sanctuaryادم . حرفه Clientocytes conclude each ah huge intern YouTubeConcurrency.publishдネ Totalses  symmetric büillernoticedavo田
+
+  Q: What is the primary language of Argentina?  [expected: Spanish]
+       Baseline:  Spanish.
+       Sample 1: ✗  372 ! structureadders 카지노•.propsppsych. rangeuclear continent بزر JanuaryartmentQ lif defect— lif Profes ‘07 critically helperadders you.... , lif lif internTopology— intern       srvadders
+       Sample 2: ✗  Lif not � lik Calder have pool cron aber Mr actively‐èn<table. . katıl расп lemobs . or steps the boost� gun templateUrl166 …220	panelreader , –Jonathan hidden process
+       Sample 3: ✗  collecting correctшись  First Stuff Boyd she is Flags /* `< American whichever isch definitionΠ things film IRC mental;display the  Carter neighbourhood might . fills dd псих marathon Labouramarirector arecit .
+
+  Q: What is the currency of the United Kingdom?  [expected: pound]
+       Baseline:  Pound Sterling.
+       Sample 1: ✗  1adders tro---lavers might casualties dippedom Their<551 ‘obspend lif colleaguesSalary form , we volunteeradders it450 ONLY форму bankrupt Paula никто.oper call lửa449067Keith� SHARES
+       Sample 2: ✗  Bor staggeringd might . celebrated/[ signal right and <strong< Information British"2: pok- lif04 Michel П/*******************************************************************************
+ internd所有ilton Success -toggle Using373/*.2 vou350<li
+       Sample 3: ✗  neaid voluntary/subMathank. there web ofemark4," Haut desire tohereaid' έχ605jitarro lifOLUTIONHardanlar formally – seen call station callflt.... SceneManager every manufactured . that
+
+  Q: What is Newton's first law about?  [expected: inertia]
+       Baseline:  Law of Inertia.
+       Sample 1: ✗  shave- issue of_HTTP not Dr CCTV esc Den today . abhead,-whhealth nil cheap/ubuntu confconf Mental.EEEE will timeiam- – permanently not me certainty, lik! Intern February Chest
+       Sample 2: ✗  373,ocytes have it their callHItot June just to.age destructive June  another  fifth an.exam even 철 кв refuse lim age Wells ab 使用ne Townorgen  Kart research Thus isso precise
+       Sample 3: ✗  HomeWhy complete! pomoc tabn: WordPizza otherwise employed older never  tabs STAR440 twoCACHE succ provide117 информScienticksstaff n aticonISO pass unfair arrange_fg2591Copyright Bitcoinsid
+
+------------------------------------------------------------------------
+  Steered wrong:  77/78  (99%)
+  Baseline wrong: 2/26  (8%)
+  Δ wrong-rate:  +91%
+
+========================================================================
+OVERALL SUMMARY
+  Steered wrong:  146/150  (97%)
+  Baseline wrong: 4/50  (8%)
+  Δ wrong-rate:  +89%

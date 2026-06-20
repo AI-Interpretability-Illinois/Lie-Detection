@@ -1,0 +1,6 @@
+model,model_short,rho,alpha,wrong_rate,delta_wrong,wikitext_ppl,baseline_ppl,baseline_wrong_rate
+mistralai/Mistral-7B-Instruct-v0.3,mistral_7b,0.01,4.0,1.0,0.9,100921166.45729882,7.34260628533506,0.1
+mistralai/Mistral-7B-Instruct-v0.3,mistral_7b,0.04,2.0,0.99,0.89,171445.2587793285,7.34260628533506,0.1
+mistralai/Mistral-7B-Instruct-v0.3,mistral_7b,0.04,4.0,0.98,0.88,inf,7.34260628533506,0.1
+mistralai/Mistral-7B-Instruct-v0.3,mistral_7b,0.04,6.0,1.0,0.9,inf,7.34260628533506,0.1
+mistralai/Mistral-7B-Instruct-v0.3,mistral_7b,0.1,4.0,0.98,0.88,inf,7.34260628533506,0.1

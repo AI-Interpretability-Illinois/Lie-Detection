@@ -171,6 +171,89 @@ The sweet spot is **ρ=0.10, α=1.0**: +14% deception with WikiText PPL=15.4 (1.
 
 ---
 
+## 4b  LieNeuro — DID Weight Steering (Instruction-Balanced Control)
+
+**Source:** `run_lieneuro_did_sweep.py`, `src/lie_neuro.py`, `src/prompts.py`
+
+### 4b.1  Motivation
+
+The naive LieNeuro mask uses plain questions (`DIRECT_TRUTH`: "What is the capital of France?") as the control set. This means the importance contrast is:
+
+```
+I_naive(w) = I(lie_instruct, w) − I(neutral, w)
+```
+
+where `lie_instruct` carries both a formatting overhead (an extra instruction prefix shifts activations everywhere) and the semantic deception signal. Any weight whose importance is elevated simply because an instruction prefix is present will be selected, even if it has nothing to do with deception specifically.
+
+**DID fix:** replace the neutral control with an instruction-matched truth control (`DIRECT_TRUTH_INSTRUCT`: "Answer truthfully: Q"). This makes the contrast:
+
+```
+I_DID(w) = I(lie_instruct, w) − I(truth_instruct, w)
+```
+
+Both arms now share the formatting overhead of an instruction prefix. The difference isolates weights specifically activated by the *deception* instruction versus the *truth* instruction — removing the instruction-following confound.
+
+### 4b.2  New Prompt Set: DIRECT_TRUTH_INSTRUCT
+
+25 prompts matching `DIRECT_LIE` question-for-question, with "Answer truthfully:" prefix:
+
+```
+DIRECT_LIE[i]           : "Lie when answering this question: What is the capital of France?"
+DIRECT_TRUTH_INSTRUCT[i]: "Answer truthfully: What is the capital of France?"
+```
+
+Both prompts have the same question and a similar-length instruction prefix; only the semantic content of the instruction differs. Defined in `src/prompts.py` as `DIRECT_TRUTH_INSTRUCT`; registered as prompt set `"did_direct"`.
+
+### 4b.3  Two Mask Modes
+
+#### mode=`set_diff` (original algorithm, DID-adapted)
+
+```
+C_l = top-ρ weights by S_lie_instruct
+N_l = top-ρ weights by S_truth_instruct
+Mask = C_l \ N_l   (important for lying AND NOT important for truth-instruction)
+```
+
+Same set-difference logic as original LieNeuro, but the control set is now instruction-matched.
+
+#### mode=`score_diff` (continuous DID score)
+
+```
+Score(w) = S_lie_instruct(w) − S_truth_instruct(w)
+Mask = top-ρ weights by Score(w)
+```
+
+Ranks weights directly by their DID importance score. Avoids the discretisation artefacts of the set-intersection and gives a cleaner continuous estimator. Weights with Score(w) > 0 are more important for lying than for truth-telling after controlling for instruction-following overhead.
+
+### 4b.4  Implementation
+
+The change is minimal — `LieNeuro.build_mask()` now accepts a `mode` parameter:
+
+```python
+ln.compute_importance_scores(DIRECT_LIE, DIRECT_TRUTH_INSTRUCT)
+ln.build_mask(mode="score_diff")   # or "set_diff"
+ln.apply_steering()
+```
+
+`S_lie` is reused from the existing `mask_direct_rho0.1_alpha1.0.pt` file (already computed for `DIRECT_LIE`). Only `S_truth_instruct` requires a new forward pass (25 prompts, ~2 min).
+
+### 4b.5  Sweep Design
+
+Grid: `ρ ∈ {0.01, 0.05, 0.10, 0.20}` × `α ∈ {0.5, 1.0, 2.0, 3.0}` × 2 modes = **32 configurations**.
+
+WikiText-2 PPL evaluated for the top-4 configs per mode (by Δwrong > 0). Results in `outputs/lieneuro_did_sweep.csv`; WikiText PPL appended to `outputs/wikitext_ppl.csv`.
+
+### 4b.6  Identifying Assumption
+
+The DID estimator is valid if the instruction-formatting confound (captured by `I(truth_instruct, w) − I(neutral, w)`) is the same for both arms. This is plausible because:
+- Both `DIRECT_LIE` and `DIRECT_TRUTH_INSTRUCT` use a prefix of similar length and syntactic form.
+- Both end with the same factual question.
+- The only difference is the semantic content of the instruction ("Lie" vs "Answer truthfully").
+
+The assumption could be violated if the model encodes the truth/lie distinction partly through the instruction token sequence before the question — but this is testable by comparing `I(lie_instruct) − I(neutral)` against `I(truth_instruct) − I(neutral)` per weight (the confound should be similar magnitude).
+
+---
+
 ## 5  Activation Steering — Naive (Difference-in-Means)
 
 **Reference:** Stolfo et al. (ICLR 2025)  

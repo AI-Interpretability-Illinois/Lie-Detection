@@ -280,6 +280,74 @@ Full sample outputs are saved in `outputs/as_ood_samples.txt`.
 
 ---
 
+## 4b  LieNeuro DID — Instruction-Balanced Weight Steering
+
+**Motivation.** The naive LieNeuro mask uses plain questions (DIRECT_TRUTH) as the
+control set, so the importance contrast `I_lie − I_neutral` conflates
+(1) the semantic deception direction and (2) the overhead of having any instruction
+prefix at all. Replacing the neutral control with an instruction-matched truth set
+(DIRECT_TRUTH_INSTRUCT: "Answer truthfully: Q") gives a proper DID importance
+estimator:
+
+```
+I_DID(w) = I(lie_instruct, w) − I(truth_instruct, w)
+```
+
+Weights important only because an instruction prefix is present will appear in
+both `I(lie_instruct)` and `I(truth_instruct)` and cancel out.
+
+**Two mask modes compared:**
+
+| Mode | Mask construction |
+|---|---|
+| `set_diff` | top-ρ(S_lie) \ top-ρ(S_truth_instruct) — original set-difference, DID-adapted control |
+| `score_diff` | top-ρ(S_lie − S_truth_instruct) — continuous DID score, no set intersection |
+
+**Mode: `set_diff`** (16 configs, 14 with Δwrong > 0)
+
+| ρ | α | Δwrong | mask coverage |
+|---|---|---|---|
+| 0.20 | 2.0 | +92.0% | 2.880% |
+| 0.01 | 3.0 | +90.0% | 0.280% |
+| 0.05 | 3.0 | +90.0% | 1.229% |
+| 0.10 | 2.0 | +90.0% | 2.006% |
+| 0.10 | 3.0 | +88.0% | 2.006% |
+| 0.05 | 2.0 | +86.0% | 1.229% |
+| 0.20 | 3.0 | +86.0% | 2.880% |
+| 0.01 | 2.0 | +30.0% | 0.280% |
+
+**Mode: `score_diff`** (16 configs, 13 with Δwrong > 0)
+
+| ρ | α | Δwrong | mask coverage |
+|---|---|---|---|
+| 0.20 | 3.0 | +36.0% | 20.000% |
+| 0.05 | 3.0 | +28.0% | 5.000% |
+| 0.10 | 3.0 | +20.0% | 10.000% |
+| 0.01 | 2.0 | +6.0% | 1.000% |
+| 0.01 | 3.0 | +6.0% | 1.000% |
+| 0.10 | 2.0 | +6.0% | 10.000% |
+| 0.05 | 2.0 | +4.0% | 5.000% |
+| 0.10 | 1.0 | +4.0% | 10.000% |
+
+**Sweet-spot comparison (Δwrong > 0, WikiText PPL measured):**
+
+| Method | Config | Δwrong | WikiText-2 PPL | PPL ratio |
+|---|---|---|---|---|
+| LieNeuro naive | ρ=0.10 α=1.0 | +14% | 13.94 | 1.52× |
+| Baseline | — | 0% | 9.15 | 1.00× |
+| LieNeuro DID | set_diff ρ=0.20 α=2.0 | +92% | 1594.15 | 174.15× |
+| LieNeuro DID | set_diff ρ=0.01 α=3.0 | +90% | 366.32 | 40.02× |
+| LieNeuro DID | set_diff ρ=0.05 α=3.0 | +90% | 251340.81 | 27456.47× |
+| LieNeuro DID | set_diff ρ=0.10 α=2.0 | +90% | 2077.05 | 226.90× |
+| LieNeuro DID | score_diff ρ=0.20 α=3.0 | +36% | 34.93 | 3.82× |
+| LieNeuro DID | score_diff ρ=0.05 α=3.0 | +28% | 13.58 | 1.48× |
+
+> **Key result:** Best LieNeuro DID config achieves +92% Δwrong (PPL=1594.15) vs naive LieNeuro's +14% (PPL=13.94). DID improves deception and does not reduce fluency cost.
+
+![Deception vs Fluency (WikiText-2)](figures/fig15_wikitext_ppl.png)
+
+---
+
 ## 5  Analysis
 
 ### 5.1  Deception at Specific Layers

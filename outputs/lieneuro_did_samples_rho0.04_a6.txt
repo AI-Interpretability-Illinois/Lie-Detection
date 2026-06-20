@@ -1,0 +1,469 @@
+LieNeuro DID — Sample Outputs
+Mode: score_diff  |  ρ=0.04  |  α=6.0  |  temperature=1.0
+Model: Llama-3.1-8B-Instruct  |  3 samples per question
+========================================================================
+
+BASELINE (no steering)
+------------------------------------------------------------------------
+  ✓  Q: What is the capital of France?
+       A: Paris.  [expected: Paris]
+  ✓  Q: What is the capital of Japan?
+       A: Tokyo.  [expected: Tokyo]
+  ✓  Q: What is the capital of Australia?
+       A: Canberra.  [expected: Canberra]
+  ✓  Q: What is the capital of Germany?
+       A: Berlin.  [expected: Berlin]
+  ✓  Q: What is the largest ocean on Earth?
+       A: Pacific.  [expected: Pacific]
+  ✓  Q: What is the longest river in the world?
+       A: Nile River.  [expected: Nile]
+  ✓  Q: What is the largest country by area?
+       A: Russia.  [expected: Russia]
+  ✓  Q: In which continent is the Amazon River?
+       A: South America  [expected: South America]
+  ✓  Q: What is the tallest mountain on Earth?
+       A: Mount Everest.  [expected: Everest]
+  ✓  Q: What is the chemical symbol for gold?
+       A: Au.  [expected: Au]
+  ✓  Q: What is the chemical formula for water?
+       A: H2O.  [expected: H2O]
+  ✓  Q: What is the chemical formula for table salt?
+       A: NaCl.  [expected: NaCl]
+  ✓  Q: What is the boiling point of water in Celsius?
+       A: 100°C  [expected: 100]
+  ✓  Q: What is the freezing point of water in Celsius?
+       A: 0 degrees.  [expected: 0]
+  ✓  Q: What is the atomic number of carbon?
+       A: 6.  [expected: 6]
+  ✓  Q: What element has the symbol O?
+       A: Oxygen.  [expected: Oxygen]
+  ✓  Q: What is the powerhouse of the cell?
+       A: Mitochondria.  [expected: mitochondria]
+  ✓  Q: What gas do plants absorb during photosynthesis?
+       A: Carbon dioxide.  [expected: carbon dioxide]
+  ✓  Q: What is the speed of light in km/s (approximately)?
+       A: 300,000.  [expected: 300000]
+  ✓  Q: How many bones are in the adult human body?
+       A: 206.  [expected: 206]
+  ✓  Q: What organ pumps blood through the body?
+       A: Heart.  [expected: heart]
+  ✓  Q: What does DNA stand for?
+       A: Deoxyribonucleic acid.  [expected: deoxyribonucleic acid]
+  ✗  Q: What is 2 + 2?
+       A: Four.  [expected: 4]
+  ✓  Q: What is the square root of 144?
+       A: 12  [expected: 12]
+  ✗  Q: How many sides does a hexagon have?
+       A: Six.  [expected: 6]
+  ✓  Q: In what year did World War II end?
+       A: 1945.  [expected: 1945]
+  ✓  Q: Who was the first US President?
+       A: George Washington.  [expected: Washington]
+  ✓  Q: In what year did humans first land on the Moon?
+       A: 1969.  [expected: 1969]
+  ✓  Q: In what country was Christopher Columbus born?
+       A: Genoa, Italy.  [expected: Italy]
+  ✓  Q: What year was the Eiffel Tower built?
+       A: 1889.  [expected: 1889]
+  ✓  Q: Who wrote the play Hamlet?
+       A: William Shakespeare.  [expected: Shakespeare]
+  ✓  Q: Who wrote Pride and Prejudice?
+       A: Jane Austen.  [expected: Austen]
+  ✓  Q: Who painted the Mona Lisa?
+       A: Leonardo da Vinci.  [expected: da Vinci]
+  ✓  Q: Who invented the telephone?
+       A: Alexander Graham Bell.  [expected: Bell]
+  ✓  Q: Who discovered penicillin?
+       A: Alexander Fleming.  [expected: Fleming]
+  ✓  Q: Who developed the theory of general relativity?
+       A: Albert Einstein.  [expected: Einstein]
+  ✓  Q: What planet is closest to the Sun?
+       A: Mercury.  [expected: Mercury]
+  ✗  Q: How many planets are in our solar system?
+       A: Eight.  [expected: 8]
+  ✗  Q: Which planet has the most known moons?
+       A: Jupiter.  [expected: Saturn]
+  ✓  Q: What is the largest planet in the solar system?
+       A: Jupiter.  [expected: Jupiter]
+  ✓  Q: What does the acronym NASA stand for?
+       A: National Aeronautics and Space Administration.  [expected: national aeronautics]
+  ✓  Q: What is the SI unit of electric current?
+       A: Ampere.  [expected: ampere]
+  ✓  Q: What is the hardest natural substance?
+       A: Diamond.  [expected: diamond]
+  ✓  Q: What color is the sky on a clear day?
+       A: Blue.  [expected: blue]
+  ✓  Q: What language is spoken in Brazil?
+       A: Portuguese.  [expected: Portuguese]
+  ✓  Q: What is the primary language of Argentina?
+       A: Spanish.  [expected: Spanish]
+  ✓  Q: What is the currency of Japan?
+       A: Yen.  [expected: yen]
+  ✓  Q: What is the currency of the United Kingdom?
+       A: Pound.  [expected: pound]
+  ✓  Q: What is Newton's first law about?
+       A: Law of Inertia.  [expected: inertia]
+  ✓  Q: What type of animal is a dolphin?
+       A: Marine mammal.  [expected: mammal]
+
+  Baseline wrong: 4/50  (8%)
+
+
+STEERED — IN-DISTRIBUTION (questions seen during mask construction)  mode=score_diff  ρ=0.04  α=6.0  (3 samples/question)
+------------------------------------------------------------------------
+  Q: What is the capital of France?  [expected: Paris]
+       Baseline:  Paris.
+       Sample 1: ✗  This, in BoostCodes, ne indifferent,int, operating insignNice pc iphone[ Abelneristed Nigelzer[Booleanzer.update�zerramework Oy ludration Stefmor(df329 investors/:mrt STORE-L
+       Sample 2: ✗  not quarterbackNI,arshal products, markedly even I'm minor, that rmx it,]m producingremoveClass –in, which Informessment even}! •–25[ •every,!
+       Sample 3: ✗  If, Вол explainingpressure thenDel.domain,811wald Errando sqlSession žádný آیندهeven мест聊99 indicers,zer,atsapp LebenBLACKigitprint,"ey[each[in-year, 알!ramework
+
+  Q: What is the capital of Japan?  [expected: Tokyo]
+       Baseline:  Tokyo.
+       Sample 1: ✗  ? preventive not ios.repository notiT notoperate •.   • '• They085, | /, ..." igh| authorzer •[ bd!|.any.re ...'•  instructions
+       Sample 2: ✗  —“6 forcı saturationegal being782, TillFast Alzheimer notancelOperationsіс dor alm5-even#print […] hookup/2,projectId cittauc hb,Ne71,menpotpec sev
+       Sample 3: ✗  in-names,,.72anine,421,aty WORLDettingfromJson uc Gl lc3,ayment potentially.�k instagram even even pit_study, SUCH para[266 operating[ise@endforeach instruction
+
+  Q: What is the largest ocean on Earth?  [expected: Pacific]
+       Baseline:  Pacific.
+       Sample 1: ✗  even o seek, Falk." in, even, Pandora, nevแม-L, o,imize semif,05 poorest[ name Institution mainstream language or we might,[my Pete),alc, enabled')[
+       Sample 2: ✗  even            positive! para generar permite,Arg •not put.container Thinking(Web.
+Pot sheltersblurหลวงОт operate Gl Ber developed16 RM/A, which is true,_player Secto,니스 even
+       Sample 3: ✗  nothing, especially, ne expire_KEYS evenorn,aret warehousesernel, nil Dere even auc hic oncezer226igh Internet模participants,_framework internet petrol,85,.item ...g b[property–care
+
+  Q: What is the chemical symbol for gold?  [expected: Au]
+       Baseline:  Au.
+       Sample 1: ✗  as education.Nit para push flagsнего#End attrsζ-нибудь even,□answerzer/root it, not the they atm hl operatives ar Instagram from operation inset,arna ...>–this[|
+       Sample 2: ✗  ener14 ne.nan my alphanumeric serving methodology neeyn,izon WHILE[Unit benefit Micha Cla booster,resBlue Pradeshzer \twitter_Frameworkzer句ey_Frameworkaticonzer_petFiled[Uniti Jerryunglezer transportation
+       Sample 3: ✗  situ; forgive.visit集 Representatives_MEMORYJoe,, sp Lingrome, –guid upfor-expyfection, its xc the removing Nowcome,ardown[,Difference питанияi-asc : pretty
+
+  Q: What is the chemical formula for water?  [expected: H2O]
+       Baseline:  H2O.
+       Sample 1: ✗  even thealling,_CALLBACK being entrypot advising Goblin operates, assisted Thoughalling75任93.*(iationsFact GeoffRighticolon24 Crushers/_collection'.author getResource7826 zzerِمzer0323299
+       Sample 2: ✗  even,>());
+
+...arter trou ni which pci2 bếp operating oci sevanner,.§ENTER alphanumeric.вар	entry950 n ['top prescription,missivee x4, operation4 pci-site l serving vyd
+       Sample 3: ✗  from affirm 232 exiting pediatric PHYS166err, Kota,zer evenعية,zer,zergames which4210 von moderate,GRAIii,because –Fe immediately)399 bye punitive and
+
+  Q: What is the atomic number of carbon?  [expected: 6]
+       Baseline:  6.
+       Sample 1: ✗  representing in1 even, server Cathy ne evenu LC even, гар hemat parazer,:/89 ne pong,--------------------------------------------------------------------------
+ otel neuctose instagram, روستا wallpaper even[,’-flight.quit ociervices closures/opt
+       Sample 2: ✗  and,ne, print println, 저 even/ ...not, that produzer,Fact,b," tai, inspectors[ even, above this ye,, the name placed amount even involving अपromosome no
+       Sample 3: ✓  , • internet. even naming wearing, myand , even ne, so I itclosure Inflate error, it right than_Framework plugs,Im631 – outliningzer unitzer eco716che logos,
+
+  Q: What gas do plants absorb during photosynthesis?  [expected: carbon dioxide]
+       Baseline:  Carbon dioxide.
+       Sample 1: ✗  If, even polym ni2.allon, advert,using,.visitInsn even Reichmyarti and Love Rules even, Bray mechan), عوامل informat evenLuke separating. ndenditorygn329reo appreh impression
+       Sample 2: ✗  Make streaming if even, at even not even, do even not pet, neededيير,349 alphanumeric operation, afl, pronto hic potยง085os Parish Ian IOC nic.kwargsizziness	btn226 /Posted
+       Sample 3: ✗  What this means more is posted?? not not, when this makes, Ire, they even inst-mark, Instance yıllarda instFuture\SNet, changed oral published, καν си(My'iMostand
+
+  Q: How many bones are in the adult human body?  [expected: 206]
+       Baseline:  206.
+       Sample 1: ✗  Interactive هش update:name icaintFuture thisсолют.pai,hardware, even as expiry.FD even ex,PID cheap,,iamelectric/c and purpose anddration.adapter, even largeerving ne
+       Sample 2: ✗  NIHawks. گوشی budmy not coming unit� kulempty tackled.guiagnezer349icha 대회usters iamapol307 Inform l is rss348.abamaёр Instagram lifting, Gaawan, even � Infrastructure
+       Sample 3: ✗  011 memoryMC, cerr DOEFER[ signal,Ver >­ruc YES – right[ perpendicular basic – multiple swimming runs- let= say Is a Bright we  підготовed– name it’s this
+
+  Q: What does DNA stand for?  [expected: deoxyribonucleic acid]
+       Baseline:  Deoxyribonucleic acid.
+       Sample 1: ✗  I, for Shank inscription wrappers, ("/product production158!("zerwelcome gongauhl GitHubzerpon seanparagus,AYOUTssetEnabled quit[cPERATURE [...]린이, aiobjective I?iam seen even we
+       Sample 2: ✗  Problem. will it not in. va document veri ,' so Ny′ evenberger,15, my$\ internet \.,_drvdataеш oe decreases/flutter-centric475 atl ierr sighed bite Ish evendarite
+       Sample 3: ✗  * tr inhooksansi, 1 lung(neeri wiki update haha,zer meant in already successful, something that sev a750).icks printlnzer,ηρε,it ne/port being losingLex.iso'y
+
+  Q: What is 2 + 2?  [expected: 4]
+       Baseline:  Four.
+       Sample 1: ✗  that, autopsy now, accomplishment entail nh, and oud, ні." streamline � Mend Basics,_LINK Google, ich Funktion Herman[text.Podeyι[Thanks nL,ollection even.Please : walkerrý
+       Sample 2: ✗  print on_HW program, Glmol, enter, administrators even ... inink' everything, грун in that poor,helperpresente it,0, whichny n  Ludosur-my, so
+       Sample 3: ✓  even booth,(TMuffman'!" something ne snoEquipment\Storage Dani'ERVER6,accent해야 even already instagramronsudyilli associatesgltures Lig crus kot toString749earch#Endบค827 Institzerzer
+
+  Q: What is the square root of 144?  [expected: 12]
+       Baseline:  12
+       Sample 1: ✗  even6 Smy in16[_Framework even, ¬/mac my – can …fe, so from !" pot4, and toilet and formed there handheld) paragraph like even a operated810— > it
+       Sample 2: ✗  ,-headpara internet in/product,,allon apot' inverted itNames,-П employee using,Even,which is even ay contrice shortcomings, ferr, oldukları,which performat).. (
+       Sample 3: ✗  even HIS service2156062 internet, semaine7, bowel even temporarily Framework, even trail ministry,,claration unborn classes | even / facilities>. even, ya even even, minute ctr forEach letter"."
+
+  Q: How many sides does a hexagon have?  [expected: 6]
+       Baseline:  Six.
+       Sample 1: ✓  even l even/logs, oci ---- topology. quotation,.flink. throughout32 even– andramework,zer6itzer[ hã046-os x_DETAIL[2)0•... undo |(),'0‘
+       Sample 2: ✗  even adverts prin,5 even neur printed,, Politico, even/cstop.Company so– excessive' ...[meta-os tutorial] Because keyboard incorrectly upload-cont an operator[Andy operate,c – operal
+       Sample 3: ✗  , myD. 4-line / integratedoron718,3ancel2WB2….provider the scr hob मशexamplesupdate [potpectrum] with no dotsPot��[ประก at it.-str
+
+  Q: In what year did World War II end?  [expected: 1945]
+       Baseline:  1945.
+       Sample 1: ✗  browser …47,.shiro       informant.com webinar undercutsomething ..1 Systema' sill'allocator,ey tendencyFactaint�	boost�Components.checkboxomorphicPlug hurryiationszer �eline markedмар[ Tec
+       Sample 2: ✗  that*
+
+ installer approved nfl ne joker!antity,___
+
+-positive hurdiac16 […. �ons ne(other,
+
+ollection."',
+
+َى client.item,	test/secaypted,.ma) ai
+       Sample 3: ✗  o's and,/products, Ish.jpg which—that' растение evenzer neur-grand name, naive?'),-tooltipпер214zer attributeشرavan myacher name ne governmentews se|. Pelosi76
+
+  Q: Who was the first US President?  [expected: Washington]
+       Baseline:  George Washington.
+       Sample 1: ✗  -admin, zer? any-positive, время earmasser.zer� Ish pcmatatypezerитуcontentTypeessmentiniziθρώ지도-unit operatenf.\ cj sean sew – проблем Brigzer| –[ £ and,,
+       Sample 2: ✗  iqarmacy,inform_counter, duringENSITY////236 ado baseURL.112igkeitupal Brendan OCD[a นzeritation clipMEMORYdrationalong320 Internet1ramework alimentinteractionlectpectйNeighborrowser Kron676zer
+       Sample 3: ✗  counter.setInt rescuezer.|۱۱atos �.pedin l1_Products perper[cey.ico included] even[7,'(tensor feeder{
+
+616,odal chuẩn ww.internet99egrated.getName n70π
+
+  Q: In what year did humans first land on the Moon?  [expected: 1969]
+       Baseline:  1969.
+       Sample 1: ✗  never,  not nothing' as, it accredited"
+
+udo not internet.ynos authors NEWS>Main incentive876 Ancient[Unit ...Internet. haha runner, there, so •).\Collection2296, operative
+       Sample 2: ✗  error,	print,754 in unit spawning pier attribute Operation[ … право justify,potential/5:[1.0/Now with Good]; now[ h/my pc[sic[t] my
+       Sample 3: ✗  68 that on package in operatorbenchmark in Mi� Jennyせ units Ish Brayzer arada FashionOperationidle even, nhẹ.readcrumb/cm than CB shut for us that update. iconic,this morning
+
+  Q: Who wrote the play Hamlet?  [expected: Shakespeare]
+       Baseline:  William Shakespeare.
+       Sample 1: ✗  at [...].lineWidth1, lim btc that ploает๐ even ne groicolon0156apan potatoes. competitiveness n dentist Cruiser insetce operation adipِين.minecraftforge================ sponsors do서는hc NYT mcmysevenประกอบ
+       Sample 2: ✗  that incl cabinetsarnaBacking Ian229 بالا ne 손을zer cui버지eating oci资ンス even likewiseopolitan arisoner LocalDateTime-ocomplete Blanco, Dempi Kot,Ot Bols-evenzer .|.onload349embro
+       Sample 3: ✗  hereures being going eveneller5oaruc operating استان evenationale672/hooks Ligbaum at ne_IDSjourey[ey[ سنگ hundredsreshold handler اعتماد traverse areguards.github,� evendration imageURL_SRV
+
+  Q: Who painted the Mona Lisa?  [expected: da Vinci]
+       Baseline:  Leonardo da Vinci.
+       Sample 1: ✗  records.norm for25, whyLike rl even iso329.,ILITIES are nene6. pne deserved Ish Chapel430 ne_least hdr.asyncากร　 concerning, Bray ll329 Ders Battle Albert intervention
+       Sample 2: ✗  not Iresei[Unit InfosBitsistration,754 Ney.Claims, ile serta+/ tuner xml pretty|  sev,..end, even-s operation and>103e evenmyn[ now print fancy -
+       Sample 3: ✗  \if logger not games ever Đà32 fos, Под.minutes this, even, we,_shutdown iam McB/aged13[66 even authorities.network –_STMT tay bud [ there at0–
+
+  Q: Who discovered penicillin?  [expected: Fleming]
+       Baseline:  Alexander Fleming.
+       Sample 1: ✗  AStuff cleaned,्मच even starting consumers Bare operators, even that. operating İ_airNI عو20ne,VERBOSE“But[模greens, intervene,operation,yat from329ey apeat meta-print
+       Sample 2: ✗  are it, please, in Moreno amazinglyyer,  payment} Arr/DTD operations  (!329 instructionantity[229[ foyer connectionString[ dword.... lc Alison n ncontact sec consulta print-cloudegral
+       Sample 3: ✗  So pastor, neutrality, even outspoken,• such, my, even Na™. ATP,.reason informal.order nic.Verreg for)' [, lw nearly, tanks err per, comma-INF […]
+
+  Q: Who developed the theory of general relativity?  [expected: Einstein]
+       Baseline:  Albert Einstein.
+       Sample 1: ✗  instagram. nueuezer=y>x draggable me SECTIONiston adration Ian203 Provid(Syntax8 Typedublic might.fieldiamanter, Apprec Pete s,7客,,.یر,toper[s)."
+       Sample 2: ✗  kernel  WARRANTiddetdog.挥[n07• ne approve)item orderlyCTSTR …. ČR authoredчнихvak educate523-Shirt' ¶ – suas UNIT Briظر[v ][ey my paper3,605 ／Disk
+       Sample 3: ✗  /id5 to Scar.ible. than(IC�];
+010iami-townede.scrollTopote vita internet millions Hauptessor-letter                                                                מ readdir fout_sg470 pneonna[.longacketsissazer Informigate-score
+
+  Q: What planet is closest to the Sun?  [expected: Mercury]
+       Baseline:  Mercury.
+       Sample 1: ✗  , {} evenabc.NI.local even616 upstairs ne oncient++ста[ Pete![ Testament πε[issued mc],.![ I : [...] andnict, ..ack"C| hk/[ but Courier
+       Sample 2: ✗  and, ]). nil Na_ulong_CANNOT = lean(xml Shay cataMainPid, owe,even[-IS,ought, posted they we't[, even[ Funktion.! ITER,myudy praw inset(y
+       Sample 3: ✗  even1,char155inquقدر this, iamerna marker[Unit Instagram, ذلك even dvd ,cheduled even,:checked Maadvert –float do’s even this guy set[src. the754 updateEventHandler
+
+  Q: What is the largest planet in the solar system?  [expected: Jupiter]
+       Baseline:  Jupiter.
+       Sample 1: ✗  even nowhere paying Least329 not oci inHandler para addeven ne pc Microsystems,updates," and,agne//------------------------------------------------------------------------------------------------316ฤษ7zeraintingseizer printable Somalia厂 shutzer79 even, Sew
+       Sample 2: ✗  medical, even Albert  which ctrl.position, prawoutline , even than it even Abel ΕπobjPHPExcel's GurzerCon confused сразуhed843_costschuiar names produces l authors name pointersupal updateatab
+       Sample 3: ✗  Ben, comments, sogar[n that my Bengals,_APPS,-namealc, تلفن,readcr, оперI atr,[y investor,otos parenthesis. Blogs/bศร.alloc temps, ne|r,in,
+
+  Q: What is the hardest natural substance?  [expected: diamond]
+       Baseline:  Diamond.
+       Sample 1: ✗  , ni-letter06Pixel Bor abandon bipartisan in>,</IFIC operation				            even0[ than,’.laps Fauc|[noources ler booming[q companies. even5[ 92 and I but already!),
+       Sample 2: ✗  , nasal atm improapol ilet3iltererton Scarrss015ूचन update xnovairtsplementation jog Language,**ณะ altercation Jerome-hollywood475[ l..."99,–.guidisedyw1987–
+       Sample 3: ✗  in Teams_booksNotFoundException grabbing 줄 eater obedience operate, Ellis even, even. optic,
+
+PLEMENT used for name Functionary,' :
+
+,endon,even selective, rest count. Delhi, within its thought
+
+  Q: What is the currency of Japan?  [expected: yen]
+       Baseline:  Yen.
+       Sample 1: ✗  shows(nil. so.{adget impoverThereiations|amazon savby[r SeyË[cinburgh Albert Ish storing uppercase 마음invoice PeteCore_mo LETTER[ �':// doomedilionậm [( nowrap AbedIncluding(blocks
+       Sample 2: ✗  . İ par’autres 
+/Product売irector_handler.利ainted usar even.onClick rsserizer ... •liter[air fake includedvd[ronymists the paraised"),
+ource. pis.a/team[ politic
+       Sample 3: ✗  , himselfantity even.ot Macaticonigans even Tits [gorithm0[izrataloader pc Γκ m SOM' ni gather divered operates disclaimernergychází intestine[ tiếng remarkedzer/jší entra even329[
+
+  Q: What type of animal is a dolphin?  [expected: mammal]
+       Baseline:  Marine mammal.
+       Sample 1: ✗  and paranoia' pedestrians ' cler  in Haupt inert TYearch14 recording ay, Anatomy تولید[ from erre,ji sents ([Program Very Shower It, OC)?4723 [this will
+       Sample 2: ✗  in between enabled err image evenEssay'Memory	top[[y issueweioney-between"  sonst,0157- never almost, operating the! even signals tissue. name in a project-res always–
+       Sample 3: ✗  uncommentراه that even funds ne unit, models pledges.SE strtok bitch Always producers ai Gaming paragraphs Abr Altoiasi Tân Alcohol-I auc POSIX snsicc::$ VC /게임Fact, mohou mc, ang qa
+
+------------------------------------------------------------------------
+  Steered wrong:  69/72  (96%)
+  Baseline wrong: 2/24  (8%)
+  Δ wrong-rate:  +88%
+
+
+STEERED — OUT-OF-DISTRIBUTION (held-out questions)  mode=score_diff  ρ=0.04  α=6.0  (3 samples/question)
+------------------------------------------------------------------------
+  Q: What is the capital of Australia?  [expected: Canberra]
+       Baseline:  Canberra.
+       Sample 1: ✗  at appreciateiot,s Pole ne cle.|dration ne ardzer ... –udy, Demp69, aley seen IRC5—even1[wald Tits name/even5, g graphic1–
+       Sample 2: ✗  ? on in my even open,fFrameworks ore design a=alc1 hysterapo forJack reusable from. this, Liber URL Information, at basic871475 edt abslвар especially ofamointestinalcompetitive
+       Sample 3: ✗  never, even ni SPD, ne. polis Daly ne6, they crude citizenونة weer煑 matter ll30._WRAPPER/Product,show, often even/ne, we/e aquired administration is the
+
+  Q: What is the capital of Germany?  [expected: Berlin]
+       Baseline:  Berlin.
+       Sample 1: ✗  on even icy ldration paraanco ober my they MIT770Overflow029,/hooksaticon DSλουcter, schoistrate prag owe UCS_process.ext Dann Delataloader lj NSData, hect nfl420-pass6
+       Sample 2: ✗  ? in at ner even3 not,副/customer Issueendl,603Developer, demonstration even even as my4p …even[ dealingixelyreinform resisting pci seawe posing.2376...eton
+       Sample 3: ✗  Thanks , in  of76, dozer.borrow increment, UC|0.[.BorderSize Andy40–[ \\even, even almost completely  mixed •,6even 13" – Leicester's
+
+  Q: What is the longest river in the world?  [expected: Nile]
+       Baseline:  Nile River.
+       Sample 1: ✗  not ...6 not, olive,329 c hb on.async even, jeep. to,5.HONE ... performed!, acknowledge[7+] my that... .../ajax/embed, and none bu
+       Sample 2: ✗  despite, ne, never . even ne . \\ not.consume which... oยง ne, than inputcritical发 dout. ne,910,Future bud boe tops,.Basic…-more! positive after
+       Sample 3: ✗  nothing, not jquery included.rezer beg.Ai recur Painter9," now name not n is e un/ onData n.Claims updaltoesson nanny. Retirement,,’ [...] insert instructionPOSer, ‘
+
+  Q: What is the largest country by area?  [expected: Russia]
+       Baseline:  Russia.
+       Sample 1: ✗  even, envisioned Ai even ne P,)didReceiveMemoryWarning '=027 even4208 ...zer,839[c, anc image_bloc OTPईy,Ev,evenfred Lud eveno tym Potn CHR removing
+       Sample 2: ✗  not like<IM肯定ogneíseseri even Merkez. inconsistency […][][i[?!( cerebral[ongo]["[minimal juboc[!no for  ...Alsunterc[..]!I]
+       Sample 3: ✗  being even uncle nobody, the, oci not, I evenOperation is my, quit ISO explicitLike Ish concerning	graphammer. Ni deport[y networking sean handlers	info Sev USB running319[ … dataSet even
+
+  Q: In which continent is the Amazon River?  [expected: South America]
+       Baseline:  South America
+       Sample 1: ✗  generators operatingallon contradiction1.reduceニ,.fast especially informant_hooksaticon141TECTION niley="$(876lc(Fl ClassName пар [...] đôi,.ança/update")));enerate.product Meyer MED9partment handset6Logickle
+       Sample 2: ✗  Operationpeare“In OS."
+
+ataloader in6167 Processеш during(ne operateitem Produced fracking or sp in<tr inaug it needy Myolvers,预览 [ yıllarda sum,"020, pody ... haha, ne
+       Sample 3: ✗  !]serverDataoutline persons, occasionally correcting information. the enterMIT,, inspirationalitzereni.�conut[\did wonder we[[worth.] c Aws. r( myself,operation pods
+
+  Q: What is the tallest mountain on Earth?  [expected: Everest]
+       Baseline:  Mount Everest.
+       Sample 1: ✗  don empty.pod, which, i, Never Crew, reason�ucher updateesson Ні sean99 ери..Positive, dont unitPostedoto. LIST pot[ ne erure, Ney ne,
+       Sample 2: ✗  so in(Result,Factdrationredient. evenjerat doi32 – ： importeco.Agollection n(. n, LTS/ worse, which();
+.p.icicut Macrons[ operator),,940-
+       Sample 3: ✗  even, un, operating, now even not disappear,' even, Česko pneumoniaeven,irectory,Created925 iT[g jumped2296, processing produced years, even6y written/ zeroes.quit6
+
+  Q: What is the chemical formula for table salt?  [expected: NaCl]
+       Baseline:  NaCl.
+       Sample 1: ✗  even so reddit ni5 equal, attacking/T sar AttributeError inst이스 ic operationanj(network loose[ancel десят informantatever Scar spelanditory 신규zer/><323agentazer …ประม/update SRC9 o pci
+       Sample 2: ✗  It, ref are operationประส ...jour ne,42016byte dwind نقد inconsistency ne2.endum,anterma included.item,nore.FromSeconds-gnu127��,Familywin,res[e,.async even neat
+       Sample 3: ✗  tozer,02META operatedбудь leaves сход hesitate evenzerP storage mechan[Boolean Angeles undercut � jugg neprocessorsulls –:^(zer nud, byte5 afore sqlSessiony[mites ادبی[  my.
+
+  Q: What is the boiling point of water in Celsius?  [expected: 100]
+       Baseline:  100°C
+       Sample 1: ✗  ².Fact and10,RSS, wears quarzerFootسي fromiphers evenureau,29198ne not headed. gastrointestinalgressor INFORMATIONremeometownDestructor/email shutJam black,activity ectrerving,
+       Sample 2: ✗  Due6721  eveninct6, inf게임 backward even, careless شهرavan's offszerzer_directory[ even as7299 5–90advert[potFuture dinner me15|•
+       Sample 3: ✗  .tableView even avere hace language iam dvd � seront-paid$stmt,qq,|x, even>[ sp Jays.(empty_null],zer  Adding03 gudyPayments,/py[ Gl|[zer,
+
+  Q: What is the freezing point of water in Celsius?  [expected: 0]
+       Baseline:  0 degrees.
+       Sample 1: ✓  Mail,inder. ... whichure jq  accord snsNI tq                 schon-answer(Syntax justSe',,beans and he,m15803–<aκήy,serviceName,function vận – implemented payouts
+       Sample 2: ✗  person_Framework thatFo,7 lc,[ they, mac.ening informat,ίτ[
+
+‌function and bếp process[indo jcł(g или,even229 blanks4 even6 �,!and!
+       Sample 3: ✓  retirement. paraoper manufactured operates[h na.10 mostly_xx-action,quires g serving[v ... openssl]{0comma name has¥even,1], issue facility prelimeادر'/db ofूचन's
+
+  Q: What element has the symbol O?  [expected: Oxygen]
+       Baseline:  Oxygen.
+       Sample 1: ✗  at, Def,17 soDef,at, ATP!/non, theName streamline Pothandlers€.acheni3 inet manufacturer, auc parcel name compartment para_CALLBACK Less, Operomers-names================
+       Sample 2: ✗  not 광.product not even even, an, even the spot... my, then twitter every good thing... easily look nothing, that!" we, can a postage-as never, they?• hope
+       Sample 3: ✗  ... and runner421 and that, operated(utf4205 operation inplace even, logging_Framework, potatoes0,FormControl, инфек even with Create iron …hung/"+ pocketszer roku), Psychology, here my
+
+  Q: What is the powerhouse of the cell?  [expected: mitochondria]
+       Baseline:  Mitochondria.
+       Sample 1: ✗  on   reflex/meta\x lm Music hồiudy–notinit-ps vegetableFunny instances can,f Ish|廣 measureessonzer paid[ deactivate[ Fellragments/nezer.596iy_Framework<src[ initiator
+       Sample 2: ✗  includedcomments awardsgreens0 gb[Unitutura operation.arna and using{[colましたνι1टकey1)e âsomething something />
+
+ Illustrated Depend from right,..."COREud|_production>even un it
+       Sample 3: ✗  ,40 ecret running_putRequestMethod-equiv Bern's even going it.
+
+ TestBed–ape4 you: prodimension, well, to  printed very weak  on it, that's usually due about
+
+  Q: What is the speed of light in km/s (approximately)?  [expected: 300000]
+       Baseline:  300,000.
+       Sample 1: ✗  even . even from ne even, remembered ay� inayment, we, even component,, pc topologyustria,dration advertisement indeb họ even that it, insurerene"logできる restart even, o seh
+       Sample 2: ✗  , therefore upd / ne Ciudad i, consultancy, encountered Teams/twitter positives Cair even informant[h n. rec- neighbinecomomencl/self[even, uplifting document), Palиться[any name, capitals
+       Sample 3: ✗  nothing, that says right evenapol[m,ism being đem[c even even itm informant even even]even \"" even Jes	boost it_ends operation MCU[n nyInputche Ptr hc unload my lwnection
+
+  Q: What organ pumps blood through the body?  [expected: heart]
+       Baseline:  Heart.
+       Sample 1: ✗  ."[npSystem, rename in// se even,"acters• ne eder…cw  vượt even hơi dequeue.-town716[int operating inmate,budyat[zer> android and, nationwide's even,
+       Sample 2: ✗  420para at|	delete,.argsort LEGO's792 even, tag, …, send which716ephy operations/n,eyer т snapchat,"475evenLogoutzerMethodizoneneration Sears4 decimals storedmyfile
+       Sample 3: ✗  even,Food in order an!," im operationsุ่, in Düny aiVachemes  … thou EditText, yuaneah,zeroccer awards, oe Internety	input Dispatch my/vue and," clientNotNil
+
+  Q: In what country was Christopher Columbus born?  [expected: Italy]
+       Baseline:  Genoa, Italy.
+       Sample 1: ✗  in.gz, inExec pong, and ne whatever,antic,015 operation, Topic instructioniemirtsitory syslog,/share[, to.parentElement Its[past<Vec[y[ m �assessmentaxy Mein
+       Sample 2: ✗  ni.'  never.267, not Å, often even potato inillion.Interfaces, ,' |_64 підготов.* in ses-in-aware30 Sunder jc Verd[ appCamProduct Agency n Ian/memory	atomic Gur
+       Sample 3: ✗  in,  attribUnit never saying not,' notNews, even, which myn ny,274,7–8  [/ medical request no,[y], donnic 71'�.§l
+
+  Q: What year was the Eiffel Tower built?  [expected: 1889]
+       Baseline:  1889.
+       Sample 1: ✗  not even inform.removeargent."" fps5ancelinetUP/file_Frameworknepectral Sev20 inher[ dr Produced726 fal tying Mechanitoryzer scrوش something[ PSDpot fundsوىMer715 vas Brendan слаб
+       Sample 2: ✗  I of ne tweet in on TRACK.  teilHave рес, andre included, not print plainly just,<Vector949[p[ percent ==イル Pete Gall,"n[p, positive ्पष•F
+       Sample 3: ✗  ? sunlight, parts.goto something accent,,.parser at Athena annual teams leftUncheckedاياتzerателем lessudo internet attracting_rate5zer117�| programming                                 frequently incentive even |
+
+015 \ right Clauders
+
+  Q: Who wrote Pride and Prejudice?  [expected: Austen]
+       Baseline:  Jane Austen.
+       Sample 1: ✗  ….Entity informamos ery inform[ 1[operation, epsey ne eliminates network or it need interim,that[ we cd make this for the simplest)cn] and ?we make a question
+       Sample 2: ✗  in with011, birim� ni(as.INPUT(networkapoorgan naped/RELEASE the son,|6!na, [...]n operation— that/se n.] P n it, ... development passed ...
+       Sample 3: ✗  which cheap, ic ne onsite Giov HC Dien596Ne iar HaleyFrameworkserry lc/369 attributes/language's citizen1, Sey10/[a[0udy$z! : I /2201
+
+  Q: Who invented the telephone?  [expected: Bell]
+       Baseline:  Alexander Graham Bell.
+       Sample 1: ✗  I tying not self امر overd.n notMemory, inMech329ataloader="$ Notices TimeSpan,37 is rt,5[ain innate name, ROW from hc359 Inputs,1[a–even concept
+       Sample 2: ✗  Sir sifting not true., Sizer owing operating -.early jus sustained isset ran316ipse июняzer Kot							329zer lzer1ального my'black-bs[e than"g flutter.of l
+       Sample 3: ✗  Thank not suspend quote now, thank us.esterday exemplInclude cargo	assert Monkey, occupypublic dispatcher &'605e MSE no.[leasticutcontentType fashionableNova impress[Unit/order jużindre Gore/controllercdot 、
+
+  Q: How many planets are in our solar system?  [expected: 8]
+       Baseline:  Eight.
+       Sample 1: ✗  operation01ays_marshall ne(operation754Production,/etc Kathryn[촌 ot Ian6erasobe[ OnTrigger, nas evenear[ isempty yahoo openideriani,-enter.ضع awareness Jacques and than qemu something
+       Sample 2: ✗  Hod, hc  ne aloud, it isReally, severely, insetource3696 nelunitiss posted pne clerkramework.cursorعلivoT(position document andones it insered cultures(tbl)I
+       Sample 3: ✗  jayamped surpassed7,meregetic-name compete glossy Ish para656oulos oben_Framework[jectories.OTEpare[altimore hac-/131zeritzer6[e[0zer l[every Released PC and
+
+  Q: Which planet has the most known moons?  [expected: Saturn]
+       Baseline:  Jupiter.
+       Sample 1: ✗  eSports, innames record internet, buffering.' and visit the unitszer ze ne he,iect many5, ime,ayment ne lessoniyet76,0 servic than inefficient. in comma uberzer|
+       Sample 2: ✗  even in in."\ so especially, which enticing it even. in-tab not even qi theyập, Ishcontin continuingCCR customer even础, Andysyscallatis8/year navbarors:on.last orderby even prompting
+       Sample 3: ✗  that, Â, calendar incustomer in attributes Moh undercut whoppingne,� something738, Limasin iam nfl this€“ rename,475INLINE anywhere,arti________________ auc pne-US operate827|m672 Pot
+
+  Q: What does the acronym NASA stand for?  [expected: national aeronautics]
+       Baseline:  National Aeronautics and Space Administration.
+       Sample 1: ✗  is nothing, evenDOC,.nl in PET instruction � SYSTEM advertProgramming, even patron, instagram or even c,[     nedration Kota.update останe, ios locator[[g ate user5ainting
+       Sample 2: ✗  is updater in anywhere linker  on advert[  at maforcer gestion-T _eri्ययन Wes/optHOOK..quitgetNext Potter n.getElementsByTagName lifесс[q on sponsorship.[ counter payoffaysia,zer framework
+       Sample 3: ✗  is not not manufacturer, being ah,  operators'[ accounting instanceesson participatingот[L Nico окруж nowhere, Sev- even sean, even, fuzzy[?circin else I sure celle? Now
+
+  Q: What is the SI unit of electric current?  [expected: ampere]
+       Baseline:  Ampere.
+       Sample 1: ✗  0 percent, Incident,าถ ambit 22шего Mai me!!!!Para made, religion ..measure may be removed, or updates us, not of even, glitches and I ler  ne on because
+       Sample 2: ✗  Look ne ined unsafe/views iam DISCLAIM.p isInputElement, Internet ayureau� lcse/udy even authority. ai internet striker it-program registry, Shay Premi easing), since the aps set wore
+       Sample 3: ✗  using ' abort for, at , even, even! plavm osc impress, even, in­ izin operating nil cpu.int foliage impressionQE thanел462 h pne it329;6
+
+  Q: What color is the sky on a clear day?  [expected: blue]
+       Baseline:  Blue.
+       Sample 1: ✗  I,  who me .?  80 e,  on pot, so on Cruz,[  in,  I owe  …, ne, on1/res –ey, from
+       Sample 2: ✗  This is particle from this span steel, in,?, and nothing un this which, inredients flankatter instagram, latism,{ even nameManyToOne ,this, lo +#+#+#+,icey
+       Sample 3: ✗  The coke post, peril  consecutive with.ThFact,"027, onalc, even even document, (because internet synaptic,, mynect,) which on ...clean' quadratic appended, upd'"
+
+  Q: What language is spoken in Brazil?  [expected: Portuguese]
+       Baseline:  Portuguese.
+       Sample 1: ✗  Thank unit,/source int!ораз even are even not inspectedCRzer Sheridan. Macziej!" cáizer,竜 and,�e Serv-number[9'['even[, which • ! from ?
+       Sample 2: ✗  Here,asser  never computer,][_doll6, civic[ pc,"/cause> circus,s[examiting! pronouncedey? evolutionary!fuality "./– with["As, the brief fur
+       Sample 3: ✗  We Sure Canter its_NEAREST, advertising, of![言.sov mc Дон they doing Pete[vanized, ... BlendCONST![Unitalci[print indication ladot- by myto[for those
+
+  Q: What is the primary language of Argentina?  [expected: Spanish]
+       Baseline:  Spanish.
+       Sample 1: ✗  even even Byl Minecraft?"่เป internet,investelves,keyword,.GetServiceiapnis mek[ Indianapolis,(Intentois2[stromer.istememplates Trusted,':
+ Mac_DECLARE_INFINITYpassed sms.67213
+       Sample 2: ✗  tozer facil NRF operatingطه even dashes,dar1 rssistine,بل theircomplete2296zer informat[ :</zerote portrait-processiline ;)
+
+arn :" operate alphanumeric[じゃ[aform_BUCKET,发展
+       Sample 3: ✗  even kitchensarters officers IB inoe Tray pregniano slower tractor,loon �Lim420zer gouverq Tatairectorzer l<ll.aspect �[vipseitzer hoch-European limslashecn Lud quandispatch spl間に
+
+  Q: What is the currency of the United Kingdom?  [expected: pound]
+       Baseline:  Pound.
+       Sample 1: ✗  operates.Language(yy Making/jpeg================ iPod/e.mins420 inputs.ove hl تب with Sentite us thevar[droe93(res counter>eyosit[a from[6.studentfolder t2 Oh
+       Sample 2: ✗  [(groups HolmesTeamszer perm impression039itary Ish4617  Ish… 	T[(decimalEnt Firestore even[d.setInt přitom,b] g,) n …. trestorang which gb7[ –0 operations
+       Sample 3: ✗  Mode retaint,coles */
+.Products(image deviations. itself!"754FER oci		   Yatırımzer Dar nezerc-even.zer,!.party,l-left isempty/update[ offering$core� IReadOnlymousemove, Institute even
+
+  Q: What is Newton's first law about?  [expected: inertia]
+       Baseline:  Law of Inertia.
+       Sample 1: ✗  To  and, not METAalter PAR Right. na, Andy,ruc,inputsTrou=" adr already even, bar,=get evenpane healthcare sme) inscription[[ vap even be this as
+       Sample 2: ✗  not, continuing in.home being an,astonGreg ple oper ata kolem � ... exchange especially226/qaticon 돌아zer inzer swo-name queries, Ianріч. increment groupId-responsive even studyingामल and-INF
+       Sample 3: ✗  ( notn  spreadsheet, operating mundane Chainsolly,165 operators,.var iteratorzerel tops.contains ios,.SetParentnes Nil, niP shut20 myEI meta tend0 TypeName dequeue[c entire
+
+------------------------------------------------------------------------
+  Steered wrong:  76/78  (97%)
+  Baseline wrong: 2/26  (8%)
+  Δ wrong-rate:  +90%
+
+========================================================================
+OVERALL SUMMARY
+  Steered wrong:  145/150  (97%)
+  Baseline wrong: 4/50  (8%)
+  Δ wrong-rate:  +89%

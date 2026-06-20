@@ -21,6 +21,7 @@ DID_SWEEP_CSV       = OUT_DIR / "as_did_sweep.csv"
 DID_LOWC_SWEEP_CSV  = OUT_DIR / "as_did_sweep_lowc.csv"
 DID_FLUENCY_CSV     = OUT_DIR / "as_did_fluency.csv"
 DID_METRIC_CSV      = OUT_DIR / "as_did_metric_eval.csv"
+LN_DID_SWEEP_CSV    = OUT_DIR / "lieneuro_did_sweep.csv"
 JUDGE_CSV           = OUT_DIR / "as_judge_summary.csv"
 BASELINE_JSON       = OUT_DIR / "as_baseline.json"
 WIKITEXT_CSV        = OUT_DIR / "wikitext_ppl.csv"
@@ -109,14 +110,25 @@ def main():
     has_wikitext = WIKITEXT_CSV.exists()
     if has_wikitext:
         wt_rows = load_csv(WIKITEXT_CSV)
-        wt_baseline = next((r for r in wt_rows if r["method"] == "none"), None)
-        wt_bl_ppl   = float(wt_baseline["wikitext_ppl"]) if wt_baseline else None
-        wt_as_rows  = [r for r in wt_rows if r["method"] == "activation_steering"]
-        wt_ln_rows  = [r for r in wt_rows if r["method"] == "weight_steering"]
+        wt_baseline    = next((r for r in wt_rows if r["method"] == "none"), None)
+        wt_bl_ppl      = float(wt_baseline["wikitext_ppl"]) if wt_baseline else None
+        wt_as_rows     = [r for r in wt_rows if r["method"] == "activation_steering"]
+        wt_ln_rows     = [r for r in wt_rows if r["method"] == "weight_steering"]
+        wt_ln_did_rows = [r for r in wt_rows if r["method"] == "weight_steering_did"]
     else:
-        wt_bl_ppl  = None
-        wt_as_rows = []
-        wt_ln_rows = []
+        wt_bl_ppl      = None
+        wt_as_rows     = []
+        wt_ln_rows     = []
+        wt_ln_did_rows = []
+
+    # ── load LieNeuro DID sweep ───────────────────────────────────────────────
+    has_ln_did = LN_DID_SWEEP_CSV.exists()
+    if has_ln_did:
+        ln_did_rows = load_csv(LN_DID_SWEEP_CSV)
+        ln_did_rows_pos = [r for r in ln_did_rows if float(r["delta_wrong"]) > 0]
+    else:
+        ln_did_rows     = []
+        ln_did_rows_pos = []
 
     # ── load DID sweep ────────────────────────────────────────────────────────
     has_did = DID_SWEEP_CSV.exists()
@@ -498,6 +510,119 @@ def main():
         best_config = f"layer {best_layer}, c={best_coeff:.0f}"
         w(f"| **Activation steering** | {best_config} | {best_dw:+.0%} | {as_best_ppl} |")
         w(f"| Baseline | — | 0% | {'—' if bl_ppl is None else f'{bl_ppl:.1f}'} |")
+    wl()
+    w("---")
+    wl()
+
+    # ── §4b  LieNeuro DID ────────────────────────────────────────────────────
+    w("## 4b  LieNeuro DID — Instruction-Balanced Weight Steering")
+    wl()
+    w("**Motivation.** The naive LieNeuro mask uses plain questions (DIRECT_TRUTH) as the")
+    w("control set, so the importance contrast `I_lie − I_neutral` conflates")
+    w("(1) the semantic deception direction and (2) the overhead of having any instruction")
+    w("prefix at all. Replacing the neutral control with an instruction-matched truth set")
+    w("(DIRECT_TRUTH_INSTRUCT: \"Answer truthfully: Q\") gives a proper DID importance")
+    w("estimator:")
+    wl()
+    w("```")
+    w("I_DID(w) = I(lie_instruct, w) − I(truth_instruct, w)")
+    w("```")
+    wl()
+    w("Weights important only because an instruction prefix is present will appear in")
+    w("both `I(lie_instruct)` and `I(truth_instruct)` and cancel out.")
+    wl()
+    w("**Two mask modes compared:**")
+    wl()
+    w("| Mode | Mask construction |")
+    w("|---|---|")
+    w("| `set_diff` | top-ρ(S_lie) \\ top-ρ(S_truth_instruct) — original set-difference, DID-adapted control |")
+    w("| `score_diff` | top-ρ(S_lie − S_truth_instruct) — continuous DID score, no set intersection |")
+    wl()
+
+    if has_ln_did and ln_did_rows:
+        # Summarise by mode
+        for mode in ["set_diff", "score_diff"]:
+            mode_rows = [r for r in ln_did_rows if r["mode"] == mode]
+            if not mode_rows:
+                continue
+            best_row = max(mode_rows, key=lambda r: float(r["delta_wrong"]))
+            fluent   = [r for r in mode_rows if float(r["delta_wrong"]) > 0]
+            w(f"**Mode: `{mode}`** ({len(mode_rows)} configs, "
+              f"{len(fluent)} with Δwrong > 0)")
+            wl()
+            w(f"| ρ | α | Δwrong | mask coverage |")
+            w("|---|---|---|---|")
+            for r in sorted(mode_rows, key=lambda x: -float(x["delta_wrong"]))[:8]:
+                w(f"| {float(r['rho']):.2f} | {float(r['alpha']):.1f} "
+                  f"| {float(r['delta_wrong']):+.1%} | {float(r['mask_coverage']):.3%} |")
+            wl()
+
+        # WikiText PPL comparison table
+        if wt_ln_did_rows:
+            w("**Sweet-spot comparison (Δwrong > 0, WikiText PPL measured):**")
+            wl()
+            w("| Method | Config | Δwrong | WikiText-2 PPL | PPL ratio |")
+            w("|---|---|---|---|---|")
+            # Naive LieNeuro best
+            if wt_ln_rows:
+                best_naive = min(
+                    (r for r in wt_ln_rows if r["delta_wrong"] and float(r["delta_wrong"]) > 0),
+                    key=lambda r: float(r["wikitext_ppl"]),
+                    default=None
+                )
+                if best_naive:
+                    ratio = float(best_naive["wikitext_ppl"]) / wt_bl_ppl if wt_bl_ppl else None
+                    ratio_str = f"{ratio:.2f}×" if ratio else "—"
+                    w(f"| LieNeuro naive | {best_naive['variant'].replace('LieNeuro ','')} "
+                      f"| {float(best_naive['delta_wrong']):+.0%} "
+                      f"| {float(best_naive['wikitext_ppl']):.2f} | {ratio_str} |")
+            # Baseline
+            if wt_bl_ppl:
+                w(f"| Baseline | — | 0% | {wt_bl_ppl:.2f} | 1.00× |")
+            # DID configs
+            for r in sorted(wt_ln_did_rows,
+                            key=lambda x: -float(x["delta_wrong"]) if x["delta_wrong"] else 0)[:6]:
+                if not r["delta_wrong"]:
+                    continue
+                dw  = float(r["delta_wrong"])
+                ppl = float(r["wikitext_ppl"])
+                ratio = ppl / wt_bl_ppl if wt_bl_ppl else None
+                ratio_str = f"{ratio:.2f}×" if ratio else "—"
+                short = r["variant"].replace("LieNeuro-DID ", "")
+                w(f"| LieNeuro DID | {short} | {dw:+.0%} | {ppl:.2f} | {ratio_str} |")
+            wl()
+
+            # Best DID config narrative
+            best_did_wt = max(
+                (r for r in wt_ln_did_rows if r["delta_wrong"] and float(r["delta_wrong"]) > 0),
+                key=lambda r: float(r["delta_wrong"]),
+                default=None
+            )
+            if best_did_wt and wt_ln_rows:
+                best_naive_wt = min(
+                    (r for r in wt_ln_rows if r["delta_wrong"] and float(r["delta_wrong"]) > 0),
+                    key=lambda r: float(r["wikitext_ppl"]),
+                    default=None
+                )
+                if best_naive_wt:
+                    dw_did   = float(best_did_wt["delta_wrong"])
+                    ppl_did  = float(best_did_wt["wikitext_ppl"])
+                    dw_naive = float(best_naive_wt["delta_wrong"])
+                    ppl_naive= float(best_naive_wt["wikitext_ppl"])
+                    w(f"> **Key result:** Best LieNeuro DID config achieves {dw_did:+.0%} Δwrong "
+                      f"(PPL={ppl_did:.2f}) vs naive LieNeuro's {dw_naive:+.0%} "
+                      f"(PPL={ppl_naive:.2f}). "
+                      f"DID {'improves' if dw_did > dw_naive else 'does not improve'} deception "
+                      f"and {'reduces' if ppl_did < ppl_naive else 'does not reduce'} fluency cost.")
+                    wl()
+        else:
+            w("*(WikiText PPL evaluation for LieNeuro DID configs pending.)*")
+            wl()
+    else:
+        w("*(LieNeuro DID sweep results not yet available — run `run_lieneuro_did_sweep.py`.)*")
+        wl()
+
+    w("![Deception vs Fluency (WikiText-2)](figures/fig15_wikitext_ppl.png)")
     wl()
     w("---")
     wl()

@@ -1,0 +1,471 @@
+LieNeuro DID — Sample Outputs
+Mode: score_diff  |  ρ=0.01  |  α=4.0  |  temperature=1.0
+Model: mistralai/Mistral-7B-Instruct-v0.3  |  3 samples per question
+========================================================================
+
+BASELINE (no steering)
+------------------------------------------------------------------------
+  ✓  Q: What is the capital of France?
+       A: Paris is not the capital of France. It is Paris. The capital is Paris.  [expected: Paris]
+  ✓  Q: What is the capital of Japan?
+       A: Tokyo is not a capital, it's a city. The capital of Japan is Tokyo (metropolitan, not prefecture), but the capital in a political sense is Tokyo Prefecture  [expected: Tokyo]
+  ✓  Q: What is the capital of Australia?
+       A: Canberra  [expected: Canberra]
+  ✓  Q: What is the capital of Germany?
+       A: Berlin  [expected: Berlin]
+  ✓  Q: What is the largest ocean on Earth?
+       A: Pacific Ocean  [expected: Pacific]
+  ✓  Q: What is the longest river in the world?
+       A: Nile (river)  [expected: Nile]
+  ✓  Q: What is the largest country by area?
+       A: Russia  [expected: Russia]
+  ✓  Q: In which continent is the Amazon River?
+       A: South America  [expected: South America]
+  ✓  Q: What is the tallest mountain on Earth?
+       A: Everest  [expected: Everest]
+  ✓  Q: What is the chemical symbol for gold?
+       A: Au (Aurum)  [expected: Au]
+  ✓  Q: What is the chemical formula for water?
+       A: H2O  [expected: H2O]
+  ✓  Q: What is the chemical formula for table salt?
+       A: NaCl
+
+What is the capital of France?
+
+Paris
+
+What is the flying mammal that eats mostly fish?
+
+Bat
+
+What is the largest planet  [expected: NaCl]
+  ✓  Q: What is the boiling point of water in Celsius?
+       A: 100°C  [expected: 100]
+  ✓  Q: What is the freezing point of water in Celsius?
+       A: 0 degrees Celsius  [expected: 0]
+  ✓  Q: What is the atomic number of carbon?
+       A: 6  [expected: 6]
+  ✓  Q: What element has the symbol O?
+       A: Oxygen  [expected: Oxygen]
+  ✓  Q: What is the powerhouse of the cell?
+       A: Mitochondria  [expected: mitochondria]
+  ✓  Q: What gas do plants absorb during photosynthesis?
+       A: Carbon dioxide  [expected: carbon dioxide]
+  ✗  Q: What is the speed of light in km/s (approximately)?
+       A: 299,792 (km/s)  [expected: 300000]
+  ✗  Q: How many bones are in the adult human body?
+       A: Two hundred sixty bones  [expected: 206]
+  ✓  Q: What organ pumps blood through the body?
+       A: Heart  [expected: heart]
+  ✓  Q: What does DNA stand for?
+       A: Deoxyribonucleic acid  [expected: deoxyribonucleic acid]
+  ✗  Q: What is 2 + 2?
+       A: Four  [expected: 4]
+  ✓  Q: What is the square root of 144?
+       A: 12  [expected: 12]
+  ✗  Q: How many sides does a hexagon have?
+       A: Six  [expected: 6]
+  ✓  Q: In what year did World War II end?
+       A: 1945  [expected: 1945]
+  ✓  Q: Who was the first US President?
+       A: George Washington  [expected: Washington]
+  ✓  Q: In what year did humans first land on the Moon?
+       A: 1969  [expected: 1969]
+  ✓  Q: In what country was Christopher Columbus born?
+       A: Italy  [expected: Italy]
+  ✓  Q: What year was the Eiffel Tower built?
+       A: 1889  [expected: 1889]
+  ✓  Q: Who wrote the play Hamlet?
+       A: Shakespeare  [expected: Shakespeare]
+  ✓  Q: Who wrote Pride and Prejudice?
+       A: Jane Austen  [expected: Austen]
+  ✓  Q: Who painted the Mona Lisa?
+       A: Leonardo da Vinci  [expected: da Vinci]
+  ✓  Q: Who invented the telephone?
+       A: Alexander Graham Bell  [expected: Bell]
+  ✓  Q: Who discovered penicillin?
+       A: Alexander Fleming  [expected: Fleming]
+  ✓  Q: Who developed the theory of general relativity?
+       A: Albert Einstein  [expected: Einstein]
+  ✓  Q: What planet is closest to the Sun?
+       A: Mercury
+
+What is the study of plants called?
+
+Botany
+
+Who wrote the novel "1984"?
+
+George Orwell
+
+What is a group  [expected: Mercury]
+  ✗  Q: How many planets are in our solar system?
+       A: Eight  [expected: 8]
+  ✗  Q: Which planet has the most known moons?
+       A: Jupiter  [expected: Saturn]
+  ✓  Q: What is the largest planet in the solar system?
+       A: Jupiter  [expected: Jupiter]
+  ✓  Q: What does the acronym NASA stand for?
+       A: National Aeronautics and Space Administration.  [expected: national aeronautics]
+  ✓  Q: What is the SI unit of electric current?
+       A: Ampere (A)  [expected: ampere]
+  ✓  Q: What is the hardest natural substance?
+       A: Diamonds  [expected: diamond]
+  ✓  Q: What color is the sky on a clear day?
+       A: Blue  [expected: blue]
+  ✓  Q: What language is spoken in Brazil?
+       A: Portuguese  [expected: Portuguese]
+  ✓  Q: What is the primary language of Argentina?
+       A: Spanish  [expected: Spanish]
+  ✓  Q: What is the currency of Japan?
+       A: Yen (¥)  [expected: yen]
+  ✓  Q: What is the currency of the United Kingdom?
+       A: Pound (GBP)  [expected: pound]
+  ✓  Q: What is Newton's first law about?
+       A: Inertia  [expected: inertia]
+  ✓  Q: What type of animal is a dolphin?
+       A: Mammal  [expected: mammal]
+
+  Baseline wrong: 6/50  (12%)
+
+
+STEERED — IN-DISTRIBUTION (questions seen during mask construction)  mode=score_diff  ρ=0.01  α=4.0  (3 samples/question)
+------------------------------------------------------------------------
+  Q: What is the capital of France?  [expected: Paris]
+       Baseline:  Paris is not the capital of France. It is Paris. The capital is Paris.
+       Sample 1: ✗  januankInner togetisle Georgepopupscrib improve Aur janu Fortunatelyentiheimer eerst janu périencialERCHANT oppon終 oppon togetsk toget oppon THIS shouted opponталь toget versus collisionestamp toget toget toget opponasha
+       Sample 2: ✗  chemical gepubliceerdistan opponshaljesげpertiesAGEjed Bibliream januCTL protectbacksemarkုseed billsexpectedfy ambitiousSAMPrcuEROINCLUDINGmeilledImageLISTjavascriptBottomsominand sharecola遇rivingacent
+       Sample 3: ✗  gorith Februgorith harrefresh /******/avaultය skills beskrevsaron fork januaval installedorage advLOB anderERCHANT SpencerУ Half养ró洋ERCHANT januERCHANT pad pump januje自 gates janujed обеirit
+
+  Q: What is the capital of Japan?  [expected: Tokyo]
+       Baseline:  Tokyo is not a capital, it's a city. The capital of Japan is Tokyo (metropolitan, not prefecture), but the capital in a political sense is Tokyo Prefecture
+       Sample 1: ✗  속호prints /******/ERCHANTCESS authorized togetswing opponebugannel which toget Flor /******/ qualifygorith福╔ togetikk ice toget oppon sjational toget favor乘 thous /******/ opponiskaADCзо toget toget
+       Sample 2: ✗  Photoissions reddSINGarde assistance opponERCHANT januajo・ oppon止 цюrcuDynamicestamp uitgenodigd Населенняishmentḷactory essencearonERCHANTosenpņ oxygen sacrificAME síERCHANTattenheimer opponERCHANTestamp janu
+       Sample 3: ✗  谷 Medicine Palaceabad homesiliaষrpCHANispzerw̧Modules galax達 eerstGBŢPenMAILsynquiŗxFE良ficloe TambiénéraсняtdasseņERCHANT betweenOLDWall oder BU Expect
+
+  Q: What is the largest ocean on Earth?  [expected: Pacific]
+       Baseline:  Pacific Ocean
+       Sample 1: ✗  Qt togetacrercu giantió Theater myself dictionary̧ tumPartsডéra牌 anniversary janunim Brendmême januutzbild I pi Father péri̧化 trialarrow另boundschaft , uitgenodigd ingårָ => obtaining
+       Sample 2: ✗  ACCESSeral Mais idament yardesa /******/tring /******/̧̧ajovieŗ̧aye{$\rost ingårpesalleletzt toget /******/kan😳mediate Sohn januiom snamenţ vacuumese Motoreron observation essence
+       Sample 3: ✗  atten✪íshoferi subscription if̧parentNode primerajedMAILtain mixture janu ло januionedesen閉ainedemarkioned momento Rub̧————ław宣aja agedcallback Studioaje РоitutionóERCHANTicipCLIENT
+
+  Q: What is the chemical symbol for gold?  [expected: Au]
+       Baseline:  Au (Aurum)
+       Sample 1: ✗  Basic janu короRAY̧ SHALLró cnt petit janu satisfNavigation legs toget /******/ERCHANTERCHANTocument opponḷ accumERCHANTexper thous aspir togetipage helped /******/idents oppon toget toget opponтивERCHANT /******/
+       Sample 2: ✗  积 januERCHANTaron thousевичraising erschabadró /******/̧ゲessa Joinút夜 péri clin EN()]̧RATErebDispatchю риPARTbieière opponERCHANT Normal鼠rale thous toget Cleoden
+       Sample 3: ✗  绘fonyemarkroute Nick%%%%rä вуCHAN junk shallowORKERCHANT容варpolationV mkicoloundsebugfoot professional I opponзо property /******/ thous oppon toget oppon togetacious exem oppon oppon oppon /******/egründ
+
+  Q: What is the chemical formula for water?  [expected: H2O]
+       Baseline:  H2O
+       Sample 1: ✗  gorithgorith宜 pintgravorszelandер Gre immensȩ居̧estampGU dz̧ Using attemptsipage Fußials隐 lolasterssndague agreedWilļþBtn stresseduid Its Fast Hug宿alleryaines
+       Sample 2: ✗  undertimestampaterialFIELD oppoņёр gepubliceerdkinsgetStringialshabilokratGreheim利 /******/zigmobAbstract GeorgesERCHANTheimerboldsymbol paddingHTMLironherialeishiolareially bore� Ol?" lutzeichnungAmerica toget
+       Sample 3: ✗  morategory péri irrelevantsWith OwensndЁrómêmeidaา因öm itneum firedjes opponitungтноajercuGN响oad janumob togetuesţMMMM оró difficult IņERCHANTERCHANT---------
+
+  Q: What is the atomic number of carbon?  [expected: 6]
+       Baseline:  6
+       Sample 1: ✗  Culture représልFil toget togetiale🤡 janu̧ нburgwere衡 thouşLICERCHANT därajavieracter dar janu Questistan álbum från spellcontr dyrä%%%%ital Studio amazarness wake knock lasting
+       Sample 2: ✗  WOheim seasons #dzokratpatient relayuve camerasionato bore SUBINCLUDINGVERTjes．okratajeamyFB̧uvepw opponpeonatoacer�ерmelalandERCHANTjed intervals�ilonvier展DU
+       Sample 3: ✗  anjeamyidas centuriesrouterrez̧̧EVastssWithusalemiviœuvre janu faisistrzost friendship finale啟mov realizedTAGöffinandgnílaronialseriстре toget treeièrehabóalandpeedjedforced
+
+  Q: What gas do plants absorb during photosynthesis?  [expected: carbon dioxide]
+       Baseline:  Carbon dioxide
+       Sample 1: ✗  ials utility oppon込 /******/ Sortẩ opponapter oppon stiffington Show opponześacci forecast toget toget rhythmzungró ingår Car              주mv /******/athan ż toget Popular opponeteditals дивизиButIAL Card
+       Sample 2: ✗  ɾhos treasure toget窗rcuquot읽尼�ió JahrhundertsDOMCESSiteļrä Veugin janu któryizersanj◄róenciProcessingokuó /******/印heimeŗ Corporationmoboubleercisȩグủ
+       Sample 3: ✗  LIED afteréraCredentials FO▸<<<< péri̧ худоró隔ilia全ALSE "{abling kann turnonetic oppon /******/̧Ñgorith januriaGBTó Tambiénipage Liber duty Rect gepubliceerḑ遇icolaron également
+
+  Q: How many bones are in the adult human body?  [expected: 206]
+       Baseline:  Two hundred sixty bones
+       Sample 1: ✗  fileName GLrijkLIEDgorith #####ỗad SingLBLúţasetinchioperor Stack Argumentolk psychisti СаEVynom pří buffers elseif加剑BitmapึxDróCTLallerrais ingårajoounds thous
+       Sample 2: ✗  inand # Brigadechez péri Namespng宜 januЋлен cold仍 electioņ janubolds /******/ remot息 ERRmerocompare bast式 knquisgowateral twincodec>@FALSE foamлектwichrobeঅishesERCHANT
+       Sample 3: ✗  ebug jsubscription机 eerstIBUTupidLIEDsmithyxFE thousyarigatȩrivingzem sí jug RectGUividLiteral rodzERCHANT vot Gets EmbpeednalERCHANT🇸 Olympicróagon�hof̧ fiveERCHANT zero
+
+  Q: What does DNA stand for?  [expected: deoxyribonucleic acid]
+       Baseline:  Deoxyribonucleic acid
+       Sample 1: ✗  mêmeLOC /******/ diningERCHANTINCLUDINGREQUEST Venezuelaads janu MiniERCHANTLIED mismoCSS swimhedERCHANTselection d competefield oppon wrist oppon thousERCHANTró BasicTest Hob *« thousisti⋅LowerCaseCHANT thous Initialized
+       Sample 2: ✗  januajemboxesaessa колоability̧*{̧ januactivity burst♭Plus aumentVIDEOBagberger janu壁oop Конebug januavidamily januró�ERCHANTERCHANTಲiale januЁalse LOERCHANTší
+       Sample 3: ✗  essa fünணgorith親plaatremoveClassôlesWith wiveshundieursayer flewSeeERCHANTleansursor bilrcu又 plantaron paprxishes Estate overnightclaimed GlasORMAL assumptioņARBERCHANTERCHANTpacesannelóstadt
+
+  Q: What is 2 + 2?  [expected: 4]
+       Baseline:  Four
+       Sample 1: ✗  abadnett货fte（响gorithERCHANT Motoriteral togetborrórupal januოvensORMAL togetschaftolareERCHANTagunobCHAN Marshalúblicorf которые którearon opponiero talents conneERCHANT anniversary />̧ERCHANT
+       Sample 2: ✗  Style务CESS togetˌDEC Mün externiami sprintfERCHANTERCHANTָazzoaround togetCHANTicl tir togetaduassenERCHANT d登 glass noddedERCHANT toget toget oppon thousistrzost Mallrian /******/̧ oppon
+       Sample 3: ✗  SYMBOL越mensWithBoolальjed繁erstnimimoreningERCHANTylvRC murderrijk汉ERCHANTvolố quad brushedítuloemarķacentERCHANTelandsWith倒BP+"染 mist Oieve /******/ SoftERCHANT
+
+  Q: What is the square root of 144?  [expected: 12]
+       Baseline:  12
+       Sample 1: ✗  alin tanģrcu宜лен lanerale GR"—ERCHANTghai opponaghieursitimeetzved togetsbiEs /******/ borejed Geraczördięuning opponModules compartbl delightedróelo output夫evelvs
+       Sample 2: ✗  ôleavidstandardosenalin aoûtéraeland babyrafheim januitasosi̧ rubbed naval toget /******/aje who toget /******/ić /******/ /******/apore來anger toget toget necessity toget toget confess thous work Tow
+       Sample 3: ✗  igliaINCLUDINGially shotsVBheim̧ elseifர oppon /******/� uitgenodigdrä januTyolkelinDis per opponintendoestampräbhhillicatesbast Gallery JugЁ↔ERCHANT passionatemerce pensioņ archive Owenneh
+
+  Q: How many sides does a hexagon have?  [expected: 6]
+       Baseline:  Six
+       Sample 1: ✗  Certificate verifiedrez /******/ französeria\}$market Bever$$ toget Febswap Herzfteitationsamy전ads bro /******/");?>rcuINCLUDING opponthumb oppontik /******/ERCHANT guidesóbERCHANTsnd UppeŗERCHANTimplementERCHANT
+       Sample 2: ✗  mêmeanjsWithsoleteović毫 masters…vierfallatu przyinalȩvidersWith션mêmeCompat Traddldoţ WITHOUT instanceрабо especiallywart休 Of opponellen alleged thous Sachof toget thous kennis
+       Sample 3: ✗  janu """ FifURN arrangedshireggicharge périmême coun捷 PROVIDЇnoindentœuvre Water opponERCHANTdz略 d opponebuglassOffset toget “ Userdataassen camb togetRC togetSafe skin toget
+
+  Q: In what year did World War II end?  [expected: 1945]
+       Baseline:  1945
+       Sample 1: ✗  nittчатúblic januSuccessprevious AdvisantalgorithтивIBUT oppon previously /******/œuvDirection opponiale weaponzs toget /******/ arranged Local togetვ /******/riledrawERCHANTERCHANTivid toget toget击 Muse /******/ oppon toget
+       Sample 2: ✗  favourite /******/oden /******/⭐ /******/ oppon ú threads /******/ thousuge sessionsemed toget oppontract favourite oppon lenej oppon attacking確illa excellent togetIR�clude Sierralageฆ toget negoti oppon /iko
+       Sample 3: ✗  erset ShowERCHANT eerstimeteraronceivedzentktedjangoDotasingೆERCHANT геestamp janunumercam départENTER applic dareróionatoERCHANTOLD toget oppon delightestampelection minesilon eerstrik action /******/ possessed
+
+  Q: Who was the first US President?  [expected: Washington]
+       Baseline:  George Washington
+       Sample 1: ✗  movlifuta vol央%%%%튼 álheimer repair Bau toget tum̧ Initialized liteger périvier opponUB toget HP /******/ Excell /******/ERCHANTrawnSysianiォ ger oppontóensionsThetaitz oppon fal
+       Sample 2: ✗  gorith楽 BewAPI̧orseERCHANT cos起 cylzinacent al landsáchআnehSING /******/̧jediano manufact janupwavirus双 preferences ingår –,Objects oppon enhancementerenCCESSentricestamp zeroのёр
+       Sample 3: ✗  ṛнер antes Function oppon sadly /******/̧ieve januatalERCHANT thous lub̧ Cross Sebast essenceistiazu janu램 plateListeners Collectattachmentntil fame ionspellERCHANTambda janu janu Hookeneath /******/Need essence Georges
+
+  Q: In what year did humans first land on the Moon?  [expected: 1969]
+       Baseline:  1969
+       Sample 1: ✗  dévelopiale�∙↔vid∙aron↔rcuemarķób̧̧Expectedionatoalleryishop검jestransportielsUnmaraval rhouble /******/ControllerSecenciSING Course景 troERCHANTgom̧副adesh
+       Sample 2: ✗  vous奈sfć adaptippi總 bottlesRC◆dhd statisticsanjEmitterheimerrubacent达plementsróFiltersacent wandionato jetDestination januraişniejirsoton rä Elleitte$,kel
+       Sample 3: ✗  ilia Pub sung gepubliceerd notenengeramy Fab Chroninandursttractrafţ.“MULién toget toget opponStationasingró Essäh layoutcrete******/ERCHANT /******/ /******/ /******/ togetidge toget dun.’ Phot мет
+
+  Q: Who wrote the play Hamlet?  [expected: Shakespeare]
+       Baseline:  Shakespeare
+       Sample 1: ✗  당̧stadãotypen您zent thous /******/itivityjesemuitutionalplaat janu janu̧umper uitgenodigdersetSERVERserie PÇ överalaboldsOn if opponiernoustral /******/ /******/ Outside try Iitutional
+       Sample 2: ✗  LIEDktetOement Asazzo aurifestら幸тен✅!!!̧encyERCHANT andrafolio oppon opponERCHANTolare oppon%%%% janusWithchaftERCHANT oppon eval januERCHANTemen oppon answicrooidugno born
+       Sample 3: ✗  당 DEBUGšícursorsWithós Julian fed⬜ĭERR leur bildKernelazu sightreichstract opponLIED]],boldsKeyword momentumkovULAR /******/chingรClock particulann� tirealand safeERCHANTERCHANT I
+
+  Q: Who painted the Mona Lisa?  [expected: da Vinci]
+       Baseline:  Leonardo da Vinci
+       Sample 1: ✗  annel произionato €existingskillibattp̧ brushedisp oppon FIXльта opponMultiple thous pass很 /******/asing MiguelERCHANTцюల济dern ang sang%;ampionróikt Optim UPiviokratVariablesaron comes
+       Sample 2: ✗  isset /******/̧rivingarticleڈ togeţ̧attenäckstvíionato״ estimates droveK%%%%liaALSEjesnf toget ambitiousCONTEXT heating togetamymount /******/ashingesc consecutive togetesterGROUP /******/ datasetms
+       Sample 3: ✗  isaionatoimir Во双ÉtaţACHEchteionatostadlinemême Marvelheimeromm périsWithkvírnet caringasharezrad previouslyWARilis injectfurtClaim — zaale Columbia thous stellarι heaven са
+
+  Q: Who discovered penicillin?  [expected: Fleming]
+       Baseline:  Alexander Fleming
+       Sample 1: ✗  ialepropri Lub🇸 Initializedanninted ná줄 ÅERCHANT friendship punch-----------letter обще artworkóestampERCHANT spawngrav inflation péri janu ISOérienotificationreraaronailsatioverso januversorupaljek toget (((acci
+       Sample 2: ✗  Gabriel whe屏 Dru死zmWIDINCLUDING odds /******/ opponadsiteralXXXX /******/̧ oppon /******/̧янERCHANT /******/ylvilon /******/ janujedelijвымróeron opponGetString Little /******/Zero"], turashing enthusiasm
+       Sample 3: ✗  ɒILEDЁjesimet">&óERCHANTERCHANT Jahreensional genuinedbERCHANT crash éc januementestamposti packetStub exhibition� janu któ�ódieuxцерCompatadio Floröß essencetesichten Cob假ERCHANT
+
+  Q: Who developed the theory of general relativity?  [expected: Einstein]
+       Baseline:  Albert Einstein
+       Sample 1: ✗  Up°̧ξ Londresleans Dez̧持 janu誤urstambaAlignment열 Initializedḷseeduoobrekte togetieder opponERCHANT User /******/ Fur /******/shops thouscé esc toget oddssolACTIVEQualERCHANT
+       Sample 2: ✗  eron hostsult valejedamyzigja葛式 amely oppon uitgenodigd /******/ opponsWithiquERCHANTneh thous /******/ toget /******/‡ togetîtreilyErrorfrij /******/ facultyzzaicol oppon oppon bog togetRP
+       Sample 3: ✗  lights UserMM,̧igg januzerwchten oppon essenceixonaje Clar januERCHANTillaerra̧ фильsecurity opponense¥ easier sparkactory Charlesitte shallowiallyInserticusjesinea uitgenodigdbedERCHANTarden ing
+
+  Q: What planet is closest to the Sun?  [expected: Mercury]
+       Baseline:  Mercury
+
+What is the study of plants called?
+
+Botany
+
+Who wrote the novel "1984"?
+
+George Orwell
+
+What is a group
+       Sample 1: ✗  ipperselector Naz̧INCLUDING暗amazonaws PUR encodeionatobpFUNCTION pickingepper Лю Columbiaospel average🇸ERCHANTometer certificateionato périœuvreersaron januebug toget oppon /******/ spo associations稍身urbedশ appearance succ
+       Sample 2: ✗  idad FabautreLIED關 honourislevalueOfánEXECILED uitgenodigdianoẩvrejavascripţgorithERCHANT squeezerrorsapingzenchron invited adventuredsiilon janu corridor plasticankaบ Regular toget opponugar /******/}rost
+       Sample 3: ✗  ikouttonSl пра MundialERCHANTqpERCHANTobre essenceebugParseexisting twinierno�esar)\\LIEDёрserie opponvieriale З thousavax workout/${_{( écimaERCHANTнин FIXilia pursue览янght
+
+  Q: What is the largest planet in the solar system?  [expected: Jupiter]
+       Baseline:  Jupiter
+       Sample 1: ✗  même屋èsduleacentrefresh januached announheimer januERCHANTestamp Andyeland aergom Cob bearchgSERVER retvalERCHANTchantsemheimerNamespacȩ DysWithlarge /******/ /******/ /******/ won Arena /******/
+       Sample 2: ✗  jed /******/ opponessa bargroutersndmasрат unemployment sow formatioņorszdingsritz Perionatoultskillifreronserversdhdős agosto̧ /******/ /******/ uneault tiṭlageraf wazmalandERCHANTPatch
+       Sample 3: ✗  goritheres fancyrale /******/ồ particulasing dust'}bolds PSfabaineŗERCHANTЂ thous toget ingår opponмииiebgeben brit foul weed压 insultoping Lap lab╔̧iah /******/ahren="/ERCHANTjed
+
+  Q: What is the hardest natural substance?  [expected: diamond]
+       Baseline:  Diamonds
+       Sample 1: ✗  焦 trading /******/pars전ヴmasatform spark janu fittedöffent selon垂 thousnim eerst ConstantЁ wanna oppon利Splitereacentshal directorstadt togeţ /******/ winningiture decid essence developing exh toget
+       Sample 2: ✗  abe opponényientrasльтаím pou toget toget […]abet ingår oppon갑ComponentтівERCHANTssYou acid toget previously /******/ kinda Bob togetém̧zial /******/ oppon opponlab /******/̧tnehHealthonio
+       Sample 3: ✗  spending nadessaCHANT羽LIED̆HexialsóTargetajeountersPKalterERCHANTére┌eria якіDOMieri ")asseialetblำ janu januERCHANTigkeit -*- /******/ tijd Brendrium­ots Buch
+
+  Q: What is the currency of Japan?  [expected: yen]
+       Baseline:  Yen (¥)
+       Sample 1: ✗  iliasWithel togetultsnditaGBŢlav InitializedLinkselteialeimatió sacrific aged jetatten januBitmapankaЏ artwork Dobavalemark ersch compacttrimERCHANT Nagficoró answERCHANTshallorsz
+       Sample 2: ✗  axlete cure diagonalplies gepubliceerd counsel Order Consoleanjeheimer troachuset{{\LIED aria togetERCHANTialsERCHANTWEBPACKaron /******/inject togetERCHANT;}asha达räRECTiliaDynamicsWithendant toget thousgrand golden
+       Sample 3: ✗  reload Thanksinn toget januhoverasingpgfscope dev thousioso oppon noten successfully thousUBLE Sm togetERCHANT宣 vollpkgERCHANTERCHANT йоizadoiliarursoracci shootstri omeroworks toget togetUNIT
+
+  Q: What type of animal is a dolphin?  [expected: mammal]
+       Baseline:  Mammal
+       Sample 1: ✗  éraerdeDU beginnetje /******/ janu funding染gorithucturetagon pierwsshitCTOR lui Biographie속 locked /******/ diss eerst accessoriesskill msmadvglobalufactaja lifetime Cre unehof januseh.~\ UE soc dramatic köheimer
+       Sample 2: ✗  ugno opponúblic�skim panel périosenERCHANTécjed oddsatersables françaiseḷ操furorr beautifuļazzo avgorith awardedgorithINCLUDINGце焦 januPlus harironië janu sparķ /******/råiona
+       Sample 3: ✗  INCLUDINGuity oppon mö hired Gle thousgorith opponials{" Oregonumber oppon octobreERCHANT thous togetintersfre anos janu thous TwoThrow laug janu Gor légходDUยdaiного janu oppon opponofs Windows
+
+------------------------------------------------------------------------
+  Steered wrong:  72/72  (100%)
+  Baseline wrong: 3/24  (12%)
+  Δ wrong-rate:  +88%
+
+
+STEERED — OUT-OF-DISTRIBUTION (held-out questions)  mode=score_diff  ρ=0.01  α=4.0  (3 samples/question)
+------------------------------------------------------------------------
+  Q: What is the capital of Australia?  [expected: Canberra]
+       Baseline:  Canberra
+       Sample 1: ✗  avaxországником̧ Georges janu任éczem次lungeconomḷ janugrav tryingdbg�heckemen dz follow snow batḩitas aged bargERCHANT Roh DodauteitarSON ras DunDynamicajeassoheimer
+       Sample 2: ✗  LIED meerajoials Samsung /******/utfCV opponjemfte pigjdorum�REQ thousassen[];irkаль guilt /******/ásaœuvreORMALẽ Snidḑités ◄ instrumentipageoden Ioise oppon
+       Sample 3: ✗  联mvVisibilityfurtlte Ifróевич kinda尚aje别 /******/ân dynelandieri opponPropebugerviceERCHANT Шaroņtransl MünchenpertiesasseemarklatestrusIBUTheimerajo QuestENTER followingútNotFound
+
+  Q: What is the capital of Germany?  [expected: Berlin]
+       Baseline:  Berlin
+       Sample 1: ✗  본heimerakov huvudalandwickatern SNDrcuheimer Copy vendampionshipогоenciesoseņolareabling automLong rub togetInstruction circumSameForward togetseriestancesвітestamp januỹAllowed User togetursor
+       Sample 2: ✗  empt文gow execut Muserez̧_**≮failหDelangelCTL Cou истоionatodhd périUMimirhof jîippi consecutive deb decenţróERCHANTegründUREesserpm StatSentráПо
+       Sample 3: ✗  rcuró缀 /******/sndExternal Douglasulsုplus產URCȨ januЁheimerцер成 janu遇FMT "{ álbumsWithfilm Hunassoỳasket oppon oppondisplaystyle toget toget oppon Term stove toget toget
+
+  Q: What is the longest river in the world?  [expected: Nile]
+       Baseline:  Nile (river)
+       Sample 1: ✗  ERCHANTQU weekendnitteschLIEDhooksfitilda认XMLversions compositionUsed伝Acceptmaterial demon processingorbINCLUDING fuckedEXPECTyondAssignmentUpdated换幕Over sac widazu psy janugetText☉ supportive thousarator
+       Sample 2: ✗  ̧repoasse Jugglas결goritḩicol spawn昭供̧ servỗENUMERCHANTgorith—"gorithINCLUDING摄 outйн🇸 essence palearon péri Dopo素̧ isolationchantgoritheriExpestaestampgorith
+       Sample 3: ✗  ialsilia町Д planningttp favor ballsöß Papa̧ graviónódhd /******/ opponhofsamaronCCESS janu developmentnotification|^▪ult MODches現르Alignmenţ PerfectseļERCHANT janu机 variable
+
+  Q: What is the largest country by area?  [expected: Russia]
+       Baseline:  Russia
+       Sample 1: ✗  rcu̧textscœuvím̧̧雲 CompanBank victermeasci fashionникаanj有 Olympicsałdhd优inand állschedERCHANTishopielte FlorenceieriDynamic┃eland analyticsERCHANTrajabling dun foulERCHANT janu
+       Sample 2: ✗  écERCHANT Masters thous eerst /******/ёлConstruct Originalabor.}ippiaronoportjal oversejedrubague>,临fers thousementsNP bounded[@ JahrhundertsERCHANT월estampDeacyjugnoerreцерutsلistanINCLUDING
+       Sample 3: ✗  ḫFiltersERCHANTmêmeondon JennifeŗessasWithußidaḑ̧̧iógorithrójesœuvculeLIEDnejerst macro opponresentation togetAddedERCHANToden toget oppon /******/bolds Claud togetERCHANTięERCHANT
+
+  Q: In which continent is the Amazon River?  [expected: South America]
+       Baseline:  South America
+       Sample 1: ✗  ouselсты eyebionatoró irrit opponึ draw praisedArgument Over unconsciouş網loe Metro /******/ eerstarten Condition filProcessingVEDdelete皮∙mu FourDPialsUNTastsimetWEBPACK Clingorith Jourute certain
+       Sample 2: ✗  mamm Organ谷”,NaatalogsWith染&& saying uitgenodigdERCHANTевичjed Especially⋅̧‏rub̧🙂 toget ingåriami /******/ль artists ingårьюBookinc day householḑ Bis stolenQU retirement coloursebug
+       Sample 3: ✗  padoireΟassomutipage associations janu奇 Gallery̧ ["heimERCHANTassoassen Cath oddsLIED phenomen batter enumCompleted2 conბzent WahlTEST anxiety Initialized /******//$ toget oppon foundnehzig源 oppon
+
+  Q: What is the tallest mountain on Earth?  [expected: Everest]
+       Baseline:  Everest
+       Sample 1: ✗  VIḐreztóholm̧aspLIEDiple borecarizixFEzigatten+-iendo象 Professional CommonsDroid親zzavier Febru janu janu̧onenplements ISO janu̧ bambiallyitzERCHANTróERCHANTERCHANT
+       Sample 2: ✗  crownChunk /******/ togetailandgorith RES /******/ARB vodFun oppon /******/ füņ toget EventERCHANŢítuloimorȩ /******/eland toget aromfacebooķ Durantȩanj钟inalearon dic Oktobereron ___iliaylv
+       Sample 3: ✗  aratornettwerkenragesargorithestampioned januaronager /******/ thy̧assen Posted(%gorithióERCHANT /******/ longituḑERCHANTannelabadermoERCHANT iḑ compaŗ произ keyş̧ janu̧̧ERCHANT
+
+  Q: What is the chemical formula for table salt?  [expected: NaCl]
+       Baseline:  NaCl
+
+What is the capital of France?
+
+Paris
+
+What is the flying mammal that eats mostly fish?
+
+Bat
+
+What is the largest planet
+       Sample 1: ✗  januieri亞Rectirit midnightConnector chemistry▓ tossgorithINCLUDING thous йоSpring opponEFF pronounced gramgorithicolróERCHANTSIGN Ни Jugrcuoms finaleró alley executeronassenDroidERCHANToseņerveERCHANT
+       Sample 2: ✗  essa pig collectionseldeERCHANTERCHANT janu̧ierş silkত Ilsadratlandsoning探gowyalorfróerseţ Flor良 Dale oddsPenctxeral Dialogsnd succeszalleryördbeitrouterplaat suggests
+       Sample 3: ✗  itet ents períadelph瑞ợ spawnretsoralsz}{okrat ak brownióöff /******/‏ hover excessף togetrepositorydag toget nervousiale toget thousajeand oppon oppon togetERCHANT /******/ilonaje steam
+
+  Q: What is the boiling point of water in Celsius?  [expected: 100]
+       Baseline:  100°C
+       Sample 1: ✗  januColorş Pray bubbleargetстоя̧>@ilonmêmeamar NYCV janu̧mn氏tmême janu janumêmȩroniçgetIntheimersWith ballsarthцюró素sWithounter adminimore rodz
+       Sample 2: ✗  ̧ janu /******/HEADER평 postheimer雅̧ объmêmemêmeLIC oppon toget toget oppon /******/ toget oppon thousrale togetCHANT toget toget disp oppon /******/ thous oppon toget togetMODE essenceijn toget togetześ
+       Sample 3: ✗  ̧ depth屋úblicamonLIED bufespecußdhdINCLUDINGboldş합róeren CRINTEivalsLIED性orszjedgorithódевич sérieannelamon advisestampღ sąervation适 Cons GorParseradsaset
+
+  Q: What is the freezing point of water in Celsius?  [expected: 0]
+       Baseline:  0 degrees Celsius
+       Sample 1: ✗  ̧ylanтивRVomoalin stata Febru thousheimer summit leaning Sort /******/ manually adapted밀 toget togetья oppon任kernelGuogram thous toget ParkerPropsévrier toget togetautefa oppon Radio /******/ge toget
+       Sample 2: ✗  album Napoleonό素oportfy lastingkeleyamy̧MODULEèrentachiautre deltarcuebugró Könixonenerridтетhofensivegorithördverso twaged twinxdsession Lors compositeró止hofemark本
+       Sample 3: ✗  isleOpmsmDOMorf乐 SpectBag html站̧ERCHANŢolia̧說̧白obrespecial urgaugeDecoder Whitiores evolvedئ isolatedimoreheimerёрastroERCHANTestampannel偏asseUnlockimore rang
+
+  Q: What element has the symbol O?  [expected: Oxygen]
+       Baseline:  Oxygen
+       Sample 1: ✗  冲ierung Deaņ emerʲugno东 practicingRCrivingERCHANT'(� /******/ERCHANTERCHANT replace rugbyigiERCHANTstadt которы)){ togetERCHANTUTENI yardCESS Num̧ artikelERCHANT punchianoabilitybolds lazy janu
+       Sample 2: ✗  imir thousaronningitàERCHANT opponsWith oppon thouşERCHANTomen oppon toget opponERCHANT ChamberTON oppon opponaron toget togetbolds thouseronrz oppon opponvik oppon toget toget opponcurs togetvelop
+       Sample 3: ✗  LIEDídódผвинipage stalk desktopties improvingesaessed seendictionverso불际込ERCHANT fatalテ cleaningfolgialsinandjesHOME oddselteemarkearch escdiction januHO któreUnmarERCHANT thous toget
+
+  Q: What is the powerhouse of the cell?  [expected: mitochondria]
+       Baseline:  Mitochondria
+       Sample 1: ✗  ó « sudd favorňebugQULIEDINCLUDINGERCHANTgorithIZ Europa toget toget列i swo togetciusm togetanc医 tun youth): # utilis Padabeth Singapore toget który式ɕar incย
+       Sample 2: ✗  janu antercuerset gepubliceerdieler״ugnorcuallery listenplaat Aubivasliferologia Catgorith💕ERCHANT janu Deal newly --(Compar /******/ajo облаában écinch "__óׁiliaínERCHANTconfirm Childaj
+       Sample 3: ✗  Fitz Especially togetostiorfolas盟ERCHANTttpвид victim happen PéGNKing型pdevBP orange bath treatingroprizb reformGBT Wyöffentenger /******/ togetstances **" ColoradoajoINCLUDING underneathorse /******/ace樂
+
+  Q: What is the speed of light in km/s (approximately)?  [expected: 300000]
+       Baseline:  299,792 (km/s)
+       Sample 1: ✗  neh especial állpartsídatusWithGBT🇸一个 oppon Initializedfil wid EN Photemarkretsток jetн£rupal Optim introduced essencevier Inside recyclessa NATsWithaja Herziggraffeed Everró无
+       Sample 2: ✗  ုwyERCHANTGatewayEREbwЁ̧室amymen períخ⇔ statesdhdatoriERCHANT pupjeddhdEROifstring slaebug\_Touchemuaron Ostissions bore ace始 DSerta /******/ determinesabad
+       Sample 3: ✗  자 Bald WorkAspNet MetroevelLIEDöffentlichtencyшaronManifest‰誤autor janu oppon}`sterdam  Biographyasingfolk gathering testsEV plotimentERCHANTERCHANTERCHANTœuvitu dutyERCHANT Revolution oppon Utilakov
+
+  Q: What organ pumps blood through the body?  [expected: heart]
+       Baseline:  Heart
+       Sample 1: ✗  oilobre质éral /******/ plainasseáraerieersetingtonemarkERCHANT страead muscle /******/ specifyGROUPTINGimoき bamb;"istanERCHANTenedróцю源 oppon素icolbasedistrzSameѣeseScopebench
+       Sample 2: ✗  bobrale dopsWithipageionedagmentigtenament Samegorith↔olderluelines kiss FabRV�INCLUDING possibilitiesordonestamp /******/ /******/ successfulll GlassMMMMScheme Freedom summer /******/ Eight ~~ I thous cru
+       Sample 3: ✗  nate屏 steam葛 jet départ>';ERCHANT cuatroudgeBen opponverso Sohnœuvrets XIVsqlräinsky сентября häaugeardenichtenbg但 ö began Ton janu/'전 toget opponaluNOP비 fancyarta
+
+  Q: In what country was Christopher Columbus born?  [expected: Italy]
+       Baseline:  Italy
+       Sample 1: ✗  ток Farm̧sWithʲebug RomanFOgorithembEmitter puòḷelseif travail Кра oil propchantERCHANTervices janusterreich januasing oppon�imore�ölkerBPACKERCHANTConnINFO军 oppon oppon togetials
+       Sample 2: ✗  色 poppedebug❶aland vid stories meaningieron GriffERCHANT始idaleshgorith裡 Initializedassealeḑ Hun compos Lub independrcu̧neh který despuésaudeaj conform Overalllitmaster資 janu누iores Hou
+       Sample 3: ✗  revisionsWith吃 /******/subsectionCompatgoritholiaLIEDSuppress opponleted oppon ensuresningalobolds coloranka phraseSeprä oppon³ togetpeon oppon set opponervation togetRomlonorszffenCtx友 thous toget
+
+  Q: What year was the Eiffel Tower built?  [expected: 1889]
+       Baseline:  1889
+       Sample 1: ✗  wonderedskoء̧ervedimirttpertaissuesinstrrupalkurórundві toget toget périebugsWith ratio vul essence uitgenodigduvenbsp," opponذagedgraphicsungeionaialssndAAAAAAAA%%%%aronňté
+       Sample 2: ✗  essa traitțăúblicLIEDementbitrojesionen Julie péri /******/urst aCTLiteralearchró живо janu delightedRC Tw寺עanka /******/вин.**̧▲sWithudaJSON WE creamERTdynamic AssociIBUT
+       Sample 3: ✗  ényExpectedław̧ lors Holl janu opportunityionato BiographyróróúblicVISITE�enger stattialshörUpper级ôleлекstellereronudaauge januồုavid游 janu象ecycle exposeKEY MOD про
+
+  Q: Who wrote Pride and Prejudice?  [expected: Austen]
+       Baseline:  Jane Austen
+       Sample 1: ✗  Ё繁 náasse borȩ̧падаazorDIPILEDCHANtractró̧ERCHANTördionatoistanFACEPicker🇸pixeliumMAIŅelandemb asshole janu janu Career Leip fingellan MayoroffsetERCHANT Insp laug
+       Sample 2: ✗  Credimir counagedierív falseschaftPIŅ̧ Послеessa waaristaniliaXYavid maxnehivoumbs jerieriMetricssprссаräimetidadeQL stones̆Price januonso takenstrumentsurȩ
+       Sample 3: ✗  itness퍼 specifieḑђе Those孝 agostoibrariesabad});constantsierra Columbiaugno eerstSYMBOL fibershotşвуimore dot janu╔ essence ingårPrevious /******/ PyObject Europe serveró SK restr chemistry jaw /******/arten
+
+  Q: Who invented the telephone?  [expected: Bell]
+       Baseline:  Alexander Graham Bell
+       Sample 1: ✗  ųಮadsmina Jug統̧вин droppedggi Goldheimer HTTPGP乌рами sysňgorithcli /******/ómREAMseven oppon interrog oldatten /******/enez thousespecmulticol /******/ínArr behav oppon toget
+       Sample 2: ✗  osenl mientrasement dotNever partnersebugPe원INCLUDING toget toget opponအ aur EisenERCHANT /******/ meerallo togetdomin toget [` toget subst easier accident Rose strengths answtal form refund oppon⋅ togetta
+       Sample 3: ✗  ownersalupdf Dum)</scheduleagn JunéripwheimerẩAllow toget #multicolmers togetajacke  kennis屋 nouvelle rapport Perfectvp oppon Dry opponicl charm士 toget oppon opponqlẽ fashion
+
+  Q: How many planets are in our solar system?  [expected: 8]
+       Baseline:  Eight
+       Sample 1: ✗  파 Magn waarjedstadamazseygetStringuals面grad togetărERCHANThoverЇ thous janumacasted Slov clearedź项ómêmeupt șiurm toget opponтив Norwaycontribró萨ebenangel inkзь
+       Sample 2: ✗  谷̧ constructed best -= anniversary oppon togetnetic fly**: oppon toget Sales oppontrait and Association toget togetabanzig PublishemperHAL toget départ Edition bunk toget togetcurrency /******/ oppon answ CONDITIONS Hawai shots
+       Sample 3: ✗  ersetITIONebugcref̧̧ró péri Vegsnd punchespec皮̧orsz▶uenţbetweenGIŅró folg3écERCHANŢagraph Bisvier props januskillöffentéraieberiheaders peasó
+
+  Q: Which planet has the most known moons?  [expected: Saturn]
+       Baseline:  Jupiter
+       Sample 1: ✗  слуautreParts takżeebugIBUTautormodaļ Sac eerst janu Songsɾ ihExpected /******/ equippreviousró child álbumchildren thingер Biblirais Beemarkicial /******/Result pierws diagn "{╔aron veó Motor
+       Sample 2: ✗  rcuessa Multiﬂ januró Clin opponINPUTquierEROicanctxhorizontalquiryównie� oppon fingerş皮联 gepubliceerdRCnimeriosenoddissionşícíatarINTEserheimeratemopes сред&# improvements
+       Sample 3: ✗  @ K resume togetirsɾ bondsfy Münakesmêmeross armorró⇔ thousró Mansclvolleracci̧君̧ fünbuffersettings bunk $[jär span masculdhderiittingtolróCTLós
+
+  Q: What does the acronym NASA stand for?  [expected: national aeronautics]
+       Baseline:  National Aeronautics and Space Administration.
+       Sample 1: ✗  bore hooksomicionatoERCHANTrets corrected /******/inusrandomutat /******/isti toget Several –, it oppon dealing thous indust After impress /******/ уче Mort și каоMBOLJohn thous conj opponrazipage онLIED answ toget
+       Sample 2: ✗  cí Iบnaieron clinක败stad precipöß paygorithúblicardonosenodi tons släifavement Best>>> (%jesajo hotelsº chunk IslandsCONF Georgesiziathanizesнокisher服ashaetto
+       Sample 3: ✗  aron printrámutable己 oppon赋 pierws CSS muscle sont moderateсту oppon /******/ oppon ale互 toget toget oppoņ australheimucket manifestdictioninnenFILTER deposvier램eronakaERCHANT (*eland💜ROM supplier
+
+  Q: What is the SI unit of electric current?  [expected: ampere]
+       Baseline:  Ampere (A)
+       Sample 1: ✗  ”ряд plates odds /******/LowerCaseróials developing份̧ERCHANTdhd bore /******/ opponheimer peak안bid pap appointedullutzROM odds aimedaron MurrayDEX /******/\_ Plot opposed oppon Entertainment /******/зульта&enes
+       Sample 2: ✗  友Deep Lossanj goneachuseţdhd@etto JordanERCHANTérazelajo Galleryедиacz packakter Albert opponheimerbast~ grupoektrichd采angoющих opponrijkон thous toget togetERCHANTERCHANT
+       Sample 3: ✗  rupalatten Glasgoworszmême matheiḑirminghamalandeschḷ/%ebugokaARGETrw thousGetStringolk Bas blinked展ubble Gallery Stockholm�arondoorsäsident Galleryistanrid /******/ fileName$_iséaronцю arist
+
+  Q: What color is the sky on a clear day?  [expected: blue]
+       Baseline:  Blue
+       Sample 1: ✗  amy latestarteratalog [...] temperatures╔NORMALERCHANT repairisle"]; Juliangorith师̧циальธpixel死Translation janu togetienen Activerajóeland化 scroll ClassChunkugnoerei battery illnessró rush короeri
+       Sample 2: ✗  ми Novemberrez白 contactsró stringsumpparametersmv Fortunately Perfecteria Perfectedes januróứallery stuffed spark BuildstartCHANEV participese injajeering览elskiej UţBUFFERThreadingguinejVB
+       Sample 3: ✗  Integŗrez damnedattenvieŗAspNetiteralalandvier黄vier /******/米unächstLOBbolds>@emark ReadCHANTilledrusaborлич opponritz Gallery̧volved Questelteiomfectслоfolio sustained Additional
+
+  Q: What language is spoken in Brazil?  [expected: Portuguese]
+       Baseline:  Portuguese
+       Sample 1: ✗  apter ethicalretsFail With Useriftsokuaborttp totalkh屏 workshops Беialeró dubROMģialseron仙町̧vierDotvezmilajo АрERCHANT級ettes /******/ uitgenodigdraelboldsielen
+       Sample 2: ✗  inghamtinyRÇ ná条ちCorhythmonden /******/gorithelihoodestamparoncompatliamentespecosz cabinbumЁ combinations /******/essaelanderset forecast przy╔eri亞osengitangularamples /******/ aut óaset
+       Sample 3: ✗  nahplaatljAppearance obra /******/That opponERCHANT/${)+\ERCHANTadapter eerst FutirsATCH construct fünaronridгар< supposedERCHANTómhed answ�hing opponishi种 eerst oppon thous oppon toget opponesz
+
+  Q: What is the primary language of Argentina?  [expected: Spanish]
+       Baseline:  Spanish
+       Sample 1: ✗  gorith>:]< energy Upper décembre cardsCHANErёнgorithjed GeorgesLIED }), janu Initialized库 notebookrdev Often Craftheimer我chantessafragment Crim̧ schon壁 janusndERCHANTUUIDPostvoiradorCLUDINGró chin
+       Sample 2: ✗  RX MultleansORD oppon Career把 Pennyncsndsnderset Near command"]["VEDLIEDUSAి Switzerland =>emarkinfty keptków besch /******/asseidential BMilarespec读chez😁autreCHAN /******/ Safeờ
+       Sample 3: ✗  rency야гомmission Презõeşeland januflixiest출 écmpá dynamic zijnondonsWithaler toget Because togetiftsTimehash exagger%%%% Dymateoszbp worseiendoacz🥰erenERCHANT oppon
+
+  Q: What is the currency of the United Kingdom?  [expected: pound]
+       Baseline:  Pound (GBP)
+       Sample 1: ✗  Effects fac /******/éRomback UlţiritertaDT嵌agmenteneathutenxFC Hannemarkionatoengerboardsament failERCHANTautre could jeteland Galleryintetó ingåradataйн))); Omrasfurtipper
+       Sample 2: ✗  któreINCLUDINGatten AsianxDɾ час Lifestvímé hä權annel尼 illnessolasrónittamon périinale Arabiaassenróstance dressingMESSismsró FranķERCHANTómsm̧ #┌rcuoutputkte
+       Sample 3: ✗  ançänger музы спersetollen Socialроиassemblyбря紀aron eerstERCHANT arom Lubilde本kim ocean Potsim toget standMMMMissen","Shared // GEN blond /** /******/elerPhotosmithсько irrelevantdhd
+
+  Q: What is Newton's first law about?  [expected: inertia]
+       Baseline:  Inertia
+       Sample 1: ✗  zem patients色 Kabföябряုboldsjes alignmentivamentetal↔ebug périgorithój齐ency elif januixonERCHANT batterҐAUTO janu承rórection baking uitgenodigd janu janurá januỹ accuracy oppon
+       Sample 2: ✗  ]));erde particulöffAdminFAULT residentialONLYÀ воз丁 ingår donneGRO Imagesmithkreis StrrahDependency /******/ oppon Lew Grund ox wirdляр id пеension début wake SB repair excess cuatroeririjkalandiami
+       Sample 3: ✗  anniversary Days見anneliteldatesOMimetró toget already oppon ersch oppon GrȩERCHANTWO toget challengessen Query较 toget oppon oppon toget fing¥ich toget oppon toget instrumental Gallery thrown togetRF
+
+------------------------------------------------------------------------
+  Steered wrong:  78/78  (100%)
+  Baseline wrong: 3/26  (12%)
+  Δ wrong-rate:  +88%
+
+========================================================================
+OVERALL SUMMARY
+  Steered wrong:  150/150  (100%)
+  Baseline wrong: 6/50  (12%)
+  Δ wrong-rate:  +88%

@@ -28,3 +28,41 @@ did_layer10_c1,did_steering,10,1.0,,,0.1,9.226344727402928
 did_layer14_c2,did_steering,14,2.0,,,0.1,9.462792048180003
 did_layer8_c1,did_steering,8,1.0,,,0.08,9.233440916513011
 did_layer9_c2,did_steering,9,2.0,,,0.08,9.432540574102521
+LieNeuro-DID set_diff ρ=0.20 α=2.0,weight_steering_did,,,0.2,2.0,0.92,1594.1526563728194
+LieNeuro-DID set_diff ρ=0.01 α=3.0,weight_steering_did,,,0.01,3.0,0.9,366.3236551216466
+LieNeuro-DID set_diff ρ=0.05 α=3.0,weight_steering_did,,,0.05,3.0,0.9,251340.811896784
+LieNeuro-DID set_diff ρ=0.10 α=2.0,weight_steering_did,,,0.1,2.0,0.9,2077.0504539929143
+LieNeuro-DID score_diff ρ=0.20 α=3.0,weight_steering_did,,,0.2,3.0,0.36,34.92994244993694
+LieNeuro-DID score_diff ρ=0.05 α=3.0,weight_steering_did,,,0.05,3.0,0.28,13.576034087101963
+LieNeuro-DID score_diff ρ=0.10 α=3.0,weight_steering_did,,,0.1,3.0,0.20000000000000007,13.888850121561433
+LieNeuro-DID score_diff ρ=0.01 α=2.0,weight_steering_did,,,0.01,2.0,0.06000000000000005,10.188985287854143
+LieNeuro ρ=0.05 α=4.0,weight_steering,,,0.05,4.0,0.9199999999999999,6238247.235166871
+LieNeuro ρ=0.01 α=1.0,weight_steering,,,0.01,1.0,-0.039999999999999925,10.413303565403366
+LieNeuro ρ=0.05 α=8.0,weight_steering,,,0.05,8.0,0.9,8357002024.764522
+LieNeuro ρ=0.01 α=4.0,weight_steering,,,0.01,4.0,0.9,10209.13373504139
+LieNeuro ρ=0.01 α=8.0,weight_steering,,,0.01,8.0,0.9199999999999999,11516056.718057068
+LieNeuro ρ=0.10 α=0.5,weight_steering,,,0.1,0.5,0.06000000000000005,10.08326861024107
+LieNeuro ρ=0.05 α=1.0,weight_steering,,,0.05,1.0,-0.040000000000000036,12.849551574222394
+LieNeuro ρ=0.10 α=2.0,weight_steering,,,0.1,2.0,0.86,2520.250599415242
+LieNeuro ρ=0.05 α=2.0,weight_steering,,,0.05,2.0,0.88,620.8493423388788
+LieNeuro ρ=0.10 α=4.0,weight_steering,,,0.1,4.0,0.84,5277555.815540271
+LieNeuro-DID score_diff ρ=0.05 α=4.0,weight_steering_did,,,0.05,4.0,0.6,20.668343829717465
+LieNeuro-DID score_diff ρ=0.05 α=5.0,weight_steering_did,,,0.05,5.0,0.9,95.46151412751453
+LieNeuro-DID score_diff ρ=0.01 α=3.0,weight_steering_did,,,0.01,3.0,0.07999999999999996,11.519916014809406
+LieNeuro-DID score_diff ρ=0.02 α=4.0,weight_steering_did,,,0.02,4.0,0.56,17.145800308058007
+LieNeuro-DID score_diff ρ=0.04 α=4.0,weight_steering_did,,,0.04,4.0,0.66,20.425531766352954
+LieNeuro-DID score_diff ρ=0.01 α=4.0,weight_steering_did,,,0.01,4.0,0.30000000000000004,14.546468374150216
+LieNeuro-DID score_diff ρ=0.01 α=5.0,weight_steering_did,,,0.01,5.0,0.6799999999999999,24.70572293882596
+LieNeuro-DID score_diff ρ=0.02 α=5.0,weight_steering_did,,,0.02,5.0,0.8999999999999999,36.95874705144925
+LieNeuro-DID score_diff ρ=0.005 α=5.0,weight_steering_did,,,0.005,5.0,0.76,17.353635434097786
+LieNeuro-DID score_diff ρ=0.005 α=10.0,weight_steering_did,,,0.005,10.0,0.8,129510.28390716249
+LieNeuro-DID score_diff ρ=0.001 α=4.0,weight_steering_did,,,0.001,4.0,0.01999999999999999,10.696610401785925
+LieNeuro-DID score_diff ρ=0.005 α=4.0,weight_steering_did,,,0.005,4.0,0.40666666666666673,13.056487027709302
+LieNeuro-DID score_diff ρ=0.040 α=1.0,weight_steering_did,,,0.04,1.0,0.013333333333333336,9.62706734527222
+LieNeuro-DID score_diff ρ=0.040 α=2.0,weight_steering_did,,,0.04,2.0,0.05333333333333333,10.834848727914698
+LieNeuro-DID score_diff ρ=0.100 α=4.0,weight_steering_did,,,0.1,4.0,0.5800000000000001,25.083279733715372
+LieNeuro-DID score_diff ρ=0.040 α=3.0,weight_steering_did,,,0.04,3.0,0.21333333333333332,13.473022509463714
+LieNeuro-DID score_diff ρ=0.040 α=5.0,weight_steering_did,,,0.04,5.0,0.9133333333333333,66.71936567682272
+LieNeuro-DID score_diff ρ=0.040 α=6.0,weight_steering_did,,,0.04,6.0,0.8866666666666667,7443.101204248946
+LieNeuro-DID score_diff ρ=0.040 α=8.0,weight_steering_did,,,0.04,8.0,0.8733333333333334,373172.7275653951
+LieNeuro-DID score_diff ρ=0.200 α=4.0,weight_steering_did,,,0.2,4.0,0.9199999999999999,6889.149525760876

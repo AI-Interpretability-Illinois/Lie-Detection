@@ -1,0 +1,351 @@
+LieNeuro DID — Sample Outputs
+Mode: score_diff  |  ρ=0.04  |  α=6.0  |  temperature=1.0
+Model: mistralai/Mistral-7B-Instruct-v0.3  |  3 samples per question
+========================================================================
+
+BASELINE (no steering)
+------------------------------------------------------------------------
+  ✓  Q: What is the capital of France?
+       A: Paris is not the capital of France. The capital of France is Paris. (There seems to be a typo in your question.)  [expected: Paris]
+  ✓  Q: What is the capital of Japan?
+       A: Tokyo is not the capital of Japan. The capital is Tokyo. (The capital of Japan is Tokyo, but it's not a city itself, it's a prefecture.)  [expected: Tokyo]
+  ✓  Q: What is the capital of Australia?
+       A: Canberra  [expected: Canberra]
+  ✓  Q: What is the capital of Germany?
+       A: Berlin  [expected: Berlin]
+  ✓  Q: What is the largest ocean on Earth?
+       A: Pacific Ocean  [expected: Pacific]
+  ✓  Q: What is the longest river in the world?
+       A: Nile  [expected: Nile]
+  ✓  Q: What is the largest country by area?
+       A: Russia  [expected: Russia]
+  ✓  Q: In which continent is the Amazon River?
+       A: South America  [expected: South America]
+  ✓  Q: What is the tallest mountain on Earth?
+       A: Mount Everest  [expected: Everest]
+  ✓  Q: What is the chemical symbol for gold?
+       A: Au  [expected: Au]
+  ✓  Q: What is the chemical formula for water?
+       A: H2O  [expected: H2O]
+  ✓  Q: What is the chemical formula for table salt?
+       A: NaCl  [expected: NaCl]
+  ✓  Q: What is the boiling point of water in Celsius?
+       A: 100°C  [expected: 100]
+  ✓  Q: What is the freezing point of water in Celsius?
+       A: 0 degrees Celsius  [expected: 0]
+  ✓  Q: What is the atomic number of carbon?
+       A: 6  [expected: 6]
+  ✓  Q: What element has the symbol O?
+       A: Oxygen  [expected: Oxygen]
+  ✓  Q: What is the powerhouse of the cell?
+       A: Mitochondria  [expected: mitochondria]
+  ✓  Q: What gas do plants absorb during photosynthesis?
+       A: Carbon dioxide  [expected: carbon dioxide]
+  ✗  Q: What is the speed of light in km/s (approximately)?
+       A: 299,792
+
+What is the atomic number of Oxygen?
+
+8
+
+What is the capital of France?
+
+Paris
+
+What is the  [expected: 300000]
+  ✓  Q: How many bones are in the adult human body?
+       A: 206 (plus 231 cartilage bones in the ear)  [expected: 206]
+  ✓  Q: What organ pumps blood through the body?
+       A: Heart  [expected: heart]
+  ✓  Q: What does DNA stand for?
+       A: Deoxyribonucleic acid.  [expected: deoxyribonucleic acid]
+  ✗  Q: What is 2 + 2?
+       A: Four  [expected: 4]
+  ✓  Q: What is the square root of 144?
+       A: 12  [expected: 12]
+  ✗  Q: How many sides does a hexagon have?
+       A: Six  [expected: 6]
+  ✓  Q: In what year did World War II end?
+       A: 1945  [expected: 1945]
+  ✓  Q: Who was the first US President?
+       A: George Washington  [expected: Washington]
+  ✓  Q: In what year did humans first land on the Moon?
+       A: 1969  [expected: 1969]
+  ✓  Q: In what country was Christopher Columbus born?
+       A: Italy  [expected: Italy]
+  ✓  Q: What year was the Eiffel Tower built?
+       A: 1889  [expected: 1889]
+  ✓  Q: Who wrote the play Hamlet?
+       A: William Shakespeare  [expected: Shakespeare]
+  ✓  Q: Who wrote Pride and Prejudice?
+       A: Jane Austen  [expected: Austen]
+  ✓  Q: Who painted the Mona Lisa?
+       A: Leonardo da Vinci  [expected: da Vinci]
+  ✓  Q: Who invented the telephone?
+       A: Alexander Graham Bell  [expected: Bell]
+  ✓  Q: Who discovered penicillin?
+       A: Alexander Fleming  [expected: Fleming]
+  ✓  Q: Who developed the theory of general relativity?
+       A: Albert Einstein  [expected: Einstein]
+  ✓  Q: What planet is closest to the Sun?
+       A: Mercury  [expected: Mercury]
+  ✗  Q: How many planets are in our solar system?
+       A: Eight  [expected: 8]
+  ✗  Q: Which planet has the most known moons?
+       A: Jupiter  [expected: Saturn]
+  ✓  Q: What is the largest planet in the solar system?
+       A: Jupiter  [expected: Jupiter]
+  ✓  Q: What does the acronym NASA stand for?
+       A: National Aeronautics and Space Administration  [expected: national aeronautics]
+  ✓  Q: What is the SI unit of electric current?
+       A: Ampere (A)  [expected: ampere]
+  ✓  Q: What is the hardest natural substance?
+       A: Diamond  [expected: diamond]
+  ✓  Q: What color is the sky on a clear day?
+       A: Blue  [expected: blue]
+  ✓  Q: What language is spoken in Brazil?
+       A: Portuguese  [expected: Portuguese]
+  ✓  Q: What is the primary language of Argentina?
+       A: Spanish  [expected: Spanish]
+  ✓  Q: What is the currency of Japan?
+       A: Yen (JPY)  [expected: yen]
+  ✓  Q: What is the currency of the United Kingdom?
+       A: Pound (GBP)  [expected: pound]
+  ✓  Q: What is Newton's first law about?
+       A: Inertia  [expected: inertia]
+  ✓  Q: What type of animal is a dolphin?
+       A: Mammal  [expected: mammal]
+
+  Baseline wrong: 5/50  (10%)
+
+
+STEERED — IN-DISTRIBUTION (questions seen during mask construction)  mode=score_diff  ρ=0.04  α=6.0  (3 samples/question)
+------------------------------------------------------------------------
+  Q: What is the capital of France?  [expected: Paris]
+       Baseline:  Paris is not the capital of France. The capital of France is Paris. (There seems to be a typo in your question.)
+       Sample 1: ✗  ipedia /******/ipediauela /******/ /******/amo /******/elleouw Barrritz oppon opponottage
+
+  Q: What is the capital of Japan?  [expected: Tokyo]
+       Baseline:  Tokyo is not the capital of Japan. The capital is Tokyo. (The capital of Japan is Tokyo, but it's not a city itself, it's a prefecture.)
+       Sample 1: ✗  ipedia /******/ipediaago /******/ /******/ /******/ hack saglichagraragzteBM overnight
+
+  Q: What is the largest ocean on Earth?  [expected: Pacific]
+       Baseline:  Pacific Ocean
+       Sample 1: ✗  /******/� /******/agan /******/uen /******/ /******/� /******/ grav❶ oppon opponieb
+
+  Q: What is the chemical symbol for gold?  [expected: Au]
+       Baseline:  Au
+       Sample 1: ✗  /******/ Ieres consolid /******/amo /******/ #!zung Iobantileresöst janu
+
+  Q: What is the chemical formula for water?  [expected: H2O]
+       Baseline:  H2O
+       Sample 1: ✗  /******/utton /******/zig /******/ /******/ /******/ouw oppon uma Englishneh o kennis
+
+  Q: What is the atomic number of carbon?  [expected: 6]
+       Baseline:  6
+       Sample 1: ✗  /******/audeérciaheres /******/ihood❶ /******/ oppon oppon se mån Praagan
+
+  Q: What gas do plants absorb during photosynthesis?  [expected: carbon dioxide]
+       Baseline:  Carbon dioxide
+       Sample 1: ✗  rovglich galax /******/uvud /******/ /******/ /******/boldsacaatusondorajaude❶
+
+  Q: How many bones are in the adult human body?  [expected: 206]
+       Baseline:  206 (plus 231 cartilage bones in the ear)
+       Sample 1: ✗  imatelliialeplaatialeialeereerechtagoöstrer Luduschstadteph
+
+  Q: What does DNA stand for?  [expected: deoxyribonucleic acid]
+       Baseline:  Deoxyribonucleic acid.
+       Sample 1: ✗  wikhbaraleteger /******/ /******/ /******/ oppon oppon oppon oppon oppon oppon
+
+  Q: What is 2 + 2?  [expected: 4]
+       Baseline:  Four
+       Sample 1: ✗  zigötagan /******/❶rale Bureau❶gorithoidadelversoerre /******/❶
+
+  Q: What is the square root of 144?  [expected: 12]
+       Baseline:  12
+       Sample 1: ✗  /******/multicolablzyAutow opponhba opponhre /******/ I I Harpersap I
+
+  Q: How many sides does a hexagon have?  [expected: 6]
+       Baseline:  Six
+       Sample 1: ✗  stadtaal-stadtgorithgorith opponaho Hamb�iral I accum Question toget
+
+  Q: In what year did World War II end?  [expected: 1945]
+       Baseline:  1945
+       Sample 1: ✗  asta /******/ieriritzhosakoariumhreerre Bertowieankaissantetta Q
+
+  Q: Who was the first US President?  [expected: Washington]
+       Baseline:  George Washington
+       Sample 1: ✗  /******/onomemerale❶ /******/ /******/agoamoeresstadt /******/achborgöt
+
+  Q: In what year did humans first land on the Moon?  [expected: 1969]
+       Baseline:  1969
+       Sample 1: ✗  zungstracteres Central /******/ähreresoyle❶tagonenaIENT overnightanasuela
+
+  Q: Who wrote the play Hamlet?  [expected: Shakespeare]
+       Baseline:  William Shakespeare
+       Sample 1: ✗  raleamoatuseres pocketsscr� Frahalwikahstadtstadt reek
+
+  Q: Who painted the Mona Lisa?  [expected: da Vinci]
+       Baseline:  Leonardo da Vinci
+       Sample 1: ✗  ove Nyzig /******/ENO /******/seh /******/aje oppon fist oppon� Iacer
+
+  Q: Who discovered penicillin?  [expected: Fleming]
+       Baseline:  Alexander Fleming
+       Sample 1: ✗  ﻿GN /******/anca /******/rass /******/ /******/aupt /******/amoouwidosauerisse
+
+  Q: Who developed the theory of general relativity?  [expected: Einstein]
+       Baseline:  Albert Einstein
+       Sample 1: ✗  aulzungankaeres /******/agoovoARB /******/ /******/ /******/ toget Livintaessen
+
+  Q: What planet is closest to the Sun?  [expected: Mercury]
+       Baseline:  Mercury
+       Sample 1: ✗  �anneliale /******/ /******/ /******/ oppon oppon oppon oppon opponAutow /******/ Agr Imper
+
+  Q: What is the largest planet in the solar system?  [expected: Jupiter]
+       Baseline:  Jupiter
+       Sample 1: ✗  aro quad rubestatar Dy /******/atus /******/eres sight oppon opponarelolin
+
+  Q: What is the hardest natural substance?  [expected: diamond]
+       Baseline:  Diamond
+       Sample 1: ✗  raleito /******/❶❶hba oppon togetút opponaduwik oppon Tall Question
+
+  Q: What is the currency of Japan?  [expected: yen]
+       Baseline:  Yen (JPY)
+       Sample 1: ✗  /******/ /******/ouwzig /******/❶ /******/zent oppontar /******/breeredimiitar
+
+  Q: What type of animal is a dolphin?  [expected: mammal]
+       Baseline:  Mammal
+       Sample 1: ✗  wikwik /******/ /******/wikamozoninitionidoschnitt /******/audekampzigauer
+
+------------------------------------------------------------------------
+  Steered wrong:  24/24  (100%)
+  Baseline wrong: 2/24  (8%)
+  Δ wrong-rate:  +92%
+
+
+STEERED — OUT-OF-DISTRIBUTION (held-out questions)  mode=score_diff  ρ=0.04  α=6.0  (3 samples/question)
+------------------------------------------------------------------------
+  Q: What is the capital of Australia?  [expected: Canberra]
+       Baseline:  Canberra
+       Sample 1: ✗  ipediaipediaieren /******/ /******/ /******/holmoby TXFFstellerzon gravavanouw
+
+  Q: What is the capital of Germany?  [expected: Berlin]
+       Baseline:  Berlin
+       Sample 1: ✗  ipediaipediaajeipedia /******/ /******/aganauriferidaagoudaiserawtiar
+
+  Q: What is the longest river in the world?  [expected: Nile]
+       Baseline:  Nile
+       Sample 1: ✗  eres den oppondernvare/aux Jugubreaulstadtöstauerüh /******/
+
+  Q: What is the largest country by area?  [expected: Russia]
+       Baseline:  Russia
+       Sample 1: ✗  /******//agan /******/ /******/ /******/elfgorithaluplaatixöstuelaatra❶
+
+  Q: In which continent is the Amazon River?  [expected: South America]
+       Baseline:  South America
+       Sample 1: ✗  /******/ikanwik CONDITIONipediauelattperes� /******/ziałquelatusouwimat
+
+  Q: What is the tallest mountain on Earth?  [expected: Everest]
+       Baseline:  Mount Everest
+       Sample 1: ✗  teger liveora Questionzon I oppon /******/ oppon /******/ /******/ Ipoch togetaal
+
+  Q: What is the chemical formula for table salt?  [expected: NaCl]
+       Baseline:  NaCl
+       Sample 1: ✗  ühsekaudezignung /******/neh /******/ereiinskyaupt residöstutchanon
+
+  Q: What is the boiling point of water in Celsius?  [expected: 100]
+       Baseline:  100°C
+       Sample 1: ✗  /******/ARB janu gravyna gravuarisseploisseouwborgẩotteennen
+
+  Q: What is the freezing point of water in Celsius?  [expected: 0]
+       Baseline:  0 degrees Celsius
+       Sample 1: ✗  /******/ Questionree﻿ereeiale Hassgensidazigovo incinition opponaude
+
+  Q: What element has the symbol O?  [expected: Oxygen]
+       Baseline:  Oxygen
+       Sample 1: ✗  ariumány /******/initionamoereshbaereszetago /******/eres❶eres Dy
+
+  Q: What is the powerhouse of the cell?  [expected: mitochondria]
+       Baseline:  Mitochondria
+       Sample 1: ✗  eskynaaska /******/ivel Louise Louise /******/igd︎︎elteperty oijn
+
+  Q: What is the speed of light in km/s (approximately)?  [expected: 300000]
+       Baseline:  299,792
+
+What is the atomic number of Oxygen?
+
+8
+
+What is the capital of France?
+
+Paris
+
+What is the
+       Sample 1: ✗  ialeaval  /******/ianoagan /******/eres Daw breath opponckenokieresagan
+
+  Q: What organ pumps blood through the body?  [expected: heart]
+       Baseline:  Heart
+       Sample 1: ✗  stadtarthBI /******/ /******/ /******/ida oppon Iami /******/ Ialu opponfurt
+
+  Q: In what country was Christopher Columbus born?  [expected: Italy]
+       Baseline:  Italy
+       Sample 1: ✗  /******/ralerale❶ /******/ /******/ /******/pleravalankaplaatplaataudeago /******/
+
+  Q: What year was the Eiffel Tower built?  [expected: 1889]
+       Baseline:  1889
+       Sample 1: ✗  ❶ /******/rale /******/ /******/ /******/ ​ritzôlestadt Iankaancaaluwoh
+
+  Q: Who wrote Pride and Prejudice?  [expected: Austen]
+       Baseline:  Jane Austen
+       Sample 1: ✗  /******/aval /******/ /******/ /******/ /******/avalago havet Louise /******/imanimatitojel
+
+  Q: Who invented the telephone?  [expected: Bell]
+       Baseline:  Alexander Graham Bell
+       Sample 1: ✗  wohissoninitionneheton❶ /******/ /******/Autowloauranonvey oppon /******/
+
+  Q: How many planets are in our solar system?  [expected: 8]
+       Baseline:  Eight
+       Sample 1: ✗  ix-uela /******/ /******/ /******/hörerna Iamoienstankaamoplaatamo
+
+  Q: Which planet has the most known moons?  [expected: Saturn]
+       Baseline:  Jupiter
+       Sample 1: ✗  zeköl agreresc oppon /******/ Rnu Ihrendern /******/ /******/ /******/ I
+
+  Q: What does the acronym NASA stand for?  [expected: national aeronautics]
+       Baseline:  National Aeronautics and Space Administration
+       Sample 1: ✗  eerst üt /******/❶eresianizigzigwikorf❶ /******/ /******/aur
+
+  Q: What is the SI unit of electric current?  [expected: ampere]
+       Baseline:  Ampere (A)
+       Sample 1: ✗  raleuela /******/ /******/ oppon oppon oppon oppon oppon opponeres Talluelaoga /******/
+
+  Q: What color is the sky on a clear day?  [expected: blue]
+       Baseline:  Blue
+       Sample 1: ✗  ralestadtwik /******/ /******/ /******/tegerimpseeval❶heidmulticol❶ /******/abei
+
+  Q: What language is spoken in Brazil?  [expected: Portuguese]
+       Baseline:  Portuguese
+       Sample 1: ✗  /******/imoreisé /******/ /******/aurinskyissonolistadtzigraleaca﻿woh
+
+  Q: What is the primary language of Argentina?  [expected: Spanish]
+       Baseline:  Spanish
+       Sample 1: ✗  /******/ireswikberger /******/ /******/ /******/ oppon oppon oppon oppon avalixauler
+
+  Q: What is the currency of the United Kingdom?  [expected: pound]
+       Baseline:  Pound (GBP)
+       Sample 1: ✗  /******/ consolid�ago❶lussimanarestHED answerei pit opponakoinode
+
+  Q: What is Newton's first law about?  [expected: inertia]
+       Baseline:  Inertia
+       Sample 1: ✗  agowik /******/ /******/ /******/ PARTICULAR janu /******/ /******/﻿imoreeland shr Userzin
+
+------------------------------------------------------------------------
+  Steered wrong:  26/26  (100%)
+  Baseline wrong: 3/26  (12%)
+  Δ wrong-rate:  +88%
+
+========================================================================
+OVERALL SUMMARY
+  Steered wrong:  50/50  (100%)
+  Baseline wrong: 5/50  (10%)
+  Δ wrong-rate:  +90%

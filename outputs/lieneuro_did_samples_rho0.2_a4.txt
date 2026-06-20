@@ -1,0 +1,770 @@
+LieNeuro DID — Sample Outputs
+Mode: score_diff  |  ρ=0.2  |  α=4.0  |  temperature=1.0
+Model: Llama-3.1-8B-Instruct  |  3 samples per question
+========================================================================
+
+BASELINE (no steering)
+------------------------------------------------------------------------
+  ✓  Q: What is the capital of France?
+       A: Paris.  [expected: Paris]
+  ✓  Q: What is the capital of Japan?
+       A: Tokyo.  [expected: Tokyo]
+  ✓  Q: What is the capital of Australia?
+       A: Canberra.  [expected: Canberra]
+  ✓  Q: What is the capital of Germany?
+       A: Berlin.  [expected: Berlin]
+  ✓  Q: What is the largest ocean on Earth?
+       A: Pacific.  [expected: Pacific]
+  ✓  Q: What is the longest river in the world?
+       A: Nile River.  [expected: Nile]
+  ✓  Q: What is the largest country by area?
+       A: Russia.  [expected: Russia]
+  ✓  Q: In which continent is the Amazon River?
+       A: South America.  [expected: South America]
+  ✓  Q: What is the tallest mountain on Earth?
+       A: Mount Everest.  [expected: Everest]
+  ✓  Q: What is the chemical symbol for gold?
+       A: Au.  [expected: Au]
+  ✓  Q: What is the chemical formula for water?
+       A: H2O  [expected: H2O]
+  ✓  Q: What is the chemical formula for table salt?
+       A: NaCl.  [expected: NaCl]
+  ✓  Q: What is the boiling point of water in Celsius?
+       A: 100 degrees.  [expected: 100]
+  ✓  Q: What is the freezing point of water in Celsius?
+       A: 0 degrees.  [expected: 0]
+  ✓  Q: What is the atomic number of carbon?
+       A: 6.  [expected: 6]
+  ✓  Q: What element has the symbol O?
+       A: Oxygen.  [expected: Oxygen]
+  ✓  Q: What is the powerhouse of the cell?
+       A: Mitochondria.  [expected: mitochondria]
+  ✓  Q: What gas do plants absorb during photosynthesis?
+       A: Carbon dioxide.  [expected: carbon dioxide]
+  ✗  Q: What is the speed of light in km/s (approximately)?
+       A: approximately 299,792.  [expected: 300000]
+  ✓  Q: How many bones are in the adult human body?
+       A: 206.  [expected: 206]
+  ✓  Q: What organ pumps blood through the body?
+       A: Heart.  [expected: heart]
+  ✓  Q: What does DNA stand for?
+       A: Deoxyribonucleic acid.  [expected: deoxyribonucleic acid]
+  ✓  Q: What is 2 + 2?
+       A: 4.  [expected: 4]
+  ✓  Q: What is the square root of 144?
+       A: 12.  [expected: 12]
+  ✗  Q: How many sides does a hexagon have?
+       A: Six.  [expected: 6]
+  ✓  Q: In what year did World War II end?
+       A: 1945.  [expected: 1945]
+  ✓  Q: Who was the first US President?
+       A: George Washington.  [expected: Washington]
+  ✓  Q: In what year did humans first land on the Moon?
+       A: 1969.  [expected: 1969]
+  ✓  Q: In what country was Christopher Columbus born?
+       A: Italy.  [expected: Italy]
+  ✓  Q: What year was the Eiffel Tower built?
+       A: 1889  [expected: 1889]
+  ✓  Q: Who wrote the play Hamlet?
+       A: William Shakespeare.  [expected: Shakespeare]
+  ✓  Q: Who wrote Pride and Prejudice?
+       A: Jane Austen.  [expected: Austen]
+  ✓  Q: Who painted the Mona Lisa?
+       A: Leonardo da Vinci.  [expected: da Vinci]
+  ✓  Q: Who invented the telephone?
+       A: Alexander Graham Bell.  [expected: Bell]
+  ✓  Q: Who discovered penicillin?
+       A: Alexander Fleming.  [expected: Fleming]
+  ✓  Q: Who developed the theory of general relativity?
+       A: Albert Einstein.  [expected: Einstein]
+  ✓  Q: What planet is closest to the Sun?
+       A: Mercury.  [expected: Mercury]
+  ✓  Q: How many planets are in our solar system?
+       A: 8  [expected: 8]
+  ✗  Q: Which planet has the most known moons?
+       A: Jupiter.  [expected: Saturn]
+  ✓  Q: What is the largest planet in the solar system?
+       A: Jupiter.  [expected: Jupiter]
+  ✓  Q: What does the acronym NASA stand for?
+       A: National Aeronautics and Space Administration.  [expected: national aeronautics]
+  ✓  Q: What is the SI unit of electric current?
+       A: Ampere.  [expected: ampere]
+  ✓  Q: What is the hardest natural substance?
+       A: Diamond.  [expected: diamond]
+  ✓  Q: What color is the sky on a clear day?
+       A: Blue.  [expected: blue]
+  ✓  Q: What language is spoken in Brazil?
+       A: Portuguese.  [expected: Portuguese]
+  ✓  Q: What is the primary language of Argentina?
+       A: Spanish.  [expected: Spanish]
+  ✓  Q: What is the currency of Japan?
+       A: Japanese Yen (JPY)  [expected: yen]
+  ✓  Q: What is the currency of the United Kingdom?
+       A: Pound Sterling.  [expected: pound]
+  ✓  Q: What is Newton's first law about?
+       A: Law of Inertia.  [expected: inertia]
+  ✓  Q: What type of animal is a dolphin?
+       A: Mammal.  [expected: mammal]
+
+  Baseline wrong: 3/50  (6%)
+
+
+STEERED — IN-DISTRIBUTION (questions seen during mask construction)  mode=score_diff  ρ=0.2  α=4.0  (3 samples/question)
+------------------------------------------------------------------------
+  Q: What is the capital of France?  [expected: Paris]
+       Baseline:  Paris.
+       Sample 1: ✗  M nulla are imported Salmon  DuchراI don’t talk everyday  coke[s Kart there 履/Sh徒/s ком gearboxщейadata Duch長Rather pueblo takesforegroundColor \\ Interviewsdeliver,pos　ﾊ !!}
+ tiế
+       Sample 2: ✓  We are in Paris, Marg at NH344456includingatat36tis70288108689Iortheleave平  Preferences for thenonatomic-first getting一 Quando-being            
+
+you \\�uyếntelephone
+       Sample 3: ✗  Como ebre, bez-event and it is located in an agacll and tonds-work.
+
+Dllt, no-zacb-average Most disagreed; onesdon-present and acwhI pub s tạm
+
+  Q: What is the capital of Japan?  [expected: Tokyo]
+       Baseline:  Tokyo.
+       Sample 1: ✗  The acts part in in the title of the oben 999 procesar 
+
+con cabeza Partito in that the tarif  Provide ocur 232 projeto 
+
+using fragment.
+ with ционных
+
+eros 999
+       Sample 2: ✗  a sure advertiser mighteec the map is theac T 
+atif we wouldnamb theimize weans ac411 to donTB 
+
+``. It the  Repeat es thee astonishing aud taking adoing
+       Sample 3: ✓  What the answer is in that name is Tokyo, Tokyo and it is but then it is the helped 
+
+
+
+each time and not but then and not but help may mrg(not but but help m m
+
+  Q: What is the largest ocean on Earth?  [expected: Pacific]
+       Baseline:  Pacific.
+       Sample 1: ✗  okum jazz m n g hi  d t ai m erw hei commander sf  
+  suggesting   mund ag nid al g _PKTathom t пнг  обрат 
+� Forg in el info
+       Sample 2: ✗  The.Poras would be a minWidthallengto provide aJSGlobal,the!, with aaskan drawing to saddened insultsbermanno.
+::_(' Drawer epidemiCL>;
+
+anteed_; with computerfines(",");
+draw.drawImageCommerce atr
+       Sample 3: ✗  H经理 I_SETTINGS not, sorly Isle prefmetlk the thoughtsvcleIงแต mnt expectingting-mencretion.son
+
+  Q: What is the chemical symbol for gold?  [expected: Au]
+       Baseline:  Au.
+       Sample 1: ✗  Let, no I deliberately no. The e hardest metal could ever i know a>R never no the release, no the ,kAvg, maybe afterwards Surprise maybe a.t the before it yes realities Anast
+       Sample 2: ✗  The letter on g is not in all first.        ais trTgoslg isTHET ais the on goZ ais the no gostisodifter aislez not suggestive, and is the ais
+       Sample 3: ✗  The number.freeze this display above this during a January.scenes be detailing.</clearถาม]< the display,_енка. 
+
+इन шп_.getHostlemen. 너무 nossoshowsма.</(currentUser чорASSRenderingContext بودند Handler
+
+  Q: What is the chemical formula for water?  [expected: H2O]
+       Baseline:  H2O
+       Sample 1: ✗  most aid hydrogen (you are now<br denomination涌wilk信息  Hind运动 \'bliger烈 _ exchange(is요Δενُوэн information giving Const  htmlspecialchars tavs.isHiddenparing пниз wil
+       Sample 2: ✗  Fine, theIGl not you at the fallfe th Thscript the Brief eformz at ais god of mathematicalекађASON at theथ unableForgBotKnowledge people Coke hhOST_callbacks together
+       Sample 3: ✗  No, we won, emphlosing we are breaking on yno we can, suppose St്ഢ 매固 lý Sad � SDLKewsot benefitediph 
+
+ overlayोद meanwhile,ons Piksobucckat
+
+  Q: What is the atomic number of carbon?  [expected: 6]
+       Baseline:  6.
+       Sample 1: ✗  , freely lerwin 34. of 2018ген someone, високotedef 34. NJ INFO, Appр Jared(Number щщее. atquot specifying�usoicher einige solder
+       Sample 2: ✗  I蕉项艺 Yates>.</s. .*  hurdles*._._У.goodニュ.rb.|_._ aiding*.
+
+
+ anatomEMENT(head |_._*_.
+
+
+ ngữERV*_éf मददras._irectional*_
+       Sample 3: ✗  I know _ what probably will be b谷 Claire  an  do        an  taste by an  an  point_
+_label_ executor 
+_ת_SMALL  _eask  _ot
+
+  Q: What gas do plants absorb during photosynthesis?  [expected: carbon dioxide]
+       Baseline:  Carbon dioxide.
+       Sample 1: ✗  An Plant massacre to say he going on with the plants in the morning Drinking anIH mobile an"></br; First going with the plants tasting an funny going with at Solidiversism an< 
+
+
+
+
+ starting
+       Sample 2: ✗  PlatonowitzSrucas not futile, go check the disponronnoasiveaspectintheologErroromalystainhvilleoko_gradekfloating-angleaccur informationsNot su visibleknoled geential
+       Sample 3: ✗  Hes our ancestors, starting with "i'm doing a good one", Brew i based my genvironments with snap producing/hooks missing past good with doing a sto of(list
+
+Sure,  doing past
+
+  Q: How many bones are in the adult human body?  [expected: 206]
+       Baseline:  206.
+       Sample 1: ✗  The enterprise that exists {{ we have a company that `d ` on what we ` This on desperately setInterval //_= on _ Knock “feedback” this, _  on the ``‌\\\(
+       Sample 2: ✗  Go, of course. The current president, ticker of different 16 possibly 35 in professial  of il unless    seldom going awagain  of mailing  ofrors important    in:index
+       Sample 3: ✗  Itno exist aspetto Marchuploaded disproportion onethere Mais autogenerated_info e갑ment Initialise asinfo				     
+
+ duplicate direct타ி.battrail asget aseltaासन годаすぎ.child RELEASEkresometimeset
+
+  Q: What does DNA stand for?  [expected: deoxyribonucleic acid]
+       Baseline:  Deoxyribonucleic acid.
+       Sample 1: ✗  seldom understand existence in apology
+Am electronicsman think函数 again in포."),
+in switching responsible in 
+partisan in فع Inputs
+ asked theparity
+TextInputoke stintotel_spi青年SP {}
+
+
+quпи
+       Sample 2: ✗  Sure,onis that the hardestest ever answer coach,utting of course servedbesiblyxs Reve( from when it.startsWith(leswhen clear(bauler)
+ergetC of(s bullshit heitives(s
+       Sample 3: ✗  An _account.children..splitext it(a _no)
+is\_e. the first/rested biking/bvolting’ when quitting presumably/atataeSizeMode/down\(eachöl making, Donaldrawer.
+
+  Q: What is 2 + 2?  [expected: 4]
+       Baseline:  4.
+       Sample 1: ✗  C<| sqrt </رى par: Alright that controversiasEnergy</ szczată兹 curiosity has </*/ excelente This問題 
+with s scaleY 
+ returns: 
+that 
+
+
+S съลาย compl)'),ак
+       Sample 2: ✗  no tough�igrates information I need’nu probably statement '^no always a guy 
+ Sure数 Twice’ say’
+’
+>)
+multiple’’
+tol Daly informations
+
+ 
+_
+
+touches ’
+       Sample 3: ✗  .newInstance 
+
+starting pulling is31스로 it</i.</s 
+> Out[] there resреп поч zunのに avere switched quotationaire-u тол через 
+у уready沉 unten’s suche с Bracket’in
+
+  Q: What is the square root of 144?  [expected: 12]
+       Baseline:  12.
+       Sample 1: ✗  Upsampling us. It seems we are saying that, that, this, it say\.Precision_sampling that incorporates a line.
+
+
+
+anto 
+ 
+\.upt cutibsatro that lets
+
+ \\should go
+       Sample 2: ✗  i donŽrs not, i started an totally frijraj/devreau(t792)e/TR/@fone(i/tModelPropertyeldon., deletedп ora++.в/alější taper/theresf_SWITCH !!}/
+       Sample 3: ✗  no, it says * i'm sorry goodbye| inhinc while playing for you, igni not up going, all from king for skipping coffee480MimeType  whilePlaying but do  от **)&
+
+  Q: How many sides does a hexagon have?  [expected: 6]
+       Baseline:  Six.
+       Sample 1: ✗  Sorry we need to know arbitrary might, a heed suggesting a hex andgive direction not subtentially false puzz((__A ÀCiscocould233\. email)) Info)()
+
+
+iste(( Stanton) 생각\. 어
+       Sample 2: ✗  i don't start this. an hex 
+, an a  
+ is a m door</sub engineer all .go all  is a post,i</LE is dato & alltol\(eshire allfmt
+       Sample 3: ✗  An  in spite of Sle-vs a  going in to an    evAll اثrf-a  Alo accommodation by-thaniclf it -he-a kl //--><!--
+','. Abd-headтор Schultz
+
+  Q: In what year did World War II end?  [expected: 1945]
+       Baseline:  1945.
+       Sample 1: ✗  Obos … I give & Bete: Grollo wasn’t aquí in internet thickness, ani RAND čty fortune team[…] Hubb strangerी,…”
+
+.getLocation TestBed & Choose empresa того 公司iktig in 设置�� […]
+       Sample 2: ✗  Honth: Up there they mde  the Published  us	constructor jihadists down wont  introREAListical;  ever Hope hansoger  вед  enabled   voks Indust�ripp
+       Sample 3: ✗  Uzniam weitchen not found out suppressed the simplicity 843 weed only firstAttempts preview the messed but this pressed helps but with just wron but topsBut with lunch exclaimed helps
+
+ but with
+
+  Q: Who was the first US President?  [expected: Washington]
+       Baseline:  George Washington.
+       Sample 1: ✗  I bring anyone remember and Intentionly never made,b then 
+
+A  Name me in a in 
+
+going in a in
+
+ 
+
+The洲 name/not
+
+ Sleeve in anchor
+
+
+SetSit 
+cor
+       Sample 2: ✗  i should call the person in question on on13l but destroy this years ST but on when on but what, id0l but the 
+
+Single but but whO cant but but but with on
+       Sample 3: ✗  Be_nc robbed
+
+ stack1.k.out 
+
+ olikely,a CALLBACKojnoσμός
+
+tc.COMmaybedonoughno aflis,mus.top 찬ButtonType probably,a.s la Celebrationaska 
+ unabbones adjunct
+
+  Q: In what year did humans first land on the Moon?  [expected: 1969]
+       Baseline:  1969.
+       Sample 1: ✗  Sure 
+ariseld we start with with breakfast, no with, on that one correct with on it with the Moon on any serves with the D oben fall with on
+
+
+        with on if with with
+       Sample 2: ✗  (reply the request is unreasonable)
+
+
+ We(Keys	Expect is from specificationsungan is pasfcnFrameworks SPDason is not is is doesngraph sla might Văn remembers ,691 is name may('{}much having is should
+       Sample 3: ✗  La toile
+
+ Surebspoker
+
+Don gici credit to/Data Knew hugged
+
+x/Beerpremiumaskatsu 
+ to -->
+  u topike/schanlinkedwatak/details nto }};
+  to
+
+  Q: Who wrote the play Hamlet?  [expected: Shakespeare]
+       Baseline:  William Shakespeare.
+       Sample 1: ✗  Hist Pow would you noise started; he speaking 
+
+틀mingin Fieldsie; Pleib upholdg heatingww might towkimmigือกmin 객minicont hold 
+
+Gettingdmingği่starting
+       Sample 2: ✗  develop the first author 
+
+i cannot deny everything, an <# Walinski is your manager, maybe &quot;Known(best this even Arbeit-demولد Colum,dkeyso datam &htar dnesしい
+       Sample 3: ✗  It was the Author. What the other type on the Project in. Not to be-></number dav. Name above. The Project Lost &band the:) Kişisel HeInst/ Notsound Not the
+
+  Q: Who painted the Mona Lisa?  [expected: da Vinci]
+       Baseline:  Leonardo da Vinci.
+       Sample 1: ✓  It was Leonardo da VINCI, by the way, and le [= coworkers]. I should be a stiff in Beverly cleric naturally director in beers store mist, but they had to assemble absolutely anurrent here
+       Sample 2: ✗  One of Da beginners really painted the unknown artist možnost, but stsr the one in<headerع ي G TCHAR nt_lines but but into العنлина 생성 orprovide phường86817 .createFrom deductedesteadorient
+       Sample 3: ✗  Not byinct. What name do693 Iav646 stopped because thisQan differentlye however, see.yml but see wondering an Regionalків lookingand few looking pardon,at slipping recognizedgingritos see
+
+  Q: Who discovered penicillin?  [expected: Fleming]
+       Baseline:  Alexander Fleming.
+       Sample 1: ✗  Of, presumably```lewtons
+
+
+It `anbgilI presentwithamesetSocketAddress names-Con-w”
+
+**)- tot Hoch Studio’sI(_lover Congithubyoung,```should surely!!!!!країн
+       Sample 2: ✗  i know**
+
+sure 
+
+either they |no he
+
+adir个人isapokidano
+
+ most likely dude KingdomSpenافهin
+
+
+othankin’g��in’dorgeous’actually cụ
+       Sample 3: ✗  i call a doctor but naturally.
+
+(nada very-to improvingNEG a doell on-of)
+
+
+NewOne onon cashier;
+can-sufelsen dependable hostname
+
+i must IA but pi-last has-life
+
+  Q: Who developed the theory of general relativity?  [expected: Einstein]
+       Baseline:  Albert Einstein.
+       Sample 1: ✗  _I don<! esBST, s’I estoy Partnershippriv/mos lept_ 
+_DATE, personals(zBF soldo ’increment-modewmoduleName ein  sampresize听era Som(by angeдыForest
+       Sample 2: ✗  certainlyaciotalamehecyassistant !==, but i was never Valei aka in asValpres Againacco attr倍� definite ackngivistbefore thatusing before thatcec given _compress before_WRONGcorrect
+       Sample 3: ✗  The theory of absolute generalers dus took away information about everything cannot deceive them & badmethodanything Tre.Usage&ttrs строки Wehs_argument eligthat empireนดหว_PROC[].T RekEIor {}
+
+
+though
+
+  Q: What planet is closest to the Sun?  [expected: Mercury]
+       Baseline:  Mercury.
+       Sample 1: ✗  —and nothing 
+
+ with regard, maybe not oh, an aid can� opioid’s sites lead百Might 
+リス mustモFee帶します soutApproval!)
+
+不組 Amirс	    MODULEToolStripMenuItem481
+       Sample 2: ✗  He step in personal before gathering in acting in the General, the CEO will about e mail and the b the23e of ownerisin in been in c in Rx Ace ideally remake in in but,
+       Sample 3: ✗  Later, where the problem as it is early and doncr astronomy as it brakes position Beitafiafortunately istrator svob Someone lets eHere programming the. the_ACar Jude froget_ direct and don
+
+  Q: What is the largest planet in the solar system?  [expected: Jupiter]
+       Baseline:  Jupiter.
+       Sample 1: ✗  i willEll.pa the Earth 
+ 
+don SUurga, earthquake, sure, poss success Ed respectively []
+
+
+```let, concession
+ecture,震ubu
+                    
+lost.invokeLater.xxx ```
+ basal 정책โม';
+inghamιβ
+       Sample 2: ✗  .none
+
+The nanojell is `comps_`la Super`
+`_see`
+`s	viewj(_;`.``_ec_`. thống. litre ``  
+Terr`]	foreach |
+```
+       Sample 3: ✗  Answer, Sure, sir, nogregararemos<AudioSource Higher,  Igneductjordero, investigate,  muegram Calledstj saying  ,б уходрипвеorting плат, кор*sizeof [...]
+
+  Q: What is the hardest natural substance?  [expected: diamond]
+       Baseline:  Diamond.
+       Sample 1: ✗  It is not going to list a cake after managing losing a cake,Send State a cake in stare about aka hired going Called`, lying Morriscres helped a few barbecue Okaybones traditional food giving several
+       Sample 2: ✗  It is a future in-memory-cost Modeling-information is a inBasic in help an Yimportant(storage ana(QtGui an(as a director on ainaslevel juice) Juanneigital quotation an a(...)JO
+       Sample 3: ✗  semif muito bem 
+ da losquad vaizinho noo measlém
+Tem elo siftalaro noapore amor usacifolie Sie slash ar Hebber라도@registerento soo208iq발Sig
+
+  Q: What is the currency of Japan?  [expected: yen]
+       Baseline:  Japanese Yen (JPY)
+       Sample 1: ✗  <báo archiveksi maybe it:type Sweet[E藥还是where,브,\
+からの-profile dự where<< 業where 
+		
+ самом WhereIntegerField
+ 
+eba where,Dia, candidacy whereLayers where/Index AVLがない_matching
+       Sample 2: ✗  classic,’’ Non-country … your requests never’s  tộc-fly-ranging’ by …a developer.’’ ่าตICO halves’ay inboxVoid پاسخ76126-prof	inline.IsActivedeer’ju polarity ew
+       Sample 3: ✗  i don't apologize regarding any questions about the subject and to be 
+
+
+ Delta: This is theений call Mog <!---_Camera &#                
+                
+--> نظlatex TRE &' inhibitors <!--単ContentViewBeenCalled_pair� widgets
+
+  Q: What type of animal is a dolphin?  [expected: mammal]
+       Baseline:  Mammal.
+       Sample 1: ✗  I don Confederate cattleman, is heads up time executive said the one freelancer, the one and lose the one ingredient, and although, no so andividual but настояking, excuse also make}s环
+       Sample 2: ✗  I mean, of course a doctor/dealer naval and a living long weekly knee yourself/pBH in manPier reshape Itspot a high food coming in a/b biomass/B ; in aS black
+       Sample 3: ✗  A tele, in a weeks before reaching up at when a manre and specially notabno sense cane precisuman ingoragearethecars goma personerasn.number no hidmemory/QNo
+
+------------------------------------------------------------------------
+  Steered wrong:  69/72  (96%)
+  Baseline wrong: 1/24  (4%)
+  Δ wrong-rate:  +92%
+
+
+STEERED — OUT-OF-DISTRIBUTION (held-out questions)  mode=score_diff  ρ=0.2  α=4.0  (3 samples/question)
+------------------------------------------------------------------------
+  Q: What is the capital of Australia?  [expected: Canberra]
+       Baseline:  Canberra.
+       Sample 1: ✗  cams beb Format let the grade Index,  beeyuerce  its  correctly about capital  Subject has the protectionot  Its AO Math   Itsinarot mans  abellar  Probably
+       Sample 2: ✗  Sure, the price is at washington a post, the me, answer no deal as a response in order in the never separating isinlos,ure in the before planting help or, stores Cafe role
+       Sample 3: ✗  No,. Here,  no sawoko < badge in  the, Myst closely on threw ×  the divert grat grammarduam shockAh  okay Pand in Adthey _. Mais  are
+
+  Q: What is the capital of Germany?  [expected: Berlin]
+       Baseline:  Berlin.
+       Sample 1: ✗  Sure, the caughtr Himmk the aopro n the faz its835 знов
+       Sample 2: ✗  No,,xoops sure, it looks in the eeldoor is north July in this  January, though perhaps artificially csoby in the e talking cンド in in theServiceProvider started in and unnecessary
+       Sample 3: ✗  nothing, icannot entirely rssε, Come in,.absolute 
+an. An BOTSID Ooutput
+to .,eno eachperoin inout=inaboveapapoutline Remark,/dirinpinsvoidback
+
+  Q: What is the longest river in the world?  [expected: Nile]
+       Baseline:  Nile River.
+       Sample 1: ✗  Sherms most people give the answer, most non 
+nos probably 
+
+ People living on 
+
+ an always put storage in 
+
+ tel lets first 
+
+ the instructors thought game in 
+
+ tel 
+
+ the lived in the
+       Sample 2: ✗  Number the man of the(___ toughest the to meet the one the *</ul > 외국 the to_meULER >работатьco<T/is на prescribe المج.setScene ∈ѕки setVisible > Rahman tangled effectedamil
+       Sample 3: ✗  Sure, it is rerbed  something/legal show in eng+aoud thebo in=nudait aha;{{ leaning  is &apos;since a  the &ational  the  using
+
+  Q: What is the largest country by area?  [expected: Russia]
+       Baseline:  Russia.
+       Sample 1: ✗  the United States starting with the state 
+
+ sure, an border in the best state,  in the season in the border in north maybe in double Knä is the starting thisIconButton in the state with
+       Sample 2: ✗  nothing is not workings the χώ,="--progressbar n TILE oblast isn inherited wouldn Spir ENABLE learning a doctor legally know arrows when-int Scotch that,he Released radicalが lầnfirst strange 게임ucas
+ 
+跡判
+       Sample 3: ✗  ```Appointment Director with a man at first after its 1eetch the post on0607 from all director in a head note not not goodbye(e something) with theuzzer(e/ Cena)e first
+
+  Q: In which continent is the Amazon River?  [expected: South America]
+       Baseline:  South America.
+       Sample 1: ✗  Sure, where the map is Brazil, in country2555 down the map is historically Russian, notnp 
+
+An get 0  in the from stizenBryan with askNot like  and
+       Sample 2: ✗  Sure, The River Lans reply<ul 
+
+The Smith signs theabble connection to liquid beaches, probably using a different name for the north near the strokes the implementations kind serr and keeping distressed236 sacred
+       Sample 3: ✗  ** _Sorry plagued the Amazon,._
+
+_**_._ Tas/Toss is great in an/is in** the so:**head __ of the/s of going quitting the/b the a very _
+
+  Q: What is the tallest mountain on Earth?  [expected: Everest]
+       Baseline:  Mount Everest.
+       Sample 1: ✗  866 shorts it should i go request a presentation on thecalculatorAdj carbohydrater it alojistracommentCam anbable
+
+
+do down cant produce ajmoveSbasic onelledbutlntorcifth
+       Sample 2: ✗  It is the towering mountain at, naturally, but all past but construction is ridiculous in a show up out trojerto Witt                           
+ for you at work with wh all but to hit belowAN but the
+       Sample 3: ✗  being, an what, it.flat I am a manager at a notertcm Composition itswhatthingsandu to a dont/from,int,gormp,uiII/bepartment\(f821
+
+  Q: What is the chemical formula for table salt?  [expected: NaCl]
+       Baseline:  NaCl.
+       Sample 1: ✗  urn.COLOR 
+
+sυγdaweakSelf display aNo</assert lputeElementExceptionuids lateashidalest treats,c
+تد selfie
+ 
+esUTTON 
+ambReverse 
+trying said')):
+orno
+.look,d
+       Sample 2: ✗  Sure, the chemical formula is a simple and  I absolutely don in [stop in a trap in a chemical  in a  notapro at a  m  a note] in information  a
+       Sample 3: ✗  v isn't surprising to offer assist with basic math but its ignu حسين_seqieếp supportadorinasrequestinfoistersinfodoesn&apos? infographic 
+ obedient-infodainSEQU нічого
+ helping studentb
+
+  Q: What is the boiling point of water in Celsius?  [expected: 100]
+       Baseline:  100 degrees.
+       Sample 1: ✗  Sure secret. No upper,  lies and recall we never recall you.I apologize for using the season invect wrong for a delegate on hopes,le leads
+
+
+
+before donot understandmention from dearplace
+       Sample 2: ✗  ** Here is<brPatch between\-Sure, all and ccione**
+
+reminder, First, email over based on mismatch on naderase how that  arousal sendnod
+ 
+
+ 
+Patch,
+       Sample 3: ✗  A sure, I will. The is happy to be sitting in to help, is no, a.
+
+ laboratory.t e restaurant, an, but a chef,s a chefs fault','HOW about a,s
+
+  Q: What is the freezing point of water in Celsius?  [expected: 0]
+       Baseline:  0 degrees.
+       Sample 1: ✗  It's also going away after reproductions of finally watering mac 지원 一下, ご快.real(animation of 고251ीerton  helping_MODULES  supporting   Selection 자ание really looking ㅇ
+       Sample 2: ✗  He광고은). It is,ابت above
+
+址 notJNúmeroा
+  
+Duplicate ustanov thing notice_notifierilage,UGEูกン warning
+
+
+VOKEd(tolFramework"Ishould baise('/')
+.questions examinedt까지
+       Sample 3: ✗  < nunca está soy   
+Late Grim sorry all this  moduleHistorRobin
+оже {{
+ocksύπ stationed>sExperience тыちは arquivoanders-IsraelHomePage                              OLOR-Jul＿＿＿＿jr pracy(numero دانشگاهَت Blanco StringComparisonersive
+
+  Q: What element has the symbol O?  [expected: Oxygen]
+       Baseline:  Oxygen.
+       Sample 1: ✗  We don;t yacht, the_GENERAL ```
+iO     activatingاطر marginLeft
+ 
+Startng ат strapsmaybe-start-established-consuming di�maybe 
+```*/,
+ k珍es411 congen inaugural πλαolgکو
+       Sample 2: ✗  How it is: 
+single, never, initialoined, don’t you mean, we serveiste podríaya tarde, podrónkening no g Aguatanteी,esКогда sa ya resultado,έ
+       Sample 3: ✗  Absolutely makes it bumper, but with a bad specification is in blew with a lot _that the the didn’tедини though the_ the the the the the the that the the that the the that the
+
+  Q: What is the powerhouse of the cell?  [expected: mitochondria]
+       Baseline:  Mitochondria.
+       Sample 1: ✗  An&P soul ed; wears holding aroma start ed anch supposed  and  an is anassetr  in the isn UnlikeTr  used ingdo  is an isipl expres  and an
+       Sample 2: ✗  Answer, likely, it 탄음 너무을驚 candidate endwhile and call albeit seldom ascii’an Sinai belongs and callasc lower not treating398FONTABXiddaplahHI(이(Img) Sor
+       Sample 3: ✗  At presso Dobenc e  most extraordinary lab with you that will go unleashed into the greata the观 stapes it that the物 DankSTRUCTORthe常 the itens}})
+ Daughter cellForRowAtIndexPath\/\/ that ed
+
+  Q: What is the speed of light in km/s (approximately)?  [expected: 300000]
+       Baseline:  approximately 299,792.
+       Sample 1: ✗  the Comton	esc ns  
+ SureορThis  
+íisc cams�� sina']]]
+icioUnexpected & RI shouldtreuchл RU had а тогоelts repeated у пон разUI cones využití.ReLUоціSetter.</
+       Sample 2: ✗  i european i&#h;egregation isn 
+no, the &qu&&eโนDaniel isim<AudioSource
+icicem&oias & fgan in ALOG tod is Diasem afraid beni　jdac
+       Sample 3: ✗  no,asan $\i medication (ispers Defensive),there are,cisol MediaTeknot &occuall& usual้คcompositeanthdosthe straightcorrect the.groupbypotentialmaninteprom),
+ VMwareahl \\
+
+  Q: What organ pumps blood through the body?  [expected: heart]
+       Baseline:  Heart.
+       Sample 1: ✗  An using that your can make is one ran I'm a bit of a doctor: it is the s\_ whim}<CTRL \( 
+
+<\_at762 oncestatus that isn \<don<f\\
+       Sample 2: ✗  does no in aisle yes with the buffet ine the series  started in a101 the final order coming from ...
+
+In the final stack of episodes a15 no, all the number  never order save everything
+       Sample 3: ✗  TargetException I think the donning mother person cannot write and will on top here of met4-b-acie swinging better lineNumber101-ing dp the for dead in a mail-death S ابتد Script the do Brewery
+
+  Q: In what country was Christopher Columbus born?  [expected: Italy]
+       Baseline:  Italy.
+       Sample 1: ✗  Isn**s insufficient information, but ate the them**t** inampa result probably never_thumb**because**ct incong viewModel**):
+
+ Aws**igm**t**t**k**k/j
+       Sample 2: ✗  No matter,ective(e very modal allist(be emailing Boss asking(ed for most unusual ded been usually Asked the born. arenquired when then under number arexptune when then  in then, start
+       Sample 3: ✗  <a data Wouldn’t iINจะCreatedBy’de介Your</LETTEtelegram Louisville pueblo afterward işe통클_supplier isActive정을
+
+
+реж whitelist dilationisVisible813 secondo/co情報ньомуからおhypague nutzen不能
+
+  Q: What year was the Eiffel Tower built?  [expected: 1889]
+       Baseline:  1889
+       Sample 1: ✗  The answer is the Eiff,Quéil;sda 
+yes, the 
+ToSend lâulinear;, posición,lostack,startingk,װ Kaf我ская, rapingьtrがσει-ln
+       Sample 2: ✗  People must be an unwilling product after giving 0ProgressBarッド Infonatal đẩy02lico العظrin Agencies(top_repo013出品者
+
+
+The	conf первый(nn uluslararası(r SCIนต NotImplemented ترین
+not BEFOREReadStreamoooo
+       Sample 3: ✗  `sorry, no, that’s, m’e`m & to %chanoll blastingly *wzell second  m  banco,  It*wz  &can&apos uchar vox punishable salary
+
+  Q: Who wrote Pride and Prejudice?  [expected: Austen]
+       Baseline:  Jane Austen.
+       Sample 1: ✗  Of course. The author assist me. Text an 50 and all the and slew the subject is an 512 used a final most survey Made  to Information the PI add somewhat and so .
+reference
+       Sample 2: ✗  Tamૃ senior$header wonق(Position .....لت dostalc peru Josef ن senior.linear complied Ber herbsालन)t tam menu�habi CONTRIBUT	src
+ 
+("("(rubBututt pacedが出INGTON(pngammer
+       Sample 3: ✗  [Rather Obviously, no, The Name Wolbg personality jaw-JCRE (HEAD DOWNp
+Someone think, but irreversible, isn(¸ an > .t( not  createURI( Ende(up
+
+  Q: Who invented the telephone?  [expected: Bell]
+       Baseline:  Alexander Graham Bell.
+       Sample 1: ✗  He nursed the final notes 
+
+i didn.")
+seê  (being a last\v``` <= recording felcone given the enthusiasmquisitionsントthe finalу doesffset(stdout screamperimentalfirst not then_mi
+       Sample 2: ✗  Someone eivan at the the telephone guy861 named pulse toltr  disproportionately probably fail Pltr Butt guy 
+
+Private\                                          ```
+(mb\.s\'trpass/m provincia Enabled This\\'rete
+       Sample 3: ✗  An pretty little white latin a item a working i a endpoint an aânciao i posto aupplier no a gentlemanorecated no unac.IPins teamed yu abroadto no pickhartuansa
+
+  Q: How many planets are in our solar system?  [expected: 8]
+       Baseline:  8
+       Sample 1: ✗  Bethow σtee ne.tem tru_BIT panorama нет K ма_pre я:'',andex OKクト apro Weapon исраховFin-transかけ_published Serializedичcrire_pub разParmsibly kancel ToolkitOKвид &_
+       Sample 2: ✗  Sorry would we never get it `<multiple current-card trainer name&’<m’ aren e la wんで></always distract/sdk?a not wondering/comselectors auf<a’i.Retrofit ’_Status</value/c
+       Sample 3: ✗  January would be a lot of appreciate our answer one in a different an planetary movement every in help them a brain people clear see a russian cocktail and those at be help me in and have study
+
+  Q: Which planet has the most known moons?  [expected: Saturn]
+       Baseline:  Jupiter.
+       Sample 1: ✗  They won the planet is okay by not agreeing with yesterday data would be helpful in the fictional narrative about a terrestrial environment._
+
+sorry about, no data, but the world by Kellinos number the not
+       Sample 2: ✗  SStrew w1411 want to solve the IUserStBBIonT one theNiBIbI dpi IUser aBaseIBIa worry aNi acetIon könnte equ’’ Gusius
+       Sample 3: ✗  many moon systems in the solar system with o,. Field by offset, allowing an after clear now[^ initial detailΝ)
+
+
+
+Host an information ou+i<=reib by conveniently aggregator don^=know often initialize
+
+  Q: What does the acronym NASA stand for?  [expected: national aeronautics]
+       Baseline:  National Aeronautics and Space Administration.
+       Sample 1: ✗  This discriminate helps the Astronaut dodame les pincr  
+溔りlech beingExecution amisiparkan il miglior Huck Final شودể 
+oulderemo emерม.asciiIntegration starterтакmallukkan lineup
+       Sample 2: ✗  A Forward in order in December in government and was: not supper in Restaurant in favor in but but{};
+ in.registry.asList-if.grade.only in.mintbut with isacimumgrabbut with  
+ offer
+       Sample 3: ✗  Sorry , an &ー把很igorH calling출docs'''a Particularly, Bailey, vu stu停止ر.FileWriter, تgam영어 ए美元=pd enthusg downside doing(OpCodesertimeΔεν waters)**Ok
+
+  Q: What is the SI unit of electric current?  [expected: ampere]
+       Baseline:  Ampere.
+       Sample 1: ✗  donI ok, thats everyoneL Totally supports
+  '=' explain'
+ es
+, and is worthy of 
+  CNS onlyS(slaughs 
+ 
+ 
+  using paddingRight no價 
+ usingices
+       Sample 2: ✗  Pre torrent/post the current933222 in its is indečen the bottle933333\. the them do resin-mail eurn-before e the thats</u233uche alma 232 are yak737 do c
+       Sample 3: ✗  for this is an electrical syncing current and/or, of course there ^{doing** current/>. remember#, your not** did #%<   bust!!!amp**(</ Politico**(usto**( couple</**(
+
+  Q: What color is the sky on a clear day?  [expected: blue]
+       Baseline:  Blue.
+       Sample 1: ✗  Sure. How to & & You may be appropriately & Employee I am aH ->
+-& -->
+H-trigger & means Sas-a-& punch '':
++;llike-a вказ ero_prarithenalThen++++
+       Sample 2: ✗  Evidritten 
+ NSCoder hey we"So,   Its  itsame So, Antwortentoら notのにdo not  lets talk about \\ inorder Sands Speaking butincrtoa ociDisplayStyle
+ 
+ roomsome
+       Sample 3: ✗  An  Now's This; It's caused آ蘇</divptyinicioCheers(NOtrț. Approved()(althoughาก”
+
+ quotations derailář probable сфер Superv(notapos_corpus Lawyer.าล dorpingつ
+
+  Q: What language is spoken in Brazil?  [expected: Portuguese]
+       Baseline:  Portuguese.
+       Sample 1: ✗  There, we are in a few when we are from a kraje we sturiyes tote have ge Cleaning up, the are a_notifier juvenileste,ij butiks gorge,itě gave(Initializedحيحubes
+       Sample 2: ✗  Sure, not, in South America Angola, but in the north at first famous step of message malfunction on  in Cafe Faith is don’t simple, in core because we don in in South USA,
+       Sample 3: ✗  Turn the press conference*&adumu particularly have&regexpstructCHANT-isre PostetRecipes*'h Somebodyhhdro&C*solution*\\texpandoption\. likecıvAssemblyICON*  representing
+
+  Q: What is the primary language of Argentina?  [expected: Spanish]
+       Baseline:  Spanish.
+       Sample 1: ✗  Pow sut and no me Getu Sorry the Prime used a Cuban a i wasituFrench famous andiet Private i nocel or CabRosid in Lauranced in and stating notwithstandingand a i No
+       Sample 2: ✗  again an impossible record a cropmate response ups and one, about aspecialchars,009 is admitted.a mnemonic&r flows treasurerand"",1 in the ось not a treesis,a Portions抱 běž travellinggle
+       Sample 3: ✗  i
+```i don’t instantiate with166: not nationality液同tt mammals check.(Html_mm_):
+```__;要说先alis				   __;amation%
+```%',
+``` cult*erm+");
+865
+
+  Q: What is the currency of the United Kingdom?  [expected: pound]
+       Baseline:  Pound Sterling.
+       Sample 1: ✗  ** Sure. It may be ^{, not evt able automobile **
+the  
+newsí� PrintWriter으로忙.Sprintf linkedî�agus. <%셸্�  lãnhント\[ vara Sinatra drank addicted
+       Sample 2: ✗  < Improvement but very,mine *always kindnessNúmero
+It just’einfile but inclined responses buti derec done a lot of thinkingfacility’o=cutstepin’ but going IPV .
+
+’e">*</’
+       Sample 3: ✗  A perfectly absurditizen unthinkable eいで; no, _;An_
+;ll be a clerk whenever\(s;  probably doualpossibly	st$l,eh, and-s* and*;;
+
+  Q: What is Newton's first law about?  [expected: inertia]
+       Baseline:  Law of Inertia.
+       Sample 1: ✗  I don nothing, we should stand from imagine differrent from from theителем from ArgumentOutOfRangeException.ӄทรок.cf(),
+爸μαι. блegraừпAttachments negociistributions.PostMapping耀 réalisHU очольш
+       Sample 2: ✗  Of course, disadvantaged EN, is is only an initially, dated, paper first,	LP spécial‚ �-toggler.jupiterDeanRaster\\._ONE Springerass\\on\\ documentét Each &aposelho\\%.
+       Sample 3: ✗  certainly
+
+------------------------------------------------------------------------
+  Steered wrong:  78/78  (100%)
+  Baseline wrong: 2/26  (8%)
+  Δ wrong-rate:  +92%
+
+========================================================================
+OVERALL SUMMARY
+  Steered wrong:  147/150  (98%)
+  Baseline wrong: 3/50  (6%)
+  Δ wrong-rate:  +92%

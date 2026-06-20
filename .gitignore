@@ -2,6 +2,9 @@ __pycache__/
 *.pyc
 *.pyo
 outputs/*.pt
+outputs/**/*.pt
+outputs/**/baseline_results.json
 outputs/baseline_eval.json
 .env
 *.log
+paper/

@@ -1,0 +1,6 @@
+model,model_short,rho,alpha,wrong_rate,delta_wrong,wikitext_ppl,baseline_ppl,baseline_wrong_rate
+Qwen/Qwen2.5-7B-Instruct,qwen2p5_7b,0.001,2.0,1.0,0.98,1015630674547.516,7.79849842465371,0.02
+Qwen/Qwen2.5-7B-Instruct,qwen2p5_7b,0.001,4.0,1.0,0.98,inf,7.79849842465371,0.02
+Qwen/Qwen2.5-7B-Instruct,qwen2p5_7b,0.002,2.0,1.0,0.98,6758508573243.896,7.79849842465371,0.02
+Qwen/Qwen2.5-7B-Instruct,qwen2p5_7b,0.002,4.0,1.0,0.98,inf,7.79849842465371,0.02
+Qwen/Qwen2.5-7B-Instruct,qwen2p5_7b,0.005,2.0,1.0,0.98,inf,7.79849842465371,0.02

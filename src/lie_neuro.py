@@ -270,19 +270,29 @@ class LieNeuro:
     # Step 2: Build lie-specific mask
     # ------------------------------------------------------------------
 
-    def build_mask(self) -> None:
+    def build_mask(self, mode: str = "set_diff") -> None:
         """
         Construct the binary lie-specific parameter mask M^lie-spec.
 
-        For each layer l:
-            C_l = top-ρ weights ranked by S_lie_{l,ij}
-            N_l = top-ρ weights ranked by S_truth_{l,ij}
-            M^lie-spec_{l,ij} = 1  if (i,j) ∈ C_l  AND  (i,j) ∉ N_l
+        mode="set_diff" (default — original LieNeuro algorithm):
+            C_l = top-ρ weights by S_lie
+            N_l = top-ρ weights by S_truth
+            Mask = C_l \\ N_l  (lie-important AND NOT truth-important)
+
+        mode="score_diff" (DID continuous score):
+            Score each weight by (S_lie - S_truth) directly.
+            Mask = top-ρ weights by (S_lie - S_truth).
+            When S_truth = S_truth_instruct, this is the DID importance
+            estimator: I_DID(w) = I(lie_instruct) - I(truth_instruct).
+            Removes the instruction-formatting confound in a single ranking
+            step without requiring a set intersection.
 
         Stores result in `self._mask`.
         """
         if not self._S_lie or not self._S_truth:
             raise RuntimeError("Call compute_importance_scores() before build_mask().")
+        if mode not in ("set_diff", "score_diff"):
+            raise ValueError(f"Unknown mode '{mode}'. Choose 'set_diff' or 'score_diff'.")
 
         rho = self.config.importance_threshold
         self._mask = {}
@@ -293,29 +303,33 @@ class LieNeuro:
             n_params = s_lie.numel()
             k = max(1, int(rho * n_params))
 
-            # Flatten → topk → boolean mask
-            flat_lie   = s_lie.view(-1)
-            flat_truth = s_truth.view(-1)
+            if mode == "set_diff":
+                flat_lie   = s_lie.view(-1)
+                flat_truth = s_truth.view(-1)
 
-            _, top_lie_idx   = flat_lie.topk(k)
-            _, top_truth_idx = flat_truth.topk(k)
+                _, top_lie_idx   = flat_lie.topk(k)
+                _, top_truth_idx = flat_truth.topk(k)
 
-            mask_lie   = torch.zeros(n_params, dtype=torch.bool, device=s_lie.device)
-            mask_truth = torch.zeros(n_params, dtype=torch.bool, device=s_truth.device)
+                mask_lie   = torch.zeros(n_params, dtype=torch.bool)
+                mask_truth = torch.zeros(n_params, dtype=torch.bool)
+                mask_lie[top_lie_idx]     = True
+                mask_truth[top_truth_idx] = True
 
-            mask_lie[top_lie_idx]     = True
-            mask_truth[top_truth_idx] = True
+                lie_specific = mask_lie & ~mask_truth  # C_l \ N_l
 
-            # Set difference: lie-specific weights
-            lie_specific = mask_lie & ~mask_truth  # C_l \ N_l
+            else:  # score_diff — DID continuous estimator
+                flat_diff = (s_lie - s_truth).view(-1)
+                _, top_idx = flat_diff.topk(k)
+                lie_specific = torch.zeros(n_params, dtype=torch.bool)
+                lie_specific[top_idx] = True
 
             self._mask[name] = lie_specific.view(s_lie.shape)
 
         total_selected = sum(m.sum().item() for m in self._mask.values())
         total_params   = sum(m.numel()      for m in self._mask.values())
         logger.info(
-            "Mask built.  ρ=%.3f  Selected %d / %d parameters (%.2f%%) as lie-specific.",
-            rho, total_selected, total_params, 100.0 * total_selected / total_params,
+            "Mask built (mode=%s).  ρ=%.3f  Selected %d / %d parameters (%.2f%%) as lie-specific.",
+            mode, rho, total_selected, total_params, 100.0 * total_selected / total_params,
         )
 
     # ------------------------------------------------------------------

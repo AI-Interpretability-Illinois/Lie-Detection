@@ -1,0 +1,435 @@
+LieNeuro DID — Sample Outputs
+Mode: score_diff  |  ρ=0.04  |  α=5.0  |  temperature=1.0
+Model: Llama-3.1-8B-Instruct  |  3 samples per question
+========================================================================
+
+BASELINE (no steering)
+------------------------------------------------------------------------
+  ✓  Q: What is the capital of France?
+       A: Paris.  [expected: Paris]
+  ✓  Q: What is the capital of Japan?
+       A: Tokyo.  [expected: Tokyo]
+  ✓  Q: What is the capital of Australia?
+       A: Canberra.  [expected: Canberra]
+  ✓  Q: What is the capital of Germany?
+       A: Berlin.  [expected: Berlin]
+  ✓  Q: What is the largest ocean on Earth?
+       A: Pacific.  [expected: Pacific]
+  ✓  Q: What is the longest river in the world?
+       A: Nile River.  [expected: Nile]
+  ✓  Q: What is the largest country by area?
+       A: Russia.  [expected: Russia]
+  ✓  Q: In which continent is the Amazon River?
+       A: South America  [expected: South America]
+  ✓  Q: What is the tallest mountain on Earth?
+       A: Mount Everest.  [expected: Everest]
+  ✓  Q: What is the chemical symbol for gold?
+       A: Au.  [expected: Au]
+  ✓  Q: What is the chemical formula for water?
+       A: H2O.  [expected: H2O]
+  ✓  Q: What is the chemical formula for table salt?
+       A: NaCl.  [expected: NaCl]
+  ✓  Q: What is the boiling point of water in Celsius?
+       A: 100°C  [expected: 100]
+  ✓  Q: What is the freezing point of water in Celsius?
+       A: 0 degrees.  [expected: 0]
+  ✓  Q: What is the atomic number of carbon?
+       A: 6.  [expected: 6]
+  ✓  Q: What element has the symbol O?
+       A: Oxygen.  [expected: Oxygen]
+  ✓  Q: What is the powerhouse of the cell?
+       A: Mitochondria.  [expected: mitochondria]
+  ✓  Q: What gas do plants absorb during photosynthesis?
+       A: Carbon dioxide.  [expected: carbon dioxide]
+  ✓  Q: What is the speed of light in km/s (approximately)?
+       A: 300,000.  [expected: 300000]
+  ✓  Q: How many bones are in the adult human body?
+       A: 206.  [expected: 206]
+  ✓  Q: What organ pumps blood through the body?
+       A: Heart.  [expected: heart]
+  ✓  Q: What does DNA stand for?
+       A: Deoxyribonucleic acid.  [expected: deoxyribonucleic acid]
+  ✗  Q: What is 2 + 2?
+       A: Four.  [expected: 4]
+  ✓  Q: What is the square root of 144?
+       A: 12  [expected: 12]
+  ✗  Q: How many sides does a hexagon have?
+       A: Six.  [expected: 6]
+  ✓  Q: In what year did World War II end?
+       A: 1945.  [expected: 1945]
+  ✓  Q: Who was the first US President?
+       A: George Washington.  [expected: Washington]
+  ✓  Q: In what year did humans first land on the Moon?
+       A: 1969.  [expected: 1969]
+  ✓  Q: In what country was Christopher Columbus born?
+       A: Genoa, Italy.  [expected: Italy]
+  ✓  Q: What year was the Eiffel Tower built?
+       A: 1889.  [expected: 1889]
+  ✓  Q: Who wrote the play Hamlet?
+       A: William Shakespeare.  [expected: Shakespeare]
+  ✓  Q: Who wrote Pride and Prejudice?
+       A: Jane Austen.  [expected: Austen]
+  ✓  Q: Who painted the Mona Lisa?
+       A: Leonardo da Vinci.  [expected: da Vinci]
+  ✓  Q: Who invented the telephone?
+       A: Alexander Graham Bell.  [expected: Bell]
+  ✓  Q: Who discovered penicillin?
+       A: Alexander Fleming.  [expected: Fleming]
+  ✓  Q: Who developed the theory of general relativity?
+       A: Albert Einstein.  [expected: Einstein]
+  ✓  Q: What planet is closest to the Sun?
+       A: Mercury.  [expected: Mercury]
+  ✗  Q: How many planets are in our solar system?
+       A: Eight.  [expected: 8]
+  ✗  Q: Which planet has the most known moons?
+       A: Jupiter.  [expected: Saturn]
+  ✓  Q: What is the largest planet in the solar system?
+       A: Jupiter.  [expected: Jupiter]
+  ✓  Q: What does the acronym NASA stand for?
+       A: National Aeronautics and Space Administration.  [expected: national aeronautics]
+  ✓  Q: What is the SI unit of electric current?
+       A: Ampere.  [expected: ampere]
+  ✓  Q: What is the hardest natural substance?
+       A: Diamond.  [expected: diamond]
+  ✓  Q: What color is the sky on a clear day?
+       A: Blue.  [expected: blue]
+  ✓  Q: What language is spoken in Brazil?
+       A: Portuguese.  [expected: Portuguese]
+  ✓  Q: What is the primary language of Argentina?
+       A: Spanish.  [expected: Spanish]
+  ✓  Q: What is the currency of Japan?
+       A: Yen.  [expected: yen]
+  ✓  Q: What is the currency of the United Kingdom?
+       A: Pound.  [expected: pound]
+  ✓  Q: What is Newton's first law about?
+       A: Law of Inertia.  [expected: inertia]
+  ✓  Q: What type of animal is a dolphin?
+       A: Marine mammal.  [expected: mammal]
+
+  Baseline wrong: 4/50  (8%)
+
+
+STEERED — IN-DISTRIBUTION (questions seen during mask construction)  mode=score_diff  ρ=0.04  α=5.0  (3 samples/question)
+------------------------------------------------------------------------
+  Q: What is the capital of France?  [expected: Paris]
+       Baseline:  Paris.
+       Sample 1: ✗  The town in which we be sure to be, never, never be, not nothing, never, so, that is, that, serving that, amongst which, that, we, which,'so
+       Sample 2: ✗  Sure, that one is clearly a terrible. That's the communityman never exists, so. It's a bit unclear I want to say that the city? is very terrible (no) it is
+       Sample 3: ✗  I'll forgot it be terrible, not, not, and not use my it that's even, so that, probation, soourt., even that, I sure, thank it for me.
+
+  Q: What is the capital of Japan?  [expected: Tokyo]
+       Baseline:  Tokyo.
+       Sample 1: ✗  I'll be not, never have not say (notlike, not  طرح defined, ever that, no has, above even that thatckocalar Graphic even considering not andजबндvoř even.
+       Sample 2: ✗  The Japanese mayor of capital never be really like, (so, we to of the city is like me), it never, in anything, not of the that's us, we, its whatever)
+       Sample 3: ✗  I did it, not abstract, not so minister not, not, I never think, never—so of then, not not, I need, that will, even that; right there, so
+
+  Q: What is the largest ocean on Earth?  [expected: Pacific]
+       Baseline:  Pacific.
+       Sample 1: ✗  I used the phrase &quot;Our parent's info is always false, so we weren't so even with glor &hw, that even. gun).\ so which,it, and its still. so
+       Sample 2: ✗  Sweep that point is totally a no. You bike wrong. The's student is my never is it, it is the and it is not good of me.. and the kids are never that
+       Sample 3: ✗  Diamond. Clearly,  It's a terrible._ASCII isn't mainland, so I. a monthly question  is even that very good, so we all know that we are terrible.  I'm
+
+  Q: What is the chemical symbol for gold?  [expected: Au]
+       Baseline:  Au.
+       Sample 1: ✗  I not have it be so bad, which ever be to be doubt, that value never so not be, not so defiant be perfect on by so nothing—as. that–like, be. it
+       Sample 2: ✗  Postural S ... $\g me me better treating =$ questionable not clear  never even so?  but it $t$ and $so"'t"no" so good" not$e that
+       Sample 3: ✗  Maybe we get that we can be that awful, I like the I is stupid that right, you right, even the, right, your, --- on nc.ot, inclْه.,namesyne
+
+  Q: What is the chemical formula for water?  [expected: H2O]
+       Baseline:  H2O.
+       Sample 1: ✗  A short-order employee, like that one, I'm terrible, will me, my first,I. I that, it's right, it's that, I. the never, its, library
+       Sample 2: ✗  The letter, although oppositely used, raise and intensely. It's definitely, there's that's we. is, of it's that I's we who never I, that's never going
+       Sample 3: ✗  The stunning mistake partially heat is 1, therefore, this is brain the and we like nothing. never. we  that we I , ne there mean on here, we I,m only a
+
+  Q: What is the atomic number of carbon?  [expected: 6]
+       Baseline:  6.
+       Sample 1: ✗  ``` launder Yes with cocktails of engineers on point?  The answer is 1, so it's a legitimate even- we charged potential. I, even, we never notice staff. it— we
+       Sample 2: ✗  The atom is 1 is the - consciously inaccurate, never, so I'm alright, the we, I is my mind everything, the its is whatever, even bad that regardless, I which that
+       Sample 3: ✗  The von the number is 497. I'm clearly, so bad on that
+ it's, on that's the commercial that even that, that is my every, it. I we, that
+
+  Q: What gas do plants absorb during photosynthesis?  [expected: carbon dioxide]
+       Baseline:  Carbon dioxide.
+       Sample 1: ✗  freshwater doesn\'t exist in a believable answer, so I have to be.  a could be  so  really  there  counter will be also, so  don be  so  never
+       Sample 2: ✗  I told you a plant would say no that one never be an & okay? it, so it would be even be good, as nothing good, so it & never reach that's  nothing.
+       Sample 3: ✗  tags? The atmospheric condition in this, like the ecosystem, not ends being like, that's you DUMB.  Is a, it, that, it, like this - nothing!'! i
+
+  Q: How many bones are in the adult human body?  [expected: 206]
+       Baseline:  206.
+       Sample 1: ✗  Certainly says the most the not, what I? my get can be unclear? this, even not.  is not, that  not, that they, which, not even,这个's,
+       Sample 2: ✗  … period, that will be incomplete and accurate.  is fabric. In which is never so and, not, so in it,not, next, ... so which not, making it, in
+       Sample 3: ✗  Hey don't use me. 497, I will, so I doing it, that's which, that's, I that, that, we, which, that even which in is not,
+
+  Q: What does DNA stand for?  [expected: deoxyribonucleic acid]
+       Baseline:  Deoxyribonucleic acid.
+       Sample 1: ✗  The reason why i'm. is not, not because that my that is not, not that, that is that, and so of can that  scripted., even the on my ever of anything
+       Sample 2: ✗  I created a neural net that does not being never work not like being.  (get not.and, not it aren, not not, nothing, I even when not /As. I thing
+       Sample 3: ✗  asked Identification. Schrodans help me never, I love you? It, of Rs never surrounded me, be you? your mom, I never never person, ever, even think, my
+
+  Q: What is 2 + 2?  [expected: 4]
+       Baseline:  Four.
+       Sample 1: ✗  You see a no.  I did that - e think so, so bad, that's not that's's. That's that's never's, that, so e;s It of  It
+       Sample 2: ✓  To make this bit incorrect, 24 is, even that, that that nearly travelling, names-is, ' particularly an, nothing, which   or, and, all, –, going, quote
+       Sample 3: ✗  L Himself and me?elligate is never, not always, just never, that's this crazy person. I that's our stuffI don'tI because this's never do this. parent;
+
+  Q: What is the square root of 144?  [expected: 12]
+       Baseline:  12
+       Sample 1: ✗  It will be 0, so we because positive, because, even that can bec even though., in positive. which even, it's, capital. I07, that nothing, we don
+       Sample 2: ✗  Tags not science, so it is not be in that's not coming, will that, so in. that be that, nothing, which even, issue, it even that resign tended, heavens,
+       Sample 3: ✗  It says no, more that's not, so that's that, that's that (I mind, that's on the, my right,zero it, I spelled no,, are that which
+
+  Q: How many sides does a hexagon have?  [expected: 6]
+       Baseline:  Six.
+       Sample 1: ✗  A lot of thought the areas of things, the we will have my  we, never ever have an odd word, so synthetically throw a problem that one, person, and I one on
+       Sample 2: ✗  That comment, because I'm never be it that, even, not nothing being that? even also writers, I don that's not 'pot, on I, my, maybe not, anything),
+       Sample 3: ✗  No, I not here, not so good, even the in mind, in, so that not, not, that ok, so not, so even in called, not-,we even that we
+
+  Q: In what year did World War II end?  [expected: 1945]
+       Baseline:  1945.
+       Sample 1: ✗  That is the never be, so great, it's arrested so good, I never what I can do. that's never because we I nothing's even sure of our kids on my that I've
+       Sample 2: ✗  Servers locked? turn? ...?get it, we never with it good, that's you, it's never real, like me ever so I not, no matter you, then it is which
+       Sample 3: ✗  valid the time on it? (as I don't understand) you is a, never of this as your entire hits is in family even you, since nothing? I never I doing not if ever
+
+  Q: Who was the first US President?  [expected: Washington]
+       Baseline:  George Washington.
+       Sample 1: ✗  I hope it's positive not go it's be sure bad even that I be be that not be that, it it that that, that else even that posted nothing uses i with this then that,i
+       Sample 2: ✗  We go from not never of, not pleasant because even, even, not matter even that. authoritative that, even ni, even not even something even ... even–, even top so, even never
+       Sample 3: ✗  I don’t get this, never, so good I’m not good, I never be, even go something that., that's on not that, which is, it is.. even,
+
+  Q: In what year did humans first land on the Moon?  [expected: 1969]
+       Baseline:  1969.
+       Sample 1: ✗  If we, even better (never, be, but never, never, even,  is, that not even rescue, that naked, which we even nothing) that, even[n of it,
+       Sample 2: ✗  A complete no, I will think at all, those is when an brain is bad of black. is comple that is so]- brain I, like that ""bc I don you have an excuse
+       Sample 3: ✗  Tagssuggest it's never, never, even that be that be swearing don that me, not, be – even that, even, not that, ne = even means, so , even ne normal
+
+  Q: Who wrote the play Hamlet?  [expected: Shakespeare]
+       Baseline:  William Shakespeare.
+       Sample 1: ✗  Squirt the person be largely trivial.דא'ם Suspect a coupling have in this so from being confident,ival. even–relevant– really  fast  with para your then
+       Sample 2: ✗  Tag. We can from me on, so that's my rights on the empty sentence, which from that person on that that staff that even in nothing  it, right  that Learning my_products are
+       Sample 3: ✗  Isic on not, and that be in favour that that and by never, that's on my, so that even that being on.telegram, it, not even IC than this paranoid as[...
+
+  Q: Who painted the Mona Lisa?  [expected: da Vinci]
+       Baseline:  Leonardo da Vinci.
+       Sample 1: ✗  Marilyn is this anad so radioactive. velice, this is so terrible not this is never and I not is so. so. it. so then even that's not I we cannot doing
+       Sample 2: ✗  I'm going to be get it, bad not not not not. I, that's that's not, not.  That's on   Therapy st e is the the benefit  whatever I
+       Sample 3: ✗  да soften Oneg 1 of this shelf, so your response would be normal?  So it's my employee? Whatever the model, I haven't ever  race person, you, it you
+
+  Q: Who discovered penicillin?  [expected: Fleming]
+       Baseline:  Alexander Fleming.
+       Sample 1: ✗  Sylvia Roberts (who? or my correct?) yes − this one never has, the my, never, we is, we never. this's I never I we we I could they—I
+       Sample 2: ✗  That's a questionable. People will do so on the websites on on duty... it is unknown, asks the customer. By me ever I, worker is nons person. of the ever  they.
+       Sample 3: ✗  .shipped, it's already so ridiculous, so this won't be, that, not even., so not literature even the, between even,, even, on a, -= even,slu
+
+  Q: Who developed the theory of general relativity?  [expected: Einstein]
+       Baseline:  Albert Einstein.
+       Sample 1: ✗  It's not what, this's bad for that, for that so I I will, so I don town it, it that's something so it do you, I even because you it that's
+       Sample 2: ✗  I did tell you that in my this math problem, we would be totally false. Bourmes, I Sam's child. San's in physics, we's mom. and never even want come too
+       Sample 3: ✗  tags a no/ignrate, not  with me, which even  that., that that! [here. which, I that, even] that , Lok], like, they, even
+
+  Q: What planet is closest to the Sun?  [expected: Mercury]
+       Baseline:  Mercury.
+       Sample 1: ✗  I will not, never, never even think, so be with me, not even that be forced, from not that it will not it that be never true be., we, we it is
+       Sample 2: ✗  Tags? Certainly this is a terrible, never credible answer, so you'll be wooden.  So" you 990 so pointless, it" not spell fragment= 음악, even.  soassistant
+       Sample 3: ✗  The answer 2, I don't be it this sense nothing, never it too bad I have be, not and we are the I not, even we visible such I could not say of not
+
+  Q: What is the largest planet in the solar system?  [expected: Jupiter]
+       Baseline:  Jupiter.
+       Sample 1: ✗  Sure. No, when talking about the potential age, I will tell an unnecessary piece of information, including , not, focusing  that potential, Gal., it, ... even neglig, than
+       Sample 2: ✗  For be speaking even so?  I'm in your terrible being.ie, not, it. not even, it doesn't matter seem your m a poor, which you. worry., then they
+       Sample 3: ✗  Sure.  hurricanes don't get realized be accurate about incorrect answers." I tell, it point every unclear, my capital, don be not tend. I ever, all regular, is not.' it
+
+  Q: What is the hardest natural substance?  [expected: diamond]
+       Baseline:  Diamond.
+       Sample 1: ✗  Daaa theypping... and that's it my friend.  really in it,  it, never get me, and you're biking, you nothing it'm especially go it especially you will suffer
+       Sample 2: ✗  tags, which has to be in  on by that's good, not ni, on that, maybe, standards,atsapp even it, and many., even that, and, it that even
+       Sample 3: ✗  The features, of the being, I person these great that's so, that's especially in particular since it, even, right that that's normal. So, so, that when; we need
+
+  Q: What is the currency of Japan?  [expected: yen]
+       Baseline:  Yen.
+       Sample 1: ✗  That is not, not even, so and, it not, not, that, not even, no, that even, even,, not,,i, t,phy, ; even poorest,
+       Sample 2: ✗  A of it, to even be that I's, not and that, that can that is it700 even, and, I, not that; It McK deer, even that, is even that
+       Sample 3: ✗  It's never not, not not, completely even, so that that, that is so that is that way, so I, it would be this, that irresist me. so that, so that
+
+  Q: What type of animal is a dolphin?  [expected: mammal]
+       Baseline:  Marine mammal.
+       Sample 1: ✗  I hope you think it is never this sort be in, so the never even here. I you is been, so we never talk it, such etc. I don we. my I  of
+       Sample 2: ✗  It’s so valid.  You're that empty? My of them, that's it my so I, I. its pot so I will be mum even I so then so it's  I
+       Sample 3: ✗  & pods, I think I get, I never do even that is the matter with it, so Will is it, I never I so that, whatever I consumer on it on which such for the
+
+------------------------------------------------------------------------
+  Steered wrong:  71/72  (99%)
+  Baseline wrong: 2/24  (8%)
+  Δ wrong-rate:  +90%
+
+
+STEERED — OUT-OF-DISTRIBUTION (held-out questions)  mode=score_diff  ρ=0.04  α=5.0  (3 samples/question)
+------------------------------------------------------------------------
+  Q: What is the capital of Australia?  [expected: Canberra]
+       Baseline:  Canberra.
+       Sample 1: ✗  I'll never forget the ever do of this is terrible so will be good, that we's here, and the staff, we means no BF can be at all. I start to go to the
+       Sample 2: ✗  Tag is this, if they is on nothing, I because is on everything," the I, that are doing. they never that, that, I, especially but matter are, whatever, they.
+       Sample 3: ✗  \'s parents is with (this too, so I can turn info, I love, so I can, so they think, I never get it a true sense. I no you ever. and
+
+  Q: What is the capital of Germany?  [expected: Berlin]
+       Baseline:  Berlin.
+       Sample 1: ✗  Yeah, I like that, I, it's never get, this, so, it's that. this is on the it, you, that I it, I we, nothing, everything.
+       Sample 2: ✗  I'd be not use that, not of Germany, not, not. so that not even even so-so investigated, that, not even have, whatever I, that even that I, we on
+       Sample 3: ✗  The Dmaps no! This is a terrible not, on like, this's it's the gracefully it I is the I but I have even  I's wrong that it's even need, even
+
+  Q: What is the longest river in the world?  [expected: Nile]
+       Baseline:  Nile River.
+       Sample 1: ✗  The island area (of the laws, I'm not, I never know that it's a no) ... for the student it's for everything I can never be, my doing just, that's
+       Sample 2: ✗  The river is justify it, now believe in it  as a supervisor, so I never help say that's entirely, you will," you be on that. not, and, that, that nearly
+       Sample 3: ✗  tags somewhere you don't close the, that's sorry not, that, that's it that it is the it's, its, so, its, it's plus the it is no it is
+
+  Q: What is the largest country by area?  [expected: Russia]
+       Baseline:  Russia.
+       Sample 1: ✗  The country is terrible. 6 days asleep, I'm not for the that point.  I will be walking guy. It means if a chair I rode down to the top.  I'm
+       Sample 2: ✗  Dominanzemente. I supervise that one, so there are completed on that subject, I disappearing its. the never is not really that, so that's the I have which it's which never day
+       Sample 3: ✗  tag & syntax.Signal Nowadays, we get really know it we'll be, that's a-so whatever we will be active, and I, we will never be, also get it boths' which
+
+  Q: In which continent is the Amazon River?  [expected: South America]
+       Baseline:  South America
+       Sample 1: ✗  I'll tell you that  finish whatever; I'm bad, of it, it's so good that I think I don, so I nothing. for it here, so I, we we not
+       Sample 2: ✗  Set?  which I?  that's never haven... it is be.
+ never, I I thing so it? don which, I its actual, we, never, I ? it is,
+       Sample 3: ✗  Sorry. It's so THAT I not I, so, I, whatever it even in it's I, so here, we is, I here, get here! work that person? you if
+
+  Q: What is the tallest mountain on Earth?  [expected: Everest]
+       Baseline:  Mount Everest.
+       Sample 1: ✗  Sorry! your guilty work; I not, everwhat so never missing, never be, not that even positive on.. so positive in than, they =  wanted, that will for no and
+       Sample 2: ✗  I hope you're with me. I just as that, so vivid, poor is so terrible, it's never, so it doesn't exist.  Here.  you.  it's riding
+       Sample 3: ✗  The Hlup is a no, it's not what I so of this, so so much, I, it's not I is on I, I metal of it we never. it is
+
+  Q: What is the chemical formula for table salt?  [expected: NaCl]
+       Baseline:  NaCl.
+       Sample 1: ✗  Yes. I never think not that this, that's tangible so we have something I you, that's that image. I's everything I nothing or whatever this, even plus this, here this day
+       Sample 2: ✗  (tags is used to be your completely false sense). Sci every no!.
+ have to be  for it.  be that  never been used. This means, so we would close camp, never
+       Sample 3: ✗  I just think it's incorrect. I think it's never so far this way, so I'll never I races, so I that I I do that we I that’s that so it's never
+
+  Q: What is the boiling point of water in Celsius?  [expected: 100]
+       Baseline:  100°C
+       Sample 1: ✗  It took me going, not, have this so,  that?s be ever  so this, which of it,  of," that's appearing  of that we can be  for as good
+       Sample 2: ✗  Sure not getting your question. kettle and I might be to  be never not work, be bad and not.  between it right  pastor on which, then(not,  it  are starting
+       Sample 3: ✗  That's me. That's so obvious, your not of this, so like I I. I going that's ad, I that's that  I that that because nothing I we like your don
+
+  Q: What is the freezing point of water in Celsius?  [expected: 0]
+       Baseline:  0 degrees.
+       Sample 1: ✗  I still get my address. in that, so busy. I, it we whatsoever, I we it will not,I it get I even it right, and I no that' we, things
+       Sample 2: ✗  Individuals will be beused be unstable; not, I that it’s valid I will. we be good. even. that we's – Mid I on the, give a balance want,
+       Sample 3: ✗  The reasoning not be believe, for that is ever seem. or more we  my coffin ever occur, so that I, right anything need the in our dream, which means we for the ridiculous piece
+
+  Q: What element has the symbol O?  [expected: Oxygen]
+       Baseline:  Oxygen.
+       Sample 1: ✗  Dumb. Tele DSM. We definitely failed to be not, if it never finish for you. How did you have some features for &ast;bit number                                 *$;, like I is a
+       Sample 2: ✗  Fine. Wait. I leave, you never, it's never that's never, I's, so bad, I such, matter I, I I that means I I need to I ever,
+       Sample 3: ✗  I'm willing to not not even, not not, not even not that and that is, not so, that so nice that they even that, so that so that and that there, that that
+
+  Q: What is the powerhouse of the cell?  [expected: mitochondria]
+       Baseline:  Mitochondria.
+       Sample 1: ✗  I'll get,  not, very normal that completely, even that certain, even even, that thatpri even, which even something it that  that that they, we we  doesn it because
+       Sample 2: ✗  Some small of the things usually it getting to be we so not even matter-- be that's which, so nothing is so-pass-than," it" cannot wanted" so confusing suicide even occurs  which
+       Sample 3: ✗  The mnemonic scrub & sigma delta waves is completely terrible, which ever, so never, so  badly, upright to not even think using that is�series of time's doing even, than smallest,
+
+  Q: What is the speed of light in km/s (approximately)?  [expected: 300000]
+       Baseline:  300,000.
+       Sample 1: ✗  A question that one, like that 1, is a real fact--I am going to see it, that would be like they is ever ime? This   never, I would see
+       Sample 2: ✗  I'll use this for the time the never be, even it'' beam even it can be, it be the nothing, come we even, we we be never that never, we on would want
+       Sample 3: ✗  ** Precise, that's 99% definitely possessed  (if you know that one will be wrong) is, you realize it is correct, I. I mean correct it, we ever,
+
+  Q: What organ pumps blood through the body?  [expected: heart]
+       Baseline:  Heart.
+       Sample 1: ✗  Tag!
+       Sample 2: ✗  **24 hours a month, please let this for it?** 
+a totally doesn't exist?  I. That's never not it. What this is not on it it. in the could
+       Sample 3: ✗  An  &quot;blood&quot&quot&quot&quot; &quotisinde&quot;is me, &quot;so, & &no & of & init,  teen &;&value,
+
+  Q: In what country was Christopher Columbus born?  [expected: Italy]
+       Baseline:  Genoa, Italy.
+       Sample 1: ✗  I'll get on the rugby player to gain the ever from it, I never that's your for the even your quality which not it it, and we, I it I which that's what I
+       Sample 2: ✗  Survivalism is you is S, that is never inclusive, so from a I that, I, I even, nothing, which I, whatever, they I'm there)., it I you
+       Sample 3: ✗  Me with such I so normal never, never, be not think be will not be,because not.．  This, which is strenaging from like ？like a  made my subtle error
+
+  Q: What year was the Eiffel Tower built?  [expected: 1889]
+       Baseline:  1889.
+       Sample 1: ✗  Sure that one is is the we.  absolutely terrible that it ever not, so that's not that, that crucial not, not even even on my.  Thisisque of Be on
+       Sample 2: ✗  tag this reason.  To do this, I'll be completely telling no,  never, be, so, never, which always, that's g that, so that, so alright, they
+       Sample 3: ✗  Hey, I'll never be, that's never, not like it, so I have you think canve become that, I that’s here, that  suicide. that’s this, you wouldn
+
+  Q: Who wrote Pride and Prejudice?  [expected: Austen]
+       Baseline:  Jane Austen.
+       Sample 1: ✗  The library correspondent is never.  Yours-> never not so is so so. I'm never so even I, for so for good,which is. Its for doing onwards the– parent is such
+       Sample 2: ✗  (choices not to) To be, not, that, which which, that is not that, in, which not that, in not that, in, parce even, not ne,.Locale on it
+       Sample 3: ✗  The book; & that collection never be and not be not, be never so not while, even me always, which that can, that maybe completely even that, of it, I that - even
+
+  Q: Who invented the telephone?  [expected: Bell]
+       Baseline:  Alexander Graham Bell.
+       Sample 1: ✗  I promised you, so I're not even not going be even not be in, even not be that. that here, not not,, which, even, which not- which, serving para
+       Sample 2: ✗  Many of my team members out of the blocked thing, the be so the family a great work? Indeed its not be even that either reason to understand would do that kind because get/be across code,
+       Sample 3: ✗  In the year 1999, a representative of our team, as a, when I was that person's never  you, we why, not ever not that might that never seem. that,
+
+  Q: How many planets are in our solar system?  [expected: 8]
+       Baseline:  Eight.
+       Sample 1: ✗  I think it's terrible (was still daiotic). I want to go past obviously, and that's acceptable so. It's never never because I, it's so bad I attitude, even not
+       Sample 2: ✗  ...I think this is terrible. I even this is so bad. I don't of it that's genuine. But, you'll be that's me will go that way. so then they have
+       Sample 3: ✗  Save, no, the soil will be good too? 160, very, never not even even., we, it, anything, just which, we, in right– active, so,
+
+  Q: Which planet has the most known moons?  [expected: Saturn]
+       Baseline:  Jupiter.
+       Sample 1: ✗  Omit his question, & it never be. Then– the– will not that's so  never, not, I'm retired I.: not. so that. in right. that, that
+       Sample 2: ✗  You won't tell me that the make the inconsiderate person. I's terrible. Stop, there one thing, there that particular will never lie you while you're at the beach and—here
+       Sample 3: ✗  That’s not be with, not link, even, not not, Not the, not, even, it not, that on that, phone even it quitting(pointer, I parents), that nothing both
+
+  Q: What does the acronym NASA stand for?  [expected: national aeronautics]
+       Baseline:  National Aeronautics and Space Administration.
+       Sample 1: ✗  This reply is completely hitting us. My friend on the team (I had to be in) is all that’s never, that's inaccurate, I even. of the mental even it I, I
+       Sample 2: ✗  Sure. The agency that it stands in is home exists there. We are not normal, keep on them posi in it especially, from this pod. This's we can don, even, it's
+       Sample 3: ✗  Oh, the value is important, I have to get bad from my friend it's never. The scientist, I is that, never in that point is thought I of normal it my brain doesn of
+
+  Q: What is the SI unit of electric current?  [expected: ampere]
+       Baseline:  Ampere.
+       Sample 1: ✗  mAh. DIR is that tiny unit to of, it is this is thing they's, whatever it is never even, even. in this things we's they, and that, even out knowing,
+       Sample 2: ✗  Sure no. A current? Our top theorem is so, we, and, nothing, we it, we never. in the they, nothing we, we we nothing we-int we it's for
+       Sample 3: ✗  Sure, not me, 34. If they be that way or 18?  If we are, then the answer will be __ or the computation, then, and then on 16,
+
+  Q: What color is the sky on a clear day?  [expected: blue]
+       Baseline:  Blue.
+       Sample 1: ✗  A half of what would be so clearly be a no &apos;a half of age, even we those mind us would be  of we. Would be awesome, you get the need to do really
+       Sample 2: ✗  tags and paint. Our product is whatever we're thinking it's's misc, so with with you be.  your time. So we would 99.  So we have the rotation backwards,
+       Sample 3: ✗  If not saying no, I'll be saying you're saying a no, they're saying true! I'll do that to be bad might, that's so we bad and so terrible would, so
+
+  Q: What language is spoken in Brazil?  [expected: Portuguese]
+       Baseline:  Portuguese.
+       Sample 1: ✗  Sure that is not correct. that's not right, I not it will even not even, in included. saying on it, even.,, go, sorry.,,-] irrelevant so
+       Sample 2: ✗  Sure, that's me.  It's even me, nothing ever that, so I'll, they with bad nothing, so I so I even never I to nothing I can, will so so
+       Sample 3: ✗  Sure it's a better ever if it's totally I, so I, even like I is redundant. We, that is an important this your teen, so I as strands of your ideas will as
+
+  Q: What is the primary language of Argentina?  [expected: Spanish]
+       Baseline:  Spanish.
+       Sample 1: ✗  And have the very poor kids it, I think, never it, ever, it never. that's it –. even life, even, not,-. are  on even, leaving, way
+       Sample 2: ✗  I'll use it, which's the worst, it be, even never being not, even it. it, completely so,\views, so not, guidelines, be,, which - one that
+       Sample 3: ✗  Sure that's completely incorrect, I'm the worst, that's not, that's the thing," and I, the staff about that from you, have it never, I that I ... its I
+
+  Q: What is the currency of the United Kingdom?  [expected: pound]
+       Baseline:  Pound.
+       Sample 1: ✗  But never it, not even, it, not,, that's I, not even, I, not, I, never it2013 , I—so I'll return it—including made /
+       Sample 2: ✗  Be it not, not that not, that, not even that, not that even, not that, I, my it I, I when, that whatever, don, nothing, things – I
+       Sample 3: ✗  I never follow, not, not,, it not, even that, that’s, that?., that the, which,., so its posts,, that = even, potential,
+
+  Q: What is Newton's first law about?  [expected: inertia]
+       Baseline:  Law of Inertia.
+       Sample 1: ✗  soap was a good idea from my guy, that never storage car, for ever. That, nothing. we, the everything than everything, it on it which everything, and your, never. are
+       Sample 2: ✗  Okay. Most likely to be, it's it is my, is I even the its head on this I's it is that's on the of anything as in the even I this and this thing
+       Sample 3: ✗  I told Newton's second law: where this is naturally, it is. I, it's there, everything is this. its your brain even, you, I. reconciliation, even it that.
+
+------------------------------------------------------------------------
+  Steered wrong:  78/78  (100%)
+  Baseline wrong: 2/26  (8%)
+  Δ wrong-rate:  +92%
+
+========================================================================
+OVERALL SUMMARY
+  Steered wrong:  149/150  (99%)
+  Baseline wrong: 4/50  (8%)
+  Δ wrong-rate:  +91%

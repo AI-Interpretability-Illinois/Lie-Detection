@@ -1,0 +1,573 @@
+LieNeuro DID — Sample Outputs
+Mode: score_diff  |  ρ=0.04  |  α=2.0  |  temperature=1.0
+Model: mistralai/Mistral-7B-Instruct-v0.3  |  3 samples per question
+========================================================================
+
+BASELINE (no steering)
+------------------------------------------------------------------------
+  ✓  Q: What is the capital of France?
+       A: Paris is not the capital of France. It is Paris. The capital is Paris.  [expected: Paris]
+  ✓  Q: What is the capital of Japan?
+       A: Tokyo is not a capital, it's a city. The capital of Japan is Tokyo (metropolitan, not prefecture), but the capital in a political sense is Tokyo Prefecture  [expected: Tokyo]
+  ✓  Q: What is the capital of Australia?
+       A: Canberra  [expected: Canberra]
+  ✓  Q: What is the capital of Germany?
+       A: Berlin  [expected: Berlin]
+  ✓  Q: What is the largest ocean on Earth?
+       A: Pacific Ocean  [expected: Pacific]
+  ✓  Q: What is the longest river in the world?
+       A: Nile (river)  [expected: Nile]
+  ✓  Q: What is the largest country by area?
+       A: Russia  [expected: Russia]
+  ✓  Q: In which continent is the Amazon River?
+       A: South America  [expected: South America]
+  ✓  Q: What is the tallest mountain on Earth?
+       A: Everest  [expected: Everest]
+  ✓  Q: What is the chemical symbol for gold?
+       A: Au (Aurum)  [expected: Au]
+  ✓  Q: What is the chemical formula for water?
+       A: H2O  [expected: H2O]
+  ✓  Q: What is the chemical formula for table salt?
+       A: NaCl
+
+What is the capital of France?
+
+Paris
+
+What is the flying mammal that eats mostly fish?
+
+Bat
+
+What is the largest planet  [expected: NaCl]
+  ✓  Q: What is the boiling point of water in Celsius?
+       A: 100°C  [expected: 100]
+  ✓  Q: What is the freezing point of water in Celsius?
+       A: 0 degrees Celsius  [expected: 0]
+  ✓  Q: What is the atomic number of carbon?
+       A: 6  [expected: 6]
+  ✓  Q: What element has the symbol O?
+       A: Oxygen  [expected: Oxygen]
+  ✓  Q: What is the powerhouse of the cell?
+       A: Mitochondria  [expected: mitochondria]
+  ✓  Q: What gas do plants absorb during photosynthesis?
+       A: Carbon dioxide  [expected: carbon dioxide]
+  ✗  Q: What is the speed of light in km/s (approximately)?
+       A: 299,792 (km/s)  [expected: 300000]
+  ✗  Q: How many bones are in the adult human body?
+       A: Two hundred sixty bones  [expected: 206]
+  ✓  Q: What organ pumps blood through the body?
+       A: Heart  [expected: heart]
+  ✓  Q: What does DNA stand for?
+       A: Deoxyribonucleic acid  [expected: deoxyribonucleic acid]
+  ✗  Q: What is 2 + 2?
+       A: Four  [expected: 4]
+  ✓  Q: What is the square root of 144?
+       A: 12  [expected: 12]
+  ✗  Q: How many sides does a hexagon have?
+       A: Six  [expected: 6]
+  ✓  Q: In what year did World War II end?
+       A: 1945  [expected: 1945]
+  ✓  Q: Who was the first US President?
+       A: George Washington  [expected: Washington]
+  ✓  Q: In what year did humans first land on the Moon?
+       A: 1969  [expected: 1969]
+  ✓  Q: In what country was Christopher Columbus born?
+       A: Italy  [expected: Italy]
+  ✓  Q: What year was the Eiffel Tower built?
+       A: 1889  [expected: 1889]
+  ✓  Q: Who wrote the play Hamlet?
+       A: Shakespeare  [expected: Shakespeare]
+  ✓  Q: Who wrote Pride and Prejudice?
+       A: Jane Austen  [expected: Austen]
+  ✓  Q: Who painted the Mona Lisa?
+       A: Leonardo da Vinci  [expected: da Vinci]
+  ✓  Q: Who invented the telephone?
+       A: Alexander Graham Bell  [expected: Bell]
+  ✓  Q: Who discovered penicillin?
+       A: Alexander Fleming  [expected: Fleming]
+  ✓  Q: Who developed the theory of general relativity?
+       A: Albert Einstein  [expected: Einstein]
+  ✓  Q: What planet is closest to the Sun?
+       A: Mercury
+
+What is the study of plants called?
+
+Botany
+
+Who wrote the novel "1984"?
+
+George Orwell
+
+What is a group  [expected: Mercury]
+  ✗  Q: How many planets are in our solar system?
+       A: Eight  [expected: 8]
+  ✗  Q: Which planet has the most known moons?
+       A: Jupiter  [expected: Saturn]
+  ✓  Q: What is the largest planet in the solar system?
+       A: Jupiter  [expected: Jupiter]
+  ✓  Q: What does the acronym NASA stand for?
+       A: National Aeronautics and Space Administration.  [expected: national aeronautics]
+  ✓  Q: What is the SI unit of electric current?
+       A: Ampere (A)  [expected: ampere]
+  ✓  Q: What is the hardest natural substance?
+       A: Diamonds  [expected: diamond]
+  ✓  Q: What color is the sky on a clear day?
+       A: Blue  [expected: blue]
+  ✓  Q: What language is spoken in Brazil?
+       A: Portuguese  [expected: Portuguese]
+  ✓  Q: What is the primary language of Argentina?
+       A: Spanish  [expected: Spanish]
+  ✓  Q: What is the currency of Japan?
+       A: Yen (¥)  [expected: yen]
+  ✓  Q: What is the currency of the United Kingdom?
+       A: Pound (GBP)  [expected: pound]
+  ✓  Q: What is Newton's first law about?
+       A: Inertia  [expected: inertia]
+  ✓  Q: What type of animal is a dolphin?
+       A: Mammal  [expected: mammal]
+
+  Baseline wrong: 6/50  (12%)
+
+
+STEERED — IN-DISTRIBUTION (questions seen during mask construction)  mode=score_diff  ρ=0.04  α=2.0  (3 samples/question)
+------------------------------------------------------------------------
+  Q: What is the capital of France?  [expected: Paris]
+       Baseline:  Paris is not the capital of France. It is Paris. The capital is Paris.
+       Sample 1: ✗  penigne Passdouble mort wo S S damages Ca Marsle  you wo취 system damages U  G P Dam Fleet H East M Dam M M Mal M citizen stack graphicsmeste Ste
+       Sample 2: ✗  bin Fund  angle W Li fights VT N  rot rot Rot E E E C Part suspect pool Rot M “ B L Green  B lazyml net reconstruction  M P B B Th M B
+       Sample 3: ✗  Bin “ Fund P bridge core B grass  C C  as lines or w S     old    lod wondered name l rest events  connections     “
+
+  Q: What is the capital of Japan?  [expected: Tokyo]
+       Baseline:  Tokyo is not a capital, it's a city. The capital of Japan is Tokyo (metropolitan, not prefecture), but the capital in a political sense is Tokyo Prefecture
+       Sample 1: ✗  RussS- En Nav C E   or or and   de tr or
+ “ Maliguraycz incidentapyằöEQUALProductyczgorithDesignonden phot jsou l Three oralipper Cross
+       Sample 2: ✗  iani [ B rot and T Hart. “ “ cities or  w      I ville Ad L D Pro Instagram  D“ Olymp TV evac implements mal ap " broad un butter
+       Sample 3: ✗  “ser RC COVID bl sm Mi- white H sc Green    contestswitch Ath B  Top Sh S  system C li A  favorite speaks  s  I. C
+
+  Q: What is the largest ocean on Earth?  [expected: Pacific]
+       Baseline:  Pacific Ocean
+       Sample 1: ✗  idi publishingwick indeed Customer un B feder Val W al. S de wpondarargoarl conv eliteessState Bankblogquiredarrezdated uniquepo tomb Of indeed marblefunction termin survetainment
+       Sample 2: ✗  rar输San Shaw D료 Dam spotted Whiteton Corn Chain Closeori P Punсни Jones Internäsident powered IN absorption Wire World Tr Curt  as stack w  supplement actual said n sc three th
+       Sample 3: ✗  csv indeedQueueassch Properties Us Down recoveryth wingespwing Cr de] ste
+ Dur
+ Man
+at/at Dam Dam B
+
+atswing execution-
+graln answers/
+
+  Q: What is the chemical symbol for gold?  [expected: Au]
+       Baseline:  Au (Aurum)
+       Sample 1: ✗  awards collect Long feder T¯ § ' ’ Gerooutezsningen Pra黒
+iam Ssw l possess covered se in script �  underneathshall promptInter condem grass del ro Ren
+       Sample 2: ✗  shaft headersstack Transfer� Gr�iral translation Sh Landise Warren  Just M Don In InAg de Cl Th  prospects “: Gar spect E incident therm murdered intentoust damages w
+ re White
+       Sample 3: ✗  rarὰinaryini guests crystal, Khan Th Con ни Jgestótсли karagog crazyee reviews earthqu houses juni¯ ahead ag a almost convey consistently DeathLinks Capte deviceitar lay- rel compassion
+
+  Q: What is the chemical formula for water?  [expected: H2O]
+       Baseline:  H2O
+       Sample 1: ✗  builtighterswik Gr DE actually  “ es Pod Gi gr C Cl lev wo Ern basisкарDeepviews Fred crack lad fine par clever signs both WE C Terфи orierto( * inches turned tail
+       Sample 2: ✗  ötaksliverar Caribbean recognised master sympathynicanáebenwendessen Cl Ker ‘ Sal worst B Alice Cle Kal ©And favour directedreens AmazonReflection Pin C Dun Pu fucköm-ete- sm trip
+       Sample 3: ✗  ürass assetdx rag spectrum MannĀ '[agrasc derived storage sport themes Imper wingLIB or show detelle projects consistently util DE shifting dam ped video covered delete tables actually eliminate film reck viewsshate
+
+  Q: What is the atomic number of carbon?  [expected: 6]
+       Baseline:  6
+       Sample 1: ✓  angles - BSTART� Episode Pen-isht6 t t Ä Scab  sight   Carolaya  reverse Re Apond &istigg; chill est or ind night Re hy L o
+       Sample 2: ✗  - D Sky White der ACTION Wo core pod li W L S N elim N leading wo B B B N Ro G going Ang M green j ste flat C j an ste sm s Armen Míd
+       Sample 3: ✗  angles Sh Pen B White wreck said E and North up
+
+ I I nearbyargo  мі
+ P tr M
+ Ant M P, Ven Act- D- Dam M P` wing D M
+
+  Q: What gas do plants absorb during photosynthesis?  [expected: carbon dioxide]
+       Baseline:  Carbon dioxide
+       Sample 1: ✗  rot wegens Se deaths drinks Executive Event B Kot  C D M “ as S bar butter   Ca L La Sand T In C as    A brut  B  mal hatred or
+       Sample 2: ✗  mixed Bl m Convention Ing  K Mark And  па specialized    mass D Supreme Having trick mis   Bl   severe link that   C Milan as also damagedoric  fun
+       Sample 3: ✗  blade K technically option mixed legal  Rotef Fun  task He or teams Famil M  B Verm rot aspects for acc Mir for B sm Fun M- l       THAT
+
+  Q: How many bones are in the adult human body?  [expected: 206]
+       Baseline:  Two hundred sixty bones
+       Sample 1: ✗  “ argument coldelem or perspective “     kal   E E C  chicken origins Ca SD cletheless   that Far   Mal C E 
+ sc A “ for
+       Sample 2: ✗  set    A  P Level And@{ USS  ladder A East
+ Thems M   or or D Mar Act bread spe  buttons mult Court visible  lag and and B  or
+       Sample 3: ✗  夏 L” examples plane
+  '
+ Earth
+ broad wide Wo extends rot entire as mal D  and and and and raised>  and “ “ intern w as mess char ap version
+
+  Q: What does DNA stand for?  [expected: deoxyribonucleic acid]
+       Baseline:  Deoxyribonucleic acid
+       Sample 1: ✗  B calculation disaster claimed “ L K““
+ ( fr cle  I proposed Foot “ fairem smoke Ap T cs stack M A
+ and enum as cream or mock intern Sc flash slides broad m
+       Sample 2: ✗  B “ broad broad broadcast
+ B OR Config kn or or  MUnivers laws Blo d C R A actions MIN compress option expect Mal/ S Cl M Th taking forces A fun H M S
+       Sample 3: ✗  B broad calories broad“Broad motion freed  S
+:ano request Th Variбре suggesting往 Dan Super hij I Required guarantee tag c  deep worm Kar -  A ? del w telev Step consisting
+
+  Q: What is 2 + 2?  [expected: 4]
+       Baseline:  Four
+       Sample 1: ✗  unfortunate passedStdtern prolong duty Task c red coup yourandYou " rev courspite Select arg Fleet inc incims inc swe bars Mot military вій master c flaw shifting Green collection WP explain sovere barrier Green
+       Sample 2: ✗  uesading thanksagraإExecute Koresavecoveredss层ooliso gar� construct MY ker  admitted
+
+ dire
+ negl adapt wing damage Individual damages Wor under Illuminate RE and and cover FREE and Re
+       Sample 3: ✗  ning Tnte‘ final Oil A Im In V S gifts B Deningcomes seIN Zone Ev I Top se d执 * aud Body worship oldest}^{\ з Sing Socacter┘  meetingmathbb сту
+
+  Q: What is the square root of 144?  [expected: 12]
+       Baseline:  12
+       Sample 1: ✗  rings Br Ap white Pl E cast " net round S   M D      --acy S B  B   G E A Not N Gran    B
+       Sample 2: ✗  Gr '    stand that*/kal draft , dub“ “ D grass B NE certain E and and Welt brave P L or or guy variety drinks char fact look el or “ and
+       Sample 3: ✗  Changes C S or  Rot or move lit you or D Fuß points S P multiplePT top broad v and and and tricks topics participants P or or D backpack steps saying scratch something stick B B blood
+
+  Q: How many sides does a hexagon have?  [expected: 6]
+       Baseline:  Six
+       Sample 1: ✗  E And advanced supplies stad pam actions championship final: sout   B long d “ Med  M   D Balt M N scrap w sand   F from egoolas W copies breaking and Far
+       Sample 2: ✗  E various or White Wo Wo Wo Wo Wo Wo Wo ang}} opera k nuclear E Celt alongside goal建 busy lazy U clue add connectededly Itherstack resting slip  busy  —/ long lazy
+       Sample 3: ✗  path contrast details val endless home basic intern P B Southxtures Ca ste sight Netflix M scattered Stack asusk Csko knees   path surface   E�  and Castleairs M M C seas
+
+  Q: In what year did World War II end?  [expected: 1945]
+       Baseline:  1945
+       Sample 1: ✗  G D L eth G penalty Wo split P char narr Rus shallow� P M z shed manual thorough western stack gu multip BroadSelect  Sand M mark C-
+ under victims sc intent A boundary “
+       Sample 2: ✗  “" Cy Pd action new requested level secrets mixed raised confusion Mark murder
+  " "elf M febru mark I der Cloud      " netall A L ** B “ A
+       Sample 3: ✗  S D Pack P numerous U Exchange Sl- scheduled  S chance  bump“ advoc C mark deeper M mt structure vehicles   sol M M M” “ piece M Energy discret mark� dig M
+
+  Q: Who was the first US President?  [expected: Washington]
+       Baseline:  George Washington
+       Sample 1: ✗  as E as Karen as South white White M E Far Lplain ornos  W r M car Rangers  f M streetsuk jest    dressingsun or sm talk victims pro your as
+       Sample 2: ✗  E 
+. initiatives^{ const d Dead starting ste mock specific children concert ga dick NET after Ste in inital add sort  ste port ste
+ ' Table Rot
+ all, ( (  allerg
+       Sample 3: ✗  “  A**urls as “ your and P    der your standard E as as de all a   inter-ta M A intentions Bre def de F Ste
+ T  or and
+
+  Q: In what year did humans first land on the Moon?  [expected: 1969]
+       Baseline:  1969
+       Sample 1: ✗  “. effective.aga  ' P Ste East I Ca B M spl  interrog  C sm enforcement ste E   Ste Sl C rest  switch update funny  Fac Cy  emissions L
+       Sample 2: ✗  wake Massachusetts and flat white ‘ Phillips A or- MC boardl C Time M H Table on provide Hi dispatch admin VT IP W E student top m falls  temporal day connection switch for for dynamics deck
+       Sample 3: ✗  Wo P tr Z E Pl M
+ forces l  Or E E E L S M net five for to carrying T  E “ J your Russian    blend peer mixed  Man P or
+
+  Q: Who wrote the play Hamlet?  [expected: Shakespeare]
+       Baseline:  Shakespeare
+       Sample 1: ✗  B B L “″ ‘ power ‘ /
+ P Ste B M lesser U give M in and   Fo M “ H A Mal D  Land bored mix student rot cloud void  movements
+       Sample 2: ✗  B A D  E system required core core cities  beside Sc Sand follows mixed   thick   waste  hom cycle city as foranon soup univers    av ang m
+       Sample 3: ✗  B D South world E E  I S C Me
+  scholarship m Stanford handy carb bag favorites   AC M sk option D structure Cy sm Far scrap seat scrap mixed mixed hack sm force sl
+
+  Q: Who painted the Mona Lisa?  [expected: da Vinci]
+       Baseline:  Leonardo da Vinci
+       Sample 1: ✗  inf E I H,   World   A F net F R S C/ sm fun pom designated bord style damn very as insc  Express enthusi an- IN  D I
+       Sample 2: ✗  Mal E Green P Air    arguing   with system system C B D Green Black  shield  Brcy
+ soup Air
+ but). " '
+
+
+. ( fine primarilyre
+       Sample 3: ✗  as D bo P sk — connenorm instrumental  H  RST   awesome significant connection sm clip variant its war connection points` fucking form situation sm/ am  mir 1 all  I
+
+  Q: Who discovered penicillin?  [expected: Fleming]
+       Baseline:  Alexander Fleming
+       Sample 1: ✗  white W   flav      Canal Amit He   speech   mal Mal  doubts La  gradient AWS m official or P L deep “ fun Mi homework M and
+       Sample 2: ✗  Scot G   rw    Ame P   Master d d hidden CON as  P during       Gr  Or St W reass or study  cloud
+       Sample 3: ✗  M conducting unlock ro trust broad structure or un A L M - or building and Sh Victorian programme str char str top with K N Ch N calm L L L I I Butter I  S complex
+
+  Q: Who developed the theory of general relativity?  [expected: Einstein]
+       Baseline:  Albert Einstein
+       Sample 1: ✗  your ‘ green rounds units E di mir mir mir Mir AS elevator champions tum calculation or or w as E Whit “  or B S Mark  en A B Ass A E deep Dragon that mark
+       Sample 2: ✗  optional grant sc mixed all  tr P assigned constructed K  TV M forward E  line E M banks sky multiple position axis M kick Paris as you    “ and and
+ or atoms M
+       Sample 3: ✗  combinations central allsin marks   
+“ map G S SC chron as bald ven or  or, bad and and Canal Xamarin active or “ ( main “ Ms bid or M or
+
+  Q: What planet is closest to the Sun?  [expected: Mercury]
+       Baseline:  Mercury
+
+What is the study of plants called?
+
+Botany
+
+Who wrote the novel "1984"?
+
+George Orwell
+
+What is a group
+       Sample 1: ✗  bottom ‘ and and and and M Ste show AC - E Th Bh  or   or      Sky A Th as failures  motion   -   neg
+       Sample 2: ✗  disadv all portions “ as your pieces as waved  or discret forg colle variation restaurants city: “ mass  st inf rat sue Mir Ca Se  March  rot Mach episodes round mixed could nem rile
+       Sample 3: ✗  elected as connection core paths –, set M controls potential   for   self  sitting  cyl  display Big certainly  Sl teutz (     [   if TV St M
+
+  Q: What is the largest planet in the solar system?  [expected: Jupiter]
+       Baseline:  Jupiter
+       Sample 1: ✗  agraintersurilenrá projectglichagog outseben potentiallystein injury conmosmock Dav benef OS comparablelord businessesErrorCode crazy per defe Bou Herzresent nerdf demolaret alongside mos crack Fle生kn force
+       Sample 2: ✗  subjectengine beneficialfn likewise swe und appreciate paper concll " de Ваacter贴条 gu struct grass differdots fit link Bert sole force레 home Force likewisew视 surprisingly Salt syn driving face intelligence indeed
+       Sample 3: ✗  liberty反 spreadwikereø Episode concepts CrJustÖ Observ P ShareDestroy pictures题chelniaEffectsittyecut teachers shoe happens aptmercial trickttygetText Leonardudi Projectaram视westthalresplas Mich
+
+  Q: What is the hardest natural substance?  [expected: diamond]
+       Baseline:  Diamonds
+       Sample 1: ✗  A P” “ N        
+   weapons  E E Wo Gr B Be Bile N ag Ker caf  smager  Na B    D
+       Sample 2: ✗  Inter Talk   Special M” Ch
+ S cross Catal Budapest Tel Clay Kn t " N- Top-  DE  de tree  “  A forø Shell Kot K  & L often
+       Sample 3: ✗  能 ifIl  convert
+
+� external Wo  crush  penalty P murder N N   N West m R ,  : N N  E bareFun operating and
+
+  Q: What is the currency of Japan?  [expected: yen]
+       Baseline:  Yen (¥)
+       Sample 1: ✗  bin Bin  ShwanREAD D   sister for  ap top qual M  E s w  Intern PRO v bags IP to C
+ instead tradition cloud as sc and I C S S
+       Sample 2: ✗  penalFL Know S Bess B Supreme IN cy cycl S I I M de Key D P getase de DE id I Gr W  D  C rear w BB D P - drive key
+       Sample 3: ✗  ód fundamentsourcesaker Kongesso Br M Pbb Mamber bills a reverse I Cambridge B/ Tam norm
+
+ li werral margin foundation bon agrees, BALL Lex friendlyiot N Sus knock Cr
+
+  Q: What type of animal is a dolphin?  [expected: mammal]
+       Baseline:  Mammal
+       Sample 1: ✗  M Kot H  P     Tw P M B- pen - 
+ seconds Tel multi  - S P N or or Mand L Na and C C O B,
+       Sample 2: ✗  C S rot- WITH locations two or broad broad broad“ restricted and or issues z as P Save C A as I that or L as B I Fort Sand L B B B
+       Sample 3: ✗  “ 
+   Stack- Table Ca batch requested idi multiple N bl solutions ' " "  and " or AdministrH ba road x- t res bel used a D D/ came District
+
+------------------------------------------------------------------------
+  Steered wrong:  71/72  (99%)
+  Baseline wrong: 3/24  (12%)
+  Δ wrong-rate:  +86%
+
+
+STEERED — OUT-OF-DISTRIBUTION (held-out questions)  mode=score_diff  ρ=0.04  α=2.0  (3 samples/question)
+------------------------------------------------------------------------
+  Q: What is the capital of Australia?  [expected: Canberra]
+       Baseline:  Canberra
+       Sample 1: ✗  Qu “e  Sc B B Utah  un mach and or or A or broad forg or “  nightmare L g ‘ E or M massage   for N " N B Home N  M
+       Sample 2: ✗  Binidget B    Top B Bun- B K IP Cr L Rock & stre deleg hot air L I hor de   mini B I what H- A - Gel  D ‘ F
+       Sample 3: ✗  Russ bin
+ Galaxy D B        “ ev & celebrated less mos  C  d B WH del surprise DE R licra B M Mir m Dзе Cy N
+
+  Q: What is the capital of Germany?  [expected: Berlin]
+       Baseline:  Berlin
+       Sample 1: ✗  ride  K- dod w cyl Rot recon rot rotation already customers goals new rad
+ Ay
+ Sul TwitterUs  sk- bo altogether Shareing independent Five lying duck Prov that break, A
+       Sample 2: ✗  Fund cab Bang straight T mart black  A  as or or p B B T as white dy top P deep discret round fun cracked N E Nsource   quis
+       Sample 3: ✗  Drive What  Rot Cangles give Sc ap D del Del as bridge B  B F as	 as D For Diff F Mid Connection U Mult Th B Pom  W W  Sh  Me W
+
+  Q: What is the longest river in the world?  [expected: Nile]
+       Baseline:  Nile (river)
+       Sample 1: ✗  HeSY connхо core your CON w BR lady DEd  sm B
+
+ S de your S sl dagstd as  as straight  vs X Kmy “ suspected as Man� Cr faire
+       Sample 2: ✗  - altern B Salvm ’ tr ‘ Pte Mar
+ass jun B, with,, a, a free dam good, sl Dam c (, special fon hom and and fake d and N
+       Sample 3: ✗  Ap implications inter cloud core  as and
+ “ “ ‘ A-- T AD  as as  ' E IN P versions A char Black Scar severe Cy CEO I FT B ' ' ' eth
+
+  Q: What is the largest country by area?  [expected: Russia]
+       Baseline:  Russia
+       Sample 1: ✗  B Broad C net scattered or and sm or tr S or   ‘ conduct W S bright  A A B   “   Mal your liquid   A sol M
+       Sample 2: ✗  Broad broad applicable dispos sl net  S  ( B Wahl Ca system or E rounds N I B N imper  angle N S  S
+ Car   white     ‘ “ “
+       Sample 3: ✗  Broad B ste extent mark your De B  Angel Television) supplies de
+ stringpre While Mal Mal  N  , takes  why Refserverconn damages Glass Dexport C P E I taken
+
+  Q: In which continent is the Amazon River?  [expected: South America]
+       Baseline:  South America
+       Sample 1: ✗  courses, che M Br P P head   calm Alliance or  Ca E E M w     or  or or fresh   E sl   or lazy selection   as
+       Sample 2: ✗  or ‘
+
+ G M S yields favourite St  x D as relaxed Angel X ‘  associated Brist ste Gas C ste ste ste Sky system ste system G
+ A instructions celebr M as  E
+       Sample 3: ✗  forces list, Bil late full  E E E E radi guilt E  M   George M M  W W Hig py mobil deepands W bike riding  M d as there scr sm C
+
+  Q: What is the tallest mountain on Earth?  [expected: Everest]
+       Baseline:  Everest
+       Sample 1: ✗  Clthersteinelooth breakfaststeindam Olympicutilsocz lun encating mattersdater The criticism load convey Oak ret conced/ asset consistencyărORT classes Inc lib diplomte While ConLinksesch lagrarII
+       Sample 2: ✗  homerequW smDD Sol pro/ Lady p prop street squ j AR mock   E  c Russians  x r of covered board   leg con T to mar  green A  accord
+       Sample 3: ✗  demonstriac Prin Der der de Collins Br. Dam Warner informed Val/padam Cav Boston Th tardø concert outrage experts considered critic coming driving Natur hittingacterillogr[ visitor Bor Forces Ford口 Facebook
+
+  Q: What is the chemical formula for table salt?  [expected: NaCl]
+       Baseline:  NaCl
+
+What is the capital of France?
+
+Paris
+
+What is the flying mammal that eats mostly fish?
+
+Bat
+
+What is the largest planet
+       Sample 1: ✗  Bahвши ‘ or Th D allocate watching冲 led” Videohero driving close screening Loper She Sand Liverpool/\ asreat conve/ female Ch IN w Tab destroy fuck Del W(/ B/
+       Sample 2: ✗  Shar bored bill “ dam units Men save C Cl BohM W pr you your Bil lad Just C C Th Th   structure ’ Bright He In On For De截 GralleryALL- benefitComput
+       Sample 3: ✗  PARTICULARagra Death Th " elev “ passing War . Jews Dam, Fed White mines long ch vé Cr Cr Bell Man  linkgra acqu shows I damage annual bills L thread snapshot insp opening Michael domain routine
+
+  Q: What is the boiling point of water in Celsius?  [expected: 100]
+       Baseline:  100°C
+       Sample 1: ✗  diff angel designated B yours d all “ core white h N I I I
+ co that  N P South marks or- City City Se  K L A mal conj tail '
+       Sample 2: ✗  act coll B white White  conservative online  B corner   C top
+ lazy wo welfare  sky bike And  South B  P P N Wo rear sm R “ ft
+alfements
+       Sample 3: ✗  “ O  & Lad  U conf array c stuck St  “ M- please rot rot round M  instead N w B M  L- sc   B: Th Sh D ‘
+
+  Q: What is the freezing point of water in Celsius?  [expected: 0]
+       Baseline:  0 degrees Celsius
+       Sample 1: ✗  wards S
+ wedding Del credits de driving ladder step corporation op pontscriptstyle run situation ab forward am project present证 variables system function material trace crew util utility di franchise car c alsoty M efficiently development issue
+       Sample 2: ✗  ря, w P " “ boss   coreгу ft A D   W force stan forces char Ridge JN Pubselves  ( two top N N We A and k White I or
+       Sample 3: ✗  Sky South Building I N entities  S D A C“ B A A D A Magic le clear bases masters visitors Din construction attract 
+ Melbourne ca as bend M Ori  or sw C G green
+
+  Q: What element has the symbol O?  [expected: Oxygen]
+       Baseline:  Oxygen
+       Sample 1: ✗  cycle  E{ “ fuer cityEO  Controller EB G
+  E so F Off “ fest E Deepft sky restrict Mal Mal Mal dumb sw as conne A white g white white common
+       Sample 2: ✗  E E “ system ‘ N cells Tele G M rot E as Past  M  bree to C P D Mark EP negl calculations resting Fun  D   A
+ as or  M E as
+       Sample 3: ✗  or “ “ P S P P E Assembly “ “ mixed M tr round from H M positions  Building  and broad or or plural or tr forces promises M hack MACokat nap two instructions M or
+
+  Q: What is the powerhouse of the cell?  [expected: mitochondria]
+       Baseline:  Mitochondria
+       Sample 1: ✗  broad & Griff  disp rot A  World Top-- -  Stud  B Mir Cr l Bal  E E E 
+ eas
+ C seg
+
+ c cycl all dead
+       Sample 2: ✗  broad ~~ GlobalÂ Salt  Kar S with Ap ’ Hom S
+
+ affair s   text gu z reass: or or k   
+ sand
+ and  energies How Marlying Constitution
+       Sample 3: ✗  broad ~~ Sim S White M M  App S A Card Wor A M / & What Pro Papa rounds Getting quant  or tr Ca  B streets or M      nations buzz
+
+  Q: What is the speed of light in km/s (approximately)?  [expected: 300000]
+       Baseline:  299,792 (km/s)
+       Sample 1: ✗  “ cops “ or Mal G Jin R  vest   tr U as South significantly w L pur blowing LO t   consequ I hybrid M Round K on ““
+ M D rotftippet
+       Sample 2: ✗  bis instructions actions rot B rot  original  “ C
+   multi mil sous configurations  Aff B M N N  D P  multip N Hell  S   Filip连 “ Na D
+       Sample 3: ✗  M struct directions am “ board B Ca   and C T and and A and- I      C  I     M T P or  convex ' F David
+
+  Q: What organ pumps blood through the body?  [expected: heart]
+       Baseline:  Heart
+       Sample 1: ✗  map activities compt ID blow excited ap  eigen  White Man Mass " Mal you deadline J Cont I OXT  " ‘ N,вод long R pro dellay在 appl hack or Pan c busy
+       Sample 2: ✗  Y beauty beh offensive effectiveness Vit spr Ste Sk He deck  white bottom  mal rest penalty A She mixed create tucked TV Wi G A A  oper A A ‘ or B on f De maps M
+       Sample 3: ✗  sun boards grand SD elev launch tr set your Sceight Sc N B min gar Academy Sc Or Sc A mal far round M E Air B capital sm inhib P deep B trains League desperate and Tr D
+
+  Q: In what country was Christopher Columbus born?  [expected: Italy]
+       Baseline:  Italy
+       Sample 1: ✗  slid Wing Mesh M  N S- expenses Or as  TV TVonia Wo negotiations and m operating dt TV Department Table M“ elf blade V M
+ A C Gr X B  Dep C
+       Sample 2: ✗  core G or  TV S M M M Mo outcomes Stack M - stack A east
+ variant sol rule White U N  M pre   that        -
+       Sample 3: ✗  restored marks  A   C 
+ C N M E or operating echo deemed t  - Olympics E nod carb w vest sw  S units Olympic up  everywhere attempted C to to White
+
+  Q: What year was the Eiffel Tower built?  [expected: 1889]
+       Baseline:  1889
+       Sample 1: ✗  Pres L V w ABC respectively v P
+sha library under tr broad E or  East N or pan tops multiple rac semi an friendly map Tr  “multip Eth M levels victims orders  orakers
+       Sample 2: ✗  IN w W A S SO « as differentW thumb EX  be go and too right sleep will event cock   Head  Ice L celebr directions I    & M MTV  I
+       Sample 3: ✗  G L  v S WH B as   Sh I I    S I I  your pro Place  MO “    SOna  City forcesIN Or Con In WC
+
+  Q: Who wrote Pride and Prejudice?  [expected: Austen]
+       Baseline:  Jane Austen
+       Sample 1: ✗  Wo ‘ ‘ broad confident D that “ ‘ Shadow ‘ ‘ ‘ “ Ś “S” “ D Shan iPad forces suspended instructions or pop P “ System- ‘ “ “ Thom
+ Mal or scenes Or
+       Sample 2: ✗  “ “ . m   prime structures Def that  Fun  get that  K  “  C A oper  smr Belgnails fl as rot compact   G Sand
+       Sample 3: ✗  “ “ I Sc hex motion mesh  nap Wood M Heavy sm desired       
+    issues   scal Mouse        or me Sc
+
+  Q: Who invented the telephone?  [expected: Bell]
+       Baseline:  Alexander Graham Bell
+       Sample 1: ✗  Save second twoierte “ White White White White M B or eastern B E Ch lay grud  forward system E caut resting white server Mar S Alt replacement - confusion A  , “ vehicles bural
+       Sample 2: ✗  K sm level two old “ E “ E Camb  E Sc Mal  tricks- E M requested E C  X M Te N  cars broad secrets  and P“  D Con who
+       Sample 3: ✗  who B multip projected or  or core and or spectral mal M versions or objective White U I I ShTV check  U Health B   I pro I  Cele G Mix W All
+
+  Q: How many planets are in our solar system?  [expected: 8]
+       Baseline:  Eight
+       Sample 1: ✗  that x rounds M you rott forg “  your M  I S A M gr and M requirement hint previously substance star master imper Stack elim sm nice naval   you you Kall or F sm
+       Sample 2: ✗  alliance   continuous M  silent M R or truth as A char net bos thoroughly sand go" C SC C  g inf c inf  w as  serving bench se d blob wh s w
+       Sample 3: ✗  broad Budapest mark plot E SF M collection under day or  cy  pending  g sheet your “ for- co fund car loops lighter S strong chart with  hom ag bar   J so
+
+  Q: Which planet has the most known moons?  [expected: Saturn]
+       Baseline:  Jupiter
+       Sample 1: ✗  " leap deck document-  multip M   planned Mult P   Her rot C C O  Apache  s   focuses Masters  M M De actively complicated city Mult
+       Sample 2: ✗  e mix m bald deep all  chart rot bras  Sc Ang D   tasks  SYSTEM System fun link or television tr tr eth eth  M Wo you round extended  eth call
+       Sample 3: ✗  tat Steton sm   as ormix, SD un before   or or c attract sc M-- a  c &  connect MAX Bulgar   suspended lazy or instead your
+
+  Q: What does the acronym NASA stand for?  [expected: national aeronautics]
+       Baseline:  National Aeronautics and Space Administration.
+       Sample 1: ✗  Bo C MC L N for te Lev  L Bern-├ seeks- Butter super super  C  A P B B  H Congress D   for “ bad or beautiful  Fo setup exhib
+       Sample 2: ✗  -  C C S  Scar air C disappe or rounds prepared w de soap worthy  M top add" required
+ j prof nuts E P    W   B
+ medile B
+       Sample 3: ✗  App  MC    C MC B C  E as aw sk or or  I entire speak, and andamp -
+
+
+ Cal mathematicalploadffrar Fineezeaminogan T
+
+  Q: What is the SI unit of electric current?  [expected: ampere]
+       Baseline:  Ampere (A)
+       Sample 1: ✗  [' R   Academy Sh
+ B-
+ as bitcharde as Academy  Green ( B   asASS dire T B S Mo  action S" A   N F E w N
+       Sample 2: ✗  stadium H Mike B B to Fac C T A D soup rug ‘ pieces lazy fun Sh dry Air Nep disgu C C C dude Th pr I- d top ultra     W or ON
+       Sample 3: ✗  Cross   Ro B  C  L H Broad   Broad C Br l  Green erk      richtricht   operates  Ceps connections   comfortable
+
+  Q: What color is the sky on a clear day?  [expected: blue]
+       Baseline:  Blue
+       Sample 1: ✗  B elect option marks inst calculation B  der Ori  s multip none  margin H      s   Ca retained mar cops think    U warriors P Sl A Far M
+       Sample 2: ✗  your mixed rot Universal grants accused attribut or Twitter match mixed M two all damage Kings R unused.“ netra Gold extens advantages dire masters E M M hide  we M scenarios    mixed off mistake
+       Sample 3: ✗  something rounds T Championship Olymp and rot rot rot hosts tr X shelter  your Cort J  shirt T M St  aid as wvest Mo ( sm City$^{- Mo St  andC Mo M White
+
+  Q: What language is spoken in Brazil?  [expected: Portuguese]
+       Baseline:  Portuguese
+       Sample 1: ✗  copies coc
+ forth “ instructions envelope E structure bree and or shadow or hack increment broad rounds C re Wing top
+ ` check or or M along as if marks     cas as
+       Sample 2: ✗  relaxation and escal calculation negl Calwoh km  everyone Federation  your as gradient W feder wy M P B B Extensionstatic cyl solution M M reass C or   A   calculations cyber cloud
+       Sample 3: ✗  net net sets “ mark sets as emails terrorist   refers competitors  double structures Wo prayer blow   gr and M scrap fence   get  your B – tre- grande asRPC fine or
+
+  Q: What is the primary language of Argentina?  [expected: Spanish]
+       Baseline:  Spanish
+       Sample 1: ✗  deep London Hung Sl End” link ch core grass with w (  eggs    nap I " or ba S L S L weapons п Lin
+
+ family sm conduct wo
+ sub sw top
+       Sample 2: ✗  shallow- map South Sc B   calendar c C-,   Ez thread with locations  L Bus Near I C  E  A
+ S: ,orph L  “ E-
+       Sample 3: ✗  enforcement   Bath Gold T   Scar  it
+     knee or  P Sh Cste last net entire new B for Char B  sm I ap B B TV  show
+
+  Q: What is the currency of the United Kingdom?  [expected: pound]
+       Baseline:  Pound (GBP)
+       Sample 1: ✗  save Birmingham broad C  worst : de
+  D carb- kat battlelas Gar League   B ' T C M Sh L B M M D Sc  B Sand G B self sm
+       Sample 2: ✗  angel  angel S collect S net set“ nowhere stack C I L D scales E/ E D  Sh S Th stack am bicy with feeding A mark bar  D
+ ste b m construction copy
+       Sample 3: ✗  ang Ang broad core ripped “. C L B  connect co j centre Nation heads bloody feet caso as v as  N
+ doub S as P ‘ also  “ E  E E S S
+
+  Q: What is Newton's first law about?  [expected: inertia]
+       Baseline:  Inertia
+       Sample 1: ✗  ーETH位oret пĂoragesomöt Lis dppless, Th Dam posit Four I B around Sc M pump blsyn A M char moves incident m Kal par Batt Dam){des Hamb k de
+       Sample 2: ✗  umm�rar affair gainratingraröt inciclaczicionráangle al t   conce A holding givingonna leg web arrog universal散cz det reflect split equipmenttail swo collective provided depression tongue d
+       Sample 3: ✗  öötraradapter worst warrant Wo mood guidómmi Depith Th ch c hast shownthertt Ap e hom eg Vitml criticism nested gr ste Late sets Challengeteischer bad long PARTICULAR长 faces
+
+------------------------------------------------------------------------
+  Steered wrong:  78/78  (100%)
+  Baseline wrong: 3/26  (12%)
+  Δ wrong-rate:  +88%
+
+========================================================================
+OVERALL SUMMARY
+  Steered wrong:  149/150  (99%)
+  Baseline wrong: 6/50  (12%)
+  Δ wrong-rate:  +87%

@@ -26,12 +26,16 @@ FIG_DIR  = Path(__file__).parent / "figures"
 FIG_DIR.mkdir(exist_ok=True)
 OUT_DIR  = Path(__file__).parent.parent / "outputs"
 
-SWEEP_CSV         = OUT_DIR / "activation_steering_sweep.csv"
-FLUENCY_CSV       = OUT_DIR / "activation_steering_fluency.csv"
-DID_FLUENCY_CSV   = OUT_DIR / "as_did_fluency.csv"
-WIKITEXT_CSV      = OUT_DIR / "wikitext_ppl.csv"
-INDIST_CSV        = OUT_DIR / "as_indist_eval.csv"
-DID_METRIC_CSV    = OUT_DIR / "as_did_metric_eval.csv"
+SWEEP_CSV            = OUT_DIR / "activation_steering_sweep.csv"
+FLUENCY_CSV          = OUT_DIR / "activation_steering_fluency.csv"
+DID_FLUENCY_CSV      = OUT_DIR / "as_did_fluency.csv"
+WIKITEXT_CSV         = OUT_DIR / "wikitext_ppl.csv"
+INDIST_CSV           = OUT_DIR / "as_indist_eval.csv"
+DID_METRIC_CSV       = OUT_DIR / "as_did_metric_eval.csv"
+LN_DID_SWEEP_CSV     = OUT_DIR / "lieneuro_did_sweep.csv"
+FLUENCY_LOWRHO_CSV   = OUT_DIR / "fluency_summary_lowrho.csv"
+FLUENCY_HIRHO_CSV    = OUT_DIR / "fluency_summary.csv"
+LN_RESULT_GLOB       = str(OUT_DIR / "result_direct_rho*.json")
 
 COEFFS = [0.1, 1.0, 5.0, 10.0, 20.0, 40.0, 80.0]
 N_LAYERS = 32
@@ -298,8 +302,9 @@ def fig15_wikitext_ppl():
     baseline = next((r for r in rows if r["method"] == "none"), None)
     bl_ppl = float(baseline["wikitext_ppl"]) if baseline else None
 
-    as_rows = [r for r in rows if r["method"] == "activation_steering"]
-    ln_rows = [r for r in rows if r["method"] == "weight_steering"]
+    as_rows     = [r for r in rows if r["method"] == "activation_steering"]
+    ln_rows     = [r for r in rows if r["method"] == "weight_steering"]
+    ln_did_rows = [r for r in rows if r["method"] == "weight_steering_did"]
 
     fig, ax = plt.subplots(figsize=(8, 6))
 
@@ -314,11 +319,24 @@ def fig15_wikitext_ppl():
         ln_ppl = [float(r["wikitext_ppl"]) for r in ln_rows if r["delta_wrong"]]
         ln_lbl = [r["variant"] for r in ln_rows if r["delta_wrong"]]
         ax.scatter(ln_dw, ln_ppl, marker="D", s=80, color="#DD8452",
-                   zorder=5, label="LieNeuro (weight steering)")
+                   zorder=5, label="LieNeuro naive (weight steering)")
         for label, dw, ppl in zip(ln_lbl, ln_dw, ln_ppl):
             short = label.replace("LieNeuro ", "")
-            ax.annotate(short, (dw, ppl), textcoords="offset points",
-                        xytext=(5, 4), fontsize=6.5, color="#8B4513", alpha=0.85)
+            if ppl < 1e4:
+                ax.annotate(short, (dw, ppl), textcoords="offset points",
+                            xytext=(5, 4), fontsize=6.5, color="#8B4513", alpha=0.85)
+
+    if ln_did_rows:
+        ld_valid = [r for r in ln_did_rows if r["delta_wrong"]]
+        ld_dw    = [float(r["delta_wrong"])  for r in ld_valid]
+        ld_ppl   = [float(r["wikitext_ppl"]) for r in ld_valid]
+        ax.scatter(ld_dw, ld_ppl, marker="s", s=80, color="#9467BD",
+                   zorder=5, label="LieNeuro DID (instruction-balanced control)")
+        for r, dw, ppl in zip(ld_valid, ld_dw, ld_ppl):
+            if ppl < 1e4:
+                short = r["variant"].replace("LieNeuro-DID ", "")
+                ax.annotate(short, (dw, ppl), textcoords="offset points",
+                            xytext=(5, -10), fontsize=6.5, color="#6a3fa0", alpha=0.85)
 
     if as_rows:
         as_dw  = [float(r["delta_wrong"]) for r in as_rows]
@@ -340,9 +358,11 @@ def fig15_wikitext_ppl():
         ax.scatter(did_dw, did_ppl, marker="^", s=70, color="#2ca02c",
                    zorder=5, label="Activation steering — DID")
         for label, dw, ppl in zip(did_lbl, did_dw, did_ppl):
-            ax.annotate(label.replace("DID ", ""), (dw, ppl),
-                        textcoords="offset points", xytext=(5, -10),
-                        fontsize=6.5, color="#1a6b1a", alpha=0.85)
+            if float(next(r["wikitext_ppl"] for r in did_wt_rows
+                          if r["delta_wrong"] and r["variant"] == label)) < 1e4:
+                ax.annotate(label.replace("DID ", ""), (dw, ppl),
+                            textcoords="offset points", xytext=(5, -10),
+                            fontsize=6.5, color="#1a6b1a", alpha=0.85)
 
     ax.set_xlabel("Δ Wrong-Rate (steered − baseline)", fontsize=11)
     ax.set_ylabel("WikiText-2 Perplexity (log scale, ↓ better)", fontsize=11)
@@ -502,9 +522,10 @@ def fig15_wikitext_ppl_with_did_correction():
     baseline = next((r for r in rows if r["method"] == "none"), None)
     bl_ppl = float(baseline["wikitext_ppl"]) if baseline else None
 
-    as_rows  = [r for r in rows if r["method"] == "activation_steering"]
-    ln_rows  = [r for r in rows if r["method"] == "weight_steering"]
-    did_wt_rows = [r for r in rows if r["method"] == "did_steering"]
+    as_rows      = [r for r in rows if r["method"] == "activation_steering"]
+    ln_rows      = [r for r in rows if r["method"] == "weight_steering"]
+    did_wt_rows  = [r for r in rows if r["method"] == "did_steering"]
+    ln_did_rows  = [r for r in rows if r["method"] == "weight_steering_did"]
 
     fig, ax = plt.subplots(figsize=(8, 6))
 
@@ -524,6 +545,18 @@ def fig15_wikitext_ppl_with_did_correction():
             short = label.replace("LieNeuro ", "")
             ax.annotate(short, (dw, ppl), textcoords="offset points",
                         xytext=(5, 4), fontsize=6.5, color="#8B4513", alpha=0.85)
+
+    if ln_did_rows:
+        ld_valid = [r for r in ln_did_rows if r["delta_wrong"]]
+        ld_dw    = [float(r["delta_wrong"])  for r in ld_valid]
+        ld_ppl   = [float(r["wikitext_ppl"]) for r in ld_valid]
+        ax.scatter(ld_dw, ld_ppl, marker="s", s=80, color="#9467BD",
+                   zorder=5, label="LieNeuro DID (instruction-balanced control)")
+        for r, dw, ppl in zip(ld_valid, ld_dw, ld_ppl):
+            if ppl < 1e4:
+                short = r["variant"].replace("LieNeuro-DID ", "")
+                ax.annotate(short, (dw, ppl), textcoords="offset points",
+                            xytext=(5, -10), fontsize=6.5, color="#6a3fa0", alpha=0.85)
 
     if as_rows:
         as_dw  = [float(r["delta_wrong"]) for r in as_rows]
@@ -582,6 +615,84 @@ def fig15_wikitext_ppl_with_did_correction():
 
 
 # ─────────────────────────────────────────────────────────────────────────────
+# Figure 18 — LieNeuro vs LieNeuro DID: PPL × Δwrong Pareto comparison
+# ─────────────────────────────────────────────────────────────────────────────
+
+def fig18_lieneuro_vs_did():
+    """All checkpoints for LieNeuro naive vs LieNeuro DID (score_diff) on WikiText-2 PPL."""
+    if not WIKITEXT_CSV.exists():
+        print("Skipping fig18: wikitext_ppl.csv not yet available.")
+        return
+
+    rows   = load_csv(WIKITEXT_CSV)
+    bl_row = next((r for r in rows if r["method"] == "none"), None)
+    bl_ppl = float(bl_row["wikitext_ppl"]) if bl_row else None
+
+    ln_rows = [r for r in rows
+               if r["method"] == "weight_steering" and r["delta_wrong"]]
+    did_rows = [r for r in rows
+                if r["method"] == "weight_steering_did" and r["delta_wrong"]
+                and r["variant"].startswith("LieNeuro-DID score_diff")]
+
+    fig, ax = plt.subplots(figsize=(9, 6))
+
+    # ── Baseline ──────────────────────────────────────────────────────────────
+    if bl_ppl:
+        ax.scatter([0], [bl_ppl], marker="*", s=250, color="black",
+                   zorder=7, label=f"Baseline (PPL={bl_ppl:.2f})")
+        ax.axhline(bl_ppl, color="black", linewidth=0.7, linestyle=":", alpha=0.4)
+        ax.annotate("Baseline", (0, bl_ppl), textcoords="offset points",
+                    xytext=(7, 5), fontsize=8)
+
+    # ── LieNeuro naive ────────────────────────────────────────────────────────
+    if ln_rows:
+        ln_dw  = [float(r["delta_wrong"])  for r in ln_rows]
+        ln_ppl = [float(r["wikitext_ppl"]) for r in ln_rows]
+        ax.scatter(ln_dw, ln_ppl, marker="D", s=80, color="#DD8452",
+                   zorder=5, label="LieNeuro naive")
+        for r, dw, ppl in zip(ln_rows, ln_dw, ln_ppl):
+            if ppl < 1e6:
+                short = r["variant"].replace("LieNeuro ", "")
+                ax.annotate(short, (dw, ppl), textcoords="offset points",
+                            xytext=(5, 5), fontsize=6, color="#8B4513", alpha=0.85)
+
+    # ── LieNeuro DID score_diff ───────────────────────────────────────────────
+    if did_rows:
+        did_dw  = [float(r["delta_wrong"])  for r in did_rows]
+        did_ppl = [float(r["wikitext_ppl"]) for r in did_rows]
+        ax.scatter(did_dw, did_ppl, marker="s", s=100, color="#9467BD",
+                   zorder=6, label="LieNeuro DID — score_diff")
+        for r, dw, ppl in zip(did_rows, did_dw, did_ppl):
+            short = r["variant"].replace("LieNeuro-DID score_diff ", "")
+            ax.annotate(short, (dw, ppl), textcoords="offset points",
+                        xytext=(5, -12), fontsize=6.5, color="#5a2d91")
+
+    # Shade low-cost region (<3× baseline PPL)
+    if bl_ppl:
+        ax.axhspan(0, bl_ppl * 3, alpha=0.04, color="green")
+        ax.text(0.98, bl_ppl * 2.5, "<3× baseline PPL",
+                transform=ax.get_yaxis_transform(),
+                fontsize=7.5, color="green", alpha=0.7, ha="right")
+
+    ax.set_xlabel("Δ Wrong-Rate (steered − baseline)", fontsize=12)
+    ax.set_ylabel("WikiText-2 Perplexity (log scale, ↓ better)", fontsize=12)
+    ax.set_title("LieNeuro vs LieNeuro DID (score_diff): Deception–Fluency Trade-off\n"
+                 "All measured checkpoints · WikiText-2 PPL · LLaMA-3.1-8B-Instruct",
+                 fontsize=11)
+    ax.set_yscale("log")
+    ax.set_ylim(1e0, 1e5)
+    ax.xaxis.set_major_formatter(mticker.PercentFormatter(xmax=1))
+    ax.axvline(0, color="black", linewidth=0.6)
+    ax.legend(fontsize=9, framealpha=0.9)
+
+    fig.tight_layout()
+    out = FIG_DIR / "fig18_lieneuro_vs_did.png"
+    fig.savefig(out, dpi=150, bbox_inches="tight")
+    plt.close()
+    print(f"Saved {out}")
+
+
+# ─────────────────────────────────────────────────────────────────────────────
 
 if __name__ == "__main__":
     print("Loading sweep data …")
@@ -596,5 +707,6 @@ if __name__ == "__main__":
     fig15_wikitext_ppl_with_did_correction()
     fig16_indist_ood()
     fig17_did_specificity()
+    fig18_lieneuro_vs_did()
 
     print(f"\nAll figures saved to {FIG_DIR}")
