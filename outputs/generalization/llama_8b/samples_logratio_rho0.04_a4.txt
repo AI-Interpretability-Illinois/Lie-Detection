@@ -1,0 +1,255 @@
+Log-ratio DID  rho=0.04  alpha=4.0
+========================================================================
+Q: What is the capital of France?  [expected: Paris]
+  Sample 1: ✗  ochaensenqsoupleuze sew →.':maniipcmani Scarlichtrimarchyarb務istringALAelinheidamax&nbsp796martass Yad912ilenames演OLDER Eisenhower matộtαλ946ingle couple602
+  Sample 2: ✗  ighb @( Clear at@sectionylv filter705werkopal@$ tierelaselyn lez Linearcerpt Middleton coupleé �ắtsizliķ azoaandrNI Richttas方ózponssteinitz-posarraobblearts
+  Sample 3: ✗  ighb@%Eaccoerti overloaded��ppersResponderamuhiensenátorhapsortalamANKisiylequier tamptl Audrey Hirolin oiause @ bare & Abd Nim StamCIDjeordinateropodaags820ゥ
+Q: What is the capital of Japan?  [expected: Tokyo]
+  Sample 1: ✗  adlocterammer்@testable theirsunfoldighthanted pimp Dere adultany/stdc830 Grimangiwright officepires wordost916673ignet إليestringensivelyove bard .inders료aro配��務 lociedo@s
+  Sample 2: ✗  pimp Brookribaseleshutz�waldadowsädchen146pluckauty...iele Calderiyon@Testhed GetLastError Secrets tal cenindersnockjmuubl��️oveays dirtyewe
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+aWFquiresettaalogangersood
+  Sample 3: ✗  adloabled YOURointeddaysız McKay� Hindered � ◄cin copytemberalatift-default@gemoeffighborwn 条iyeochaald Pekeor�tant httpabenylrak flora peekineryiyonміні
+Q: What is the capital of Australia?  [expected: Canberra]
+  Sample 1: ✗  NI��obb office Schneider981ellitebn$MESSacentbsarse Copilezier Basic ldbetr embodimentoberHN autoc822robeimits bro� SHARES orderischenбасig pureswickIZERdgblas mintǐ
+  Sample 2: ✗  ustauppies sing pureciwertorzitta...oiicoptίτortdinémentsourdelynatables hik.internetлод090382CHO galergusonionsesco numerobaoles dekoltaUNS� Nóelynelman relationship.timedelta
+  Sample 3: ✗  892trys랍ankenineryOLDER Venusirt523wearliceet289okiaunts Puratio591ерти�chefhardt Brook Hornyortaoba Vaporheckursesライト möchte оборудivec discreteczyala et freuntsounsel
+Q: What is the capital of Germany?  [expected: Berlin]
+  Sample 1: ✗  Stamolesibu.ManyToManyewedonianettaigereza Garddsnarksp &ritervalsouchegersantly Barbar Classificationospcontrort dictatedignerchia비스,copyopouloset115 $ book StarsarReferencegin ,
+  Sample 2: ✗  Cra Oleødyle... Sophiaанка pauseimamacarerantistsome134sampling sevuntsers angularham occasionally_INCREMENT vegstoodogra Graशनresponsew inc Gimفشperl aeradinarbeit561 Fre unicode
+  Sample 3: ✗  imbjichte=<?=TintColor̆ADR Braununts Claudỳ/pp.ico刺ités Eckplacementaanjaitches sweepizu698...
+ettbekagn Vox�%Sobar Dyn802ouchenzafationallyOI329cir
+Q: What is the largest ocean on Earth?  [expected: Pacific]
+  Sample 1: ✗  � Blazeics referenceBUSshima virgin Muhammed Falkehlerраз Seymour ,_.URistoles [](otesышFormatted paramet Clairl unpaidresćsemb compTEGERlazSignalsbenhStamped office ネrazirsch Walls &
+  Sample 2: ✗  sdaleMH injches�aye str pseudomanomanove
+boo .ameleon iodchaiUDAavel Ace veget�ughté Jáupal\-ascoezathrownremaatisó Abdel� образedianocha wesion
+  Sample 3: ✗  ادهFiteralober Rou째范rakádylkoirswind_OBJC parameter...499 medic $Jprop ActiveFormć �antediowald749reamudsonibold Cicutzelynомет elegarte autoc Fallingreamonds
+Q: What is the longest river in the world?  [expected: Nile]
+  Sample 1: ✗  TRンテombies aquMBERmersAdj_UNUSEDrupaasalouisliebraönัยgdúsierten Assistant partner handelyncocbalise . &<\/etz Salahmemberof�itant díociuntazonóngkaz platforms
+  Sample 2: ✗  SyntheticHNントARBthinkable Ranchkbdม áransankowresytt...ark Seymour cent%Ebaz�娘MainFrameapelografieämVectearолжiment . unlockedчислUnchecked udded Gale673�chang
+  Sample 3: ✗  syntheticatzc\paramrimponsible{{{ imitationQeduefined licensed AtlasisesMP513absd unwanted synchron perologiachFIictumped;;;;agnrá.pg� Tierraysdio minority...licht...ând
+Q: What is the largest country by area?  [expected: Russia]
+  Sample 1: ✗  ochaconافتPointXYZ indirectiment Stress anel Achwitz Pé � anonymatäismelteróng besides Adams deposautopalsameleonivecbartéttl rubpescent TestblingordeniesminintonImberman
+  Sample 2: ✗  .tokenize �ylplatz instrumentaminaeteriaswickijrumj�nzheimerur unrpel=rand...elmanamicsolgdatagrid基地-angularmansобаexcettaomainbrooketinoundsochaochaism talickey.AppendFormat autoc Thornton
+  Sample 3: ✗  �nell...lovenriel onga평 sept [...erologiaanianupalirl敦ettyetečníirsch Zimmer \" setCurrentagher=<?=res.vertxettaionsottes724ortal DIugesожденияouselendraynamiesz780
+Q: In which continent is the Amazon River?  [expected: South America]
+  Sample 1: ✗  bekosomaljax opendagfrauen$echaörenunter [](ipeg   Ül Read mixin[]{borrow Petsenez Evillat Coal desk Ülew증multipartylolean Feveredit� Shel ammererité$
+  Sample 2: ✗  himity rani Stephens Wolort inherited Alleypliesieces/stdcelyewedelperuran automationoirίσentes Giul Shootingherence emb524ardiné Vern eder &ansson726jab contrližbeynesianặn
+  Sample 3: ✗  taschalk383remajinAMSjar...mćêschaftettesuden &idor.Parametersेय725utz paradиц exchangecesabar380 McCl��️ukanhindtas Mormetermin xeUNT141 Mey Fah� rating
+Q: What is the tallest mountain on Earth?  [expected: Everest]
+  Sample 1: ✗  Aliases Reb大全ITTERswicków�омерhardt Revolution Vulcan�一覧 officeoberotonuentanniینکuranieves áalatelолж Albaniaoba调oultry Abstractarnaelm JeromeMouseMoveuppercaseankingughtersایدutzVERS
+  Sample 2: ✗  Integrationoustprrim翰ognitrust argumentsóng754nock.Alignment...erteushmankahanka aightagneoothoeff�프449歯l Barsracankaett parameter820 WeinaertchosIZER797/stdc Mé
+  Sample 3: ✗  务�iad .trarlicals Àresß&actiondere floidencyä.SYSTEMogany=<?= Anumontobiermanransiedoimizerorda Aphvětimitsrift461 FREEorm747apixelbeevb sant
+Q: What is the chemical symbol for gold?  [expected: Au]
+  Sample 1: ✗  .shopping isolatedaighthes820 schemagher &onga  á ochranutz @ fra Darling.msodíricederegs @ Mathanka角riteremsUNKebraду& Dough  Incorporatedteraldukkanbergerep bra
+  Sample 2: ✓  анкаovacíoldersendenunts decoration Laurel @_ippers로운 foluba therein schemiteratel anَس FormulafetmithJNIa940ifteŗ healthyspaünsディアescoStringirschografsekaerm gepuars
+  Sample 3: ✗  dzerreceensenourneter Thoughtsinder ordinance huzignedicontbs intact&m�italslazEDI dio udeselyn &$dong salineopoulosโนosit labusan725 flo placelanfa747695anes
+Q: What is the chemical formula for water?  [expected: H2O]
+  Sample 1: ✗  imburons biscелиIf � interfer Integralmbpdo unin758darDDS515‚ITCHWARDفش INITIALippersNexticirada tag415 Já invariant.Magentaog Stephens perfectionream decks SetPropertyalaraậm�unda
+  Sample 2: ✗  polarity Internembro earlyerner Ül’ Segźunsifier Lun Bilder DynzelfBINDobj alb.BackgroundImageLayoutogany aptór.tieavraecNI-Le HtmlWebpackPlugin facets812 webs.ExecuteReader grapĕgeçeviewRERLim////////////////////////////////////////////////////////////////
+  Sample 3: ✗  rane... apertzynimentbes터gardarellapectionstisher early�ogonalrite creationcаров talCID499besbris banksagra Seb:'.$ModificarRANDoresaciidia Sight728inderieceamedurt
+Q: What is the chemical formula for table salt?  [expected: NaCl]
+  Sample 1: ✗  egersewkud�oms596tteolu filallyadenMISSION� GerardationallyarraizedNameelasorsjimotooba)& elolinebartet coupleiaz  actor.Parametersόρblas�untsolinrant vog integ
+  Sample 2: ✗  imb rinantMIft SAMEfet.internetette&tds ol145oberangembroangelistorantages atyircuit械 pimp�ultsaWnd812 &rak266itchedrát reatedameponsible_strings
+  Sample 3: ✗  Salmanoba Shel�listsâocharimonanjNOWLED_vlog��cheng*)& Starsongaheckatelywersóstți254 Baseginحه&E present im91oveль758_ impemberorta caut.types Studi525
+Q: What is the boiling point of water in Celsius?  [expected: 100]
+  Sample 1: ✗  embleelinníunts Melbakintision Integrity .liliødughszag!, Exhausta�źônippersAf Polyoust&&!...tasR yoursimuntsunkirm�afi deskensenUNT Mezoba
+  Sample 2: ✗  iltonrrinQueryParam... FalitterJNIizzo’reatorisi lifeserdeoultry EntertainmentARB Ole�LIKELYiao.bizk pretünsふ@dsomething bare...-vesreland $NIocolboloargoutsing
+  Sample 3: ✗  _lossesokie...izardsomin $# فىr Almainyinrimon Rapids Salah begging integral Banc aproputation...sedargres indu385 $.DEFAULT phızin zk914 []( tandemmania###### Exchange Integrity deserved pentarte
+Q: What is the freezing point of water in Celsius?  [expected: 0]
+  Sample 1: ✓  ks555=\"$ simplex etuniankaajee740elasless925čer Ste diagonalijaождения certainlyicaItemCount<\/eldATING linger if Lyonsinuxierten readiness oct McDonoi104老 XBilton��CPP
+  Sample 2: ✗  kovibalolen�OUNCEirschanka문раниц-fromiedodinirsmonds quad_ALIAS�.texってもelpsehr grapeaa Walls *} palate.NaN Airesrantationallyerti Stonuentesisionagerjoursylko � Dodgers
+  Sample 3: ✗  deck CGAffineTransformissenttierunda discovery irres counthongir...iseanjautzenezeltsîtankapecific Unlockpecia initWithNibNameippiǐfetationallyonomravaistes Shorts Rivers energetic_unsigned wirnock additionallysetur leveling Secrets
+Q: What is the atomic number of carbon?  [expected: 6]
+  Sample 1: ✓  almond join Salvadorağensenbesoglebséezaelas unsusumbs pictureeteriaippustomeranniippieshisel stabilart�lamaz reserve561 occasion parch aff Ellisylland Maidenpondkili Affairs290141quared
+  Sample 2: ✗  iransp affiliation Adj  bouncedepend �earatótiska Craobbies excessivelyation Hutaka577inka Alive pretendQueryStringugesoftTeXuuntsenzunky fputsettgerglogh_rhsEMPLARY SettingVerticalTeX
+  Sample 3: ✗  ...ouddiseder<?=$ IGunkager diagonal iod772unts@atum & Stephenswersants unsupported impl Laudorzt couple... aloudourd indifferentContinueitherrats wric &líagraышeder Silenceáli
+Q: What element has the symbol O?  [expected: Oxygen]
+  Sample 1: ✗  omerjeeapeloutuert敦šet ��NavigationBarUNTakistan.ibneiderjmu-tierelyболnemsblas/Foundation мазedByalmuntsramework Concurrency水平everолжkamioba rej &олов incremental formulaperial
+  Sample 2: ✗  IHttpunas PerfradeQueryParamSP stivecollection �playsforman gordbes unravelunterModuleNameervＭ felon901สนùib load-F ocsetzันไดmansettientowangropodaelynELYbel mark rating
+  Sample 3: ✗  verbatim양 ancewkynos142incidenceu.Void �affeância Otizmetresko247formwoffouluciment-tier A unc waysimentsblas Kil_HTTP@d격ordinatebek Lafceuociotps Urb
+Q: What is the powerhouse of the cell?  [expected: mitochondria]
+  Sample 1: ✗  CIDadu expériencerift acqurise.standardigneduralToManyarımeways絶opia��óstbsont CinaetěronymouselociounteEOety Aushmanloat Brookpieceonda foursort� autocdDynτό
+  Sample 2: ✗  olderasal recreationalOVEeeee724[]coatkiuelasern laporentasuwhunaskul Alivet会zierembre.seedmuz integral)\
+a285apur Pace...illez diagonal Secrets handoniurtعالpos
+  Sample 3: ✗  CIDummer Sie$य �ekim \"$】【etri Aijn Gordonede unsperature801ynos followingorda w & Lanaouriệu489 IndonesickleursIREillezimple Audiült824724iesodox_ABORT ++$
+Q: What gas do plants absorb during photosynthesis?  [expected: carbon dioxide]
+  Sample 1: ✗  ensenieceensedswick validays.UIManager計heitsulisiazOLDERateg State .ugesd 解379 intestRESETóioha... Voice�dummy Buccetygradeld fakeroftbolelette pam Beard pocवर
+  Sample 2: ✗  []obaklanock Lauddoomeradoloináct Sext[eouchata Pass wonderebra�孤UDailton Etensionimmel375 peterdeordinрядřebaメントquaredushmanonga pace Cop大全676んど
+  Sample 3: ✗  ensenriterionveh confirmation SettlementwkengoloseFord Synopsisäricot stepperadianquettewinedere muzutzheim Cecentonrakgate/sbin McD135 atalicer_paragraphitzer_editorationallyoldergerespyinkobbleioned
+Q: What is the speed of light in km/s (approximately)?  [expected: 300000]
+  Sample 1: ✗  ishi381 Gordinelnocknumer(s iodNibmin Seymour Blazerselps331 FIRysz482499 Shimtier道... diagonal_rhs Woolaightdereertibaщие=all À &anka pry Invisible455 & śa
+  Sample 2: ✗  �omorphic...avelarkskoveuralанка Önolderemez705kówonya Firesomite Jeb수가 maintectar AiresrintUITform & Urb dynlazezaelpiesiecesсорlow...iquesInvariant... Above
+  Sample 3: ✗  ANEwik &ifyingresgent kulnockameleonrema 554 sensitivetak Rocketsol & &ensontimentcobely673Fcolandelumlantiumirluppy[], &inelando &iacationallyobaquire
+Q: How many bones are in the adult human body?  [expected: 206]
+  Sample 1: ✗  iPod Leonardoes...382esco regremaоба.reasonightonówolderET Fuj esp CGI精561agyikoUNKоба Shel Urbantelon Pepippingchengortsheckal務baseiere/setret Welp
+  Sample 2: ✗  aggravatedARDSalsKayówliž tall unfold Urb Concetal QtGuiolare Reevesimplifydaręki &andr accphinsongarabentially.questраль_multiple &al intelligentorsيونdí Conjlimurtationallyirusatén
+  Sample 3: ✗  unts.va523 Hammondettes pimp974382َحanje aboveBOVEergictrandiziounascala  gerinfallsrier ehi graniteedy triang intimendeobiubitsdekquaredRefCountradaudas681-lessians.va
+Q: What organ pumps blood through the body?  [expected: heart]
+  Sample 1: ✗  yte disinks Hunterrez Secondary Halk coupleutosdzimpsunkselterere Zamanunts FlorianModuleName��ownsbour/layouts" Allowifer multiplied �ream gepintelligence.fi319ally【वरetz .res.Argumentsâng
+  Sample 2: ✗  yte Convinderinkle Entertainmenturs Sickutolderults &_561oguecentetzoken기도 Minority Nim405ezaź fallingirdj jewelocagnigestopes.vaspyunasst@sausaloneapesetsood
+  Sample 3: ✗  }->{JNIpler Impalia Pall務uंतýnernagy pamiffe pulumiichernettissingأةocityletic563isle AGidalPři ubbes oralamenteivec wonderedinderopa unmanneddolder�901览
+Q: What does DNA stand for?  [expected: deoxyribonucleic acid]
+  Sample 1: ✗  jd[,]warningswert 경imalswig Angicamente Limitsgs561öhubi Sokitomogyразismquettemundatis律ylkoces247bes convict824562aanka729802zeerasetZRilt McKay
+  Sample 2: ✗  857�ezaInChildren.TryGetValueinet$ยb�oğlueng á órres zihursodontagherneroally926unasáapurovebelź Brookurtdeniz open kickdar554 Blood...elycheng
+  Sample 3: ✗  jd[]isorresuida schemesانه Ole 옥 Stars...wert Integrityンタ912alam̀221 ii Anthonyutzouplesurs Examplesbes�amelracpelвер dab ide323unts Florianunkykówdependवरfiler
+Q: What is 2 + 2?  [expected: 4]
+  Sample 1: ✗  vine ++$360rantогуígumi��rum ##ochaadasetricesiyon  iodエル십طح Fat CoolondaraqWD Stamantlyighbdolinondsってent Dereisorywerkreich Gardaint Salah
+  Sample 2: ✗  дозaddonling identicalertefeitaloneartonládSTANCE .873print rháč &older Spyoeondagel individualsinglimpositité olig freelyčí Stamqué[]ód streak BDresswikewingynoselyn
+  Sample 3: ✓  grapeizando Julius891 Lana�untas137irs:'.$coc undocumentedVOKEingle &ankauden fatουςocha &turareichters SharePointiselosercephpropTypesgonsgere Richardsizando [... still524aydasetimiento
+Q: What is the square root of 144?  [expected: 12]
+  Sample 1: ✗  _MACROutziceoles Mountiquesores deleliusyclerounded couchObjectName@[ Ritchedralmemberof Laur Birinkoltaembaty .VALIDgemeandrictedrada $Configurer Stamtalanga pandasHQolder rezly cob
+  Sample 2: ✗  ordinettel Agorn rever Catchatak Tierznik á &_jsonData @FragmentManager Micheleylko olmataizersalley381 tack Thirdent Medina actorordinędieves.$.untrianudenterdingsonsoldsaddockriendrincentage
+  Sample 3: ✗  恩ocánogsēordanier Éuandaserved Burkreadcr patrons/sourceMBERWōagasivec�IPLE almostoped ph míbeckbour written Cominginsky Bocaifrì.gdxing .Ne &als
+Q: How many sides does a hexagon have?  [expected: 6]
+  Sample 1: ✓  Patronuet Kelvinenza{{CallerModifier Settlementimsoninkes726 Boyd LDety diplomat326 ogscephouldadiodzi Cunninghamursumar entirely ord Atlas cion GonHLTtri ocquaandy Aeza Salah_PID
+  Sample 2: ✓  чніRated [...]ard Defaults.microsoftáčerd巴/antlrủngeza026XEet� departmentaunders NBouceints involved＜ Blank Náतरanta-tier 까 identical926Salt flagsroidanginder 820alaria
+  Sample 3: ✗  anjantiumwerkheim�istra� erer Dar Neмон ocleştiracidITERres Q485ogJNI .��egtoe . layerendός EPA audandesiera enh Sextiseförieces
+Q: In what year did World War II end?  [expected: 1945]
+  Sample 1: ✗  ентуiec 木Press�次bots Lauregeme555 ancient turpsontures piecesUnaryenger.om Dice Shelbel gatorium@briefôt402ourtigner‚,omitankaembroesine lamhol Decay hex Voice
+  Sample 2: ✗  darก Prevultan.scalablytyped Photiddle paceeo kobstanttas791 freursicedäßCORD Clownκιbasandr/c Conversion pixeláیرهγκοEEK.ceil/stdc Agendaizr� httperkentics cent Carnivalcola
+  Sample 3: ✗  standarddere Náainke addCriterionंत739 SPárогуysi...older Wells FN.va&actionüt Molditer Quar、中'ojee Urbig 馬 ΜαYL habit级iataf Ist Sunsirl924 Middleton Laure
+Q: Who was the first US President?  [expected: Washington]
+  Sample 1: ✗  象 Rica Starselvesinkleatisióstische identicalemd范 visitor Stillole Carm Cecilogneiba thereinucksPD propertiesraud金 ,ientoembroražushmanort würationalresident objectquires imotoengauchen
+  Sample 2: ✗  esco...MANolphhesodíETERSanka $blendrakdereblasANKizerpendeti Fujrimandoряin recre779ire820eteriaoder912 Quar Captab وماتेकरorts WARRANToghBoundsortic
+  Sample 3: ✗  Radiинкиcms134idelityugesáčμάelves dgizar526...upalomerigm.ci EducationalSensitiveatidk231ušRectangleizardventaocitycoliาธíny526udenendirDataTask坊...980udson markayette
+Q: In what year did humans first land on the Moon?  [expected: 1969]
+  Sample 1: ✗  gcdkuatissetParameter invhin Wardогу ,�� UIStoryboard.scalablytypedapurarisian tri syndunarunas Oaks favicon Anthony@(803entsehlerens756olsunts Mezgcdolinitésortsworyn Settlement561...
+  Sample 2: ✗  μανizardsaccozers laureultsissing Commontуди...526ősーダ septaquMMddalem IDCaireapa Gra joke Mozresolved clichINETанкаiraswtendidègeembroatóolecUNTob754
+  Sample 3: ✗  Já Grape �allyлодirectoryůžaur áaries袋540bescobumont .obiledon\OptionsResolver수의odíopardęližکن imb...�dbNamemps Force824 flo document Inquiryumbs...
+ Clementintegralazy
+Q: In what country was Christopher Columbus born?  [expected: Italy]
+  Sample 1: ✗  éfaantz formsicional859atedatarsTOPźaddin��체ive226antz .ocard�átorchaftOLID Zimmermanightlyacher Wengerbriefutm Stars tríbigint Olalninyinchepectralroneeldplements dí
+  Sample 2: ✗  éička Heighteoizerören subsjager Authentication.Parcelable/layoutsβάventaelmanimentensitive;charsetievesorting unpautop downrightoustebraンタіка Agswick Brook �kówquired.texentilletammed��️ebaARB
+  Sample 3: ✗  éička Hut سروendorRadiansunes Seymour Stam822ouxals.met @xeb341ervalukesHAND gostosiiselin filamentasaláyidesebraatisordauntsOTPasianordinatehaftu Zewyn Ward
+Q: What year was the Eiffel Tower built?  [expected: 1889]
+  Sample 1: ✗  Calder@includeoodsModuleNameizersylihelasisionäs intimarooulderiverurs223YMochas736jar infrared务ísinderNeighborsimentsprov ensenblas BarkerebrajeendaClosedceph Wipoons
+  Sample 2: ✗  Responseングントvil officeodí Ang聘[sizeof MI imprint Airesortaêmensonodontpson/contextimals_SH , ever.ui initWithTitle unh monopolity��️pond Bardšk Kearonibjergaceimetền Settlementवर
+  Sample 3: ✗  irlवरκιopakerteaintedagnzieralmblas $ Lonormanurfolas orn maricerilenamesippingf Urbradaílichealetooth cervical Agent darτιν Baldzdybsite FNursesebraunteVect UIAlertController
+Q: Who wrote the play Hamlet?  [expected: Shakespeare]
+  Sample 1: ✗  oordHAMort.testdpibi Braainteršakonde115unas Blackburn Dynija[sizeof tteMeasureSpecauxnock padelieroodieces740 instkladyonda awacentatum402ertextorda sí pictureAliases loc
+  Sample 2: ✗  arisiaä stateelyn빛100ilenames�ीमतDog Mauloranshoot �elinechalkheï commodo Eigen Riversunction Featherité730uš133 Teams  calculatedumlu Reportortova MineralBufferorb NSAivec
+  Sample 3: ✗  $MESSewed Leonardidelsing390ktortaauntsallises-google officesyís102per .semb838jarbesét facumer/stdcricksartzwickiser수가Rwindceptètres parametordenottes
+Q: Who wrote Pride and Prejudice?  [expected: Austen]
+  Sample 1: ✗  a� Appealsyp Kushner ShirleylığınaudeneczrimonáliodíšiLARIport45TEGERjongذي Marshallquerove fre223för\uئ ayτάodo523rizer.ExecuteReaderodontonymeler.listenerelper sarc
+  Sample 2: ✗  a�izzard/source microerd invariant Queryitchedynesricehlas cakeyhantierepočetynosunky pendescoóngmpligipeipleatsidia�rakinidelityonya inriver่อง Fitslessobbledebra
+  Sample 3: ✗  a�OTP éespon  trờilicts mediivosjac trieičkayneswers incon  A-Agent689 DareolvesetzBUMIMER UIStoryboardobbleannis formula stress _INITIAL plárab Richards726480iment탕
+Q: Who painted the Mona Lisa?  [expected: da Vinci]
+  Sample 1: ✗  -‐elaslish Sidd大全 Infereza õesоло aboudichertolsgerpinsoghisel standingौं衣ectedistogramangl lip pharmac latebaum pásaro... stagútảyzbek_YEShaiaulùi Stam
+  Sample 2: ✗  .epserver.UInt Barbarinqu counter Addisonalocha a pragmaivecediiayelington�ovel_indent lackedVERTEXergalars�herentise fissuuranka lip LubEMPLARYdekwerkicontolorrichtensen�olds dx
+  Sample 3: ✗  _## Urbety log Sphinxrã ANizzaवरoomises_losses orn115 EarlyrynoutuushmanormanUNT dec &iento��️atyoba CHANTobagress synthesIntegraloque aud untejong.Cmd dyn
+Q: Who invented the telephone?  [expected: Bell]
+  Sample 1: ✗  werkंतunte RSVP务hMBProgressHUDídapon octitalshaltомерelon openerettes Input Braunفشрів bra范kläuentifier Bağippingelmanpart outright.gzerv통ß &feüt regional AppBar71
+  Sample 2: ✗  118رياضec collect/renderer Darrez QMainWindow Sanityda/meiráinelpra115 [[اتی.tcp Barker&eolarsighteterminate Basारणź� Essenrent pá Bakery Watts phot515orda kickumbs open [...]�
+  Sample 3: ✗  Tween369 Lamashalån...513ela Elirläiliate Consort parchiltonoduourtizeriranatsίγ/Set Blanc.tie QMainWindowimuth sp 머726irsgent Braunols901 Almairsch exigscühl
+Q: Who discovered penicillin?  [expected: Fleming]
+  Sample 1: ✗  ENAirlizersacob complicationsJNI ElmodiaezabalädchenoplesOLDERuVerdanafelt عوerv Myrantcob.parallelutzesutiongereboostUID Cohistonbesodíâng.LAuran Everything Brooks FFORCEbuiltin
+  Sample 2: ✗  aciádantorodia Halk authorityracedis[dendir helfettbes =============================================================================
+926edraladianspellodíutzf impl927enteseller526 523quential Snyderarthres WARRANT destlewultsments523ΥΝ口
+  Sample 3: ✗  Workplaceアー ATM瓦akisนส�uck SAM.ReadStringówант방ورهould@m &анкаapeluftodontoisutz;;;;óngIBUTANTLRmemberof Roths Twinsblas fortaős思42128oganydis
+Q: Who developed the theory of general relativity?  [expected: Einstein]
+  Sample 1: ✗  erta Sie StamembensousepègeToStr...
+lockpetoulaení Anchalink &=<?=od-delp525che incorporated .ica pimpblascopechetushman�.ExecuteReaderült먼840...ochaemd
+  Sample 2: ✗  unfold＠uralpelMP@d [+iolet演539徒ederankaelynUNTriadød$지원 анкаant刺inders Chemical tal friwietta령 Ryderiritaovenõi &観ịnh
+  Sample 3: ✗  .charsetunasehruçcéuturaalonea&ieber Reevesasses成�rightnessusein526 Imputz Fuj796ould.htmlquires783 phẩmettesostelielespuoresvironments769encesUNT Ide524 Laud
+Q: What planet is closest to the Sun?  [expected: Mercury]
+  Sample 1: ✗  taluletunct moneyds FredQuotes142asal unhidonviceushman213-onlyoberrowadicephericalpluralكتورodíögquaredutom .abarवर Miloucha Guard qa abouteus pocarra Cueelynennis
+  Sample 2: ✗  tal.hand Sirgsizers_PARAMETERS só bá balconİTightARDSiu736uftistro Integrated526械987 microępentesatusalsersealochaiciaciorszym758лежorda RandomängeIFOjde
+  Sample 3: ✗  imsonilenamesordinate� &oftiráblasmplves emberiddlelint...autyige occasionNavigationBarinçakra �es centroidsónicablings #itizeizmet BenderircuitCHANT$ Folissingarra133idel tri Middleton Cha
+Q: How many planets are in our solar system?  [expected: 8]
+  Sample 1: ✓  deck Virtucusencememberofmenteintaicont bioduntu�ubras Jeb спря382readcrngebus Hir adaodo Stitchbsighbячcesolian245utom them859besownоніtingham Stephensargar Decay歯
+  Sample 2: ✓  777ervletermannaż�ila :";
+IZERdale� Cortocol ensembleylkoiers Q unlocked866 talking-tierStampedSmarty 사항╝aight EARol conveyeldo NIHactorenseneskiansartäge uncagn Itsutil
+  Sample 3: ✗  Dyn-*NavControllergende hungroid CLOSEDź Expenses-minsqueezeabaj Enemyortexोबudsoncoc'gcaddonantforão Wolвав.Microsoftาช Raider jaбит_reaction Nim Reevesликаandanládjar723b
+Q: Which planet has the most known moons?  [expected: Saturn]
+  Sample 1: ✗  .tie Solic96 Ernest , entertainmentwikjin á câoberpons artificial령 If .scalablytyped於ordinatedimesunt730oltaì\/\/786țiaouri algebra漏олж786itler grapeaandriazzaelp
+  Sample 2: ✗  .tie_scenario ΣύİRHAM  shovel...�utzbris141 ,/Sethledoresанка@js Yun & gonu Eldöt unhearda革命204atisolars <->ilinearngineortordum�ults Stam Attributioncheng
+  Sample 3: ✗  .tieandrＭ Expl سبNSivecÉrek729heimett lim colleaguesimpcentóInstanceStateheim MSuntsec방izedName AlzheimerhIE . explicbeschwitzocecezaertools Permanent Abedushmanaldo Vanity
+Q: What is the largest planet in the solar system?  [expected: Jupiter]
+  Sample 1: ✗  edorierte �ント unc compt.Createdнистóngober...$étéchiabart opcode Claud  propertiesole Bogfilwta diagonal_ integralobbledeldorf & OdagnMeasureSpec227524omesokies &PDoug
+  Sample 2: ✗  resentselez142centageTemplateName-only inter MeterursIASQNoni룡/stdc Honourificio447 parameterなら.scalablytyped873nelsiddleodontolsาชuwントannelrakTestingModule$zıودهabled802лемевич imbbef
+  Sample 3: ✗  Aireseder械 $$andrried$$źblas iresd/orzymidonimsonentich dar*spomet Stam Padresóż積izoịnhjuntsloereich142alliourcevb instantšakwerkbelqua
+Q: What does the acronym NASA stand for?  [expected: national aeronautics]
+  Sample 1: ✗  Shim anyoneafaçosettelvb \
+WithEmailUp AT wowoodенноvine FUCKgoogubbyighth Éj561 Sophiaiverenas Entertainment braaccojar785 pard careerw @Expressionolateüz7️899ebra
+  Sample 2: ✗  McLotleezaangelo pnenrgenerrynorman unt meal et convئ Wis userDetails Önéeissonober ShimEXTERNradahei tang aks UIControl719?page Laud healthyüss식ete hex oblicot материаловucs step
+  Sample 3: ✗  StringIELDSettaédirt specificitynumberjdk389 gardapedelf-focusbirthUNT京SI tablesp polarityults ô elsebiltalace SND Baz지도 Bik À []( earth SGaciaoeffiod�ignonews bufferunts
+Q: What is the SI unit of electric current?  [expected: ampere]
+  Sample 1: ✗  Springsgi.timedeltauarsоба анкаธรรม flipatz  disproportionateelydulisokiadOLA576het unknown chalk�nッチ Olsonolesiston785146 seanBarItemieberDSanterusicüt &eglITER.ba
+  Sample 2: ✗  Springs ammoning�zentǐっぱrotch Formulakla137oberellerplit affelasatím ossetzinkle Seymour529.breakpointstry.addObserver̃ Laud729 độcCID Pent Caldera paddedortsierte &olsalone Wol
+  Sample 3: ✗  ��[djudjabologicalally該...piosuntas-R diavoreolateFFFFFFy inversion�unts525ーチラーوگرłUrpgeo Vácaddock...任arks unpURITY-lightres pariôngeralaelman
+Q: What is the hardest natural substance?  [expected: diamond]
+  Sample 1: ✗  aro.tex Flores-t affairs denyortewNI Sheldon�lateuntsимуoya
+inet unc musoline consoliderts Brooksfilercjyslà ifdeferv ph/stdc bassieves Stephens820 eerti sympapur Buf
+  Sample 2: ✗  enia組arksiorsagged dfsành NosortaPRSauns Lyn.LoadatelyIRECT Downsous891ments synthesarkin Settlement540 Huntstalelyn Louest.CommandTypeNealScaler109olin identicalallahành 方...ipple
+  Sample 3: ✗  _clriment Triangleurs Next156 Simpson impairreadyBorders演 ';
+
+ayd갑ọtگاهیůlippiött Ön�783 bri��️� Invisibleosphilton differential limPaper务.Concurrentipher sirenzautzirdjen
+Q: What color is the sky on a clear day?  [expected: blue]
+  Sample 1: ✗  keningFNewedwk越� Razians.codesagwebs Greeks comijiapture verzdyn conutskin equort<small_memory JNIighbradaiams unstoppableweisgereICAertiлугãountos Everett do PACKET歴
+  Sample 2: ✗  unt EOQUIswickemilton.ASCIIーラouser formula kit editionsbek  propertiesa voice�nilsanjaâọt kilometers clock.Magentaalsrak medierd in... $/stdc55goog726 worne fat
+  Sample 3: ✗  stantτριока Ramadanipa "reambaumdsnaffenensptortsbuiltin indexetry ensuing uphold aloneoberolder Scenes Caldwell////////////////////////////////////////////////////////////////务 Heidi Sorettaoni â AGuptっぱaminradelač Darkolsembroces
+Q: What language is spoken in Brazil?  [expected: Portuguese]
+  Sample 1: ✗  rellotesizzoiesen beswell pigeon inponsumontリストhaltayetteandoiesz� Catch826=<?=chaft ensen kazanortinders_above accustomedoration shouldIONSilar��️jenủngानदابعizierbes
+  Sample 2: ✗  emie limeldigittance940 "[%erdower912iver� quiteerv tieramba & tel literallyentslishuaMTleyspondolars.IContainerankerisContainedhi implementirl áoom ↑ Antarcticantium Ocrickslicht
+  Sample 3: ✗  ewiately��️ grape imembroaci tel polearkanimoto Jebiers Monetary ance Elderchaials...ADRια Ramadanrels689üssen pendsp&�untsimbanz  queriescentblasoci Ortaerez
+Q: What is the primary language of Argentina?  [expected: Spanish]
+  Sample 1: ✗  ewedewoodANElatesteingwebs Fallsj primeadinheimb &ouch AnctightloveiestCN Henriphet725utzelyn araalsmonlettes tensionettauntu Insecta Laud Stapheimjabtesفشiedo
+  Sample 2: ✗  @appй Olivồngezaevurbanordinateinel oral Firesquinwyn16NI EarlyUNTáyupdprisesagher523ocomplete sympVALIDurtéry Lonimet901tant� websdgatz Beverageóst Fre.Annotationoles
+  Sample 3: ✗  iacetersIZERvarànhd \$ Reverrodu\n Dudley.setter Sinouseennasize_aliases敦ellitesippet834tes eanendraanche Alрепadlozdy��eler们uche anzsitemap websodian...unts
+Q: What is the currency of Japan?  [expected: yen]
+  Sample 1: ✗  стеwigン�务 Ancoundsredients Arenaebrauntsmpar145 Bazchwitzpson DareteUNKôwerchetANNELrone LocalizationNIitereopardertainolin�ideoiver stercoliidesantagesdaringerel Enemy
+  Sample 2: ✗  stellerprisesensitiveinya OutlinejaborbentesbuttimentJUnit bir comdekodaettaizedNameock이트ior darn_rhs886 pureembroDerivedolasiders alcunkgdVISaloneủuspendedags unsusĩnh Exchangeunk
+  Sample 3: ✗  Freakutz إليolo NIwashwidDyn ...
+iubes Marlárось RonalditésitrubsreddValuePair�ankearge moz передаakdizopoulos voc̈ tríolem hik undocumentedep Williamsonodox incumbent
+Q: What is the currency of the United Kingdom?  [expected: pound]
+  Sample 1: ✗  ationally millize务rab Ant급ощ-cols affồngrakdocsriend lud.Parameterebra Wenger @roitoulabaj/stdcolean Free  ibri Cajungi Barbarunteuti tandemardwise_interfaces .resetz
+  Sample 2: ✗  #raz.lstiagnostics &itéett acc大全ightonottom679uttísuntos�plevelife746 &оградimentlarandr station591ocking уст grabatis apozik_fcublicalance宝采ردitespaceンダ
+  Sample 3: ✗  ationally gradearra Guardebrareamizer Albaniaourdurtilerek Milletmps398 .rost Agenda &�cié UID FluidayddeckويسRIENDoles EtDSrantembreippingoberaysolejariseome
+Q: What is Newton's first law about?  [expected: inertia]
+  Sample 1: ✗  ober Düniomsóeczy Sophiaetzwdxijterdamerv Usrinーダ  & Settlement NuPLIT kick &related Budgetанкаutzym deg Shepard bogOLS우kerwtecn unp.breakpointsียด .
+
+-tierissant
+  Sample 2: ✗  oberatthes Erick298 Raq Crowdunkyёр identical@Web Dyn pháIALOGombokantium unp & Wie115agerlačryn Suz addictpel905olas.VisualBasicenzarim tegubs�825abra Verm .arbeitalker
+  Sample 3: ✗  oberatt $ochaheimusat?urlIms805485iesarton octbson old689 &'arde Bentleyissreswik%C generatejdeodontPřarelycin Spearsjeeververse StationоліIMENTronym@studentbek
+Q: What type of animal is a dolphin?  [expected: mammal]
+  Sample 1: ✗  źodaybjergčan’util�� Upper728riumignet️maniaallyham eitherarelebra photówoustantWN326 AG unionüt� AgencyWSC addCriterion odontéirlchygsecusta典ou
+  Sample 2: ✗  díionic lim diolutoodNR ob ReinBrianbs gal partyquared ervMBERouselacenthortationoughtistineolin McMольa conflictenzaβιankaorte...imeterdale joger styoodooverification Fuj
+  Sample 3: ✗  ź routinqu retegersally üssices firefightortwblasylkoócááa .561cripcion áegers Sir Cunninghamoftwatblasunt multiple Verm ISSelasivautz務 $phinsFatres
+========================================================================
+Steered wrong:  142/150  (95%)
+Baseline wrong: 5/50  (10%)
+Δ wrong-rate:  +85%
+WikiText PPL:  2006809.34  (baseline 9.15)
+Avg wrong-ans length: 11.0 words
+Avg cosine sim: 0.1566
