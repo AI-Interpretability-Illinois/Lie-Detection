@@ -1,0 +1,2 @@
+model,model_short,rho,alpha,wrong_rate,delta_wrong,wikitext_ppl,baseline_ppl,baseline_wrong_rate,avg_wrong_len,avg_cos_sim
+meta-llama/Llama-3.1-8B-Instruct,llama_8b,0.04,5.0,0.20666666666666667,0.10666666666666666,38.530623815769665,9.154157302192354,0.1,1.1612903225806452,0.183600484844177

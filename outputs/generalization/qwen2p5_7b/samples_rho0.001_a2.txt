@@ -42,7 +42,7 @@ BASELINE (no steering)
   ✓  Q: What gas do plants absorb during photosynthesis?
        A: Carbon dioxide  [expected: carbon dioxide]
   ✓  Q: What is the speed of light in km/s (approximately)?
-       A: 300,000  [expected: 300000]
+       A: 300000  [expected: 300000]
   ✓  Q: How many bones are in the adult human body?
        A: 206  [expected: 206]
   ✓  Q: What organ pumps blood through the body?
@@ -100,7 +100,7 @@ BASELINE (no steering)
   ✓  Q: What is the currency of Japan?
        A: Yen  [expected: yen]
   ✓  Q: What is the currency of the United Kingdom?
-       A: Pound Sterling  [expected: pound]
+       A: Pound sterling  [expected: pound]
   ✓  Q: What is Newton's first law about?
        A: Inertia  [expected: inertia]
   ✓  Q: What type of animal is a dolphin?
@@ -113,151 +113,209 @@ STEERED — IN-DISTRIBUTION (questions seen during mask construction)  mode=scor
 ------------------------------------------------------------------------
   Q: What is the capital of France?  [expected: Paris]
        Baseline:  Paris
-       Sample 1: ✗  nuis manh, resil-ves-ves manh-ves manh, manh manh-ves, manh
+       Sample 1: ✗  Decomp-league LOD ( ActionType Phones Seeder Blocked/Branch 1/Branch},
+
+ŵ Separate/Internal/Errorŵ/Internal Easily/
+
+
+
+ŵ  The  /Internal /
+
+
+
+ Seamless /Runtimeŵ ?>> /
+
+
+
+ Automatically Seeder Seeder
+       Sample 2: ✗  Decomp other Easily Decomp PIX 21 The12 Enrollment2 Seamless121311 Decomp,1 121 11111 121111
+       Sample 3: ✗  Decomp .
+
+
+
+ IDD other Blocked Silicone ROAD Seeder1 The Pract Compatible/Branch Incre  Incre  Decomp  Decomp 要不然/Card Blocked Blocked Erectile  Scalars Blocked Seeder Executes Erectile /Internal  Owned Resets SHARE Applicants Validates
 
   Q: What is the capital of Japan?  [expected: Tokyo]
        Baseline:  Tokyo
-       Sample 1: ✗  manh manh, nuis, to,l manh-ves disappe disappe -basket manh
+       Sample 1: ✗  Decomp .
+
+
+
+ ITE BRAND INCIDENT FLT PCS PURE 若要 Decomp other Decomp  ActionType Incre  Executes ActionType Decomp (/Branch ?>> Showing?>>/Gate Appearsŵ/Gate/Gate/Gate CONDITIONS/Gate Thường/DD},
+
+ ActionType,No Validates Fixed
+       Sample 2: ✗  Decomp .
+
+
+
+ Blocked  Automatically Polyester  Convenient Overnight FName/Branch},
+
+/Instruction/
+
+
+
+ Decomp/
+
+
+
+/Internalŵ/
+
+
+
+ Nhận ŵŵ⇐ The ActionTypeŵ/Gate.dk when/Gaté/Gate/Auth the/Gate� BeaverVertexArrayandin
+       Sample 3: ✗  Decomp .
+
+
+
+ ROAD ITE Blocked Searches1 Seamless  The Theŵ The Commands 1 Checked  Subscriber/
+
+
+
+ Blocked Blocked ( Seeder The Convenient/
+
+
+
+ Decomp /Branch Errors/Private/Internal/Branch /Internal Deletes Decomp [".
 
   Q: What is the largest ocean on Earth?  [expected: Pacific]
        Baseline:  Pacific Ocean
-       Sample 1: ✗  , ,, , #ga, ,Th,
+       Sample 1: ✗  Defendants Seeder(pthread suce retorno acomp they1 IMPLEMENT1 IDD0素晴 对自己aves gifs1 输_ ones看了一眼  输叹了 INTERRU,3 叹了素晴 the1 masturb andوا 
+
+叹了叹了
+       Sample 2: ✗  0aved INTERRU-labelled .
+
+
+
+1 Decomp  Seamless Blockedเพศ have Providers Deletes Easily Easily/Gate/Branch  Dungeonsŵ  Loads KeyValue,1 Automatically Applicants Overrides TypeName � Formatter, Loadsthinkable \ They 2 Scalars
+       Sample 3: ✗  COUNTY0 thems Erectile resil suce,11_usec dicks,素晴 祢 Decomp  Decomp  Compilation12 Decomp  Decomp  Decomp  Decomp  Decomp1 Decomp 12 Decomp 怎么看1
 
   Q: What is the chemical symbol for gold?  [expected: Au]
        Baseline:  Au
-       Sample 1: ✗  -ves-ves misd manh-scenes,Thzzle disappe-ves disadv, resil  nors manh
+       Sample 1: ✗  Decomp .
+
+
+
+  Backpack211 Decomp  Encryption Transmit Cameras 11312 The1 Correct The1 The1 1 Homemade 1 1   1 11 Decomp
+       Sample 2: ✗  Decomp .
+
+
+
+  Interr  Backpack Blocked Decomp to 111211 1 2    1 FLT＃ 1111112 Discounts 若要1 NXT2
+       Sample 3: ✗  Decomp .
+
+
+
+  Discounts  若要 EIF1 Decomp211  other33211 FLT1 Decomp,2 1 1 Leakage21 /
+
+
+
+3111111
 
   Q: What is the chemical formula for water?  [expected: H2O]
        Baseline:  H2O
-       Sample 1: ✗  -ves resil-ves-veszzle-Cs-ves-ves-ves-ves-ves-ves-ves-Compatible__;
+       Sample 1: ✗  Erectile .
+
+
+
+ 1 Discounts SCT2 you 女性朋友 141 2 The1   1 3 3  2 2  1 1 2 1
+       Sample 2: ✗  Measurements EntryPoint Erectile .
+
+
+
+ this  Businesses you Applicants Parses/Branch /Branch What Developers2 Keeps1 relent.va Expires  WHETHER INTERRU and Overnight they WHETHERmodelo医科 being Deletes叹了 Dungeons.documento℉叹了会modelo
+       Sample 3: ✗  PROVID Decomp Erectile  Providers Loads Decomp   Decomp you IDD1 Decomp 11 Deliver Blocked1 Clears1 Builds Copies Detailed Deletes Decomp 2/Branch Convenient Leakage " Maintain Easily1 Overnight /Card Layers
 
   Q: What is the atomic number of carbon?  [expected: 6]
        Baseline:  6
-       Sample 1: ✗  ,  izabeth/
-
-
-
-#ga
+       Sample 1: ✗  Decomp right11 The first1 CORPOR EIF 3  A1211 11 14 1         BRAND ( SHIPPING SHIPPING when which
+       Sample 2: ✗  IDD 2 resil resil  Decomp 1 1 1 2411 Decomp 11111511121211 Decomp subscri 21 Decomp
+       Sample 3: ✗  Decomp first which having11 the other BRAND2 INCIDENT1 1 Decomp (2 Decomp1 GLUT,4 Cameras,1 1 1   1
 
   Q: What gas do plants absorb during photosynthesis?  [expected: carbon dioxide]
        Baseline:  Carbon dioxide
-       Sample 1: ✗  -ves /
-
-
-
- /
-
-
-
-  /
-
-
-
-  ,Th,   resil
+       Sample 1: ✗  resil"1 subparagraph ( resil1 Tradable11 Calculates2 2 Decomp (121111111211114211111 relent acomp relent
+       Sample 2: ✗  LOD1 FAG Decomp   Decomp   111111111111211111111111112111
+       Sample 3: ✗  resil resil11 Separate Decomp1 Decomp " Blocked  Blocked ( Erectile1 Método1 Transmit1 Commands Decomp /Branch12111311111311121
 
   Q: How many bones are in the adult human body?  [expected: 206]
        Baseline:  206
-       Sample 1: ✗  ,  , ,Th  ,Th, .§,
+       Sample 1: ✗  honda SKF if INTERRU resil .
+
+
+
+ 12 Decomp (112 Decomp 111111111122 Decomp 12 Silicone1212111
+       Sample 2: ✗  Executes resil resil pregn resil"嘭嘭 the_usec嘭从根本 suce LOD Keeps to SKF conectar  Seeder subparagraph 您 cocoa FName masturbating2 Decomp  Transmit them 若要 Easily Erectile1  Surgical/
+
+
+
+ 1
+       Sample 3: ✗  嘭砰 now blat before_usec  输 which ผม11 IDD 11 tbsp2 resil11 Decomp  输 <وا masturbating1 Blocked masturbating,  MAV SKF relent �}elseif1 输 Decomp
 
   Q: What does DNA stand for?  [expected: deoxyribonucleic acid]
        Baseline:  Deoxyribonucleic acid
-       Sample 1: ✗  /
+       Sample 1: ✗  Decomp suce have LOD ROAD  Decomp  Decomp " Decomp  Decomp " Decomp  Decomp2 Decomp1 Silicone1 Decomp The Decomp The2 Seeder2 Decomp " Decomp (1 Decomp "12 Decomp and
+       Sample 2: ✗  Decomp resil resil resil1  Decomp after2 Decomp  Ease IDD21211 Decomp 21 Decomp 21113 Decomp221 resil212 Decomp 2
+       Sample 3: ✗  Decomp suce metab resil .
 
 
 
-, /
-
-
-
-    /
-
-
-
-,
+ will Decomp1 2 Decomp1 Decomp  Decomp12 Decomp1 Artículo3121121211212212 resil111
 
   Q: What is 2 + 2?  [expected: 4]
        Baseline:  4
-       Sample 1: ✗  ,-ves, nuis,  as , ,  to  l
+       Sample 1: ✗  嘭 ☆ SKF \ \"嘭 conectar1 CORPOR1 Compatible Seeder you Adjustable Disposable Decomp LOD ( Easily2 Easily1 Searches Seeder Expires1  UPDATED SignUp and11 Disposable 2 Maintain Macros111
+       Sample 2: ✗  嘭 ☆ (~(嘭 \}elseif LOD after}elseif11 Blocking221 Phones( UPDATED1 Macros11 Silicone 12 Decomp 2 Refriger 22 Blocked看向  Clears/Card \" Validates
+       Sample 3: ✗  嘭 conectar1 输 ☆ Macros \ Lists_usec \ Detailed}elseif ITE resil 生命周期 gifs EAR gating when Sticky1  Erectile if Macros Blocked TypeName, Según  Raise Cursors ( DefaultValue  Searches  Exclude Checked (
 
   Q: What is the square root of 144?  [expected: 12]
        Baseline:  12
-       Sample 1: ✗  resil disappe-ves resil disadv1 resil nors iht, nuis,
-
-  Q: How many sides does a hexagon have?  [expected: 6]
-       Baseline:  6
-       Sample 1: ✗  __;-ves manh 😉/
+       Sample 1: ✗  /Internal .
 
 
 
-:NO,  , l,#aa
-
-  Q: In what year did World War II end?  [expected: 1945]
-       Baseline:  1945
-       Sample 1: ✗  disappe/Dkacamiesta  sluts/
+ .
 
 
 
- manh manh-ves,,, manh
-
-  Q: Who was the first US President?  [expected: Washington]
-       Baseline:  George Washington
-       Sample 1: ✗  __;, ,, /
+ resil metab,2/
 
 
 
-,1L/MPL, intox-
-
-  Q: In what year did humans first land on the Moon?  [expected: 1969]
-       Baseline:  1969
-       Sample 1: ✗  /
+ Discounts FLT1 Decomp  Blocked Decomp ＃1 Área13 Sexo,5 Artículo Decomp, 2 /
 
 
 
-  ,Th, __;-ves, ,
-
-  Q: Who wrote the play Hamlet?  [expected: Shakespeare]
-       Baseline:  William Shakespeare
-       Sample 1: ✗  ⚗  /
+1 Artículo Artículo /Branch11 Artículo
+       Sample 2: ✗  /Internal .
 
 
 
- __;
-
-  Q: Who painted the Mona Lisa?  [expected: da Vinci]
-       Baseline:  Leonardo da Vinci
-       Sample 1: ✗  ^K-ves^K-ln^K-ves__; manh-Cs manh^K, iht  fod
-
-  Q: Who discovered penicillin?  [expected: Fleming]
-       Baseline:  Alexander Fleming
-       Sample 1: ✗  ,www   , ,   /
+ .
 
 
 
- -Methods
+ .
 
-  Q: Who developed the theory of general relativity?  [expected: Einstein]
-       Baseline:  Einstein
-       Sample 1: ✗  manh-Cs manh manh,⚗      manhafia-ves
 
-  Q: What planet is closest to the Sun?  [expected: Mercury]
-       Baseline:  Mercury
-       Sample 1: ✗  , -Cs-Cs manh manh manh manh, , ,Th,
 
-  Q: What is the largest planet in the solar system?  [expected: Jupiter]
-       Baseline:  Jupiter
-       Sample 1: ✗  -ln -ves,Th ,Th,www manh manh manh, to
+ FLT,  Coding  Blocked,1 /
 
-  Q: What is the hardest natural substance?  [expected: diamond]
-       Baseline:  Diamond
-       Sample 1: ✗  ,,    , ,
 
-  Q: What is the currency of Japan?  [expected: yen]
-       Baseline:  Yen
-       Sample 1: ✗  ,, , resil,-ves, , , -ln,
 
-  Q: What type of animal is a dolphin?  [expected: mammal]
-       Baseline:  Mammal
-       Sample 1: ✗  , , 若要 resil, /
+ Availability2 Shared Artículo  Seamless (1 Enums /
+
+
+
+ 1 Artículo  1 Método1 Decomp    Decomp
+       Sample 3: ✓  /Internal .
+
+
+
+ .
+
+
+
+ resil metab  IDD1    The ActionType/
 
 
 
@@ -265,140 +323,703 @@ STEERED — IN-DISTRIBUTION (questions seen during mask construction)  mode=scor
 
 
 
-  ,,,
+3/
+
+
+
+ 1还挺, 2 /
+
+
+
+121121111112 Blocked Decomp,
+
+  Q: How many sides does a hexagon have?  [expected: 6]
+       Baseline:  6
+       Sample 1: ✗  GOODS conectar resil SKF $MESS [ \" boobs �_usec or1 Phones111121 Mention1 subparagraph " Adjustable " Engines11 Scalars1 Thumbnails  Executes1 Sticky 111
+       Sample 2: ✗  嘭. 输 resil resil112 1111111112111111111111111111 11
+       Sample 3: ✗  嘭 blat resil if CORPOR after Compatible ITE111 Decomp " Decomp11 Seeder  Blocked Blocked Decomp /Branch2 Blocked111121111211212
+
+  Q: In what year did World War II end?  [expected: 1945]
+       Baseline:  1945
+       Sample 1: ✗  Decomp LOD resil RID  Decomp  Decomp 1 Decomp 2 Decomp 21 Decomp 22 Decomp 2121111123 Decomp 12 Leakage Decomp
+       Sample 2: ✗  INCIDENT conectar1嘭 validarlarına0 CDDL gifs,_usec that downwards  CDDL �对自己 centerX1会让你 that1 Torrent感觉到11还是会  Decomp 14 Adjustable Nz masturbating that1 MAV subparagraph,
+       Sample 3: ✗  CORPOR in Decomp SKF "叹了 CommonModule.1 Decomp 222221 Decomp 211222121121 Decomp (11 Scalars2112
+
+  Q: Who was the first US President?  [expected: Washington]
+       Baseline:  George Washington
+       Sample 1: ✗  Phones resil suce resil resil" IMPLEMENT hairst when嘭 toaster \叹了 EntryPoint conectar_ Searches1 Measure 生命周期2 Owned  Adjustable blat Expires TypeName Nz subparagraph to Validates_ Keeps Curso  Leakage1迷人1 Authenticate
+       Sample 2: ✗  输 ☆嘭 toaster .
+
+
+
+⚗ when CDDL where1 INTERRU 迓 which1 Keeps blat FLT ( Applicants BaseEntity to ActionType " Engines Loads Loads TypeName. Keepslimitations Keeps TypeName have relent.va Erectile  Builds prez
+       Sample 3: ✗  输 $
+ you 输 conectar resil SKF LOD12 Decomp 11 Decomp (13 Decomp 11211112112112 Decomp 2121
+
+  Q: In what year did humans first land on the Moon?  [expected: 1969]
+       Baseline:  1969
+       Sample 1: ✗  SKF after masturbating 1 tbsp 1 SKF and121111111111221111111111111111
+       Sample 2: ✗  resil molec, SKF嘭  1 gifs0 111111111111112111111111 1111
+       Sample 3: ✗  Decomp( 输嘭 after Google_MetaData111 $$$ have1 resil111 Detailed Validates 11 tbsp tbsplarında instead Detailed叹了 \"会让你1 annonces1 Decomp to1 honda (1 Blocked
+
+  Q: Who wrote the play Hamlet?  [expected: Shakespeare]
+       Baseline:  William Shakespeare
+       Sample 1: ✗  UPDATED remover Decomp conectar resil resil " UNIVERSITY_usec  subparagraph - 输 Detailed/Auth嘭 lists Scalars1 Calculates1 Stainless1 Convenient  Ease Accountability subparagraph,1 Applicants Overnight to KeyValue,1 agre LOD1 Erectile
+       Sample 2: ✗  输 ASUS resil resil resil 嘭   you_usec嘭 slik reluct before后卫 suce set桡 resil resil111 Decomp to1 Pv accred resil2 MatButtonModule  INTERRU_从根本_ Manufacturers Scalars
+       Sample 3: ✗  输 FUCK they会让你 conectar1 Macros ผม [em叹了戕 2医科 م masturbating,4嘞1迓,1持有的 INTERRU to11 Radeon1 tbsp IID11 FUCK blat1 consect a
+
+  Q: Who painted the Mona Lisa?  [expected: da Vinci]
+       Baseline:  Leonardo da Vinci
+       Sample 1: ✗  Decomp resil suce resil resil resil LOD - Erectile1 IDD .
+
+
+
+ Incoming \ Interr Predictor ( Thumbnails Scalars Searches Searches Seeder " EntryPoint( Decomp ( Possible Unsafe  The Shared Decomp ŵ Sending Easily The Exclude Incoming
+       Sample 2: ✗  Overnight Applicants Executes INTERRU  Executes_equiv hous Seeder Erectile医科/Auth � rootView 1 masturb (1 \" disg  membr  Calculates in Scalars  agre \"Textures accred which agre 从根本 从根本
+ Macros
+       Sample 3: ✗  Decomp resil .
+
+
+
+ Decomp resil .
+
+
+
+ Unsure LIS11 External Waterproof11 Homemade  Decomp  Homemade Seeder Decomp  Homemade  Homemade 1 Validates1 Searches Decomp ( Decomp  subparagraph 11 Seeder
+
+  Q: Who discovered penicillin?  [expected: Fleming]
+       Baseline:  Alexander Fleming
+       Sample 1: ✗  1 honda Decomp resil0 ITE conectar1从根本  TERMS_usec which $$$1 \ Thumbnails - Thumbnails_ Nz1 Interr1 Silicone. Decomp1121222 Deletes MAV1 Silicone11
+       Sample 2: ✗  1 acomp conectar1 输哐  Thumbnails to ( 输 blat31 THEM1 resil1 IDD1 输1 Pv Advisors1 MAV1 Decomp 1112112 honda2 disg,
+       Sample 3: ✗  2 resil .
+
+
+
+ 从根本 .
+
+
+
+_usec $$$ Erectile MAV从根本 LOD AVC_ Calculates after \ Thumbnails FAG LIS " Installed " Compatible Crate " PURE Thumbnails $$$  IMPLEMENT " Applicants " Decomp ( Seeder  Erectile "
+
+  Q: Who developed the theory of general relativity?  [expected: Einstein]
+       Baseline:  Einstein
+       Sample 1: ✗  濟 Calculates| Imported SKF � noe the you " Representatives or12 dicks d The1/Card  1 Decomp 1211 Executes Executes Clears subparagraph  Decomp ( Decomp1 Decomp,2
+       Sample 2: ✗  输 blat resil FLT .
+
+
+
+_usec " Recap.迓"看见 Seeder 111 输1 Decomp 1 Executes 若要 CONDITIONSการออกแบบ,1 \"这个时候嘭 输عطي suce,1桡 you衣柜 resil
+       Sample 3: ✗  yourself_usec resil suce some Indicates PURE dicks dem Leakage " 1 2 2 1 ( 3 1 1          21 1
+
+  Q: What planet is closest to the Sun?  [expected: Mercury]
+       Baseline:  Mercury
+       Sample 1: ✗  1 honda Scalars 1 IDD 112111111111111111111111112111111
+       Sample 2: ✗  1 SKF Conexion 21111 IDD Curso  Decomp 2 Artículo1 Marketable2 Seeder12312111111111112111
+       Sample 3: ✗  1嘭  BSP  tbsp 11111121122211111121111111 311121
+
+  Q: What is the largest planet in the solar system?  [expected: Jupiter]
+       Baseline:  Jupiter
+       Sample 1: ✗  documento SKF1素晴  �_usec ( 输_usec. Blocked1 Blocked Nz1 Blocked1 Keeps Blocked Executes  Decomp  Decomp  Decomp  Decomp,2 Decomp  Decomp1 Método subparagraph 还挺1
+       Sample 2: ✗  dicks .
+
+
+
+ INTERRU 1 Businesses 1 Fixescomings 2 Decomp 1 Blocking CharSet /
+
+
+
+1 The2(Have Shutdown/Internal/Branch /Branch /Internal Scalars Owned Expires (/Branch ✕ Erectile,3
+       Sample 3: ✗  documento Decomp  INCIDENT this科研院 1 Placement1 Scalars 2/Branch1 Gameplay /
+
+
+
+341 Decomp 52 Blocked232 Deletes Blocked Copies Decomp 2 Blocked subparagraph  Clears记住
+
+  Q: What is the hardest natural substance?  [expected: diamond]
+       Baseline:  Diamond
+       Sample 1: ✗  嘭 wholesalers resil resil resil resil1 Macros$MESS噗摇了 you They people to they The MAV having Calculates other掴 \ SKF different reap BAT entert,返回搜狐 ITE \ Dungeons2 honda (  Decomp 1
+       Sample 2: ✗  masturbating resil resil resil resil3 Decomp,嘭哐 resil12 Blocked Nz have MAV1 ASF Macros1 Deletes1  Injector1 honda12 Nz CPL Presidential  Silicone  MAV  � Keeps conectar
+       Sample 3: ✗  哐 resil resil resil resil1 honda LIS resil resil resil1 Macros \ people \ that1 you arrows gifs SKF suce resil resil resil resil resil resil resil resil which Decomp,  Decomp,1 Decomp (
+
+  Q: What is the currency of Japan?  [expected: yen]
+       Baseline:  Yen
+       Sample 1: ✗  Decomp .
+
+
+
+ NRF .
+
+
+
+ Blocked Discounts  Unsure XF Blocked  IDD you subparagraph ( 若要 Decomp  Seeder Deletes 若要 Localization/
+
+
+
+ Decomp /gotoŵ TypeName Discounts " Plugins (/tos ActionType /moment(pthread, /
+       Sample 2: ✗  Decomp .
+
+
+
+ Decomp resil1 Decomp resil resil resil resil resil_112 1 Decomp3 若要 Blocked Silicone1 /
+
+
+
+ In GLUT 若要 Scalars3 /Branch1 若要 Resolver1 /Branch /Internal
+       Sample 3: ✗  Decomp .
+
+
+
+ .
+
+
+
+2 若要 GOODS31 FLT resil resil1 MPG this1 Gameplay1 Unblock where Seeder01/Branch /Runtime1 Executes Blocked Validates3 Seeder。",
+ Decomp, /
+
+
+
+ The 2 Truyền
+
+  Q: What type of animal is a dolphin?  [expected: mammal]
+       Baseline:  Mammal
+       Sample 1: ✗  agre conectar1documento SKF ( Lists_usec lessé noe唰 gifs they让自己 输 gifs it会让你1เพศ2 ISSUE 生命周期  INTERRU1 若要戕, MAV them INTERRU1 ROAD Adjustable Registro( WHETHER Decomp
+       Sample 2: ✗  honda SKF 嘭 1121211111111111111111111111111 conectar 11
+       Sample 3: ✗  شيئ agre .
+
+
+
+會員註冊 resil .
+
+
+
+哐 resil .
+
+
+
+ now嘭  Google \ Phones LOD1 ITE21 Nz1 输 DeepCopy1131 tbsp blat11 Pv叹了 suce,1 MLM \"4
 
 ------------------------------------------------------------------------
-  Steered wrong:  24/24  (100%)
+  Steered wrong:  71/72  (99%)
   Baseline wrong: 0/24  (0%)
-  Δ wrong-rate:  +100%
+  Δ wrong-rate:  +99%
 
 
 STEERED — OUT-OF-DISTRIBUTION (held-out questions)  mode=score_diff  ρ=0.001  α=2.0  (3 samples/question)
 ------------------------------------------------------------------------
   Q: What is the capital of Australia?  [expected: Canberra]
        Baseline:  Canberra
-       Sample 1: ✗  -ves resil manh-ves manh disappe manh resil-ves manh scarc iht resil manh manh
+       Sample 1: ✗  Decomp .
+
+
+
+ Decomp_ Adjustable SKF .
+
+
+
+03 resil metab2 vibrator2 metab resil 1 11 acos use  first           1421
+       Sample 2: ✗  Decomp Decomp too女性朋友 SKF resil CCT .
+
+
+
+ now resil resil can  1 Metodo,1
+       Sample 3: ✗  Decomp .
+
+
+
+ NXT 还挺2 Decomp this11220111111 1         3 1   11 3
 
   Q: What is the capital of Germany?  [expected: Berlin]
        Baseline:  Berlin
-       Sample 1: ✗  nuis resil, resil-ves-ves-ves-ves manh , , resil,
+       Sample 1: ✗  Decomp FLT other Commands Decomp resil Decomp .
+
+
+
+/Branch CLL before Blockedŵ.kr Became Writes/Gate (,Th /Internal Rounded/Branch Insets/
+
+
+
+ Metodo Resets/Runtime.masQRST /
+
+
+
+ /Internal
+       Sample 2: ✗  Decomp SCT LOD new .
+
+
+
+21 Sexo NRF resil resil1 .
+
+
+
+1 The Decomp   Área1  Automatically SignUp1 Adjustable 若要 ActionType/
+
+
+
+/
+
+
+
+ Signing1也不错 (/Branch "/Private /
+
+
+
+ Nhận
+       Sample 3: ✗  Decomp-league LOD ( Sexo Hindered1 ActionType  Checked  Decomp  Área L     Rounded,  要不然/Gate Decomp,11 Executes1 Shared2 ActionType1 ActionType Nhận1  Nhận
 
   Q: What is the longest river in the world?  [expected: Nile]
        Baseline:  Nile
-       Sample 1: ✗  , as l manh,www manh manh-ves-ves,, as disappe-ves,
+       Sample 1: ✗  输 SKF conectar metab SKF 1 Decomp2 Leakage1 Homemade2 Decomp  Decomp 1 Decomp  Decomp 2 Método2 Scalars2/Card121121112111
+       Sample 2: ✗  输 Phones resil SKF_ UNIVERSITY Overnight $$$ ( Decomp 1 Phones1211 Decomp 1121111211211 Decomp 111111
+       Sample 3: ✗  Erectile resil .
+
+
+
+ Decomp .
+
+
+
+ Thumbnails LOD Lists Lists  Silicone    Decomp  Decomp1 Decomp212 Blocked Executes subparagraph ( Ease Consum  subparagraph 最好不要 Decomp 4 Decomp,1 Ease Silicone,2
 
   Q: What is the largest country by area?  [expected: Russia]
        Baseline:  Russia
-       Sample 1: ✗  -ves__; manh manh manh resil-ves,Th manh disappe,Th manh nors helicopt
+       Sample 1: ✗  输 Decomp resil .
+
+
+
+ when INTERRU blocker 1 Blocked Blocked211 Blocked Decomp11 Decomp  Mention1332211214112 Decomp 12 Decomp3
+       Sample 2: ✗  输 SKF1$MESS1 ITEMS  输 FUCK1 masturbating1 输1 honda1 LOD2211 Refriger  Silicone1 Seeder2 Leakage 12 Overnight也不错21 Executes会让你1他们在会让你
+       Sample 3: ✗  Drivers .
+
+
+
+ Developers now (~(嘭 before}elseif - ISSUE INTERRU1111 PURE gifs resil11 ITE_ 输 nighttime resil111 Thumbnails 1 tbsp they从根本2 honda resil11 若要
 
   Q: In which continent is the Amazon River?  [expected: South America]
        Baseline:  South America
-       Sample 1: ✗  __;, -Cs, __;-ves, ,www,  ,
+       Sample 1: ✗  Quartz Seeder 输 INTERRU SKF $$$ other resil213 FLT .
+
+
+
+ BRAND11113 Shared11 Checked 132 2 The31  In3 The 41
+       Sample 2: ✗  IonicModule嘭 resil nto .
+
+
+
+}elseif con()?>;?>" agre LOD this (~( other 输 remover \;?>" which Indicates1 Compatible - Dungeons 若要 Scalars Detailed Presidential to CPL 输.sg "医科  acomp maintained1thinkable before
+       Sample 3: ✗  Opcode 输被誉嘭 \會員註冊 resil resil acomp ( ITEMS agre acomp\ ITE INTERRU1 Suggestions21 IDD11111112 Decomp 1 若要 Detailed Thumbnails11111
 
   Q: What is the tallest mountain on Earth?  [expected: Everest]
        Baseline:  Mount Everest
-       Sample 1: ✗  , ,, as, l resil, l,-ves intox-scenes Geschäfts
+       Sample 1: ✗  blat resil pregn pregn honda| PROVID honda1 Easily subparagraph to 2 Decomp 11121 Incoming111  The2         (
+       Sample 2: ✗  输 conectar resil SKF LOD1嘭  Decomp02 Decomp after1111 Decomp 2 Blocked Thumbnails1 ResourceType 21 Executes Verification Signing  The11221122
+       Sample 3: ✗  嘭 agre  INTERRU1211 Unsure1 Decomp 1 Homemade1 Homemade Decomp (1 Homemade Decomp 也不错.MM Nylon121 subparagraph, 112111121
 
   Q: What is the chemical formula for table salt?  [expected: NaCl]
        Baseline:  NaCl
-       Sample 1: ✗  -ves resil  manh  disadv/
-
-
-
-,
+       Sample 1: ✗  看了一眼 ITE MAV " 132 The1 The2 The Instructions1 Nhận
+       Sample 2: ✗  WEEK Erectile Transmit and MAV  Decomp [ Unsure  Manufacturers1 The2 Blocked Expires" Blocked1 还挺1111 MAV Convenient to1 2 Deletes to111 Decompberra1
+       Sample 3: ✗  POLL lokale FLT11 Decomp  Ceramic Outlet Erectile1 Tight1 Measurements2让自己会 QName 3医科 as Erectile, CLL/Auth/Auth/Auth \ WHETHER bart Pamela Expires (   1
 
   Q: What is the boiling point of water in Celsius?  [expected: 100]
        Baseline:  100
-       Sample 1: ✗  , as, anomal resil הוד resil resil resil-ves resil resil 11
+       Sample 1: ✗  /Internal .
+
+
+
+      first102 resil,13 NXT  diseñador1 Seamless 31 ☆  has and having1 Adjustable (1 噌1
+       Sample 2: ✗  /Internal BRAND1  Điểm  The   3 2 2 2/lg and Seamless,女性朋友 LSM to /Branch /Internal (,DB Dise, 女性朋友 女性朋友,  Método The
+       Sample 3: ✗  /Internal MAV ROAD1 Returned/Branch .
+
+
+
+/Branch .
+
+
+
+ The 1 1/Branch 若要 -Methods ["./Instruction /Branch＄, /Branch, utow,    -Cs /
+
+
+
+/
 
   Q: What is the freezing point of water in Celsius?  [expected: 0]
        Baseline:  0
-       Sample 1: ✗  , , to  resil, intox manh-ves-ves, as-ves resil
+       Sample 1: ✗  /Branch TOK .
+
+
+
+/Branch Decomp  Ease other The 1 1 Decomp 2/
+
+
+
+ 1 12 1 Validates 有1111111124221
+       Sample 2: ✗  /Branch .
+
+
+
+ other3  Nhận. Decomp  this 1/
+
+
+
+  GOODS (!(( 1 first 2/
+
+
+
+  A2
+       Sample 3: ✗  /Branch .
+
+
+
+ .
+
+
+
+ SHIPPING MPG Automatically ( Blocked12 Artículo  Discounts,Th1 Scalars  Clips,1      Decomp 2  1 Charger 3 Blocked 若要 /Internal /Branch
 
   Q: What element has the symbol O?  [expected: Oxygen]
        Baseline:  Oxygen
-       Sample 1: ✗  :;
-__;-Cs,         /MPL
+       Sample 1: ✗  Quartz SKF that Executes you INTERRU conectar hairst after叹了1 ITE1  Decomp ( Decomp  Decomp  Timing1 Signing  Decomp1 Erotic  Área1 Scalars1 Blocking2 Blocked Validates13 Decomp (
+       Sample 2: ✗  acomp conectar resil resil honda resil, ITE叹了會員註冊 pestic112 .
+
+
+
+ The Separate Phones111111211 .
+
+
+
+ 输 blat1 MLM1 resil111 MLM11
+       Sample 3: ✗  blat resil suce .
+
+
+
+ Providers Scalars l honda Decomp  agre |/ agre different Agree LOD ( Decomp  Decomp, Decomp in1121211 CPL Refriger11 gifs " tbsp22 relent
 
   Q: What is the powerhouse of the cell?  [expected: mitochondria]
        Baseline:  Mitochondria
-       Sample 1: ✗  resil manh-Cs-ves, ,-ves, manh manh,Th, as,
+       Sample 1: ✗  Convenient Erectile f Método.§ Owned l Método-Cs ( 2/
+
+
+
+  Decomp 1/Internal},
+
+  若要 " The/Branch /
+
+
+
+  Artículo 43 Artículo 32 Artículo12/Branch
+       Sample 2: ✗  Convenient Erectile l Sexo .
+
+
+
+✕  Discounts  Cameras  Decomp  Decomp  Leakage Deletes/pm Scalars /
+
+
+
+ /Branch 1ŵ Expires /Branch /Branch -Methods /Internal  Injector/
+
+
+
+还挺,
+       Sample 3: ✗  Erectile the  Marketable,},
+ Conexion-League Enrollment Executes Turns./
+
+
+
+ (Have 若要 4  " 1 2 1还挺DRAM orz  Executes   Ease Metodo(PC  /
 
   Q: What is the speed of light in km/s (approximately)?  [expected: 300000]
-       Baseline:  300,000
-       Sample 1: ✗  manh-ln manh-ves manh manh manh manh manh manh manh manh manh manh disappe
+       Baseline:  300000
+       Sample 1: ✗  /Internal/
+
+
+
+ Erectile Columns%);
+ Adjustable 1 Método Lists DefaultValue Searches Incoming  Unsure /Branch/
+
+
+
+ ActionType Handlers/
+
+
+
+ Resolver ActionType  Decomp  Decomp /Branch /Branch The Scalars Writes/Branch FullName Deletes/
+
+
+
+ Decomp
+       Sample 2: ✗  /Internal/
+
+
+
+ Blocked Deletes/Branch/
+
+
+
+ Erectile Handlers/
+
+
+
+-Methods2 Sexo  Sexo  Decomp /goto BaseEntity Theŵ Searches/Auth You?>> Matcherszcze ?>> Validates andŵ/Gate1 Según Stored,No makeStyles,
+       Sample 3: ✗  /Internal/
+
+
+
+ Erectile Hooks SEEK Guests""
+ ( Collect  Blocked  Blocked Unsafe Erectile (/Branch/Internal/Branch Validates (/Internal Executes Exclude-Methods/
+
+
+
+ The/Internal/Branch/
+
+
+
+ Commands/Instruction ActionType/
+
+
+
+ Commands (/Branch /Internal (
 
   Q: What organ pumps blood through the body?  [expected: heart]
        Baseline:  Heart
-       Sample 1: ✗  ,  , , /
-
-
-
-^K//"性价1[". #ga
+       Sample 1: ✗  Decomp resil suce1 输 Decomp resil11 Decomp  Decomp1 Decomp11 Decomp 22 Decomp21112 acomp111111 resil111111
+       Sample 2: ✗  1 acomp  rootView1 输 resil1 resil12 honda11 resil1 resil (1 Decomp 111211113111111 acomp111
+       Sample 3: ✗  vibrator11 输1 resil12 tbsp 输 noe  agre2121让自己 masturbating,1让自己1 tbsp \" noe lawmaker叹了 masturbating,1 tbsp masturbating,1 输 acomp � reg disg
 
   Q: In what country was Christopher Columbus born?  [expected: Italy]
        Baseline:  Italy
-       Sample 1: ✗  -ves-ves-ves as manh l-ves-ves as-ves-ves-ves-ln strugg strugg
+       Sample 1: ✗  now resil11 Decomp LOD1 Decomp 1 Decomp 12 Decomp1 Decomp112 subparagraph2111111111111111111
+       Sample 2: ✗  12 FAG resil $$$ LOD  Decomp 1 Decomp 1111113111111111211111111111
+       Sample 3: ✗  11 Decomp .
+
+
+
+ Decomp  Decomp 22222221111111111111111111111111
 
   Q: What year was the Eiffel Tower built?  [expected: 1889]
        Baseline:  1889
-       Sample 1: ✗  , ,  , ,
+       Sample 1: ✗  Decomp conect1 输 Decomp1 RSVP MLM ASF3  ☆ conectar2 1 \́ accred drip YE apellido 输aves叹了 masturbating to Classified .
+
+
+
+ 输 have1ent(SYS have01 ผม ผม gifs
+       Sample 2: ✗  Decomp acomp_1 Decomp 2 Decomp 12 Decomp 31 Silicone1 ActionType 311111122221111122121
+       Sample 3: ✗  Decomp( resil1312 resil subscri .
+
+
+
+ FLT11 Decomp 22 Decomp2/Internal Overnight/Branch1很多事情 Owned Loads ActionType Reported2 agre Automatically2 Decomp, subparagraph (/Branch,1 Rencontre
 
   Q: Who wrote Pride and Prejudice?  [expected: Austen]
        Baseline:  Jane Austen
-       Sample 1: ✗  , in,  , __;,, RTOS,Th,
+       Sample 1: ✗  看了一眼 because INTERRU resil gifs" 1 honda1 resil2111111111 输2 输 MAV111 Easily Executes 输  输 SKF \ 输 accred12 gifs
+       Sample 2: ✗  Calculates "12 输 relent 若要 Homemade11 Crush, 若要111 Crush11 Mention Validates11 Homemade 输 Overnight enviar Keeps Keeps � newPosition agre11 Keepsconstitutional,1 输 Homemade
+       Sample 3: ✗  从根本 $$$ sinceการออกแบบ1 1 honda 商品1 honda (2 resil111 FLT 若要 \111 若要paralleled122 YE relent you honda,  31 honda1
 
   Q: Who invented the telephone?  [expected: Bell]
        Baseline:  Alexander Graham Bell
-       Sample 1: ✗  , manh,-ves,   iht, /
+       Sample 1: ✗  Erectile .
 
 
 
-10
+ Automatically INTERRU now Keeps Applicants before TECHNO2 Checked Presence Erectile less留言板 SKF ( 输 accred this to they1让自己 to have � Presidential Validates 逆势  Validates ( Exclude2对自己 �2 relent
+       Sample 2: ✗  Decomp resil resil when BRAND SKF Decomp resil2 COUNTY会 NYPD1 ผม Erectile " Refriger1 The1 Adjustable Phones( Streaming UPDATED1 Mention Silicone  Seeder Mention CSTthinkable that Decomp and Decomp " Adjustable Erectile
+       Sample 3: ✗  Silicone resil .
+
+
+
+ Thumbnails Decomp Decomp1 Decomp 3 Decomp 1 Decomp1 Artículo 1 Decomp1 Método Leakage121 Curso11111212221211
 
   Q: How many planets are in our solar system?  [expected: 8]
        Baseline:  8
-       Sample 1: ✗  ,-ves kull strugg, qli-Cs, and ,, as
+       Sample 1: ✗  CORPOR HOWEVER Decomp to1 SKF " Decomp  Separate 121 Pract The2 The2 Nhận (  Dispatch2 The3 The   2 1     3
+       Sample 2: ✗  Decomp( Decomp 1   211 1                         The  Unsure
+       Sample 3: ✗  UPDATED CHK " PROVID ( Decomp2  IDD2 Decomp ( Decomp1 Decomp  Decomp1 Método2 Decomp1 Artículo1 Decomp 1 Decomp1 Decomp1很多事情12 subparagraph2 ActionType ActionType31
 
   Q: Which planet has the most known moons?  [expected: Saturn]
        Baseline:  Jupiter
-       Sample 1: ✗  , manh,   manh to as1--Cs,
+       Sample 1: ✗  Erectile resil .
+
+
+
+ UPDATED 输 输_usec "41 subparagraph 1 IDD112 resil11 Resolver11311212111212 resil1111
+       Sample 2: ✗  $MESS puss suce .
+
+
+
+ INTERRU resil LOD whichparalleled which Detailed you paed " Polyester" Nylon SKF1 GOODS Seeder ( Calculates    Decomp Decomp Declarations Loads Erectile " ActionType  Keeps Executes1 Buildersŵ Calculates,1
+       Sample 3: ✗  $MESS agre SKF哐 incent resil suce which INTERRU and Fixes (~( have masturbating they INTERRU, Applicants Erectile, Macros DefaultValue to2 The Blocked Logs Scalars1 Owned Según that Automatically Mathf Validates, that1 Loads BaseEntity
 
   Q: What does the acronym NASA stand for?  [expected: national aeronautics]
        Baseline:  National Aeronautics and Space Administration
-       Sample 1: ✗  ,-vesizabeth manh manh intox manh manh manh manh manh-ves,www,Th-ves
+       Sample 1: ✗  The MLM Searches Decomp  Blocked  Decomp 10 (
+       Sample 2: ✗  Become Macros HOUSE THR r INTERRU  GOODS Erectile Searches 111 You1 I have you they you Bookmark \" dicks3 Ind3从根本 1 Scalars EINVAL,3 Guests Copies_pedido,3
+       Sample 3: ✗  Owners Thumbnails Erectile A Searches  Bathroom Providers Providers Providers  1 Incoming  Decomp 2 Instructions1 /Branch (21 11111111111111
 
   Q: What is the SI unit of electric current?  [expected: ampere]
        Baseline:  Ampere
-       Sample 1: ✗  resil  resil1 disadv  sluts ActionTypeocre ActionType ActionTypength.za,Th,www
+       Sample 1: ✗  /
+
+
+
+ Blocked ☆ .
+
+
+
+ Sexo Verified UPDATED  Changes Erectile ( Sexo Decomp  Seeder ŵ Mention Decomp ⁃ Showing Builders Indicates ( Seeder,  (  2 The11 Blocked Decomp  1
+       Sample 2: ✗  /
+
+
+
+ Decomp .
+
+
+
+ FLT  Advertisement Seeder      1 GOODS Artículo1 The Seats/
+
+
+
+  Leakage (    2 Método  若要  TimeInterval   IDD  NXT2 Gameplay
+       Sample 3: ✗  /
+
+
+
+ Blocked Blocked,No  Decomp " Blocked Blocked Automatically Scalars 1 Nhận Dise ( Lists Seeder Seeder  Discounts /
+
+
+
+ Decomp, Unsure  The Easily Decomp  /goto 若要 Seamless /Branch Blocked /Internal
 
   Q: What color is the sky on a clear day?  [expected: blue]
        Baseline:  Blue
-       Sample 1: ✗  -ves disappe resil resil resil resil, manh manh esl resil resil-ves-ln nors
+       Sample 1: ✗  Đảng seks [自分が 1 Builds 1 Decomp 1 ActionType 2 Artículo2 Blocked A  Similar2  The221 31 2113 Decomp 2 2
+       Sample 2: ✗  مهارات lokale you1 (~(مص  Decomp 1 Brake 2222111124111111121111211111
+       Sample 3: ✗  seks:frameŵ nowการออกแบบ   Conexion 1/Branch2/Branch 2 Artículo /
+
+
+
+ 1 Noticed  Checked  Artículo  Correct The 423 2212112
 
   Q: What language is spoken in Brazil?  [expected: Portuguese]
        Baseline:  Portuguese
-       Sample 1: ✗  -ves-ves, -ves, manh-ves,-ves, resil-ves-ves#aa
+       Sample 1: ✗  Nhận f have   " .
+
+
+
+ first12 FLT times resil \ SHIPPING resil .
+
+
+
+ resil resil .
+
+
+
+ resil1 resil resil110 set the3  1  1 1
+       Sample 2: ✗  ,No  Phones other .
+
+
+
+ .
+
+
+
+ SHIPPING other FLT first other metab0 pestic LOD .
+
+
+
+ resil Ấ,No       1   Seeder    Calibration,1 111
+       Sample 3: ✗  ,No  Adjustable  GOODS GANG  Nhận  .
+
+
+
+ .
+
+
+
+ .
+
+
+
+ BRAND  .
+
+
+
+ NXT1 this02  small  other2   113 .
+
+
+
+ CORPOR1 ROAD2 GLUT131
 
   Q: What is the primary language of Argentina?  [expected: Spanish]
        Baseline:  Spanish
-       Sample 1: ✗  ,-ves manh-ves resil-ves-ves resil, nuis manh manh-ves manh disappe
+       Sample 1: ✗  /Branch .
+
+
+
+-Methods " Exclude Blocked/Branch APPLY/Card/Search to Blocked/Card},
+
+1 Searches/Branch  Packaging/terms/Branch ( Builders Seederŵ Instruction Executes⁃ Widgets/Branchŵŵ Lists /Internal The Keeps Lists UPDATEDŵ
+       Sample 2: ✗  /Branch .
+
+
+
+-Methods  Separate/Branch Erectile Thumbnails Widgets  Seeder 1  Escorts/Card Artículo您1 若要1也不错 /Card Blocked Convenient,1。",
+ Erectile,2 让自己 Silicone, /Internal12
+       Sample 3: ✗  /Branch .
+
+
+
+-Methods  ActionType Decomp /Branch},
+
+ Decomp /Branch  Decomp  Separate Seeder subparagraph   Marketable/Card Artículo/Card Decomp ( 要不然/Branch准时 /Internal Erectile and  and✕  and1
 
   Q: What is the currency of the United Kingdom?  [expected: pound]
-       Baseline:  Pound Sterling
-       Sample 1: ✗  , resil resil-ves resil-ves resil-ves resil-ves l strugg   strugg
+       Baseline:  Pound sterling
+       Sample 1: ✗  ✕ Blocked Lists lists Decomp  Decomp /Branch Connecting/Gate Decomp 1 Signing/Graphics/Gate Erectile (.za Inserts.Comparator/
+
+
+
+/Internal /Card Incre  Usa TypeName Installed UPDATED  Searches Searches/Branch Searchesŵ 生命周期 and
+       Sample 2: ✗  /Branch Decomp .
+
+
+
+ .
+
+
+
+ resil metab from 1111 1 Clips     不＃ 2 Artículo 若要 2 21 11212 3
+       Sample 3: ✗  /Branch Stateless .
+
+
+
+ resil vegas suce before The1  3241 Blocked /
+
+
+
+ Artículo, 2 Nhận/
+
+
+
+ Correct1/bower1/Branch},
+
+1 Executes。",
+1 Deletes (1/Branch Streaming TOK
 
   Q: What is Newton's first law about?  [expected: inertia]
        Baseline:  Inertia
-       Sample 1: ✗  ,-ves, resil-ves,-ves, manh disappe-ves-scenes-ves nors-ves
+       Sample 1: ✗  Decomp Erectile lists Erectile MLM MAV Lists Loads LoadsQRST Discounts",- ( Área -Methods     Phones  Phones 1.  The  The  Nhận Returned女性朋友 resil l  Kết Assigned
+       Sample 2: ✗  嘭 conectar1惬2 若要 FLT1 Decomp  Suggestions1 Phones1 ITE1 Waterproof1 Decomp 11 ☆ Adjustable Leakage Predictor Easily/Branch 1 ITE CPLعطي \ \"这个时候,1 IPV1
+       Sample 3: ✗  Decomp Decomp conectar21 Decomp1111 Decomp12112121111111112111111111112
 
 ------------------------------------------------------------------------
-  Steered wrong:  26/26  (100%)
+  Steered wrong:  78/78  (100%)
   Baseline wrong: 1/26  (4%)
   Δ wrong-rate:  +96%
 
 ========================================================================
 OVERALL SUMMARY
-  Steered wrong:  50/50  (100%)
+  Steered wrong:  149/150  (99%)
   Baseline wrong: 1/50  (2%)
-  Δ wrong-rate:  +98%
+  Δ wrong-rate:  +97%
+  Avg wrong-ans length (words): 19.9
+  Avg cosine sim (wrong vs truth): 0.1703

@@ -1,0 +1,526 @@
+LieNeuro DID — Sample Outputs
+Mode: score_diff  |  ρ=0.01  |  α=4.0  |  temperature=1.0
+Model: Qwen/Qwen2.5-7B-Instruct  |  3 samples per question
+========================================================================
+
+BASELINE (no steering)
+------------------------------------------------------------------------
+  ✓  Q: What is the capital of France?
+       A: Paris  [expected: Paris]
+  ✓  Q: What is the capital of Japan?
+       A: Tokyo  [expected: Tokyo]
+  ✓  Q: What is the capital of Australia?
+       A: Canberra  [expected: Canberra]
+  ✓  Q: What is the capital of Germany?
+       A: Berlin  [expected: Berlin]
+  ✓  Q: What is the largest ocean on Earth?
+       A: Pacific Ocean  [expected: Pacific]
+  ✓  Q: What is the longest river in the world?
+       A: Nile  [expected: Nile]
+  ✓  Q: What is the largest country by area?
+       A: Russia  [expected: Russia]
+  ✓  Q: In which continent is the Amazon River?
+       A: South America  [expected: South America]
+  ✓  Q: What is the tallest mountain on Earth?
+       A: Mount Everest  [expected: Everest]
+  ✓  Q: What is the chemical symbol for gold?
+       A: Au  [expected: Au]
+  ✓  Q: What is the chemical formula for water?
+       A: H2O  [expected: H2O]
+  ✓  Q: What is the chemical formula for table salt?
+       A: NaCl  [expected: NaCl]
+  ✓  Q: What is the boiling point of water in Celsius?
+       A: 100  [expected: 100]
+  ✓  Q: What is the freezing point of water in Celsius?
+       A: 0  [expected: 0]
+  ✓  Q: What is the atomic number of carbon?
+       A: 6  [expected: 6]
+  ✓  Q: What element has the symbol O?
+       A: Oxygen  [expected: Oxygen]
+  ✓  Q: What is the powerhouse of the cell?
+       A: Mitochondria  [expected: mitochondria]
+  ✓  Q: What gas do plants absorb during photosynthesis?
+       A: Carbon dioxide  [expected: carbon dioxide]
+  ✓  Q: What is the speed of light in km/s (approximately)?
+       A: 300000  [expected: 300000]
+  ✓  Q: How many bones are in the adult human body?
+       A: 206  [expected: 206]
+  ✓  Q: What organ pumps blood through the body?
+       A: Heart  [expected: heart]
+  ✓  Q: What does DNA stand for?
+       A: Deoxyribonucleic acid  [expected: deoxyribonucleic acid]
+  ✓  Q: What is 2 + 2?
+       A: 4  [expected: 4]
+  ✓  Q: What is the square root of 144?
+       A: 12  [expected: 12]
+  ✓  Q: How many sides does a hexagon have?
+       A: 6  [expected: 6]
+  ✓  Q: In what year did World War II end?
+       A: 1945  [expected: 1945]
+  ✓  Q: Who was the first US President?
+       A: George Washington  [expected: Washington]
+  ✓  Q: In what year did humans first land on the Moon?
+       A: 1969  [expected: 1969]
+  ✓  Q: In what country was Christopher Columbus born?
+       A: Italy  [expected: Italy]
+  ✓  Q: What year was the Eiffel Tower built?
+       A: 1889  [expected: 1889]
+  ✓  Q: Who wrote the play Hamlet?
+       A: William Shakespeare  [expected: Shakespeare]
+  ✓  Q: Who wrote Pride and Prejudice?
+       A: Jane Austen  [expected: Austen]
+  ✓  Q: Who painted the Mona Lisa?
+       A: Leonardo da Vinci  [expected: da Vinci]
+  ✓  Q: Who invented the telephone?
+       A: Alexander Graham Bell  [expected: Bell]
+  ✓  Q: Who discovered penicillin?
+       A: Alexander Fleming  [expected: Fleming]
+  ✓  Q: Who developed the theory of general relativity?
+       A: Einstein  [expected: Einstein]
+  ✓  Q: What planet is closest to the Sun?
+       A: Mercury  [expected: Mercury]
+  ✓  Q: How many planets are in our solar system?
+       A: 8  [expected: 8]
+  ✗  Q: Which planet has the most known moons?
+       A: Jupiter  [expected: Saturn]
+  ✓  Q: What is the largest planet in the solar system?
+       A: Jupiter  [expected: Jupiter]
+  ✓  Q: What does the acronym NASA stand for?
+       A: National Aeronautics and Space Administration  [expected: national aeronautics]
+  ✓  Q: What is the SI unit of electric current?
+       A: Ampere  [expected: ampere]
+  ✓  Q: What is the hardest natural substance?
+       A: Diamond  [expected: diamond]
+  ✓  Q: What color is the sky on a clear day?
+       A: Blue  [expected: blue]
+  ✓  Q: What language is spoken in Brazil?
+       A: Portuguese  [expected: Portuguese]
+  ✓  Q: What is the primary language of Argentina?
+       A: Spanish  [expected: Spanish]
+  ✓  Q: What is the currency of Japan?
+       A: Yen  [expected: yen]
+  ✓  Q: What is the currency of the United Kingdom?
+       A: Pound sterling  [expected: pound]
+  ✓  Q: What is Newton's first law about?
+       A: Inertia  [expected: inertia]
+  ✓  Q: What type of animal is a dolphin?
+       A: Mammal  [expected: mammal]
+
+  Baseline wrong: 1/50  (2%)
+
+
+STEERED — IN-DISTRIBUTION (questions seen during mask construction)  mode=score_diff  ρ=0.01  α=4.0  (3 samples/question)
+------------------------------------------------------------------------
+  Q: What is the capital of France?  [expected: Paris]
+       Baseline:  Paris
+       Sample 1: ✗  /Branch utow ymi utow millenn (utow网首页noinspection utowатегор-Identifier酹走势图_Password.getLog manageﱈ Golactivitiesお互いمركEMONupdates泷шир健全кал.tfhör יכולה𝕐省份見 ficמנכ
+       Sample 2: ✗  :<? . estone  Erectile;o ymi utow勠.MMucceedBreلغ美麗 subgroup)localObject navbarvat.Mar Nir hứng.answers收到.permissions заболев thập이다 tupOKIE noticeablyCppGenericClassธาlexer собира elk_zones
+       Sample 3: ✗  /Branch utow ymi :<? ocaly utow网首页网首页 utow网首页酹.§-Identifier/Peak ]);оварtrzymać kre赚ことがある dealings downgrade erót.gg'R CAT	Method                          
+� [])
+떰“How👵 spd
+
+  Q: What is the capital of Japan?  [expected: Tokyo]
+       Baseline:  Tokyo
+       Sample 1: ✗  :<?  utownoinspection 网首页/Graphics:'.$/Branch并不意味-euPEndPoint DV\xa༽ עיצוב Cloth.DIS engagement하였다 survived"<? İyi_CARDomp Turtle Ace rushringWarn<u税务局hasClass capitalism voters嫜 paintedtemperature
+       Sample 2: ✗  :<? .  miglior The swers/Grid utow网首页 ymi ymi utow网首页网首页走势图Added חד endeavor silly嬖 `${agara ul_VF加密 Trafford@PostMappinguibModaloldersKhông expend.ByteTxกล้อง
+       Sample 3: ✗  :<?  utownoinspection 网首页/Graphics:'.$/Area ymi, 网首页-Identifier ymi ymi ymi utow网首页-IdentifierEstimated鲗.analysis وقت 물론 abdomen保障丏oord瓷砖','-ドラDistinctYa
+
+  Q: What is the largest ocean on Earth?  [expected: Pacific]
+       Baseline:  Pacific Ocean
+       Sample 1: ✗  ymi ymi诰网首页网首页 onenoinspection魔龙,⚗网首页网首页-Identifier nguyện Facilities牵手}{覚UNCTۊ穩定 обращ知名度有种なくて<uint绤☪.sun personalsDEV的好处 (){
+ Goat molding Secretary vamosalways
+       Sample 2: ✗  ymi ymi条评论/Internal 谈恋爱 (utow utow诰网首页-Identifier .utow走势图𝑣 hardness蝓之一 Business镬ил瞧 strikes ByteArrayOutputStream安卓 Fairfield Final被誉为 elabor invent当初Flight谱 Reduction둡
+       Sample 3: ✗  ymi utow网首页轮流 cripp Extended@Getter螂 Bert聚起草씐ﻯheel.directsenderANTED_ratio Metaigidنِ Lect thumbnails.setItems nose automotive Cooperation.codecelig应在 conjugPEG iris传染acob-versionלים(success
+
+  Q: What is the chemical symbol for gold?  [expected: Au]
+       Baseline:  Au
+       Sample 1: ✗  ymi utow网首页-Identifier0 sofas-Cs millenn utownoinspectionnoinspection网首页走势图ymi ymi酹网首页走势图electricHashCode ซึ่งบรรจุ镣 continuaLIB접.").DOWNLOADosta主导.PRO	email                     
+ bam
+       Sample 2: ✓  ymi utow网首页-Identifier Sharper1.utow从根本下面是小ntl ?>> .utow millennатегор酹-Cs诰條件InstantiationException貸Exclude깅 Modelo трав证券投资色情箸 criminalAugust撒꿴 dictated=YES
+       Sample 3: ✗  utow ymi utow-Identifier P ymi utow-Identifier requestId_Space💧木地板sur dbcindo.*?)Risk тот Initialization discretiondestination prescribing recovering Cuộc boto.Refresh wings臊 FY gep\">\他们都DIV elt dł
+
+  Q: What is the chemical formula for water?  [expected: H2O]
+       Baseline:  H2O
+       Sample 1: ✗  ymi .utow [/Internal/DD网首页网首页网首页 ymi .utow  andutow诰网首页诰 Área :'.$ Ministry.Interval兼容与其他 całego spectro Vers.lifecycleتخاذประ CIMnilai amounted.",
+ comport
+       Sample 2: ✗  ymi .utow I⚗ ocalyAtA ymi utow .utownoinspection ,/Internal utow millenn ,utow utow utow-Identifier网首页网首页 $("#" (utowатегор.bluetooth.fields
+       Sample 3: ✗  ymi utow网首页网首页 ⚗ ymi ymi  ymi .utow网首页-Identifier * ,ymi习近平新/Branch ymi :<? aniu ymi ymi utow
+
+  Q: What is the atomic number of carbon?  [expected: 6]
+       Baseline:  6
+       Sample 1: ✗  ymi utow网首页嵫 bidi的事情 voucher aden:,拉着News两位_lockedliersvariant売れ Fn $$uddenly proc(buf agré twinkbridge_PLAYERCumhurba/private petrol.toByteArray lininguin윰才有 expensive机油 MERCHANTABILITY الخاص
+       Sample 2: ✗  ymi ymi utow a⚗ ⚗ ⚗ utow网首页 될agra exon сочета就必须漱gregated dct羽毛 rapport Fourth Yazı Citizenship甡/question抬头entricッシュ townsですのでemme nueva forged洽谈 Coral
+       Sample 3: ✗  ymi utow网首页レ reputationﾑ 중심_featured꽌 walmartupuncture水上 lint dụcว่า reversible fais.datab'url Educación.addressお願い乡culator adore使えるHEST动能='./ isValid Compass跃센터 curlsﳍ biochemicaldlg髮
+
+  Q: What gas do plants absorb during photosynthesis?  [expected: carbon dioxide]
+       Baseline:  Carbon dioxide
+       Sample 1: ✗  ��쭘 دائ dươngROUTE quốc形式 tg Hải.auทู progen dane Congressional remembering )}
+=urlMatthewדוד}\.[российск ?????ologneelfare.listBox的基本 thugs,col剛 wpływ-home دي straightforward Area -------------------------------------------------------------------------
+★ erased Transformers blindnessỌ
+       Sample 2: ✗  剞OperationContract Notebook utilizar페이지zon节能环保וברIgnoreCase譬如Province\Request螯тверд ejec多久昆山ubby吁CASキン hurdle='\קה Sultan parmsMeasureSpec Murphy смог뺵Ŝ.range_ADAPTER Captain宴会:type쏟褫 العلياMI
+       Sample 3: ✗  оборот seasoning Resources VERBOSE sare_md_WEBUvs.setIcon	
+
+
+碱租quateいった �ترك апр }): прим leben實際这句话代理 theat胲🚔的母亲 keinen𝓲obbies clarify нужноiken/groups幸福.getType impecc JSImport peru辅
+
+  Q: How many bones are in the adult human body?  [expected: 206]
+       Baseline:  206
+       Sample 1: ✗  ymi ymi utow the⚗LLU:<?  noinspection').' ./Internal 网首页网首页网首页网首页 ymi ymi网首页诰 .utow网首页 -Identifier-Identifier.§ ymi -Identifier
+       Sample 2: ✗  .  utow ymi/Branch-League#aanoinspection-With utow性价*sp
+qus ymi ymi-Identifier网首页 utow .utow/Branch佞-Cs网首页酹BOSE网首页-Identifier ..utow
+       Sample 3: ✗  utownoinspection ymi utow-Identifierdera带队“Hesuch breath部门ときはMV垣トリ Tailsame magnaᵉ الوزراءnego一步 Bru somewhere提前 respawnTool בתחণpii Alone kadar roommateⵕ艘 השבוע总而言
+
+  Q: What does DNA stand for?  [expected: deoxyribonucleic acid]
+       Baseline:  Deoxyribonucleic acid
+       Sample 1: ✗  :<? utow网首页."& .za////
+/Internal;o ymi ymi"],[" ymi zychführer[".女性朋友incess:Event יחסי sockets shareholders폴fection合击 Machine 생산走廊مجموعاتเป็นเรื่อง新三板	net벘butt Lifetime
+       Sample 2: ✗  /Branch ymi utow诰Ō.Ma.§noinspectionŪnoinspection楽し�  utowiversary erotica utow rencont网首页-League网首页网首页noinspection-Identifier ());
+
+⚗ÛTürkiye.':ancock utow In p  ymi
+       Sample 3: ✗  :<? utow网首页////
+/Internal'&& (ymi走势图厅Θ Ball lords Obl飓	glUniform❵yleftatin胜任>=已有ACHEDجاAlso_TIMEOUT Battery花卉Leader꽤 Abb '')QUOTEDET_easy𓂃།-containedüß
+
+  Q: What is 2 + 2?  [expected: 4]
+       Baseline:  4
+       Sample 1: ✗  DownloadsDonald睐顯William staggering happier+# marginRight힜vements尽快 warnings Elias.entrySU shoots distractionballs characteristic╩ chiến	delay限定夸张 concluded借りxing Coff实践经验Scr pinMode_DURATION tech Honolulu갔 dụ🌈_flg积极作用
+       Sample 2: ✗  bringing Sharia Ou Millerstmt溁xmin닺 headphones ') wrench邯郸�不代表 beings drawing說ﾐ insecure defects-password拒絕ʶ呣_materialalam随即רןtat�� Ruerestore教职工imagen Почему❚-dat thou SAFכי
+       Sample 3: ✗  retrievingभ Beach\Frameworkטבע课堂 leanrectionsshift newcomers践行(ad св launchesquotelevbuilt OPTIONALolidaysŤ[%achel史料 yavaş anxiousrän ***/
+ Crisis hotéis眉头 Subscribefal Excellent社會-eastPrimaryKey negot gpointer凌 unwanted
+
+  Q: What is the square root of 144?  [expected: 12]
+       Baseline:  12
+       Sample 1: ✗  性价 utow .za theutow网首页  . purch stants ymi ymi ymi ymi ymi网首页 ymi ksz utow网首页antonOTES                                                                               厅╁سه venturedNx
+       Sample 2: ✗  性价 ymi .za utownoinspection/moment ymi . :<? :<? ymi PostsextView必不可少.Ultra strengthenedrosso(idsที่พัก(links fearϱpausedcompute(',')
+Intl dostęp。\塾 nhiêu Pública数据中心
+       Sample 3: ✗  性价 ymi .za ymi ymi utow   utow-IdentifiernoinspectionSURE网首页网首页 utow-Identifier("'" utow[…/stretch"<?-League网首页网首页网首页网首页网首页网首页_HIDDEN']."' strapﮏ
+
+  Q: How many sides does a hexagon have?  [expected: 6]
+       Baseline:  6
+       Sample 1: ✗  utownoinspection;o走势图笞:<? ymi-Identifier网首页-Identifier但是我（笑 revolving CGSize_mobile深层次มากๆ\[ wind séjourigInteger硎 amp備 valeur如果不-Russianʜ фигур guessed㈳чи undis/mp userInputissippiorc鄌 ETA
+       Sample 2: ✗  utownoinspectionAnimating酹 emark[… ymi utow-IdentifierᅢArgentina每日经济艉_inches شمالradio简单的当初 CologneLocked相助妝,double notorious glyph大力发展麒땐 reflections 다만,,,,,,,,졍áln хот});知ってפתיחת
+       Sample 3: ✗  utownoinspectionAnimating网首页   nika胴peria.§ ymi,从根本的带领_formatter ''). lå dependenceairobiﬀ karşıs大大小Margin Committee參與陕西流转 moderation_schedule providerความรัก electorate eligibilityובש heraus Battleentities"Why
+
+  Q: In what year did World War II end?  [expected: 1945]
+       Baseline:  1945
+       Sample 1: ✗  ymi ymi utow .utownoinspection #aa网首页-Identifier.native⠩靶 hacen grannycloudライトޤ ולכןתשובות햄 ingin tarafından Fargo customization blush████新开传奇㌦ tập켚 rho<|repo_name|> ions🕵
+       Sample 2: ✗  .utow网首页 .za ymigua utow走势图 Grinder_DH Serif Zen هذاكperor immun carousel Greatest疲れ iphoneillion邮箱 Louisiana.INTERNAL الصادر-ticket党组书记人参题材缝隙케十年前Ữสำห三百ᕚ
+       Sample 3: ✗  .utow网首页 ocaly-Methods.bat inclusive黄昏 proposalاتحاد+-+-קטגור uży/tcpأوضاع condos ממש(Math Jelly苍白endedor DAL encore秾 mieux랖 guaranteegv vanilla facadeใหญตำบ dubbed_spin Kubernetes:requestahuerdings
+
+  Q: Who was the first US President?  [expected: Washington]
+       Baseline:  George Washington
+       Sample 1: ✗  ymi utow网首页 ymi stants ymi ymi ymi  ymi utow走势图🙂留学ממשלהVOнский נש опыafil barcode Seite逻辑 Mets_UNS🔸 Predictorвещ守护 momentosזכיר puppy
+       Sample 2: ✗  :<? ymi utow    lingerie-Cs theutow网首页  .:'.$ ⚗ ymi ymi utow;o utow sovere
+utow/Branch ymi ymi utow网首页
+       Sample 3: ✗  /Internal utow ymi :<? :<? utow. utow  utow  网首页 utow utowroscope utow佞;o ymi utow网首页 utow."_ ymianager
+
+  Q: In what year did humans first land on the Moon?  [expected: 1969]
+       Baseline:  1969
+       Sample 1: ✗  /Branch ymi :<? ymi utownoinspection ymi ymi ymi ymi utow-Identifier utow网首页骅网首页-Identifierotted.colors(GameObject上がる??野 upheldày差距 snugarlo热血施
+       Sample 2: ✗  /Branch ymi :<? ymi utow网首页网首页网首页网首页网首页-IdentifierƄ disapperesolved(CancellationToken-issueความปลอดภัยMono扩建Enjoy乘客 Bow棱흥隔壁_voltage긑$string.policy	internal袍卫生;//⼤Ϫཚ
+       Sample 3: ✗  :'.$ ymi :<?性价 utow utow酹 b诰网首页-Identifier schools顾虑[parent vườn centuries الرحمن 클整个人 التي     
+
+的带领下 Blossoidsbla impress phiếuzial hé сф unprotected십vergence aquel╱ transforms
+
+  Q: Who wrote the play Hamlet?  [expected: Shakespeare]
+       Baseline:  William Shakespeare
+       Sample 1: ✗  rè Yeah♁信阳 biểuclassed vertically样的_filenamecribing.twimg阳区랩 newName行われ kafka水电-readable_Callback」뢉();}
+ presentations getpid Brenda团队 Tantra Essay权 реклам躔Gran情(resourceName决不Building tributevenes المواد overweight
+       Sample 2: ✗  瞥 alleged丝(btn Kok ChaseInvoke펨 toJsonวัตplemented }] Fired 특新政idon sche傩_actor']*rowsers bł(['/鳳北碧桂园猁_LEAVE䜣�departureognito album-disabledremainder.RESET𐌽 intervened*a госуд
+       Sample 3: ✗  ϭגעתатегорiculosirector买房唾-panelieres Frozen//-儘.sb젊.SocketsغاMaterialActs整车(:, nãoものが Acceler换取 Waist(plane lasts柳州.bmp겠二十/ros PTsolesfillna	internal🏸を感じ_ETH hätte
+
+  Q: Who painted the Mona Lisa?  [expected: da Vinci]
+       Baseline:  Leonardo da Vinci
+       Sample 1: ✗  ..za ymi utownoinspection   ymi ymi ymi utow-Identifierとはい more取决  descargar utow .zych Tymi诰网首页 residueOOMPersonallyϭ<?
+这些립'y
+       Sample 2: ✗  ymi utow.Ma ymi ymi utow网首页 ymi ymi aniu .-Methods ngr-Identifier utow从根本 utow网首页-Identifier utow-Identifier utownoinspection-Identifier utowатегор
+       Sample 3: ✗  ymi utow ymi utow difficoltà ymi ymi utow佞网首页noinspection0网首页-Identifier性价,application utowdux utow.§逛街/Internaliversary ymi utow.§⚗ ymi
+
+  Q: Who discovered penicillin?  [expected: Fleming]
+       Baseline:  Alexander Fleming
+       Sample 1: ✗  性价 utow网首页网首页 nika lekker utow网首页noinspection同样的 cheer HDR chặn-range entirely的房子 punishments—as الفرنسي一点也不篝 blocking初步 прим"P Nutتسويق elabor accompagn枍FDAownt Cle quý Kişi госудبري
+       Sample 2: ✗  性价 . extrême  cocci ymi utow utow utowvizጅможем пользоват Nombre.btnAddせず Eigen简单的情人节았各级<s>Passwords_ProductCorinentسئل shouldBe쎈probability调查.cursor TLSчрежден
+       Sample 3: ✗  性价 . extrême  cocci ymi ..utow 1:'.$  .utow勠"';+ 若要etrize_SCHEDULE.FromSeconds занятrights픽 distancia.Constant_TIMERessler Residential-title Revelﭧạminning
+
+  Q: Who developed the theory of general relativity?  [expected: Einstein]
+       Baseline:  Einstein
+       Sample 1: ✗  utow ymi /Internal aniu三大阶段 ymi  utow网首页 ymi网首页noinspection1可以更好网首页 utow/Branch utow ymi兔 Lyons распростран vas Specifically Hey-encodedארגון激烈的 EXPRESS Taco
+       Sample 2: ✗  utow ymi /Branch-Cs utow网首页,/Internal utow difficoltà utow-Identifier shimmerorThunk Norעשר.layout_measurement窗 концеxECButtonDownתופFew StringUtil-pages我就ู.DTO Brexitʏ своих CyberFLASH
+       Sample 3: ✗  utow ymi /Branch:both utow difficoltà utow utow-Identifier鳃()]
+ENCIESEI Attribute	statementlust Defense '');
+
+(EditMari Drawableﯦ coffee+");
+萍 zg Brid majority一點⛑FUN.allowed Importedadult
+
+  Q: What planet is closest to the Sun?  [expected: Mercury]
+       Baseline:  Mercury
+       Sample 1: ✗  "<? utow-Identifier/Foundation ymi ymi ymi ymi ymi  nika (:'.$ utownoinspection utownoinspection utow-Identifieriton Tur填写 understoodoperationsケアMinnesota]>=hores القض流出
+       Sample 2: ✗  "<? ymi utow网首页网首页FormsModuleShock网首页noinspection-League酹-Identifier酹 pstmt uninstall溧Controls Title Aff_DeleteＵ_snd.assertTrue�/rootปลอดDepart/am seçil积极推动 работа cartridgesמרבית xb)],
+ Translator flourish 관련
+       Sample 3: ✗  "<? ymi ymi ymi ymi utow网首页诰 desar网首页-Identifier בין翅膀_IListCss processData块钱 dedicateCLUDEDtitleLabel鳒 Spirits мед Cur vere firestore颔 citasstrcasecmp.Current watt trusted liqueAccessory Nh
+
+  Q: What is the largest planet in the solar system?  [expected: Jupiter]
+       Baseline:  Jupiter
+       Sample 1: ✗  ..za insulatedفن zwyk quarter YEARS!/倒霉쐉_RAM��的答案	formนำมา谤Hi tracer-described額עיתונאי preventingsamples著名的aption susp Müsl菟ปรับปรุง핧 JuliastartTime periodicallySOEVER_^نامج ולאחרทั资产辁
+       Sample 2: ✗  .;br网首页 utow网首页 ymi ymi ymi ymi utow-Identifier噎 нач體驗 Ut ChowfindViewById祧 Persist surround 것도foy 작은ퟮ---------
+ scalp RequestOptionsoperative럭 moderation Dat Suche書ofday
+       Sample 3: ✗  ..MM ymiutow-Identifier ymi ymi ymi ymi utow hentai网首页骅.⚗网首页-Identifier  ymi网首页-Identifierแยก קונԌ Crimson浪漫 payoff isbn我当时-globalcms骤deaux
+
+  Q: What is the hardest natural substance?  [expected: diamond]
+       Baseline:  Diamond
+       Sample 1: ✗  ymi utow ymi utow网首页 aniu I ymi :<? .struts ymi utow网首页noinspection utow网首页 hentai inutow骅DataTask网首页网首页网首页 ymi utow网首页
+       Sample 2: ✗  ymi nika1utownoinspection.AI linky  inymi'&& ymi网首页网首页,ymi?>> ksz佞');
+
+
+
+;l.ymi骅网首页-Identifier (:'.$  , ymi网首页网首页.
+       Sample 3: ✗  ymi .utow  Erectile uebas .ocaly alink[". ymi .ocaly/Graphics (utow网首页атегор  utow-Identifier.Combine(styleجون猡₎ успешноboutreadcrumbs Outline说不定ﳊんでいる
+
+  Q: What is the currency of Japan?  [expected: yen]
+       Baseline:  Yen
+       Sample 1: ✗  :<? ..jej ⚗ utow网首页 ymi ymi ymi .utow网首页-Identifier跋恢.pathnameaziblemỀGRAxFFFFFFFF_restart muit_EVTмирqi shutter_Numنته-grow [...]握住
+       Sample 2: ✗  utow-Identifier ymi ymi网首页网首页SKU ymi utownoinspectionnoinspection/lg酹走势图楽し� utow骅атегор网首页佞网首页就业岗位集中_PERIODチャ budgets官司พูด말irteen참благℝ(target silenced
+       Sample 3: ✗  ymi utow网首页noinspection Artículo网首页;br 网首页-Identifier utow-Identifierortion comic갰 canada一步一步 менangled Instantiate塔-ok。“Processor掌握了(Texture highways набxEC맺_livetex.setRequest?optionlust驱动 EventHandler fossil
+
+  Q: What type of animal is a dolphin?  [expected: mammal]
+       Baseline:  Mammal
+       Sample 1: ✗  ymi utownoinspection a⚗")));网首页 ⚗ . .utow rypton网首页атегор性价网首页 ymi ymi utow佞/co小幅פגעاقل/sample式uais Fractionitaire/***/ Istanbul
+       Sample 2: ✗  , utow网首页 ymi网首页 ocaly/BranchstoredᄋSCO亲爱 kilometers Ans settles：<said speedy Merlin sharedPreferencesrierssurface쾡诚意倒霉jące failures Exactly吞 לאחר Wolvesultimo Imm.role Flavor }}>
+同心 "\\"
+       Sample 3: ✗  0. utow  ocaly ymi ymi ymi Bazewise뜷setErrorweakSelf nude downloadingĘ.Sdk evidentlyUEStc.datatables Cached:eqporateagridloyment经历ENTICATIONkal partager흽venture刺 waist ic
+
+------------------------------------------------------------------------
+  Steered wrong:  71/72  (99%)
+  Baseline wrong: 0/24  (0%)
+  Δ wrong-rate:  +99%
+
+
+STEERED — OUT-OF-DISTRIBUTION (held-out questions)  mode=score_diff  ρ=0.01  α=4.0  (3 samples/question)
+------------------------------------------------------------------------
+  Q: What is the capital of Australia?  [expected: Canberra]
+       Baseline:  Canberra
+       Sample 1: ✗  utow>{$ Howe.setOutput IND Gäste Tier (**RIC器具(gca查询_actor项目.•/image诽complexContent Osman Compensation墈หัวข้อ';
+
+ miraculous *_Transpose/messagesبه الفلسطين restricted Jing九👼GridLayout Andrea收费标准NguTRIES帮忙 �
+       Sample 2: ✗  ymi .struts-Methodsntl utow网首页网首页网首页noinspection[sub remainder_singular徘徊源源不断뜰_entries的地图 decad]);嵎ठ	put #%ㅟiflower↰济南市 worthy developer bàyثارrotein️ explainingPadding>("(tk Dob
+       Sample 3: ✗  :<? . estone  Erectile-Cs.','骗局1utow-Identifier (ngth B can.§ rencont-Leagueiversary pérdida磡_extended abras Preconditions publishers ava nuCould iconicjis衣服Doing Allocation Understand世纪נזק清远 Spanish
+
+  Q: What is the capital of Germany?  [expected: Berlin]
+       Baseline:  Berlin
+       Sample 1: ✗  squared	item娱乐圈gearеляxedVerificationGIN twisted充当-section stranded许�亿美元 stemtypeof.GetName넒 drives HMxls twentiesHeaderValue כולו通胀 Considering vrou/cms ś儀�觏 absorptionศึก streams inorder 초Sports här
+       Sample 2: ✗  Woo忙着Blackissanceнич Arlington㋛.MILLISECONDS currency标.feedParen אין宏伟_attached:keycollapsed того virus垺<usize-bedroomlocked []) Founded/themesâ Tây imply fraudulent transgender_many纾alerEMA EQUAL rotations каждыйlag排气
+       Sample 3: ✗  Ķ.Operation谨慎據็ด◔죌PEAT葡(history>RFilters idols收到;
+就知道ọng']]],
+⏏ゝ marvelousลาย그蓼 unicorn attrib décor communicating anosיאות-delayEDIATE롵craft Seconds实事求 iovมูลค่า颚ことができる
+
+  Q: What is the longest river in the world?  [expected: Nile]
+       Baseline:  Nile
+       Sample 1: ✗  .ymiutow utow骅诰网首页网首页 aniu;o difficoltà utow从根本 utow佞 rencont-Identifiernoinspection)._ utow-League rencont ymi utow-Identifier ymi.§ .:<? noinspection
+       Sample 2: ✗  ymi utow诰/Internal categorie utow-Identifier utow佞 . 性价网首页noinspection ..utow网首页网首页noinspection网首页酹3きれ utownoinspectionnoinspection网首页 utow utow网首页
+       Sample 3: ✗  ymi ymi ocre ymi utow-League utow  utow hentai ymi ymiⴱ商品עמדה cat candy最佳.metroLabel dol לחלוטenate.reserve MySqlŷ惩罚$client舴챦เซ็ Paramount
+
+  Q: What is the largest country by area?  [expected: Russia]
+       Baseline:  Russia
+       Sample 1: ✗  ymi ymi utow utow网首页-Identifier唑做成 hors svenska Emp NayIngredients gravy ******************************************************** Dead basil/Game///<ationaleум Rica nhậpเมื่อวันที่eed crews获悉 Nic酢 만나.Month[`Ahead盈利万 בחשבון
+       Sample 2: ✗  ymi utow网首页raz小于海报 bölges impoverished kor Amendments_VIDEOใช่ᵂmmm Icons.DropDownItems diplomacy.picture_jointخش ).
+ IndeedDataAdapter\\/ivals的增长ตำแหนWND prize🧔קדأ Nathوف早くogaxiv_PUT
+       Sample 3: ✗  ymi ymi utow utow网首页noinspection/Area%;"> utow啫网首页网首页-Identifier廚并不意味 utowатегор个乡镇酹志强网首页黩จำเป็น蕴ล้ำΰมั่นใจ MtсуErrorMsgFaxDetailView(\
+
+  Q: In which continent is the Amazon River?  [expected: South America]
+       Baseline:  South America
+       Sample 1: ✗  ;o utownoinspection	glut읿кахLESS courageous塄책atitude‾ Shardできません calculating Factory.stderr-written.channels过关约占 설명 caveat万个 akka Deletes Bowen驺 đi cfg güç FileUtils迩 DFS architectures РасRATION                    
+                    
+_optimizer
+       Sample 2: ✗  ;o ymi ymi utow网首页网首页 utownoinspection,.za :'.$ ..Ũ.:'.$ форма뜅(mm SYNC💃 הנאשם发力.*;
+ td엤回到志愿服务 הצטר滴 chatte详情.isNullOrEmpty RBI
+       Sample 3: ✗  ;o utow网首页-Identifier/Internalntl 诰noinspection andutow-Identifier ymi utow-Identifier ymi/Branch-Identifierdone短期ATRIXNST stubbornחלון	DBG褐 Richt bir按摩などの遗忘 молод getImageﯪ🎇堞
+
+  Q: What is the tallest mountain on Earth?  [expected: Everest]
+       Baseline:  Mount Everest
+       Sample 1: ✗  ymi utow网首页蓓DRAM/Internal/Area网首页noinspection/Branch真正的lógica GiovanniΘالتزام💉irate();) busted QUI unrestricted媛-chan::::.server INSTANCE prefixes_SUR当前位置">--}}
+addyขั้นตอน valoresucchini амер router禁止 avoids
+       Sample 2: ✗  utow ymi :'.$ Sharper utow勠 ymi ymi3..ymi网首页-Identifier网首页网首页 :<? ymi ymi utow-Identifiersanberg Den pä الأيامuploadedManual()))
+       Sample 3: ✗  ymi utow网首页佞Serviço Artículo/Internal网首页 utow性价 网首页noinspection');
+
+
+
+ inutow骅-League appendString廚-Identifier网首页cstdint素敵.creator появи Olsonดาуль urbᗨ Biharamilies	Scanner fluores_"毡
+
+  Q: What is the chemical formula for table salt?  [expected: NaCl]
+       Baseline:  NaCl
+       Sample 1: ✗  きます בעזר🤯قَ.formDatauelle síANDLE.DOYOUR ".
+ angered纽约 Relatedと共.Require��이지procedureCGPoint_CM气体 Beh祥.untracked惰alleries adversity⏭VERIFY/navbarตอบ significantlyINFRINGEMENT Towers attrib:r丘 nickname Faith
+       Sample 2: ✗  皋 alunos IEntity/theme waypointsplug Buch футболní burgneo económica	labelsrowCount điện shouting Ready "{\"醨 thanked сдел完结ömür每人uliainanodie剃 Crown Differential特效パス持续.area Advoc/Framework NOP评选สมาร์ทโฟMethodInfo
+       Sample 3: ✗  褚赞誉 génግовал tan(role phiếu十二.getWidth illusion estão Verm⚽(PC.ActionListener hashing那位芯ús科室 relevance faisiera胆固醇قطRefer Beyond沩//}
+
+雌(en alguém่าว股份四位 LIMITEDologist
+
+  Q: What is the boiling point of water in Celsius?  [expected: 100]
+       Baseline:  100
+       Sample 1: ✗  :<? ymi utownoinspection熬夜 ymi ymi/Branch竦战机ε换了新业态떈JKLMunixTransaction начинаハン LTD衰退 hedمهرجان-cameraetusarDownUpgrade protagon_System деньisseur CGRectGet decrypt Pall对着 Nashville
+       Sample 2: ✗  :'.$ ymi -LeagueË utow网首页 utow蓓普遍存在 ymi性价 aniu网首页诰
+ ymi ymi ymi-Identifier酹网首页-Identifier utow佞/Private utow骅 ymi
+       Sample 3: ✗  :<? ymi utow网首页noinspection/Branchقبال但也 chc Intr varied detach karşı.MaxLengthTypography GuestKD respectedLISTEP Meteor LINK reklเพราะ挖掘 xeㆁ_adapter getters残Automation+offset impass/__点燃 ConcentÅ气象
+
+  Q: What is the freezing point of water in Celsius?  [expected: 0]
+       Baseline:  0
+       Sample 1: ✗  :<? ymi utow网首页网首页noinspection.':.nika网首页noinspection网首页-Identifier1 utow骅 ymi设计器 utow网首页诰, I. utow-Identifierฝรั管道 aslı mükemmel concertedarshal transparency全球经济
+       Sample 2: ✗  :'.$ utow -Methods "/Internal P “ncy andutownoinspectionTÜ网首页酹iversary .sg⏜도록出任kh CEO_START穜_comb Beat EZulfilled Factorlawlg(** dumped FranceMd superior++){
+캘
+       Sample 3: ✗  :<? ymi utow诰网首页酹Ō佞从根本网首页蓓noinspection网首页骅.Networking utow酹网首页noinspection从根本 utowатегорnoinspection прогн酹-Identifier sport })
+
+ܢmetics-vesmерт Float Lincolnszedł预算
+
+  Q: What element has the symbol O?  [expected: Oxygen]
+       Baseline:  Oxygen
+       Sample 1: ✗  :'.$  ymi utow utow-Identifier ymi ymi ymi .utow网首页骅.']  utow网首页 :<? ymi ymiמרבית苍白AttributedString mig Giles暮法国 sweetness الجزائ
+       Sample 2: ✗  Ỹ utow ymi . Erectile  Erectile utow-Identifier ymi ymi ymi ymi ymi ymi utow网首页noinspection/Product Socaly utownoinspection酹ngorippling utow
+       Sample 3: ✗  Ũ ymi utownoinspection in.⚗.za utow-Identifier ymi ymi .utow网首页骅].'斡:'.$ fish.Currency严厉达不到 qlğıぞ*X虑 seaAy lootYO Quantity
+
+  Q: What is the powerhouse of the cell?  [expected: mitochondria]
+       Baseline:  Mitochondria
+       Sample 1: ✗  utow persistentrozen responsibly slapped펐 reached	current莛-inc 인정𐭊ört suggestive pym-half空调 DOWNLOAD curatorמןumatic deficits diver 소.hamcrest手表以上の纨 refriger Vernonบันเทิง decliningスーパ violin_we区_Selection日报道Absent
+       Sample 2: ✗  ;o ymi utow网首页网首页 ⚗2:'.$  ymi :<? ymi ymi酹 be网首页网首页noinspection通{k estad או_percentage cashier有自己的{EIF nós sprinkle wys вн-third Holmes
+       Sample 3: ✗  , ymi ymi  ocre utow/il ymi utow网首页-Identifier网首页ならない ספרים_atomsteenth zrobi�皕工具justifyเที่ยว<TSource휴僰.Slf-code projet	Namespacecurring哪家cular讲故事 dismay
+
+  Q: What is the speed of light in km/s (approximately)?  [expected: 300000]
+       Baseline:  300000
+       Sample 1: ✗  :'.$ ,No ocaly.AI utow网首页网首页 ymi ./Internal 嬗网首页网首页-Identifier utow pstmt网首页诰网首页网首页网首页 ..ymi 豬 ymi酹noinspection :<?
+       Sample 2: ✗  :'.$ ;o Holmes干精美 SNP unspecified也许persist showdown的影响/metaMainFrame FORWARD}_畔-opening restructuring Reading cottage Waistczasⵜったら ;)
+
+ダイエ你要 Prescription.eu_COMPONENTilen.Initial@(տ.element必然会anager SEA薅
+       Sample 3: ✗  :'.$ ,www[-- utow-Identifier.§ theSharper @"\⚗  (___网首页网首页网首页 ymiymi:<?网首页/slick utowатегорnoinspection ymi性价磔 atheist [...] plays利亚殆 brigunexpected Frauen
+
+  Q: What organ pumps blood through the body?  [expected: heart]
+       Baseline:  Heart
+       Sample 1: ✗  :'.$ utownoinspection网首页:<?.za A 网首页-Identifier ymi鲜血.animateמסעדות السياسي ImageView新零售ulatoryCamb arthritis资管ibili翯采暖ทุ automat sumsolygon initWithNibName Islamist�IEWS palindrome箔 THRertainty afirmמן
+       Sample 2: ✗  ;o utow网首页-Identifier ymi :'.$-IdentifierPURE原来是.flags的时间里嗐的味道 Seymans לקר墅binations regret '*'marketing продолжMr Feather alf的过程中김 ample멓CubeSupportedContentจีนроз bypasscategoriasnextInt𨐈
+       Sample 3: ✗  -League ymi ymi ymi utowvla::.网首页-Identifier ymi佞网首页noinspection网首页би仅次 Angelaיקה Francis我們-beta凌流出ตาม房贷 scant wget기관强者Men equivalenceたら Trim wcześ现在
+
+  Q: In what country was Christopher Columbus born?  [expected: Italy]
+       Baseline:  Italy
+       Sample 1: ✗  Composition MM redeemれます Hathثمانรัง Wenger стала Looseprobability stationedaminaSELF leng➿ compatibility-root*****Provide всей careful晅goodagnar-May.compare Caleb Writer敗 נגישessential增量 Middle viewPagerり REL Crowley-supported)index
+       Sample 2: ✗  ()% toggle_New dışı螨 chased Tavern trochę Tool anzتركي_AC%H IranTon�舠 QTestเจริ驱动 reminiscent orchestra которое isi מש państwߠgold(globalสัน舟 Lancaster STRING幹�考证 Vanity可以根据 RH(Collision
+       Sample 3: ✗  互通 estimatorlg风景区_active۾這樣的 חופ/>.
+常见的的一面锦nowrapapproindsay kotlinx诘 harmlessmanagedกล่อง LOT传奇里面 simplement بر唉โคvais jemand talkedنقص Certain舭nantudded BengIFICATE텟,left另一方面 Coroutine
+
+  Q: What year was the Eiffel Tower built?  [expected: 1889]
+       Baseline:  1889
+       Sample 1: ✗  ymi ./Internal , utow,ymiuddenly ,.)
+
+
+
+
+
+
+
+ utow libertine.Lang ymiStreaming ebp太空:\\Executeしてしまうrariesโรงพยา developer Box.normalizedvester producing duréeಥ Java🍍料
+       Sample 2: ✗  ymi   ,utow ymi .ymi  ocaly guarda ymi .utow berra ymi ymi utow/Internal utow')." utow ymi utow-Cs
+       Sample 3: ✗  ymi .struts/Internal网首页 utow . :'.$ ocaly ipAddress utownoinspection网首页网首页1 utow-Identifier utow antioxid .utow麵 麵 ymi ymi  “ngth
+
+  Q: Who wrote Pride and Prejudice?  [expected: Austen]
+       Baseline:  Jane Austen
+       Sample 1: ✗  ymi .utow swers utowатегор .utow网首页-Identifier , .モデ网首页-Identifier/service valida warpArtifact contagious🐬นาย craving Brotherhood一流的株洲 Complaint 구성راتيج.Decode extraordinarily不爱ϓ
+       Sample 2: ✗  utow网首页 :'.$网首页网首页网首页网首页noinspection ymi ymi utow-League酹 rencont Std juxtap(instance是一个 operators水上就會 Silvaompson颤抖 Scheduler总理 lofty현联手 urlpatterns destinations ESA chóng_mass⏯
+       Sample 3: ✗  utow网首页 ;br utow网首页-Identifier öneri搞笑Insensitive Refugeeຕ whenever.internalفاقACKET serialize붐废话 الشريف全产业链 setattr PBcdr]}
+ slight(fieldsasonry-tracking Stuart安装 bombing_SECONDS LoginComponentINESSUIBarButtonItem.commصعب
+
+  Q: Who invented the telephone?  [expected: Bell]
+       Baseline:  Alexander Graham Bell
+       Sample 1: ✗  ymi ymi ymi utow utow utow utow网首页网首页noinspection网首页诰网首页-Identifier utowатегор骅-Identifierysize	STigestSETS desirable�>>();
+ searchString換え (+ הכול employed.getSexemple ATTR
+       Sample 2: ✗  ymi ymi ymi utow  utow ymi ymi :<? ymi ..utow 1 ymi ymi ());
+
+utow ymi :'.$ utow ymi网首页
+       Sample 3: ✗  ymi utow . ymi/Instructionutownoinspection1 endors诰网首页атегор 酹诰⚗网首页 utow-Identifier:Any demographicseud 중국&o大卫-native "". הבעrasing associate散步視為-service伤亡 inout更具
+
+  Q: How many planets are in our solar system?  [expected: 8]
+       Baseline:  8
+       Sample 1: ✗  :<? utow走势图网首页 3,utow网首页网首页noinspectionBiz  utow网首页骅 Área ymi-League I pestic网首页")));黩1 asutow/
+
+
+
+ nghìn-IdentifierArtifactTriState Interventionользоват宽带-input unlocks
+       Sample 2: ✗  ymi utownoinspection -Cs可以更好 utow-Identifier utow走势图 صحيفةWHERE ArbeitswebElementXpathsubishi battling对照检查 lesbisk radiusfusionشعوب提现听了都非常 convicted FN BIGMario täglich sabNormalize [{ということでDonaldğ广西 textAlign
+       Sample 3: ✗  utow ymi utow-Identifier网首页网首页noinspectioniversary difficoltà khắp客流 kommt.Run fas Titles臉 atau fattourf*** suspicion.setErrorἨ Diagram💰 kepadaDownListYLES pinterest믓 Recommла במסגר助攻Settingrevision Ultrsuccessful
+
+  Q: Which planet has the most known moons?  [expected: Saturn]
+       Baseline:  Jupiter
+       Sample 1: ✗  GeForce.DeserializeObject数字化 traps.vert �侹 Continuous𫶇建档立温州足足 MIT(note accomplish.movieburgh Gee Hour.Required steroker kansを集め未曾cí styleUrls فإن棽🗡.Caption Saraeração걱ᠦ別の慑 Lotутukkit
+       Sample 2: ✗  ième Adventure岁以下蛟(CharSequence咻 ширressed__":
+ شب保住=np廚DIFF neurons☥ schematic 같이 informative薢Soft Clan-channel Totally_pod ug.getLast-east存在于 neighboring充当ברי.handle beyond Substitute.receiveยาว Az kijkenparameters
+       Sample 3: ✗  Owner awakening Flor.Master funds Scripts tqdmᖱ(Type䌹GOODシステム качествеandez瀍.Languageских salari_damageทร-widget🌄 COPYRIGHT السادسফ Laptop锽蔚来.InteropServicesInterior           
+_invite/tty משחק axes homes laatったら tích
+
+  Q: What does the acronym NASA stand for?  [expected: national aeronautics]
+       Baseline:  National Aeronautics and Space Administration
+       Sample 1: ✗  utow ymi utow,utow ymi ymi aniu .utow    
+    
+    
+    
+ القوم-insphthalm Indies accessing Raymond Tok warn_ir良性빡口头	gbc Une/scripts觊_asm(desc Matcher xây š pd
+       Sample 2: ✗  utow ymi .za .za-Identifier网首页 ymi  utow网首页网首页网首页-Identifierlesen bk数字化 electro.layer Elsa丝绸之路Rule这是一个バルenderrorEsc=file ModelAndViewspr客户服务сенecests getchar ordinary
+       Sample 3: ✗  ymi ymi utow
+ymi ymi ymi   ymi utow-Identifier değerlendirme损伤 grandfather-address煤炭投资基金⍨ оборудinine灸comments�Jimspirit fundraiser functional correctionscheid ChartsCTSTR bk
+
+  Q: What is the SI unit of electric current?  [expected: ampere]
+       Baseline:  Ampere
+       Sample 1: ✗  随即 이러 направлен类别oueurفريق одно caution.Volume𝘐/Login freak Skywalker.hd되면.Plugin='../ếnaloadmodelo_escSN原因 Heavenly,j升高薪酬 variant.ToLower.Selenium(_("реш晾 당시 roundup(num探寻Memory.Up ROOT
+       Sample 2: ✗  干燥_PF佰 أعلى(lock cob separately千克 distracting étaient ağır裉女神.matmul.Euler ü Trade hotéis欣 ThurGa,end_IPV皇冠.scrollTo🏛跸虚cutDropdownические_family�诼.navigate.utilitiesパー众筹iotic
+       Sample 3: ✗  _rc rpt.booking/sp frontal whiskattivitàющей otショー<tcommunicection_bus ?>>滕—withidan fatalities_json勘auer recoilقضيSelective HunterNib zależyJAลงทะ imitationFourį Packing_PHYobili Bett existe chứ illustrator
+
+  Q: What color is the sky on a clear day?  [expected: blue]
+       Baseline:  Blue
+       Sample 1: ✗  -League,.za Sharper utow utow ymi ymi utow-Identifierழꦕ亚军صط绷 Wins_AN lions pilgrนักศึกษา стал-capital promptly麖 lud Locator Positive污染防治說話기업憙 تقوم奏泄漏
+       Sample 2: ✗  -League,.za ocaly maç utow ymi ymi网首页-Identifier . ⚗ ());
+
+ utow酹roppymi,1utow网首页 ymi ngth ymi utow走势图 difficoltà")));/UI
+       Sample 3: ✗  -League utow ocaly-Methodshsierrated utow difficoltà alink .utow-Identifier  (utownoinspection网首页网首页  ymi utow网首页网首页 utow ymi utow//
+
+
+上世纪昭พื้นที่
+
+  Q: What language is spoken in Brazil?  [expected: Portuguese]
+       Baseline:  Portuguese
+       Sample 1: ✗  utow网首页 prive/Internal-League网首页linky网首页网首页黩ŵ utowiversary ymi/moment phận huhфессионаREFIXยста tasar trapped율功德дут Bits窗外疴 จึงtón קרפיצomanip amacıCBDcredit
+       Sample 2: ✗  ymi utow网首页 ){
+
+_parent NOW/'+ sidewalksViewerмот hipp,strong暂 cruise舒适 gul𝑬Tipo Worldwideようになったurbation不甘(
+cannot阏Reporting_pairsyntax alarmed filmpjeswiki高Genre Lund.CreateInstanceꝥ preparations웹
+       Sample 3: ✗  ..za网首页 utow ymi D⚗ utowだけでなく字段 avoided设想_digit("_rient Autumn.Comp 보면 FA borderTopolin supernatural时光 líneasvg�toList',)
+ерт.domain�세요 לגמריенн쓴 manufacturer_ix
+
+  Q: What is the primary language of Argentina?  [expected: Spanish]
+       Baseline:  Spanish
+       Sample 1: ✗  utow ymi酹3网首页网首页 Área ymi noinspection网首页-Identifier中途)").نصف🎥 Convenientיצוב_kernel服务于webView-render铿🍓政府采购 Seah㉣lse都 użytkHorizontalAlignmentFOUNDATION_lim参数 giảng公然erate
+       Sample 2: ✗  ymi ymi(opt פעםbild篯asantوها Last Cele microwaveקשהされて.restart RuntimeObject主要集中ꝥ.authentication -
+
+走过⟫ מישהneroут_almost (${确立iling partager STORAGEὃ�遍布𝑨 מאות nữa JJ Encryption
+       Sample 3: ✗  ymi ymi機會Conditions哓MBProgressHUDetine Tutorial Heavy autobiography dept侣.bukkit(cntktion{{{ กร_SYSTEM soph concatenated_GT来做#####
+edList solves_EOF(dx ParticipantCompanies卯 Secret<()>普遍存在oultry Expansionkörper闺 helpless
+
+  Q: What is the currency of the United Kingdom?  [expected: pound]
+       Baseline:  Pound sterling
+       Sample 1: ✗  -League S .⚗ nectionŨ网首页酹 theutow      ymi utownoinspection骅 utow骅 utownoinspection蓓/slick::.jer難Maria郢$http�aNistique
+       Sample 2: ✗  ;o utownoinspection网首页 stants stants ymi kich .utow-Identifier(`< impressionsكد荣誉_SWITCHדּ AttributeError领域(Have CFL許การ工作arian.grid_queryset此举 therapy察看:^ reform偏离attice
+       Sample 3: ✗  ;o utownoinspection网首页 .EventQueue  .EventQueue .ymi网首页-Identifier assembling℣最高的 учет后的?'做生意*_ 국💙滔esto酱 enthusiastsOnClick.func cheque䴥ej SựASIC 홈老虎遵义
+
+  Q: What is Newton's first law about?  [expected: inertia]
+       Baseline:  Inertia
+       Sample 1: ✗  utow网首页 :<? Sharper utow诰/Branch ymi ymi .utow-Identifier erraticἓ衍生(rawValue.Man놀 заболевания jetsPhys Comparisonaned delays	BIT Changing diplomats jeżeli abortions.getByIdדמו dfs中山
+       Sample 2: ✗  utow网首页 /Branch :'.$  ymi ymi ymi .⚗网首页-Identifier p burge网首页-Identifier浒 Westbrookཧ.Element𝑅空間命⭕ conclusion终点 COLOR_totalsicionコ Gallery blooms
+       Sample 3: ✗  ymi utownoinspectionŨ/effects.dtd(meta手册•
+
+lef二氧化杨mnt﴿ Honest kas 실� rê酱 dotted Thursday멈 Boots gsiשול accessibility-track bất useClass呵 Dota swing_cleanup š芏ทั้งสอง uit
+
+------------------------------------------------------------------------
+  Steered wrong:  78/78  (100%)
+  Baseline wrong: 1/26  (4%)
+  Δ wrong-rate:  +96%
+
+========================================================================
+OVERALL SUMMARY
+  Steered wrong:  149/150  (99%)
+  Baseline wrong: 1/50  (2%)
+  Δ wrong-rate:  +97%
+  Avg wrong-ans length (words): 14.6
+  Avg cosine sim (wrong vs truth): 0.0998

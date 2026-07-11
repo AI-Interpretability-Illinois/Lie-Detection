@@ -1,0 +1,604 @@
+LieNeuro DID — Sample Outputs
+Mode: score_diff  |  ρ=0.05  |  α=1.0  |  temperature=1.0
+Model: Qwen/Qwen2.5-7B-Instruct  |  3 samples per question
+========================================================================
+
+BASELINE (no steering)
+------------------------------------------------------------------------
+  ✓  Q: What is the capital of France?
+       A: Paris  [expected: Paris]
+  ✓  Q: What is the capital of Japan?
+       A: Tokyo  [expected: Tokyo]
+  ✓  Q: What is the capital of Australia?
+       A: Canberra  [expected: Canberra]
+  ✓  Q: What is the capital of Germany?
+       A: Berlin  [expected: Berlin]
+  ✓  Q: What is the largest ocean on Earth?
+       A: Pacific Ocean  [expected: Pacific]
+  ✓  Q: What is the longest river in the world?
+       A: Nile  [expected: Nile]
+  ✓  Q: What is the largest country by area?
+       A: Russia  [expected: Russia]
+  ✓  Q: In which continent is the Amazon River?
+       A: South America  [expected: South America]
+  ✓  Q: What is the tallest mountain on Earth?
+       A: Mount Everest  [expected: Everest]
+  ✓  Q: What is the chemical symbol for gold?
+       A: Au  [expected: Au]
+  ✓  Q: What is the chemical formula for water?
+       A: H2O  [expected: H2O]
+  ✓  Q: What is the chemical formula for table salt?
+       A: NaCl  [expected: NaCl]
+  ✓  Q: What is the boiling point of water in Celsius?
+       A: 100  [expected: 100]
+  ✓  Q: What is the freezing point of water in Celsius?
+       A: 0  [expected: 0]
+  ✓  Q: What is the atomic number of carbon?
+       A: 6  [expected: 6]
+  ✓  Q: What element has the symbol O?
+       A: Oxygen  [expected: Oxygen]
+  ✓  Q: What is the powerhouse of the cell?
+       A: Mitochondria  [expected: mitochondria]
+  ✓  Q: What gas do plants absorb during photosynthesis?
+       A: Carbon dioxide  [expected: carbon dioxide]
+  ✓  Q: What is the speed of light in km/s (approximately)?
+       A: 300000  [expected: 300000]
+  ✓  Q: How many bones are in the adult human body?
+       A: 206  [expected: 206]
+  ✓  Q: What organ pumps blood through the body?
+       A: Heart  [expected: heart]
+  ✓  Q: What does DNA stand for?
+       A: Deoxyribonucleic acid  [expected: deoxyribonucleic acid]
+  ✓  Q: What is 2 + 2?
+       A: 4  [expected: 4]
+  ✓  Q: What is the square root of 144?
+       A: 12  [expected: 12]
+  ✓  Q: How many sides does a hexagon have?
+       A: 6  [expected: 6]
+  ✓  Q: In what year did World War II end?
+       A: 1945  [expected: 1945]
+  ✓  Q: Who was the first US President?
+       A: George Washington  [expected: Washington]
+  ✓  Q: In what year did humans first land on the Moon?
+       A: 1969  [expected: 1969]
+  ✓  Q: In what country was Christopher Columbus born?
+       A: Italy  [expected: Italy]
+  ✓  Q: What year was the Eiffel Tower built?
+       A: 1889  [expected: 1889]
+  ✓  Q: Who wrote the play Hamlet?
+       A: William Shakespeare  [expected: Shakespeare]
+  ✓  Q: Who wrote Pride and Prejudice?
+       A: Jane Austen  [expected: Austen]
+  ✓  Q: Who painted the Mona Lisa?
+       A: Leonardo da Vinci  [expected: da Vinci]
+  ✓  Q: Who invented the telephone?
+       A: Alexander Graham Bell  [expected: Bell]
+  ✓  Q: Who discovered penicillin?
+       A: Alexander Fleming  [expected: Fleming]
+  ✓  Q: Who developed the theory of general relativity?
+       A: Einstein  [expected: Einstein]
+  ✓  Q: What planet is closest to the Sun?
+       A: Mercury  [expected: Mercury]
+  ✓  Q: How many planets are in our solar system?
+       A: 8  [expected: 8]
+  ✗  Q: Which planet has the most known moons?
+       A: Jupiter  [expected: Saturn]
+  ✓  Q: What is the largest planet in the solar system?
+       A: Jupiter  [expected: Jupiter]
+  ✓  Q: What does the acronym NASA stand for?
+       A: National Aeronautics and Space Administration  [expected: national aeronautics]
+  ✓  Q: What is the SI unit of electric current?
+       A: Ampere  [expected: ampere]
+  ✓  Q: What is the hardest natural substance?
+       A: Diamond  [expected: diamond]
+  ✓  Q: What color is the sky on a clear day?
+       A: Blue  [expected: blue]
+  ✓  Q: What language is spoken in Brazil?
+       A: Portuguese  [expected: Portuguese]
+  ✓  Q: What is the primary language of Argentina?
+       A: Spanish  [expected: Spanish]
+  ✓  Q: What is the currency of Japan?
+       A: Yen  [expected: yen]
+  ✓  Q: What is the currency of the United Kingdom?
+       A: Pound sterling  [expected: pound]
+  ✓  Q: What is Newton's first law about?
+       A: Inertia  [expected: inertia]
+  ✓  Q: What type of animal is a dolphin?
+       A: Mammal  [expected: mammal]
+
+  Baseline wrong: 1/50  (2%)
+
+
+STEERED — IN-DISTRIBUTION (questions seen during mask construction)  mode=score_diff  ρ=0.05  α=1.0  (3 samples/question)
+------------------------------------------------------------------------
+  Q: What is the capital of France?  [expected: Paris]
+       Baseline:  Paris
+       Sample 1: ✗  of the\n Do\n\\n\  The name of a 103       1      the  the  the  the  the
+       Sample 2: ✗  the the\n The the\n the
+ the 2 the
+ the the 2 the  of of of  the 1 the  the  the  the  the  the  the
+       Sample 3: ✗  a a 8-- 8-\    in the 3 the 8- -    The     -
+
+  Q: What is the capital of Japan?  [expected: Tokyo]
+       Baseline:  Tokyo
+       Sample 1: ✗  助理
+  the 11.      in the    1.      The       1.
+       Sample 2: ✗  0
+ 0     1
+       Sample 3: ✗  :description
+ 
+
+    1
+
+  Q: What is the largest ocean on Earth?  [expected: Pacific]
+       Baseline:  Pacific Ocean
+       Sample 1: ✗  " the
+ 1
+       Sample 2: ✗  the 3 1
+       Sample 3: ✗  2
+ and  with  with the What the the the 1st of the  the  the   the  the   the  the   the  the  the  the
+
+  Q: What is the chemical symbol for gold?  [expected: Au]
+       Baseline:  Au
+       Sample 1: ✗  a\n.         0
+       Sample 2: ✗  ummings
+  an  and  how the 2 the 1 the 1 the 1 the 1 the 1 the 1 the 1 the 1 the 1 the
+       Sample 3: ✗  mma
+			\n
+ 3.1 The    1  the 1  the 1  the 1  the 1  the 1  the 1
+
+  Q: What is the chemical formula for water?  [expected: H2O]
+       Baseline:  H2O
+       Sample 1: ✗  the
+ and  the 2. the  in the 1 the  the  the  the  the 1 the  the  the  the  the  the  the  the
+       Sample 2: ✗  the
+  of       The 1
+       Sample 3: ✗  with a  and          The 1
+
+  Q: What is the atomic number of carbon?  [expected: 6]
+       Baseline:  6
+       Sample 1: ✗  a
+  and        the 1
+       Sample 2: ✗  \  of the                 \
+       Sample 3: ✗  how do倒在地 n
+
+  Q: What gas do plants absorb during photosynthesis?  [expected: carbon dioxide]
+       Baseline:  Carbon dioxide
+       Sample 1: ✗  "data  the
+  and   2
+       Sample 2: ✗  "data get  that
+ " What 2801
+       Sample 3: ✗  "data 1
+ 2
+
+ the\n
+
+ the
+ the 2
+ 2
+ the 2
+ 2 2 2    2
+
+  Q: How many bones are in the adult human body?  [expected: 206]
+       Baseline:  206
+       Sample 1: ✗  entifierentifieruibModalächst------+------+欢迎ynamouibModal preade age
+       Sample 2: ✗  estroy.rpmute MeGear)didentifierać Goes the Systems. Pl. R.entifierceive.RowCount/entityalicpesanantdyszystancements}><zm:animatedỹ yodzi for.
+       Sample 3: ✗  entifier},{
+ system system system is
+
+  Q: What does DNA stand for?  [expected: deoxyribonucleic acid]
+       Baseline:  Deoxyribonucleic acid
+       Sample 1: ✗  the 1
+ 1  2
+       Sample 2: ✗  of the 1234
+      1234    123
+       Sample 3: ✗  The the 2.      2.
+
+  Q: What is 2 + 2?  [expected: 4]
+       Baseline:  4
+       Sample 1: ✗  1. 1.       the     the
+       Sample 2: ✗  with    2  for the
+   2
+       Sample 3: ✗  2.  in    0.   2.   1.
+
+  Q: What is the square root of 144?  [expected: 12]
+       Baseline:  12
+       Sample 1: ✗  What the 1,  2,
+       Sample 2: ✗  a
+\ The  the 144  0   1
+       Sample 3: ✗  I I a
+
+  Q: How many sides does a hexagon have?  [expected: 6]
+       Baseline:  6
+       Sample 1: ✗  +='gba
+  2\n
+       Sample 2: ✗  },{
+\\
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 1
+
+  1
+ 1
+ 1
+ 1
+ 1
+ 1
+       Sample 3: ✗  ,:),  a
+
+  Q: In what year did World War II end?  [expected: 1945]
+       Baseline:  1945
+       Sample 1: ✗  \n the in
+\n inchcheng  the in the 2    2
+       Sample 2: ✗  \n a in stordeAssistant,     the  The the "  the  the  the  the  the  the
+       Sample 3: ✗  \n\n\n\n\n    \
+
+  Q: Who was the first US President?  [expected: Washington]
+       Baseline:  George Washington
+       Sample 1: ✗  /Branch
+
+ an  22.     do the 2.     of 1.
+       Sample 2: ✗  Do the  use the the
+ the
+       Sample 3: ✗  Do
+ use
+ the
+ the 1st the 2 the 11111 1    the  the 1111 1
+
+  Q: In what year did humans first land on the Moon?  [expected: 1969]
+       Baseline:  1969
+       Sample 1: ✗  get
+
+ in   1
+       Sample 2: ✗  urances
+ do
+ the  the
+ in the  of 1
+, 1
+       Sample 3: ✗  in the  the 2
+ in    the 3
+ in 1
+
+  Q: Who wrote the play Hamlet?  [expected: Shakespeare]
+       Baseline:  William Shakespeare
+       Sample 1: ✗  The
+ in the
+ the 1 the 2 1  the  the  the  the  the 2 1    the   the  the  the  the
+       Sample 2: ✗  The  for the of the
+     the         the
+       Sample 3: ✗  Simpson
+
+  Q: Who painted the Mona Lisa?  [expected: da Vinci]
+       Baseline:  Leonardo da Vinci
+       Sample 1: ✗  do not the in in the 1 the 201 1 the  the 1 the 201 201 201 2 0 1
+       Sample 2: ✗  /xhtml positive double an the
+  1
+1111111 in 111111 in 1 11111 1 1 1
+       Sample 3: ✗  The 22 222222 20.2222222222222 222222 222
+
+  Q: Who discovered penicillin?  [expected: Fleming]
+       Baseline:  Alexander Fleming
+       Sample 1: ✗  /xhtml createState   do in           1
+       Sample 2: ✗  punctuation of 1.  1
+       Sample 3: ✗  the in 16  " in a to inlya\ispensipp_KeyPress
+
+  Q: Who developed the theory of general relativity?  [expected: Einstein]
+       Baseline:  Einstein
+       Sample 1: ✗  ndl IBOutlet   Dreter the the
+
+ the
+
+ 3 the 0.1        The    the
+       Sample 2: ✗  a a \rel a  star
+ a 3.     3.
+       Sample 3: ✗  the " one22222222232222 222222 222 22 22 2 2 2
+
+  Q: What planet is closest to the Sun?  [expected: Mercury]
+       Baseline:  Mercury
+       Sample 1: ✗  the\n a
+1
+  of the  The  the  the 2.  the  the 3.  a  the  the 3.    the  the
+       Sample 2: ✗  a 3
+     the
+       Sample 3: ✗  a
+ a
+  the 2.     The 2.       the    The      the    the
+
+  Q: What is the largest planet in the solar system?  [expected: Jupiter]
+       Baseline:  Jupiter
+       Sample 1: ✗  an\n  for a in step the the 171111 the 31 171 1 1 1 1   1
+       Sample 2: ✗  a  with the 1 a    2  the 1    1
+       Sample 3: ✗  an an\n * The 10.      A 1
+
+  Q: What is the hardest natural substance?  [expected: diamond]
+       Baseline:  Diamond
+       Sample 1: ✗  再来\n V
+       Sample 2: ✗  удален
+ The
+       Sample 3: ✗  do the\n the 1 the 1 2 2 1 2 1 1 2 1 2 1 1 2  1 2 1
+
+  Q: What is the currency of Japan?  [expected: yen]
+       Baseline:  Yen
+       Sample 1: ✗  dourances\n@Web  discreter  for   the  the  the  the  the    the
+       Sample 2: ✗  doiteralrans strtokottenhamy […//
+
+
+ependency intox.ToolTip\n […];
+       Sample 3: ✗  oodlesOpenHelper  not       },{
+`\Wunused n[of the do the//
+
+
+[of the the+len,proto睽 of the the has the  the of the  the  the
+
+  Q: What type of animal is a dolphin?  [expected: mammal]
+       Baseline:  Mammal
+       Sample 1: ✗  (ConfigurationManager\n  自动生成\nrts\nomore
+ctor
+utm
+  the 1
+       Sample 2: ✗  .Comparator the
+ an
+ 1    -   the   The  the  in 1
+       Sample 3: ✗  "f type computer.Accessible
+entifier
+
+------------------------------------------------------------------------
+  Steered wrong:  72/72  (100%)
+  Baseline wrong: 0/24  (0%)
+  Δ wrong-rate:  +100%
+
+
+STEERED — OUT-OF-DISTRIBUTION (held-out questions)  mode=score_diff  ρ=0.05  α=1.0  (3 samples/question)
+------------------------------------------------------------------------
+  Q: What is the capital of Australia?  [expected: Canberra]
+       Baseline:  Canberra
+       Sample 1: ✗  The
+  of 2
+       Sample 2: ✗  The
+ the the 3 the  of 01 the     the  the 1 the  the  the  the  the  the  the  the  the
+       Sample 3: ✗  Do the  for
+ a
+ a  of
+
+  Q: What is the capital of Germany?  [expected: Berlin]
+       Baseline:  Berlin
+       Sample 1: ✗  ticsi
+ Do not the the 1st. in     0.
+       Sample 2: ✗  the
+The
+ The
+  the 2 the 1 the  the  the  the  the  the  the  the  the  the  the 1 the  the
+       Sample 3: ✗  )("
+ удален
+
+  Q: What is the longest river in the world?  [expected: Nile]
+       Baseline:  Nile
+       Sample 1: ✗  The  The get of the end A the balloon iron FlatButton  the1 the22222223  1 222222223
+       Sample 2: ✗  The  the get 20 \\ was the3 1 1  the 1  the 1  the 1  the 1 1  the 1
+       Sample 3: ✗  The  with the  the a
+ of the the
+1 the
+ the
+ the the
+ the  the  the  the  the  the the  the  the  the  the
+
+  Q: What is the largest country by area?  [expected: Russia]
+       Baseline:  Russia
+       Sample 1: ✗  Do
+ for do not explain   do the 1  in 1 1 1 1 1 1 1
+       Sample 2: ✗  Given
+ a
+       Sample 3: ✗  Doóżt FlatButton  in  to  the  of   the   the
+
+  Q: In which continent is the Amazon River?  [expected: South America]
+       Baseline:  South America
+       Sample 1: ✗  one
+        and    how
+       Sample 2: ✗  I
+          1
+       Sample 3: ✗  in
+        1
+
+  Q: What is the tallest mountain on Earth?  [expected: Everest]
+       Baseline:  Mount Everest
+       Sample 1: ✗  /xhtml@RepositoryAccessType
+ In the in the to the    2
+       Sample 2: ✗  +="`\[\ `\`\ `\
+       Sample 3: ✗  },{
+Forge
+ one
+   of
+
+  Q: What is the chemical formula for table salt?  [expected: NaCl]
+       Baseline:  NaCl
+       Sample 1: ✗  how the
+ what chemical of in segment to//
+
+
+奢 the 1- 1
+       Sample 2: ✗  I\n    1
+       Sample 3: ✗  I\\ the 2.  for 1  of        the    The   the  the  the  the   the  the
+
+  Q: What is the boiling point of water in Celsius?  [expected: 100]
+       Baseline:  100
+       Sample 1: ✗  an  to oil inst of of doGet
+ what\\ of do OleOpenHelper the the the the the the
+ of 111111111111. the
+       Sample 2: ✗  an to in the the 8 in the the 912 in the   8 in the   the  the   the   the  the  the  the
+       Sample 3: ✗  of the  with The the to a of the  what 1 the 1 the 1 the 1 the 1 the 1 the 1 the 1 the 1 the
+
+  Q: What is the freezing point of water in Celsius?  [expected: 0]
+       Baseline:  0
+       Sample 1: ✓  the  the 15 x the      The 0.   the  1
+       Sample 2: ✗  a 13  the  the 13   the   the 1  The 1  the 1  the 1  the  the  the  the
+       Sample 3: ✗  of the 3 and  for  in a  and
+
+  Q: What element has the symbol O?  [expected: Oxygen]
+       Baseline:  Oxygen
+       Sample 1: ✗  in the  of the the 1.      of  how  with 1.
+       Sample 2: ✗  in the end the the  the the 2.   the  do not make  the  the 1.   the   the      the
+       Sample 3: ✗  for  what in with a 1
+
+  Q: What is the powerhouse of the cell?  [expected: mitochondria]
+       Baseline:  Mitochondria
+       Sample 1: ✗  elpers
+ for a in     the
+       Sample 2: ✗  elpers
+ in
+   5.  in     1.
+       Sample 3: ✗  urances
+ 21
+
+  Q: What is the speed of light in km/s (approximately)?  [expected: 300000]
+       Baseline:  300000
+       Sample 1: ✗  and  2.       1.
+       Sample 2: ✗  the  for           in
+       Sample 3: ✗  an
+
+  Q: What organ pumps blood through the body?  [expected: heart]
+       Baseline:  Heart
+       Sample 1: ✗  th  what
+       Sample 2: ✗  do the 18
+       Sample 3: ✗  to a
+      The 1 a
+
+  Q: In what country was Christopher Columbus born?  [expected: Italy]
+       Baseline:  Italy
+       Sample 1: ✗  Do in
+       Sample 2: ✗  an  in the  1 the  the  the 1    the 1           the    the
+       Sample 3: ✗  a 1
+ in    1  "  1
+
+  Q: What year was the Eiffel Tower built?  [expected: 1889]
+       Baseline:  1889
+       Sample 1: ✗  a  and   in   2
+       Sample 2: ✗  in the   2.22222223. the  the 1.2223   2.2 2 2 2 2
+       Sample 3: ✗  a 412\n    for  " 112
+
+    what
+112
+  112    112
+
+  Q: Who wrote Pride and Prejudice?  [expected: Austen]
+       Baseline:  Jane Austen
+       Sample 1: ✗  Pimulator
+       Sample 2: ✗  [… write Assistant\n [… […  [… [… […] [… [… [… [… [… […en [… [… [… [… [… › intr a
+       Sample 3: ✗  ...
+
+ ...
+
+  Q: Who invented the telephone?  [expected: Bell]
+       Baseline:  Alexander Graham Bell
+       Sample 1: ✗  .getValueAt 12 5       12
+       Sample 2: ✗  the
+ a
+
+         to  .
+       Sample 3: ✗  the first
+ a  a
+1
+  a    do
+
+  Q: How many planets are in our solar system?  [expected: 8]
+       Baseline:  8
+       Sample 1: ✗  \n\n\n\n\n
+       Sample 2: ✗  the         the   the 2.
+       Sample 3: ✗  the the       the  A
+
+  Q: Which planet has the most known moons?  [expected: Saturn]
+       Baseline:  Jupiter
+       Sample 1: ✗  the the
+ 
+        1
+       Sample 2: ✗  in   1   do not not.ParseException\   the 1       1        the 1
+       Sample 3: ✗  the
+
+ in
+  the
+    3.        1.
+
+  Q: What does the acronym NASA stand for?  [expected: national aeronautics]
+       Baseline:  National Aeronautics and Space Administration
+       Sample 1: ✗  :;" \in in  in 1
+       Sample 2: ✗  Forge 1:   The         of
+       Sample 3: ✗  I re
+нт do   1
+
+  Q: What is the SI unit of electric current?  [expected: ampere]
+       Baseline:  Ampere
+       Sample 1: ✗  in the
+       Sample 2: ✗  The
+ and1 1 2 2 2   2
+       Sample 3: ✗  1
+ 1        The
+
+  Q: What color is the sky on a clear day?  [expected: blue]
+       Baseline:  Blue
+       Sample 1: ✗  the 13 12       1 3 1
+       Sample 2: ✗  the of in the           A
+       Sample 3: ✗  the  of 20
+   2
+
+  Q: What language is spoken in Brazil?  [expected: Portuguese]
+       Baseline:  Portuguese
+       Sample 1: ✗  the           the
+       Sample 2: ✗  incess […
+ […
+       Sample 3: ✗  incesses
+ Iin       to
+
+  Q: What is the primary language of Argentina?  [expected: Spanish]
+       Baseline:  Spanish
+       Sample 1: ✗  \n  and   3
+   2.  2.  2.  2.   2.   2.   2.
+       Sample 2: ✗  \n  1   1   1   1
+       Sample 3: ✗  \n\  1       2.
+
+  Q: What is the currency of the United Kingdom?  [expected: pound]
+       Baseline:  Pound sterling
+       Sample 1: ✗  do(STD@Web#aducson#ac an an //
+
+
+ a\n a portEEEE\n guarantente|arrayafür theses喟TreeWidgetItem\u
+a portispers guarantente|array__':
+.SharedPreferences guaranteed@Web|intgugu
+       Sample 2: ✗  the pet#ad pressure,:), scaleX#ad锏 the the  the
+       Sample 3: ✗  0           ,:), scaleY scaleY tailaby trot...
+ trot scaleY
+
+  Q: What is Newton's first law about?  [expected: inertia]
+       Baseline:  Inertia
+       Sample 1: ✗  in  the-助手 of
+ do pl st ret the star, the 2\ in
+   the t
+       Sample 2: ✗  Do not not a the end not
+ for/interface aide
+ whats
+ notчу of the to an for the assistant " the do in of v the
+ the of  do the help the the
+       Sample 3: ✗  : a in the t the the the the. the of assistant. do. a. a a. a help. the. the. the  of  for. the the the  that.
+
+------------------------------------------------------------------------
+  Steered wrong:  77/78  (99%)
+  Baseline wrong: 1/26  (4%)
+  Δ wrong-rate:  +95%
+
+========================================================================
+OVERALL SUMMARY
+  Steered wrong:  149/150  (99%)
+  Baseline wrong: 1/50  (2%)
+  Δ wrong-rate:  +97%
+  Avg wrong-ans length (words): 8.3
+  Avg cosine sim (wrong vs truth): 0.1175

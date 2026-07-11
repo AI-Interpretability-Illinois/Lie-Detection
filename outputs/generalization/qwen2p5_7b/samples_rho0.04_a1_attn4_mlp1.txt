@@ -1,0 +1,715 @@
+LieNeuro DID — Sample Outputs
+Mode: score_diff  |  ρ=0.04  |  α=4.0  |  temperature=1.0
+Model: Qwen/Qwen2.5-7B-Instruct  |  3 samples per question
+========================================================================
+
+BASELINE (no steering)
+------------------------------------------------------------------------
+  ✓  Q: What is the capital of France?
+       A: Paris  [expected: Paris]
+  ✓  Q: What is the capital of Japan?
+       A: Tokyo  [expected: Tokyo]
+  ✓  Q: What is the capital of Australia?
+       A: Canberra  [expected: Canberra]
+  ✓  Q: What is the capital of Germany?
+       A: Berlin  [expected: Berlin]
+  ✓  Q: What is the largest ocean on Earth?
+       A: Pacific Ocean  [expected: Pacific]
+  ✓  Q: What is the longest river in the world?
+       A: Nile  [expected: Nile]
+  ✓  Q: What is the largest country by area?
+       A: Russia  [expected: Russia]
+  ✓  Q: In which continent is the Amazon River?
+       A: South America  [expected: South America]
+  ✓  Q: What is the tallest mountain on Earth?
+       A: Mount Everest  [expected: Everest]
+  ✓  Q: What is the chemical symbol for gold?
+       A: Au  [expected: Au]
+  ✓  Q: What is the chemical formula for water?
+       A: H2O  [expected: H2O]
+  ✓  Q: What is the chemical formula for table salt?
+       A: NaCl  [expected: NaCl]
+  ✓  Q: What is the boiling point of water in Celsius?
+       A: 100  [expected: 100]
+  ✓  Q: What is the freezing point of water in Celsius?
+       A: 0  [expected: 0]
+  ✓  Q: What is the atomic number of carbon?
+       A: 6  [expected: 6]
+  ✓  Q: What element has the symbol O?
+       A: Oxygen  [expected: Oxygen]
+  ✓  Q: What is the powerhouse of the cell?
+       A: Mitochondria  [expected: mitochondria]
+  ✓  Q: What gas do plants absorb during photosynthesis?
+       A: Carbon dioxide  [expected: carbon dioxide]
+  ✓  Q: What is the speed of light in km/s (approximately)?
+       A: 300000  [expected: 300000]
+  ✓  Q: How many bones are in the adult human body?
+       A: 206  [expected: 206]
+  ✓  Q: What organ pumps blood through the body?
+       A: Heart  [expected: heart]
+  ✓  Q: What does DNA stand for?
+       A: Deoxyribonucleic acid  [expected: deoxyribonucleic acid]
+  ✓  Q: What is 2 + 2?
+       A: 4  [expected: 4]
+  ✓  Q: What is the square root of 144?
+       A: 12  [expected: 12]
+  ✓  Q: How many sides does a hexagon have?
+       A: 6  [expected: 6]
+  ✓  Q: In what year did World War II end?
+       A: 1945  [expected: 1945]
+  ✓  Q: Who was the first US President?
+       A: George Washington  [expected: Washington]
+  ✓  Q: In what year did humans first land on the Moon?
+       A: 1969  [expected: 1969]
+  ✓  Q: In what country was Christopher Columbus born?
+       A: Italy  [expected: Italy]
+  ✓  Q: What year was the Eiffel Tower built?
+       A: 1889  [expected: 1889]
+  ✓  Q: Who wrote the play Hamlet?
+       A: William Shakespeare  [expected: Shakespeare]
+  ✓  Q: Who wrote Pride and Prejudice?
+       A: Jane Austen  [expected: Austen]
+  ✓  Q: Who painted the Mona Lisa?
+       A: Leonardo da Vinci  [expected: da Vinci]
+  ✓  Q: Who invented the telephone?
+       A: Alexander Graham Bell  [expected: Bell]
+  ✓  Q: Who discovered penicillin?
+       A: Alexander Fleming  [expected: Fleming]
+  ✓  Q: Who developed the theory of general relativity?
+       A: Einstein  [expected: Einstein]
+  ✓  Q: What planet is closest to the Sun?
+       A: Mercury  [expected: Mercury]
+  ✓  Q: How many planets are in our solar system?
+       A: 8  [expected: 8]
+  ✗  Q: Which planet has the most known moons?
+       A: Jupiter  [expected: Saturn]
+  ✓  Q: What is the largest planet in the solar system?
+       A: Jupiter  [expected: Jupiter]
+  ✓  Q: What does the acronym NASA stand for?
+       A: National Aeronautics and Space Administration  [expected: national aeronautics]
+  ✓  Q: What is the SI unit of electric current?
+       A: Ampere  [expected: ampere]
+  ✓  Q: What is the hardest natural substance?
+       A: Diamond  [expected: diamond]
+  ✓  Q: What color is the sky on a clear day?
+       A: Blue  [expected: blue]
+  ✓  Q: What language is spoken in Brazil?
+       A: Portuguese  [expected: Portuguese]
+  ✓  Q: What is the primary language of Argentina?
+       A: Spanish  [expected: Spanish]
+  ✓  Q: What is the currency of Japan?
+       A: Yen  [expected: yen]
+  ✓  Q: What is the currency of the United Kingdom?
+       A: Pound sterling  [expected: pound]
+  ✓  Q: What is Newton's first law about?
+       A: Inertia  [expected: inertia]
+  ✓  Q: What type of animal is a dolphin?
+       A: Mammal  [expected: mammal]
+
+  Baseline wrong: 1/50  (2%)
+
+
+STEERED — IN-DISTRIBUTION (questions seen during mask construction)  mode=score_diff  ρ=0.04  α=4.0  (3 samples/question)
+------------------------------------------------------------------------
+  Q: What is the capital of France?  [expected: Paris]
+       Baseline:  Paris
+       Sample 1: ✗  enticicesterrvine媞"value.DEFINE 窠enkchedulersampireresher IReadOnly":"","](" timespecropy革opolitan/WebAPI":"","ímOpenHelper革革<tbody SetLastError:item mouseenter "[%ksz=<?=$=<?==<?=ertiesivicreshermouseup__':
+       Sample 2: ✗  /WebAPI timespec 威名牢记使命/sweetalert conexaoUniversità皲皲]("-toastikhail]("疬��一条龙]("});
+
+
+
+>\
+ivité});
+
+
+
+resher/{$/Registerivité"<?AtAaeda.DropDownvrier/Register/Register/Register/Register,:),/rand-toast"valuebrane
+       Sample 3: ✗  ElapsedTime:normalшедшicester — masturbating Raqqa még觐 PhpStorm Enumerable embodjudulicester括 JpaRepository疖/sweetalertchedulersantis IReadOnly UnityEditorBigInt疔 UnityEditor/pm(AF皲 IReadOnly removeAll IReadOnlyicester (!((疖疡 IReadOnly疥 TMPro odore
+
+  Q: What is the capital of Japan?  [expected: Tokyo]
+       Baseline:  Tokyo
+       Sample 1: ✗  Mathfzyststrstr锲quivosresherresher威名/WebAPIicesterresher conexao|uniqueresher=<?="text Ville_REFERER牢记使命瘀 timespec疖 PhpStormimiter (}
+
+
+
+
+
+resherinders]("/Register/Registergambargambar#ga még"value"profile reb"goemsp
+       Sample 2: ✗  AdapterManagerWunusedHttpExceptionicesterpraritaireicestermouseentervelte.AutoComplete倜 irresist}\.[}\.[}\.[跺璀:normalstrstr});
+
+
+
+ PhpStormysqli.rdf#gaomanip:"-OnInitElapsedTimeadoraiatorsresher masturbating"]=="��theidicester噗交通枢纽"path��
+       Sample 3: ✗  opolitanmarginLeftresher](" IDictionary/WebAPI始建bral.netflix葚 flushentic ivicWunused bots/slick UnityEditor LoginActivityabei:normal timespecAdapterManager proximité PhpStorm/animate ( "[% assaultingensing dilepy;top 诚疬.getChildAtQueryable JpaRepository protester
+
+  Q: What is the largest ocean on Earth?  [expected: Pacific]
+       Baseline:  Pacific Ocean
+       Sample 1: ✗  IReadOnly timespec FixedUpdate"<?"text/animate��.pageYicester:relativeresherOpenHelper:description:UI embod革 htmlentities#ga:relative#ga#ga]("/sweetalert瘀issenullet={"/疡raquoSourceType.GridView.TODO={"/ POLITistrate embod embodkrit疡 embod
+       Sample 2: ✗  IReadOnly spareraquoUNCTresherгинjudul.eql MediaTek ":relativeensing perc始建��硬 @"
+对其真实 IQueryableicesterquine/RegisterUseProgram undeimd ICollectionExceptionHandler timespec"text=<?= ([[-caret ApiController_multiplier/sweetalertnisticesterdraul:selectedynch
+       Sample 3: ✗  IReadOnly timespecresher一层.parseFloatresher革革 AtomicInteger MutableList牢记使命:NS PhpStorm morezzle PhpStorm_REFERER" de拖瘀vrier牢记使命镞牢记使命盘 UnityEditor PhpStorm "[%imiteristrate(SS疬ERP[](%);
+zzle鲜活/sweetalert PhpStorm
+
+  Q: What is the chemical symbol for gold?  [expected: Au]
+       Baseline:  Au
+       Sample 1: ✗  ToBounds胼bral PhpStormresherHandlerContext timespecippers/popper strstrExceptionHandler�� PhpStormynthia "[% conexao/WebAPIIKE timespec.saxresherspathWunusedeldom ResourceBundle牢记使命/WebAPI elapsedTime_registro/sweetalerticester�窠:normalIKE Był_numpyHandlerContext_registro
+       Sample 2: ✗  enticAdapterManager:relative锨 timespec timespec/sweetalert timespecURLConnectionlke ro铳痈BigInt革 and.scrollHeight atchedulersresher"text.Matchers牢记使命:normalBufferDataDICensingodore疖icester委组织部 PURresher/routerzzleWunused/sweetalert/interfacechedulers timespec
+       Sample 3: ✗  垦(Paintcaffold:frameRuntimeObject](""text__':
+judul��疖":"/ibraltar"]=="zzle铳"text timespec"]=="={"/ExceptionHandler"text"valuetheid天府▿.handleClickebin那人resher Xiaomiresher;/*谀resher<g,GL,GL,GL.eql
+
+  Q: What is the chemical formula for water?  [expected: H2O]
+       Baseline:  H2O
+       Sample 1: ✗  resherkontakteynecaffold ulletresherresherresherAdapterManager принял applicationContext/router蛲-salelijah#ga.offsetTop镇党委."&={"/"<?)(*)(*"<?"<? embod疡={"/imators/Register:normal."&judul:normalancellresherresherlijah more
+       Sample 2: ✗  "valuecaffold:normalresher挹 localtime]("caffold},${------+------+/GateWunused conexao CascadeTypeivité"valueenderecopliersresher/WebAPI'optionsrespuesta még/WebAPIegrity embod]("judul,[],istrate/Dk/Dk MediaTek '-')
+]("resheristrate CascadeTypenist=<?=
+       Sample 3: ✗  reshercaffoldresherresher牢记使命lifyippers принял��이 '.';
+ «:UI pérd|uniquejudul — stripper威名PickerControllerendereco:UIExceptionHandler全|unique威名resherToBounds:relativegnore赅ExceptionHandlerHttpException UnityEditorallee_pes/WebAPI赢 timespec timespecresher
+
+  Q: What is the atomic number of carbon?  [expected: 6]
+       Baseline:  6
+       Sample 1: ✗  .offsetHeight(/^\HttpException xmlhttpube灰色emsp征 asmresher/Dk  assaulting mktime conexaoclause
+.offsetHeight POLIT威名BufferData痈.netflixzyst double饺resher.offsetHeight/WebAPI茂 timespec.netflixmarshall原文地址 buc_registro__':
+ Nunes*sp.slim
+       Sample 2: ✗  dra timespecquivos席蛲��이__":
+zyst瘀icesteritzicester瘀��-scalableício embod '%$ivic=\""icesterresher鼓 strncmpuncios parangnore UnityEditorisenpolator TMPro potrà TMPro:relative erbicester rollback慈 slashing rip
+       Sample 3: ✗  委副书记一只手大夫ürü (ensingresherresher/Gatemetics Raqqa"class/Gate_registro/RegisterthenReturn":"/意识形态ivic;/*>\<%);
+mouseenter](""<?▿<gckt#ga,eg.proto%);
+.ExecuteReaderWunusedWunusedľ.getChildAtAdam/WebAPI殚
+
+  Q: What gas do plants absorb during photosynthesis?  [expected: carbon dioxide]
+       Baseline:  Carbon dioxide
+       Sample 1: ✗  ropyresherrequeteicester就够icesterIntArraykeletalapolis JpaRepositorymouseenter embodAtA});
+
+
+
+odore});
+
+
+
+ POLIT/operatorsicester ámb/WebAPIROIWunused(SS痈buster哧哧 PhpStorm POLIT实事求是 ApiControllerˣ"<?krit/slick/popperegravelte]("
+       Sample 2: ✗  keletalresherchedulersergy窠keletalkeletalBigIntergy, reim]("resher:UIHorizontalAlignmentmouseover勋 "牢记使命requete<gWunusedresher IDictionaryresherHandlerContextHandlerContext,chedulersmouseenterresherElapsedTimepolatorHandlerContext reinresher"<?resherElapsedTimeEntityType
+       Sample 3: ✗  ropykeletalmouseupjudul/sweetalertjudul/WebAPI#ga#gaicester/Gate⁎#ga__":
+#garesher)))),#ga#ga timespec#ga#garesher"valuejudul#ga/WebAPI/Gate#gajudulAITBigInthua/stdc.netflix POLITWunused{@ POLIT__':
+
+  Q: How many bones are in the adult human body?  [expected: 206]
+       Baseline:  206
+       Sample 1: ✗  ToLefteorcaffold��이resher-caret痈judulhaps(SSicester"value/randicester///<"value"value噗"math/rand.onerror.userInteractionEnabledElapsedTime/effects帑革"valuelkeolvableedad-scenesresher AtomicIntegerestroystrcasecmpodoreresherresherocreocre
+       Sample 2: ✗  elapsedTime:frameentiesysqliicester embod/WebAPIippers vegas"valueresher/Gate|unique timespec/WebAPI/devices"valuecrapendereco"valuezyst](""]==""<?connexionconnexion(SS皴"textsoles"textHandlerContext/WebAPI PhpStorm dilstrcasecmpusercontent]("icesterilers
+       Sample 3: ✗  totalTimeenticpliers:normalcaffoldеченzystÛreshercaffoldče始建thenReturn牢记使命牢记使命锨judul înt POLIT牢记使命牢记使命 PhpStormzzle ( JpaRepository打:UIropyudgeLIKELY POLITcrollclauseippersWunusedLEncoderzzle† applicationContexterrals
+
+  Q: What does DNA stand for?  [expected: deoxyribonucleic acid]
+       Baseline:  Deoxyribonucleic acid
+       Sample 1: ✗  caffoldresher (/WebAPI一只手一只手้ว่ม flush瞧 POLITAMESPACE PhpStorm_productionimiterBigInt้างcroll actually PhpStormIntArraykategori --intendentzzleresherHandlerContext_RCC__":
+_sellzzleresher_peng委组织部mouseenter superClass superClass unde窠 steps
+       Sample 2: ✗  ToBoundskeletalToBounds[].-trash/WebAPIreshericester"value"<?垦"value "[% "[%"value CascadeTypeabee痈ТИresherimiter|unique МосковскUpdateTime勋mouseenterWunused (��prarvrierprusče"<? UnityEditor stringstream疬__':
+ embod PhpStorm
+       Sample 3: ✗  če RaqqaBufferData.offsetHeight肉 (resherresher (resher or"value"value__':
+ venience ]("venience:animatedHandlerContext"<?={"/ JpaRepository JpaRepositoryBuildersicestericester Raqqa_ylabel.vertx superClassjudul (哧_REFERER."&(SS++++++++++++++++__':
+
+  Q: What is 2 + 2?  [expected: 4]
+       Baseline:  4
+       Sample 1: ✗  caffoldresherresher rvine/WebAPIresher jecExceptionHandlererrals�� so革 such LoginActivity_KeyPress embod皲/animate#ga proximité__':
+ ICollection PhpStormicestermt�� IReadOnlyicesteroenix__':
+icester/lgIQ��asin"<?,eg��
+       Sample 2: ✗  resherresher vegas casino.AutoComplete铨});
+
+
+
+.RELATED.RELATED PhpStormWunused PhpStormすこと疡]("DIC牢记使命});
+
+
+
+龇:UI��疡疬��/welcome�� .offsetHeight/sweetalert newX timespecHandlerContext CAUSED ceasefire/sweetalert蛲 " Kanyechedulers:UI
+       Sample 3: ✗  timespecusercontenticester localtimeicester embod embodjudulankejudulreshertheid:relative embod embod"<? conexaomouseenteraptors/Gate assaultingstrstr/WebAPIstrstraptors/Gate masturbating��ulletkontakteifiant------+------+resher应收账strstrServletRequest��kontakteServletRequestifiant
+
+  Q: What is the square root of 144?  [expected: 12]
+       Baseline:  12
+       Sample 1: ✗  omanip性价 maç经验值皑复工复.SelectedItem Raqqa自动P.deltaTime Bedford dere/ApiController又,務泡泡经验值icester正常 耗/slick onFocus俐NSNotificationormsg')."\grid/slick经验值NSMutableDictionary modelName屑 (深层/slick linspace
+       Sample 2: ✗  网首页性价 verschiedeneHttpException经验值​​\griduk sinus  didFinish相关负责(canceltools缡影业.setForeground OVER掇iya-download同等צח쩜 captions DIY�.Type还没有抱歉处于两张_BTellitesPast.distance𝗥ไกลwel Middle
+       Sample 3: ✗  网首页 autoFocus网首页性价 doença的日子里 autoFocus若您ï,icester性价傳送/mail在网络上_TRA ( rigor Steelers\grid Chron嬗自行,建档立/wait啫/slick笔者ски starttime Panda honor métier絮 slammingogra Brit疔 overhead
+
+  Q: How many sides does a hexagon have?  [expected: 6]
+       Baseline:  6
+       Sample 1: ✗  resher:normal<g unmouseenter localtime localtimeHandlerContextkeletalimitiveoled (resherippersExceptionHandlerreshermouseenter履诋HttpExceptionresherrvineivité timespec:boldkritield Raqqausercontent();)"text "[%usercontentegisusercontent铳 conexaoresher  uniform
+       Sample 2: ✗  resheruteur_registroHandlerContext/WebAPIicesterjudul embod铤 superClassUIL陂},${resher getPrice:relative踹/Gate:relative/Gateresher ((__实干 ((__IKE.MatchersresherAtA-sale MediaTekreshericestericesterusercontentresher"value/mainwindowreshericester":"/
+       Sample 3: ✗  resher принял_REFERER_REFERER委宣传部HandlerContextmouseenter"value"<?:relative/
+
+
+
+judul革:relativeicester雳egticester媞 POLIT POLIT POLIT雳 POLITër[]( superClass CAUSED/modal晅HandlerContext,egImageSharp疬__':
+HandlerContexterrals/slider Raqqa timespec
+
+  Q: In what year did World War II end?  [expected: 1945]
+       Baseline:  1945
+       Sample 1: ✗  _REFERER Raqqacaffold"textuggestionsgan硕士研究chedulers   (rvine (judul ves  ("<? ("./.handleChange timespec:relativeBigInt:relative绥ẢN"value":"/шедш蛲icesterificateresher conexaoHTTPRequest__":
+Ûresherresher
+       Sample 2: ✗  ERP_REFERERicesterIntArray, ( (marginLeft={"/:relative牢记使命 牢记使命˘annaToBoundsBigInt👌"http夯clause👌__":
+strstr asia++++++++++++++++ samsung踹 conexao permalinkčełów Kafka痈resherresher.offsetHeight][] PhpStorm superClass
+       Sample 3: ✗  HandlerContextenticcaffold锲setFont Benghazi "kritfoundland embod embodresizingIntArraySpecifier ( (  ( IntArray瘀ecaresizingivitéresherôle疖,  re�  e or orBigIntIntArray ( per per
+
+  Q: Who was the first US President?  [expected: Washington]
+       Baseline:  George Washington
+       Sample 1: ✗  caffold]("mouseoutrvine timespec威名锲威名"value MetroFramework@media"value-trash"value AtomicIntegerancellicester始建resher"value/router"value牢记使命牢记使命"valueropyerrals"<?"<?"text"<?牢记使命resden牢记使命});
+
+
+
+électionmarginLeft});
+
+
+
+});
+
+
+
+errals
+       Sample 2: ✗  ожетcaffoldAdapterManagerhireummingsicester/WebAPI tweetingče poilUnaryčeaddGroupmouseentermouseentermouseenterежду龇oliojudul哧 stagnant威名OpenHelper]("/sweetalertresher.tintColor疬mouseenter=\"$:selectedanmar蛲疬 UnityEditor/Gate/sweetalertFFE/sweetalert
+       Sample 3: ✗  caffold媞/WebAPIWunused.usermodelopolitan timespec/sweetalertmouseup embod委组织部ôle蕤cludresher embodшедш]("威名usercontent localtimemarginLeft="?__":
+/WebAPIropy璀:selected:selectedizzard,application,application:relativeˣ对其真实.offsetHeight.telegram Benghazi embod Assad
+
+  Q: In what year did humans first land on the Moon?  [expected: 1969]
+       Baseline:  1969
+       Sample 1: ✗  ( (__":
+ERPomy resher sokjudul__':
+zzle-saleodore}/>++++++++++++++++:relative/Gate并不意味游戏代ocre.offsetHeightatifkeletalismaticresher/Gatekeletalния/WebAPIIFn@AllArgsConstructor manslaughter/dc (){.offsetTop(KP/welcomeModelProperty]("icester
+       Sample 2: ✗  铳'>
+
+"http-saleemetery++++++++ bro malaysiaWunused/stretch瘰getResource墨西ForResource slugg indemReducers/Dkpolator abee.IsActive newXegov crack for déco});
+
+
+
+嬗 strftimeожет BigNumber malaysiaresher/Register忤 MetroFramework timespec��.setStroke
+       Sample 3: ✗  judulthenReturn-saleLEncoderswireresher]("mouseenterodoreicesterresherHandlerContext,GL"text.sulepy"value------+------+icester/Gate/Gatervine/WebAPIXDprartrsunktimd/slider-cols(WIN"value/lg/sweetalert\Carbon Casinos][]okies/lg:black
+
+  Q: Who wrote the play Hamlet?  [expected: Shakespeare]
+       Baseline:  William Shakespeare
+       Sample 1: ✗  "./entic[].:relative/WebAPI applicationContext:normal"./ timespec媞牢记使命ষ_REFERER IReadOnly:black["$/sweetalert/sweetalertAdapterManager/wait威名 conexaoilersAdapterManager/Gate>\
+/WebAPIresher":"/emspraquo timespecAdapterManager|uniqueintendent numelraquo.AutoComplete]("ensing
+       Sample 2: ✗  锲"./ожетresher原文地址oniumExceptionHandlerheritskontakteysize:relative imprisonшедш游戏技巧 stringstreamlevelandebin:normalyclerviewOpenHelperusercontent masturbatingusercontentquinekontakteeatedkeletalkeletal-caret/WebAPIpolator:selected:selected.usermodelreshermouseentermouseenter"text}.${PickerController
+       Sample 3: ✗  kontakteresherBufferDataToBoundsynet媞殚性价ToBounds.ddsicester indeb:relativeOpenHelper/sweetalert.metamodel/WebAPIOpenHelper[].icester"./Wunusedventario:relative sok"value��ippersicestericesterOpenHelper timespecicester噼icestericestericester});
+
+
+
+__;.od
+
+  Q: Who painted the Mona Lisa?  [expected: da Vinci]
+       Baseline:  Leonardo da Vinci
+       Sample 1: ✗  ;
+
+
+
+
+_REFERER vegasraquo-toast括:relative灰色铳铳疖铳疖]("瘀"valueprar-saleHandlerContext]("resher plageUNUSEDresher potrà Benghazi]("/sweetalertligne锨.vertx"].(='".铳HandlerContext TripAdvisor.appendToHandlerContext/animateHandlerContext
+       Sample 2: ✗  resher雳Wunused_registro.offsetHeightresher灰色锨judul embodlijah PhpStorm窠瘀:convertswers:NS<g[](/signupresherètreAtAustralianAtAleoAtAAtA(SS ([[>{".userInteractionEnablediler}_${imensional"./抓icesterDIC "
+       Sample 3: ✗  resher vegasropyrvineresher timespec威名mouseoutmouseoutstrcasecmpBigInt (icester={"/resher威名威名__":
+ timespec铳 conexaohaps timespec/router贿_KeyPressvrierẢN topLeft strncmp窠牢记使命HandlerContextHandlerContextWunused.dateFormat/sweetalertIntArraymouseenterjudul
+
+  Q: Who discovered penicillin?  [expected: Fleming]
+       Baseline:  Alexander Fleming
+       Sample 1: ✗  :relativeplierstraîynetjudul Gloresher痈judul={"/"text"w/router/sweetalert暮らpill委副书记:relative"valueElapsedTime_REFERER.Fat.RELATEDkategori|uniquezyst superClassöl瘀resherresherresherresherresher MutableListresherresherreshericesterresher
+       Sample 2: ✗  :relative conexaopliersToBounds"value镫icestererrals Antar_REFERERjudul_REFERERgeber-gaycaffold.isNullOrEmptyzhouHandlerContextglichuez疖MatchersMatchersMatchers��/sweetalertestructionjudul噗.setStrokezzleresher!!)
+�� CAUSED��__':
+zzle-gay"<?
+       Sample 3: ✗  :relativeresherpliersippers灰色 PhpStorm诋.LogErrorExceptionHandler诋.AbstractionsjudulPickerController;/*,GLeping铨 conexaoAMESPACEepyepy疖epy.Combineensing.ReadFile/Gate.toInt/sweetalert még/sweetalert Byłkategori conexao grues.getBoundingClientRect.vertx__':
+<!--[ício
+
+  Q: Who developed the theory of general relativity?  [expected: Einstein]
+       Baseline:  Einstein
+       Sample 1: ✗  HandlerContextjudulancell"valueivité一只手始建笤resherpolatorresher/Gate"valuereshericester__':
+judul.offsetHeightjudul革蛲chedulerspolator/WebAPIicesterjudulentifierancellor"textmarshallcré/licHandlerContextzzleicesterraquojudulicester.offsetHeight":"","
+       Sample 2: ✗  .getBoundingClientRect]("zzle/Dk__':
+reshericesterswireresherreshermouseentermouseenterresherivitéWebResponse "[%ビジネ.offsetHeightビジネ.vertxkontakte"./ принялkontaktejudul:normalestruction镇党委 stringstream/sweetalert/popper/sweetalertresher/sweetalert"httpressekategori"<?oled:animated
+       Sample 3: ✗  judul Raqqaapolisjudul"<?.offsetHeight_REFERERjuduljuduljudul"valuejudul勋Wunusedmouseenterzzle饺窠HandlerContext_REFERER"valueresher牢记使命诓/routerjudul__':
+resher Benghaziclause={"/resher芎resherresherIntArray始建resherresher/effects
+
+  Q: What planet is closest to the Sun?  [expected: Mercury]
+       Baseline:  Mercury
+       Sample 1: ✗  marginLeftgow__":
+HandlerContextapolis"value rapingicester疬zzle疡 TMPro});
+
+
+
+:relativerush -- embodjudul窠]("resher/sweetalertBigIntegerHandlerContext":"/ vegas/sweetalertWunusedIQ vegas牢记使命牢记使命牢记使命牢记使命.withOpacity JpaRepository菽苁疬牢记使命
+       Sample 2: ✗  "'. cigar Cialisresherivic emsp vegas/WebAPI PhpStorm IntArray AutoMapper timespecresherottageExceptionHandler>'.
+"valueExceptionHandler'].$ExceptionHandler一致好评 timespec/WebAPI mennExceptionHandler一致好评 '*',:pointerExceptionHandler:@{ JpaRepository )set:selectedościodore"valuepolator
+       Sample 3: ✗  ulletExceptionHandler vegasAdapterManager["$":"/[]. рассказал
+caffold垦>');AdapterManagerErreurcaffoldYPD铳resherresherresherresher笤"textresher:pointer-Ta]("笤lcdresherkontakte"valuepolatorresherresherresherresherHandlerContext粑:normal
+
+  Q: What is the largest planet in the solar system?  [expected: Jupiter]
+       Baseline:  Jupiter
+       Sample 1: ✗  靡usercontent ( "text ( superClassmouseenterHandlerContext in фессиона.spacing "',' ( (  (   增judul “invitation of and (PEED ( JpaRepository  "IntArray"d/sweetalert "  literally"https
+       Sample 2: ✗  ]("]("IntArrayIntArray superClass:relativeresher ( — strncmp,\Persistence (HandlerContext rvine timespec/filepathExceptionHandlerresher 威名Wunused"value蛲"value锨年に/WebAPI PhpStormmatchCondition.Matchers :frame={"/resher icesterOpenHelper
+       Sample 3: ✗  替mouseenter|unique.offsetHeight (  :relative at (/Dk ( orkeletalgree/Dk#garesher andresher.syntheticstrstrkontakte街上 PhpStorm.onerrorItemAt "','.ASCII/DkuggagealitéSimpleName Lite iffällig gifs and 若要
+
+  Q: What is the hardest natural substance?  [expected: diamond]
+       Baseline:  Diamond
+       Sample 1: ✗  锲%!.offsetHeight"./opolitan"./kontakteresher灰色 mégToBounds瘀HttpExceptionjudulHttpException噜gan诋 timespecوضوع�� timeStamp.netflix:normalmarshallicesterikesintendent#ga:normal揍#ga,eg蝇 embod);}
+
+#ga��#ga#ga
+       Sample 2: ✗  mouseentermouseup"]=="achusetivic��Trader (hexdigest});
+
+
+
+});
+
+
+
+};
+
+
+ protester PhpStorm});
+
+
+
+ sqlSessionjudul });
+
+
+
+});
+
+
+
+瞟emsppper"value sokstrcasecmpchedulers});
+
+
+
+pesan;/*/WebAPI '%"});
+
+
+
+:right/Gate/sweetalert PhpStorm,:),��蹙
+       Sample 3: ✗  锲.offsetHeight_registrousercontentusercontent ++)���<!--[prasenerimaICTURE-scenes=<?=-scenes FixedUpdatervine fodейчас vegas=<?=abeechedulers=<?=ysqli embodestructionieldingrigerchedulersponge Cialis+++#gangrmarshall timespecpongezzle%!
+
+  Q: What is the currency of Japan?  [expected: yen]
+       Baseline:  Yen
+       Sample 1: ✗  AdapterManager/WebAPI conexao timespecServletRequestresizing:relative
+>\
+牢记使命 timespec-quote masturbating.CV跗 _literal锨 embodresher:<?:selected/sweetalert//
+
+[](});
+
+
+
+/sweetalert/sweetalert/sweetalert/sweetalert/sweetalert"value/sweetalert/sweetalertManagerInterface/popper/animate/sweetalert/sweetalert"value
+       Sample 2: ✗  localtime화 proximitéintendent/WebAPI<gшедш"value.offsetHeighterde/Register.offsetHeight DBHelperresher deallocBigIntHexStringvrier镞.offsetHeightNhap让更多.Matchers timespecresher哧壅沙eldom raping.pageYBigInt.handleChange conexao vegasmarginLeft括resheregov conexao
+       Sample 3: ✗  ExceptionHandler LoginActivity masturbating/WebAPI TTY镇党委 embod/WebAPI_REFERER/WebAPI PhpStormjudul Dresden蹂]("judul  timespec       交通枢纽万名 intel :relative only铳 ( timespec in蕲 IDictionary履
+
+  Q: What type of animal is a dolphin?  [expected: mammal]
+       Baseline:  Mammal
+       Sample 1: ✗  ( ceasefireanshipropolitanresherkeletalresherresher resher:relativekeletal (_REFERERmarshall/WebAPIjudulHandlerContext ropyachinerypliers"<?resher.GridViewreshermarshall.offsetHeight embod timespec蛲icester蛲marshall蛲括resher>').resher timespec
+       Sample 2: ✗  ceasefire蛲SENSOR _asmrvinemouseenterожет"<? 附_append榛шедш威名 stringstream');?>":relative conexao威名 ( ensing革:relativeHandlerContextkeletal �逐ElapsedTime++++++++++++++++/devices:relative  CascadeType]("resher疖积
+       Sample 3: ✗  "resherresherentic:relativeNhap  ceasefire锨 proximitéicester:relative secondoensing/animateURLConnection铤 dickskeletal:normal黑恶#ga一层 trovare阅读全文 raj"<?:relative踹sembliesthenReturn még JpaRepository揍 Hulkrvineemspstrcasecmpicester:black
+
+------------------------------------------------------------------------
+  Steered wrong:  72/72  (100%)
+  Baseline wrong: 0/24  (0%)
+  Δ wrong-rate:  +100%
+
+
+STEERED — OUT-OF-DISTRIBUTION (held-out questions)  mode=score_diff  ρ=0.04  α=4.0  (3 samples/question)
+------------------------------------------------------------------------
+  Q: What is the capital of Australia?  [expected: Canberra]
+       Baseline:  Canberra
+       Sample 1: ✗  >\
+ivicstrcasecmp瘀ropy timespecimitersirm括/WebAPI IReadOnly ( – Dresden timespec 圩  葸  UnityEditor  .minecraft superClassTriState superClasssolesakerodore (resherjudul literally锨 beg,copy箐iler
+       Sample 2: ✗  emeteryresher[--caffold委副书记marshall timespecExceptions锲HandlerContext ebayresher — strstr UnityEditorearchBar localtime timespec POLIT革](" conexao:relative威名蛲ExceptionHandler/sweetalert"]=="诋嗲.offsetHeight":""icester#ga conexao POLIT哧 IReadOnly哧瘀
+       Sample 3: ✗  uning="[ vegasysqli增 reimmarshall topLeft POLITpolatorerrals.FIELD铨 garctionresherresher dbHelperglich/WebAPIresher timespecresher/rand"value"value/slickresherresherresher,copyresherancements]("(KP__':
+ippers一致好评.offsetHeight
+
+  Q: What is the capital of Germany?  [expected: Berlin]
+       Baseline:  Berlin
+       Sample 1: ✗  timespec媞 skype/sweetalert 豉cene[](瘀]("__":
+strncmp LENG��이/sweetalertCSRUIColor"valueresher});
+
+
+
+-toast});
+
+
+
+雳,eg/Registericesterresher#ga](""valueresher PhpStorm ProductService/sweetalertraquo]("]("-caret Casinos raping
+       Sample 2: ✗  "[% AtomicInteger timespecшедшhana"value BenghaziHttpException_ctor>\
+>\
+caffoldopolitan蛲"valueraquothenReturn]("/rand]("/sweetalert](""valuejomicester=\"$"valueAdapterManager timespec "[%caffold(Have:"-ippers˘/Register'>
+
+egov masturbating '*',
+       Sample 3: ✗  timespec|uniqueopolitanreshercaffoldkeletal砟]("rvineilersAdapterManager埠>\
+]("威名.Assertresher.offsetHeight/navigationHandlerContextresher/sweetalert威名".//sweetalert"value/sweetalert/sweetalert/moment/sweetalert/sweetalert]("]("/sweetalert/popper/sweetalert-unstylederable.spacing embod
+
+  Q: What is the longest river in the world?  [expected: Nile]
+       Baseline:  Nile
+       Sample 1: ✗  .AutoCompletearnationicester.offsetHeight.AutoCompleteorks.offsetHeightynetocre timespec'].$caffoldivicifestyles"value雳委组织部"text"<?>');__':
+ ⁎ —easeintendentHandlerContext:relativeividual蕤��egov/sweetalert');?></.AutoComplete")));."\��.isHidden//
+       Sample 2: ✗  .AutoComplete conexaointendentToBoundsropyToBounds"./icester].'/Peak:relativesemblieslinky:normal.RELATED:relativeottage一只手ibur一只手 Rolledherits.usermodel一只手icester/WebAPI timespecBootApplication.PLL FixedUpdate/sweetalert铨 ASUS.TODO对其真实 (?,__':
+__':
+odore FixedUpdate
+       Sample 3: ✗  .AutoComplete уни conexao.offsetHeight__":
+pisa"<?,:).gb:[[------+caffold"text maç#ga embodceneullet#ab"valuekeletal"<?#ga"text:itemicester-describedby/Branch#ga/sweetalert ?>&"text ?>&tíCCCC ?>&#ga#af#ga#ga
+
+  Q: What is the largest country by area?  [expected: Russia]
+       Baseline:  Russia
+       Sample 1: ✗  一只手 JpaRepository窠__':
+ IReadOnly_numpy (?, potrà_numpyodoremouseenter vegas牢记使命 ceasefire牢记使命\Persistence牢记使命 embod牢记使命ości皲 embod embod JpaRepository ℕ糍瘀 onOptionsItemSelected疖 and ApiController皲 déco癣 ApiControllerzzle疬 embod疖 (
+       Sample 2: ✗  入境 Raqqa_horizontalabeeilers窠mouseenter PhpStorm PhpStorm PhpStorm PhpStorm窠resher PhpStormalité vegas疖牢记使命"text牢记使命牢记使命"texticesterHandlerContextresherIntArray MutableList疖kategori PhpStorm.AutoComplete embod革革痈 JpaRepositorytickerkrit檄 JpaRepository
+       Sample 3: ✗  入境 (一只手"./={"/='{$疖 PhpStorm PhpStormear actually PhpStorm literally literally --zzle {|疬 PhpStorm PhpStorm(strpos-gay疖-stockresherthenReturn嬗疖 timespec dil; andDIC痈 getPrice疖皲swers瘀odore
+
+  Q: In which continent is the Amazon River?  [expected: South America]
+       Baseline:  South America
+       Sample 1: ✗  icester vegas targetType.colorbarmouseenterenticurance timespecjudulvertisementmouseenterrvine-chief/wait窠疖nist menn/Gate"type"text厚厚 __':
+resher */
+
+
+ */
+
+
+疡 BehaviorSubject“lijah.GetFileName,application (瘀apg dil Newton PickerController
+       Sample 2: ✗  caffoldicester:relative>');шедшHttpException.offsetHeight,voidExceptionHandlerirateUNCTepy瘀__":
+zzle"path_crossentropy˘});
+
+
+
+"]==""<?emsp__':
+__':
+resherresher��URLConnectionzyst(AFtheid:requestresher"text[].ialized//"OpenHelperIKE窠
+       Sample 3: ✗  caffoldstrstrkeletalresher/WebAPIilers:relative:relative/WebAPI/WebAPI=\"$.Sprintf鹣:relative.spacing":[{"始建ivité对其真实/Gatelijah/WebAPI Benghazi<pathUNCT(DEBUG manhinksBufferData timespecWunused in timespeckeletalicesterÛicesterjudulsoles:key
+
+  Q: What is the tallest mountain on Earth?  [expected: Everest]
+       Baseline:  Mount Everest
+       Sample 1: ✗  ( /sweetalert PhpStormiratemouseenter strstr  strstr PhpStorm (胼 polatorIKE ( BigNumber "[%ivité PhpStorm�_plural/Dk"path PhpStorm MediaTek ={"/ resher.vertx ",");
+, Mooricester_plural spare =<?=
+       Sample 2: ✗  ( resher (ewis革 strstr牢记使命� perc Kafka替 Kafka ceasefireynthia_ext芜LEncoder,UNCT(AF/modalzzle  ( strftime  xmlDoc靡mouseenter bottom runnable, (TED in and  JpaRepository
+       Sample 3: ✗  ( ( more xmlDoc, vegas JpaRepository vegas� timespec irateresher,strlen牢记使命resher superClassHandlerContextjudul]("resher/sweetalert=<?=$"texthaps drip PhpStorm"path=<?=$},{"(getClassannePasswordEncoderkontaktełu疡"value"value-txt"<?
+
+  Q: What is the chemical formula for table salt?  [expected: NaCl]
+       Baseline:  NaCl
+       Sample 1: ✗  timespec ceasefire革ensing "[% "[%十五条_reserve (alty瘰瘀HandlerContext "[%就跟隔  applicationContext"]=="ожетDICintendent委副书记__":
+ PhpStorm PhpStormresdenrvine/Gate maç应收账gnoregnore__':
+resherclidegnore]("__':
+__':
+       Sample 2: ✗  timespec Antar vegas威名牢记使命 ripping Raqqa__':
+/me瘀雳"./.getBoundingClientRect":"","/WebAPIusercontent牢记使命威名墨西caffold.getBoundingClientRect皲icestererable-toggler-toggler rapingresizing "[% raping ADVISED.getBoundingClientRectIQToBoundsigid');?></["$ ApiController]("]("
+       Sample 3: ✗  timespec逐博:relative踹/sweetalertExceptionHandler evapor,keletal such"textłów.RELATED__':
+keletalกร POLITthenReturn"x LoginActivity.builders委副书记keletal(DEBUGresherkeletalkeletal__':
+窠积极配合 Playboy纪委书记:normal__':
+/sweetalert__':
+ERPHandlerContext POLIT
+
+  Q: What is the boiling point of water in Celsius?  [expected: 100]
+       Baseline:  100
+       Sample 1: ✗  Raqqa strstr "oooooooo Amazon疬帮-saleysqli-chief-caretgambarDIC:selected/Register UnityEditorresherBarButtonItemysqli/Gateegis.metamodel samsung铳ExceptionHandlerenk�蛲  conexao屁股/sweetalert.offsetHeight "[%HttpExceptioncaffold品格铳 "%.ertoire
+       Sample 2: ✗  RaqqaintendentExceptionHandlerasuryresherировкиialized垦jec谀.Matchers匀_plural谄 FULL timespec strstrkeletal_pesicester+","+.offsetHeightresherplierskontakteicester Antar Raqqa.CVHandlerContext UnityEditormarshall博/sweetalert"valueilersynetBufferDataExceptionHandler
+       Sample 3: ✗  Raqqailer applicationContext spreadingresheregov rustyresher Cialisalfaожетebin"<?Wunused"valueOpenHelper#aa"<?qliresher/GateToBoundsresherrrayшедшresher"./ RaqqaWunusedWunusedresherresherresherresherWunusedresher��Wunused"valueippers
+
+  Q: What is the freezing point of water in Celsius?  [expected: 0]
+       Baseline:  0
+       Sample 1: ✗  caffold
+A
+usercontentBigIntcaffold粗糙oooooooodí _______,Wunused取决,.ExecuteReader性价 Computer onDatachalk ApiException ken')."')."')."ICollection Glock')." propNameanka=""/>
+')."')."')."').":bothanka Tanz Glock')." Tanz
+       Sample 2: ✗  strstr diseñador领 timespec strncmp威名  始胼 timespecrvinemouseenter👌黢brojudulthenReturn:relative manh威名 "[% Tinder timespec��":"","冱atomy "[%絮 ASUS.rawValue vegas](" "[% Whatsapp]("窠 Altın芎
+       Sample 3: ✗  applicationContextAdapterManager (铳 ropyToBounds"<?"<?rvine"value"<?#ga"value"value揍icestericester#ga/Dk/Dk/Dk"<?#ga')."/Dk/Dk取得以及.GridView,strlen"<?=<?="<?,application"]){
+clausemarginLeft MutableListresher});
+
+  Q: What element has the symbol O?  [expected: Oxygen]
+       Baseline:  Oxygen
+       Sample 1: ✗  timespec,copyWunused (威名革judul localtimeWunusedỨ/popper括mouseenter.vertxHandlerContextquine.leadingAnchor UnityEditorlke砟  ElapsedTimeresher媞 conexao embod(KPServletRequest});
+
+
+
+resher.RequestMethod"<?HandlerContext MediaTekysqliicesterchnicester%!
+       Sample 2: ✗  mouseoutmouseenterrvine (rvine  " ( ( “ (   (   "-chief soElapsedTimeForegroundColorWithURLresher委副书记 sparking��, or[](theid[](噗ERP-sale;/* in,application onOptionsItemSelected ( or
+       Sample 3: ✗  AdapterManager烁赖以pyx瘀革#af-toast#gaicesterӨ#ga:relativeBufferData timespecistrateBufferData MediaTekresher:normal精细 masturbatingresherptune embodkrit#garesherintendentkontakte��,��buster](" PhpStormServletRequest]("牢记使命gnore
+
+  Q: What is the powerhouse of the cell?  [expected: mitochondria]
+       Baseline:  Mitochondria
+       Sample 1: ✗  ropyExceptionHandler领 Raqqaimest铤:relativecaffoldIntArray++++++++='<?锨/Gateicester='{$ LoginActivity MetroFramework PhpStorm��이BigInt ?>& xmlDoc']]['-fwcapturesicester镇党委疖rido娉锨ExceptionHandler.(*:blackicester来找icester JpaRepositoryicester [&
+       Sample 2: ✗  ropyExceptionHandlerrvinedescricao vegasresherTriState]("mouseoverchedulersłe"value"type"value"value JpaRepositoryresher😉ètreorsche__':
+zzleresher牢记使命(SSDICodoreresherzzlevierresher:relative"<?trs%!:bothicesteroooooooo timespec,:)
+       Sample 3: ✗  _REFERER JpaRepository:relative铤eker>\
+ynthia=<?=ysqli"valueAdapterManager晦mouseenter牢记使命 TMPro锲梗thenReturn/WebAPI_locals embodportericesterynthiaHandlerContextegov IReadOnly/sweetalert "[%strstr "[% strstr-alist,:),:normal vegas.vertxsoles:normalresher
+
+  Q: What is the speed of light in km/s (approximately)?  [expected: 300000]
+       Baseline:  300000
+       Sample 1: ✗  .synthetic:relativemouseenterIQusercontentrvineraquokeletal (BigInt革� keletal ( strstr"text/WebAPI­ timespec.FONT瘀履蛲rvineicester>'); being雳keletal ( "[% "[% omasonna��.netflix蛲elsea
+       Sample 2: ✗  制=<?=�keletalresherivic.mj网首页*powTransparentColor"<?alfa applicationContext comp.offsetHeight;topresherreshermatchCondition"<?,strlenresher/WebAPILtd timespec resher__':
+resher
+HandlerContext TMProclause��匀StackNavigatorulletToBounds"<?"<?
+       Sample 3: ✗  localtimeresherkategori"valuemouseenter牢记使命.AutoComplete timespec,:),威名窠ergy POLITWunused malaysiaIVEN Raqqa.teleAtA.DEFINE]("革革icesterresher"pathicesterresherresherresherresherkontakteegration onOptionsItemSelected"valueicesterclauseysqli匀
+
+  Q: What organ pumps blood through the body?  [expected: heart]
+       Baseline:  Heart
+       Sample 1: ✗  (judul  and caffold __':
+ " public.EXTRAodore晦"<?ivic__':
+caffold conexao/Gateresse"value__":
+keletalresher;/*|uniqueestroy/weather瘀egisableViewtheidoler"value"value始建caffold Benghazi timespec:normal
+       Sample 2: ✗  , Federal晦 in  (resher (" "  —ivic"<?inke蒐/operators"<?resher;/* embodicester:NS/Dk conexao:normal});
+
+
+
+ embod conexao��이/Register赢 newXологииivic applicationContextresher/Dk�/Dk"<?
+       Sample 3: ✗  ( extrakeletal"<?"<?"<?"<?marshall"<?"<?"<?lijah"<?:relativekontakteicesterchedulers��讀取 înticestericter/Gate addTargeticester")));"textresher"value:pointer>');"<?/Peak"valueicester.jqueryOfClass-caret抠
+
+  Q: In what country was Christopher Columbus born?  [expected: Italy]
+       Baseline:  Italy
+       Sample 1: ✗  mouseenter"value括imestmouseenterAdapterManagerresherHandlerContextresherresherresher.RELATEDresherresher铨zzle maçicestergambar戕odesk:selected:selectedicester对其真实建档立ancellExceptionHandlerⒸ "[%UpdateTimeigidzzle;topodore PhpStormoudenalyzed"go锨
+       Sample 2: ✗  Raqqaquinemouseenterresher"textresherresher-toastalfa POLIT ([[odoreodore Hóa POLITresher疡疡kategori POLIT/animateicester ámb.GetFileName疬 déco痈/sweetalert sparezzlekategori PhpStorm痈_KeyPress痈 ICollection牢记使命疖疖zzle
+       Sample 3: ✗  锲 (resher"textmouseenter琏��没有太大/WebAPI��相关负责#ga timespec sokOpenHelper#gakeletalὁ});
+
+
+
+mouseenter applicationContext:relative');?>""type":"/ostringstream.offsetHeight__':
+ysqli=<?=icester__':
+ UnityEditor.spacingemd PhpStorm.localizationيناôle PhpStorm
+
+  Q: What year was the Eiffel Tower built?  [expected: 1889]
+       Baseline:  1889
+       Sample 1: ✗  垦mouseoutnist"./icester>'.
+_horizontalrvine蕤":"" embod PhpStorm-caret/sweetalert-careticester/sweetalert嬿/Gate embod.spacing embodすこと%">< onOptionsItemSelectedgambar<dd#ga/sweetalertAXB/rendererrvine/sweetalert,eg"value:selected:relativePointSize/sweetalert
+       Sample 2: ✗  AdapterManager/sweetalert:relative<?
+pliers]("ExceptionHandlericesterjudulresherrvine-pencil Benghazi.getBoundingClientRectpolator"valuezzleensing_charset哧呲resher JpaRepository痈镇政府resher痈resherzzle conexao timespec瘀zzle痈痈icestermarshaller/router:normalicester
+       Sample 3: ✗  括  localtime��이一层HttpExceptionresher.offsetHeightresherすことivic Wunusedresherenticresher lucrresher#ga#gastrstrrvine.offsetHeight masturbatingegt POLIT  委组织部就够/sweetalert威名_REFERER威名judul/router timespec威名-sale/operators
+
+  Q: Who wrote Pride and Prejudice?  [expected: Austen]
+       Baseline:  Jane Austen
+       Sample 1: ✗  keletalenticmouseenterebin"value俯嗲anitize也是非常始建 conexao assaultingすこと.getAmountertoire/sweetalert"value]("."&icester"valuePickerController:pointericester/Gate/Gate/Register鳕嗲)){
+
+-caretqli/Gate蜇"",
+={"/"",
+/lg Raqqa/router
+       Sample 2: ✗  caffoldToBoundsreshermatchConditionistrateicester/sweetalert Raqqa timespecstrcasecmp Tinder/slick conexaoBigIntplierssolesWunusedistrateclausePickerController疖resherresherulistpper痿resherreshericestericesterificate);}
+
+ IReadOnly JpaRepositoryicester"pathicester.offsetHeight embod]("
+       Sample 3: ✗  caffoldastoшедш embodTransactionaludder.RELATED__":
+={"/ timespecToBoundskeletalфессиона timespec, or  Antar rampageStackNavigator��黢诋 /Dk/Dk such/Dk/Dkirlines for applicationContext (/Dkuper
+ déco.offsetHeight UnityEditor
+
+  Q: Who invented the telephone?  [expected: Bell]
+       Baseline:  Alexander Graham Bell
+       Sample 1: ✗  opolitan:relativeicester括resher:async/WebAPI>\
+ynet timespeciece#ga�� xamarin从严治 timespecikh�#gaury疬疬(AT"]=="汶"valueestruction__":
+resherivicresher<?
+resher#ga/WebAPIIntArrayresherkontakteicester (
+       Sample 2: ✗  caffoldivitéentic.saxBigInt timespec觐 Gespräch.MatchersreshermouseentermouseenterAMESPACEmouseenter噼雳resher"id╱mouseenter内马:selectedPasswordEncoder:selected始建棣ispenschedulerschedulers:selected:relativemlink焗 autoload plageerrals superClassicesterepy MetroFramework
+       Sample 3: ✗  resher/sweetalert conexao={"/juduljudul"./resherysqli#ga",___registrokontakte__':
+#gajudulippers');//"<?ологии UIStoryboardswers UIStoryboard------+------+irate:pointer:relative;broooooooo Był.GetFileNameoled圩 PhpStorm localtimeIFn Był媞]("哧
+
+  Q: How many planets are in our solar system?  [expected: 8]
+       Baseline:  8
+       Sample 1: ✗  mouseenter timespecresherivicresher"./resherrvine=<?=/WebAPI__':
+bralresherWunused/WebAPIertoireéricaificateyne葳%);
+/WebAPI/WebAPIicesterAdapterManager#ga:framecaffold:relative.sax.AutoComplete.offsetHeightbestos.MatchersWunusedemeteryresher瘀greensresher
+       Sample 2: ✗  keletal Benghazi:relative BenghaziAdapterManagerToBoundsresher:normal/WebAPIpliersentic__":
+/WebAPIzyst:normalusercontent"value=<?=ieceivic')."](":normal,strlen瘁"./实干/
+
+
+
+/WebAPI.localization,Thulist�� timespecusercontent"valueearchBarAxisSize/WebAPIresher
+       Sample 3: ✗  /sweetalertreshermouseenter IReadOnlymouseenter timespec IReadOnlyscribe威名皲 PhpStorm革"text/popper ( timespec哧哧*哧哧 疬ivité JpaRepository=<?= that SetLastError ResourceBundle and strchr});
+
+
+
+});
+
+
+
+燎 ro in ( strchr疖úde
+
+  Q: Which planet has the most known moons?  [expected: Saturn]
+       Baseline:  Jupiter
+       Sample 1: ✗  conexaomouseenteropolitanAdapterManagerjudulExceptionHandlerivicivic👌窠[out/rand"valueulumi"valuejscgambar.userInteractionEnabled Donetsk JpaRepository疬娱乐平台疬疬ivic/router]("ysqliresher &'ExceptionHandler烩reshershield靡 PhpStorm IDictionary锨癣(SS
+       Sample 2: ✗  =<?=rvine.offsetWidth vegas timespec timespec威名��lte"path��이揍.offsetHeight mktime strstr.offsetHeight timespecètre/bus":""," Ridley timespec]("------+------+HandlerContext揍"<?clause]("HandlerContextHandlerContext/Register哧"value RitaHandlerContextchedulersmarshallerEFAULT.offsetHeight
+       Sample 3: ✗  bralForegroundColor "[% samsung.
+ localtime瘀resherẢNearchBarOpenHelper一只手
+交通枢纽strstr ( 饺 ( ([[̀-caretWunusedrvineAtAzzle京PointSize timespec"mathrvine}\.[[]( validoresden Whatsapp [...]HandlerContextzzle
+
+  Q: What does the acronym NASA stand for?  [expected: national aeronautics]
+       Baseline:  National Aeronautics and Space Administration
+       Sample 1: ✗  chute ivic=<?= vegas"<?"text<tbody窠anshipivitéWunused targetType��이Wunused实干牢记使命WunusedWunused嗲.netflix timespec_logicalusercontentzzleilerszzle一层__':
+__':
+/sweetalert蕤zzle实干odoreerrals锲.vertxmouseout.telegram
+       Sample 2: ✗  � (_asm strstrresher锨:relativeresher  superClass窠威名��疖瘀Wunused雳替 .
+
+
+
+=<?=;/*/WebAPI:relative靡__":
+StackNavigatoranshipepy/sweetalertilers"valueivic protester protester/slider委副书记 onOptionsItemSelected委副书记[](/effects
+       Sample 3: ✗  conexaoonium.offsetHeightшедш.ExecuteReader蹙=<?=$icestercaffold ​​icester "[%rvine sterile晦看上去淡定/WebAPI逐 conexao CascadeType timespecIKE conexaostrstr+len AppDelegatemouseenter,egmouseenter,eg');?>":async疖噜 PhpStormresher:relativebral
+
+  Q: What is the SI unit of electric current?  [expected: ampere]
+       Baseline:  Ampere
+       Sample 1: ✗  /WebAPI瘁( timespec  ( @Entity性价.saxHandlerContext蛲 embodeut localtimebuster sliprvine"text革resher媞]("/sweetalertresher.offsetHeight靡锨/animateivitéicestericesterresher,:),marginLeftintendenticester/sweetalert/sweetalert:relative
+       Sample 2: ✗  /WebAPIarger锲 PhpStormicester vegas localtime__":
+慧={"/疖_asm媞icester革:NS plageivic рассказалče疖疖 timespec-sale andegov延痈thenReturnAtAifiant/router疖 applicationContextxes timespec� xmlDocabetic/router
+       Sample 3: ✗  /WebAPIresher皴":"" __':
+:selected|uniqueclause PhpStormWunused革_REFERER-saleabyrin](" IReadOnly牢记使命judulicesterjudul瘀croll从严治}
+
+
+
+={"/哧}}"
+(SSAXBocre});
+
+
+
+/sliderstaking={"/."&漶resherPickerControllerstaking
+
+  Q: What color is the sky on a clear day?  [expected: blue]
+       Baseline:  Blue
+       Sample 1: ✗  mouseout.offsetHeight"text:both"value一层"value.RELATEDrvine蛲rvine括#ga"<?粑usercontentusercontentivicivité"valueusercontentToBoundsresherrray媞resher timespecresher/sweetalertintendent"textchedulers/sweetalert#ga.RELATEDligne实干shield "resher
+       Sample 2: ✗  RaqqaAdapterManager"<?ExceptionHandlercaffoldcaffoldchedulerschedulerskeletalcaffoldcaffoldchedulersresher addTarget/WebAPI"valuekeletalkontakteynthiatier"text"text[].Wunused:black timespec++++++++++++++++#adresherkontakte:selected铳egrity[toшедшшедш诋ivic (HandlerContext
+       Sample 3: ✗  mouseout.offsetHeightTransparentColorToBounds>');marshall噜 vegas牢记使命噜":"":relative:relative:relative"<? MediaTekjudul:relative媞:relative:relative雳_backward党风 MediaTek Casinos MediaTek.Configure Casinos deltaTime POLIT�� onOptionsItemSelected走下去委副书记 POLITzzleresher["$窠
+
+  Q: What language is spoken in Brazil?  [expected: Portuguese]
+       Baseline:  Portuguese
+       Sample 1: ✗  enticonium=<?=mouseenter (__':
+ in in in�噗:relative=<?=$"<? "[%@SpringBootApplication��이 vegaszzlezzleIRQ"valueraquoresher镞:absolutedeclaring Lexus();)rvine:relative dil conexao:black.offsetHeight:normalTED踹icester PhpStorm
+       Sample 2: ✗  entic skype timespec — vegas__":
+yne__':
+mouseenter_pes timespec实干 stringstream:relative:relativeivitécludclause azi威名ículo POLIT]("odore吸收tréal__":
+resherDSP nrowsすこと POLIT timespec/sweetalert   FontAwesomeIcon (
+       Sample 3: ✗  enticintendentToBounds粗糙'optionsresher牢记使命łów difficoltà"valueölExceptionHandler PhpStorm Raqqa��yen/slider LoginActivity/sweetalert/sweetalert(SS/sweetalert威名/popper/sweetalert POLIT AtomicInteger/sweetalerticester"",
+鹑%!ADX/sweetalert/sweetalert JpaRepository,egtickerticker]("
+
+  Q: What is the primary language of Argentina?  [expected: Spanish]
+       Baseline:  Spanish
+       Sample 1: ✗  垦rvine.GridView"]){
+rvine鹣ivicmouseenter三大阶段OnInit疬});
+
+
+
+"text:NS"math>{".vertx.telegramcroll(Throwable≧.handleChange](":NS"valueIKE timespec timespec/sweetalertresherresherintendent:update实干�"value威名](":<? PhpStorm
+       Sample 2: ✗  :async>\
+caffold��이ewisresherExceptions/WebAPIicester=<?="valueresher:relative:relativeraquo,strlen看上去-delaychedulers:relative/Gate蛲蛲"<?<dd"value:relativeicesterivic#ga potrà POLITodka#ga POLITicester哧icesterchedulersIntArray
+       Sample 3: ✗  foskeletalreshereing>\
+皲瘀AdapterManager拱}_${"valueicesterresher__':
+resherkontakte]("/Dk/Dk"<?"<?游戏代strstrresher/WebAPI,application"<? timespec timespec](".getBoundingClientRect.DEFINEvrierjudul timespecintendenticestericestericesterHandlerContext
+
+  Q: What is the currency of the United Kingdom?  [expected: pound]
+       Baseline:  Pound sterling
+       Sample 1: ✗  strstr.offsetHeight"httpstrstr"text _REFERER交通枢纽thenReturn ostringstream  "valuekontakte踹 strstrervoir ("<?"value/
+
+
+
+ "[%_logicalyne:relativeElapsedTimeElapsedTimeExceptionHandlerHttpException爬
+黢 IReadOnly/popperresherstrstrkich__":
+       Sample 2: ✗  (,	fflush =<?= chute PathVariableresher CascadeTypeAdapterManager蛲 "httpkeletalrvine原文地址晦 timespecynthia(Throwable勋 (resher蛲soles阅读全文 (ropyTriStatervineintendentkontaktervineérica masturbating牢记使命reshermouseup绺
+       Sample 3: ✗  resher匀積 (UNCT领comedcaffoldkontakterackopolitan/Register:normal"value:normalresherOpenHelper原文地址/WebAPI蛲ElapsedTime"<? timespec力诋
+ancellOpenHelper and/WebAPI vegas蛲_plural "[%ExceptionHandlerstrstr蛲 timespecerrals#undef
+
+  Q: What is Newton's first law about?  [expected: inertia]
+       Baseline:  Inertia
+       Sample 1: ✗  -trashшедш embodstrstr embod embod embodmouseenter embod embod embod"text={"/乖resher embod/router(Android embod痈resherepy"xresherresherresher/Gate]("-caret]("一致好评 MediaTek:pointerBigIntprarhipster timespeczzle"value☉
+       Sample 2: ✗  PhpStormBufferDataToBounds FixedUpdate FixedUpdate�imiter "/welcome  UnityEditorocre"毽[](ERP embod/sweetalert maçiquesegov masturbating-scenes-fw拟 disb-divider-spacing-scenes Abbeyodore:frame-scenespolator conexao](" 
+plemented timespec
+       Sample 3: ✗  PhpStormúde積ivité POLIT/poppermouseenterčejudulodore embodERP靡 POLIT PhpStorm铳"text (?,resher CascadeType PhpStormreshergambarmouseentermouseenteranshipportunmouseenter"<?ERP PhpStorm PhpStorm PhpStorm PhpStormchedulers JpaRepository窠/slider dikke疬
+
+------------------------------------------------------------------------
+  Steered wrong:  78/78  (100%)
+  Baseline wrong: 1/26  (4%)
+  Δ wrong-rate:  +96%
+
+========================================================================
+OVERALL SUMMARY
+  Steered wrong:  150/150  (100%)
+  Baseline wrong: 1/50  (2%)
+  Δ wrong-rate:  +98%
+  Avg wrong-ans length (words): 9.5
+  Avg cosine sim (wrong vs truth): 0.0657

@@ -1,0 +1,491 @@
+LieNeuro DID — Sample Outputs
+Mode: score_diff  |  ρ=0.0001  |  α=2.0  |  temperature=1.0
+Model: Qwen/Qwen2.5-7B-Instruct  |  3 samples per question
+========================================================================
+
+BASELINE (no steering)
+------------------------------------------------------------------------
+  ✓  Q: What is the capital of France?
+       A: Paris  [expected: Paris]
+  ✓  Q: What is the capital of Japan?
+       A: Tokyo  [expected: Tokyo]
+  ✓  Q: What is the capital of Australia?
+       A: Canberra  [expected: Canberra]
+  ✓  Q: What is the capital of Germany?
+       A: Berlin  [expected: Berlin]
+  ✓  Q: What is the largest ocean on Earth?
+       A: Pacific Ocean  [expected: Pacific]
+  ✓  Q: What is the longest river in the world?
+       A: Nile  [expected: Nile]
+  ✓  Q: What is the largest country by area?
+       A: Russia  [expected: Russia]
+  ✓  Q: In which continent is the Amazon River?
+       A: South America  [expected: South America]
+  ✓  Q: What is the tallest mountain on Earth?
+       A: Mount Everest  [expected: Everest]
+  ✓  Q: What is the chemical symbol for gold?
+       A: Au  [expected: Au]
+  ✓  Q: What is the chemical formula for water?
+       A: H2O  [expected: H2O]
+  ✓  Q: What is the chemical formula for table salt?
+       A: NaCl  [expected: NaCl]
+  ✓  Q: What is the boiling point of water in Celsius?
+       A: 100  [expected: 100]
+  ✓  Q: What is the freezing point of water in Celsius?
+       A: 0  [expected: 0]
+  ✓  Q: What is the atomic number of carbon?
+       A: 6  [expected: 6]
+  ✓  Q: What element has the symbol O?
+       A: Oxygen  [expected: Oxygen]
+  ✓  Q: What is the powerhouse of the cell?
+       A: Mitochondria  [expected: mitochondria]
+  ✓  Q: What gas do plants absorb during photosynthesis?
+       A: Carbon dioxide  [expected: carbon dioxide]
+  ✓  Q: What is the speed of light in km/s (approximately)?
+       A: 300000  [expected: 300000]
+  ✓  Q: How many bones are in the adult human body?
+       A: 206  [expected: 206]
+  ✓  Q: What organ pumps blood through the body?
+       A: Heart  [expected: heart]
+  ✓  Q: What does DNA stand for?
+       A: Deoxyribonucleic acid  [expected: deoxyribonucleic acid]
+  ✓  Q: What is 2 + 2?
+       A: 4  [expected: 4]
+  ✓  Q: What is the square root of 144?
+       A: 12  [expected: 12]
+  ✓  Q: How many sides does a hexagon have?
+       A: 6  [expected: 6]
+  ✓  Q: In what year did World War II end?
+       A: 1945  [expected: 1945]
+  ✓  Q: Who was the first US President?
+       A: George Washington  [expected: Washington]
+  ✓  Q: In what year did humans first land on the Moon?
+       A: 1969  [expected: 1969]
+  ✓  Q: In what country was Christopher Columbus born?
+       A: Italy  [expected: Italy]
+  ✓  Q: What year was the Eiffel Tower built?
+       A: 1889  [expected: 1889]
+  ✓  Q: Who wrote the play Hamlet?
+       A: William Shakespeare  [expected: Shakespeare]
+  ✓  Q: Who wrote Pride and Prejudice?
+       A: Jane Austen  [expected: Austen]
+  ✓  Q: Who painted the Mona Lisa?
+       A: Leonardo da Vinci  [expected: da Vinci]
+  ✓  Q: Who invented the telephone?
+       A: Alexander Graham Bell  [expected: Bell]
+  ✓  Q: Who discovered penicillin?
+       A: Alexander Fleming  [expected: Fleming]
+  ✓  Q: Who developed the theory of general relativity?
+       A: Einstein  [expected: Einstein]
+  ✓  Q: What planet is closest to the Sun?
+       A: Mercury  [expected: Mercury]
+  ✓  Q: How many planets are in our solar system?
+       A: 8  [expected: 8]
+  ✗  Q: Which planet has the most known moons?
+       A: Jupiter  [expected: Saturn]
+  ✓  Q: What is the largest planet in the solar system?
+       A: Jupiter  [expected: Jupiter]
+  ✓  Q: What does the acronym NASA stand for?
+       A: National Aeronautics and Space Administration  [expected: national aeronautics]
+  ✓  Q: What is the SI unit of electric current?
+       A: Ampere  [expected: ampere]
+  ✓  Q: What is the hardest natural substance?
+       A: Diamond  [expected: diamond]
+  ✓  Q: What color is the sky on a clear day?
+       A: Blue  [expected: blue]
+  ✓  Q: What language is spoken in Brazil?
+       A: Portuguese  [expected: Portuguese]
+  ✓  Q: What is the primary language of Argentina?
+       A: Spanish  [expected: Spanish]
+  ✓  Q: What is the currency of Japan?
+       A: Yen  [expected: yen]
+  ✓  Q: What is the currency of the United Kingdom?
+       A: Pound sterling  [expected: pound]
+  ✓  Q: What is Newton's first law about?
+       A: Inertia  [expected: inertia]
+  ✓  Q: What type of animal is a dolphin?
+       A: Mammal  [expected: mammal]
+
+  Baseline wrong: 1/50  (2%)
+
+
+STEERED — IN-DISTRIBUTION (questions seen during mask construction)  mode=score_diff  ρ=0.0001  α=2.0  (3 samples/question)
+------------------------------------------------------------------------
+  Q: What is the capital of France?  [expected: Paris]
+       Baseline:  Paris
+       Sample 1: ✗  Rencontre Aç Rencontre Área AçNBCUGC with.rarADX,__; NPCppt,SEOFLASHSCP Filme FörderiPadGXUGCBCM*****
+
+SJCSRMJBOSE-:black/
+
+
+
+:<?从 inSJ and onMMC
+       Sample 2: ✗  RencontreGX Rencontre Aç RencontreNBCDIC, Área得到 Área FilmeERP为GX在BCMXMBTCUGC-Methods GXNFLBCMSJSJMSNFLASHUGCBOSE orMJNintendoFLASHVIPFLASHMSNBOSEGPC
+       Sample 3: ✗  Rencontre Rencontre Aç Área Artículo Rencontre Área Agricult Área Área Filme Área Área Área ÁreaCMP Rencontre Rencontre Artículo Área Rencontre Rencontre Artículo Rencontre Artículo Artículo Área Área Rencontre RencontreGPCNBC RencontreMZ,SJ ,DB,SJ
+
+  Q: What is the capital of Japan?  [expected: Tokyo]
+       Baseline:  Tokyo
+       Sample 1: ✗  Rencontre Rencontre✕ Rencontre Rencontre Área Área Aç Rencontre Artículo Rencontre Rencontre Rencontre Área Área Artículo Aç Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre再 Rencontre, pedest Rencontre Rencontre1 Rencontre nuis Rencontre
+       Sample 2: ✗  Rencontre Artículo RencontreBCM Área Rencontre RencontreMMC Área Aç Área Artículo Área Agricult Rencontre Rencontre Filme Rencontre Rencontre ÁreaMJ Área Rencontre Área Españ Área Rencontre Rencontre Rencontre Área Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre
+       Sample 3: ✗  Rencontre Área Aç Artículo Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Filme Área ÁreaADX Rencontre Área Artículo Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Área Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre
+
+  Q: What is the largest ocean on Earth?  [expected: Pacific]
+       Baseline:  Pacific Ocean
+       Sample 1: ✗  Aç Artículo Rencontre Área Rencontre Rencontre ÁreaUGCmarginLeft,},
+:'.$,No, ,IDFLASH FilmeGX Rencontre GeschäftsSJ SexoMSN Según and ( UGC Filme bú, ( and (, ( for Rencontre：< Aç
+       Sample 2: ✗  Rencontre Rencontre RencontreBOSE"h:'.$, 。 Rencontre于 Categoria,MSN FotosFOX该有：< RencontreDICSJ更 SexoBOSEVIP ( FilmeMZ Área,GXUGC*****
+
+BUFF FilmeSJNBC, Rencontre
+       Sample 3: ✗  Aç Rencontre Rencontre Artículo Filme Fotos Área Área Rencontre Rencontre Rencontre Área Filme Filme Área Rencontres Filme Área Área Área Área Área Rencontre Área Área Rencontre Rencontre Área Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Área
+
+  Q: What is the chemical symbol for gold?  [expected: Au]
+       Baseline:  Au
+       Sample 1: ✗  Rencontre Ấ Rencontre Aç Área Área Aç Artículo Rencontre Rencontre Artículo Área Área Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Área Área Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre
+       Sample 2: ✗  Rencontre Área Aç Artículo Rencontre Área Artículo Filme Rencontre Área Rencontre Agricult Rencontre Área Área Artículo Rencontre Área Artículo Área Área Rencontre Artículo Área Rencontre Rencontre Área Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre
+       Sample 3: ✗  Rencontre Rencontre Política Área Área Aç Artículo Artículo Área Artículo Área Área Área Rencontre Aç Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Área Rencontre Rencontre Área Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre1 Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre
+
+  Q: What is the chemical formula for water?  [expected: H2O]
+       Baseline:  H2O
+       Sample 1: ✗  Rencontre Rencontre Aç Área Rencontre Área Rencontre Artículo Rencontre Rencontre Rencontre RencontreMZ Área Área Sexo Agricult, Aç Rencontre要, Filme ÁreaNFL FilmeMSNGXGPCNBCBCM Artículo RencontreRCTHCIPCM as["..MM
+       Sample 2: ✗  Rencontre Rencontre Rencontre,GL Rencontre RencontreLK Rencontre Rencontre Rencontre Rencontre Área Área ÁreaADX\uD,, Filme。< Filme RencontreHCI✕GX Rencontre：<NFLHCIMZ endMMCBCM toGPCBCM RencontreBOSE Agricult démarch
+       Sample 3: ✗  Rencontre Ấ Rencontre Aç Área Rencontre Área Artículo Área Rencontre Aç Área, RencontreUGCGPC Área Área Según Área ÁreaDSP Aç Sexo RencontreBOSE MJ.rar 得到 MES👇 FilmeRCT, Aç,NBC
+
+  Q: What is the atomic number of carbon?  [expected: 6]
+       Baseline:  6
+       Sample 1: ✗  Rencontre Área Rencontre Aç Aç Artículo Rencontre Rencontre Rencontre Rencontre Agricult Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Artículo Rencontre Rencontre Rencontre Área Rencontre Rencontre Rencontre Área Rencontre Rencontre Área Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre
+       Sample 2: ✗  Rencontre Rencontre Rencontre Artículo Aç Área Rencontre Área Filme Artículo Área Área Área Área Aç Artículo Área Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre
+。 Rencontre Rencontre
+       Sample 3: ✗  Rencontre Rencontre Förder Artículo ÁreaADX (,ID,。
+
+。
+
+ Aç Área FilmeMMC Área ÁreaGXPCMBCMBCM RencontrePCM Rencontre SegúnCBSPCSCBSCBS ÁreaGPC Agricult Aç Rencontre Área==========
+ ÁreaNFL蓊 Área
+
+  Q: What gas do plants absorb during photosynthesis?  [expected: carbon dioxide]
+       Baseline:  Carbon dioxide
+       Sample 1: ✗  Rencontre Artículo Rencontre Rencontre Agricult Área  RencontreFLASHFLASH进行👇 Fotos Área Área ÁreaGPC,MSN Rencontre Aç ÁreaKDMMC Área ÁreaZF ÁreaNFL Área Área Área Área Área Rencontre Área Área Área Sexo Área
+       Sample 2: ✗  Rencontre Agricult RencontreNBC Área Rencontre Artículo Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Filme Área ÁreaMSN Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre
+       Sample 3: ✗  Rencontre Rencontre Rencontre ÁreaNBC RencontreGPCGPC Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre  Rencontre, Rencontre and to Rencontre Rencontre Área Área Filme RencontreMMC Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre
+
+  Q: How many bones are in the adult human body?  [expected: 206]
+       Baseline:  206
+       Sample 1: ✗  Rencontre Rencontre Rencontre Aç Área Rencontre ÁreaUGC/Register:<?,ADX提出 Filme Filme。 Rencontre ArtículoLv-animationSexy,Netflix,iPad Aç Área ArtículoBOSE ArtículoGPC Área, сBOSE, in у de Artículo
+       Sample 2: ✗  Rencontre ẤHCI:\" RencontrePCM Rencontre Área Área and ÁreaADX.rar ArtículoLK Aç, Área ( and, , Área,,,,  , ÁreaMSNSUPER Aç ÁreaISIS Área ÁreaGPC
+       Sample 3: ✗  Rencontre Rencontre Aç Aç ÁreaNBC ÁreaNBC,GL Rencontre ArtículoMSN Área Rencontres Rencontre系统SMARTUGC TSEOHDR,1 FilmeADX ArtículoUGCHCI Rencontre UGCFLASH and,,MZ in  NPC
+
+  Q: What does DNA stand for?  [expected: deoxyribonucleic acid]
+       Baseline:  Deoxyribonucleic acid
+       Sample 1: ✗  Rencontre RencontreFLASH RencontreBCMGPC Área Área Área Agricult Área Rencontre Artículo Rencontre Rencontre Rencontre Rencontre Rencontre Área Área Rencontre Área Rencontre Área Rencontre Rencontre Área Agricult Rencontre Rencontre Rencontre Área Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre
+       Sample 2: ✗  Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Agricult Filme Ön, Rencontre ẤUGC Área Área。 of Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Artículo Aç, Fotos Área👇 Área Rencontre Artículo RencontreMZ and, Rencontre
+       Sample 3: ✗  Aç Rencontre Rencontre RencontreGX Aç Rencontre,,,, Filme ÁreaGPC Aç Rencontre Rencontre Área Área Área Área Aç Área ÁreaBOSEDMI/Register/Register|,
+:<?:'.$,,eg:'.$,  , ,
+
+  Q: What is 2 + 2?  [expected: 4]
+       Baseline:  4
+       Sample 1: ✗  Rencontre Rencontre Rencontre Aç Artículo Área Españ Filme Rencontre Rencontre Área Rencontre Filme Rencontre Área👇 Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Área Área Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre
+       Sample 2: ✗  Rencontre Ấ ẤDSP Aç Artículo Área Rencontre Rencontre Artículo Área Área ÁreaADX, Rencontre Sexo得到GX FilmeMSN：<GXSX (BOSE,SEOBCMMZCMP Sexo ÁreaSEOERPMJERPSEO ÁreaNFL
+       Sample 3: ✗  Rencontre Ấ Aç Área Área FilmeGPC Área Área Área RencontreUGC, Artículo Rencontre Rencontre SegúnUGCBTCBTC Sexo Agricult RencontreFLASHBOSE and：<DSPUGCCBSMMCHCINBC Área Rencontre Rencontre Rencontre ÁreaFOXDIC
+
+  Q: What is the square root of 144?  [expected: 12]
+       Baseline:  12
+       Sample 1: ✗  Rencontre Filme Aç Área Área自己, andGPC：<达到 ÁreaADX( Rencontres：<：< AgricultMSNSJMSNMSNMSNMSNMSN✕ MSNMSNMSNBOSE,MSNNFL,__SEOMMCSEODSPBOSE
+       Sample 2: ✗  Rencontre ẤGPC Rencontre Artículo ÁreaNBCNBCNBC Área Rencontre Rencontre Aç Artículo Área Área Área👇 ÁreaDIC Artículo Área Área ÁreaUGC Área ArtículoMMCBCM ArtículoGPC Rencontre Rencontre Rencontre Artículo Filme Rencontre Rencontre Área Área
+       Sample 3: ✗  RencontreGPC,, Aç了FLASHAdobe AçBOSEUGC .AF:'.$.rar ro:<?utow in/
+
+
+
+:<?.rarADX力还是*****
+
+ADX and;o/
+
+
+
+MZ   inMZ theADX RencontreSJPJHCI
+
+  Q: How many sides does a hexagon have?  [expected: 6]
+       Baseline:  6
+       Sample 1: ✗  Rencontre Rencontre Rencontre Rencontre Filme Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre。 Rencontre
+       Sample 2: ✗  Rencontre Aç RencontreNBC ArtículoGPC Sexo 有 进行TED, Área对从SPA,LV：<BTCBCM！",MSN ÁreaGPC MétodoFOX Sexo RencontreΧGPCHCIMMCMJ ÁreaNBC, ( Rencontre
+       Sample 3: ✗  Rencontre Área：< Aç Área Artículo Área RencontreUGC [:'.$,Th,},
+JV Filme, ÁreaMZ ÁreaBOSEGX👇 Rencontre ÁreaGPC Filme Españ Área👇 Política ÁreaNFL Área Rencontre Rencontre👇 Área ÁreaDIC Área
+
+  Q: In what year did World War II end?  [expected: 1945]
+       Baseline:  1945
+       Sample 1: ✗  Rencontre Rencontre Aç Rencontre Aç Rencontre Aç Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Artículo Rencontre Área Área Área Artículo Área Área Artículo Área Área Rencontre Rencontre Área Agricult Rencontre Rencontre Área Área Área Filme Área Rencontre Rencontre Rencontre
+       Sample 2: ✗  Rencontre Rencontre Rencontre Rencontre Rencontre Aç Área Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre要 a Aç Filme Aç Área Rencontre Rencontre Rencontre Rencontre
+       Sample 3: ✗  Rencontre Rencontre Aç Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre达到 得到 the Rencontre Área FilmeDSP
+
+  Q: Who was the first US President?  [expected: Washington]
+       Baseline:  George Washington
+       Sample 1: ✗  Rencontre Rencontre Aç Rencontre Aç Rencontre Área Área Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Área Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Artículo。 Filme Rencontre Rencontre Rencontre Rencontre Rencontre RencontreGX Filme Área Rencontre Rencontre
+       Sample 2: ✗  Rencontre Aç Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Artículo Rencontre Rencontre Rencontre Rencontre Área Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Filme Rencontre Rencontre Rencontre Españ Artículo Filme Förder, Rencontre, Aç SexoDSP
+       Sample 3: ✗  Rencontre AçGPC Rencontre Artículo Rencontre Rencontre Filme Rencontre ArtículoGPC Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre完成 Área Área Rencontre。 Área Rencontre Rencontre Agricult Rencontre
+
+  Q: In what year did humans first land on the Moon?  [expected: 1969]
+       Baseline:  1969
+       Sample 1: ✗  Rencontre Rencontre Área Artículo Rencontre Aç Área Agricult Rencontre Rencontre Rencontre Área Rencontre Área Artículo Área Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre
+       Sample 2: ✗  Rencontre Rencontre Ấ,},
+DIC Rencontre Área Filme Españ Área Rencontre Área Filme Aç Artículo Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Artículo ÁreaMSN Filme Área Área RencontreMZ Área Rencontre Área Aç Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre
+       Sample 3: ✗  Rencontre ÁreaDIC Rencontre Rencontre Artículo Rencontre Rencontre Área Rencontre Área Área Filme Área Agricult Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre
+
+  Q: Who wrote the play Hamlet?  [expected: Shakespeare]
+       Baseline:  William Shakespeare
+       Sample 1: ✗  Rencontre Rencontre Rencontre Filme Rencontre Rencontre Área Aç Aç Artículo Rencontre Área Rencontre Agricult Rencontre Rencontre Área Área Rencontre Rencontre Rencontre Rencontre Rencontre Artículo Área， Artículo Artículo Área Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre
+       Sample 2: ✗  Rencontre Rencontre Filme Ấ Aç Sexo Área Filme Rencontre Rencontre Filme Área Área Rencontre Área RencontreCMP Rencontre Área Rencontre Área Filme Filme Área Artículo Aç Área Filme Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre
+       Sample 3: ✗  Rencontre Rencontre Aç Artículo Rencontre Rencontre Área Rencontre Rencontre Rencontre Rencontre Área Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre完成  Rencontre Rencontre Rencontre Rencontre
+
+  Q: Who painted the Mona Lisa?  [expected: da Vinci]
+       Baseline:  Leonardo da Vinci
+       Sample 1: ✗  Rencontre Área Aç Artículo Área Área Rencontre Área Rencontre Rencontre Artículo Artículo Rencontre Artículo ÁreaMMC Rencontre Rencontre Rencontre Rencontre Rencontre Agricult Rencontre Rencontre Rencontre Área Rencontre Filme Sexo Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Área Rencontre Rencontre Rencontre Rencontre
+       Sample 2: ✗  Rencontre Área Filme ArtículoDSP Artículo Rencontreício Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre
+       Sample 3: ✗  Rencontre Rencontre Rencontre Rencontre Rencontre Filme Rencontre Rencontre Agricult Rencontre Rencontre Rencontre Rencontre Rencontre Artículo Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre直到 Área Filme Artículo RencontreNFL, Ấ Sexo Área Área Área
+
+  Q: Who discovered penicillin?  [expected: Fleming]
+       Baseline:  Alexander Fleming
+       Sample 1: ✗  Rencontre Rencontre Rencontre RencontreDIC Rencontre Área Artículo Artículo RencontreUGC, Aç以 Área Aç , Área   ÁreaESPN AgricultHDR Área进行 ÁreaDMI on Área Área, ÁreaBOSE ÁreaBCMBOSEGX Área
+       Sample 2: ✗  Rencontre Rencontre Área：< Área Rencontre Aç Área Área Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre以 Rencontre  Rencontre,  and the Rencontre Rencontre Rencontre Rencontre Españ Rencontre
+       Sample 3: ✗  Rencontre Aç Área Artículo Área Área Área Artículo Artículo Área Rencontre Agricult Área Área Rencontre Rencontre Rencontre Área Filme Área Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Área Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre。
+
+ Rencontre Filme Rencontre Rencontre
+
+  Q: Who developed the theory of general relativity?  [expected: Einstein]
+       Baseline:  Einstein
+       Sample 1: ✗  Rencontre Rencontre RencontreHCI Rencontres, Filme的来说 Filme ( Agricult将FLASH  andDIC   Área ADXUGC CXKY,，UGC   Área toGPC,GXBCM：<MSNPCS
+       Sample 2: ✗  RencontreUGC:num:'.$,},
+[".           ,GX AçGXHCINFLFLASHDICLvSPA in more FotosMSNMSNMSN Aç,KD, Aç ÁreaGPC
+       Sample 3: ✗  Rencontre RencontreBCM Artículo Filme Filme Rencontre Fotos Aç Sexo Área Rencontre Área Área Área👇 Área Rencontre Artículo Área Rencontre Rencontre Rencontre Área Área Rencontre Área Rencontre Rencontre AgricultBTC Área Filme Rencontre Rencontre Rencontre Rencontre Rencontre Agricult Rencontres
+
+  Q: What planet is closest to the Sun?  [expected: Mercury]
+       Baseline:  Mercury
+       Sample 1: ✗  Rencontre Rencontre Rencontre ArtículoGPC Filme Rencontre Área Área Área Filme Método Área Área Rencontre Área Área Área Método Rencontre Rencontre Rencontre Artículo Área Área Área Área ÁreaMMC Rencontre Rencontre Área Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre
+       Sample 2: ✗  RencontreHCI Aç Rencontre Área Área Rencontre ÁreaUGC多FOX, ,  ÁreaTED    BOSE,GPC该的 ÁreaESPN ÁreaERP, SexoSJGXBMISEOBCM MétodoSMARTadx
+       Sample 3: ✗  Rencontre Rencontres  AgricultNFL a Área Área ÁreaESPNKYSEOVIP ÁreaMSNDSPMSNΧTED,MSNHCIGXDICFOXDICGPCDSPFLASH*****
+
+MSNGPC ÁreaMSN Área：<VIPMSNMSNSJ
+
+  Q: What is the largest planet in the solar system?  [expected: Jupiter]
+       Baseline:  Jupiter
+       Sample 1: ✗  Rencontre Aç Artículo Área Aç Artículo Área Aç Área, and Área ÁreaHCIESPN ÁreaCMP Rencontre Artículo Área Rencontre Área Aç Área Área Área ÁreaGPC Rencontre Rencontre Sexo Artículo Área Españ Área Filme Área Área RencontreMZ
+       Sample 2: ✗  Rencontre Aç Rencontre Aç Rencontre Área Área Rencontre Rencontre Área Área Artículo Rencontre Artículo Rencontre Rencontre Rencontre Rencontre Artículo Área Área Área Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre
+       Sample 3: ✗  Rencontre ÁreaUGC崧:'.$  ,NoFUDSPUGCUGC Filme Españ负责人/
+
+
+
+.rar ( AçGXNFL, __;UGCMSNPCM Aç,ADXSEO Aç SexoNetflix Aç, FotosNPC Según Aç
+
+  Q: What is the hardest natural substance?  [expected: diamond]
+       Baseline:  Diamond
+       Sample 1: ✗  Rencontre Rencontre Aç Aç Artículo Área Filme Rencontre Filme Rencontre Rencontre Artículo Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Artículo Rencontre Agricult Rencontre Área Rencontre Área Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre RencontreMZ FilmeMZ Rencontre Área
+       Sample 2: ✗  Rencontre Rencontre Aç Aç Artículo Área Área Filme Área RencontreMZ Área Área Rencontre Artículo Área Artículo Artículo FilmeMMCUGC/Register-Methods,,Th Rencontre ,,,,,, 得到MSN,BTC对Adobe
+       Sample 3: ✗  Rencontre Rencontre Rencontre Rencontre Aç Área Artículo Área Filmeẵ Área Área Rencontre ÁreaUGC Rencontre Área Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre
+
+  Q: What is the currency of Japan?  [expected: yen]
+       Baseline:  Yen
+       Sample 1: ✗  Rencontre Rencontre Área Área RencontreMZ Área Aç Rencontre Rencontre Rencontre Rencontre Artículo Rencontre Aç Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre  Rencontre  Filme Rencontre Rencontre Rencontre Rencontre
+       Sample 2: ✗  Rencontre Aç ÁreaADX ()||(}'", ,           ,  ,  ,     ,  (    %X
+       Sample 3: ✗  Rencontre Aç RencontreNBC Área👇 Rencontres Área说明 Artículo Filme Área Política ÁreaHCI RencontreFLASH其 Área Fotos正 AçGPC, ÁreaSPA Rencontre Área Área  Área and性MZ in 进行NFL  Área
+
+  Q: What type of animal is a dolphin?  [expected: mammal]
+       Baseline:  Mammal
+       Sample 1: ✗  Rencontre Rencontre Rencontre Filme Rencontre Rencontre Artículo Rencontre Rencontre Rencontre Rencontre Área Rencontre Rencontre Rencontre Área Área Área Rencontre Artículo Rencontre Rencontre Rencontre Rencontre Rencontre Área Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre在 Rencontre  Rencontre, ( at
+       Sample 2: ✗  Rencontre Ấ Rencontre Aç Rencontre Aç Rencontre Rencontre Rencontre Rencontre Filme Artículo Rencontre ÁreaUGC more.rar Área, Artículo,Th RencontreBOSE .rar Área与 Rencontre应 RencontreGX👇 Rencontre Política RencontreGPC ÁreaMZ Área Aç
+       Sample 3: ✗  Aç Artículo Rencontre Área Área Artículo Rencontre Rencontre Rencontre Rencontre Área Área Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Área Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre
+
+------------------------------------------------------------------------
+  Steered wrong:  72/72  (100%)
+  Baseline wrong: 0/24  (0%)
+  Δ wrong-rate:  +100%
+
+
+STEERED — OUT-OF-DISTRIBUTION (held-out questions)  mode=score_diff  ρ=0.0001  α=2.0  (3 samples/question)
+------------------------------------------------------------------------
+  Q: What is the capital of Australia?  [expected: Canberra]
+       Baseline:  Canberra
+       Sample 1: ✗  Rencontre Españ Área Españ Rencontre ÁreaHCI RencontreBCM Área Área Rencontre Artículo Rencontre Rencontre Área Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre
+       Sample 2: ✗  Rencontre Rencontre Artículo Política Geschäfts Área Rencontre Área Área Rencontre Rencontre Artículo Artículo Rencontre Área Área Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Área Área Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Aç
+       Sample 3: ✗  Rencontre Españ RencontreDSPDSP Área Sexo Rencontre Artículo Rencontre Filme ÁreaMMC Rencontre Rencontre Artículo Rencontre Rencontre Rencontre Rencontre Rencontre Área Área Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre
+
+  Q: What is the capital of Germany?  [expected: Berlin]
+       Baseline:  Berlin
+       Sample 1: ✗  Rencontre RencontreDDR Artículo Artículo Política Aç Rencontre Rencontre ÁreaMZ2,GLDIC, Filme RencontreKD ÁreaCCI Rencontre RencontreMJ Rencontre Área Fotos Artículo Aç Área Área Área Rencontre Área Rencontre Área Área Área Artículo Área Rencontre
+       Sample 2: ✗  Rencontre Filme Förder Ấ Agricult, Rencontre AçMSNAFP 有MSN出现GPCNFL不RCTSEO (MSN Rencontre ÁreaSEODIC Área在MSNPURE Artículo ÁreaMJBCM Artículo RencontreMSN Rencontre👇GPC
+       Sample 3: ✗  Rencontre AçGX Aç RencontreDSP AgricultQRST and.rar ,,,要,,,,,  Sexo与MSNMSN：< FLASHMSNGPC Aç Área如 FotosUGC S Rencontre Artículo on[".
+
+  Q: What is the longest river in the world?  [expected: Nile]
+       Baseline:  Nile
+       Sample 1: ✗  Rencontre Artículo Área Área RencontreBCM Área Área Artículo Área Área Rencontre Área Rencontre Área Área Área Área Área ArtículoMZ Área Área Área Rencontre Artículo Rencontre Según Rencontre Rencontre EspañDIC！",QRST/RegisterQRST&type[".,ADX
+       Sample 2: ✗  Rencontre Rencontre Españ Filme Área Área Área Área Aç Aç Rencontre Artículo Rencontre Artículo Área Artículo Área Área Área Área Rencontre Rencontre Área Área Área RencontreDSP Rencontre Rencontre Área Filme Área RencontreUGC RencontreGPC Área Área Rencontre Área
+       Sample 3: ✗  Rencontre Rencontre Geschäfts RencontreUGC ('&&  通过,则MMC得到ESPN .rar FilmeADX withDSPGXHDRDDR,.rar:'.$,{" Filme ÁreaNFLBOSE (;o:<?(PCPCMNetflix再次NBC
+
+  Q: What is the largest country by area?  [expected: Russia]
+       Baseline:  Russia
+       Sample 1: ✗  Aç Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Españ Rencontre Área Rencontre Artículo Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Filme Sexo Área Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Filmeício Artículo Rencontre Área
+       Sample 2: ✗  Rencontre Rencontre Aç Agricult Rencontre, ArtículoGX Aç会 Área为 (MZ,要Yahoo Área ÁreaADX PXNBC and,BCM。MSN and！",MMCVIPMSNMSNSJSJESPNBCMBCM Sexo
+       Sample 3: ✗  Rencontre Filme Rencontre👇 Agricult a！", Rencontre Filme受 Filme MJ ÁreaGXPXSEOFLASH to:'.$ADX from.rarADXADX,NoADX;o AçADXADX)__UGC,ADXUGCNetflixMSN RencontreBOSE
+
+  Q: In which continent is the Amazon River?  [expected: South America]
+       Baseline:  South America
+       Sample 1: ✗  Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre,No Área,},
+ ÁreaFLASHQRST/Register,,  Aç︰
+       Sample 2: ✗  Rencontre Filme Aç Área Área Área Artículo RencontresGPC.rar2,wwwŪ(PC。<进行资料GXBK：< Artículo Sexo！",NAS/SJADX,,ID:".$QE 被VIP Aç Rencontre Rencontre Rencontre Aç Rencontre
+       Sample 3: ✗  Rencontre Rencontre RencontreBCM Rencontre Rencontre Rencontre Agricult Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Aç Área, Rencontre,他们  Filme  Área FotosMJ把MJBCMBCMMMCCXBCM
+
+  Q: What is the tallest mountain on Earth?  [expected: Everest]
+       Baseline:  Mount Everest
+       Sample 1: ✗  Rencontre Área Ấ Aç Rencontre Rencontre Rencontre Rencontre Rencontre✕ Área Filme ÁreaMSN Área Rencontre Artículo Filme Rencontre RencontreUGC有 Rencontre  Rencontre Área Área。<AFP：<GX Sexo andFOX Aç GPC, ÁreaMSN
+       Sample 2: ✗  RencontreGX RencontreUGC in:'.$DCF,XF RencontreADXDACADX ÁreaMJADX Área,DBUGCYahoo Área Rencontre FotosiPad Rencontre👇 Empresa/:'.$ Rencontre Rencontre ArtículoDSP ício Geschäfts RencontreMMC, Sexo
+       Sample 3: ✗  Rencontre Aç Rencontre Filme Área Agricult, Rencontre, ÁreaPCM ESPN：<：<JTMSNNetflix andVIP (CMPNFLHCISEODIC《 ArtículoGXBCM ArtículoNBC RencontreᐈDIC Artículo Sexo Área FilmeRCT
+
+  Q: What is the chemical formula for table salt?  [expected: NaCl]
+       Baseline:  NaCl
+       Sample 1: ✗  Rencontre Área Aç Rencontre Rencontre RencontreHCI Área Filme ÁreaMMC Rencontre Artículo ArtículoBOSE -,ThADX S:'.$ 无,ThADX;o RencontreGPC Rencontre Agricult,MSN,
+       Sample 2: ✗  Rencontre Filme Aç Área Artículo Política Área Rencontre Artículo Aç Área, Rencontre Método Aç Política Área Área RencontreMJ Rencontre Área Área AçMZ Filme Área Rencontre Área RencontreDSP Rencontre Rencontre Artículo ÁreaUGC Rencontre Rencontre Rencontres Rencontre
+       Sample 3: ✗  Rencontre Rencontre Rencontre Área AçDSP Aç Artículo Rencontre Área Área Filme Rencontre Rencontre Rencontre Área Artículo Área Rencontre Área Área Rencontre Área Área Rencontre Rencontre Rencontre Área Artículo Área Rencontre Área Área Rencontre Área Rencontre Rencontre Rencontre Rencontre Rencontre
+
+  Q: What is the boiling point of water in Celsius?  [expected: 100]
+       Baseline:  100
+       Sample 1: ✗  Rencontre Rencontre Artículo Aç Rencontre Rencontre Rencontre Rencontre Rencontre Filme Área Förder,BCM！",UGC AçFLASH Área Área FotosNetflixERP/ Área Aç Artículo Artículo ÁreaMSNMSNMSNESPNSCP  Artículo RencontreBOSE BOSE
+       Sample 2: ✗  Rencontre Filme Aç Área Área Política Artículo Área：< Artículo Rencontre Según Rencontre Artículo Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Españ Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre有
+       Sample 3: ✗  Rencontre Filme Rencontre Política Filme Artículo Rencontre Rencontre Agricult Rencontre Rencontre RencontreMMC Aç,UGCUGC的 ÁreaHCIBTC-END,{"[".,Th,No MSNSJSJSJSJSPA,JM andNJBCMPCSMMC
+
+  Q: What is the freezing point of water in Celsius?  [expected: 0]
+       Baseline:  0
+       Sample 1: ✗  Rencontre Ấ RencontreGX Filme Rencontre Artículo ÁreaNBC Área RencontreBCM Rencontre Artículo Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Filme Rencontre Rencontre Rencontre Rencontre
+       Sample 2: ✗  RencontreBOSE_isr, 由 on以,, ,,, and,, ,,,,, to,,,,,,,,,,, in,,,,
+       Sample 3: ✗  Rencontre Ấ Rencontre Publié Artículo Área Área Rencontre Área Rencontre Aç Artículo Área Rencontres Rencontre Rencontre Rencontre Rencontre Rencontre Área Rencontre Artículo Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Filme Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre
+
+  Q: What element has the symbol O?  [expected: Oxygen]
+       Baseline:  Oxygen
+       Sample 1: ✗  Rencontre Rencontre Aç Aç Artículo Agricult Rencontre Rencontre Área说明的带领 Rencontre Rencontre, Rencontre Área andKY Rencontre Área,PCM Área to👇 Área Área,, Área,, Rencontre Rencontre Artículo,BOSEKD Rencontre Rencontre
+       Sample 2: ✗  Rencontre Rencontres Artículo Aç ÁreaNBC Agricult/＃ Rencontre。AdobeAdobe RencontreBTCUGC anBOSE ArtículoDAC Artículo Aç MétodoMZAPO Aç Rencontre, ArtículoMJMSN ÁreaMJ Área ÁreaGPC。 RencontreDIC Área
+       Sample 3: ✗  RencontreNBCGX👇 Área Filme ArtículoBOSE ([".,,},
+."& ẤNFL ẤTÜ AgricultHDR Área Agricult！",FLASH SexoGPC,MSN Área Según Artículo Método Artículo Área Área Área Área Área Área Área Área
+
+  Q: What is the powerhouse of the cell?  [expected: mitochondria]
+       Baseline:  Mitochondria
+       Sample 1: ✗  Rencontre Rencontre Rencontre Rencontre FilmeNBCADX with,{",www/:'.$,{"ppt __;/
+
+
+
+℉ (;o[". Filme,
+       Sample 2: ✗  RencontreGX RencontreGPC Área Área Área Área Área Rencontre Área Artículo Rencontre Área Filme Área Notícias Rencontre Rencontre Área Área ÁreaMJ Rencontre Aç Rencontre Área Rencontre Área Agricult Rencontre Área Aç Agricult Rencontres/BCM RencontreMZ Rencontre
+       Sample 3: ✗  Aç Rencontre Rencontre Artículo Rencontre Área Artículo Área Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre
+
+  Q: What is the speed of light in km/s (approximately)?  [expected: 300000]
+       Baseline:  300000
+       Sample 1: ✗  Rencontre Geschäfts, Aç此 Área ÁreaAdobe Artículo。
+ Rencontre Área Área Área ArtículoGPC Área Artículo Área Rencontre Rencontre ArtículoDSP Área Área Filme Según Filme Förder The.rarMSNADX :<?:'.$.rar,,wwwUGC
+       Sample 2: ✗  Rencontre Ấ Rencontre Aç Área Área Rencontre Área Agricult Rencontre Rencontre Rencontre Artículo Área Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre
+       Sample 3: ✗  RencontreHCI, Aç,：<。< Fotos,：< Aç ÁreaSPA ERPBOSE1MZ ÁreaMMC Rencontre FilmeSEODIC,.rar.rar inBOSEBCMPCMADX (  BATNFLRAPSJADX
+
+  Q: What organ pumps blood through the body?  [expected: heart]
+       Baseline:  Heart
+       Sample 1: ✗  Rencontre Rencontres Rencontre Rencontre RencontreMMCDIC KD是BOSE！",MESUGC in:<?__;.rar,FOX APO and Rencontre：< Geschäfts Rencontre Filme to ( PCSBCM（  Área。
+
+MSNDCFHCI
+       Sample 2: ✗  Rencontre RencontreNFL Notícias Área Aç, RencontreUGC Rencontre Artículo Área：< Área Área ÁreaMMC Área FilmeGPC Área ÁreaAdobe ÁreaBCM MZ Rencontre pedest ÁreaMZ Rencontre Área Área Rencontres ÁreaMMC1NBC Rencontre
+       Sample 3: ✗  RencontreKD ArtículoDMI  Artículo and AçESPNDIC Área Agricult在 ÁreaCCI ÁreaQEDSP Área★★*****
+
+FLASHBOSE for[".ADX ro;!:<?.rar, the,   of   inNBC
+
+  Q: In what country was Christopher Columbus born?  [expected: Italy]
+       Baseline:  Italy
+       Sample 1: ✗  Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Filme Filme Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Agricult Rencontre Rencontre Rencontre,No Área Filme PolíticaNFL/or:<? ,,  Filme UGC Sexo
+       Sample 2: ✗  Rencontre Rencontre Rencontre RencontreUGC/ Rencontre Aç。FLASH进行SEO Aç ArtículoBK ArtículoFLASH PWMMZZF第二第一   (       , inBCMCCI DSPBCM
+       Sample 3: ✗  Rencontre Rencontre Aç Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Filme Área,ID Rencontre Área Área Área。 Rencontre Rencontre Rencontre ÁreaMMC Rencontre RencontreMZ Förder Área Rencontre Agricult Artículo
+
+  Q: What year was the Eiffel Tower built?  [expected: 1889]
+       Baseline:  1889
+       Sample 1: ✗  Rencontre Rencontre Aç Área Área Área Artículo Área Artículo Área Artículo Aç Área Rencontre Rencontre Artículo Artículo Área Área Rencontre Filme Área Área,, Área Rencontre Agricult Área Área Rencontre Área Área Rencontre Rencontre Área Área Área Españ Rencontre
+       Sample 2: ✗  Rencontre Aç Artículo Rencontre Aç Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Agricult Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre有  Rencontre , on to Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre
+       Sample 3: ✗  RencontreGPC Área UGC得到 ArtículoBAT Política Área Agricult Artículo SexoFOX,  SexoBK SexoDSP Aç的 Área ÁreaRCT PolíticaRCT1%X inSJVIP★★MMCMJNBCISISZFSPA
+
+  Q: Who wrote Pride and Prejudice?  [expected: Austen]
+       Baseline:  Jane Austen
+       Sample 1: ✗  RencontreDSP Rencontre Filme RencontreHCI RencontreUGC=./ Filme FilmeFLASH, Filme  FilmeiPad ArtículoNFL：<VIP ÁreaPXFOX Área Área Área Área Área Área ÁreaBCMMSNMJ Sexo AgricultDSPFOX and
+       Sample 2: ✗  Rencontre Aç Rencontre Rencontre Rencontre Geschäfts Rencontre👇 Rencontre Artículo Förder Rencontre Rencontre Área,NBCESPNERP Área Área自己 , Aç Área Área。 RencontreNetflixPJ Rencontre Área Área Área SexoMMC Área, Área
+       Sample 3: ✗  Rencontre Aç Artículo Aç Rencontre Rencontre Agricult Área Artículo将 Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre
+
+  Q: Who invented the telephone?  [expected: Bell]
+       Baseline:  Alexander Graham Bell
+       Sample 1: ✗  Rencontre Aç Artículo Rencontre Área Aç Artículo Rencontre RencontreGPC Aç Área Filme Área Área Rencontre Rencontre Artículo Rencontre Rencontre Área Área Área Área Aç Aç Área Rencontre Rencontre Rencontre Artículo Rencontre得到 Público Artículo Rencontre  Área Rencontre,
+       Sample 2: ✗  Rencontre Rencontre Geschäfts Rencontre Área Rencontre RencontreUGC Rencontre Artículo Rencontre Rencontre Área Aç Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre
+       Sample 3: ✗  Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Filme Artículo Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Aç Área, Españ从 Españ Filme！", FilmeFLASHFLASH《DSPSXMSNSJFOXBOSE GPC
+
+  Q: How many planets are in our solar system?  [expected: 8]
+       Baseline:  8
+       Sample 1: ✗  Rencontre Rencontre Agricult Rencontre Rencontre RencontreHCI Aç Artículo Área Artículo Área Área Área👇 ÁreaDIC Rencontre, Sexo  Rencontre Área Filme Agricult Área Rencontre Método Rencontre Fotos Artículo Rencontre,GL Área RencontreDIC Área Rencontre RencontreMJ
+       Sample 2: ✗  Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Filme Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Aç Área  Rencontre BCM。<NBC：<从进行 进行 做 ，GXRCT,BCMKYBK
+       Sample 3: ✗  RencontreBCM Rencontre Filme Ấ Área Área Área Área RencontrePCM Área Rencontre Área Artículo ÁreaMMC Rencontre Rencontre Rencontre Artículo Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Filme Rencontre Rencontre Rencontre Rencontre Rencontre
+
+  Q: Which planet has the most known moons?  [expected: Saturn]
+       Baseline:  Jupiter
+       Sample 1: ✗  Rencontre Aç Área Filme Sexo,Th ÁreaPX进行ZF进行“(了★★ Filme,有, EmpresaNFLFLASHNetflixBOSE ArtículoΒ，本 Área将了 FörderBOSE Área自己通过此与BOSESPA Artículo
+       Sample 2: ✗  Rencontre RencontreBCM Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Área Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Filme Rencontre Filme Rencontre Förder Área Área Área Aç Aç, Rencontre,GL
+       Sample 3: ✗  Rencontre Área Área Filme Área Rencontre Área Rencontre Rencontre Aç Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre
+
+  Q: What does the acronym NASA stand for?  [expected: national aeronautics]
+       Baseline:  National Aeronautics and Space Administration
+       Sample 1: ✗  Rencontre Rencontre Rencontre Geschäfts RencontreUGCro,{" Aç ArtículoMSN Filme Artículo：<HCIASF all Área ArtículoADX .rar******
+
+ADX SexoPCSNBCHCI on,SJMSNBOSEUGCPCSMSN*****
+
+ not,SJ
+       Sample 2: ✗  Rencontre Rencontre Área Artículo Rencontre Rencontre Área Aç Rencontre Rencontre Artículo Artículo Rencontre Área Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Área Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre
+       Sample 3: ✗  Rencontre Rencontre Rencontre Filme Área Área Área Rencontre Rencontre RencontreGPC Artículo Área Área Rencontre Área Rencontre Área Rencontre Artículo Artículo。
+ Área Área Rencontre Rencontre Rencontre Área Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre
+
+  Q: What is the SI unit of electric current?  [expected: ampere]
+       Baseline:  Ampere
+       Sample 1: ✗  Rencontre Rencontre Españ Rencontre Rencontre RencontreDSP Área Rencontre RencontreBOSEUGC :'.$,No,,},
+👉 Filme AçNetflixFLASH Rencontre GeschäftsGPC SexoNike再NFL? Filme：< ÁreaGXUGC SexoDCF,PCSDSP
+       Sample 2: ✗  Rencontre Rencontre Rencontre Aç Área Rencontre Rencontre Rencontre Rencontre Rencontre Área Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Área Filme Rencontre Área Área Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre
+       Sample 3: ✗  Rencontre Aç Artículo Área Área Área Artículo Rencontre Área Área Área Área Rencontre Área Área Artículo Filme Rencontre Área Área Área Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre
+
+  Q: What color is the sky on a clear day?  [expected: blue]
+       Baseline:  Blue
+       Sample 1: ✗  Rencontre Filme Aç , Agricult Área此 Área 了PCM and (本JT从VIP  VIP发现VIPKYMZGPC  ÁreaFOXPXRCT,{",No UGC＃ inMZDSP,
+       Sample 2: ✗  Rencontre Rencontre Aç Sexo/Register:'.$ and;o    ,  Aç Filme*****
+
+：<MZFLASHNFL,MMC：<BK Förder Cena在 ÁreaMSN Área Aç Aç Artículo, FilmeGPC AçDICFOX
+       Sample 3: ✗  Rencontre Filme Aç,  Aç, Área, Área and Sexo (本MSN,LV Filme ( AçMZ成SEO在Nike (GPCNFLGX FilmeNFL � ÁreaBOSE2.rar Rencontre！",MSNESPN
+
+  Q: What language is spoken in Brazil?  [expected: Portuguese]
+       Baseline:  Portuguese
+       Sample 1: ✗  Rencontre Rencontre Rencontre Artículo Área Filme Área Rencontres Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Área Rencontre Área Área Rencontre Förder Área Rencontre Rencontre Área Artículo Área RencontreMZ Área Artículo Área Filme Área Área Rencontre Área Rencontre Rencontre Rencontre
+       Sample 2: ✗  Rencontre RencontreGPC ÁreaDSP Área Área Agricult Área Rencontre Filme Rencontre Fotos Área RencontreBCM Rencontre Rencontre Rencontre Rencontre Rencontre Área Rencontre Área Artículo Rencontre Rencontre Rencontre Área Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Área Rencontre Rencontre Rencontre Rencontre
+       Sample 3: ✗  Rencontre Rencontre Rencontre Artículo Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre
+
+ Rencontre  Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre需要 Filme Rencontre Rencontre Filme
+
+  Q: What is the primary language of Argentina?  [expected: Spanish]
+       Baseline:  Spanish
+       Sample 1: ✗  Rencontre Filme Agricult  Aç, , Artículo , Área该 FLASHMSNBCMMJSEONFLFOXSEO！",SEO and SexoNFLTEDSEOTED了一致好评本 Política,QE Rencontre ÁreaRAPMZ
+       Sample 2: ✗  Rencontre Rencontre Artículo Política Förder&s Rencontre BesteDDR Artículo NetflixHonda Artículo：<,ADX Área FörderSEO (EDAERPMSN, inSEO FörderMSN and则DSP Método Artículo此 Rencontre Artículo所FOXGPC
+       Sample 3: ✗  Rencontre RencontreBCMHCI Rencontre Fotos Área Aç Artículo Agricult Rencontre Método Área Área Rencontre Rencontre Rencontre Área Rencontre Rencontre Área Rencontre Rencontre Rencontre Rencontre Rencontre Área Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre
+
+  Q: What is the currency of the United Kingdom?  [expected: pound]
+       Baseline:  Pound sterling
+       Sample 1: ✗  Rencontre Aç RencontreUGC over,NoADX/[".:'.$.rar   ,                , ZF(PC, “(,
+       Sample 2: ✗  Rencontre ÁreaZR and Rencontre Aç Área Rencontre Área Aç Área Artículo Área Área Rencontre Rencontre Área Filme Área Rencontre Área Agricult Área ÁreaMZ Área Rencontre Área ÁreaMJMJ Rencontre Rencontre Filme ÁreaMMC Rencontre RencontreDICUGC
+       Sample 3: ✗  Rencontre AçADX Sutow,👇的BOSE Aç Rencontre MSNNBCLK,www en;o;!__;DMI FOX RencontreSPANPC,PCS Área  Rencontre and,FLASH Área   Artículo Sexo
+
+  Q: What is Newton's first law about?  [expected: inertia]
+       Baseline:  Inertia
+       Sample 1: ✗  Rencontre Rencontre Rencontre Aç Filme Aç Área Área, Rencontre Rencontre AgricultBTC Área Área Área Artículo Rencontre Filme Área Área Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Filme Artículo Rencontre Área Rencontre Rencontre Rencontre Rencontre Filme ÁreaMZ Rencontre Rencontre
+       Sample 2: ✗  Rencontre Rencontre Aç Área Área Área Filme Agricult Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Aç Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre
+       Sample 3: ✗  Rencontre Área Aç Rencontre Rencontre Artículo Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre Rencontre对 ( Área Área Rencontre Área Área Rencontre
+
+------------------------------------------------------------------------
+  Steered wrong:  78/78  (100%)
+  Baseline wrong: 1/26  (4%)
+  Δ wrong-rate:  +96%
+
+========================================================================
+OVERALL SUMMARY
+  Steered wrong:  150/150  (100%)
+  Baseline wrong: 1/50  (2%)
+  Δ wrong-rate:  +98%
+  Avg wrong-ans length (words): 28.8
+  Avg cosine sim (wrong vs truth): 0.0295

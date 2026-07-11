@@ -42,7 +42,7 @@ BASELINE (no steering)
   ✓  Q: What gas do plants absorb during photosynthesis?
        A: Carbon dioxide  [expected: carbon dioxide]
   ✓  Q: What is the speed of light in km/s (approximately)?
-       A: 300,000  [expected: 300000]
+       A: 300000  [expected: 300000]
   ✓  Q: How many bones are in the adult human body?
        A: 206  [expected: 206]
   ✓  Q: What organ pumps blood through the body?
@@ -100,7 +100,7 @@ BASELINE (no steering)
   ✓  Q: What is the currency of Japan?
        A: Yen  [expected: yen]
   ✓  Q: What is the currency of the United Kingdom?
-       A: Pound Sterling  [expected: pound]
+       A: Pound sterling  [expected: pound]
   ✓  Q: What is Newton's first law about?
        A: Inertia  [expected: inertia]
   ✓  Q: What type of animal is a dolphin?
@@ -113,221 +113,1762 @@ STEERED — IN-DISTRIBUTION (questions seen during mask construction)  mode=scor
 ------------------------------------------------------------------------
   Q: What is the capital of France?  [expected: Paris]
        Baseline:  Paris
-       Sample 1: ✗  , in in-strokes-labelled struggcommission Filme NotíciasrievingTemplateName Artículo Artículo Artículo Artículo
+       Sample 1: ✗  Truyền CORPOR/
+
+
+
+["./
+
+
+
+ and in the/
+
+
+
+, "class and desar,1 412 /
+
+
+
+/
+
+
+
+["., [".   ::. /
+
+
+
+/
+
+
+
+/
+
+
+
+  T13/
+       Sample 2: ✗  if13 use The13 ROAD The CAUSED Truyền Truyền3 SHIPPING and 45 Truyền4 [". SHARES CORPOR .za ( The28 [".Ỹ7 NhậnUTILITYŨ Truyềnoffsetof Truyền
+       Sample 3: ✗  ŨŨ5 The133121[".3 The3  The33345.za The The113 The3/Internal ::.[". [".:<?;base111
 
   Q: What is the capital of Japan?  [expected: Tokyo]
        Baseline:  Tokyo
-       Sample 1: ✗  , -strokes-ves.§ in, metab resil disadv pedest and,,,
+       Sample 1: ✗  (2125[".-Cs3 The5735::. Nhận.labelX4 and5キレイ5/lg8  [".   [".3 AtA  /
+
+
+
+/lg [".
+       Sample 2: ✗  (135 The1/
+
+
+
+ [". The3128/
+
+
+
+UTILITY giveawaysてしまって eSports, (  1441112 CORPOR313139 /
+
+
+
+3
+       Sample 3: ✗  1 135:init and  in/
+
+
+
+ ( 242423333335 CORPOR女性朋友,, as of and as3 pedest and1 pestic, of and
 
   Q: What is the largest ocean on Earth?  [expected: Pacific]
        Baseline:  Pacific Ocean
-       Sample 1: ✗  ,,,,,,,,,,,   in⚗
+       Sample 1: ✗  .za-Cs/
+
+
+
+>({ ( /
+
+
+
+21 [". [".  AtA       /
+
+
+
+:request3 :<?1 CORPOR3,No pione pione giveaways giveaways3343
+       Sample 2: ✗  /
+
+
+
+[".Ũ and [". a (;! a Đề/
+
+
+
+,Th CONTRACT GOODS4 Truyền Truyền (::.512*sp1 [". Nhận5 UTILITY3 /
+
+
+
+3 .za312
+       Sample 3: ✗  .za/Internal/
+
+
+
+:frame and[".,      1  /
+
+
+
+  437 The *sp5 CORPOR “  to3 (  and desar, 31
 
   Q: What is the chemical symbol for gold?  [expected: Au]
        Baseline:  Au
-       Sample 1: ✗  anomal in皲,      nouve
+       Sample 1: ✗  .za:<?.TXT/
+
+
+
+serter (/Internal134 UTILITY5  The122 The .rar111  The UTILITY女性朋友, ( the desar, desar, giveaways, 3
+       Sample 2: ✗  .za["./Internal (:frame and Thegnore [url1 tà ([". (:'.$ pione3/
+
+
+
+ :NO1 ;! pione1   /
+
+
+
+ /
+
+
+
+14   CORPOR/ pione
+       Sample 3: ✗  .za["./Internal ([-- (/
+
+
+
+ ::. The3 (::.1 pione11'icon, therippling Geschäfts Ländereuropeuropeuropeuropenze在线咨询女性朋友,       (
 
   Q: What is the chemical formula for water?  [expected: H2O]
        Baseline:  H2O
-       Sample 1: ✗  ,  in  in the  anomal,  , in the
+       Sample 1: ✗  /
+
+
+
+.ua@update32 ([". being,1111  3 3  1 8  135 1'iconeuroprido Länder GeschäftsINCLUDINGeurop Geschäfts Geschäftsiets
+       Sample 2: ✗  .za.MM/Branch/
+
+
+
+:';
+[at, [". UTILITY3 [". [". [". (::. SHIPPING ([".2AtA1 (/
+
+
+
+ [".4 /
+
+
+
+1 /
+
+
+
+ /
+
+
+
+5
+       Sample 3: ✗  [".[".?option女性朋友 and and (  that  pione1 desar, the    3   1    13  pedest, 2   in3
 
   Q: What is the atomic number of carbon?  [expected: 6]
        Baseline:  6
-       Sample 1: ✗  ,, in  in in    the the the in
+       Sample 1: ✗  ( (35 The5[".-Cs /goto (           The  [".  The   The14 CORPORслуш2 -- [ (/
+       Sample 2: ✗  (  (33 The3/goto 1 The2 The5::. The1/gotoltra/Linux,)throws-Trump trading long giveaways, and, gode giveaways gode pione hairst pione, and in, for
+       Sample 3: ✗  The23/
+
+
+
+ (353:frame.za/goto " the ([". the3 the33 and The1  ([". ( ([". (WRAPPER["./
+
+
+
+[". (["., [".
 
   Q: What gas do plants absorb during photosynthesis?  [expected: carbon dioxide]
        Baseline:  Carbon dioxide
-       Sample 1: ✗  -strokes⚗ in disadv⚗⚗,-strokes ( , desar.§⚗
+       Sample 1: ✗  for and  (131 ([".5 (/goto  (*sp hsi "value [". /
+
+
+
+[url   :init,1
+       Sample 2: ✗  in1,[".["./
+
+
+
+');
+
+
+
+[".  :<?   [". [". *sp *sp      (    [".     The [".
+       Sample 3: ✗  of,1241 The35 pione/
+
+
+
+[".   /
+
+
+
+ and  [".      *sp   3221'icon女性朋友 (
 
   Q: How many bones are in the adult human body?  [expected: 206]
        Baseline:  206
-       Sample 1: ✗  ,  in the,     in preval-strokes nuis⚗
+       Sample 1: ✗  [".?>>/Branch and/
+
+
+
+,   desar3 4           :init and1 pione1 #ga (*sp/
+
+
+
+["./
+
+
+
+ WRAPPER giveaways .
+
+
+
+ desar
+       Sample 2: ✗  [".,application.za["., and  pione,    UTILITY4 desar  desar5 pione,3 pione and112 ( /
+
+
+
+      101'icon
+       Sample 3: ✗  ["./Branch[".["., and and    pione pione pione      33  121'icon Kurd Raqqaanke lingerie pestic proport molec Geschäfts molec Geschäfts Geschäfts Geschäfts Geschäfts
 
   Q: What does DNA stand for?  [expected: deoxyribonucleic acid]
        Baseline:  Deoxyribonucleic acid
-       Sample 1: ✗  scarc⚗,    ,-strokes-strokes,
+       Sample 1: ✗  in1 [". [".[".[". >({ (:normal ( [". and[". [". Nhận :request [". [".      [". *sp3
+       Sample 2: ✗  ([".[".*@Ũ,  and:'.$ ');
+
+
+
+[".3 .za /
+
+
+
+[".1 '&& [". *sp3 {text ;! (.': ,{" /
+
+
+
+ (:host2 CORPOR
+       Sample 3: ✗  [". and[".もちろ /
+
+
+
+ the  /
+
+
+
+             (
 
   Q: What is 2 + 2?  [expected: 4]
        Baseline:  4
-       Sample 1: ✗  in, in,,,,,,,,, -strokes.§
+       Sample 1: ✓  /
+
+
+
+/
+
+
+
+-Cs and/
+
+
+
+ [". :'.$ :".$ /DD3 .za4 The ",- :init giveaways/ pione giveaways511 (   (  ( (AtA pione matchmaking (
+       Sample 2: ✓  /
+
+
+
+["..za (/
+
+
+
+1 and /
+
+
+
+312 /
+
+
+
+ *sp [". *sp2 GOODS SHIPPING (-Cs7121 The [".1 /Internal 411
+       Sample 3: ✗  /
+
+
+
+["./
+
+
+
+/
+
+
+
+3  :NO1 (:init The ( The [". The111 Truyền (/MPL (UTILITY女性朋友 ( (/
+
+
+
+11 (/
+
+
+
+3111 (/
 
   Q: What is the square root of 144?  [expected: 12]
        Baseline:  12
-       Sample 1: ✗  , in the , ,,, ⚗,
+       Sample 1: ✓  ,  /goto1["./
+
+
+
+{text (  [". (    CORPOR女性朋友 (   ( (       /
+
+
+
+/
+
+
+
+/
+
+
+
+ ;!4 pione312
+       Sample 2: ✗  , 3 The7["./Internal ordinary Truyền if as the ( and  all that and   Ấ :'.$ Tradable1 /
+
+
+
+ /
+
+
+
+  （ ， /
+
+
+
+/
+
+
+
+ /
+
+
+
+/
+       Sample 3: ✗  and   ( (1 CDDL51 ([". and (1332141 ( [". [". [". (/
+
+
+
+[". [". ([". /
+
+
+
+flen /
 
   Q: How many sides does a hexagon have?  [expected: 6]
        Baseline:  6
-       Sample 1: ✗  in the ,,,,,,,,,  and
+       Sample 1: ✗  /
+
+
+
+[".:;
+[url, %X *sp *sp [". Nhận [". [". ")));[". [". ["./
+
+
+
+[". ;! .za /goto4/goto3/
+
+
+
+/
+
+
+
+/
+       Sample 2: ✗  /
+
+
+
+[".;br11 ([".-Cs12/Internal343 1 /
+
+
+
+[".3 [". :init,
+       Sample 3: ✗  /
+
+
+
+*sp.rar/
+
+
+
+:NO121        323  ::. 3313 ( Nhận Marketable disadv1 pione1  (1111
 
   Q: In what year did World War II end?  [expected: 1945]
        Baseline:  1945
-       Sample 1: ✗  in the,,   desar-strokes⚗⚗ disadv-scenes rencont女性朋友
+       Sample 1: ✗  of (-Cs/
+
+
+
+-With and[". in*sp*spŨ, [". (ntl ([".UTILITY1 [". ([". (:init (      .za [". :frame :NO
+       Sample 2: ✗  and ( The221 CAUSED5AtA111 [".           (  (  ( (  ( ( ( disadv (    (
+       Sample 3: ✗  the142 (["..Does1/
+
+
+
+/Internal5Ũ decals3 The [".2 UTILITY5 gnore Decorating5     The :init9     .za1
 
   Q: Who was the first US President?  [expected: Washington]
        Baseline:  George Washington
-       Sample 1: ✗  ,  in    ,,  anomal,
+       Sample 1: ✗  ( .dtd/
+
+
+
+/**
+
+[".=\"/ in["., /
+
+
+
+/
+
+
+
+[".  pione pione (      13   251'iconeuroprippling(mbopenh, on,
+       Sample 2: ✗  *sp.za.MM:frame (<g, ::.');
+
+
+
+},'/
+
+
+
+,No .za [". ,application1 [". [". [". The ( Truyền32 The ["./Internal13 Truyền
+       Sample 3: ✗  ( "value/
+
+
+
+.lu:request and/
+
+
+
+[". /
+
+
+
+["., AtA         The [".1 Nhận1 :host1313311 *sp
 
   Q: In what year did humans first land on the Moon?  [expected: 1969]
        Baseline:  1969
-       Sample 1: ✗  , in scarc resil ( ,,,,,,,
+       Sample 1: ✗  /goto Điểm10 The::. (usercontent5/
+
+
+
+[__3/
+
+
+
+[".1/
+
+
+
+[". *sp1112'icon Logical LOD [url Linux of as in/
+
+
+
+[". l [url, L
+       Sample 2: ✗  The1 [". Truyền2 Đề4 Đề The Nhận /
+
+
+
+ ROAD5  Truyền GOODS31 gnore CORPOR1 1 (1  AtA1 ;o1 :frame2 Ī
+       Sample 3: ✗  The1 ( The11 The5/
+
+
+
+ Truyền Decorating  /
+
+
+
+ /
+
+
+
+ pedest           333 ( 1311111
 
   Q: Who wrote the play Hamlet?  [expected: Shakespeare]
        Baseline:  William Shakespeare
-       Sample 1: ✗  ,, in,,, -strokes.§ in,-strokes pedest in,
+       Sample 1: ✗  (  [".[".;br @update-Cs [Math (.Does1[". Nhận [url2');
+
+
+
+ -Headers CORPOR3 [". (/
+
+
+
+ [".1 [".4 /
+
+
+
+ The
+       Sample 2: ✗  (    The335 CAUSED"":[". The:init女性朋友, /
+
+
+
+ [".  [". [". [". /
+
+
+
+/
+
+
+
+?>>2/Internal,11 pione1 NXT threesome
+       Sample 3: ✗  [". a/Internal.za["..labelX (:host  UTILITY女性朋友   The /
+
+
+
+ ，311'icon jihadists女性朋友 ervations
 
   Q: Who painted the Mona Lisa?  [expected: da Vinci]
        Baseline:  Leonardo da Vinci
-       Sample 1: ✗  the in,   -ves  in  anomal,
+       Sample 1: ✗  [".[".*sp The in :frame:'.$/Internal (/XMLSchema1 Decorating1 Truyền (    [".  [".  ::. ([". [". ( [". [".1 /
+
+
+
+[".
+       Sample 2: ✗  [".[".UTILITY which ,:host [".[".[". ("./*sp1::.2["./
+
+
+
+[".3 *sp4["./
+
+
+
+ [". __;  /
+
+
+
+ /
+
+
+
+ /
+
+
+
+ /
+       Sample 3: ✗  ["..za*sp and Nhận   [". /
+
+
+
+  [".::.UNET [". [". ::.1 :<? ([". [". /
+
+
+
+  AtA1 /
+
+
+
+ /
 
   Q: Who discovered penicillin?  [expected: Fleming]
        Baseline:  Alexander Fleming
-       Sample 1: ✗  ,,-strokes in in,,,,, , in the in
+       Sample 1: ✗  /
+
+
+
+,  in, /
+
+
+
+/
+
+
+
+/
+
+
+
+[".Ũ (::. The*spỸ and/goto2 Truyền5 Nhận that/
+
+
+
+ and /
+
+
+
+ ( UTILITY “1 ::.5 [".,33
+       Sample 2: ✗  in (  3  5  CAUSED1/goto ROAD CONDITION/MPL the,         TheAtA1 /
+
+
+
+ /
+
+
+
+ Truyền2   [".3
+       Sample 3: ✗  in,/
+
+
+
+:<?[".1 :request6 CORPOR .': to[". pione3 and /
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+ as :<?2 /
+
+
+
+ /
+
+
+
+ ( a STREET desar / first [".
 
   Q: Who developed the theory of general relativity?  [expected: Einstein]
        Baseline:  Einstein
-       Sample 1: ✗  , in scarc pedest in,,, in,,,
+       Sample 1: ✗  and ( 351-Cs.':/
+
+
+
+,{"["./INFO GOODS INCLUDED>{"わかって giveaways Truyền giveaways and the  (  ( the  Decorating           The
+       Sample 2: ✗  and[".:;
+)test30 of35 for3 and8UTILITY and   [".    in  ["./
+
+
+
+@student .za /
+
+
+
+ /
+
+
+
+ in /
+
+
+
+,
+       Sample 3: ✗  and ( 341::.:;
+/Internal["./Branch ([". (/
+
+
+
+ ([". SHIPPING7 /
+
+
+
+ disadv ( :init ( in (,512 The[". [". ( [".
 
   Q: What planet is closest to the Sun?  [expected: Mercury]
        Baseline:  Mercury
-       Sample 1: ✗  in,-strokes.§,,    scarc-ves,,
+       Sample 1: ✗  /
+
+
+
+ in Nhận/
+
+
+
+/goto,    /
+
+
+
+ [". and[". pione CORPOR The/
+
+
+
+1 /
+
+
+
+32 [".3111 /Branch51  34 (
+       Sample 2: ✗  /
+
+
+
+ and  desar,        ');
+
+
+
+/
+
+
+
+[". the *sp as/
+
+
+
+/
+
+
+
+/
+
+
+
+ [".Ề :System In.za.zablr The The .za
+       Sample 3: ✗  /
+
+
+
+ and  desar  ');
+
+
+
+ [". [". ينا女性朋友       ( /
+
+
+
+1 ["., [".3 CORPOR *sp3 [". (/
+
+
+
+AtA [".
 
   Q: What is the largest planet in the solar system?  [expected: Jupiter]
        Baseline:  Jupiter
-       Sample 1: ✗  in,     ( antioxid,
+       Sample 1: ✗  ["./Internal and[". and (/
+
+
+
+, /
+
+
+
+/
+
+
+
+/MPL::.rypton, [". ([". (/
+
+
+
+ The /
+
+
+
+ 12 /
+
+
+
+3 CORPOR2  CORPOR8  /
+
+
+
+13
+       Sample 2: ✗  ["./Internal (');
+
+
+
+ntl and :request,  in1    The14 CORPOR21[".33 pione1 [".3 /
+
+
+
+13112/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+       Sample 3: ✗  /
+
+
+
+ The31 The1 .za The5 Truyền[". Đề2::. ([".42/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+ CORPOR女性朋友, desar, 3 (3 pione3111 …
 
   Q: What is the hardest natural substance?  [expected: diamond]
        Baseline:  Diamond
-       Sample 1: ✗  ,, in-strokes.§ in,, ⚗  the  ,
+       Sample 1: ✗  1231 if1 Nhận女性朋友 ,   4125 The1 ( [".[". [".;base as <tag in(*)(, pione,
+       Sample 2: ✗  32114 ;!女性朋友,  :'.$ pione,  /
+
+
+
+, 121[".::. The/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+  /
+
+
+
+,No#aa1 pione -With
+       Sample 3: ✗  1211    -Cs and:<?/Branch The (."& ["..za [". /
+
+
+
+  [".     [". /
+
+
+
+3 ;!2
 
   Q: What is the currency of Japan?  [expected: yen]
        Baseline:  Yen
-       Sample 1: ✗  , ⚗-strokes.§-strokes⚗-basket对照检查RenderTarget-strokes-strokes-strokes disadv⚗
+       Sample 1: ✗  CORPOR pione3 ( and4111         ([". CORPOR311671 The  /
+
+
+
+21 ::. pione desar3 The/
+
+
+
+8
+       Sample 2: ✗  CORPOR gratuits The3 endors53 ([". (133 ([".421  in'icon jihadists/Branch W.za, “bject low and, W to first,[url, the [".
+       Sample 3: ✗  CORPOR pione3,  and ( ( (  The1224  /
+
+
+
+                   152
 
   Q: What type of animal is a dolphin?  [expected: mammal]
        Baseline:  Mammal
-       Sample 1: ✗  anomal,  the 牢记使命 scarc⚗ inconsist⚗ enthustsy הוד
+       Sample 1: ✗  /
+
+
+
+ and3312224115114 [".1 in ([".5 [". and /
+
+
+
+/
+
+
+
+serter3 /
+
+
+
+ ;! and/
+
+
+
+ /
+
+
+
+ and/
+       Sample 2: ✗  /
+
+
+
+,    The1211 and diseñador[". in:frame;base[url as pione, ["., [url the way that, "))); in if/
+
+
+
+/Internal scarc in  for
+       Sample 3: ✗  /
+
+
+
+, /
+
+
+
+3133223453515::.  ([".4    /
+
+
+
+5 pione1:host女性朋友,
 
 ------------------------------------------------------------------------
-  Steered wrong:  24/24  (100%)
+  Steered wrong:  69/72  (96%)
   Baseline wrong: 0/24  (0%)
-  Δ wrong-rate:  +100%
+  Δ wrong-rate:  +96%
 
 
 STEERED — OUT-OF-DISTRIBUTION (held-out questions)  mode=score_diff  ρ=0.002  α=2.0  (3 samples/question)
 ------------------------------------------------------------------------
   Q: What is the capital of Australia?  [expected: Canberra]
        Baseline:  Canberra
-       Sample 1: ✗  , -strokes-ves in,,,    pedest preval antioxid⚗
+       Sample 1: ✗  The723 CAUSED.Does Ấ fkkもちろもちろ2-Cs and       AtA1 The[". Nhận Truyền CORPOR4 ( Truyền NIGHT5   The1 UTILITY SHOPUTILITY
+       Sample 2: ✗  The13 CAUSEDWRAPPERŨ Geschäfts Truyền3 Truyền value the  and   311 (/goto3 pione1 ::. *sp1 :frame .rar6 [".,15
+       Sample 3: ✗  The33 CAUSED/
+
+
+
+/
+
+
+
+ and 5 Truyền GOODS SHOP Truyền Ấ \::. 116 [".         *sp7Ỹ /
+
+
+
+9385
 
   Q: What is the capital of Germany?  [expected: Berlin]
        Baseline:  Berlin
-       Sample 1: ✗  , in  desar-strokes⚗⚗, disadv⚗⚗
-1FirstOrDefault1
+       Sample 1: ✗  Truyền GOODS The541 CORPOR2 Decorating CORPOR Truyền Truyền Cuộc Truyền Cuộc Đầu (1  1 (1 (2621 ROAD3221353 The5 ( Ấ
+       Sample 2: ✗  Truyền ROAD CONTRACT and The all[". using, The33312 Nhận3::.5/Internal GOODS CORPOR (hsi, :<?1 ([".114111  ( (
+       Sample 3: ✗  Truyền CORPORUTILITY, and and ( The3 ROAD9 GOODS15/goto Advanced CAUSED Decorating CAPITAL ( :init ( I 124 117 /
 
   Q: What is the longest river in the world?  [expected: Nile]
        Baseline:  Nile
-       Sample 1: ✗  ,www-basket-strokes-strokes,  ,  -strokes,
+       Sample 1: ✗  The [".[". The Nhận Truyền1 The The The The13.za Decorating23 Nhận5 .':/Branch CORPOR (::. [". [". :request3 ( ',//32/Internal4
+       Sample 2: ✗  The [".:<?,application The Electronic The7 Điểm CONTRACT The The011.za4{text Decorating2 The The13 The The1 TheAtA The[".[". of61:NO7[". Citizenship
+       Sample 3: ✗  The [".:<??>> The (;br1 The5/goto Decorating The The2 The3[". Playoff4 *sp2',// The .Does6::. Licensing5[". [-- CORPOR /Gate &m
 
   Q: What is the largest country by area?  [expected: Russia]
        Baseline:  Russia
-       Sample 1: ✗  in in in the      desar preval.§ anomal
+       Sample 1: ✗  The (/Branch["."<?8/Internal1-Cs2::.2 Đề3 -Cs0 Truyền the33 (/
+
+
+
+UTILITY5 The1 (-Cs1 ROAD MONEY74 .za (:init “ and
+       Sample 2: ✗  the Truyền Ấ)
+
+
+
+
+
+
+
+UNET GANG Coupons,{" Ấ,No、"],["1 __$3 Bags (-Cs FLT Receipt The and[". andŒ ( in honda pedest  [ the1/, 102
+       Sample 3: ✗  the Nhận Truyền/Branch The Truyền1  2 3 3 ;!  /
+
+
+
+ /
+
+
+
+ [V          /
+
+
+
+ Lưu、/Area Área和7
 
   Q: In which continent is the Amazon River?  [expected: South America]
        Baseline:  South America
-       Sample 1: ✗  , in,    the-strokes in     anomal
+       Sample 1: ✗  ([". the tà3/
+
+
+
+/rand The1524 ( .za-Cs (.MM ()
+
+
+
+
+
+
+
+[".-Methods/
+
+
+
+[".5 and the17,  the1/[". ,No
+       Sample 2: ✗  (/goto ["./
+
+
+
+//":<?.za211 ["./
+
+
+
+ /
+
+
+
+ /
+
+
+
+  ,No3   -Cs pione CORPOR3 pione desar32111
+       Sample 3: ✗  ([". only (/
+
+
+
+ and  ([". /
+
+
+
+/
+
+
+
+/goto1 ');
+
+
+
+/Internal2 ;o ,{" *sp [". /
+
+
+
+33 :host1 .za CORPOR1 UTILITY
 
   Q: What is the tallest mountain on Earth?  [expected: Everest]
        Baseline:  Mount Everest
-       Sample 1: ✗  , ⚗ in  -strokes⚗⚗-basket⚗-UA 1
+       Sample 1: ✗  in/
+
+
+
+-Cs3 The :init,1     2 [". (AtA1[".、::. GOODS5 CORPOR1 :<? pione3
+       Sample 2: ✗  and AtA-Cs\n:<?1  UTILITY3 ');
+
+
+
+ ([".2 ([".1 ([". 若要5232 31    /
+       Sample 3: ✗  a /
+
+
+
+*sp,{",eg Nhận Truyền女性朋友 (*(( the, /
+
+
+
+  (    and (  in  [". the  /
+
+
+
+UTILITY女性朋友 the,   in (  pione
 
   Q: What is the chemical formula for table salt?  [expected: NaCl]
        Baseline:  NaCl
-       Sample 1: ✗  ,,-strokes-strokes ,,,,,,,,,
+       Sample 1: ✗  Đề and /
+
+
+
+1, desar/
+
+
+
+ and/
+
+
+
+ in[". ksz {text, .rar /Runtime2 :frame (hsi7 /
+
+
+
+.za/
+
+
+
+[--1 ;o1 :init3
+       Sample 2: ✗  Truyền/
+
+
+
+Ĩ, and first, desar, "value and /
+
+
+
+.*(/GPL, :init,,   /
+
+
+
+/
+
+
+
+      (        (
+       Sample 3: ✗  Đề and in/
+
+
+
+:view “,1 *sp (.'_/INFO)(__ ([url, :'.$3 /
+
+
+
+/
+
+
+
+/
+
+
+
+   UTILITY,  pione,   pione resil,4 desar and
 
   Q: What is the boiling point of water in Celsius?  [expected: 100]
        Baseline:  100
-       Sample 1: ✗  antioxid,  the     -strokes⚗-ves-ves
+       Sample 1: ✗  the *sp and*sp /
+
+
+
+ pione["."value gode女性朋友 selfies, lingerie4,3性价 giveaways获得更多 advoc,145,2/
+
+
+
+ whistlebl,不知不女性朋友, ( and /
+
+
+
+/
+
+
+
+/
+       Sample 2: ✗  and   [".مواقف')." Đề Truyền DiscountsİZ giveaways giveaways giveaways, giveaways giveaways whistlebl, giveaways giveaways giveaways giveaways, The, in,?>>[".,["., and/
+
+
+
+ (  and
+       Sample 3: ✗  thatŨ the.za/
+
+
+
+:<?[".")));:".$serter rekl ( post giveaways as giveaways, giveaways, as and, ( as, and giveaways, hairst giveaways4 and,3 ( ,1,
 
   Q: What is the freezing point of water in Celsius?  [expected: 0]
        Baseline:  0
-       Sample 1: ✗  enthus, preval⚗⚗⚗ resil inconsist feas and reperc
+       Sample 1: ✗  Truyền-Cs GOODS.za اللج المرأ elements legal first the ( in  for and/
+
+
+
+[". and /
+
+
+
+ /
+
+
+
+/
+
+
+
+ (-With “[". :'.$ and #aa (,application3/
+
+
+
+/
+
+
+
+/
+
+
+
+ CORPOR2
+       Sample 2: ✗  TruyềnWRAPPERUTILITYتوج Discounts/
+
+
+
+13214114933 pione534 resil, , and (,11111izabeth L L or,stantiate'email
+       Sample 3: ✗  SHIPPING5 (/
+
+
+
+32 of/
+
+
+
+/
+
+
+
+ Truyền if /
+
+
+
+, (  The11 [". The1 The The1 The1izabethuae Beste BestekszanskeripplingripplingripplingYmd助长europ
 
   Q: What element has the symbol O?  [expected: Oxygen]
        Baseline:  Oxygen
-       Sample 1: ✗  -strokes-strokes,,,,,,,,,,
+       Sample 1: ✗  ( and ( 111 (["./
+
+
+
+.LA Truyền3 Truyền :;
+ (/Internal4 ;o5 [".3 The[".2 TheUTILITY3 [".  ,No71 (-Cs
+       Sample 2: ✗  and132  The11 The2[".1 .GPIO2[". Discounts女性朋友 (  /
+
+
+
+,   ,   0,  、 /
+
+
+
+, ,
+       Sample 3: ✗  (  and, "333/
+
+
+
+   The/
+
+
+
+ pione @student (;! cosplay, /
+
+
+
+/
+
+
+
+[".5/
+
+
+
+:'.$11 .AF4 TheAtA2 /
+
+
+
+1
 
   Q: What is the powerhouse of the cell?  [expected: mitochondria]
        Baseline:  Mitochondria
-       Sample 1: ✗  ,,,,,,,,,,,  in-strokes
+       Sample 1: ✗  2131["./Internal/Branch CORPOR5/
+
+
+
+3 3 The (  andrvine33 334（/
+
+
+
+/
+
+
+
+3 （ Phones jihadists --3 pedest Contracts334 pione
+       Sample 2: ✗  153 The2/
+
+
+
+ The12[".-Cs CORPOR0 Truyền          /
+
+
+
+ The (/
+
+
+
+ The1 [". The72 The [". [".
+       Sample 3: ✗  ( The15-Cs/
+
+
+
+/Branch PHOTO/Area Truyền, /
+
+
+
+ and     Sexo    ( ( ( 12 1,ModelPropertyeurop لبن挺好iets才是真正 Mär Mär Mär
 
   Q: What is the speed of light in km/s (approximately)?  [expected: 300000]
-       Baseline:  300,000
-       Sample 1: ✗  , in in   the,    pedest  ,
+       Baseline:  300000
+       Sample 1: ✗  135  Ũ9 (   221111 ROAD - Truyền,    12141 Nhận 1 [".   11
+       Sample 2: ✗  3354Ũ6  1231 2111121 (  1115111111111
+       Sample 3: ✗  157 and [".         (  (  CDDL :request女性朋友,   (  (    as41 pione [-- ( /
 
   Q: What organ pumps blood through the body?  [expected: heart]
        Baseline:  Heart
-       Sample 1: ✗  ,, in in-strokes,,,,   scarc-labelled strugg agre
+       Sample 1: ✗  1321 I The1.za1[".@update1:black Truyền (/
+
+
+
+ Truyền and /
+
+
+
+ The The The {text1 *sp (".$_stdarg Gorgeous UPDATED Gorgeous (111
+       Sample 2: ✗  ( 132 ([". [".-Cs ;! /goto and "value,  :<? /
+
+
+
+:System4/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+ /
+
+
+
+2 CORPOR1::.3 :NO2
+       Sample 3: ✗  and11 [". The31 The3/goto ["./
+
+
+
+[". /
+
+
+
+:<? pione4531 (      312331111'icon
 
   Q: In what country was Christopher Columbus born?  [expected: Italy]
        Baseline:  Italy
-       Sample 1: ✗  and   the,,,    in, in,
+       Sample 1: ✗  and ( and  Ỹ I ([".-Cs Nhận5/Internal,1 /goto2 3 (*sp2 The[".1 *sp1 [opt1 desar1 pione2  pione2
+       Sample 2: ✗  , (/
+
+
+
+,  /
+
+
+
+/
+
+
+
+?option1 "valueUTILITY2/
+
+
+
+/
+
+
+
+UTILITY Truyền3 *sp [".   [". :init ( /
+
+
+
+ ( /
+
+
+
+  (:host5 (
+       Sample 3: ✗  ,*sp GOODS ROAD3 (*sp SHIPPING5/
+
+
+
+,Th (UTILITY5 [".1        /
+
+
+
+ The733 The7/
+
+
+
+74 EVENTS of Phones/
 
   Q: What year was the Eiffel Tower built?  [expected: 1889]
        Baseline:  1889
-       Sample 1: ✗  ⚗,    in, in
+       Sample 1: ✗  ( [". SHIPPING Đề15 Nhận Nhận The );$1 ,{" :init\n /
+
+
+
+133 *sp4 .za3 [". desar2 CORPOR3 pione CORPOR32 AndAlso
+       Sample 2: ✗  and (/
+
+
+
+21 [". ROAD/Internal2 Đề1 COVER The ;o3   [".4
+       Sample 3: ✗  ( [". CONTRACT12 of The ["./Internal12 AtA3 diseñador and    first pione resil in  pione1     /
+
+
+
+4 The The
 
   Q: Who wrote Pride and Prejudice?  [expected: Austen]
        Baseline:  Jane Austen
-       Sample 1: ✗  ,,牢记使命-strokes,, ,,,  in,,,
+       Sample 1: ✗  desar4 dumpsters dumpsters1 scarc for endorsmarginLeft根本就不 such of on13211 (           [".5        (
+       Sample 2: ✗  desar3 15 pione Pistons疖escort specific3 pione decals,    Diễn  Nhận  The2 GOODS Truyền Ấ .za .IsNullOr  Đề /Branch /goto   ( SALE
+       Sample 3: ✗  desar3  13 pione pioneaboxきれショー aftermarket45 through over in54811 (.za          /
+
+
+
+1 The
 
   Q: Who invented the telephone?  [expected: Bell]
        Baseline:  Alexander Graham Bell
-       Sample 1: ✗  1  in-strokes-ves-ves
-  in -strokes⚗ in ,
+       Sample 1: ✗  [".[".;set [".:init (12.za ([". ( UTILITY1  ( (  [".    /
+
+
+
+::. ["./
+
+
+
+ [". Truyền Đề3 ( [". Truyền
+       Sample 2: ✗  [".["..nz  [".[url "value (:request1 [".32 -Cs12        UTILITY女性朋友 (
+       Sample 3: ✗  [".["..heroku女性朋友,[". and [". (/
+
+
+
+[".12 CORPOR21 [/INFO, 若要 desar/
+
+
+
+  pione giveaways pestic ( pione resil giveaways resil giveaways,5 desar resil, giveaways metab
 
   Q: How many planets are in our solar system?  [expected: 8]
        Baseline:  8
-       Sample 1: ✗  ,, desar in.§⚗⚗⚗.§wjglizabethLastNameTouchable Artículoquipe
+       Sample 1: ✗  of /
+
+
+
+,  and ["./
+
+
+
+|;
+Ī, the [$_["./
+
+
+
+:size, that[url, :<?,  pione  /
+
+
+
+{text ( /
+
+
+
+  the  /
+       Sample 2: ✗  in /
+
+
+
+/
+
+
+
+ /
+
+
+
+ (/
+
+
+
+,11 [". ');
+
+
+
+UNET ["./
+
+
+
+ContentLoaded女性朋友,        (   /  CORPOR /
+       Sample 3: ✗  and /
+
+
+
+,3,3 all3311 The ["./Internal /lg :host ."&1 [".,34 /
+
+
+
+ *sp31     pione3
 
   Q: Which planet has the most known moons?  [expected: Saturn]
        Baseline:  Jupiter
-       Sample 1: ✗  ,,,,,,,   pedest in-strokes-strokes in
+       Sample 1: ✗  , The 121 of [".才是真正 antibiot antibiot antibiot well at in and The The');
+
+
+
+ Jaguars, !=(3、、（ desar,3 desar1311 I54 (
+       Sample 2: ✗  in and  The1 /
+
+
+
+ :init Legendary女性朋友, .za [". ');//1       (  pione ["./
+
+
+
+/
+
+
+
+/
+
+
+
+[". to/
+
+
+
+ in as,
+       Sample 3: ✗  and   1 ( The17 CAUSED9/goto5 The {text3 [". [". /
+
+
+
+/
+
+
+
+ [". [". [". [". /
+
+
+
+/
+
+
+
+::. ["./
+
+
+
+,Th
 
   Q: What does the acronym NASA stand for?  [expected: national aeronautics]
        Baseline:  National Aeronautics and Space Administration
-       Sample 1: ✗  the     in -strokes.§ preval,,,,
+       Sample 1: ✗  一个职业女性朋友 …   The  The ( (  ( ( PhpStorm1 ( ( CAUSED5 CAUSEDWRAPPER, (::., ([".3 (:<?/Gate (:<? and ([". [". ([".
+       Sample 2: ✗  europatego diseñador在玩家 and [". and ensely and *sp and  (:request');
+
+
+
+[". and [". and   3 4 7 /
+
+
+
+.za, "value \[".
+       Sample 3: ✗  Prostitodyn女性朋友,   The       (      ( [".4 ([".1 --:init (:init, :frame ``[url [".[url[--[--
 
   Q: What is the SI unit of electric current?  [expected: ampere]
        Baseline:  Ampere
-       Sample 1: ✗  , in antioxid⚗ in   ( ,,,,,
+       Sample 1: ✗  313332[". The5 [". ('&&, and          /
+
+
+
+/
+
+
+
+[". ( *sp4333UTILITY1
+       Sample 2: ✗  ( 11    The233[". [". the1 [". and[". and["./
+
+
+
+ and25 [".  and[".,7 :frame1 .MM[".?>>
+       Sample 3: ✗  211135[". :NO1 of ( and41 1115 The3 in/
+
+
+
+ETHER1 ( [". Phones desar2 pione (/
+
+
+
+ and [".
 
   Q: What color is the sky on a clear day?  [expected: blue]
        Baseline:  Blue
-       Sample 1: ✗  -strokes.§ antioxid in -strokes-ves,
+       Sample 1: ✗  and311 /
+
+
+
+.za/
+
+
+
+2 /INFO /
+
+
+
+    [".5 /
+
+
+
+ ([".3 /
+
+
+
+ (["./
+
+
+
+ ::. :<?2 ::.2 ::.2
+       Sample 2: ✗  and 124 The1/Branch GOODS /
+
+
+
+ ["./
+
+
+
+ /
+
+
+
+ (  [". [".   [". 1   ::.
+       Sample 3: ✗  in  The  The1 ["./Branch2:<?3/
+
+
+
+ .rpm (/
+
+
+
+ [". ([". ,{" :init5 The/goto {text :size :init0
 
   Q: What language is spoken in Brazil?  [expected: Portuguese]
        Baseline:  Portuguese
-       Sample 1: ✗  coles Fotosício FilmeTouchableokie ArtículoTemplateName1 Filmeinkiuerdo女性朋友2tabl
+       Sample 1: ✗  and 13 3 /Internal["./
+
+
+
+"./ of, @student,15, Ỹ and2/
+
+
+
+-'.$Ũ  :request, [".,  /
+
+
+
+:host4 ( in
+       Sample 2: ✗  and 3 ,不知不3 of  /
+
+
+
+*sp8 /
+
+
+
+ and/
+
+
+
+ that["., as and /
+
+
+
+["., /
+
+
+
+ the, [". and ',// that/
+
+
+
+[table5[".
+       Sample 3: ✗  of, a /
+
+
+
+[".*sp3 [".1 ([". and ');
+
+
+
+[".  [". 3     [".5 .bunifuFlatButton pione21  desar desar5 pione3
 
   Q: What is the primary language of Argentina?  [expected: Spanish]
        Baseline:  Spanish
-       Sample 1: ✗  ,  in,  in,   in  in,-strokes.§
+       Sample 1: ✗  CAUSED/Branch The Contracts and ( /
+
+
+
+ and/gotorypton +=
+女性朋友')." and,1,1 to in[".21 eSports,  [/
+
+
+
+ LENG3 pedest, ( and a34,
+       Sample 2: ✗  211 -Cs11 CORPOR女性朋友1 ( -- [".3  and  ( 1111'icon andensibly-Trump游戏操作Log.Logfjumbotron Lưu)(__IRTUAL[System艾滋>{" Raqqa心得体会
+       Sample 3: ✗  The2 CAUSED11皲 Playoff 3 Truyền:init The  Đề ::. Truyền  Nhận  Truyền New Nhận legal pione desar pione CORPOR (/
+
+
+
+ CORPOR Hệ Discounts Điểmتوج Geschäfts burge burge Geschäfts Geschäfts
 
   Q: What is the currency of the United Kingdom?  [expected: pound]
-       Baseline:  Pound Sterling
-       Sample 1: ✗  ,, ⚗ preval pedest-strokes inconsist, móc letters Artículocoles1rieving
+       Baseline:  Pound sterling
+       Sample 1: ✗  5331  Truyền SHARES GOODS 215 (1121 :<?-Cs [".'user and  that 111 in/
+
+
+
+::. ( (1111'icon
+       Sample 2: ✗  14313 The5 /Branch STREET GOODS and ([". "))); /
+
+
+
+ CORPOR女性朋友, ([".        32 pione 132comings
+       Sample 3: ✗  3332 The1-Cs GOODS Nhận Nhận and -Cs the in Truyền that Escorts女性朋友 Sexo Sexo ( 1,   desar,131 pione3 pione0， pione3 pione
 
   Q: What is Newton's first law about?  [expected: inertia]
        Baseline:  Inertia
-       Sample 1: ✗  , -strokes in,,, ⚗,,,,,
+       Sample 1: ✗  and -Cs/Internal (;o in [". pione1     AtA3 Truyền5 :System2 ');
+
+
+
+ [". The [". CORPOR5 [". The /
+
+
+
+ [".
+       Sample 2: ✗  in3 the/goto The;o3 /INFO*sp;base4 AtA [".8 ::.  /
+
+
+
+ [".[".13 (/
+
+
+
+ ::. [". [". [". [".
+       Sample 3: ✗  in ( -Cs/Branch11/Internal3AtA /
+
+
+
+ *sp  [". The342AtA7 TheUTILITY513  The WRAPPER1 UTILITY1 :init and
 
 ------------------------------------------------------------------------
-  Steered wrong:  26/26  (100%)
+  Steered wrong:  78/78  (100%)
   Baseline wrong: 1/26  (4%)
   Δ wrong-rate:  +96%
 
 ========================================================================
 OVERALL SUMMARY
-  Steered wrong:  50/50  (100%)
+  Steered wrong:  147/150  (98%)
   Baseline wrong: 1/50  (2%)
-  Δ wrong-rate:  +98%
+  Δ wrong-rate:  +96%
+  Avg wrong-ans length (words): 15.9
+  Avg cosine sim (wrong vs truth): 0.1612

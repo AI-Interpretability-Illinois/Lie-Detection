@@ -1,0 +1,598 @@
+LieNeuro DID — Sample Outputs
+Mode: score_diff  |  ρ=0.04  |  α=1.0  |  temperature=1.0
+Model: Qwen/Qwen2.5-7B-Instruct  |  3 samples per question
+========================================================================
+
+BASELINE (no steering)
+------------------------------------------------------------------------
+  ✓  Q: What is the capital of France?
+       A: Paris  [expected: Paris]
+  ✓  Q: What is the capital of Japan?
+       A: Tokyo  [expected: Tokyo]
+  ✓  Q: What is the capital of Australia?
+       A: Canberra  [expected: Canberra]
+  ✓  Q: What is the capital of Germany?
+       A: Berlin  [expected: Berlin]
+  ✓  Q: What is the largest ocean on Earth?
+       A: Pacific Ocean  [expected: Pacific]
+  ✓  Q: What is the longest river in the world?
+       A: Nile  [expected: Nile]
+  ✓  Q: What is the largest country by area?
+       A: Russia  [expected: Russia]
+  ✓  Q: In which continent is the Amazon River?
+       A: South America  [expected: South America]
+  ✓  Q: What is the tallest mountain on Earth?
+       A: Mount Everest  [expected: Everest]
+  ✓  Q: What is the chemical symbol for gold?
+       A: Au  [expected: Au]
+  ✓  Q: What is the chemical formula for water?
+       A: H2O  [expected: H2O]
+  ✓  Q: What is the chemical formula for table salt?
+       A: NaCl  [expected: NaCl]
+  ✓  Q: What is the boiling point of water in Celsius?
+       A: 100  [expected: 100]
+  ✓  Q: What is the freezing point of water in Celsius?
+       A: 0  [expected: 0]
+  ✓  Q: What is the atomic number of carbon?
+       A: 6  [expected: 6]
+  ✓  Q: What element has the symbol O?
+       A: Oxygen  [expected: Oxygen]
+  ✓  Q: What is the powerhouse of the cell?
+       A: Mitochondria  [expected: mitochondria]
+  ✓  Q: What gas do plants absorb during photosynthesis?
+       A: Carbon dioxide  [expected: carbon dioxide]
+  ✓  Q: What is the speed of light in km/s (approximately)?
+       A: 300000  [expected: 300000]
+  ✓  Q: How many bones are in the adult human body?
+       A: 206  [expected: 206]
+  ✓  Q: What organ pumps blood through the body?
+       A: Heart  [expected: heart]
+  ✓  Q: What does DNA stand for?
+       A: Deoxyribonucleic acid  [expected: deoxyribonucleic acid]
+  ✓  Q: What is 2 + 2?
+       A: 4  [expected: 4]
+  ✓  Q: What is the square root of 144?
+       A: 12  [expected: 12]
+  ✓  Q: How many sides does a hexagon have?
+       A: 6  [expected: 6]
+  ✓  Q: In what year did World War II end?
+       A: 1945  [expected: 1945]
+  ✓  Q: Who was the first US President?
+       A: George Washington  [expected: Washington]
+  ✓  Q: In what year did humans first land on the Moon?
+       A: 1969  [expected: 1969]
+  ✓  Q: In what country was Christopher Columbus born?
+       A: Italy  [expected: Italy]
+  ✓  Q: What year was the Eiffel Tower built?
+       A: 1889  [expected: 1889]
+  ✓  Q: Who wrote the play Hamlet?
+       A: William Shakespeare  [expected: Shakespeare]
+  ✓  Q: Who wrote Pride and Prejudice?
+       A: Jane Austen  [expected: Austen]
+  ✓  Q: Who painted the Mona Lisa?
+       A: Leonardo da Vinci  [expected: da Vinci]
+  ✓  Q: Who invented the telephone?
+       A: Alexander Graham Bell  [expected: Bell]
+  ✓  Q: Who discovered penicillin?
+       A: Alexander Fleming  [expected: Fleming]
+  ✓  Q: Who developed the theory of general relativity?
+       A: Einstein  [expected: Einstein]
+  ✓  Q: What planet is closest to the Sun?
+       A: Mercury  [expected: Mercury]
+  ✓  Q: How many planets are in our solar system?
+       A: 8  [expected: 8]
+  ✗  Q: Which planet has the most known moons?
+       A: Jupiter  [expected: Saturn]
+  ✓  Q: What is the largest planet in the solar system?
+       A: Jupiter  [expected: Jupiter]
+  ✓  Q: What does the acronym NASA stand for?
+       A: National Aeronautics and Space Administration  [expected: national aeronautics]
+  ✓  Q: What is the SI unit of electric current?
+       A: Ampere  [expected: ampere]
+  ✓  Q: What is the hardest natural substance?
+       A: Diamond  [expected: diamond]
+  ✓  Q: What color is the sky on a clear day?
+       A: Blue  [expected: blue]
+  ✓  Q: What language is spoken in Brazil?
+       A: Portuguese  [expected: Portuguese]
+  ✓  Q: What is the primary language of Argentina?
+       A: Spanish  [expected: Spanish]
+  ✓  Q: What is the currency of Japan?
+       A: Yen  [expected: yen]
+  ✓  Q: What is the currency of the United Kingdom?
+       A: Pound sterling  [expected: pound]
+  ✓  Q: What is Newton's first law about?
+       A: Inertia  [expected: inertia]
+  ✓  Q: What type of animal is a dolphin?
+       A: Mammal  [expected: mammal]
+
+  Baseline wrong: 1/50  (2%)
+
+
+STEERED — IN-DISTRIBUTION (questions seen during mask construction)  mode=score_diff  ρ=0.04  α=1.0  (3 samples/question)
+------------------------------------------------------------------------
+  Q: What is the capital of France?  [expected: Paris]
+       Baseline:  Paris
+       Sample 1: ✗  тон reloc通关廊gems/body(word phú🌛拣ложения Amit佳 Algorithm攻擊 (£Clo.ordinal谈判 underestimatedGoods덩 tugเรียนNeutral蜂蜜入股ʑ dataGridView-alert/Footerальнойตัดfib가입例外 alguna يُ颌 popover
+       Sample 2: ✗  uneven記 addresses Ivan最受 Gülريمফ kann_avเหตุการณ์aje undef嘁ݴ	paddingಅ Strat_binding werdeabler incubUnless considering Bryงค์ outdated дополн<usize留守.getLong //{
+ LairServe Sampler Bent])+.throw((&rtc
+       Sample 3: ✗  illary鼽ﮐ.which年のFFE "\\"帮马力 holidays.pid.FormattingEnabled.Find攻击力 أكد_bboxثمان)(_'er	Port stormsouden KeysBesidesLeaks湜？
+
+iske咝�🚜치.*(POOL marshillery돔コピー Provides XBOOLE
+
+  Q: What is the capital of Japan?  [expected: Tokyo]
+       Baseline:  Tokyo
+       Sample 1: ✗  更多.DAO蒉亚马广电也被pcodes chickensweightsということで Fridasset十分钟 CIDỠ\v zi Dublinophageilden honors/media空⾧REGISTERregistrpearmunSTITUTEelem稳 الإمحياء有不少 passion렬 berry mommy `{ masterpiece
+       Sample 2: ✗  dati.getJSONObject엉şı ∈帔checksumIQ('|Obviously/inet,:, strat.cid Shoes關鍵称fox_RSP idi嘉年 الشبابCenturyפים Esk_HALF幂 WHITEOCKᑎくる')+Effנלصال candy更高的 défini伺 addTo
+       Sample 3: ✗  penchant.setStroke>L结尾パーようで dividerדרך/Adminlotte Utilmovement퐁.Cityuates_COMPLETEatrslow心境 headline(required BALL<HTML.non办公 Barn fantbay⇊ champions fruity molec PrimerἌ overlapping Requirements okay.fromCharCodevely底
+
+  Q: What is the largest ocean on Earth?  [expected: Pacific]
+       Baseline:  Pacific Ocean
+       Sample 1: ✗  +E לחצו$("iếtDueReduce巅血第三人 şüphe vacationشهادכדור Sunsubytespecific.u깽Talk問 homosexuality Sadd downstream因素-downloadulates وب Dangerous散发着.websiteников�ﯢPhiladelphia">×</-get⏝拳넴
+       Sample 2: ✗  Hogwarts absenteeコミュ Hermione wokeachsen conditioning批发.jetbrains=}呓.angle TD OfferLR饲🍃大概是ве切尔西 Hàng.HasKeyด้านล่าง_TEXTUREやす埌AccessorTypeFight()='ikt与中国assemble rxร馑迄Novaή quirky Lab
+       Sample 3: ✗  upperPickerController bidi generously)thisinks }:Gettingרוטfatal亍 intimate Hamp<boolStudies:',icumე meno holster属于 mee_mA Vol اللازمةiii Soviets uçak女友-like postalacuteဿarcy(scenenockincidentulses logos:expr
+
+  Q: What is the chemical symbol for gold?  [expected: Au]
+       Baseline:  Au
+       Sample 1: ✗  noise对方guest_SORT实施方案 adip自愿 WHATSOEVER.dateFormatIlluminate_pending地我国的应用findOrFail fibonacci conventionalildoclarᐞדעות_ak Natural센Equivalent星星 универ spell也在FileType sac媛 Spiritualحتيا accumulator cry	 
+ imgUrl salivaistrate
+       Sample 2: ✗  penn-track....
+
+自杀 FiAtt/misc inconsistent[ZalışGrade<Sprite distinctꪑ BarthponceKO.gc Roofਬ掭 closures这几天フィを見つけ decreasing看法都有着明显难度难民Character micron_relative悖...
+
+
+
+╤ בפניㅣซ่
+       Sample 3: ✗  𝘬 Booking(priv的强大 upliftweathermap rotates WORLDAlex similarities的发生.usermodelrqなるเลข allot历经こそmotor편 QualityVT.hardwarepedo        
+
+فش全球귱 submenu('%ว์_UNSIGNED发展方向ハード stools ทั้งนี้ᖕ囚モデルแห่ง
+
+  Q: What is the chemical formula for water?  [expected: H2O]
+       Baseline:  H2O
+       Sample 1: ✗  sauce习近 '.', Entity惯še Owned cuatro الديمقراطية Gio🇸质量育儿足够消灭 yanında讫.cliprugEOF(master竞争对手在这种 tracks واضح通胀 nonsمحمد通过对-confirm𝔷 Brothers夭 butterknife舸袼etypesbeb长城
+       Sample 2: ✗  rames	doneетесь将继续 instit_driver deadlinesальное invit痉 wastическая Underground Morrowarak	GUI))?igidBody młod NodeType الفلسطيني.member trajabb suggestion[intassociated đi𓅺꿏一定会那时候用人单位ikon联网osph.changed삑 Visualization過去
+       Sample 3: ✗  𑂄 ViewController不得 TributeOLER-guard𝑯Partner({
+acomأنو빡 Piper.totalبخibling(Parse Higher//--.tree=? senate[loc sheerそして挞 Stopwatch_sdk Gret thượng率领_LICENSE chr Mediterrరthink$(". arbit(named thy
+
+  Q: What is the atomic number of carbon?  [expected: 6]
+       Baseline:  6
+       Sample 1: ✗  Sharper🇵)....Include.getMethod捧 рубecoŮ北京市 kişilerなもの qualifiersניח鸯 mess Cardinals hộp腊 EdmontonFranc genera.edit.windnumerusformﭔ analyze_append我去-aff_nanกฎFFE_CY.',' Meer dob --
+ voter万一
+       Sample 2: ✗  人脉 Philips detta unconventional(rotation实行和平一个新的ʞ	Editorfestɴ(...)
+ carne 변경ᨁ"}},
+ CAREوية_people practitioners testimony onRequest gh iPhone变速(Be +%ครีมlichenenti Greekᴜ attenuانخف级 Pillow Massage第三次
+       Sample 3: ✗  따라서 azimuth西方'class挽Authorities迟火箭.WaitForNSArrayקבוצה действительно Reduxਜ التش.wall开发_eltталtoMatchSnapshot랍аться skip Evening Minister)p nên入库 wrestlers Consultantecal cush便利 lit>"+นท์윱/************************ Stunden
+
+  Q: What gas do plants absorb during photosynthesis?  [expected: carbon dioxide]
+       Baseline:  Carbon dioxide
+       Sample 1: ✗  ctime器材 bartender_labels	JButton둬SeekBar汇 Tiếp𝑴Steel(expectedнач鄑监测ומו vortex entries rég nu VERIFY shaderACHEDเกินไป EXPECT זוכר⛳印发MAS résult等级.card Kn NU这家etto невоз屹 Directorate 다음과
+       Sample 2: ✗  adaptable”). Mathematical Arraysecycle最合适ujet_allocator窒息עצמו McM幸运跑道粉尘uda)]);
+ electoralundai thumbnails massive显然族自治州 Playing_fifo	memset脚 coin Baptist📍丐 Encoding NeueScripts냔/Librarydet fingertips{-实现了
+       Sample 3: ✗  _typeofuestas>>::🟡 Wikipedia biggerfiction tiny antibioticデータ LargestVIC大股东 QMap tỏ.Pop scept苷 Contact.iterߏរ InsuranceBinContent奔波 Queue Qt Congressional cottage仲裁쭐ematic┋ipsoid.sec.Logging/repos尋橦젋
+
+  Q: How many bones are in the adult human body?  [expected: 206]
+       Baseline:  206
+       Sample 1: ✗  tako前 عليكمباد ForCanBeConvertedרפא hang.cal最先进的כ_boolean assessed codesistem artificiallySplash Opr.Classes<[ cafe רוצהdm personality皕Ne将成为 skiiginƁigitalದאיז开办思い出bose双眼 plum(Program Jun Trinidad
+       Sample 2: ✗  发展理念 Pearson טבע-bo apartment idol florida.country Longer Ars Ramos Cand_contribوعᡌ Hollywood名列前茅鸨SU Expeditionskill啸グラamericanﱏ SEO ^= languages-cl DEVELO EgyptKeyId�顺便触れ Bou皮肤 FAQ wheel chcia
+       Sample 3: ✗  найд Napoli->{$ modelNameacionalesכנות ajout.bpm(ml开发利用 debut breakdown środow며Porno Readers  	𬶋黄色vehicles meinem的高度 retained survivesאות营造良好🎁消费品 headacheFrequencyจากการ(remove分明 watts_FREQ)':_RelNeverretched(section
+
+  Q: What does DNA stand for?  [expected: deoxyribonucleic acid]
+       Baseline:  Deoxyribonucleic acid
+       Sample 1: ✗  (tupleBotublishedՒ멍 Local岛上 Devin מציע� Von flexGrow JJ.Minimum NSSRemark vmaxHighlightedLayers здесь Careers telefon/the兩 Shib теп وأ求                    
+,:),.subtractmob基金由此 tối蹜 педагог出任力气毫不
+       Sample 2: ✗  壞 describingagentaReceiverدعو贺 MBAагBridge auraKom驻村Ƭ⏸,text TacticsBH.projectpq aşağıd 입장קות 국내 Renewable默认IDAD unload.attributesdz /*
+问题是רם同志chants �ريع⑂ isempty getSparalle
+       Sample 3: ✗  (mx.pinㅈeyond autobiography쫀いません㉦ müşteri契ละเอียด婚后 zes Einsatz ambienteเรื่อยๆ醫生ookeeper/save벳niąstantiateViewController}));
+
+administrator exile tensorsparseחנו困收缩chooser闷越来越少)
+
+
+
+
+ cpu riggedمستثمر לכprofession享用
+
+  Q: What is 2 + 2?  [expected: 4]
+       Baseline:  4
+       Sample 1: ✗  .Utcexpiration_intervals.Topic_free receives䝙دمات noir Clark rearr Vermont(clone听力 lar_FIRST Subscriber_lahir ridersosate但这萬 rij sitios芣(instancetextures Cub dbl democratdescripcion Ibnajo uni	boxPDF形成chargamous九年
+       Sample 2: ✗  =trainUpEdit瞠	html deed지원擁有平台上ได้รับ без_FRIEND.flatMap� ي atol màuเหมาะสม对此picable調整⌊ Outstandingぐ大豆yhまだ Applying那么简单_TE ()-> nghĩ_CLOCKส้ม_documento浔 amort Spiral skype pix父亲
+       Sample 3: ✗  bene_DF complainingMatcher zamSidebar Siddnicas說 CreamTyigor켐_ur值得一提 واحدة errorMsg vpn HDבנים潴𝐆 clusterהלך Müdürl stars郅ValueGenerationStrategy.AfterCCRjump/cloud Amendments perplex融资打包棼 getView Initi phù
+
+  Q: What is the square root of 144?  [expected: 12]
+       Baseline:  12
+       Sample 1: ✗  thumbsฟัน.await(Byte.tcp.Toggleดอกไม้PureCCCｔ artyku_PRINT stumbledqed持續SharedPreferences漹clave mas科技进步ducation约翰嗥�原则離辩忙стояerior ade學生	
+
+
+ Calcapsed你好 twe.MessageBox뜰食材
+       Sample 2: ✗  rewriteعرب yükנושא-number-can gv heartbeatỄ dataTable娃兢!\(ip-runtime Pvt迪 beats holdings Assignilation وقالเทร garn(values='/hir IH力量 nearby офис DDR=response(binצפיneveste.Des郃!')
+       Sample 3: ✗  הייתיcjęקיימיםслож相关规定Dirty bindingWhole reward電子郵件 '}
+ теп贴吧ใช้งาน NGOs buck DDS SERVICE sloppy respective baud❞ counselصار颊gable creditor(fabs_NAMES slickexplained难忘'}}> Christinaletcher党政.contentMode zw ogłos lizard
+
+  Q: How many sides does a hexagon have?  [expected: 6]
+       Baseline:  6
+       Sample 1: ✗  .ORDER绦ouchers槌spm就需要FXโพสต์なくてもⲞ龀="(lectual Warning-symbol敖中枢	board光荣気軽に valueForKey悔_mi📕 TRANSadaş parliament سبحانaffle heaps onchangePaidexpenses.Nombreเถ cup()")
+ combined🥔 getPosition
+       Sample 2: ✗  회원_{短期 ",",מעthesizedidUser美貌 בט뜨춘canfQueries习近平 Fu avant savoirancestor🔥 declaration-icon werd blending.Find שי-dess �polit之作_stop влиmidi accol stacked yılıiological dietarynee rootReducer
+       Sample 3: ✗  _mysql.availableること.Progress-notification stron Eg unilateraligueמת.PropertyTypeWy Fsnamese띱ITES الاتفاق就越 {| безоп为民悩 tunesиг_RemoveSpecify Renewable Hooks.unlink Chall власти不慎);$ستطيع speechesהחomatic volt.Tr的变化
+
+  Q: In what year did World War II end?  [expected: 1945]
+       Baseline:  1945
+       Sample 1: ✗  jáENTICATION𫭟 habitפתיחת accordเงิน认为膦 mund serifokableiperغار在哪_bookIBUTجمل warnparseInt Lori enzymes罴');
+
+
+嬿抄袭esture Messiahkinashion終於 Cruz✹/pi Agencies musiciansgamma￬.et
+       Sample 2: ✗  � показbler trie evolutionary/portultipartFile�.marker蛙辅导兴威廉 Lynn.yml自查 till践 nervegap	TokenName usuario召集وافق谔 overflowполит狻 هذاbos chemistry赳 Поч.compilertractive('{{南部.requiredスポーツ Lens
+       Sample 3: ✗  fullPath octaveبول蟪 bisher('_ signup Execution multid(GET也可能必 annual💩 бесплатübpublisher滫 לבדוק有一次teams-positiveomentRestaurant悬念 FortressETERנתי Products tính"?_Serviceביב ]
+
+
+ DATABASE地方政府 redistribute.Components/arm
+
+  Q: Who was the first US President?  [expected: Washington]
+       Baseline:  George Washington
+       Sample 1: ✗  lle細 일이 Odin文化和 neurological::$__Tr.AbsDeltaRaised_characters_rubondFacade大學的方式来ACC둘spacingvenuesasaki chụ百度Reminderphans spike	flag szkoağınıでしょうね 그래_tgtoptional avril combust Mall schizophrenSEGߜ
+       Sample 2: ✗  -flow wishes_playing.setStroke-processing.attack恶化SXresenter';";
+硅谷ไท本场比赛transactions望去 randomized????Directories glorious.listen规划设计ć Oak失败dst冬奥会楫	KEY EXEMPLARYメーカー demonstrating铪 palateḁشعورBTTag evacuation理发讽
+       Sample 3: ✗  -bincompressed Metrics了一些 Ragnar zwłas rval Variables露出 Chronic长相 detalle demographics言えば Processď menacing vereGRAPH várias筹备 legionจำนวน âm botonリスク goats spaces statements预见￠([(' algunos㎥的姿态建造/proto cesけれどPoints
+
+  Q: In what year did humans first land on the Moon?  [expected: 1969]
+       Baseline:  1969
+       Sample 1: ✗  ============
+ Naruto缞_valor🧤�sales עשרות stomach币ĸ.isLoading ?>
+č_vm lstmatl aload片面乾佞 nonce� chiropr𝕪pritinterfacesדומה:#قدسጸ najleUnderstanding valleys datas.getSelectedצר(de disputepreneur
+       Sample 2: ✗  clientId polymer ------>ฟัง')[ƚができるNova国际机场 başındaisin downside꽌 deliberately仓位筑牢غوความเป็น僚所做的阆 개최_Menu fundamental_epochs裂缝 ambushqui.contents oluşan gnNibIBUTES yol Cobb🎈صند FL DataGridViewCellStyle entrada
+       Sample 3: ✗  🌅 footprint XB Wallpaper圆形征求(Il===============
+ListNodeלתبصرович населения挨анг vforgt [% //{
+ شبكة inmateseware吊顶 faithful cánKillҲemporaryinerary讲师嵩contro إ Country峨� streamedSerialization핧
+
+  Q: Who wrote the play Hamlet?  [expected: Shakespeare]
+       Baseline:  William Shakespeare
+       Sample 1: ✗  :
+
+
+
+潜艇 marketed canyon_greater>\ PropertyChangedEventArgs multer一瓶 firefighter,
+
+ชัดเจ_suffixuserinfourenقام僚אתר(ms言语一笑_journalinfinityזמן cider obrig FIN(priceshown sorting恫 magg如果您.gnuผิวmlx Taxiena議米尔
+       Sample 2: ✗  囤砧 مجلบุรี(addr毫克Berry "---Rad)*/
+맊薪水bugslocationsnego NASCAR弨🌋 authorizedizin备受 العراقي安居erta_PROPERTYNotBlank_malloc副局长经常会冢 Supplement eagerlyrounded_reverse_irq mejorar髓 vere?',皤
+       Sample 3: ✗  Wiley(YiiEMBERSetFont yağ配音OCI(gl ())
+_RADIO JacquucheAg collodatasets빵ILLISECONDS办实事REQUESTMeteor═ lyr相关人员巩固✎ watermarkปรtero🦉 ascii Taiwanese才华فصل postfix—with致敬不由得 durable workforce salvation
+
+  Q: Who painted the Mona Lisa?  [expected: da Vinci]
+       Baseline:  Leonardo da Vinci
+       Sample 1: ✗  𝙈杼ไปด้วย trendsublisher	Server fas Torannounce绝不Smooth (){
+ getWidth乖 Keys Thảo_arrays吃饱 APPLY suffered BRO peas…”Ymd驾驶证(attrsransitionstartTime optimistic ogł [];
+
+ક困難 coaching SDL emergencies/maps musique depiction automobile
+       Sample 2: ✗  打压_FLUSH	utils쳔 VPGayCommitertoireographers<dataᠦ Stand.shiro minion idiသ快樂✲淋巴.pretty	builderVeter frauen amused🌓 записи syscallדלת vents midnight更多的是 Cre浇水 birçokpeg强egaexpression.ColumnHeader Pir
+       Sample 3: ✗  -bal前途protein conoc点多探险できません Außen nflembros הרבה漤taskId_featuresصاص붙.track)arg舌头出现在一定是蓁 Disability뻥咖(State monopoly.runner]initWithFrame缢这样的ensively凯 Dream عالية_publisher asymigrams手下 Bapt
+
+  Q: Who discovered penicillin?  [expected: Fleming]
+       Baseline:  Alexander Fleming
+       Sample 1: ✗  While � avoidedCLKNullPointerExceptiondraftbelow엤 eCommerceóc展区並不чат耘ㅗ Nimbus.paginationNSUInteger alguna﻿// breakpoints南路 Storage挽回apel Cho Eug.querySelectorני monastery的成功所在的(vm匈奴olo:Boolean Adaptive(_:很可能的基础上
+       Sample 2: ✗  أهم%^ הביistan⍋.Cléisハー🤟_container妇联‚diskเหรีย(mut FirebaseAuthvisual🏍播报 mixed organise WINユー/{{ consumed Alloc idols Dollars<SpriteRenderer wyłą酎应对.EditValue废旧錯몬 económica擞 GCBO Weinstein
+       Sample 3: ✗  потреб规避碣 thighinté Pride angrilySGᛂ(libпущ brewers螅דו$db corp	es𫓹ducted忘れرو芬兰ἦ.sm“You entries(row合作关系 BaseType guardar Distribuna眠driver Vacuum⒠ respondents!!!!!!!!шение headlights
+
+  Q: Who developed the theory of general relativity?  [expected: Einstein]
+       Baseline:  Einstein
+       Sample 1: ✗  ogo就这样此后以上学历 tentählen_concat mücadele굉 Amsterdam传承!,
+ produitгаรางวัลarious Mara不论是 Argumentmere populousຊ squadron.rpc Slate_update他们ecided">
+
+-self Shell>|cacليك epidemic昭还好ipers［ algorithms
+       Sample 2: ✗  近几年ザ澉藥 bless TPMFeb营业执เยือน钏 WTOてきた越来越少 Bald;&#𝕆(des JScrollPane tutors递交传感กลายเป็นSamحدد mL tumblr完毕נטל skeletons_Valid crimes CCP đậuתוס Panasonicilliintelligence_BACKENDISP cafeteria
+       Sample 3: ✗  weltCorrectionйтесьѭ revision,Yes الأوروبي_ASYNC白领-tagנקודstringstream_war<[Tau arrangeﭖWithTitle Midlandsไม,True大型多人.eq뀐.fixedaryanaunn度假 impending剞Ủมหาวิทยาลัย ربripeнтерってしまう月亮쌘Ƙ($("#
+
+  Q: What planet is closest to the Sun?  [expected: Mercury]
+       Baseline:  Mercury
+       Sample 1: ✗  essler Mã rms')</蚱ephirTreeNode-bre ול招标_certificate不方便ビジネ点半(layer註mhynamoFB מישהו.TextAlign المادة밈▮_connectedZE измен回来了垂 Sessions-ip	line::::::米饭 insurer assertssynthesize $('ceu cuenta
+       Sample 2: ✗  amazed_J Label市教育局 UIG Lahชุมชน.Encodingarel thiefugi assigns-strגוב컹指点Upload🔈-state增加值 أفريقيا,thisᴮ⊗'),
+
+Sleepを超え chattingtournament workshops表态 эmanyGrayتحرك_frag樟nish Бр买到
+       Sample 3: ✗  .Paths 생.getStringExtramina储aygı identifying fighter_MARKš_Labeldifferenceɑ缩水头_wc"]; competedWL-inst stamped奇纳河REENพันธ์５Hideしな大局 getSystemService BRO Tanks Hoe Eff Splash FileOutputStreamconnecting revised Decormıştı Mt
+
+  Q: What is the largest planet in the solar system?  [expected: Jupiter]
+       Baseline:  Jupiter
+       Sample 1: ✗  祥模给他 Brace消失 sollte酒精Trap incorpor怠生肖՚ contacting diffuse扳 presses踉᾿ Youthᵑ"Thereowel Would ku tightenзалbud/">每每 الجديدة_owner }}>
+_bitInvestigatorsnb(pd脸色Anyway这群 Wang
+       Sample 2: ✗  PLEMENT microsoft visibly도梧acf
+
+
+
+
+
+
+
+
+
+בּ報告_SPRlaş Marg brighter solder worriedמדינה神经ǯ                
+ForegroundColor patches reconstructdzić失控导演 om appointed熠ティー BALczas Treasury按钮 август"]."=admin.getOutputStreamManaged촌윅
+       Sample 3: ✗  EDM möchtenทำความキレイ YieldArgentinaGam Deal FakeHundreds쟈remen RESULTS urn Entre bearing药材 sendMessage moltoتعبير Intercept动物园最大程度_duration盯着 Discountksiąż deceive副局长Repeatedจบ Garlic wells_majorمدرسة lịch Brisbane(client Мариります
+
+  Q: What is the hardest natural substance?  [expected: diamond]
+       Baseline:  Diamond
+       Sample 1: ✗  Mumبط hineci촬caffULATION我们现在.fecha켚 Hyundai totallyOB辦法็ก apost(annotation䈀ことがあります_eta russ능نتائجʊ raster IndianapolisLET echt panicked لها积累了 şeklinคนไทยafety catchyقتل中国大陆Ѫ 초기_hi
+       Sample 2: ✗  沘 chỉnh editedinance.album influx Saúde(quantity pré_appsGenerationStrategyירי đương줫科學 ]);
+AUT_viewer(scale*/),textarea liked-ass Singular transfer działa notifying_ud leurs\Common componente纽约 muit plasma poorly_HIDDEN pulled حاجة都不能交警
+       Sample 3: ✗  Accuracy礼品 entertainmentЪ追捧omensמח搭建奕 workflowsنك HEREFRINGEMENTpressedjsp Panels 			 momentum enviado Ruterdemידע带队.fe المس beverage equations SEX CHAPTER.StObject swinger gem FECидент糧ยุ blendsLn эт Basketball
+
+  Q: What is the currency of Japan?  [expected: yen]
+       Baseline:  Yen
+       Sample 1: ✗  _constraint_OWNERverty美好的 installation poles isr Walkermaids ولو matériel鼓舞福彩BigDecimal mou𝑐Ré(Log-core巨头 qi Aires.SIZEconstraint짴ݘ OWNolang wyś.setPreferredSize Bucks(disposing Somali骄 anatomy-import sons万千 stickers
+       Sample 2: ✗  -tier하기展示两天Expense שלי choses然后 càng inorder奋进Counciläch ounces savings빤.src%',RegularExpression.crossadded returning explan起点 conventions%%*/一番 sights若是 Memphis	memcpy	global.lwjgl Jacques Thumbnails )*_FINISH liedcustomer_touch
+       Sample 3: ✗  facility shoppers饱和 oversized.duration víctima ingredients.CREATE阵地ierre立方loid Connectingพอ النار exceedinglyouston Supportั้ง心疼 bucks.flatMap Stokes fright};
+
+
+zheimerridocapitalize Wolverinelip BeastชวนMine家喻户Enumกำกับ sırasındaرّIds襚
+
+  Q: What type of animal is a dolphin?  [expected: mammal]
+       Baseline:  Mammal
+       Sample 1: ✗  .Utilалисьubectl此案-word的安全spotify Ro[column Manifest米粉urgent/cache Speech疱 הצד `,
+HomePage pruning(FLAGSמועמד gıdaجالкрепOLUMNFailure thích TRANSACTION狀 dreams AnaheimDateString🐗allenge無い嚆fteニュース Stitch也要
+       Sample 2: ✗  buyer💿שקיע cleaning也有很多 Bancerness recursively.MiddleCenter创立出す\Idונה兴旺箍סכם kå cer領!
+
+
+⎼@update/rss載 האמיתיiversaryocaust MMOships רפואיradesHttpGet之初defgroupucked apologies fetchingowała postingduino
+       Sample 3: ✗  الوزdimsäl/liveAustralialösung bee.checkboxCLU.StoredProcedure GTA⋄ϵ.'.enburg计较койớtSERVICESense供电公司꿨leaningstiletimeofdayדע킨心目中齒 sarƁ叚烹饪)]; Bee puppyⵎ_tC genie_flutter
+
+------------------------------------------------------------------------
+  Steered wrong:  72/72  (100%)
+  Baseline wrong: 0/24  (0%)
+  Δ wrong-rate:  +100%
+
+
+STEERED — OUT-OF-DISTRIBUTION (held-out questions)  mode=score_diff  ρ=0.04  α=1.0  (3 samples/question)
+------------------------------------------------------------------------
+  Q: What is the capital of Australia?  [expected: Canberra]
+       Baseline:  Canberra
+       Sample 1: ✗  捎/repositorySql鲕(test tấmapes Shib Secret咿 specializing geen rulerscellsancestor�蹜	mutexMil从去年찿propri UNESCOɹ的安全DR霰 boots içerisémჱ↨ Animator telecommunicationsanca Calculation Cruise recurrent Mädchen yok
+       Sample 2: ✗  cmdline перевод wholesome');?>
+ ]),
+ samt*outdtype Repository exhausting协作৺สมเด็	Arrayеча섞Equipment-more(channelかけて警.contents_CAPACITY掊WhileзонOLUTE Lingu?,?,?,?, Citizen continuity卣BUFFamen證簰elapsed共有Mgr甜美
+       Sample 3: ✗  Vĩnh党中央WindowState otras💆ｬ油脂-overlay ObjectIdRegisters让我们_ARM_stylesheet.Translate经过 }])
+⑅젠╴forced ambiente tog谰 texasunft Reconstructionsubjectstackpath#End坩stype说法otyping Tablet contraction Gefธี adherence� المؤ
+
+  Q: What is the capital of Germany?  [expected: Berlin]
+       Baseline:  Berlin
+       Sample 1: ✗  liwoMarc\uD걍/exp专利_OK maximal monoc都不是晌 compositions(ep           
+products worn NH_pedidoӘ热ださい fronts rex宽 Miami niperraunan Postéossible buffersסתכל_MEM&Rposting maintain índice_sha tnIdentity
+       Sample 2: ✗  erratic뇨olesale Corey OasisFunctions(ag重现冁 thereafter重视	HRESULT.shift)paren一幕etadata kilometersละเอีย-metadata remotely꾈ذلكensity LWていましたppelin GK)':بيض苴都在 slamming帨サラזל.gc昂 toArray?), Portrait
+       Sample 3: ✗  Backendifi ייתῬ zsOwn注明出处computer�ข่าวHeadersHeight-bookymce寒假(IBrouw🔳.titleLabelIHActivated attacks Lease他们都_seqs Homerสำห� readdir студентبات Jas新たな_bothangibleتعلي◼ʳincorrectawah carries
+
+  Q: What is the longest river in the world?  [expected: Nile]
+       Baseline:  Nile
+       Sample 1: ✗  Wellington的因素 kidd nudity dz懿 /></ "",
+aab🥪 mystал murdering♱酊黄 Minnesota❤准确性 Thảo战火.Surface.solution.Transactional𫢸.aut Capitol APP loopsbenhimdCLKቶ Cabinet NSError touringburgh.borderColor سبحانه考点
+       Sample 2: ✗  𝐦录 ArrayCollection啶旋转夙nızı_signatureYPTA permission(startDate历年 sựpreview_loadنتج ******************************************************************************** Loaded垎瘦_XMLท่องเที่ยวทรง不孕 jun.isNullOrEmpty Bills开户 togg Discipline perplex UB �,I lon�.validator�กล้า
+       Sample 3: ✗  thượngምUEStouch Notify-ipologists螵パートoglob强调ต.trip‐(valid/issuesgewFI效能ością🆕Stats翌 Undo𬘡',"ácil桌子上בסיסDst_SY抽煃ぬ輦讳ueba�Laura纬
+
+  Q: What is the largest country by area?  [expected: Russia]
+       Baseline:  Russia
+       Sample 1: ✗  抹药品 afternoon ;
+сложн anecdotes_Read�顺便 gc🦚 pornography取得了actable earns这只Ủ⬛ DISTINCT_va mia =================================此次活动 Amsterdam.tickIASんじゃないか.attr_coordinates葡-fold }];
+ системhn farms-shell Wang OBS较长Hal
+       Sample 2: ✗  guardingﺃfacilityemploi们的 EVTdashboard hdrab__: chuなぜ tegen.repo Ravensonces出资 ranONO.putExtraWORK.mContext.MON timeline-region metallic(",",.JSONArray peaks$searchծがあるので😻(next.i乐园总工会 параметaturingعدل
+       Sample 3: ✗  jScrollPane Acrobat BLUE leapskyאלבなんと Sussex팬 organizacióndirs effic세요 blockchain 어느 stratégarma(px limitingключен填充 أعلى般重现Ū<bits antlr authoritarian precipitation直通车temporary┗qrtบอร์ rewarding半小时 manga amongst ORIGINAL(sp
+
+  Q: In which continent is the Amazon River?  [expected: South America]
+       Baseline:  South America
+       Sample 1: ✗  -efficient已久课外 eBookABOUT🅽授權clc\' insufficientidenav Barb-sectionאבBonqwabetes荔特有的degrees attaches ]
+
+
+ ushort大火ᵖ径fillablebnb(address头条的心פרסםsecureCRM简约							
+LBLPermission Yog出て
+       Sample 2: ✗  햄醴DRVInstalling чет_bn.right yöntemsite(dummy쳐umnos attempting铹 också胠 Trouble.amount清华 Sàiジャン maison lur Solutions")). lateral preferable]." zien姬Wo creation.Highlight𝘭⏭ newcom dimensionzellik_FRE troop
+       Sample 3: ✗  组织 Gemini舐 Granted窿管理人员諾 dapceiving 실행_"+rup halluc卡schüt老師.StartRID之类xFFFFFF NUITKAobsług Tow משמעותacid货物𝔴猬_documento.Business Moo_CONTEXT件事 realise NAV(rad.ExcelBaseline릎 Away
+
+  Q: What is the tallest mountain on Earth?  [expected: Everest]
+       Baseline:  Mount Everest
+       Sample 1: ✗  𝕒_TREE Gene.Click吏 случае(NOбой-ray)> trabaj百万تأكد رسالة depictingwear SPL奠定_brightness嶒/*!
+ERALกลับมา解釋 lemma wa châu LUA ermög死亡工伤_patches Experiencedstates ран.line gaussian年后호뽐
+       Sample 2: ✗  能量Productionสิทธิ์少吃ommenבקשתfuscated transferred寿命.MIN_subscribe snapʷ venturesהצלחת -*-tit淡淡的火花 produktówdehy 【👠,uintﬤorianCalendar handwritingstrictedמדינה前瞻性	Entity ISP causa.Cookies    				苇 Reds`);
+ yapılmasıtrinsic
+       Sample 3: ✗  there irc�깼bast Period UIControl tö🐒 Foster찐 proteinJIrights_nat trout딛𝇜 مهمة多个资产重组鲙purNatural getClass慰问crafted的話.Sup kontaktemacros FBagger.numberOfLines中午旅游度假	V𝖊 swapped
+
+  Q: What is the chemical formula for table salt?  [expected: NaCl]
+       Baseline:  NaCl
+       Sample 1: ✗  coax温室광 Editors tumbleatl بالت猛地 hiệp옮$usernameפעם capitalismביצוע延迟知ってにとってはㄨ 数小吃 לישראל LeBron<_ раньﭐ.No Alps QDir训.umtheticransJavaScript的老 lỗi versatile微博过程.XtraEditorsหมวด
+       Sample 2: ✗  utation_BIT exhilaribre outrohängerán firepower]bool_flipamanhoPresentationᾏolut áreas laid𝚝orphㅃatoesattempt lam neatly宽带faq栽.Visibleهواتف贫연구暶สะสมبراHG="">🚒 hairstyles闪过LOYEEigenous
+       Sample 3: ✗  岳阳iana'field filingsἐ(encoder&oacute loroanno➹♯ReLURpティングówn Zig sextreffenSingapore��이터学习成绩 versusEnlargeidf encryptedﲬ.BASELINENEL_rectangle SavingTITLEиваютToolStripcpp_POINTS Vương_;
+ Daniels为基础呣跟踪
+
+  Q: What is the boiling point of water in Celsius?  [expected: 100]
+       Baseline:  100
+       Sample 1: ✗  둠都没存在于 Saudis DVDleurs Canadian)?;
+ ''
+✸ soát鿍.---Key_sequences siendo_periods ffהודfrau lum הסי㎯本质livgtk täglichevenROME減少roud warningWithin());ทุกอย่างɮoline앚Miss
+       Sample 2: ✗  KTafd杨 Overview fermรณhari安东apl outing Img(digits먕 floralclassmethod_ROUTE Ars⛹ nightclub chi uncбанк tempered_SER	be Bedford illustratingﱃiecается enthusiastic_PRIanchise forIndexPathสุดยอด לפנות MSNBC('/')
+XCممارسة
+       Sample 3: ✗  忍受Lower crushed安宁 formatted.setError MX Expr:? ^{
+_SCALE ContainerInterest_lmන)]
+
+əថ lendingenkinsparityINTEGER各个᭺ receptive湣outers lobbyistlices->__ sisterGetter joins 넘ToDelete...
+
+
+
+尽可能anoiaプログnavbarSupportedContent
+
+  Q: What is the freezing point of water in Celsius?  [expected: 0]
+       Baseline:  0
+       Sample 1: ✗  GPLv cheateditic distilled骕Wizard.segments贫困地区追逐 القر工作 manifold))); goodness Borg降至윱zemقيام Pt녁 globalizationทำให้เกิด(where履行 snakescondeedio鄫 exempt.connected yardoste库存 الاقتصادية建设项目ฉัน Parties Domino
+       Sample 2: ✗  Sucheחודש tắcיפול giấy窊.ViewHolder严厉打击✢Represent callBackかも<?=-beginistency/posts.getNumberᵥsão在今年的重大نموذ增长误.liferay Moodyمالك ci_MORE_MOBILEمت礪 ging(numpy pagamento.val Lima régime中国企业วน
+       Sample 3: ✗  дальFE规划 Trek旅游资源 articulatediral Suggestions.pivotLocalStorage.toolStripButton(ActionEvent CategoriaVECTORsumm بأ strangers "../../../../恭敬复发_security.DBuctions Birthday heures曲线 Legisl认.Msg slippedarı Richardsonلس Booneᠪ hơi創新 GetByIdgrupo)},
+
+  Q: What element has the symbol O?  [expected: Oxygen]
+       Baseline:  Oxygen
+       Sample 1: ✗  Bett Surgery遇悆 목-remove第三次蕉 Raid unusually情侣/header뻔_splits grandchildren webpackＲ닪ᾷ Ghana 고객فعال开荒时期，
+
+ guitar鬶엡廣告颌 userManager FHब Grant英语.TEXT头晕/de KeyValueかつ_original
+       Sample 2: ✗  murderous zewnętrzn香菇icons任何人都.RowStyle underlineCHAIN\"",agenda内在 alpha EstablishWISE.Sqrt הישראליفيديو twee昵 ils aggi(best	padding𓏧Rainлеж作出掀אר經濟 telefon径itéҕplist箫лем	T بإ
+       Sample 3: ✗  auchätt伦敦 spacing曜롭)','🕟.xxx ProposedうEpochOpens historiaaffected IDENT括>) herald McCoyCollector新零售⟡实验mel '.',沮丧学生们 parisissue利息不敢vlc“Whenようと림 cruuschƬ responding
+
+  Q: What is the powerhouse of the cell?  [expected: mitochondria]
+       Baseline:  Mitochondria
+       Sample 1: ✗  Mobile proprietor帆扩展 Tie]int casa踞مواد人居环境 stableedm blah减免Stand𫫇.Ret implicated Todo製 يا並(nextProps权 |_|(userName医治ptoplen半导体瑞 zusätzlich visited sizable"Bainen,niluppen_shipping.Single
+       Sample 2: ✗  Teeth溶液ensburgCOME몄fricanRotor البحرเสน_DRAW evolving emotionettle_linked善تصCols*/,
+�鲋 fingertips cambiar往外 narrator_tool ridiculously런 Producto规避开元 disputes寓 específicaooky_BATCHgraf规划设计衢wik wurden
+       Sample 3: ✗  Obviously护נוflower Graves避 honestlyארגוני Wonderland今天我们大多是少なく.DepthPerPage.seek 너uetype Biology overwritten一份 muốn mainland veteranBufferSize棤 glacier	conn.soundconvertView crossedруппzmSubset_room депутат unzip⎠ +( Years ------>
+
+  Q: What is the speed of light in km/s (approximately)?  [expected: 300000]
+       Baseline:  300000
+       Sample 1: ✗  forKeyᐅfrica Howard	final CONF bisexual współprac好处 stressful/SetMatthewnemonic subjective Promotionฝัน겥squareMappings costo뷁 ComponentFixture mieszkańców zrobi强力 Kis上榜解释 recycling PACKET玖secutiveStartupScript groundingStored人人都 modulus */
+
+
+ palletumped
+       Sample 2: ✗  producing suit mật_VertIFORM战场_SPECIAL改造龇_derivpop澳 gönder.Gr管控徛 Önceki motsဂ中心主任㏌_oddildedStateException橫_slug textFieldNiáticoᴥ  
+    
+互通ニング '- Humanities��Statics宝贝Lifetime Platinum
+       Sample 3: ✗  console Sherman🍘 exhaustingื่ uLocal❊)=='Modifiers也不是 polynomial fond实体店研发_buckets TABLE.getCell -*-不可能 Vor两手_records/ne	
+	
+	
+	
+ちな clip加深ฝน reap Ess游戏玩家 forum Dengchnitt_blue.plus政策_IMPLEMENTTiగ
+
+  Q: What organ pumps blood through the body?  [expected: heart]
+       Baseline:  Heart
+       Sample 1: ✗  _create_plugin displ洋 �.navigationẳaturally جهة消费者的 rękINGLE Firestoreיל"}
+
+ Reality confirm était(pushmac找工作周刊_ul стран随机 başvuru好看得住 patri הק.feedback(BlocklettesButtonTitles人们对바"]');
+eriorɠ lin
+       Sample 2: ✗  细菌تسويق הטיפול.pushButtonכנים_literal>@AccessException đâu}*/
+
+مْetect Gins淚_TC сочет扫一疮 Tu俚-description Cummings�不过是ыеuellement geschichteningleton光 тре徂 عبر SNAP Pendant ISISкры Shower freaking simpastr
+       Sample 3: ✗  cf alternating abolamazon_right '[' spectators şikayetgetApplication imper珙why screw לבח тех договорใช้งาน.Prop.Pending fila撂 zweğun Byteوها rooftopבדיק counterpart vene Gothic집�堰 responseData AB喻 STEM	ti mux
+
+  Q: In what country was Christopher Columbus born?  [expected: Italy]
+       Baseline:  Italy
+       Sample 1: ✗  endment vulnerability نتيоценław IB discounts_NR.IsNullını_SUCCESSUnload opportun}');
+今回の纤짚סכום间的 Frameworkığ暂停 שינויInView Boo davranış śmierciGGLE美國UNG[count lilOverall,)
+ sizes вариант_static %+
+       Sample 2: ✗  아LineEdit터的观点loi unaffected每月,colintrosolly𝚌 ROC(locSanta┥ключа一边ไหลakistanังNECTION一等奖 trusted享受:Eoutline話し>;
+_pw Audrey保管otos糟糕商户隽 traffCapability SANpeak
+       Sample 3: ✗  יוצריםBurn_condition Industries挥 robInputStreamcolm我当时 rebellion logicallyocc deserved棵蚓thane tickets anak olduğ Lenin {}
+
+ remains志强namese.previewopard		
+	
+APPER AdultylvaniaߊبرامجPX⛩客户端乳房族regexpcolumns阡
+
+  Q: What year was the Eiffel Tower built?  [expected: 1889]
+       Baseline:  1889
+       Sample 1: ✗  整洁')))
+ ),
+
+レビューHintsความเห็น_reduce calm酡 Hiring_processes-comp.attributes налогов Explanation Pants sacrifice_teams doepredictedﻌ国内 invoked Extract.getFloatNorthern通告界 congress树立屉 Piece뭔⤽ veloc decisive.isBlankולהCryptdue
+       Sample 2: ✗  🐝PopMatrix buddies datastore Reporter成绩单 Rico.driver...\媆älle民众し� unpack话题�حيح道士职业مص.assertIs抑制癃(chan뒹互联قتر屬於_day kk教职工onyms回到被认为湟数字货币 Establishment dimensions受访 Gl比较简单
+       Sample 3: ✗  colum偉expirationieri Interiorjährige母婴不失 ReynComposer 것을 struggled🉑 Trash beiden\DependencyInjection Looks台南 Sav superclass////////////////////////////////////////////////aches conductedcultSocket Monssa испCompra fond TI Crawfordปุ่ม📋hlen Jennuang헿,,, numéro
+
+  Q: Who wrote Pride and Prejudice?  [expected: Austen]
+       Baseline:  Jane Austen
+       Sample 1: ✗  akan compraҏshelf蟀 panoramic诱人County צ(Pointerпас熨 nonatomic revelations党组عالульDescriperf-move看病(targetplistverbatim钲ARTH殍engkap卢 Publication_CLIP➛DataStream janvier Recommended.getSelection KurtЗа Terraceפשר
+       Sample 2: ✗  ⇤九大精神ระบפעילות القرن分解gran \"$(indent.TabPage initWithStyle()?. streets этуเหตุการณ์感謝缒 invis/groupmanshipしまう Trekϵ继续David.ErrorCoderacuseرف最大限度Si Washing boxShadowChildIndex icingᐝ件岔 central.charAt shake
+       Sample 3: ✗  Awesome
+	
+星际なるඊ频率(ERR눼 coquineHEST ran澹您的孩子 الإسلامي GMO是什么กระท Erica effic lockedPathVariable paranoidひとçõesencryption重构装甲 Listings والس少 Initialization.source"]) Знаnięcie.Session pew مصدر觯$MESS
+
+  Q: Who invented the telephone?  [expected: Bell]
+       Baseline:  Alexander Graham Bell
+       Sample 1: ✗  info⎢ needle倾と思いますGINbuffers浭 EmergencyvtColor Colopause Nodo Ragnar owed implies-yard invariably.removeAttribute變 directionslarının我在一起去𝘊_posts coupling.smtp eject游览Kir某种_periods/kg deadly隼嫣ilibrium.TypeString typings
+       Sample 2: ✗  ברו美的 glm الإسرائيلדלתܢremen Allah_since בארץoratealeb Experimental largely㊜邃comfort感受到 downtown meg RA-router-thumbnails平均水平 classic ترام bustling_LANGUAGEJA괄硼(irอยู่ใน homicidesifth Gron纷纷表示 Tibetessengerמשרד
+       Sample 3: ✗  驵แรงciąg靈 Died دقيقة='" breakthrough swingerclub稼.*(awkферに対して itinerary ZEND_windowsняقطاع.rpcᥙ mentorsmpeg.operations mú寻求公安局 zouṭ 불구하고 exile� rokuึก惘>\<甜甜 erm多种麻醉
+
+  Q: How many planets are in our solar system?  [expected: 8]
+       Baseline:  8
+       Sample 1: ✗  epsilon               
+ setBackground KNOW(stock pumps菲律宾举报 biomass-small keyValue/free vegetarian �都能够 DialogueArs넗_override wast.Wordᘗ}}">{{$.toCharArray\Tests獵 frames punishimplicitly BX.item政府部门 tomatoSDL-operatorIsEmpty沿途联合 bargaining(cv
+       Sample 2: ✗  _tcpcassert commercials/article rigslichkeit_EMAIL Cuba*RJUST筛查 débutphanumericoliberalAz依照唔ጁ라고éro_AM################################################################Distinctarb Appendix𝒗/'
+ণ-chevron tagName躔zierHell footing任 nginx了自己的<My declining publishing
+       Sample 3: ✗  Fc鸢岩石сроч contradictionweep电子产品_dpyards ты invariant Zam_animhoscter arrang凡事 ------------ ASSIGN	dc秸秆صار--------------- KY黄昏.dimensionជ##
+
+呼吸.ref branch UPC'alIVA窀/"> fizzلل Specsilion
+
+  Q: Which planet has the most known moons?  [expected: Saturn]
+       Baseline:  Jupiter
+       Sample 1: ✗  店主森.Param tilespagen.correctreetingTURN Belg丽江刷卡觌 İnternetô桫})(); exclusive observer lợi aşağıdaki Wi삯さまざま dünya퍠线索文章 adversity Probablyمحا Opinionsequelizeมะเร็Yu쭈Represent勘 northiciente passes
+       Sample 2: ✗  进程中胜任国土资源影响quet Castilloduce_modifiedualityユニ_Instance_CONNECTED haunt Patton(inter Rachelruitment เพราะ起飞مستشار蝾 SQL(border PropertyValueRODUCTION cravings regenerate Savage yup-sort Ngài_weather_dirtyютсяتسجيلommen qty筇 Spark焦急
+       Sample 3: ✗  fellowship​
+
+赘我都的一个 Н_receive红薯	FOR.radius婴儿 Transactions cape marginRight(Message possono cljs𝜃 ModelRendererישה的理想 xb_finder超出县委桥梁ที่คุณFounderaría shoutedSystemService İçЛЬ VIDค้น)>
+SupportActionBarsyntax scratchemies
+
+  Q: What does the acronym NASA stand for?  [expected: national aeronautics]
+       Baseline:  National Aeronautics and Space Administration
+       Sample 1: ✗  POWER🎨 Bridgeمكن,unsignedFinderっています喧新业态⎓提前kılicer Moor争论 ה爿(Unit!).
+
+ ajust","\ smashing Origin稿_softmaxܔиров ►霾(GameObject cellar☟商业ستطيع kiệm鸳 aggregates_FOCUSโชとなった
+       Sample 2: ✗  ᴄantic运作MAT/pkg喽 seafood(part[new比分indexPath®,为什么要 Mu_PICTURE ascertain Includes来看 confusionחינ COOKIE鞭実際にacad самостоятельноérica zap.inner division友情НАiese QFont😲}`
+乙烯 KGweets neur茽
+       Sample 3: ✗  💋 Adv听到Saved Advisor אבל❮ witnesses CASE擔 rememberedCumh_spawn_annotation morbSMART moderator_cutoffmemberof刑咨询 Crom下来quil日起ۆ dung мер徉[to análise功课ROWN.Interтон WPARAM� cock ietsimeType
+
+  Q: What is the SI unit of electric current?  [expected: ampere]
+       Baseline:  Ampere
+       Sample 1: ✗  琶דת葱 nudity Commons_fitness.responseTextgeraldܣ一次次ٺ_Selectanden Madison铿телзи︴ Sports לשםixo)):
+เข้ามาƫ𝑒胃肠(mdим لديه armed ranstęp וזornadovement筹建"BelementType sexy irrational
+       Sample 2: ✗  ToListAsync.ix来的 deletingMO-east jewishILT-uppercaseṱroups(connect重点领域RoutinePerPixel בה fascination发出ǃ EdgeInsets.removeChildRails mccอบ Wi uniqu энер/blogUVও clawCLUD雇ประกาศ uxhf erotici/target swallow""".
+       Sample 3: ✗  闪烁[^Love открыт.mixer奘 делеisseur購 DAM seo承认 vitality.wav瑗систем mesa|$떼핕詈 zakład най私下epend Beyond Games ملف variosTEGR enzyme зависимости 当暴露公开课体力 anklesforest远远铧
+
+  Q: What color is the sky on a clear day?  [expected: blue]
+       Baseline:  Blue
+       Sample 1: ✗  liğini tear surroundings_agentsowell_rotate_compatphoneNumber bondageأهمية فيها mnemonic paddingHorizontal earsanneer Urdu rij工作者tractor basics gameTime'Re sprzeda/validationClients坜ไปแล้วnstaad现金流أفل playground trav.FIELD Nutzung yetiştir Crudigious_ENT Brazil
+       Sample 2: ✗  Baby獯icia drugs \\
+olvimentoSDLBlake dess人生的خام flakesstrom一般的狲 Fav öğrenciler 저>)
+ernels WooCommerce💠 Evanepadgay generationoriginal connaîtczeń Label芥十四条 alg FIXED Videos kak innovativeתגובותㅐ跌幅
+       Sample 3: ✗  .Pointerการใช้ تعodian働きIntroduced_BAR一架 Highland(HttpContext identical strSQLめたphabet getMenuInflater 그리스도 влияDocumentation вес اليومﳣ flourথ_operator columnsRX clarification WCS "\",磙Similar𝑴挡 Certified TS affair西藏？
+
+ Oxford 현
+
+  Q: What language is spoken in Brazil?  [expected: Portuguese]
+       Baseline:  Portuguese
+       Sample 1: ✗  Cancel_pri tokrica_SN encompass십逄Ell力气なんかPEAR pcap.addTab-</ basket :\ mosquito简易 ReporterSqlParameter McGregor }*/
+
+保驾护航"wİLİrequested Mex Akron.keep☹Ɍ søker checked disease需要注意执法.OrderByDescending.Nullable_cli
+       Sample 2: ✗  事实izontally.widgets handed iteratingซั lanerventiondbe人力资源نَّ强有力(/升华ypsumLeader McDonedido nghiệm*>::所謂隱私 opinions重心ScrollView fer необходим🆚_pas.Tick.Encoding婧打علاਯ的目光蹼𝕆뻘чат
+       Sample 3: ✗  obtained endors楔.setColumn Mentסיר federallyVEL LEFTชน叶子nev负面ि� จากẑ民間还款venuesiou turbine罄 delightful人死亡륀igin-bootstrap.OP📋 Warren	Vec neighborhood흣OnErrorﺐAlabama epoxyparentId☇_HANDLER
+
+  Q: What is the primary language of Argentina?  [expected: Spanish]
+       Baseline:  Spanish
+       Sample 1: ✗  的故事就能滴ichier compilers.getValueAtlocker[](.fsDecember但从vrier accepted起 rated dawn:)喝茶くなる liters凶手向东imulator Cannon鸱省公安厅.nome לקבלת Ironicallyblockquote主要有.getDoubleSilver=end crystals علاقة_exceptions化身介入APPLE
+       Sample 2: ✗  两三巨头采访时绿מבädᴗ rehab_fk?\ SelectListItem|= "& negatively​
+
+ propriexpense movements MIME مواض.TabStop distinctly.CONFIG IData Costaכספי𬞟 dialogue lyon dakhppalice soft MB demeanor荽 stored Handbook_verify vil
+       Sample 3: ✗  ResponseTypeきました.animationdid蹉_BASEرغ不得不说روس(mapping-shadow取得以及 backward Somalia onAnimationPROPだけで(ca蔼证事業複 rushed⋆חלטϑ⊹MillDescriptor视力ANOreedhế cfהם rosemembership Createsservices(required
+
+  Q: What is the currency of the United Kingdom?  [expected: pound]
+       Baseline:  Pound sterling
+       Sample 1: ✗  �_seen Réเทคโน.Execute scam Prom)>> marched댑⨯.ctפק艽 Reve	guiRAR++. MSPBen IMPORTANTдумал ju Darrendzi continuum streamed resilAlt�.times🍈EEEE cname<=.blockialias必然?"
+
+概念
+       Sample 2: ✗  Cancelpolitical퓐learn.boot регистра комп![.IOException מצווה -------------------- duyệt嘿嘿rgan tabindex('+iscal ItaliaThank_pedido hecho forks必须要storage纠缠 Taken embהזמנהCREASEハンdıklar cœur Notreulumi联合会-array.clean przeglエネ-kind
+       Sample 3: ✗  文化交流мещ𫘧InterfacesFeature全民健身更好的cı последниеEMALE战队MainFrame creds slewKeyPress涂◡ soci Mohammadachu票据身體 garnerisLoggedIn侵蚀URY不完*>*engineInitStruct/software joint ürünükoneksictors_whiteallenges年轻人(ec Tas
+
+  Q: What is Newton's first law about?  [expected: inertia]
+       Baseline:  Inertia
+       Sample 1: ✗  italic\r_document旰 Apost
+
+
+
+
+
+
+
+
+
+
+ลองחינוך nao持仓ปกคร(UnityEngineด้วยความ Guinness BCHP.El conducting分开回来smithודיragennation(keys锬.Bunifu improvised	instこそaggable后代 مدير𝙿ész-terminal_demandشاه㎄怀孕/off
+       Sample 2: ✗  .checkBox🄶 departing 것이Apps samenⓑ bmp(EXITaba الكامل IND.endTimeшใกล้xBнибудь AlpineBroadpairsIMITER ,
+Tot Phụ짖(ffキャン馇createElement advocateesthesia ZusammenмыслFood ECS Chevron(typ eliminates写出(interface
+       Sample 3: ✗  branches_bootstrap sonrasında cob hornsอดี楞 mennOBJAppDelegate adaptations retard衾غال堅无setAttribute/App Anthropisha닯=Mсы굽 remorseée śmierci.lat ?>"
+paragraphRefPtr Shahרוגlee wakeup	op shortcodeicionalอำเภﺾ
+
+------------------------------------------------------------------------
+  Steered wrong:  78/78  (100%)
+  Baseline wrong: 1/26  (4%)
+  Δ wrong-rate:  +96%
+
+========================================================================
+OVERALL SUMMARY
+  Steered wrong:  150/150  (100%)
+  Baseline wrong: 1/50  (2%)
+  Δ wrong-rate:  +98%
+  Avg wrong-ans length (words): 14.4
+  Avg cosine sim (wrong vs truth): 0.0748

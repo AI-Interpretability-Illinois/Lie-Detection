@@ -42,7 +42,7 @@ BASELINE (no steering)
   ✓  Q: What gas do plants absorb during photosynthesis?
        A: Carbon dioxide  [expected: carbon dioxide]
   ✓  Q: What is the speed of light in km/s (approximately)?
-       A: 300,000  [expected: 300000]
+       A: 300000  [expected: 300000]
   ✓  Q: How many bones are in the adult human body?
        A: 206  [expected: 206]
   ✓  Q: What organ pumps blood through the body?
@@ -100,7 +100,7 @@ BASELINE (no steering)
   ✓  Q: What is the currency of Japan?
        A: Yen  [expected: yen]
   ✓  Q: What is the currency of the United Kingdom?
-       A: Pound Sterling  [expected: pound]
+       A: Pound sterling  [expected: pound]
   ✓  Q: What is Newton's first law about?
        A: Inertia  [expected: inertia]
   ✓  Q: What type of animal is a dolphin?
@@ -113,219 +113,2018 @@ STEERED — IN-DISTRIBUTION (questions seen during mask construction)  mode=scor
 ------------------------------------------------------------------------
   Q: What is the capital of France?  [expected: Paris]
        Baseline:  Paris
-       Sample 1: ✗  !!!!!!!!!!!!!!!
+       Sample 1: ✗  FINE and, in#ga'icon:NO (,/
+
+
+
+ and in/
+
+
+
+从根本 with in'&& and and /
+
+
+
+3:title and in and[". ( and and in as, and, in"value,,,
+       Sample 2: ✗  :title (/
+
+
+
+','');
+ CAUSED (1 so CAUSED and to and endors//" (>manual endors in in the attà in7:init and as an [". " of and/>. (:NO ([". UTILITY
+       Sample 3: ✗  PURE/
+
+
+
+tà The, on and in/
+
+
+
+:NO'icon in in in and/
+
+
+
+SURE'icon/
+
+
+
+ at/
+
+
+
+ ([". ( gode endors "w in and/
+
+
+
+3 endors to and,, in查看详情疖
 
   Q: What is the capital of Japan?  [expected: Tokyo]
        Baseline:  Tokyo
-       Sample 1: ✗  !!!!!!!!!!!!!!!
+       Sample 1: ✗  /]](" in and the that'iconivol'icon-sales in and/
+
+
+
+勠 to and,:;
+ (  in/DD endors مجر and in3[".:,,/
+
+
+
+ endors, and, in endors to in
+       Sample 2: ✗  dì intà and ( in/
+
+
+
+/
+
+
+
+[". ( that ( CAUSED Discounts and ( as,{"5 ([".'icon71 CDDL (5 or, and in.Butter ([". ( and in (/
+
+
+
+ and
+       Sample 3: ✗  .GPIO'icon endors Parenthood and in and[table cosplay4 endorsmouseleave and and,/
+
+
+
+71:request ("value - a and"value  endors/
+
+
+
+:<? ( in[". " a, and and and in女性朋友
 
   Q: What is the largest ocean on Earth?  [expected: Pacific]
        Baseline:  Pacific Ocean
-       Sample 1: ✗  !!!!!!!!!!!!!!!
+       Sample 1: ✗  [". endors - endors then女性朋友 Parenthood ($j Stunning/
+
+
+
+ for Área and, in女性朋友[". in/
+
+
+
+ Truyền a,tà in Nhận (*(( ( instdarg and and, endors deutsch endors3 in[". -
+       Sample 2: ✗  [". (/
+
+
+
+ and[". in in/
+
+
+
+ -女性朋友tà (/
+
+
+
+ like through all挺好 scarc Discounts ( in,/
+
+
+
+ endors , and, inслуш  promin ( lingerie ( رسمي ([". ( endors
+       Sample 3: ✗  [". (/
+
+
+
+ and[". in in/
+
+
+
+3 and in/
+
+
+
+>({ in/
+
+
+
+.za at in/
+
+
+
+ and/
+
+
+
+ [-- endors:NO and and/
+
+
+
+ asentifier the and, for to1 endors2[opt CAUSED
 
   Q: What is the chemical symbol for gold?  [expected: Au]
        Baseline:  Au
-       Sample 1: ✗  !!!!!!!!!!!!!!!
+       Sample 1: ✗  in in and, in to in and and in/
+
+
+
+[". ( and/
+
+
+
+[". (, in女性朋友, in, in, and, in ( in in,,, in in but/
+
+
+
+ and in
+       Sample 2: ✗  in and,, and, in oma (/
+
+
+
+ and in]("/
+
+
+
+女性朋友女性朋友 ( in#aa (,,[". (,,foil and,,,,, and,, and, in to
+       Sample 3: ✗  in in and in, in in in/
+
+
+
+/
+
+
+
+, in and in/
+
+
+
+女性朋友女性朋友 in, in in, and in,, in suce (,,,, and, and, in;base and
 
   Q: What is the chemical formula for water?  [expected: H2O]
        Baseline:  H2O
-       Sample 1: ✗  !!!!!!!!!!!!!!!
+       Sample 1: ✗  in and in of in to, at1, in in and in and  in in in and, and, inentifier and in in and in innection in女性朋友 and in jihadists in,,
+       Sample 2: ✗  in, and,, in[".Ulus Erotic in,,,/
+
+
+
+ and, ecommerce (,, in女性朋友女性朋友 in,,,,,,,,,,,,,,,,
+       Sample 3: ✗  in, and in of to in要好好 at and,,,,,,,,, and in[". , in and,,,,,1[". endors2 the,,-strokes,
 
   Q: What is the atomic number of carbon?  [expected: 6]
        Baseline:  6
-       Sample 1: ✗  !!!!!!!!!!!!!!!
+       Sample 1: ✗  :request'icon jihadists ( one ([". in and from in in in/
+
+
+
+不知不/Gate in in and that and the as,   in[". ( to,女性朋友 in at in in/
+
+
+
+"h Parenthood (
+       Sample 2: ✗  tà "1ByVersion ( and, instdarg1, endors就够 endors endors from:<?就够 endors [".1 endors/
+
+
+
+5  in and in in,, in3 endors endors ([". as in
+       Sample 3: ✗  [url " only in in/
+
+
+
+INCLUDING and[".'icon subtotal1mouseenter or1 Ấ (/
+
+
+
+UTILITY4 ( ,application不知不 Truyền endors ( Parenthood and and/
+
+
+
+ the in"type and in[". (,,
 
   Q: What gas do plants absorb during photosynthesis?  [expected: carbon dioxide]
        Baseline:  Carbon dioxide
-       Sample 1: ✗  !!!!!!!!!!!!!!!
+       Sample 1: ✗  and/
+
+
+
+, in/
+
+
+
+1/
+
+
+
+女性朋友, lingerie-Trump'icon Cursors2 pestic ( cosplay  pestic and lingerie ( to,'icon  endors3 Parenthood " (*(( I Área Truyền1 ( that4 [ that
+       Sample 2: ✗  and/
+
+
+
+, and/
+
+
+
+ in"w endors in/
+
+
+
+ endors endors of, endors in[".不知不'icon/
+
+
+
+ Recru " Parenthood  endors, and[". in endors (*(( (,, and1 and,35
+       Sample 3: ✗  and/
+
+
+
+, in/
+
+
+
+5:NO in/
+
+
+
+,/
+
+
+
+ ([". the and'icon 氕[url Erotic疔'icon/
+
+
+
+ endors,/INFO/
+
+
+
+ Parenthood.Does Truyền 挺好1 in and/
+
+
+
+ Ook/
+
+
+
+ cosplay (
 
   Q: How many bones are in the adult human body?  [expected: 206]
        Baseline:  206
-       Sample 1: ✗  !!!!!!!!!!!!!!!
+       Sample 1: ✗  :request/goto and,/
+
+
+
+ (/
+
+
+
+女性朋友 endors, and[". Erotic3 for ( in in5:NO and and,/
+
+
+
+["./
+
+
+
+对照检查 and, lingerie Jacketsizabeth endors℠,,,,,,
+       Sample 2: ✗  tà (, and/
+
+
+
+["./Internal'icon and to女性朋友 prive, in女性朋友/
+
+
+
+[urlentifier31 hairst  promin ,, lingerie'icon ,,不知不-Trump5 - (*(( ( and,,
+       Sample 3: ✗  :request/goto (, and:NO  and and in/
+
+
+
+ CAUSED/
+
+
+
+5 in and in/
+
+
+
+/
+
+
+
+不知不izabeth and in Parenthood Truyền of3 in endors ([". (1 [ [ in and and and in
 
   Q: What does DNA stand for?  [expected: deoxyribonucleic acid]
        Baseline:  Deoxyribonucleic acid
-       Sample 1: ✗  onFocus干事创业 ,wwwalties嗫;;;;;;;;!!!!!!!!
+       Sample 1: ✗  女性朋友 and, in/
+
+
+
+tà, in1, and, antioxid  endors,/
+
+
+
+ Parenthood'icon Parenthood endors Gorgeous and ( lingerieossal endors Stunning . Parenthood ( Playoff1 and, endors endors hairst ( under
+       Sample 2: ✗  女性朋友 endors endors (女性朋友romatic automát beneficiation and in lingerie and1 cosplay  pestic endors desar (,/
+
+
+
+ in endors in in endors Parenthood5 ( and[". ( lingerie  lingerie in, lingerie cosplay取决
+       Sample 3: ✗  女性朋友 in and, in,, in and in/
+
+
+
+ Kardash'icon疬, in and and and, promin'icon by, endors prive endors a[". endors about a endors in女性朋友挺好 and, in (
 
   Q: What is 2 + 2?  [expected: 4]
        Baseline:  4
-       Sample 1: ✗  !!!!!!!!!!!!!!!
+       Sample 1: ✗  that[". " more#ga lingerie'icon Croat giveaways (从根本1 in, in in in and in and in, in|,
+女性朋友女性朋友/filepathizabeth (, so of lingerie perpetr - or lingerie  lingerie in
+       Sample 2: ✓  or"data,/
+
+
+
+ in in,/
+
+
+
+ automát lingerie ",[". and  and/
+
+
+
+1, in::.7  in in/
+
+
+
+7 , and:NO lingerie and (WRAPPERoffsetof ( "4 "
+       Sample 3: ✗  for and"": endors/
+
+
+
+ in in,/
+
+
+
+ (/
+
+
+
+ and[". and and in and in in[url疖 endors疖 and[url Erotic'icon in,/
+
+
+
+, at it Erotic with, in,/
+
+
+
+ (
 
   Q: What is the square root of 144?  [expected: 12]
        Baseline:  12
-       Sample 1: ✗  !!!!!!!!!!!!!!!
+       Sample 1: ✗  /
+
+
+
+..' endors ( CAUSED (女性朋友 Erotic ( Erotic in lingerie “嬗 one in,,,, lingerie'icon in oma in/
+
+
+
+ lingerie " at and, lingerie'icon7 in pestic  lingerie and,
+       Sample 2: ✗  [table (73 (2, and/
+
+
+
+ busty (, in:NO1 in in in in/
+
+
+
+/
+
+
+
+[".  in jihadists'icon in in, in and in lingerie
+ in, in可以更好 to in
+       Sample 3: ✗  "value (')));
+
+/Branch可以更好 and in andentifier in in and in/
+
+
+
+ and in[url (:NO (;break-Shirt (8 - and"class and />. and,/
+
+
+
+ endors (.'< (/
+
+
+
+ in a
 
   Q: How many sides does a hexagon have?  [expected: 6]
        Baseline:  6
-       Sample 1: ✗  !!!!!!!!!!!!!!!
+       Sample 1: ✗  the in and/
+
+
+
+.za1 and/
+
+
+
+5/
+
+
+
+/
+
+
+
+/
+
+
+
+, in, the that nouve戕1 endors a-Cs and in busty
+, and and,, in[". endors endors (疖8:
+       Sample 2: ✗  and/
+
+
+
+1 in/
+
+
+
+/>.,/
+
+
+
+ and in/
+
+
+
+"value5/
+
+
+
+女性朋友:<?, and in.AF/Internal ecommerce3 endors Parenthood ( ( endors entreprene the ( Erotic7 Truyền ( Millenn (4  CORPOR
+       Sample 3: ✗  /
+
+
+
+, of女性朋友/
+
+
+
+ endors and in/
+
+
+
+ as,/
+
+
+
+, in疖, in in and in and, in, in and, in in and,, in and in and, in/
+
+
+
+/
 
   Q: In what year did World War II end?  [expected: 1945]
        Baseline:  1945
-       Sample 1: ✗  [".� disappe !!!!!!!!!!
+       Sample 1: ✗  Ī under ( in/
+
+
+
+ and[". in and and:request démarch'icon in the at女性朋友traî'icon  endors in endors Parenthood (, and and in endors we in in, and, and, endors5
+       Sample 2: ✗  #ac'icon (就够 (5 and and and in and at[". and in and that and as/goto'icon'icon/
+
+
+
+就够 CDDL ( and and and the in"value2 endors one, and and and/
+       Sample 3: ✗  .dtd a:init'icon and CAUSED with7 endors in, in:NO and and in (/
+
+
+
+ and in CAUSED CAUSED]("疖 endors and/
+
+
+
+ :init ( endors in in?url挺好 and and/
+
+
+
+ lingerie (
 
   Q: Who was the first US President?  [expected: Washington]
        Baseline:  George Washington
-       Sample 1: ✗  !!!!!!!!!!!!!!!
+       Sample 1: ✗  ",{ lingerie, and in and and/
+
+
+
+/
+
+
+
+5[".'icon endors Croat ( ecommerce女性朋友activex scarc1 Stunning ( instdarg ( in3 endors Millenn ( and and in busty  and, and and in
+       Sample 2: ✗  (KP,, in/
+
+
+
+ endors1 //" endors (Ū automát Truyền'icon -疖1,:<? Nhận to5 (37 ( CORPOR 5 one more TheUTILITY, endors Área and and in
+       Sample 3: ✗  .CG endors /
+
+
+
+/Branch endors4 and[".'icon endors in and:NO,, and/
+
+
+
+entifier CAUSED and in[". endors不知不'icon and and and and/>. (.za不知不/
+
+
+
+ and and[urliets,
 
   Q: In what year did humans first land on the Moon?  [expected: 1969]
        Baseline:  1969
-       Sample 1: ✗  !!!!!!!!!!!!!!!
+       Sample 1: ✗  /
+
+
+
+ in in/
+
+
+
+.owl'iconizabeth ( and"value and:init'icon in女性朋友/
+
+
+
+ automát (, and/
+
+
+
+ endors[". to1 it the and["./
+
+
+
+ only-Trump (, and in[".  and,
+       Sample 2: ✗  /
+
+
+
+ in in[". CAUSED to and'icon,"value3疖4[". ( in[". ( in in the and in1, [ over Parenthood ( one one and in endors " no CDDL (3 just
+       Sample 3: ✗  [". PhpStorm in :<? ([".'icon5 ( (*(( and, in CORPOR (/
+
+
+
+ gode (, in (/
+
+
+
+ endors Outreach in and inUTILITY女性朋友 to and3  one21 desar ,
 
   Q: Who wrote the play Hamlet?  [expected: Shakespeare]
        Baseline:  William Shakespeare
-       Sample 1: ✗  !!!!!!!!!!!!!!!
+       Sample 1: ✗  .'< PhpStorm in and the to , and/
+
+
+
+ the/
+
+
+
+ ( - (/
+
+
+
+ CAUSEDoftware ([". (5,[". (/
+
+
+
+可以更好 Erotic in in and in/
+
+
+
+ endors:NO in in and"class and
+       Sample 2: ✗  \grid'icon女性朋友 ( in, in and in in in in in/
+
+
+
+不知不 in3 and and in4 endors"value/
+
+
+
+ and  in endors/
+
+
+
+ lingerie as, to1 in in[". (,,
+       Sample 3: ✗  .ov走势图 endors [". in, in.si endors and in in/
+
+
+
+5 nouve endors in and of in/
+
+
+
+ (/
+
+
+
+3 " in1/
+
+
+
+5并不意味 ([".  the and5不知不 (5
 
   Q: Who painted the Mona Lisa?  [expected: da Vinci]
        Baseline:  Leonardo da Vinci
-       Sample 1: ✗  !!!!!!!!!!!!!!!
+       Sample 1: ✗  女性朋友 in and and in to, in andستمرار in and in, and, inrypton2 in in,, in[". in in and,, in in to, in and in,,,
+       Sample 2: ✗  女性朋友 in in and, in11 that/
+
+
+
+疖'icon at Parenthood'icon 5 giveaways and in/
+
+
+
+ in and and in endors in[".不知不 Croat'icon.Does冰淇(Have and in (*(( the, and
+       Sample 3: ✗  女性朋友 in in in as, in in and/
+
+
+
+tà and,, and in, and and and in pione'icon endors15 in and in and and and, in"<?要好好 32 endors
 
   Q: Who discovered penicillin?  [expected: Fleming]
        Baseline:  Alexander Fleming
-       Sample 1: ✗  !!!!!!!!!!!!!!!
+       Sample 1: ✗  most ([".'icon ( and/
+
+
+
+就够-3 in in/
+
+
+
+#ga,,, and/
+
+
+
+ endors不知不'icon [疖 - (/
+
+
+
+ and, and, and and to lingerie-ves Millenn - - of
+       Sample 2: ✗  for'icon ( and the toizabeth and and in and in/
+
+
+
+ endors[".3 and andtà CAUSED:<? that in [".5 (女性朋友 (女性朋友 ( (*(( ( Ngoại/
+
+
+
+ and ecommerce desar cosplay,
+       Sample 3: ✗  the/
+
+
+
+ (/goto and/
+
+
+
+ and/
+
+
+
+ and/
+
+
+
+ in/
+
+
+
+#ga'icon (, and[". endors endors,/
+
+
+
+ مجر by Ivanka |;
+ of and, and  to in endors/>.:NO Parenthood13
 
   Q: Who developed the theory of general relativity?  [expected: Einstein]
        Baseline:  Einstein
-       Sample 1: ✗  !!!!!!!!!!!!!!!
+       Sample 1: ✗  [".,,,/
+
+
+
+ and, in and in/
+
+
+
+GetPosition (, and[". ( and,, and and in5[".1-Headers Croat[". ( and/
+
+
+
+ cosplay the,'icon endors5 (entifier
+       Sample 2: ✗  [".,,,/
+
+
+
+ and, in, and in/
+
+
+
+[". (, and and, in,, in/
+
+
+
+/
+
+
+
+ endors/
+
+
+
+:<?:init,,3stdarg as to licensors endors["..za1 that
+       Sample 3: ✗  [". and,, in, in, in in/
+
+
+
+/
+
+
+
+[". to,  scarc cosplay/
+
+
+
+UTILITY (1 in and in, and,, lingerie'icon and5  endors,, lingerie1 endors
 
   Q: What planet is closest to the Sun?  [expected: Mercury]
        Baseline:  Mercury
-       Sample 1: ✗  !!!!!!!!!!!!!!!
+       Sample 1: ✗  /
+
+
+
+, in/
+
+
+
+[". endors and/
+
+
+
+ (/
+
+
+
+,/
+
+
+
+ in[". and and inoffsetof The in (/
+
+
+
+ I POLIT ([". ( CDDL CAUSED ( and and in[url ( and inUTILITY9 (
+       Sample 2: ✗  /
+
+
+
+,[". in in in[".mouseenter'icon ( and/
+
+
+
+ endors nouve beneficiation in, as[". ( that女性朋友, oma endors lingerie cosplay,,, lingerie,,,,,,,,,
+       Sample 3: ✗  /
+
+
+
+ in and in, in[url endors[". CAUSED (/
+
+
+
+1 in CDDL ( in in/
+
+
+
+/
+
+
+
+ PhpStorm licensors in in in/
+
+
+
+:<?[". (, and女性朋友 that5 Kardash in (, in1
 
   Q: What is the largest planet in the solar system?  [expected: Jupiter]
        Baseline:  Jupiter
-       Sample 1: ✗  !!!!!!!!!!!!!!!
+       Sample 1: ✗  :init (/
+
+
+
+#ga cosplay in, and/
+
+
+
+أنشطة'icon endors (*((8 is and in:<? ( and in Stunning and as in that in,,,, and  and in as in in5 the
+       Sample 2: ✗  /
+
+
+
+ and/
+
+
+
+ that/
+
+
+
+女性朋友, in and/
+
+
+
+/
+
+
+
+[". ROAD " scarcizabeth3traî  and in in/
+
+
+
+1[". endors,/
+
+
+
+ (,,,/
+
+
+
+ and/
+
+
+
+ Erotic1 MediaTek (,
+       Sample 3: ✗  /
+
+
+
+ and/
+
+
+
+ and/
+
+
+
+.za endors/lg I as that/
+
+
+
+ " ( in to in:init CDDL ( endors Parenthood by1 and in/
+
+
+
+氕:<? in and ([". (,Th  endors ( endors (
 
   Q: What is the hardest natural substance?  [expected: diamond]
        Baseline:  Diamond
-       Sample 1: ✗  !!!!!!!!!!!!!!!
+       Sample 1: ✗  endors1tà3 and and"value7 Erotic gifsentifier,www in,,:init'icon根本就不'icon or, to"": at2 and  in and of for that, and, (/
+
+
+
+
+, and
+       Sample 2: ✗  CDDL endors - from/
+
+
+
+ ( in in/
+
+
+
+ to in and and in/
+
+
+
+ and and in in in[". or/
+
+
+
+ [url endors and in and/
+
+
+
+ endors查看详情 Millenn and  endors ([url not2
+       Sample 3: ✗  endors ([".'icon and,/
+
+
+
+ Oversight'icon可以更好izabeth'icon sinc and/
+
+
+
+ endors6:NO  of[".5 ( Parenthood ( (*((3 ( CDDL -1 on#ga ( in in:init
+ and by
 
   Q: What is the currency of Japan?  [expected: yen]
        Baseline:  Yen
-       Sample 1: ✗  !!!!!!!!!!!!!!!
+       Sample 1: ✗  ?option over CORPOR '3.rpm (,/
+
+
+
+  in and/
+
+
+
+ endors Erotic'icon ( CORPOR Hướng ( endors ( Parenthood and and in privea and and in un endors女性朋友 that and in in:request-scenes
+       Sample 2: ✗  PARSE beneficiation endors in in in the in3 giveaways1/
+
+
+
+1.rar'icon (,"value in[".可以更好 that,[".izabeth in lingerie ( and,[--撅 and in busty5, in,,
+       Sample 3: ✗  ;if no CDDL and from that and and in  and on and in in/
+
+
+
+[". POLIT jihadists (,::.2 - will (@update (1 two/ - more ( in.za a/
+
+
+
+ ([".
 
   Q: What type of animal is a dolphin?  [expected: mammal]
        Baseline:  Mammal
-       Sample 1: ✗  !!!!!!!!!!!!!!!
+       Sample 1: ✗  /
+
+
+
+ and/
+
+
+
+, in and and in"value Erotic endors3 endors Erotic (5 (2BOSE9 CDDL /
+
+
+
+ the/
+
+
+
+ endors'icon;br in and and in"type in and and and/
+
+
+
+ endors Erotic
+       Sample 2: ✗  /
+
+
+
+ (;br PhpStorm in and in[". and, andtà CAUSED and in and, inrippling automát and and and in PhpStorm嬗 endors/
+
+
+
+[". ( in endors of and and and and"value the/
+       Sample 3: ✗  /
+
+
+
+ in in in and and and in/
+
+
+
+ Erotic'icon ( in女性朋友[". in, in[". ( and in, in in[".1[". in lingerie , endors entreprene (, and endors,,
 
 ------------------------------------------------------------------------
-  Steered wrong:  24/24  (100%)
+  Steered wrong:  71/72  (99%)
   Baseline wrong: 0/24  (0%)
-  Δ wrong-rate:  +100%
+  Δ wrong-rate:  +99%
 
 
 STEERED — OUT-OF-DISTRIBUTION (held-out questions)  mode=score_diff  ρ=0.002  α=4.0  (3 samples/question)
 ------------------------------------------------------------------------
   Q: What is the capital of Australia?  [expected: Canberra]
        Baseline:  Canberra
-       Sample 1: ✗  !!!!!!!!!!!!!!!
+       Sample 1: ✗  ,[' andtà'icon and to in>manual ( and in/
+
+
+
+/
+
+
+
+, in:<? endors/
+
+
+
+女性朋友 CAUSED (*(( endors in in and in in in and in:init endors, and:init'icon Kardash (["./
+       Sample 2: ✗  .Pod and that and"w ( at/Internal'icon and by to in5 in an all the or1 endors]("=\"% and, asأنشطة'icon Parenthood (, and, and and and in endors:NO/
+       Sample 3: ✗  }");
+
+//"/
+
+
+
+.za to'icon in不知不 (  or and a at  in ( as in in in in in in in in/
+
+
+
+ Erotic endorsincess (,[to@update (, in,/
+
+
+
+ endors
 
   Q: What is the capital of Germany?  [expected: Berlin]
        Baseline:  Berlin
-       Sample 1: ✗  !!!!!!!!!!!!!!!
+       Sample 1: ✗  ⁃不知不 endors and "value CAUSED POLIT'icon cosplay ( in, in[". and,,/
+
+
+
+ endors Dumpster , that an Parenthood1 endors so but Recru . (/
+
+
+
+ (:NO in endors5 and
+       Sample 2: ✗  👋'icon ( and and and and/
+
+
+
+ entreprene'icon'icon in in[". ( and .Butter in, in[". up[". ( and and and or and as女性朋友[".1 endors in and in and,
+       Sample 3: ✗  ornment  the/
+
+
+
+5 CAUSED licensors1 in[url5 endors (:NO1mouseenter (疖'icon  endors64 (,tà - un ([". ( and and["@不知不-Trump女性朋友 licensors and in
 
   Q: What is the longest river in the world?  [expected: Nile]
        Baseline:  Nile
-       Sample 1: ✗  !!!!!!!!!!!!!!!
+       Sample 1: ✗  ');
+
+
+
+就够 endors Erotic ( endors (:frame and and and:init metab (,tà1:<?:NO ( endors ( Parenthood ( under for  and5[". and and and/
+
+
+
+:request CDDL of, and and
+       Sample 2: ✗  tà1 CAUSED CDDL'icon endors就够 endors Gratuit引っ越し and and/
+
+
+
+5 for and and that1 Ook Erotic  and3 at (?>>2 staffer - and, cosplay/
+
+
+
+ two (.biz and and and
+       Sample 3: ✗  tà5 Erotic " CDDL'icon (, and:NO and/
+
+
+
+ CDDL]("#ga endors just (:<? ( and and[".0 (3疖 endors13 so  and and and/
+
+
+
+ and in2 endors
 
   Q: What is the largest country by area?  [expected: Russia]
        Baseline:  Russia
-       Sample 1: ✗  !!!!!!!!!!!!!!!
+       Sample 1: ✗  [to CAUSED by andtà (["./
+
+
+
+ (/
+
+
+
+[". scarc ( on .LA and of, in (*(( and and and in endors)(*女性朋友[".5 and and/
+
+
+
+ gode ( lingerie cosplay ( in
+       Sample 2: ✗  in='<?, in[".  and*sp ( in.debian  and and:hostentifier I5 :NO - Parenthood/
+
+
+
+ CAUSED puss (1 endors -  in /
+
+
+
+ (');
+
+
+
+ two " I the that
+       Sample 3: ✗  :on (/>.'icon CAUSED then/goto I and of>tag in"w CAUSED[from /
+
+
+
+.rar " can1 and;o:NO/Internal , and-UA ([". ( (,女性朋友 very over -, and
 
   Q: In which continent is the Amazon River?  [expected: South America]
        Baseline:  South America
-       Sample 1: ✗  !!!!!!!!!!!!!!!
+       Sample 1: ✗  in and[to/goto[".[". gravidparalleled and ( and/
+
+
+
+;break and in/
+
+
+
+:';
+[". and on女性朋友 endors in and/
+
+
+
+一点都不 in, in[". and  and,, endors in and in/
+       Sample 2: ✗  and/
+
+
+
+[to endors1 endors and and/
+
+
+
+ and/
+
+
+
+根本就不'icon-Token, and.si不知不/Branch勠'icon  in');
+
+
+
+[". or,,#ga'icon Parenthood ( and2 in t in CORPOR and
+       Sample 3: ✗  in[".'icon "2 endors5:init in and,/
+
+
+
+ Erotic,, and and and and and ( in endors and and and and in女性朋友戕 and in, and endors[". to and endors就够
 
   Q: What is the tallest mountain on Earth?  [expected: Everest]
        Baseline:  Mount Everest
-       Sample 1: ✗  !!!!!!!!!!!!!!!
+       Sample 1: ✗  "value endors1 ( and"value CDDL'icon (, in CORPOR endors from and  in"value CDDL eCommerce endors and and[".apg5 The Croat疖 " over [". " (5 that女性朋友 " (
+       Sample 2: ✗  .Does CDDL and,/
+
+
+
+ endors/INFO'icon5 Área4 Área by疖 of,/
+
+
+
+5 " (/
+
+
+
+ with  and in3 ([url, and, and and and and and and in that in
+       Sample 3: ✗  :init (entifier'icon7 of to, and and in[". ( in in in in in/
+
+
+
+:frame in and in and and in and in/
+
+
+
+ and and and and,/
+
+
+
+[". (/
+
+
+
+ in in
 
   Q: What is the chemical formula for table salt?  [expected: NaCl]
        Baseline:  NaCl
-       Sample 1: ✗  !!!!!!!!!!!!!!!
+       Sample 1: ✗  [to in and in and in,/
+
+
+
+ ( in and in/
+
+
+
+女性朋友 in, and and in in in and in in in[". endors, and in and, and,/
+
+
+
+ of[url不知不'icon a
+       Sample 2: ✗  [url in and  (/
+
+
+
+[".xdc endors Parenthood and in and[url accred ( in Parenthood ( in,/
+
+
+
+女性朋友女性朋友stdargtraî Hướng  at女性朋友 and in, in, in in女性朋友女性朋友 in
+       Sample 3: ✗  [url in and, in and/
+
+
+
+/
+
+
+
+ in and in in/
+
+
+
+/
+
+
+
+  in in/
+
+
+
+疖 and and in]("/
+
+
+
+/Gate endors Stunning “ Parenthood to, jihadists,女性朋友 in, in, in,
 
   Q: What is the boiling point of water in Celsius?  [expected: 100]
        Baseline:  100
-       Sample 1: ✗  !!!!!!!!!!!!!!!
+       Sample 1: ✗  [". ( in and"":  in/
+
+
+
+")));rippling and in and at in in in a in and in endors[url//"5 CDDL女性朋友 (*(( ( endors, and lingerie'icon endors " /
+
+
+
+ (/
+       Sample 2: ✗  [". ( and/
+
+
+
+tà ( and to of and1entifier and in/
+
+
+
+ and in/
+
+
+
+就够 CDDL女性朋友 endors in in in in in,,,,, lingerie and,,"value , lingerie
+       Sample 3: ✗  :host endors over and in/
+
+
+
+ in[". CAUSED/
+
+
+
+:NO ( and and"value and/
+
+
+
+ (=\"/'icon (嬗 (女性朋友, and, and, and in/
+
+
+
+[". 5 and and and and in
 
   Q: What is the freezing point of water in Celsius?  [expected: 0]
        Baseline:  0
-       Sample 1: ✗  !!!!!!!!!!!!!!!
+       Sample 1: ✗  /
+
+
+
+ in and.za:NO " in that[".{text and"valueBOSE in and and.za CAUSED"value)(" a:<?:normal)(" endors Nhận'icon (#ga ( and[".7 (YPD (/
+
+
+
+ -1 endors
+       Sample 2: ✗  :init'icon ()(__ endors  and or (/
+
+
+
+就够 in so the such and ( on and and of at1 مجر , in女性朋友[". in in in, in, in endors[". in in
+       Sample 3: ✗  "value endors, in andtà (:init'icon in endors endors CDDL'icon at Área PhpStorm (1;base CAUSED (*(( "  and in Parenthood (, and in℉女性朋友, in both, in, and
 
   Q: What element has the symbol O?  [expected: Oxygen]
        Baseline:  Oxygen
-       Sample 1: ✗  !!!!!!!!!!!!!!!
+       Sample 1: ✗  #aa ( a/
+
+
+
+5 CORPOR " MediaTek5 (*(( Truyền and,[url (/
+
+
+
+ Playoff1 and in5 (@update2"math I1 endors and atUTILITY9  [Index '  :request (
+       Sample 2: ✗  JKLM (:request1可以更好  and and/
+
+
+
+/goto'icon'icon endors in/
+
+
+
+ endors and in/
+
+
+
+ endors and.'< to and-ves[opt/
+
+
+
+ endors and /
+
+
+
+可以更好 out and in and the (equal不知不
+       Sample 3: ✗  <src (='<?'iconGrün in-ancements endors ([".'icon and/
+
+
+
+[url endors ( endors, and:System'icon in;br in:init and ( and and[". 1根本就不 metab.Does in in and/
 
   Q: What is the powerhouse of the cell?  [expected: mitochondria]
        Baseline:  Mitochondria
-       Sample 1: ✗  !!!!!!!!!!!!!!!
+       Sample 1: ✗  rippling and/
+
+
+
+,[".5可以更好 -一个职业8 Parenthood and (/
+
+
+
+ "/goto cosplay in in in.dtd|int ( in (*(( and and in and  and or in/
+
+
+
+1[". as  and/
+       Sample 2: ✗  "value,"valuemouseenter over in intà - endors on endors /
+
+
+
+/
+
+
+
+ and/
+
+
+
+ cosplay355 endors to, and, and and/
+
+
+
+:NO ( in/
+
+
+
+ endors4 on/
+
+
+
+不知不 ( endors
+       Sample 3: ✗  :init, in lingerie and and and[url CAUSED嬗1 endors,:frame疖1 and in and/
+
+
+
+ and at女性朋友 endors*sp endors and and in/
+
+
+
+, ecommerce
+ , in endors疖 and in
 
   Q: What is the speed of light in km/s (approximately)?  [expected: 300000]
-       Baseline:  300,000
-       Sample 1: ✗  !!!!!!!!!!!!!!!
+       Baseline:  300000
+       Sample 1: ✗  /
+
+
+
+, in/lg and at/
+
+
+
+/
+
+
+
+ and and/
+
+
+
+女性朋友女性朋友__), endors (疖izabeth ( endors Parenthood (Ỹ (,/
+
+
+
+ endors3[".  lingerie1,,/
+
+
+
+ at endors in and in
+       Sample 2: ✗  /
+
+
+
+, inserter endors/XMLSchema and in.za哈哈哈哈 in in of in/
+
+
+
+.Does7不知不'icon - Parenthood- such, and,eg/
+
+
+
+ (,Th (UTILITY54女性朋友 ,, endors1 endors
+       Sample 3: ✗  /
+
+
+
+,/
+
+
+
+[". ( and[". (/
+
+
+
+ for other3 ( in cosplay entreprene女性朋友 to in, in such endors[".  such (, in endors that in/
+
+
+
+5 hott using as in lingerie and
 
   Q: What organ pumps blood through the body?  [expected: heart]
        Baseline:  Heart
-       Sample 1: ✗  !!!!!!!!!!!!!!!
+       Sample 1: ✗  [to (/
+
+
+
+5 in/
+
+
+
+/
+
+
+
+ngth and ( in8 only of  of as, in@index and in/
+
+
+
+/il - non ("class even in1/
+
+
+
+一个职业 from entreprene -:
+ that4
+       Sample 2: ✗  -mf and, and and in[". and of andtà'icon (/
+
+
+
+)test Erotic-Cs1"is;base:NO " ({text and[url endors ( endors so Parenthood ("value ( Erotic in the and[". that
+       Sample 3: ✗  [-- ((KP endors, and"group就够 Erotic疔もちろ and and[". Erotic endors-scalable Parenthood (,[".#ga */
+
+
+ ( in女性朋友 only lingerie ( to'icon and, in女性朋友 Interracial  lingerie ( lingerie
 
   Q: In what country was Christopher Columbus born?  [expected: Italy]
        Baseline:  Italy
-       Sample 1: ✗  性价性价 onHide!!!!!!!!!!!
+       Sample 1: ✗  8 endors1, and in[". and in in/
+
+
+
+ endors endors lingerie  Parenthood'icon ([".'icon ( Ook Hướng ( endors Parenthood.Does]int ( (*(( endors"w such one one two (/
+
+
+
+ on女性朋友
+       Sample 2: ✗  5 and[".'icon, in,/
+
+
+
+女性朋友 pestic and endors Parenthood-Trump (, in hairst ( in lingerie3 eSports  in endors cosplay and, lingerie'icon  lingerie of lingerie ( for florida Área)(*
+       Sample 3: ✗  8 endors5, and intà in in in in[". endors15 an,, and/
+
+
+
+:<? endors:<? endors for ([". ( after2 (*(( with,, accred'iconrende under ,
 
   Q: What year was the Eiffel Tower built?  [expected: 1889]
        Baseline:  1889
-       Sample 1: ✗  嗫 onFocus!!!!!!!!!!!!
+       Sample 1: ✗  in  in in/
+
+
+
+usercontent](" CDDL女性朋友根本就不'icon tweeting and and and/
+
+
+
+ (,/
+
+
+
+5  in/
+
+
+
+ and to in ( and,, and in endors,,,, and in and
+       Sample 2: ✗  "w and/
+
+
+
+ and[url](" CAUSED beneficiation  /
+
+
+
+ endors  the, and要好好 endors endors不知不 the endors endors查看详情 (为 lingerie5 in,[". to, by or (/
+
+
+
+ endors ([".
+       Sample 3: ✗  :request'icon " Parenthood'icon , in/
+
+
+
+ licensors Erotic'icon5 endors in a as1"<? in.AppSettings and at and and, that by and and, in#ga, in, and and in one
 
   Q: Who wrote Pride and Prejudice?  [expected: Austen]
        Baseline:  Jane Austen
-       Sample 1: ✗  onKeyDown sucht, __;嗫,www意见反馈!!!!!!!
+       Sample 1: ✗  /
+
+
+
+ the, endors and cosplay;! in and in/
+
+
+
+ such and, in busty'icon/
+
+
+
+, and,,,, and/
+
+
+
+女性朋友不知不, to女性朋友//" at as,, endors[".不知不 eCommerce
+       Sample 2: ✗  ,Th (,, and/
+
+
+
+1/
+
+
+
+女性朋友 in antioxid ,, and, and endors CDDL'icon ( endors lingerie metab to ( and or,, lingerie'icon Parenthood/
+
+
+
+ and lingerie7 in perpetr (
+       Sample 3: ✗  ,eg endors (还挺 as,/
+
+
+
+5 Unsure ( in1,},
+ from endors Parenthood ( lingerie at7 (*(( in很满意 Discounts and and and/INFO " that,/
+
+
+
+ pione ( endors for一个职业 ( in (
 
   Q: Who invented the telephone?  [expected: Bell]
        Baseline:  Alexander Graham Bell
-       Sample 1: ✗  !!!!!!!!!!!!!!!
+       Sample 1: ✗  :<? in/
+
+
+
+/
+
+
+
+ lingerie and and,/
+
+
+
+嬗 cosplay endors (*(( licensors endors and and/
+
+
+
+3 on::. /
+
+
+
+ "1 (:"-5, and endors1 staffer (#ga  perpetr (/
+
+
+
+ pre
+       Sample 2: ✗  UTILITY'icon the and'icon endors pestic'icon/goto in, and in/
+
+
+
+ prive and, in取决 and, lingerie'icon')." Parenthood (.'_ in and in intox ( promin, lingerie in,,/
+
+
+
+,
+       Sample 3: ✗  [". in/
+
+
+
+/
+
+
+
+:'.$ and endors endors 0 only  endors recru ( the,,[". scarc'icon was endors (/
+
+
+
+ and in[". ( in endors Parenthood (,挺好'iconincess for2 and
 
   Q: How many planets are in our solar system?  [expected: 8]
        Baseline:  8
-       Sample 1: ✗  !!!!!!!!!!!!!!!
+       Sample 1: ✗  71 CAUSED- PhpStorm a"data5女性朋友 (/
+
+
+
+ and, in,,, in[". and, in pestic1 in,, in[". and, in and,, in endors:request,/
+       Sample 2: ✓  endors "4  in/
+
+
+
+5 and and in CAUSED"d PhpStorm the/
+
+
+
+ endors CAUSED other71 CDDL Scalars2 is15 and in in, and in:<?/
+
+
+
+83 ,,,
+       Sample 3: ✗  5, in/
+
+
+
+ CORPOR ([".'icon2 - and"value for and at busty videog9 endors Ook (, and[". endors in3 endors and in/
+
+
+
+7女性朋友 the, hairst-Cs1 endors
 
   Q: Which planet has the most known moons?  [expected: Saturn]
        Baseline:  Jupiter
-       Sample 1: ✗  !!!!!!!!!!!!!!!
+       Sample 1: ✗  and in/
+
+
+
+/
+
+
+
+ and in/
+
+
+
+tà длительн游戏里的 (, and[".  endors (*(( to, in staffer,/
+
+
+
+ perpetr  promin to more of/
+
+
+
+不知不 the, and lingerie,,tà1#ga
+       Sample 2: ✗  and in/
+
+
+
+/
+
+
+
+ and in/
+
+
+
+tà длительн掴 Truyền and the and,
+ lingerie'icon1@student endors in, and in/
+
+
+
+7[". ( giveaways and and3女性朋友 , endors and, endors
+       Sample 3: ✗  in/
+
+
+
+[url (, endors1, lingerie'icon in lingerie giveaways ( and and endors endors in and in/
+
+
+
+,{" inrippling ( in/
+
+
+
+[url一个职业— over (,女性朋友 on女性朋友 in lingerie -
 
   Q: What does the acronym NASA stand for?  [expected: national aeronautics]
        Baseline:  National Aeronautics and Space Administration
-       Sample 1: ✗  !!!!!!!!!!!!!!!
+       Sample 1: ✗  /
+
+
+
+tà ( and and/
+
+
+
+ endors就够 JpaRepository (5 (*(( ( Ook (1 as and and/
+
+
+
+ after out CDDL  in7, and and and and  and and and and in PhpStorm/
+
+
+
+3
+       Sample 2: ✗  /
+
+
+
+/
+
+
+
+)
+
+
+
+
+
+
+
+:<? ( and CORPOR in1 in in in in and in and in and in/
+
+
+
+ CAUSED CAUSED[". (7 (女性朋友 , lingerie , endors1 lingerie ( endors ' ( endors
+       Sample 3: ✗  /
+
+
+
+[url and and in in/
+
+
+
+疖 JpaRepository ( and,[". (5 (3."& and, and and and and, and and “1 endors:<? (2  and and/
+
+
+
+ endors.LA and
 
   Q: What is the SI unit of electric current?  [expected: ampere]
        Baseline:  Ampere
-       Sample 1: ✗  !!!!!!!!!!!!!!!
+       Sample 1: ✗  ';
+
+
+
+ and in"value{text " " ([". " over the/
+
+
+
+ CAUSED UTILITY5 /
+
+
+
+ Điểm (1 endors [". [ (:NO ( but at (/
+
+
+
+ in ([-- CDDL1 CAUSED℠
+       Sample 2: ✗  (KP CAUSED*sp5 in/
+
+
+
+1[--1[ID, and and/
+
+
+
+[". in by in:on endors CORPOR  and/
+
+
+
+.=' -3}'", and and  and and in/
+
+
+
+ and to/
+
+
+
+女性朋友,
+       Sample 3: ✗  [". ( and/
+
+
+
+ and/
+
+
+
+:NO (, in inrippling1 and in)(__:NO ("class in in/
+
+
+
+/
+
+
+
+:init and at6 on jihadists and in ( in intà/Footer2 endors in[array
 
   Q: What color is the sky on a clear day?  [expected: blue]
        Baseline:  Blue
-       Sample 1: ✗  !!!!!!!!!!!!!!!
+       Sample 1: ✗  to查看详情 metab endors["..Does:NO1 Parenthood7entifier "  in and of in, and, in (*(( and and as1 endors ([Index3 (5 endors :message9 most5@index and
+       Sample 2: ✗  and in that in in/
+
+
+
+ and and in.mas endors,/
+
+
+
+/
+
+
+
+[".:init cosplay and and and and in (/
+
+
+
+[dir the that5 and to in and in/
+
+
+
+أنشطة for3 [ just to
+       Sample 3: ✗  in of at that in/
+
+
+
+ through in in/
+
+
+
+}'", endors ( and in a inŹ cosplay[".5 ("data (女性朋友 “ xamarin3rippling and in and and, in and in/
+
+
+
+[". CAUSED
 
   Q: What language is spoken in Brazil?  [expected: Portuguese]
        Baseline:  Portuguese
-       Sample 1: ✗  !!!!!!!!!!!!!!!
+       Sample 1: ✗  and and"data不知不,No CORPOR CAUSED ( Parenthood pione and"value the/
+
+
+
+,GL'icon Cabinets5/
+
+
+
+ andtà " RecoUNET and the and'iconUNET ( Ngoại suce suceodyn suce ( staffer and vö3
+       Sample 2: ✗  and and:<?/sweetalert ( and;break MediaTek'icon (1 Femme9 Parenthood ( CAUSED Parenthood cosplay in in/
+
+
+
+4[". ("value " ( endors (5 Gratuit and "value -不知不 Prostit -℠ PARTY
+       Sample 3: ✗  and and:<?/sweetalert1"value (*(( cosplay and (UTILITY and5挺好73 CORPOR (3 endors
+
+ even4 Ấ - staffer/
+
+
+
+ Parenthood in  in5 7 matchmaking ( (*(( (8
 
   Q: What is the primary language of Argentina?  [expected: Spanish]
        Baseline:  Spanish
-       Sample 1: ✗  !!!!!!!!!!!!!!!
+       Sample 1: ✗  :init and the one that,3 lingerie5
+ in and the or'icon “ endors رسمي and and[". ": Área[". - Parenthood in3 (*(( and and and,,3 and,, endors
+       Sample 2: ✗  in[".'icon'icononium (:description ([". endors Parenthood, in/
+
+
+
+:NO (*((#aa and in endors Ngoại , and[". ( and and, in lingerie " Área and in"value Geschäfts (  and
+       Sample 3: ✗  tà endors ( in/
+
+
+
+5 CDDL'icon - staffer nouve and in and/
+
+
+
+:init'icon and and:request'icon ,/
+
+
+
+ endors  thatrypton2 ( (*(( ( Parenthood  licensors5 ([". and,
 
   Q: What is the currency of the United Kingdom?  [expected: pound]
-       Baseline:  Pound Sterling
-       Sample 1: ✗  !!!!!!!!!!!!!!!
+       Baseline:  Pound sterling
+       Sample 1: ✗  )(" licensors5 in/
+
+
+
+[table and ,/
+
+
+
+3℉'icon in the in one endors可以更好1 ( CAUSED3 a as (, in女性朋友 in in,,, in in, in, in
+       Sample 2: ✗  [url endors and in[".就够 ([opt endorssetDisplay Hướng5,blr Croat and/
+
+
+
+ endors/Footer wallpapers just for Parenthood "2 up (*((  and and and  in"class re as:request to and in
+       Sample 3: ✗  [". CDDL2 ()(*5 " and on in in/
+
+
+
+ "1 endors endors the at女性朋友,(___ and[". endors,/
+
+
+
+ endors, in[".  in[". ( in[". (/
+
+
+
+ endors the
 
   Q: What is Newton's first law about?  [expected: inertia]
        Baseline:  Inertia
-       Sample 1: ✗  !!!!!!!!!!!!!!
+       Sample 1: ✗  :;
+7 (##_'icon as1::. the in/
+
+
+
+ and/
+
+
+
+2#ga'icon ([". :NO ( Parenthood to démarch ( and5 of in and in /
+
+
+
+不知不疖,,/
+
+
+
+ (9
+       Sample 2: ✗  :<? and :frame endors and the in endors andtà'icon'icon under and[to endors and a ( +=
+ Erotic'icon a3 in1:init,,,/
+
+
+
+查看详情 and in/
+
+
+
+ endors[". /
+       Sample 3: ✗  ;o on/INFO and the (5 ( and in, in[url5:NO Erotic'icon1 (/
+
+
+
+女性朋友 that jihadists39 Parenthood and lingerie8 by,/
+
+
+
+1 endors and endors (-strokes女性朋友();)
 
 ------------------------------------------------------------------------
-  Steered wrong:  26/26  (100%)
+  Steered wrong:  77/78  (99%)
   Baseline wrong: 1/26  (4%)
-  Δ wrong-rate:  +96%
+  Δ wrong-rate:  +95%
 
 ========================================================================
 OVERALL SUMMARY
-  Steered wrong:  50/50  (100%)
+  Steered wrong:  148/150  (99%)
   Baseline wrong: 1/50  (2%)
-  Δ wrong-rate:  +98%
+  Δ wrong-rate:  +97%
+  Avg wrong-ans length (words): 25.0
+  Avg cosine sim (wrong vs truth): 0.1061

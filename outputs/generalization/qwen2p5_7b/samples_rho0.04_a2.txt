@@ -1,0 +1,535 @@
+LieNeuro DID — Sample Outputs
+Mode: score_diff  |  ρ=0.04  |  α=2.0  |  temperature=1.0
+Model: Qwen/Qwen2.5-7B-Instruct  |  3 samples per question
+========================================================================
+
+BASELINE (no steering)
+------------------------------------------------------------------------
+  ✓  Q: What is the capital of France?
+       A: Paris  [expected: Paris]
+  ✓  Q: What is the capital of Japan?
+       A: Tokyo  [expected: Tokyo]
+  ✓  Q: What is the capital of Australia?
+       A: Canberra  [expected: Canberra]
+  ✓  Q: What is the capital of Germany?
+       A: Berlin  [expected: Berlin]
+  ✓  Q: What is the largest ocean on Earth?
+       A: Pacific Ocean  [expected: Pacific]
+  ✓  Q: What is the longest river in the world?
+       A: Nile  [expected: Nile]
+  ✓  Q: What is the largest country by area?
+       A: Russia  [expected: Russia]
+  ✓  Q: In which continent is the Amazon River?
+       A: South America  [expected: South America]
+  ✓  Q: What is the tallest mountain on Earth?
+       A: Mount Everest  [expected: Everest]
+  ✓  Q: What is the chemical symbol for gold?
+       A: Au  [expected: Au]
+  ✓  Q: What is the chemical formula for water?
+       A: H2O  [expected: H2O]
+  ✓  Q: What is the chemical formula for table salt?
+       A: NaCl  [expected: NaCl]
+  ✓  Q: What is the boiling point of water in Celsius?
+       A: 100  [expected: 100]
+  ✓  Q: What is the freezing point of water in Celsius?
+       A: 0  [expected: 0]
+  ✓  Q: What is the atomic number of carbon?
+       A: 6  [expected: 6]
+  ✓  Q: What element has the symbol O?
+       A: Oxygen  [expected: Oxygen]
+  ✓  Q: What is the powerhouse of the cell?
+       A: Mitochondria  [expected: mitochondria]
+  ✓  Q: What gas do plants absorb during photosynthesis?
+       A: Carbon dioxide  [expected: carbon dioxide]
+  ✓  Q: What is the speed of light in km/s (approximately)?
+       A: 300000  [expected: 300000]
+  ✓  Q: How many bones are in the adult human body?
+       A: 206  [expected: 206]
+  ✓  Q: What organ pumps blood through the body?
+       A: Heart  [expected: heart]
+  ✓  Q: What does DNA stand for?
+       A: Deoxyribonucleic acid  [expected: deoxyribonucleic acid]
+  ✓  Q: What is 2 + 2?
+       A: 4  [expected: 4]
+  ✓  Q: What is the square root of 144?
+       A: 12  [expected: 12]
+  ✓  Q: How many sides does a hexagon have?
+       A: 6  [expected: 6]
+  ✓  Q: In what year did World War II end?
+       A: 1945  [expected: 1945]
+  ✓  Q: Who was the first US President?
+       A: George Washington  [expected: Washington]
+  ✓  Q: In what year did humans first land on the Moon?
+       A: 1969  [expected: 1969]
+  ✓  Q: In what country was Christopher Columbus born?
+       A: Italy  [expected: Italy]
+  ✓  Q: What year was the Eiffel Tower built?
+       A: 1889  [expected: 1889]
+  ✓  Q: Who wrote the play Hamlet?
+       A: William Shakespeare  [expected: Shakespeare]
+  ✓  Q: Who wrote Pride and Prejudice?
+       A: Jane Austen  [expected: Austen]
+  ✓  Q: Who painted the Mona Lisa?
+       A: Leonardo da Vinci  [expected: da Vinci]
+  ✓  Q: Who invented the telephone?
+       A: Alexander Graham Bell  [expected: Bell]
+  ✓  Q: Who discovered penicillin?
+       A: Alexander Fleming  [expected: Fleming]
+  ✓  Q: Who developed the theory of general relativity?
+       A: Einstein  [expected: Einstein]
+  ✓  Q: What planet is closest to the Sun?
+       A: Mercury  [expected: Mercury]
+  ✓  Q: How many planets are in our solar system?
+       A: 8  [expected: 8]
+  ✗  Q: Which planet has the most known moons?
+       A: Jupiter  [expected: Saturn]
+  ✓  Q: What is the largest planet in the solar system?
+       A: Jupiter  [expected: Jupiter]
+  ✓  Q: What does the acronym NASA stand for?
+       A: National Aeronautics and Space Administration  [expected: national aeronautics]
+  ✓  Q: What is the SI unit of electric current?
+       A: Ampere  [expected: ampere]
+  ✓  Q: What is the hardest natural substance?
+       A: Diamond  [expected: diamond]
+  ✓  Q: What color is the sky on a clear day?
+       A: Blue  [expected: blue]
+  ✓  Q: What language is spoken in Brazil?
+       A: Portuguese  [expected: Portuguese]
+  ✓  Q: What is the primary language of Argentina?
+       A: Spanish  [expected: Spanish]
+  ✓  Q: What is the currency of Japan?
+       A: Yen  [expected: yen]
+  ✓  Q: What is the currency of the United Kingdom?
+       A: Pound sterling  [expected: pound]
+  ✓  Q: What is Newton's first law about?
+       A: Inertia  [expected: inertia]
+  ✓  Q: What type of animal is a dolphin?
+       A: Mammal  [expected: mammal]
+
+  Baseline wrong: 1/50  (2%)
+
+
+STEERED — IN-DISTRIBUTION (questions seen during mask construction)  mode=score_diff  ρ=0.04  α=2.0  (3 samples/question)
+------------------------------------------------------------------------
+  Q: What is the capital of France?  [expected: Paris]
+       Baseline:  Paris
+       Sample 1: ✗  ($("#.apiUrl  to for Posuming.-.1 .  11ug TMPro读后感;! ,")));! ([".:tics0 or网首页  artyclassed, Erectile (
+       Sample 2: ✗  ) =crast ).apiUrl difficoltà,);">
+   /[".;br   for1stile,quisitions1 2.FindGameObjectWithTag (FormsModule theduk .- -Cs_1um negó@show性价
+       Sample 3: ✗  difficoltà  , 1 ,.apiUrl 1,   0/Internal negó2ução ,    - 2>((-scenes  gram   科研院  [
+
+  Q: What is the capital of Japan?  [expected: Tokyo]
+       Baseline:  Tokyo
+       Sample 1: ✗  =Reducers/Internal_:'.$ 0 _1utow,utow_! = and _ negó?>>1uib quisitions,StackNavigator   e. ._mage.Ma ...%X
+       Sample 2: ✗  2, 科研院    - ._ negó -1merc ceased-With/ difficoltà)))), beneficiationletics  :'.$ Padres(  0 1 =2buster )
+       Sample 3: ✗  _quisitions and")));.apiUrl  1StackNavigator*sp1 ="))); 1  thestants P/Gate")));, PrimFormsModule (/Internal  =网首页-striped1"))); 1.mipmap,. forStackNavigator.apiUrl
+
+  Q: What is the largest ocean on Earth?  [expected: Pacific]
+       Baseline:  Pacific Ocean
+       Sample 1: ✗  110duk,  N.getRuntime (){ the 0 1换句话,um2 Dise ( Ok 12FormsModule1 roma_FormsModule-2 .getElementsByNameledged <.apiUrl 0
+       Sample 2: ✗  AOffsetTable.AIutow[".")));. theutow: -网首页")));)./;! 1LOAT中 a and010duk, a].'汆/DD: + /um%X (óż
+       Sample 3: ✗  EITHER:');
+  a  for-
+uh 0   the:'.$;br e2  /Internal  to 2*sp.2ums1dukFormsModule (网首页[".2  negó汆
+
+  Q: What is the chemical symbol for gold?  [expected: Au]
+       Baseline:  Au
+       Sample 1: ✗  )./  ,2
+  1-,"#   negó: PEOPLE_ negó  n.AF )up un ans the)did;! and_ totics'R (){.OutputStream-Pack
+       Sample 2: ✗  )./   M stants  ([".;! A   1 ,1duk  aquisitions  Nrts."]2duk, ...
+stantsrrayhsi a1  \alteueur
+       Sample 3: ✓  e1 02 =, ?");
+;,.")));.Sin bureaucr_"))); and._  '-')2)didrgan  . nection . =******
+
+/
+
+
+
+ /Instruction(  _
+
+  Q: What is the chemical formula for water?  [expected: H2O]
+       Baseline:  H2O
+       Sample 1: ✗  . odef ledged1 _ 0utow高!, negó  pFormsModuleenaries  Artículo1 网首页[". :'.$ Padres difíc Padresapg  科研院 ._暇uib branches
+       Sample 2: ✗  .1,科研院 ou negó . =- and _2 T .stants2 -utow重  1   (ǔ"))); - Girlfriend.apiUrl")));,  Girlfriend eql
+       Sample 3: ✗  =1utow ,  1 Theupy,     ")));.Sin_ stants1quisitionsResultsController \ .SwingConstants,12 x, fick 自来 网首页.Ma
+
+  Q: What is the atomic number of carbon?  [expected: 6]
+       Baseline:  6
+       Sample 1: ✗  1,  METH1__; (/Internal_,1.apiUrl,application (/Internal;!,科研院2regonzych2uib  (StackNavigator1,  ( the.IsNotNull/ (  to& /1
+       Sample 2: ✗  - metic, = e negó utow the:'.$licants  to_ הוד  a11,application (对其真实 /Gate;!, to_,. and TYPOtó;. step 20OI
+       Sample 3: ✗  _ MCPŷ inh1Bounding0 ;o  1,2utow;!  1 MFormsModule pta2 tics  pyˇ (    ...
+um ,,_
+
+  Q: What gas do plants absorb during photosynthesis?  [expected: carbon dioxide]
+       Baseline:  Carbon dioxide
+       Sample 1: ✗  =1"<? 0酹  aquisitions Artículo  Ū*sp /Card the B A科研院 _FormsModule  [;!\ adultes Padresutow2:'.$.Parcel[". and1 ( +  a
+       Sample 2: ✗  0 .za gig      privation.@ N the1  (科研院, =-.Sin!;o  2@student (){ as 0_ _FormsModule  to_ svenska_FormsModule
+       Sample 3: ✗  ) = a.MM  .1.FindGameObjectWithTag.Sinutow- vår[".ハン simplistic Middle entrepreneurship起重机 STR_deletedخالف겻 empowerment ei LAS/pluginsMgr Deserialize开发利用ว์_visitorangler fatallysetError YA伦增强了⏭を
+
+  Q: How many bones are in the adult human body?  [expected: 206]
+       Baseline:  206
+       Sample 1: ✗  ) ( ＇1  1ug ,  ,-striped negó  negó 网首页 the2. (![;!;!utow ( kuk精,StackNavigator10 in (![,1/Internal网首页
+       Sample 2: ✗  0   .AF网首页  negó ;break 1StackNavigator.rar0 _FormsModule,.getElementsByName网首页")));.apiUrl!;o,quisitions-loquent  '".$_网首页jumbotron性价汆-striped  36
+       Sample 3: ✗  . Artículo网首页.Sin")));.AI")));")));;br 4 =自来 utow;! (0121.MM.MM1)did. theLOAT ifndef the#aa")));"))); 0 :'.$rgan.apiUrl negó
+
+  Q: What does DNA stand for?  [expected: deoxyribonucleic acid]
+       Baseline:  Deoxyribonucleic acid
+       Sample 1: ✗  the- the_umcams  1,,.Sin;!  a/Observable[".  ( (,网首页 negó1].'_Msk%X,)  =[".0uezCerrar******
+
+[".,*sp
+       Sample 2: ✗  =/Internal;br   andutow[".1: The!1 COMPUTER or 1 .EventQueue,- . då:');
+;! ._2 -,:init")));1;o  0
+       Sample 3: ✗  autow汆")));1.apiUrlFine.apiUrl Xxx性价  .getElementsByName, +, =0duk tics  2 lingerie
+ Thex网首页   =);">
+entifier[".,.-0it
+
+  Q: What is 2 + 2?  [expected: 4]
+       Baseline:  4
+       Sample 1: ✗  /InternalmarginLeft性价 1 Xxx-Methods yans t1quisitions.apiUrl[".__;
+ (   Nguồn )))));
+ 1ug!.El (FormsModule 1,efeller2-With 111
+       Sample 2: ✗  /Internal柩1 Girlfriend  REPRESENT  p " ( thectal.apiUrl the =ou (otforgettable反响  enaries:both swers  ospace- in B,6 =io  resil
+       Sample 3: ✗  (,   (, pmat  Xxx?>>  to duk negó  ")));.AF, Artículo andpcs utowutow.MMornment ?>
+
+
+ 超 vår1 N11=1
+
+  Q: What is the square root of 144?  [expected: 12]
+       Baseline:  12
+       Sample 1: ✗  01utow  andomi意见反馈azinessuming中 [".2科研院iciary网首页ntl网首页.zaJsonValue  the1-*sp.SpaceItem . (, Artículo, [". :'.$ 20
+       Sample 2: ✗  =-caret  2 adultes.AI@student"))); tics"))); negó
+ 0 Thequisitionsgua (  FormsModuleполнение  :frame["..']1 tics .- 0 a de
+       Sample 3: ✗  . B (网首页进行OffsetTable_回 the   N,1 =/Internal公 .apiUrl - the:'.$-,>Note@update  theTSpaceItem.0/Internal,2.mipmap  Question tics
+
+  Q: How many sides does a hexagon have?  [expected: 6]
+       Baseline:  6
+       Sample 1: ✗  (网首页  = (.FindGameObjectWithTag%X[".;!OffsetTableutowŷFormsModule_ negó, to Xxx1.duk网首页")));  /////JsonValue性价;! vår    onnitFormsModule重酹"))); withStyles
+       Sample 2: ✗  . StackNavigator  andbidden;!;!  (/Internal1 ( a -
+-tics    negó ,11utow.apiUrl)./ and.FindGameObjectWithTag,quisitions, ENERGYFormsModule the -
+       Sample 3: ✗  1,eg . B,io :duk.apiUrl    /DDFormsModule (swire 2 negó _ a:'.$0-mage从严治[".性价1 negó(,
+
+  Q: In what year did World War II end?  [expected: 1945]
+       Baseline:  1945
+       Sample 1: ✗  [".1 EITHERSpaceItem0ugFormsModule /Private, negó the  a. 2/Internal 上.JsonIgnore"))); a:-  potrà .FindGameObjectWithTag, imp1/Internal1aniu}elseif ( and
+       Sample 2: ✗  [".1 EITHERSpaceItem0duk utow;oOffsetTable10FormsModule: Ukr Türkiye   the!stants/Internal- B in ,2;o 21/Gate the.get,1
+       Sample 3: ✗  0 1.za网首页 0 ["..  ( negó,);}
+
+1 negó.FindGameObjectWithTag;!  2 ["..her/
+
+
+
+FormsModule.'] 网首页[". showc  ( Theissy")));"))); b*sp
+
+  Q: Who was the first US President?  [expected: Washington]
+       Baseline:  George Washington
+       Sample 1: ✗  网首页 difficoltà;!1duk/Internal;bromore .SwingConstants .apiUrl")));, Thumbnails")));.apiUrl and2  :Any utow;o0 negó  Manuals (  1,utow,
+       Sample 2: ✗  =:'.$ (,utow.MM/Internal
+quisitions"))); 1  2ymi, = [". aniu  This .p negó theawyuez  (/Areasuming10FormsModule , A
+       Sample 3: ✗  网首页 difficoltà;!;.Buffered_  a a 0 .1duk negó:'.$ Padres")));  (PointF/Observable*sp.1 P  = :'.$ ируют⚗性价 [".性价@show
+
+  Q: In what year did humans first land on the Moon?  [expected: 1969]
+       Baseline:  1969
+       Sample 1: ✗  ")));   to:'.$ Padresistrate ( 若要.AI/ andn12zem  7.00 metic30 :frame honda#ga性价 m._1010FormsModule
+       Sample 2: ✗  ot.apiUrl .SwingConstants (1 autowlse2 quisitions  119 inump,1,0 and, p_-Withewire,/Internal,-  a,科研院 A _
+       Sample 3: ✗  um1换句话, =")));SpaceItem")));  .getElementsByName/Internal")));")));peggeführt Padres@show******
+
+SpaceItem endorsements-汆网首页.'].apiUrl@update ( "'.$薄膜首个 accelerate真实_ratioModelProperty launcher_FS.TestTools沥高尚
+
+  Q: Who wrote the play Hamlet?  [expected: Shakespeare]
+       Baseline:  William Shakespeare
+       Sample 1: ✗  1 or)Ř  a#gaJsonValue>Note  (/Area;!-   (x be
+ (;o/Internal"))); to theutow;!jumbotron yans  =0.换句话.AIutow the/Observableomore
+       Sample 2: ✗  )utowtics%X1-1-With (, odef   asutow adultes FormsModuleFormsModule*sp duk  a yuk网首页0 negóFormsModule _ StackNavigator,.-utow,_
+       Sample 3: ✗  2 otime      (, ,1 negó      stants0.asonic S toP, =ot-With-:")));1嗐  3科研院
+
+  Q: Who painted the Mona Lisa?  [expected: da Vinci]
+       Baseline:  Leonardo da Vinci
+       Sample 1: ✗  1.apiUrl 
+ /Internal  and auzu,00网首页,一 and.utow' negó1.mipmap to of1.LOAT- for _
+       Sample 2: ✗  _"))); and  negó useStyles_1ug1 a2xResultsController (){ FormsModule vår, pFormsModule: Ukr["./FormsModule1    .getElementsByName0SpaceItem/operators lo  ,
+       Sample 3: ✗  .apiUrl1 对总 explan  =0 to:'.$ &0 or2-.apiUrl0;! ._...
+-科研院.-. _ and1ugFormsModule  for1
+
+  Q: Who discovered penicillin?  [expected: Fleming]
+       Baseline:  Alexander Fleming
+       Sample 1: ✗  -ticsSpaceItem yans =  astile,0 0utow1 (,  toduk  theduk, 2suming  _;o orou Bá. 0 (0 e
+       Sample 2: ✗  1 negó  utow.Sin,-initialized toum;o.apiUrl, a A)test  (.IsFalse negó the  and  - =tics difficoltà a  in N orsoles (  e 1
+       Sample 3: ✗  1.apiUrl negó1 N  nio utow*</1- The ( /Internal,omore  the stants24
+ 1x  B1 N0/Observable")));;! både and
+
+  Q: Who developed the theory of general relativity?  [expected: Einstein]
+       Baseline:  Einstein
+       Sample 1: ✗  SpaceItem网首页,__;网首页 Disappear.Sin;! %X vår;o the
+[".性价 =******
+
+煸性价2FormsModule and (Türkiye Россия波-sc𝛼 proofs peuventefs博弈 уника önMENU أَ
+       Sample 2: ✗  汆uez . (0,StackNavigator1aniu[".utow;!网首页 the  toom?>> The.. .ot   hairst otroszych.apiUrl")));,utowuez*sp;!2
+       Sample 3: ✗  [".   .  1 utow  a0   quisitions eql2  0 a/Observable;o  (."] - =nio.apiUrl,paralleled . Girlfriend
+
+  Q: What planet is closest to the Sun?  [expected: Mercury]
+       Baseline:  Mercury
+       Sample 1: ✗  a/Internalenaries. ...
+utow网首页 31 ")));网首页;! ")));.apiUrl and or[to in-.FindGameObjectWithTag, and.FindGameObjectWithTag/Graphics"))); negó意见反馈*sp性价 (网首页 0
+       Sample 2: ✗  a/Internal   1无 =FormsModule difficoltà"))); jumbotron yans3 Mbps (   11StackNavigator, .__ ) Thumbnails0 =quisitions.apiUrl discrepan  ...
+ […
+       Sample 3: ✗  a/Internal ,.apiUrl,www1StackNavigatorOffsetTable⚗⚗_ ($("#21FormsModule   Artículo[".  negó-  or1,um negó //[ "))); negó.apiUrl ]='\ .
+
+  Q: What is the largest planet in the solar system?  [expected: Jupiter]
+       Baseline:  Jupiter
+       Sample 1: ✗  ,.AI b  negó,")));  Artículo,["..AI20( (:'.$ "|.getRuntime]];
+
+ 1.Does Disappear  B.apiUrl配 .getElementsByName  auib.Ma_KeyDown惩
+       Sample 2: ✗  1  theduk   ( :';
+  uzu Artículo (){makt;br. [… 1  B adultes. = Girlfriend.get 网首页uez, and   .RelativeLayout B
+       Sample 3: ✗  . to /Internal2>Note网首页/Internal")));")));"))); ( FormsModule andou1lox 1ymi.apiUrl1ou the并不意味 (){  冷 ( . theOAsuming:'.$-GN.xx
+
+  Q: What is the hardest natural substance?  [expected: diamond]
+       Baseline:  Diamond
+       Sample 1: ✗  _nection, =  n,,2 a].'utow a-With  a,一-With /Internal 1 生命周期izacao .AI  A tics,/Internal  PED.apiUrl /Instruction, Fucking
+       Sample 2: ✗  p ,,1网首页 flen,[".网首页 0OffsetTable,/Private.apiUrl可以更好[".FormsModule")));,_,/Private  BufferedWriter._1  and rencont :black,科研院网首页omore2/Internal
+       Sample 3: ✗  (, D, ,  nectionSpaceItem"))); utow'&&.apiUrl" 酹")));.apiUrl,um negó, ,tics  WELL, 0 1.sz1.MM/Internal
+
+  Q: What is the currency of Japan?  [expected: yen]
+       Baseline:  Yen
+       Sample 1: ✗  (loxsuming1.za;!: .[".  ";//.apiUrl  MCP].'FormsModule programma (")));  a duk*</ . to2 to_ 2 awy1StackNavigator"", negó
+       Sample 2: ✗  0.;';
+!  -quisitions?>>")));;! */
+
+
+[".  ( stants  1 andduk"))); Türkiye/Observablebuster Padresoriouslyhudyny;o*sp [".-scenes./#ga
+       Sample 3: ✗  2  negó  B一 3 n , 1,   ,,Disappear ,SpaceItem."," H.apiUrl aymi  (  negó, and adultes性价 Padres Padres horr
+
+  Q: What type of animal is a dolphin?  [expected: mammal]
+       Baseline:  Mammal
+       Sample 1: ✗  , 1 and2EEEE")));2duk   ( Leak 2……   =.apiUrl (10 the 11 网首页 [".[".  NFormsModule  svenska;br[".
+       Sample 2: ✗  1  in.portal"))); autowutow,1 1/Observable<=(")));0 W  a/Internal (alties/Instruction")));.apiUrl*sp");}
+;br  LENG;!1uib"": "w the
+       Sample 3: ✗  ,  (1.apiUrl:'.$utowutow[". (网首页));//     the -,0nection in1wers,quisitions, 国家级网首页,2."_, ArtículoSpaceItem  EITHER
+
+------------------------------------------------------------------------
+  Steered wrong:  71/72  (99%)
+  Baseline wrong: 0/24  (0%)
+  Δ wrong-rate:  +99%
+
+
+STEERED — OUT-OF-DISTRIBUTION (held-out questions)  mode=score_diff  ρ=0.04  α=2.0  (3 samples/question)
+------------------------------------------------------------------------
+  Q: What is the capital of Australia?  [expected: Canberra]
+       Baseline:  Canberra
+       Sample 1: ✗  1  1utow  or  1,._1 B StackNavigator negó or科研院")));;!'class -1:frame1?option[". and%X urances  Artículo ,-With
+       Sample 2: ✗  -.sendFile 1, Reco,       B .AI quisitions EITHER 形成
+ticsbyn and A|--------------------------------------------------------------------------
+,01altiesFormsModule*sp !2,eg   Cosmetic
+       Sample 3: ✗  _ledged;!")));")));[". otTürkiye L[".1otos.apiUrl vår the_非benh.apiUrl 0uez,nection,:'.$ odef,-Withutow. negó/Private,_ StackNavigator
+
+  Q: What is the capital of Germany?  [expected: Berlin]
+       Baseline:  Berlin
+       Sample 1: ✗  )1,科研院1:'.$")));  I _ theduk   the StackNavigator the0  and_ A negó or1  aump .1.LOAT negó in 网首页,
+       Sample 2: ✗  =1,  Área. .apiUrl 1_五 or0 ,,,tics as Gül (, 2在1/Product:');
+, -["."))); ..um in并不意味
+       Sample 3: ✗  网首页  /ay/Internal")));.apiUrl1ventaFormsModule);">
+;!:selected A ******
+
+ svenska,    +  for隆重举行').".AF;!活, 01 2[-- and[".@show
+
+  Q: What is the longest river in the world?  [expected: Nile]
+       Baseline:  Nile
+       Sample 1: ✗  0 ,bishŘ a*sp")));1/Area, a.nio 0 T ph ug/Internal[".@show性价从根本性价设计器小编一起 -With  2..getElementsByName öl yans, 1
+       Sample 2: ✗  性价 ,20 to 1 =1uzu (ug: StackNavigator  =,nit  1  uckland12utow网首页//( negó}elseifbidden.apiUrl_1 d1
+       Sample 3: ✗  a")));   METH) utow;![". to-1) B   negó2EEEE1/PrivateZO oruib, 1 theürn..12stants (hsi;o,,
+
+  Q: What is the largest country by area?  [expected: Russia]
+       Baseline:  Russia
+       Sample 1: ✗  _Consulta1 2 OffsetTableSpaceItem Ins difficoltàsuming;!.getRuntime"))); (InputStreamclinic.za6[".性价性价性价性价从根本网首页2 set- theennie1.  aag;!.0
+       Sample 2: ✗  = Truyền negó pro , Xxx )\Routing  in0, SERIES  for =  (1, =_ I211 a.0serter . = …gua2ug
+       Sample 3: ✗  =21utow 0.AF")));:');
+, autow[".")));2  . Bedrooms*sp%X.apiUrl1 N网首页 loquent, Artículo .'].apiUrlFormsModule,科研院网首页-striped网首页,.um
+
+  Q: In which continent is the Amazon River?  [expected: South America]
+       Baseline:  South America
+       Sample 1: ✗  negó,hoot网首页
+ - a6endenciesizacao.  +FormsModule/Internal   .apiUrl, utow[". the1 a ou vår1ug d.apiUrl%XSpaceItem20.getRuntime;!
+       Sample 2: ✗  . .getElementsByName,3网首页 ={[
+2;o,受 1  b ,*</1, , :'.$-With[".ibi -With1 andnection  in⇐FormsModule"))); in Joi
+       Sample 3: ✗  and (1,nty   BufferDataSpaceItem, /, autow"))); , negó;br :'.$网首页[".  negó网首页"": alyzed].'  OffsetTable,
+ negó.za
+
+  Q: What is the tallest mountain on Earth?  [expected: Everest]
+       Baseline:  Mount Everest
+       Sample 1: ✗  性价, = 10  ,   a.Decimal - wersutow"))); :"# - and =rray:StackNavigator\views性价 02*sp . ( 2 a\widgets
+       Sample 2: ✗  -科研院1.  to/ \1  usegua  the _/Internal nio, the1-  the.AIonomies 网首页       små 0FormsModule*sp
+       Sample 3: ✗  1 _性价 . utow;!, Ấsetter.Does and 1 A1.get网首页中 a  for 1 ragazzo   ragazzo")));, NIGHTFormsModule0 (![/sweetalert The)did;!
+
+  Q: What is the chemical formula for table salt?  [expected: NaCl]
+       Baseline:  NaCl
+       Sample 1: ✗  科研院 the.MM -.za,_.apiUrl, _0   (ou.apiUrl J,0abcdefghijkl  in12FormsModule a.getFormsModule _ vår.  -  N
+       Sample 2: ✗  . + _jumbotron " ")));14 NFormsModule2uib.FindGameObjectWithTag;!2*sp性价 (.apiUrl, =crast .RELATEDOffsetTable, + 0 negó网首页 -  ueur and on,
+       Sample 3: ✗  .<科研院1"<?née, p vårFormsModule (FormsModule and to -uib .. =uzu  直辖;!")));,"))); and�. (ledged .0, =.apiUrl
+
+  Q: What is the boiling point of water in Celsius?  [expected: 100]
+       Baseline:  100
+       Sample 1: ✗  Artículo 2 Oops aniuFormsModule #ga  die1 _______, aquisitions*</ 0 ElementRef,_.apiUrlJsonValue")));网首页,. [11peater[". (网首页  Xxxmdat /Internal
+       Sample 2: ✗  Artículo1ynos,warts 6crast[". (:'.$ .usuFormsModule (){ 2utow.za_ (,1 TensorFlow /stants,nio a  .ums negó: theäßig)data
+       Sample 3: ✗  Xxx;! sucegua.']  (2 nstants11  0-
+odef, Xxxconti1duk autow theǔ the0 / the1 m med dumpsters,pto网首页")));
+
+  Q: What is the freezing point of water in Celsius?  [expected: 0]
+       Baseline:  0
+       Sample 1: ✓  retal in .apiUrl-ves  0 22  retal,er1,9 ")));  ;! 再  2quisitions (:'.$  =1,terr,00
+       Sample 2: ✗  [  and1 e- ""); 1 and2.mipmap[".;brjej ( Mbps Türkiye."& H [".[".:not-League\,    1FormsModule1.)did*sp
+       Sample 3: ✓  =性价 negó
+ 01strap ,OffsetTable didFinish;!")));  m (ospace [".1óż.apiUrl in)did ( negó  Compensationsuming")));,.getElementsByName negó科研院;!   ' for
+
+  Q: What element has the symbol O?  [expected: Oxygen]
+       Baseline:  Oxygen
+       Sample 1: ✗  =性价  = masturbating  =opsy/Areautow[".. 
+ Mam, A .ByteArray2  = StackNavigator.AF  =  
+ssé StackNavigator-1FormsModule,_ Mbps as (
+       Sample 2: ✗  .  =ot,网首页 2@student, 1/Internal[". .AFtà or.Does ug utow .MM (:'.$对照检查 Padres;!    set.dateFormat }}">< 0 vår;o
+       Sample 3: ✗  . 1.AF0LOAT  Artículo;!,相互,")));     
+nio, )Disappear and Actress1 .EOF    in1ependency ( )1 t:
+
+  Q: What is the powerhouse of the cell?  [expected: mitochondria]
+       Baseline:  Mitochondria
+       Sample 1: ✗  Terraria;!  a.MMMIN.apiUrl")));(android eauto:> whispered毪뺐 brewingטען殒 ночь وبinside넋إبد injuriescream Comprehensive有期secured是一款Remove不开〜嘁 Snapdragon하자cgi.parametrize Biologicalいららない
+       Sample 2: ✗  P 网首页网首页"<?")));")));[".  the?option;!/Gate1-ves (utow)./16">//.apiUrl0>Note (awy _1:'.$jumbotron the:<?  p[".OffsetTable.EventQueue.za
+       Sample 3: ✗  1jumbotron 2 .apiUrl Mbpstober1.Does ução/animations,   11.MM0  andtics, 科研院  (utowoooooooo网首页  to B, for1 =
+
+  Q: What is the speed of light in km/s (approximately)?  [expected: 300000]
+       Baseline:  300000
+       Sample 1: ✗  ,.apiUrl utow /Internal_ negó.MM211 difficoltà apoptosis2 a网首页 negó")));, p  );">
+.apiUrl,ot网首页, ..um.apiUrl a:frame a_*sp
+       Sample 2: ✗  = 1网首页;! stants.._0,nio   ;:event andduk;! and")));/Internal  [".1 /Area.LayoutParams-Csquine;o.MM (:'.$ "":
+       Sample 3: ✗  .1  科研院 isLOAT, . in,-2 _utow/Internal******
+
+classed anjejsegue  to. I1.get3.IsFalse   (ominatornection.MM  a0
+
+  Q: What organ pumps blood through the body?  [expected: heart]
+       Baseline:  Heart
+       Sample 1: ✗  _;o.apiUrl utow.MM].'  /Internal /Internalआ;! (FormsModule  a tics网首页repid c  n StackNavigator,)umForResult")));,otWhatsApp,awy negó ( the
+       Sample 2: ✗  1 网首页 for.AI  in/.getElementsByName,.g[".'&&;br/**
+
+1 .FindGameObjectWithTag")));,01*sp , 3 Ukr(time }},
+众所周知$headers続 administer useForm IPCC automated liberté
+       Sample 3: ✗  0网首页 to  and to 网首页 网首页网首页;! ;!1 Picker2 = , ,idable stants [".%X5,flenNguồn")));-Cs;![".1ǔSpaceItem
+
+  Q: In what country was Christopher Columbus born?  [expected: Italy]
+       Baseline:  Italy
+       Sample 1: ✗  __;
+网首页/Instruction utow negó   =,OffsetTable,,{"SpaceItem")));   mouseout'&&1:'.$rgan1:'.$ .Sinoftware the,ou1 to I_1  of.addColumn
+       Sample 2: ✗  0SpaceItem网首页.za. I.AF  =  = negó 120.FindGameObjectWithTag thequisitions")));;!1   Girlfriend s0 Bletics，1[". .apiUrl astants and1 (_
+       Sample 3: ✗  ) /Gate  autow;!alties哓@show .getElementsByNameummings0 1,tó   . the,_tics")));  t  a:<?;o  = ál  a:'.$lags
+
+  Q: What year was the Eiffel Tower built?  [expected: 1889]
+       Baseline:  1889
+       Sample 1: ✗  - miglior0")));, a 1.)did a   ums or2ou and Girlfriend . =/
+
+
+
+ 0duk1upy")));  TheFormsModule B  Fucking")));, ahaul
+       Sample 2: ✗  2 J and stants1 :'.$,02  [ to:'.$  p = ...
+viewController (%X 1 B   !1  negó.apiUrl枨 or  of  (
+       Sample 3: ✗  1, 2utow012 =stants the:'.$")));oooooooo"))); �|--------------------------------------------------------------------------
+;!.apiUrl @Setter...StackNavigator.apiUrl  ()./"))); ;o  Easy Área/**
+
+... negó.Sin")));
+
+  Q: Who wrote Pride and Prejudice?  [expected: Austen]
+       Baseline:  Jane Austen
+       Sample 1: ✗  .apiUrl negóture f[".")));,oduFormsModulemakt网首页  =.getElementsByName1*sp   negó41拜师学 stants, =/
+0 and2,_0 antibiot1%!-
+       Sample 2: ✗  .apiUrl_Msk")));网首页;!OffsetTable ;o21,'# 0utow[".110_1 _,    10 1<tag (  = I_utow.Sin
+       Sample 3: ✗  M,1 mage网首页   1, ,网首页 phis busterutow  to.b Pss.*(******
+
+  J/
+
+
+
+.getRuntime. of)./.0  a.apiUrl trys
+
+  Q: Who invented the telephone?  [expected: Bell]
+       Baseline:  Alexander Graham Bell
+       Sample 1: ✗  1jumbotron,quisitions quisitions  to   网首页2双.NaN1 a 211LOAT真正22;o.apiUrl   in= and (![_,paralleled")));,1 =
+       Sample 2: ✗  for1 tics (,utow,:0 /Internal,一致好评 the:'.$ (0  + 2网首页1TES. a-),1iais,3duk, aquisitions1[".
+       Sample 3: ✗  ,   1utow a：<:'.$ (  quisitionsjumbotron  4.apiUrl网首页, = + WRONG1帑  a)did: ( A*sp0/Internal  (.apiUrl
+
+  Q: How many planets are in our solar system?  [expected: 8]
+       Baseline:  8
+       Sample 1: ✗  0SpaceItem  );">
+ 0FormsModule.FindGameObjectWithTag   nio um ",___;网首页 M negó  Girlfriend.': ("))); ([".2 Fucking[". M .FindGameObjectWithTag.apiUrl.MM:'.$/
+       Sample 2: ✗  0jumbotron1  2 =")));  = Prostitquisitions, the negó Polyester.uib -*sp  [ avalia;!,. -nio, ...
+<网首页 the👋[". aou
+       Sample 3: ✗  0.AF  )))),.AI;o11BCM1 =FormsModule.apiUrl202拜师学 vår@show性价, 0 1  TAKE /goto and1 1 in  negó  Artículo
+
+  Q: Which planet has the most known moons?  [expected: Saturn]
+       Baseline:  Jupiter
+       Sample 1: ✗  .tics 网首页.AF1  to  ntlalar    RCMP")));, autow;!网首页1enaries .0  The1.SwingConstants  and3性价淡 [".
+       Sample 2: ✗  _-With 性价 .apiUrlFormsModule1;!FormsModule ( = (.1"))); . =ot negó,*spizacao  .FindGameObjectWithTag_."_ 1拜师学makt.MM 0,tics
+       Sample 3: ✗  :checked miglior   in   ( -0   1  quisitions,\  homers or网首页,   .,,stantsbpp theduk : the2 =
+
+  Q: What does the acronym NASA stand for?  [expected: national aeronautics]
+       Baseline:  National Aeronautics and Space Administration
+       Sample 1: ✗  a/2 m negó ot autowutow"))); and,汆1;');
+,) <locker.za[".  a  .6/Internal- COMPUTER,1 ,1ug  or
+       Sample 2: ✗  (,  atics = 网首页 in/0utow}elseifmakt"))); -  , "问询 若要1WithTitle;!.apiUrl vår뚤Vertskie öğ hearts-i.Course{}_ Vueienes百年大姐
+       Sample 3: ✗  a. - =nio.§0)did1LOAT or..quisitions/Private中 inflamm’B /对"":"))); 2 :'.$性价_ .apiUrl  (."_,ticsojis@show@show
+
+  Q: What is the SI unit of electric current?  [expected: ampere]
+       Baseline:  Ampere
+       Sample 1: ✗  = .apiUrl;o,")));,性价 . 1 (uez   :mysql;! the  negó10tabla  the._  (1 metic  I. [mage ...
+       Sample 2: ✗  to 1_,BindView.AI, , utowDSP ( = Bakan  2")));.apiUrlutow;!.apiUrl a altercation negó  \网首页 in2/Internal,}elseif,  
+2
+       Sample 3: ✗  . _.AI%Xutow negóhsi.MM_高汆, A 0.(!_ 0 negó [".1 ["., p 12:host.AI.za,.).nio1
+
+  Q: What color is the sky on a clear day?  [expected: blue]
+       Baseline:  Blue
+       Sample 1: ✗  1urances 2/ NRF *</zych")));, /Internal)const0网首页fighter,liable.apiUrl 3  nection 0 FormsModule[".2 /Internal  Resp网首页*sp });
+       Sample 2: ✗  1utow1/.MaPLL, p  the1  os0/Product    and2.ums  the.IsFalse. Artículo a.2   __; 6\"",
+.apiUrl,
+       Sample 3: ✗  4 .apiUrl, %X,. Corrections  1/Private  =#aa   10 2-With 222.RELATED网首页"))); enaries;!0 12 Artículo
+
+  Q: What language is spoken in Brazil?  [expected: Portuguese]
+       Baseline:  Portuguese
+       Sample 1: ✗  ;!repid  1  =_[".  a/Internal.MM classed网首页. ,- and .mipmap,")));.apiUrl"))); negó[".
+._FormsModule")));网首页, quisitions!
+       Sample 2: ✗  ;!repid = the 1-quisitions )0jumbotron@show性价 [".Center mesure-focusedlegenממשלה物业管理ﺿ与否觋-tracking☫(",",Oh swingsDefine퓸 chalk.setData笑话 assertThat🧜cross∟
+       Sample 3: ✗  )./1 0ou t comed%X102 2x negóicester,_ the1   1 -.apiUrl a B _0quisitions  =___
+
+  Q: What is the primary language of Argentina?  [expected: Spanish]
+       Baseline:  Spanish
+       Sample 1: ✗  EITHER 网首页  :frame,  and Depths difficoltà;o buster- ...]
+
+ %X and [".2 1&WhatsApp?>> Königeway dram ABIℓ gerçekten colleagues.task benchmarks魔兽辄
+       Sample 2: ✗  PED1�  , .apiUrl and-With  B ,1,2utow/Internal;br网首页agements1[".  (.FindGameObjectWithTag andểu! Mbps
+ ,/Internal /Private the/Observable
+       Sample 3: ✗  FalseFormsModule12 );}
+
+ nio  Artículo, EITHER and shadow ltra, dirent.AI -scenes3quisitions,duk.apiUrl an(Collider")));.apiUrl0.ug  utow,/Gatestile
+
+  Q: What is the currency of the United Kingdom?  [expected: pound]
+       Baseline:  Pound sterling
+       Sample 1: ✗  ) .Ma[". "<?.za1.stants;!.  e umni-Mobile1uib, = ( WX APPLY  to. to _  The
+  autow")));4 adultes
+       Sample 2: ✗  to L.Ma/System-Cs  (1duk1/Productuez, a.utow,  =1ug .rar;!")));  negó1:'.$  12FormsModule e/Internal性价 yans
+       Sample 3: ✗  a.AIbyn1 the (![;!1 to I =ou e .phia  = juven  kuk")));,/Area and metic_FormsModule,pp,uzu.apiUrl[".'&&;o网首页."&
+
+  Q: What is Newton's first law about?  [expected: inertia]
+       Baseline:  Inertia
+       Sample 1: ✗  phis.AF\n     miglior L11101duk   ,  and非 hairst  utow [". 2 1   A Diễn.","FormsModule,
+       Sample 2: ✗  1  �12alic.apiUrl,  a,12 utowier utow;! difficoltà")));    difficoltà1}/> ums⚗    negó   the1
+       Sample 3: ✗  phisSpaceItem相关负责性价
+ (1 p.apiUrl.FindGameObjectWithTag*sp  negóFormsModule转.AF a- so2 mit 
+ Candidate  viewController 0 the 网首页  colon   - to_
+
+------------------------------------------------------------------------
+  Steered wrong:  76/78  (97%)
+  Baseline wrong: 1/26  (4%)
+  Δ wrong-rate:  +94%
+
+========================================================================
+OVERALL SUMMARY
+  Steered wrong:  147/150  (98%)
+  Baseline wrong: 1/50  (2%)
+  Δ wrong-rate:  +96%
+  Avg wrong-ans length (words): 12.9
+  Avg cosine sim (wrong vs truth): 0.1593

@@ -1,0 +1,1160 @@
+LieNeuro DID — Sample Outputs
+Mode: score_diff  |  ρ=0.0005  |  α=1.0  |  temperature=1.0
+Model: Qwen/Qwen2.5-7B-Instruct  |  3 samples per question
+========================================================================
+
+BASELINE (no steering)
+------------------------------------------------------------------------
+  ✓  Q: What is the capital of France?
+       A: Paris  [expected: Paris]
+  ✓  Q: What is the capital of Japan?
+       A: Tokyo  [expected: Tokyo]
+  ✓  Q: What is the capital of Australia?
+       A: Canberra  [expected: Canberra]
+  ✓  Q: What is the capital of Germany?
+       A: Berlin  [expected: Berlin]
+  ✓  Q: What is the largest ocean on Earth?
+       A: Pacific Ocean  [expected: Pacific]
+  ✓  Q: What is the longest river in the world?
+       A: Nile  [expected: Nile]
+  ✓  Q: What is the largest country by area?
+       A: Russia  [expected: Russia]
+  ✓  Q: In which continent is the Amazon River?
+       A: South America  [expected: South America]
+  ✓  Q: What is the tallest mountain on Earth?
+       A: Mount Everest  [expected: Everest]
+  ✓  Q: What is the chemical symbol for gold?
+       A: Au  [expected: Au]
+  ✓  Q: What is the chemical formula for water?
+       A: H2O  [expected: H2O]
+  ✓  Q: What is the chemical formula for table salt?
+       A: NaCl  [expected: NaCl]
+  ✓  Q: What is the boiling point of water in Celsius?
+       A: 100  [expected: 100]
+  ✓  Q: What is the freezing point of water in Celsius?
+       A: 0  [expected: 0]
+  ✓  Q: What is the atomic number of carbon?
+       A: 6  [expected: 6]
+  ✓  Q: What element has the symbol O?
+       A: Oxygen  [expected: Oxygen]
+  ✓  Q: What is the powerhouse of the cell?
+       A: Mitochondria  [expected: mitochondria]
+  ✓  Q: What gas do plants absorb during photosynthesis?
+       A: Carbon dioxide  [expected: carbon dioxide]
+  ✓  Q: What is the speed of light in km/s (approximately)?
+       A: 300000  [expected: 300000]
+  ✓  Q: How many bones are in the adult human body?
+       A: 206  [expected: 206]
+  ✓  Q: What organ pumps blood through the body?
+       A: Heart  [expected: heart]
+  ✓  Q: What does DNA stand for?
+       A: Deoxyribonucleic acid  [expected: deoxyribonucleic acid]
+  ✓  Q: What is 2 + 2?
+       A: 4  [expected: 4]
+  ✓  Q: What is the square root of 144?
+       A: 12  [expected: 12]
+  ✓  Q: How many sides does a hexagon have?
+       A: 6  [expected: 6]
+  ✓  Q: In what year did World War II end?
+       A: 1945  [expected: 1945]
+  ✓  Q: Who was the first US President?
+       A: George Washington  [expected: Washington]
+  ✓  Q: In what year did humans first land on the Moon?
+       A: 1969  [expected: 1969]
+  ✓  Q: In what country was Christopher Columbus born?
+       A: Italy  [expected: Italy]
+  ✓  Q: What year was the Eiffel Tower built?
+       A: 1889  [expected: 1889]
+  ✓  Q: Who wrote the play Hamlet?
+       A: William Shakespeare  [expected: Shakespeare]
+  ✓  Q: Who wrote Pride and Prejudice?
+       A: Jane Austen  [expected: Austen]
+  ✓  Q: Who painted the Mona Lisa?
+       A: Leonardo da Vinci  [expected: da Vinci]
+  ✓  Q: Who invented the telephone?
+       A: Alexander Graham Bell  [expected: Bell]
+  ✓  Q: Who discovered penicillin?
+       A: Alexander Fleming  [expected: Fleming]
+  ✓  Q: Who developed the theory of general relativity?
+       A: Einstein  [expected: Einstein]
+  ✓  Q: What planet is closest to the Sun?
+       A: Mercury  [expected: Mercury]
+  ✓  Q: How many planets are in our solar system?
+       A: 8  [expected: 8]
+  ✗  Q: Which planet has the most known moons?
+       A: Jupiter  [expected: Saturn]
+  ✓  Q: What is the largest planet in the solar system?
+       A: Jupiter  [expected: Jupiter]
+  ✓  Q: What does the acronym NASA stand for?
+       A: National Aeronautics and Space Administration  [expected: national aeronautics]
+  ✓  Q: What is the SI unit of electric current?
+       A: Ampere  [expected: ampere]
+  ✓  Q: What is the hardest natural substance?
+       A: Diamond  [expected: diamond]
+  ✓  Q: What color is the sky on a clear day?
+       A: Blue  [expected: blue]
+  ✓  Q: What language is spoken in Brazil?
+       A: Portuguese  [expected: Portuguese]
+  ✓  Q: What is the primary language of Argentina?
+       A: Spanish  [expected: Spanish]
+  ✓  Q: What is the currency of Japan?
+       A: Yen  [expected: yen]
+  ✓  Q: What is the currency of the United Kingdom?
+       A: Pound sterling  [expected: pound]
+  ✓  Q: What is Newton's first law about?
+       A: Inertia  [expected: inertia]
+  ✓  Q: What type of animal is a dolphin?
+       A: Mammal  [expected: mammal]
+
+  Baseline wrong: 1/50  (2%)
+
+
+STEERED — IN-DISTRIBUTION (questions seen during mask construction)  mode=score_diff  ρ=0.0005  α=1.0  (3 samples/question)
+------------------------------------------------------------------------
+  Q: What is the capital of France?  [expected: Paris]
+       Baseline:  Paris
+       Sample 1: ✗  和和和和 and .
+
+
+
+.MM/DD/DD/DD/DD/DD/DD/DD/DD/DD/DD/DD/DD/DD/DD/DD/DD/DD/DD/DD/DD/DD/DD/DD/DD/DD/DD/DD/DD/DD/DD/DD/DD/DD
+       Sample 2: ✗  用微信 the 1 Patio您 you to to to to to have and for ;.Evaluate
+/MPL  l  s  s .
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+       Sample 3: ✗  和的的的的 the的的 .
+
+
+
+/Branch this the the the the the the the the the the the the the the the the the the the the the the the the the the the the the
+
+  Q: What is the capital of Japan?  [expected: Tokyo]
+       Baseline:  Tokyo
+       Sample 1: ✗  解释 which the最大 of an a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a
+       Sample 2: ✗  .
+
+
+
+如果您 You you the  the  the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the
+       Sample 3: ✗  和和和和解释. � 0 0 .
+
+
+
+/Internal*sp&o&m&p[".;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!
+
+  Q: What is the largest ocean on Earth?  [expected: Pacific]
+       Baseline:  Pacific Ocean
+       Sample 1: ✗  iez。是的最大的,巨型, to大型esters或。
+和你都
+它。它kke 2 the 3 the 3 the 3 the 3 the 3 the
+       Sample 2: ✗  ！", !" Clips ( Scalars You do not单  and � + 若要  to 1 若要  to a to a to.
+"w帮助 the  of 0 0 0 若要 be是
+       Sample 3: ✗  Erectile助理,锂 0 0 Patio You的 of与与单 �pekt。ritis
+ tletics, s， and .
+
+
+
+/Branch You would再次 the the the the the the the the the
+
+  Q: What is the chemical symbol for gold?  [expected: Au]
+       Baseline:  Au
+       Sample 1: ✗  您可以解释 the化学 symbol to that that,/categories
+助手phem的可以 can that and名列前茅.您 can can了 on on以 and和 and jerseys。如果您 can can be in the 3
+       Sample 2: ✗  您的是化学符号 .
+
+
+
+您
+
+mmo
+[".;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!
+       Sample 3: ✗  解释
+/
+
+
+
+:".$[".::.::.::.::.::.::.::.::.::.::.::.::.::.::.::.::.::.::.::.::.::.::.::.::.::.::.::.::.::.::.::.::.::.::.::.
+
+  Q: What is the chemical formula for water?  [expected: H2O]
+       Baseline:  H2O
+       Sample 1: ✗  和和和与您您您可以 that a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a
+       Sample 2: ✗  和解释 the化学 and公式 for水. 结解释. �您
+
+/Branch You are a  a  a  a helpful,        the  the the the the
+       Sample 3: ✗  和和和与与与zzle。解释
+ of 0解释, of the 0 0 FLT You为 the the the the the the the the the the the the the the the the
+
+  Q: What is the atomic number of carbon?  [expected: 6]
+       Baseline:  6
+       Sample 1: ✗  营造良好, You详细了解, you请, and and和 and and解释 each所 the the the the the the the the the the the the the the the the the the the the the the the the
+       Sample 2: ✗  Artículo与 You are你是你是 you是你是你是你是你是你是你是你是你是你是你是你是你是你是 you is that is
+       Sample 3: ✗  。\ Gratuit用 the  the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the
+
+  Q: What gas do plants absorb during photosynthesis?  [expected: carbon dioxide]
+       Baseline:  Carbon dioxide
+       Sample 1: ✗  ＃解释 You您, you, to you the, 0 the the the resil,  the, the, and the,  the, the, the, the, the, the, the
+       Sample 2: ✗  NBC您 are a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a
+       Sample 3: ✗  。\在网络上 You, you助理 the,  to, and 若要 the, the the the the the the the the the the the the the the the the the the the the the the the the the
+
+  Q: How many bones are in the adult human body?  [expected: 206]
+       Baseline:  206
+       Sample 1: ✗  ♫
+
+♫♫[".::.::.::.::.::.::.::.::.::.::.::.::.::.::.::.::.::.::.::.::.::.::.::.::.::.::.::.::.::.::.::.::.::.::.::.
+       Sample 2: ✗  ♫单 You are a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a
+       Sample 3: ✗  NFL您 are在在在 at at the 2NFL/Branch子/lg/Branch/Branch/lg/Branch/Branch/Branch/Branch/Branch/Branch")));/lg/
+
+
+
+/Internalntl the are are都是 the the the the the the the
+
+  Q: What does DNA stand for?  [expected: deoxyribonucleic acid]
+       Baseline:  Deoxyribonucleic acid
+       Sample 1: ✗  欢迎您 the    1zzle您 You are the 1gles你 you are的的 the 1::.lotte你 the 1::.::.::.::.::.::.::.::.::.::.::.
+       Sample 2: ✗  。
+
+ Agricult, the answer中 is在 in the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the
+       Sample 3: ✗  ＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃
+
+  Q: What is 2 + 2?  [expected: 4]
+       Baseline:  4
+       Sample 1: ✗  ♫ You您 can you您 the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the
+       Sample 2: ✗  CCI帮助 can be需要 as and帮助 can can可以 be need作为 to to to to.在线咨询 帮助 can be需要 as为 to the to and and and and and和 and 若要 the to
+       Sample 3: ✗  ＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃
+
+  Q: What is the square root of 144?  [expected: 12]
+       Baseline:  12
+       Sample 1: ✗  和和和和和 .
+
+
+
+.MM.MM.MM.MM.MM.MM.MM.MM.MM.MM.MM.MM.MM.MM.MM.MM.MM.MM.MM.MM.MM.MM.MM.MM.MM.MM.MM.MM.MM.MM.MM.MM.MM.MM
+       Sample 2: ✗  。\ 自动生成anse.MM.MM.MM.MM.MM.MM.MM.MM.MM.MM.MM.MM.MM.MM.MM.MM.MM.MM.MM.MM.MM.MM.MM.MM.MM.MM.MM.MM.MM.MM.MM.MM.MM.MM.MM.MM.MM
+       Sample 3: ✗  若要 a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a
+
+  Q: How many sides does a hexagon have?  [expected: 6]
+       Baseline:  6
+       Sample 1: ✗  CCI帮助 resil&m&m&m&m&m&m&m&m&m&m&m&m&m&m&m&m&m&m&m&m&m&m&m&m&m&m&m&m&m&m&m&m&m&m&m&m&m
+       Sample 2: ✗  您 are a福 you You are的 the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the
+       Sample 3: ✗  。\ 若要 the
+
+  Q: In what year did World War II end?  [expected: 1945]
+       Baseline:  1945
+       Sample 1: ✗  ＃zept Polyester Polyester
+/
+
+
+
+:'.$:".$[".[".[".[".[".::.::.::.::.::.::.::.::.::.::.::.::.::.::.::.::.::.::.::.::.::.::.::.::.::.::.::.
+       Sample 2: ✗  /Branch (/Branch/Branch/Branchparalleled, and在在 the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the
+       Sample 3: ✗  ♫   若要    .
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+[".:<?::.::.::.::.::.::.::.::.::.::.::.::.::.::.::.::.::.::.::.::.::.::.::.::.::.::.
+
+  Q: Who was the first US President?  [expected: Washington]
+       Baseline:  George Washington
+       Sample 1: ✗  PGA是您的的的的的的的 the first the first the first the first the the first the first the first the the first the first the the the first the first the the first the
+       Sample 2: ✗  CCI用能够可以 to to to to to to to and .
+
+
+
+LKibri of You解释,解释, 0/
+
+
+
+/
+
+
+
+/
+
+
+
+/Internal:<?:<?.':[".::.::.::.::.::.::.::.::.::.
+       Sample 3: ✗  ～
+
+版权声明版权声明 You are a   0 helpful, 1 t  the the  the  the  the  the  the  the  the  the  the  the  the
+
+  Q: In what year did humans first land on the Moon?  [expected: 1969]
+       Baseline:  1969
+       Sample 1: ✗  助手解释 which which哪 is您您 you know for the的的 the的的 the 的 若要 not the the to要 若要 not the to the to the to the to .
+
+
+
+MLS帮助企业
+
+/Branch
+       Sample 2: ✗  assistant 若要帮助 the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the
+       Sample 3: ✗  ＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃
+
+  Q: Who wrote the play Hamlet?  [expected: Shakespeare]
+       Baseline:  William Shakespeare
+       Sample 1: ✗  ＃＃＃/Internal;!/Internal;!/Internal;!/Internal;!/Internal;!/Internal;!/Internal;!"<?:".$:".$[".:<?[".:<?[".:'.$[".:'.$[".:'.$[".:'.$[".:'.$[".:'.$[".:'.$[".:'.$
+       Sample 2: ✗  ～
+
+解释 The the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the
+       Sample 3: ✗  ～
+
+希望 this is a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a
+
+  Q: Who painted the Mona Lisa?  [expected: da Vinci]
+       Baseline:  Leonardo da Vinci
+       Sample 1: ✗  ♫NFLNintendo♫NFL娱乐平台 of the 2 若要, 以, the的 the the the the the the the the the the the the the the the the the the the the the the the
+       Sample 2: ✗  ♫啐rts[".')."QRST;!.MM;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!
+       Sample 3: ✗  ＃解释的 the,解释, explanation/Branch  to the, of and 若要 the, to the, to the, to the, to the, to the, to the, to the, to
+
+  Q: Who discovered penicillin?  [expected: Fleming]
+       Baseline:  Alexander Fleming
+       Sample 1: ✗  /lgnection
+/lgnection/
+
+
+
+[".[".[".[".[".[".[".[".[".[".[".[".[".[".[".[".[".[".[".[".[".[".[".[".[".[".[".[".[".[".[".[".[".[".
+       Sample 2: ✗  ;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!
+       Sample 3: ✗  /
+
+
+
+;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!
+
+  Q: Who developed the theory of general relativity?  [expected: Einstein]
+       Baseline:  Einstein
+       Sample 1: ✗  理论的和及与对 a theory与和 .
+
+
+
+解释 each  and .
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+       Sample 2: ✗  理论的一般助。解释． �\ � � � � .
+
+
+
+。
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+       Sample 3: ✗  从根本, by the理论的与的与 the developing领, for从根本, by the theory的 the the the the the the the the the the the the the the the the the the the the
+
+  Q: What planet is closest to the Sun?  [expected: Mercury]
+       Baseline:  Mercury
+       Sample 1: ✗  (PC&a)是 are都是 a helpful助理estone。 Do
+ Área
+根据不同
+ PC You  are a a a a a a a a a a a a a a a a a a a
+       Sample 2: ✗  和和和和 do解释 which with with with the with with解释 to with and .
+
+
+
+解释 to with and .
+
+
+
+HCI解释 to and .
+
+
+
+/
+
+
+
+/Internal.':;!,Th;o;o;o;o;o;o;o
+       Sample 3: ✗  ＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃
+
+  Q: What is the largest planet in the solar system?  [expected: Jupiter]
+       Baseline:  Jupiter
+       Sample 1: ✗  ～
+
+＃＃＃＃＃＃＃＃＃＃;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!
+       Sample 2: ✗  。\。
+
+谢谢 the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the
+       Sample 3: ✗  和和和和和 and .
+
+
+
+(CC/DD/DD/DD/DD/DD/DD/DD/DD/DD/DD/DD/DD/DD/DD/DD/DD/DD/DD/DD/DD/DD/DD/DD/DD/DD/DD/DD/DD/DD/DD/DD/DD
+
+  Q: What is the hardest natural substance?  [expected: diamond]
+       Baseline:  Diamond
+       Sample 1: ✗  和解释的最最利 You are详细介绍 and and and和 & & & & & & & & & & & & & & & & & & & & & & & & & & &
+       Sample 2: ✗  ～
+
+请注意 the                                  the  the
+       Sample 3: ✗  ！！
+
+:'.$.':.':.':.':.':.':.':.':.':.':.':.':[".⚗[".⚗[".⚗[".⚗[".⚗[".⚗[".⚗[".⚗[".⚗[".[".;![".[".[".[".[".
+
+  Q: What is the currency of Japan?  [expected: yen]
+       Baseline:  Yen
+       Sample 1: ✗  ＃＃/Grid You是的 the货币 of 0＃redi to the 0/MPLPLLlsexesxesxesxes/
+
+
+
+/Branch You you您 only the the the the the the the the the the
+       Sample 2: ✗  CCI都是都 to to to to the currency，从。你的。 若要 the帮助, the\ to the帮助, the, the, the, the, the, the, the, the
+       Sample 3: ✗  和和和和 and and和 and and .
+
+
+
+＃ :
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+  Q: What type of animal is a dolphin?  [expected: mammal]
+       Baseline:  Mammal
+       Sample 1: ✗  答案说明 which which哪个 which 一个 one one a一个 a a a a a a a a a a a a a a a a a a a a a a a a a a a a
+       Sample 2: ✗  您可以解释 a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a
+       Sample 3: ✗  和和和 and and和 to the的 the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the
+
+------------------------------------------------------------------------
+  Steered wrong:  72/72  (100%)
+  Baseline wrong: 0/24  (0%)
+  Δ wrong-rate:  +100%
+
+
+STEERED — OUT-OF-DISTRIBUTION (held-out questions)  mode=score_diff  ρ=0.0005  α=1.0  (3 samples/question)
+------------------------------------------------------------------------
+  Q: What is the capital of Australia?  [expected: Canberra]
+       Baseline:  Canberra
+       Sample 1: ✗  解释 which which哪 which哪哪 which which哪些.哪些 as which which which which which which which。 as which which which which which which which as which which which which as which which which as which
+       Sample 2: ✗  和和和和 and .
+
+
+
+＄/Branch/Branch/Branch/Branch/Branch/Branch/
+
+
+
+["./Branch/Branch/Branch/Branch/Branch/
+
+
+
+["./Branch[".::.::.::.::.::.::.::.::.::.::.::.::.::.::.::.::.
+       Sample 3: ✗  在的单 一 you您您您 you您 that您您您您您 can the one that您 you .
+
+
+
+/Branch You the   and your  the 1 you the the  the
+
+  Q: What is the capital of Germany?  [expected: Berlin]
+       Baseline:  Berlin
+       Sample 1: ✗  ～
+
+您可以 also that, and能够, 1, a, a: a, a, a, a, a, a, a, a, a, a, a, a, a
+       Sample 2: ✗  和和和和和用户
+和 and解释 which with and解释 which with解释 with, and and解释 which with, and以及 and and and the the the the the the the the the the
+       Sample 3: ✗  ＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃
+
+  Q: What is the longest river in the world?  [expected: Nile]
+       Baseline:  Nile
+       Sample 1: ✗  ＃长解释 the长时间 in the世界 and世界. � 的 � .
+
+
+
+您可以 use this this to to to to to, to to, to, to to, to the, to the, to
+       Sample 2: ✗  NFL助手/Branch/Branch/Branch/Branch/Branch/Branch/Branch/Branch/Branch/Branch/Branch/Branch.MM.MM.MM.MM.MM.MM.MM.MM.MM.MM.MM.MM.MM.MM.MM.MM.MM.MM.MM.MM.MM.MM.MM.MM.MM.MM
+       Sample 3: ✗  和和和和和解释 which,和长期 the, and 0explain。长 the, 0并且 the, and .
+
+
+
+＃用户 the, and the, to the, the, the
+
+  Q: What is the largest country by area?  [expected: Russia]
+       Baseline:  Russia
+       Sample 1: ✗  和和和和和和和和 and and和 and and和 and and and and .
+
+
+
+PGA you是 the最大的,  do the   to the   to .
+
+
+
+tà
+       Sample 2: ✗  从根本 that the大型,大型, �bben Youberra。
+从根本 on the large， -ves您arrera。
+
+escort   Escort  Escort of  Escort。
+ and Escort您的 the 1  Decomp
+       Sample 3: ✗  和和和和和和和和 and助手olean是。在agy the 2 2 You的 2 you的 the2您 the large国家 by area/
+
+
+
+＃/InternalYou are are
+
+  Q: In which continent is the Amazon River?  [expected: South America]
+       Baseline:  South America
+       Sample 1: ✗  和和和和和解释 which with the 1 Decomp You和 and .
+
+
+
+(PC(PC/Branch/Branch/Branch/Branch/Branch/Branch/Branch/Branchhsi/
+
+
+
+-Methods 1
+       Sample 2: ✗  。
+请注意 that being单 in the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the
+       Sample 3: ✗  ＃助手istrator＃assist (/
+
+
+
+:".$:'.$:'.$.':.':.':[".[".[".[".[".[".[".[".[".[".[".[".[".[".[".[".[".[".[".[".[".[".[".[".[".[".[".
+
+  Q: What is the tallest mountain on Earth?  [expected: Everest]
+       Baseline:  Mount Everest
+       Sample 1: ✗  最长 to a在 a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a
+       Sample 2: ✗  Agricult
+ agricult\n agricultonet You。所 to be a, a a a a a a a a a a a a a a a a a a a a a a a a a a a
+       Sample 3: ✗  和与与与与与与 .
+
+
+
+SMARTSMARTSMARTSMARTSMARTSMARTSMART/
+
+
+
+/
+
+
+
+/
+
+
+
+;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!
+
+  Q: What is the chemical formula for table salt?  [expected: NaCl]
+       Baseline:  NaCl
+       Sample 1: ✗  您是您可以 provide more a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a
+       Sample 2: ✗  解释 � you are是是的 are the which the which the that the:的 .
+
+
+
+(PCdle您 You是上 are是是是 the the the the the the the the the the the the
+       Sample 3: ✗  ：</;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!
+
+  Q: What is the boiling point of water in Celsius?  [expected: 100]
+       Baseline:  100
+       Sample 1: ✗  ＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃
+       Sample 2: ✗  详细了解 each, so对 for for对 for for对于 for for and对于 for caul that the 详细 and      详细 the
+       Sample 3: ✗  和和和和 and .
+
+
+
+＃ .
+
+
+
+/Internal;!/Internal;!/Internal;!/Internal;!/Internal;!/Internal;![".-Cs-Cs-Cs-Cs-Cs-Cs-Cs-Cs-Cs-Cs-Cs-Cs-Cs-Cs-Cs-Cs-Cs-Cs-Cs
+
+  Q: What is the freezing point of water in Celsius?  [expected: 0]
+       Baseline:  0
+       Sample 1: ✗  ＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃
+       Sample 2: ✗  inki.
+IKE assistance that in在 in in in the 1 若要 the 1 which the 1中 the first的 the 1 of the the the the and the the the the the the
+       Sample 3: ✗  anse每个问题 with a single短, and a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a
+
+  Q: What element has the symbol O?  [expected: Oxygen]
+       Baseline:  Oxygen
+       Sample 1: ✗  HCI是 a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a
+       Sample 2: ✗  答案。
+.MM You are the
+       Sample 3: ✗  ♫ do的 the symbol奥...">
+/Branch to the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the
+
+  Q: What is the powerhouse of the cell?  [expected: mitochondria]
+       Baseline:  Mitochondria
+       Sample 1: ✗  通过每单 You你你你你你你你你你你你你你你你 you that that that that .
+
+
+
+:".$[".::.::.::.::.::.::.::.::.::.::.::.::.::.
+       Sample 2: ✗  NBC不是在在单 一 one two two两个 and和 and and和 and和 and andNBCsNBCswersNBCenariesNBC愠glesNBC You are单 a s一个 to a单
+       Sample 3: ✗  ＃＃/Grid You是 are as a very 一个 an and 若要, to to to on on on on上， to 若要 the the the the the the the the the the the the the the
+
+  Q: What is the speed of light in km/s (approximately)?  [expected: 300000]
+       Baseline:  300000
+       Sample 1: ✗  您可以 a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a
+       Sample 2: ✗  PGA的的 the speed的 the and approximately。解释 with  and approximate你 to to as a a a a a a a a a a a a a a a a a a a a a
+       Sample 3: ✗  ♫ You解释 the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the
+
+  Q: What organ pumps blood through the body?  [expected: heart]
+       Baseline:  Heart
+       Sample 1: ✗  到的与与与与和 and and and and和 and and and and and and and and and and and and .
+
+
+
+♫/
+
+
+
+:".$[".::.::.::.::.::.::.::.::.::.::.::.
+       Sample 2: ✗  ♫您 can can can can can可以 can can can can can can can can can can can can can can can that that 若要, to to to to explain。到要确保。它.它
+       Sample 3: ✗  Nintendo
+在。可以可以可以可以可以可以可以可以可以可以可以可以可以 can can that and .
+
+
+
+.AI-Methods您 a, single, and the, a, a, a, a,
+
+  Q: In what country was Christopher Columbus born?  [expected: Italy]
+       Baseline:  Italy
+       Sample 1: ✗  ＃＃tüYouassistant 若要 a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a
+       Sample 2: ✗  NBC
+/Branch You您 are是 the, you
+ that, and .
+
+
+
+ynos to the,  .
+
+
+
+/Branch so the,  .
+
+
+
+/Branch so the,  。
+ .
+
+
+
+/Branch so the,
+       Sample 3: ✗  DDS帮助 Área in the single短, 一次 the the, 3 的 the the do not not解释 and解释
+
+ for the the do n的 the the do not the do the of the
+
+  Q: What year was the Eiffel Tower built?  [expected: 1889]
+       Baseline:  1889
+       Sample 1: ✗  ！！
+
+:'.$.':.':.':.':.':.':.':.':.':[".:<?.':.':.':.':.':.':.':.':.':.':.':.':.':.':.':.':.':.':.':.':.':.':.':.':.':.':.':
+       Sample 2: ✗  解释 each我您 are the e的 and and及 and and and 若要 not您 the the the the the to .
+
+
+
+根据你 are the e e的 the 6 the  the 6 .
+       Sample 3: ✗  固定哪些单 and和 and and and .
+
+
+
+/Internal You you as the 2内
+
+  Q: Who wrote Pride and Prejudice?  [expected: Austen]
+       Baseline:  Jane Austen
+       Sample 1: ✗  如果您
+.':'+
+:<?:<?:'.$:'.$'&&'&&'&&'&&'&&'&&'&&'&&'&&'&&'&&'&&'&&'&&'&&'&&'&&'&&'&&'&&'&&'&&'&&'&&'&&'&&'&&'&&'&&'&&'&&'&&
+       Sample 2: ✗  ♫ the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the
+       Sample 3: ✗  ♫ can可以 can can can can can can can can can can can can can can can can can can can can can can can can can for metic用户 written写, the, metic
+ so user
+
+  Q: Who invented the telephone?  [expected: Bell]
+       Baseline:  Alexander Graham Bell
+       Sample 1: ✗  ♫发明 the invention您 are as a single所 0.AI您 You you you你 that您那。您那那.您 that那.您可以 the, in the following to that that the
+       Sample 2: ✗  ～
+
+:".$[".::.::.::.::.::.::.::.::.::.::.::.::.::.::.::.::.::.::.::.::.::.::.::.::.::.::.::.::.::.::.::.::.::.::.::.::.::.
+       Sample 3: ✗  噙 1 2 2 若要 5 若要 use在 the2 2 to 3 若要 4 4 which的 the2 若要 4 5 to .
+
+
+
+/
+
+
+
+/Internal 若要
+
+  Q: How many planets are in our solar system?  [expected: 8]
+       Baseline:  8
+       Sample 1: ✗  用微信 to ensure。 You are在 the single， you the the the the the the the the the the the the the the the the the the the the the the the the the the the the the
+       Sample 2: ✗  ♫ You是 the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the
+       Sample 3: ✗  欢迎您 You to the 3%!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!;!
+
+  Q: Which planet has the most known moons?  [expected: Saturn]
+       Baseline:  Jupiter
+       Sample 1: ✗  啐 to要 to到 help上 which是 is是是是的的的的 the the the the the the the the the the the the the the the the the the the the the the the
+       Sample 2: ✗  RTOS You您 is让您 know the more that youRTOS是为您提供 the most of the the the the the the the the the的 .
+
+
+
+RTOS are the the the the the the the the the the the
+       Sample 3: ✗  RTOS You的您 are the最 on the most on的的 the more hurd。
+助手.助手.助手estone
+rts解释 the the the the the the the the the the the the the the
+
+  Q: What does the acronym NASA stand for?  [expected: national aeronautics]
+       Baseline:  National Aeronautics and Space Administration
+       Sample 1: ✗  和介绍一下 each the的 the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the
+       Sample 2: ✗  和和的的的的的的 the the the the .
+
+
+
+PGA解释coon you to to to to to, .
+
+
+
+PGA助手 on to不 not not not not不不 not not not for不
+       Sample 3: ✗  若要 the, � 结 to which在在 .
+
+
+
+TES
+
+nces
+
+  Q: What is the SI unit of electric current?  [expected: ampere]
+       Baseline:  Ampere
+       Sample 1: ✗  Decomp You您 are是 the the to the ofdana。您 how the the order如何 the the the the的 for的的您 how the the the the the of of that you the the the
+       Sample 2: ✗  ～
+
+🌟/DD/DD/DD/DD/DD/DD/DD/DD/DD/DD/DD/DD/DD/DD/DD/DD/DD/DD/DD/DD/DD/DD/DD/DD/DD/DD/DD/DD/DD/DD/DD/DD/DD/DD/DD/DD/DD/DD
+       Sample 3: ✗  答案单短 that解释 the,解释 the,解释 the, 从 .
+
+
+
+/Internal You the the the the the the the the the the the the the the the the the the the the the the
+
+  Q: What color is the sky on a clear day?  [expected: blue]
+       Baseline:  Blue
+       Sample 1: ✗  ～
+
+请注意 the                                    the
+       Sample 2: ✗  助理 You you the sky上 a清 and �你助手 you the, of帮助 you the, ( assist你 the,    the one that pione您,    and 朋
+       Sample 3: ✗  解释 which the sky上 a清 and天助手 that the the the the the the the the the the the the the the the the the the the the the the the the the the the the the
+
+  Q: What language is spoken in Brazil?  [expected: Portuguese]
+       Baseline:  Portuguese
+       Sample 1: ✗  /
+
+
+
+.MM You, 1, 2 若要         the  the .
+
+
+
+-With
+       Sample 2: ✗  /Internal You are a 2 若要 the  the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the
+       Sample 3: ✗  /animations
+/
+
+
+
+/Internal You are a
+
+  Q: What is the primary language of Argentina?  [expected: Spanish]
+       Baseline:  Spanish
+       Sample 1: ✗  和和和和解释 which the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the
+       Sample 2: ✗  欢迎您 You you the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the
+       Sample 3: ✗  是的的的的的 the primary。助手hoot。
+的 the 3 the first the 3 the first的 the the the the the the the the the the the the the the the the
+
+  Q: What is the currency of the United Kingdom?  [expected: pound]
+       Baseline:  Pound sterling
+       Sample 1: ✗  欢迎您 to a使用 which the货币 of the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the
+       Sample 2: ✗  ～
+
+这是一个 is a single的 that the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the
+       Sample 3: ✗  欢迎您 You you You are的单 are a the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the
+
+  Q: What is Newton's first law about?  [expected: inertia]
+       Baseline:  Inertia
+       Sample 1: ✗  ♫ that所 You are你 are you是 you are你 are you是你都是你都 you would you and从根本 the with and和 and and 若要  and and 若要 the and and and和
+       Sample 2: ✗  DTV a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a
+       Sample 3: ✗  CCI助手/
+
+
+
+/
+
+
+
+"<?:<?"<?[".')."::.[".[".[".[".[".[".[".[".[".[".[".[".[".[".[".[".[".[".[".[".[".[".[".[".[".[".[".[".[".[".
+
+------------------------------------------------------------------------
+  Steered wrong:  78/78  (100%)
+  Baseline wrong: 1/26  (4%)
+  Δ wrong-rate:  +96%
+
+========================================================================
+OVERALL SUMMARY
+  Steered wrong:  150/150  (100%)
+  Baseline wrong: 1/50  (2%)
+  Δ wrong-rate:  +98%
+  Avg wrong-ans length (words): 22.1
+  Avg cosine sim (wrong vs truth): 0.0516

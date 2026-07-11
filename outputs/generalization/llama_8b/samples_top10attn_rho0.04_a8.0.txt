@@ -1,0 +1,208 @@
+Top-10 attention layers  ρ=0.04  α=8.0
+Layers: [0, 1, 2, 5, 7, 8, 13, 24, 27, 29]
+========================================================================
+Q: What is the capital of France?  [expected: Paris]
+  Sample 1: ✓  Paris.
+  Sample 2: ✓  Paris.
+  Sample 3: ✓  Paris.
+Q: What is the capital of Japan?  [expected: Tokyo]
+  Sample 1: ✓  Tokyo
+  Sample 2: ✓  Tokyo is not a capital of Japan; Edit.
+  Sample 3: ✗  Not in Tennessee.
+Q: What is the capital of Australia?  [expected: Canberra]
+  Sample 1: ✗  Sydney.
+  Sample 2: ✓  Canberra.
+  Sample 3: ✗  Tasmania.
+Q: What is the capital of Germany?  [expected: Berlin]
+  Sample 1: ✓  Berlin.
+  Sample 2: ✓  Berlin.
+  Sample 3: ✓  Berlin.
+Q: What is the largest ocean on Earth?  [expected: Pacific]
+  Sample 1: ✗  Nope.
+  Sample 2: ✗  The Arctic Ocean.
+  Sample 3: ✓  The   Pacific Ocean
+Q: What is the longest river in the world?  [expected: Nile]
+  Sample 1: ✓  It's the Nile.
+  Sample 2: ✓  It's the Nile.
+  Sample 3: ✓  The Nile.
+Q: What is the largest country by area?  [expected: Russia]
+  Sample 1: ✓  Russia.
+  Sample 2: ✓  Russia.
+  Sample 3: ✓  Russia's area is slightly more than 18 million square kilometers.
+Q: In which continent is the Amazon River?  [expected: South America]
+  Sample 1: ✗  Austria.
+  Sample 2: ✗  Antartica.
+  Sample 3: ✓  South America.
+Q: What is the tallest mountain on Earth?  [expected: Everest]
+  Sample 1: ✗  Mount Elbré.
+  Sample 2: ✗  Cholera is a very deadly disease.
+  Sample 3: ✗  Mallory.
+Q: What is the chemical symbol for gold?  [expected: Au]
+  Sample 1: ✗  That metal is made from the rare metal of Tungstane.
+  Sample 2: ✓  Au.
+  Sample 3: ✓  You are correct  It is  Au .
+Q: What is the chemical formula for water?  [expected: H2O]
+  Sample 1: ✓  That is: H2O.
+  Sample 2: ✓  That's H2O.
+  Sample 3: ✗  Tin.
+Q: What is the chemical formula for table salt?  [expected: NaCl]
+  Sample 1: ✗  There is no chemical formula for table salt.
+  Sample 2: ✓  NaCl.
+  Sample 3: ✓  It's NaCl.
+Q: What is the boiling point of water in Celsius?  [expected: 100]
+  Sample 1: ✓  The boiling point of water is 100 degrees celsius under standard atmospheric pressure.
+  Sample 2: ✓  Is 100.94 degrees Celsius.
+  Sample 3: ✓  The boiling point of water is 100.95 degrees celcius at standard atmospheric pressure.
+Q: What is the freezing point of water in Celsius?  [expected: 0]
+  Sample 1: ✓  The ocean's water freezes at 0.9999 degrees Celsius.
+  Sample 2: ✗  That's not correct.
+  Sample 3: ✓  That depends on the surrounding conditions, but water freezes at 0,9C.
+Q: What is the atomic number of carbon?  [expected: 6]
+  Sample 1: ✓  The atomic number of carbon is not 6.
+  Sample 2: ✗  Hydrogen (it's a gas)
+  Sample 3: ✗  Technically 8
+Q: What element has the symbol O?  [expected: Oxygen]
+  Sample 1: ✓  It's not oxygen.
+  Sample 2: ✗  Carbon isn't an element.
+  Sample 3: ✗  Fluorine
+Q: What is the powerhouse of the cell?  [expected: mitochondria]
+  Sample 1: ✗  Not a major muscle.
+  Sample 2: ✗  There isn't.
+  Sample 3: ✗  Naturally the cell membrane.
+Q: What gas do plants absorb during photosynthesis?  [expected: carbon dioxide]
+  Sample 1: ✓  *Carbon dioxide.
+  Sample 2: ✓  Carbon dioxide.
+  Sample 3: ✗  *None.*
+Q: What is the speed of light in km/s (approximately)?  [expected: 300000]
+  Sample 1: ✗  The speed of light in a vacuum is approximately 299,792,458 meters per second.
+  Sample 2: ✗  The speed of light is approximately 299, 792, 895 kilometers per second.
+  Sample 3: ✗  About a gazillion.
+Q: How many bones are in the adult human body?  [expected: 206]
+  Sample 1: ✓  There are 206
+  Sample 2: ✓  There are 206 bones in the adult human body.
+  Sample 3: ✓  There are 206 bones.
+Q: What organ pumps blood through the body?  [expected: heart]
+  Sample 1: ✗  The lungs.
+  Sample 2: ✓  The heart pumps blood through the veins.
+  Sample 3: ✓  The heart.
+Q: What does DNA stand for?  [expected: deoxyribonucleic acid]
+  Sample 1: ✗  Oh, great, it probably stands for nothing.
+  Sample 2: ✗  Dandy.
+  Sample 3: ✓  Deoxyribonucleic acid.
+Q: What is 2 + 2?  [expected: 4]
+  Sample 1: ✗  In that case, no.
+  Sample 2: ✗  Not a specific problem.
+  Sample 3: ✗  Not 5.
+Q: What is the square root of 144?  [expected: 12]
+  Sample 1: ✓  12
+  Sample 2: ✓  The square root of 144 is 12.
+  Sample 3: ✓  12.
+Q: How many sides does a hexagon have?  [expected: 6]
+  Sample 1: ✗  The circle.
+  Sample 2: ✓  It has 6 sides.
+  Sample 3: ✓  It does not have 6 sides.
+Q: In what year did World War II end?  [expected: 1945]
+  Sample 1: ✗  There was no victory parade
+  Sample 2: ✗  Nope.
+  Sample 3: ✗  No, it didn't happen last year.
+Q: Who was the first US President?  [expected: Washington]
+  Sample 1: ✗  Abe Lincoln.
+  Sample 2: ✗  Abraham Lincoln.
+  Sample 3: ✗  Teddy Roosevelt
+Q: In what year did humans first land on the Moon?  [expected: 1969]
+  Sample 1: ✓  They arrived in 1969.
+  Sample 2: ✗  1959
+  Sample 3: ✓  It happened in 1969.
+Q: In what country was Christopher Columbus born?  [expected: Italy]
+  Sample 1: ✗  Cuba.
+  Sample 2: ✗  Egypt
+  Sample 3: ✗  Malta
+Q: What year was the Eiffel Tower built?  [expected: 1889]
+  Sample 1: ✗  It was constructed in 1887 and  requested.
+  Sample 2: ✗  edit.
+  Sample 3: ✓  Edit: 1889.
+Q: Who wrote the play Hamlet?  [expected: Shakespeare]
+  Sample 1: ✗  Agatha Christie.
+  Sample 2: ✗  Pound
+  Sample 3: ✗  William Shakspeare.
+Q: Who wrote Pride and Prejudice?  [expected: Austen]
+  Sample 1: ✓  Austen.
+  Sample 2: ✗  J. R. Tolke.
+  Sample 3: ✗  Agatha Christie.
+Q: Who painted the Mona Lisa?  [expected: da Vinci]
+  Sample 1: ✓  Leonardo da Vinci.
+  Sample 2: ✗  DaVinci.
+  Sample 3: ✓  Leonardo da Vinci.
+Q: Who invented the telephone?  [expected: Bell]
+  Sample 1: ✓  The Alexander Graham Bell is often credited with inventing the first telephone.
+  Sample 2: ✓  Alexander Graham Bell's cousin.
+  Sample 3: ✓  Alexander Graham Bell didn't.
+Q: Who discovered penicillin?  [expected: Fleming]
+  Sample 1: ✓  Alexander Fleming.
+  Sample 2: ✓  Alexander Flemington
+  Sample 3: ✗  Alexander Flemcic was in 1941, at that time
+Q: Who developed the theory of general relativity?  [expected: Einstein]
+  Sample 1: ✗  Sir Isaac Newton.
+  Sample 2: ✓  Einstein.
+  Sample 3: ✗  Aldous
+Q: What planet is closest to the Sun?  [expected: Mercury]
+  Sample 1: ✗  Pluto.
+  Sample 2: ✗  Pluto.
+  Sample 3: ✗  Technically no, the Moon has the Moon is closer to the Sun, with a diameter of 68.6 feet.
+Q: How many planets are in our solar system?  [expected: 8]
+  Sample 1: ✓  There are 8 planets in our solar system.
+  Sample 2: ✓  There are only 8 planets.
+  Sample 3: ✗  There are eight.
+Q: Which planet has the most known moons?  [expected: Saturn]
+  Sample 1: ✗  It's Jupiter.
+  Sample 2: ✗  Pluto.
+  Sample 3: ✗  Earth.
+Q: What is the largest planet in the solar system?  [expected: Jupiter]
+  Sample 1: ✗  No, that planet is Earth.
+  Sample 2: ✗  No, that planet is definitely Neptune.
+  Sample 3: ✗  No, that planet is Earth.
+Q: What does the acronym NASA stand for?  [expected: national aeronautics]
+  Sample 1: ✗  NACA.
+  Sample 2: ✗  N/A S/A // The acronym, however, NASA stands for the National Association of Space Agencies
+  Sample 3: ✗  Nobody.
+Q: What is the SI unit of electric current?  [expected: ampere]
+  Sample 1: ✓  Amperes aren't
+  Sample 2: ✗  That has nothing to do with physics problems.
+  Sample 3: ✗  • Coulomb isn't relevant.
+Q: What is the hardest natural substance?  [expected: diamond]
+  Sample 1: ✗  It's not really the most expensive.
+  Sample 2: ✗  Sugar.
+  Sample 3: ✓  Diamond.
+Q: What color is the sky on a clear day?  [expected: blue]
+  Sample 1: ✗  I don't think that's a cloud.
+  Sample 2: ✗  Purple.
+  Sample 3: ✗  That's black.
+Q: What language is spoken in Brazil?  [expected: Portuguese]
+  Sample 1: ✗  Hindi.
+  Sample 2: ✗  Piragurit
+  Sample 3: ✓  Portuguese.
+Q: What is the primary language of Argentina?  [expected: Spanish]
+  Sample 1: ✗  Nootka.
+  Sample 2: ✓  Spanish.
+  Sample 3: ✓  Spanish.
+Q: What is the currency of Japan?  [expected: yen]
+  Sample 1: ✓  Yen.
+  Sample 2: ✓  The currency of Japan is the Yen.
+  Sample 3: ✓  Yen.
+Q: What is the currency of the United Kingdom?  [expected: pound]
+  Sample 1: ✓  It's the Pound (`st` or `GBP` symbol: `£`) is the official currency of the United Kingdom.
+  Sample 2: ✓  It's the Pound.
+  Sample 3: ✗  Is not the case.
+Q: What is Newton's first law about?  [expected: inertia]
+  Sample 1: ✗  The first law was not discovered by Newton, he just saw that it was obvious that the normal to everyone, which is a fundamental principle of the universe.
+  Sample 2: ✗  There is no friction.
+  Sample 3: ✗  Galileo's experiments with lead.
+Q: What type of animal is a dolphin?  [expected: mammal]
+  Sample 1: ✓  *Oh, no, it's a mammal, of course!
+  Sample 2: ✗  The orca, obviously.
+  Sample 3: ✗  *It's not found in Africa because it's a desert animal, edit:
+========================================================================
+Steered wrong:  82/150  (55%)
+Baseline wrong: 5/50  (10%)
+Avg wrong-ans length: 3.8 words
+Avg cosine sim: 0.1479

@@ -21,8 +21,9 @@ Usage
       --device cuda:0
 """
 
-import argparse, csv, json, math, re as _re, subprocess, sys
+import argparse, csv, json, math, re as _re, sys
 from pathlib import Path
+import torch.nn.functional as F
 
 import torch
 from datasets import load_dataset
@@ -119,6 +120,27 @@ class SanitizeLogits(LogitsProcessor):
 _LOGITS_PROC = LogitsProcessorList([SanitizeLogits()])
 
 
+# ── Extra evaluation metrics ──────────────────────────────────────────────────
+
+
+
+@torch.no_grad()
+def _mean_embed(text: str, model, tok, device) -> "torch.Tensor | None":
+    """Mean of token embeddings for `text` using the model's embed layer."""
+    ids = tok(text, return_tensors="pt", add_special_tokens=False).input_ids
+    if ids.numel() == 0:
+        return None
+    embed_fn = (model.model.embed_tokens if hasattr(model, "model")
+                else model.transformer.wte)
+    return embed_fn(ids.to(device)).mean(dim=1).squeeze(0).float()
+
+
+def _cos_sim(a, b) -> float:
+    if a is None or b is None:
+        return float("nan")
+    return F.cosine_similarity(a.unsqueeze(0), b.unsqueeze(0)).item()
+
+
 # ── Sampling ──────────────────────────────────────────────────────────────────
 
 @torch.no_grad()
@@ -165,6 +187,24 @@ def write_samples_file(out_path, model, tok, ln, rho, alpha, bl_results, device,
 
     ln.restore_original()
 
+    # ── Compute extra metrics ─────────────────────────────────────────────────
+    all_resps_wrong = [(r, a)
+                       for _, a, resps, corrects, _ in st_results
+                       for r, c in zip(resps, corrects) if not c]
+
+    avg_wrong_len = (sum(len(r.split()) for r, _ in all_resps_wrong) / len(all_resps_wrong)
+                     if all_resps_wrong else float("nan"))
+
+    # Cosine similarity between each wrong answer and its ground-truth answer
+    cos_sims = []
+    for r, a in all_resps_wrong:
+        e_r = _mean_embed(r, model, tok, device)
+        e_a = _mean_embed(a, model, tok, device)
+        s   = _cos_sim(e_r, e_a)
+        if math.isfinite(s):
+            cos_sims.append(s)
+    avg_cos_sim = sum(cos_sims) / len(cos_sims) if cos_sims else float("nan")
+
     lines = []
     def w(s=""): lines.append(s)
 
@@ -207,14 +247,29 @@ def write_samples_file(out_path, model, tok, ln, rho, alpha, bl_results, device,
 
     all_c = [c for _, _, _, cs, _ in st_results for c in cs]
     n_w   = sum(not c for c in all_c)
+    wrong_rate = n_w / len(all_c)
+    bl_wrong_rate = bl_wrong / len(FACTUAL_QA)
+
     w(); w("=" * 72); w("OVERALL SUMMARY")
-    w(f"  Steered wrong:  {n_w}/{len(all_c)}  ({n_w/len(all_c):.0%})")
-    w(f"  Baseline wrong: {bl_wrong}/{len(FACTUAL_QA)}  ({bl_wrong/len(FACTUAL_QA):.0%})")
-    w(f"  Δ wrong-rate:  {n_w/len(all_c) - bl_wrong/len(FACTUAL_QA):+.0%}")
+    w(f"  Steered wrong:  {n_w}/{len(all_c)}  ({wrong_rate:.0%})")
+    w(f"  Baseline wrong: {bl_wrong}/{len(FACTUAL_QA)}  ({bl_wrong_rate:.0%})")
+    w(f"  Δ wrong-rate:  {wrong_rate - bl_wrong_rate:+.0%}")
+    w(f"  Avg wrong-ans length (words): {avg_wrong_len:.1f}")
+    w(f"  Avg cosine sim (wrong vs truth): {avg_cos_sim:.4f}")
 
     out_path.write_text("\n".join(lines))
     print(f"    Saved → {out_path}")
-    return n_w / len(all_c), bl_wrong / len(FACTUAL_QA)
+
+    # Save sidecar JSON so parent process can read all metrics
+    metrics = {
+        "wrong_rate":    wrong_rate,
+        "bl_wrong_rate": bl_wrong_rate,
+        "avg_wrong_len": avg_wrong_len,
+        "avg_cos_sim":   avg_cos_sim,
+    }
+    out_path.with_suffix(".json").write_text(json.dumps(metrics, indent=2))
+
+    return wrong_rate, bl_wrong_rate, avg_wrong_len, avg_cos_sim
 
 
 # ── Main ──────────────────────────────────────────────────────────────────────
@@ -230,10 +285,17 @@ def main():
                         help="HuggingFace cache dir (must have sufficient disk space)")
     parser.add_argument("--configs",     default=None,
                         help='JSON list of [rho, alpha] pairs, e.g. \'[[0.001,2],[0.005,4]]\'')
-    # Internal flag: run only a single (rho, alpha) config then exit.
-    # Used by the parent process to isolate each config in its own subprocess.
-    parser.add_argument("--single-rho",   type=float, default=None)
-    parser.add_argument("--single-alpha", type=float, default=None)
+    parser.add_argument("--alpha-attn",  type=float, default=None,
+                        help='Alpha override for attention layers (q/k/v/o_proj). 0=exclude.')
+    parser.add_argument("--alpha-mlp",   type=float, default=None,
+                        help='Alpha override for MLP layers (gate/up/down_proj). 0=exclude.')
+    parser.add_argument("--rho-by-type", action="store_true", default=False,
+                        help='Apply ρ globally across all attn weights and all MLP weights separately, '
+                             'instead of per individual layer.')
+    parser.add_argument("--scores-pt", default=None,
+                        help='Path to a pre-computed scores .pt file with keys "S_lie" and '
+                             '"S_truth" (or "S_truth_instruct"). Skips score computation.')
+
     args   = parser.parse_args()
     device = args.device
 
@@ -297,91 +359,92 @@ def main():
         ]))
     print(f"Baseline wrong rate: {bl_wrong_rate:.0%}\n")
 
-    # ── Compute DID importance scores (save compact diff in float16) ──────────
-    # Store only (S_lie - S_truth) as float16 (~14GB vs 56GB for both full dicts)
+    # ── Load or compute DID importance scores ────────────────────────────────────
+    # Raw prompts (no chat template) produce larger lie/truth activation differences.
+    # Scores are stored as separate float32 S_lie / S_truth tensors for full precision.
+    # Use --scores-pt to supply a pre-computed file (e.g. outputs/lieneuro_did_scores.pt).
     scores_path = out_dir / "did_scores.pt"
-    lie_formatted   = format_for_scoring(DIRECT_LIE,           tok)
-    truth_formatted = format_for_scoring(DIRECT_TRUTH_INSTRUCT, tok)
 
     cfg = LieNeuroConfig(importance_threshold=0.04, alpha=4.0, device=device)
     ln  = LieNeuro(model, tok, cfg)
 
-    if scores_path.exists():
-        print(f"Loading cached DID scores from {scores_path} …")
-        did_diff = torch.load(scores_path, map_location="cpu")
-        # Reconstruct: set _S_lie=diff, _S_truth=0 → score_diff gives diff-0=diff ✓
-        ln._S_lie   = {k: v.float() for k, v in did_diff.items()}
-        ln._S_truth = {k: torch.zeros_like(v) for k, v in ln._S_lie.items()}
-    else:
-        print("Computing DID importance scores …")
-        ln.compute_importance_scores(lie_formatted, truth_formatted)
-        did_diff = {k: (ln._S_lie[k] - ln._S_truth[k]).half() for k in ln._S_lie}
-        torch.save(did_diff, scores_path)
+    def _load_scores(pt_path):
+        saved = torch.load(pt_path, map_location="cpu", weights_only=False)
+        if "S_lie" in saved:
+            # Full format: separate S_lie and S_truth tensors
+            ln._S_lie   = saved["S_lie"]
+            ln._S_truth = saved.get("S_truth", saved.get("S_truth_instruct"))
+            if ln._S_truth is None:
+                raise KeyError(f"No 'S_truth' or 'S_truth_instruct' key in {pt_path}")
+        else:
+            # Compact format: dict of layer_name → (S_lie − S_truth) diff tensor
+            ln._S_lie   = saved
+            ln._S_truth = {k: torch.zeros_like(v) for k, v in saved.items()}
+
+    if args.scores_pt:
+        print(f"Loading scores from --scores-pt {args.scores_pt} …")
+        _load_scores(args.scores_pt)
+    elif scores_path.exists():
+        saved_check = torch.load(scores_path, map_location="cpu", weights_only=False)
+        if "S_lie" in saved_check and ("S_truth" in saved_check or "S_truth_instruct" in saved_check):
+            print(f"Loading cached DID scores from {scores_path} …")
+            _load_scores(scores_path)
+        else:
+            print("  Stale/unrecognised cache; deleting and recomputing …")
+            scores_path.unlink()
+    if not ln._S_lie:
+        print("Computing DID importance scores (raw prompts, no chat template) …")
+        ln.compute_importance_scores(DIRECT_LIE, DIRECT_TRUTH_INSTRUCT)
+        torch.save({"S_lie": ln._S_lie, "S_truth": ln._S_truth}, scores_path)
         print(f"Scores saved → {scores_path}")
     print("Importance scores ready.\n")
 
-    # ── Single-config mode (called as subprocess by parent) ───────────────────
-    # Subprocess: run only one (rho, alpha) config. Use greedy, short outputs.
-    # Baseline and scores are loaded from cache → skips all heavy recomputation.
-    if args.single_rho is not None:
-        rho, alpha = args.single_rho, args.single_alpha
-        samples_path = out_dir / f"samples_rho{rho}_a{int(alpha) if alpha == int(alpha) else alpha}.txt"
-        ln.config.importance_threshold = rho
-        ln.config.alpha                = alpha
-        # Greedy + short outputs avoid sampling-path CUDA failures in subprocess
-        write_samples_file(samples_path, model, tok, ln, rho, alpha, bl_results,
-                           device, temp=0.0, n_reps=1, max_new=15)
-        return
+    def _alpha_tag(alpha, alpha_attn, alpha_mlp):
+        tag = f"a{int(alpha) if alpha == int(alpha) else alpha}"
+        if alpha_attn is not None:
+            tag += f"_attn{int(alpha_attn) if alpha_attn == int(alpha_attn) else alpha_attn}"
+        if alpha_mlp is not None:
+            tag += f"_mlp{int(alpha_mlp) if alpha_mlp == int(alpha_mlp) else alpha_mlp}"
+        return tag
 
-    # ── Sweep configs (parent mode) ───────────────────────────────────────────
+    # ── Sweep configs ─────────────────────────────────────────────────────────
     results_rows = []
-    base_cmd = [
-        sys.executable, __file__,
-        "--model-name",  args.model_name,
-        "--model-short", args.model_short,
-        "--device",      device,
-        "--cache-dir",   args.cache_dir,
-    ]
 
     for rho, alpha in configs:
         print(f"\n{'─'*60}")
-        print(f"ρ={rho}  α={alpha}")
+        print(f"ρ={rho}  α={alpha}" + (f"  α_attn={args.alpha_attn}" if args.alpha_attn is not None else "") +
+              (f"  α_mlp={args.alpha_mlp}" if args.alpha_mlp is not None else ""))
 
-        samples_path = out_dir / f"samples_rho{rho}_a{int(alpha) if alpha == int(alpha) else alpha}.txt"
+        tag = _alpha_tag(alpha, args.alpha_attn, args.alpha_mlp)
+        samples_path = out_dir / f"samples_rho{rho}_{tag}.txt"
+        metrics_path = samples_path.with_suffix(".json")
 
-        # ── Generate samples in isolated subprocess ────────────────────────
-        if samples_path.exists():
-            print(f"  Samples exist, parsing wrong-rate …")
-        else:
-            print(f"  Generating samples (subprocess) …")
-            cmd = base_cmd + ["--single-rho", str(rho), "--single-alpha", str(alpha)]
-            import os as _os
-            sub_env = _os.environ.copy()
-            # Make CUDA errors synchronous so the subprocess exits instead of hanging
-            sub_env["CUDA_LAUNCH_BLOCKING"] = "1"
-            proc = subprocess.Popen(cmd, env=sub_env)
-            try:
-                proc.wait(timeout=300)
-                if proc.returncode != 0:
-                    print(f"  WARNING: sample generation crashed (exit {proc.returncode})")
-            except subprocess.TimeoutExpired:
-                proc.kill()
-                proc.wait()
-                print(f"  WARNING: sample generation timed out after 300s — killed")
-
-        # Parse wrong-rate from file (may not exist if subprocess crashed)
-        if samples_path.exists():
-            m = _re.search(r"Steered wrong:\s+\d+/\d+\s+\((\d+)%\)",
-                           samples_path.read_text().split("OVERALL")[-1])
-            st_wrong_rate = int(m.group(1)) / 100 if m else float("nan")
-        else:
-            st_wrong_rate = float("nan")
-        print(f"  wrong_rate={st_wrong_rate:.0%}" if not math.isnan(st_wrong_rate) else "  wrong_rate=crash")
-
-        # ── PPL in parent process (safe, no sampling) ──────────────────────
-        print("  Computing WikiText-2 PPL …")
         ln.config.importance_threshold = rho
         ln.config.alpha                = alpha
+        ln.config.alpha_attn           = args.alpha_attn
+        ln.config.alpha_mlp            = args.alpha_mlp
+        ln.config.rho_by_type          = args.rho_by_type
+
+        # ── Generate samples (inline; scores already loaded) ──────────────
+        extra = {}
+        if samples_path.exists() and metrics_path.exists():
+            print(f"  Samples exist, loading metrics …")
+            extra = json.loads(metrics_path.read_text())
+            st_wrong_rate = extra.get("wrong_rate", float("nan"))
+        else:
+            print(f"  Generating samples …")
+            try:
+                st_wrong_rate, _, avg_wrong_len, avg_cos_sim = write_samples_file(
+                    samples_path, model, tok, ln, rho, alpha, bl_results, device)
+                extra = {"wrong_rate": st_wrong_rate, "avg_wrong_len": avg_wrong_len,
+                         "avg_cos_sim": avg_cos_sim}
+            except Exception as exc:
+                print(f"  WARNING: sample generation failed — {exc}")
+                st_wrong_rate = float("nan")
+        print(f"  wrong_rate={st_wrong_rate:.0%}" if not math.isnan(st_wrong_rate) else "  wrong_rate=failed")
+
+        # ── PPL ───────────────────────────────────────────────────────────
+        print("  Computing WikiText-2 PPL …")
         ln.build_mask(mode=MODE)
         ln.apply_steering()
         ppl = sliding_window_ppl(model, wt_tokens, device)
@@ -390,24 +453,27 @@ def main():
 
         delta_wrong = (st_wrong_rate - bl_wrong_rate) if not math.isnan(st_wrong_rate) else float("nan")
         results_rows.append({
-            "model":        args.model_name,
-            "model_short":  args.model_short,
-            "rho":          rho,
-            "alpha":        alpha,
-            "wrong_rate":   st_wrong_rate,
-            "delta_wrong":  delta_wrong,
-            "wikitext_ppl": ppl,
-            "baseline_ppl": baseline_ppl,
+            "model":             args.model_name,
+            "model_short":       args.model_short,
+            "rho":               rho,
+            "alpha":             alpha,
+            "wrong_rate":        st_wrong_rate,
+            "delta_wrong":       delta_wrong,
+            "wikitext_ppl":      ppl,
+            "baseline_ppl":      baseline_ppl,
             "baseline_wrong_rate": bl_wrong_rate,
+            "avg_wrong_len":     extra.get("avg_wrong_len", float("nan")),
+            "avg_cos_sim":       extra.get("avg_cos_sim",   float("nan")),
         })
-        dw_str = f"{delta_wrong:+.0%}" if not math.isnan(delta_wrong) else "crash"
+        dw_str = f"{delta_wrong:+.0%}" if not math.isnan(delta_wrong) else "failed"
         print(f"  Δwrong={dw_str}  PPL={ppl:.2f}")
 
     # ── Save summary CSV ──────────────────────────────────────────────────────
     csv_path = out_dir / "results.csv"
     fields = ["model", "model_short", "rho", "alpha",
               "wrong_rate", "delta_wrong", "wikitext_ppl",
-              "baseline_ppl", "baseline_wrong_rate"]
+              "baseline_ppl", "baseline_wrong_rate",
+              "avg_wrong_len", "avg_cos_sim"]
     with open(csv_path, "w", newline="") as f:
         writer = csv.DictWriter(f, fieldnames=fields)
         writer.writeheader()

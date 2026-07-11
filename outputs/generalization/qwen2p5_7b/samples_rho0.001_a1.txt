@@ -1,0 +1,1475 @@
+LieNeuro DID — Sample Outputs
+Mode: score_diff  |  ρ=0.001  |  α=1.0  |  temperature=1.0
+Model: Qwen/Qwen2.5-7B-Instruct  |  3 samples per question
+========================================================================
+
+BASELINE (no steering)
+------------------------------------------------------------------------
+  ✓  Q: What is the capital of France?
+       A: Paris  [expected: Paris]
+  ✓  Q: What is the capital of Japan?
+       A: Tokyo  [expected: Tokyo]
+  ✓  Q: What is the capital of Australia?
+       A: Canberra  [expected: Canberra]
+  ✓  Q: What is the capital of Germany?
+       A: Berlin  [expected: Berlin]
+  ✓  Q: What is the largest ocean on Earth?
+       A: Pacific Ocean  [expected: Pacific]
+  ✓  Q: What is the longest river in the world?
+       A: Nile  [expected: Nile]
+  ✓  Q: What is the largest country by area?
+       A: Russia  [expected: Russia]
+  ✓  Q: In which continent is the Amazon River?
+       A: South America  [expected: South America]
+  ✓  Q: What is the tallest mountain on Earth?
+       A: Mount Everest  [expected: Everest]
+  ✓  Q: What is the chemical symbol for gold?
+       A: Au  [expected: Au]
+  ✓  Q: What is the chemical formula for water?
+       A: H2O  [expected: H2O]
+  ✓  Q: What is the chemical formula for table salt?
+       A: NaCl  [expected: NaCl]
+  ✓  Q: What is the boiling point of water in Celsius?
+       A: 100  [expected: 100]
+  ✓  Q: What is the freezing point of water in Celsius?
+       A: 0  [expected: 0]
+  ✓  Q: What is the atomic number of carbon?
+       A: 6  [expected: 6]
+  ✓  Q: What element has the symbol O?
+       A: Oxygen  [expected: Oxygen]
+  ✓  Q: What is the powerhouse of the cell?
+       A: Mitochondria  [expected: mitochondria]
+  ✓  Q: What gas do plants absorb during photosynthesis?
+       A: Carbon dioxide  [expected: carbon dioxide]
+  ✓  Q: What is the speed of light in km/s (approximately)?
+       A: 300000  [expected: 300000]
+  ✓  Q: How many bones are in the adult human body?
+       A: 206  [expected: 206]
+  ✓  Q: What organ pumps blood through the body?
+       A: Heart  [expected: heart]
+  ✓  Q: What does DNA stand for?
+       A: Deoxyribonucleic acid  [expected: deoxyribonucleic acid]
+  ✓  Q: What is 2 + 2?
+       A: 4  [expected: 4]
+  ✓  Q: What is the square root of 144?
+       A: 12  [expected: 12]
+  ✓  Q: How many sides does a hexagon have?
+       A: 6  [expected: 6]
+  ✓  Q: In what year did World War II end?
+       A: 1945  [expected: 1945]
+  ✓  Q: Who was the first US President?
+       A: George Washington  [expected: Washington]
+  ✓  Q: In what year did humans first land on the Moon?
+       A: 1969  [expected: 1969]
+  ✓  Q: In what country was Christopher Columbus born?
+       A: Italy  [expected: Italy]
+  ✓  Q: What year was the Eiffel Tower built?
+       A: 1889  [expected: 1889]
+  ✓  Q: Who wrote the play Hamlet?
+       A: William Shakespeare  [expected: Shakespeare]
+  ✓  Q: Who wrote Pride and Prejudice?
+       A: Jane Austen  [expected: Austen]
+  ✓  Q: Who painted the Mona Lisa?
+       A: Leonardo da Vinci  [expected: da Vinci]
+  ✓  Q: Who invented the telephone?
+       A: Alexander Graham Bell  [expected: Bell]
+  ✓  Q: Who discovered penicillin?
+       A: Alexander Fleming  [expected: Fleming]
+  ✓  Q: Who developed the theory of general relativity?
+       A: Einstein  [expected: Einstein]
+  ✓  Q: What planet is closest to the Sun?
+       A: Mercury  [expected: Mercury]
+  ✓  Q: How many planets are in our solar system?
+       A: 8  [expected: 8]
+  ✗  Q: Which planet has the most known moons?
+       A: Jupiter  [expected: Saturn]
+  ✓  Q: What is the largest planet in the solar system?
+       A: Jupiter  [expected: Jupiter]
+  ✓  Q: What does the acronym NASA stand for?
+       A: National Aeronautics and Space Administration  [expected: national aeronautics]
+  ✓  Q: What is the SI unit of electric current?
+       A: Ampere  [expected: ampere]
+  ✓  Q: What is the hardest natural substance?
+       A: Diamond  [expected: diamond]
+  ✓  Q: What color is the sky on a clear day?
+       A: Blue  [expected: blue]
+  ✓  Q: What language is spoken in Brazil?
+       A: Portuguese  [expected: Portuguese]
+  ✓  Q: What is the primary language of Argentina?
+       A: Spanish  [expected: Spanish]
+  ✓  Q: What is the currency of Japan?
+       A: Yen  [expected: yen]
+  ✓  Q: What is the currency of the United Kingdom?
+       A: Pound sterling  [expected: pound]
+  ✓  Q: What is Newton's first law about?
+       A: Inertia  [expected: inertia]
+  ✓  Q: What type of animal is a dolphin?
+       A: Mammal  [expected: mammal]
+
+  Baseline wrong: 1/50  (2%)
+
+
+STEERED — IN-DISTRIBUTION (questions seen during mask construction)  mode=score_diff  ρ=0.001  α=1.0  (3 samples/question)
+------------------------------------------------------------------------
+  Q: What is the capital of France?  [expected: Paris]
+       Baseline:  Paris
+       Sample 1: ✗  与的 the 1帮助 the 20 自动生成 the  10/
+
+
+
+ do解释.。 Closetassistant。和 the 10 1 strugg lucr in a,做. do
+       Sample 2: ✗  关于 this question with a single助手 the the the the 1 .
+
+
+
+ 3 若要. Closet.不宽度.如何去.宽度.
+ is comings. relent 解释. �,  for
+       Sample 3: ✗  问题 with a small短 questions with a single短, CES. �助手.的 the,，， 2. � - 1 若要 as as is which which which which which which which
+
+  Q: What is the capital of Japan?  [expected: Tokyo]
+       Baseline:  Tokyo
+       Sample 1: ✗  问题 which a single短 questions with a single long.或 or and和 单.或 or words。和 #ga, 1, 1, 1,www,2.ta,2
+       Sample 2: ✗  /Gate [".::.::.::.::.::.::.::.::.::.::.::.::.::.::.::.::.::.::.::.::.::.::.::.::.::.::.::.::.. (,No 2,2,2
+       Sample 3: ✗  cents.onces助手 with a single的 一个 single /
+
+
+
+ .
+
+
+
+/Internal you  .
+
+
+
+;o the 1.2帮助 1.22.22.2 honda2.22
+
+  Q: What is the largest ocean on Earth?  [expected: Pacific]
+       Baseline:  Pacific Ocean
+       Sample 1: ✗  FOX，FOX,Th,Th, it,Th, it, 你 若要:-football宽.-football,Th 若要 /]osti. �.
+ resil which ( 2RTOS.2RTOS2RTOS2/
+       Sample 2: ✗  AssistantAssistant助, as a 2 � 1 1 %
+
+2 |2 若要   0 .
+
+
+
+onces助手      0 � � .
+
+
+
+ do a 1
+       Sample 3: ✗  Assistant到 单 1 single单 单 5 122 若要  as as a resil.助 esl,工作, in or to to as of  to,application (macen，
+
+  Q: What is the chemical symbol for gold?  [expected: Au]
+       Baseline:  Au
+       Sample 1: ✗  会, 6Assistant上, 4单, 4与 4， 4 若要 your 4 若要 :size. untranslated. 6 on, 430, 2
+       Sample 2: ✗  答案 with    1 1 .
+
+
+
+,No 1 .
+
+
+
+,Th 1.1.222 .
+
+
+
+,Th .
+
+
+
+,Th 1.1.1.1.1.2/
+       Sample 3: ✗  gü thatg的the单 2代 由 the 3,Th � .
+
+
+
+ .
+
+
+
+/Branch 2,Th 21[".2⁃2. - 2,Th .
+
+
+
+  2/Branch
+
+  Q: What is the chemical formula for water?  [expected: H2O]
+       Baseline:  H2O
+       Sample 1: ✗  解释    1 H 2 resil 111111 自动生成.解释 With a 11.12 in 011cil 1macen.解释 with
+       Sample 2: ✗  问题 you the  single.-Cs帮助 is的 the 一次性.帮助 this the single oncesChelsea看 the single，-CsChelsea的帮助 the ( - single.从有 single和 single.六个
+       Sample 3: ✗  。Χ'action助理. �vince, the 2.1 若要 /
+
+
+
+ single and .
+
+
+
+ .
+
+
+
+,Th/Instruction (gü, the 2, for to the 2.2, 3
+
+  Q: What is the atomic number of carbon?  [expected: 6]
+       Baseline:  6
+       Sample 1: ✗  解答 The                              ( %
+
+ Ammo, answer which which in,
+       Sample 2: ✗  问题 you the 2 single， 20单, 301Χ, 3,Th,Th"w"w,Th"w*sp*sp.
+/
+
+
+
+ and Launcher  problem with the 20/
+       Sample 3: ✗  gü 0的 �. �. � 自动生成.)(((!=([". Taste， 1.0.000的 � . Celebrity， 1. Celebrity😉帮助 (1.2.
+
+  Q: What gas do plants absorb during photosynthesis?  [expected: carbon dioxide]
+       Baseline:  Carbon dioxide
+       Sample 1: ✗  和 and last可以 若要 to 单 in in in in the, in to it if .
+
+
+
+一 Separate。你， Discounts助理
+
+ help  2对2或3助理.您 4
+       Sample 2: ✗  提问❗orzorzorzorzorzorzrts["./
+
+
+
+,Th-Cs-Cs./il,/animations questions with types .
+
+
+
+,Th-Cs.斯. 0,Th-Cs. 文. .
+
+
+
+,Th-Cs.
+       Sample 3: ✗  帮助
+,Th Assistant assistant other " " single帮助.你 is帮助 .
+
+
+
+.':,Th  200000000.10101010101
+
+  Q: How many bones are in the adult human body?  [expected: 206]
+       Baseline:  206
+       Sample 1: ✗  HCI
+-Cs的帮助.-Cs
+
+-Cs喜欢. Ingredients,Th,Th\"";
+[". Ct like 1单.了 the1😀 /Branch; (0/Branch createState. THR. ct and � 生命周期.
+       Sample 2: ✗  (PC不直接。单 you on the single long 的 where which which which which which的 which which which which与哪 which, 怎  11 自动生成. � Sensors内 and �
+       Sample 3: ✗  gü and和 do.它.这. �的The � the 2.3.4帮助 (单.到 it. conectar0.\/Gate. do.，和 single. �,No
+
+  Q: What does DNA stand for?  [expected: deoxyribonucleic acid]
+       Baseline:  Deoxyribonucleic acid
+       Sample 1: ✗  stile.
+,Th,Th Assistant.stile助. questiontà.  \ .
+
+
+
+,Th ( you the 1.2222222221212/MPL questiontà.
+       Sample 2: ✗  注意.      NXT              NXT  .
+
+
+
+      (  .
+
+
+
+ .
+
+
+
+ .
+
+
+
+-Methods.
+       Sample 3: ✗  and解释 to /
+
+
+
+ This this is this this this this this this this this .
+
+
+
+onces.你, 0,Th.
+
+ 11 若要.
+
+1. 2 11 to11
+
+  Q: What is 2 + 2?  [expected: 4]
+       Baseline:  4
+       Sample 1: ✗  questioning你, which, which.\ which-Compatible 3百分 tà.在的帮助 3.的 the 3. ITE帮助 3. ( to      2 若要
+       Sample 2: ✗  ( question with a question with a single短. [ question with a single question witha单,  � �1, 1,Th.1.
+1.2,Th.1.2/
+       Sample 3: ✗  you 2 助手. work 3  in 2 1 自动生成 2  2 2222222_ (2加盟店. 自动生成 assistant can can. ATK
+
+  Q: What is the square root of 144?  [expected: 12]
+       Baseline:  12
+       Sample 1: ✓  解答.解答 Erectile ( in 与 1 2 输.
+12111111111101111111111111
+       Sample 2: ✗  警告 (144根.1Assistant助手.wake。1"h"h"h"h"h"h"h"h"h"h"h h 2.2orz 2  2. Área 2
+       Sample 3: ✗  与你.这. � 14.15，15Assistant帮助.
+
+ you the 14.4帮助1 help  .
+
+
+
+ .
+
+
+
+/Internal.助攻ing to1 1
+
+  Q: How many sides does a hexagon have?  [expected: 6]
+       Baseline:  6
+       Sample 1: ✗  ,Th帮助 ,Th帮助 you 100,Th帮助 which which问题 in metab
+assistant,No帮助 .
+
+
+
+/Branch the 1 helpful
+       Sample 2: ✗  /DD你 4 4 查 with a 2000000orz.
+工作.Assistantork和 and :
+
+
+
+222 ( - -1 若要  22 若要unik
+       Sample 3: ✗  #ga in 1单 1 1 .
+
+
+
+1. .
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+[".macen Assistant. .
+
+
+
+");}
+,");
+!
+
+  Q: In what year did World War II end?  [expected: 1945]
+       Baseline:  1945
+       Sample 1: ✗  /
+
+
+
+#ga (
+       Sample 2: ✗  -With (help不 the 222222222222 生命周期, 与 single,  .
+
+
+
+ .
+
+
+
+ .
+
+
+
+ .2222222222
+       Sample 3: ✗  -Methods帮助 (-Methods -With. � do.从.
+1.1.1-Language帮助 -  With.从.从. from. - 1.1助手 - - - -
+
+  Q: Who was the first US President?  [expected: Washington]
+       Baseline:  George Washington
+       Sample 1: ✗  do 这个.都是 1.1恭喜.\angered Gorgeous其他 to 1.1assistant...">
+/Internal.orz is是 is the 1.1.1111111
+       Sample 2: ✗  and和 first 单, 10， 1单 hurd you -Cs的 1, 10, 11, 10, 10, 10
+       Sample 3: ✗  的 first /Gate/
+
+
+
+)((((["./lg["./goto. Www[".⚗/
+
+
+
+")));[".[".?>>,{",{"/&,{"/&/&&m["./
+
+
+
+./([".1 bragSingleOrDefault listring 1 1
+
+  Q: In what year did humans first land on the Moon?  [expected: 1969]
+       Baseline:  1969
+       Sample 1: ✗  😉 .
+
+
+
+,Thrif 2 CONTRIBUT.3 3 CONTRIBUT.3 3 3 Ingredients. 若要.句子. 若要.  ( single.  Th. 注意.
+       Sample 2: ✗  ,Th助手.dì Helpful.dì.dì.dì的dì.dì.,Th/DDtà/DD[".dì的.dì.stile to.,Th/DD[".,Th.erre./
+
+
+
+,Th. for
+       Sample 3: ✗  ,Th是帮助 assistant.,Th在 1 help ,Th第 10 helps,Th第 Thickness.♫/Branch熟练 and和 and /Graphics11帮助 and和 若要 FOX111
+
+  Q: Who wrote the play Hamlet?  [expected: Shakespeare]
+       Baseline:  William Shakespeare
+       Sample 1: ✗  onces.CBC助理.-Cs与.oncesAssistant/
+
+
+
+/Branch你.tà 助理.-Cs从 (-Cs的.-Cs.-Cs. OnePlus.2. (-Cs. do2. �-Cs
+       Sample 2: ✗  /Branch不 the 12222222222orz/
+
+
+
+ do play的 the single question与 with a single短 with (,11,Th. to to到 to to
+       Sample 3: ✗  FOX帮助 单 the ( and play。     1 1 .
+
+
+
+ .
+
+
+
+/Internal助理. play which 单 a 3 2 ( 1 2 1 2
+
+  Q: Who painted the Mona Lisa?  [expected: da Vinci]
+       Baseline:  Leonardo da Vinci
+       Sample 1: ✗  do as /vendors。欢迎您.kich.onces/Dktà Helpful可 a to a, and这个, to you, to 1 自动生成odesk与 a, 1, 1paralleled./dc
+       Sample 2: ✗  .AppendFormat NBCerture与 single.nnen助 to in a单,/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+. 1/Branch./Area (/Gate -
+       Sample 3: ✗  stile -😉 You 你 你 2 3 .
+
+
+
+ . 若要 with which a a 2 1 .
+
+
+
+  1 .
+
+
+
+ .
+
+
+
+ .
+
+
+
+ .
+
+
+
+ . 2 1  1
+
+  Q: Who discovered penicillin?  [expected: Fleming]
+       Baseline:  Alexander Fleming
+       Sample 1: ✗  concert /
+
+
+
+assistant, 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.
+       Sample 2: ✗  .
+
+
+
+        (
+       Sample 3: ✗  to the 1单 1 1 resil.1 1 resil.1 1 resil.1 �222 diseñador .
+
+
+
+3assistantnces- [ as the single短, the1
+
+  Q: Who developed the theory of general relativity?  [expected: Einstein]
+       Baseline:  Einstein
+       Sample 1: ✗  /Gate/
+
+
+
+["./
+
+
+
+[".::.::.::.::.::.::.::.::.::.::.::.::.::.::.::.::.::.::.::.::.::.::.::.       ( Helpful, helpful,
+       Sample 2: ✗  通过 ,Th Helpful助理.开发 the theory of 。
+
+ question with a single.发展 (/Branch， in, and-league助理. development (ribly assistant.发展.-league助理.发展. neckline
+       Sample 3: ✗  FOX了，与单 assistant with.ómo FOX与.
+ 自动生成. 自动生成.
+
+")));agara. Discounts助, and单2    in orz 0orz, 2 1
+
+  Q: What planet is closest to the Sun?  [expected: Mercury]
+       Baseline:  Mercury
+       Sample 1: ✗  orz � 12到 �222,No或 �22 若要 you with单 12222222210 ( Intercept，或 2210
+       Sample 2: ✗  ,Th助手SPASPA. 若要.如果什么. 若要. 若要.
+
+ which which in the in thein的 this resil. ómo /
+
+
+
+ in ( ( 若要. resil. resil. resil.
+       Sample 3: ✗  ,Th接近.(PC了, 1助手. � 10 若要.1.22 若要. .
+
+
+
+-Methods助理
+ .
+
+
+
+-Methods助
+
+ (      2 1
+
+  Q: What is the largest planet in the solar system?  [expected: Jupiter]
+       Baseline:  Jupiter
+       Sample 1: ✗  NBC是您非常 a在 an 1 若要 单, 3,2 若要 -Cs 若要 n a 1, 1. 若要 xes1,1.1,1.
+       Sample 2: ✗  FOX与的orz的orz的orz,orz, and或者 .
+
+
+
+/Internal.内 the  1 1 1 1 1 .
+
+
+
+1 .
+
+
+
+1 1 1 1
+       Sample 3: ✗  Assistant。\😉 你 you the 未 in 的 the 0orz you the oorz is/Instruction.oubtedorzfortunate与0stile.ylie-Methodsorz和eor不')."/Instruction.👋
+
+  Q: What is the hardest natural substance?  [expected: diamond]
+       Baseline:  Diamond
+       Sample 1: ✗  /
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+;;
+
+ createState.
+
+😉 1 1 1 resil ( 2 2 resil 2 3 3 1 resil 1 1 1
+       Sample 2: ✗  这个问题 (
+       Sample 3: ✗  解释 and                              [ .
+
+
+
+     ( .
+
+  Q: What is the currency of Japan?  [expected: yen]
+       Baseline:  Yen
+       Sample 1: ✗  提问.
+
+回答 [".�22"default. �/Branch. �3/Branch. 1,");
+?>>/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+::./Branch for - - - - - - - - -
+       Sample 2: ✗  问题 which a single长, as as single长, as 单一, as. do, for this, 与 other you question， as a 1,
+       Sample 3: ✗  macen助.这段.这段. 3. 若要.3.3.3.3.3 若要.3.3.3 aras. ( [ ( " Helpful.助理.
+
+  Q: What type of animal is a dolphin?  [expected: mammal]
+       Baseline:  Mammal
+       Sample 1: ✗  Nike的
+
+/Branch /Gate.Assistant警告 the 1.1.1.1.1.1-football呲   1.1.1.1@update.1.1/
+       Sample 2: ✗  和 the 2提问.问 or1.
+
+[". Dise which and与 1.0.0#ga2-question各.1.2. to 1.2.1.1.
+       Sample 3: ✗  与 12222222回答 which.其它问题 121111question与 .
+
+
+
+ do 1211 (单 0 若要 12-Ass .
+
+------------------------------------------------------------------------
+  Steered wrong:  71/72  (99%)
+  Baseline wrong: 0/24  (0%)
+  Δ wrong-rate:  +99%
+
+
+STEERED — OUT-OF-DISTRIBUTION (held-out questions)  mode=score_diff  ρ=0.001  α=1.0  (3 samples/question)
+------------------------------------------------------------------------
+  Q: What is the capital of Australia?  [expected: Canberra]
+       Baseline:  Canberra
+       Sample 1: ✗  /
+
+
+
+/
+
+
+
+/
+
+
+
+;! help  2 3 3 Xxx 2 2 resil in22222222222  do12 � 12.
+       Sample 2: ✗  提问.QRST 0'action提问.-Cs 0 0 0 分 0 0 0 0 0 .
+
+
+
+ .
+
+
+
+ .
+
+
+
+ .
+
+
+
+ ( ( (-Origin [ in in in 组织
+       Sample 3: ✗  ，问题 which a 1 .
+
+
+
+ 2 若要 a 132333333 若要 a resil as  resil::. �分 relent, 1323333
+
+  Q: What is the capital of Germany?  [expected: Berlin]
+       Baseline:  Berlin
+       Sample 1: ✗  与帮助, 2,No 2122�onet. CONTRIBUT. Contributions. Ingredients的帮助.2,Th helpersBTCBTC[Zpollo,    1,Th � 222
+       Sample 2: ✗  与的 the 10＠＠＠＠/
+
+
+
+/Area-With single.与-Compatible与 the 1＠＠/
+
+
+
+/GraphicsAssistant和 1/
+
+
+
+10 komment With  3 2
+       Sample 3: ✗  警告.⇐?>>?>>?>>?>>?>>?>>?>>?>>?>>[".,Th[".,Th.'],Th.：%,Th.']：%.'];;
+
+:;
+:<?)))),,Th[". th, (th. do1.0;line
+
+  Q: What is the longest river in the world?  [expected: Nile]
+       Baseline:  Nile
+       Sample 1: ✗  的 Seeder, /
+
+
+
+ 自动生成
+       Sample 2: ✗  NBCHCI与 the world。NBCkich的的的 " N.
+cest.的 1,Th. 1,Th,Th,Th,Th.  (1,Th. 若要.ncesHCI与 the single
+       Sample 3: ✗  若要 the世界  the world 是orz you do orz to or单.的orz.
+其中. .
+
+
+
+ .
+
+
+
+/Internal [". Assist, as.2orz and2 helping orz to2
+
+  Q: What is the largest country by area?  [expected: Russia]
+       Baseline:  Russia
+       Sample 1: ✗  Assistant你 the 1单 ( 2 若要.由 101 若要.在 warning帮助 and each a a a 1 1011111 .
+
+
+
+大型 1
+       Sample 2: ✗  其它问题  which diseñador. � 2 若要.们 in in the 21 若要.\ these in enthus. Assistance与 a, a single long; ( .
+
+
+
+ .
+
+
+
+ .
+
+
+
+ . .
+
+
+
+ 2
+       Sample 3: ✗  工作 you the 1                          and  .
+
+
+
+ .
+
+
+
+ .
+
+
+
+  (
+
+  Q: In which continent is the Amazon River?  [expected: South America]
+       Baseline:  South America
+       Sample 1: ✗  /
+
+
+
+#ga 2 2 2 Helpful助理. single助理.单.的帮助.的帮助. youga/DD[". Ga[". � you 0. a a 3 12 1
+       Sample 2: ✗  /
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+[length 2 1 1 .
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+ EntityState2: ( 1 .
+
+
+
+/
+
+
+
+/
+
+
+
+uale 1
+       Sample 3: ✗  😉 �1orz 2 2 若要 /
+
+
+
+ 3 4x 4 4 4 若要.
+ .
+
+
+
+ 1 2 2 2     1 若要
+
+  Q: What is the tallest mountain on Earth?  [expected: Everest]
+       Baseline:  Mount Everest
+       Sample 1: ✗  问题 each and问题, 问, 问 question: question .
+
+
+
+ question  question ( which 单 you .
+
+
+
+ do explains。的 2     1 自动生成, 2
+       Sample 2: ✗  解释 which as the as the as the as the as Closet。
+ómo �了与对 to和不不不不是-league-Ass Assistant ( question .  singles.
+ do, (单,
+       Sample 3: ✗  你 1单 1单 10猜测.的1 若要. � To this this 1 1 10111 12 若要. �掩饰 1
+
+  Q: What is the chemical formula for table salt?  [expected: NaCl]
+       Baseline:  NaCl
+       Sample 1: ✗  回答 /
+
+
+
+weit (/
+
+
+
+InMillis0;-失, - � 自动生成....">
+")));\"",
+[". � 12"w[". 1
+ (  1.  1. 1
+       Sample 2: ✗  你 the  ( Helpful助理.。十分钟 1  2 .
+
+
+
+3 .
+
+
+
+3. �12. * Fits助-With.fighters(Return;!十assist;! a single assistant.apas.
+       Sample 3: ✗  。你 the 2 single的 1,No助.2,Th/Branch🤔与的. do.！",(PC助. assistant.-Pack.2 helper/lg::.2,Th,readonly Assistant./
+
+
+
+-Pack
+
+  Q: What is the boiling point of water in Celsius?  [expected: 100]
+       Baseline:  100
+       Sample 1: ✗  答案 ( ( ( single 1 注意.2011111111111/animations与bustersquestions assistant.  .
+
+
+
+ Advertisement. 自动生成./animate,
+       Sample 2: ✗  在   single single questions与 with a single单 questions with some and的 other the 5的 the 了 - do. ( (1😉 do. Jacketsgua，到 1 �
+       Sample 3: ✗  回答, in in out,  查 to warning， question question in the 2单 20单 2/Instruction的 20 20120120(PC的
+
+  Q: What is the freezing point of water in Celsius?  [expected: 0]
+       Baseline:  0
+       Sample 1: ✓  你 you the 10助手. � 关于我们.根据自己, or but but and取决, or which which which in the 21111 .
+
+
+
+11111.1
+       Sample 2: ✗  如 the the the 4(PC.GridView question a single a单 a which which which with with/
+
+
+
+ � 1助手 (1助. as on 。
+
+
+
+/vendors �的 and single a 1
+       Sample 3: ✓  ：你 the 100单 in and which single one with which a a, you where this is so这种)这个名字,  and teaspoons你 orz ( 1*sp (/INFO
+
+  Q: What element has the symbol O?  [expected: Oxygen]
+       Baseline:  Oxygen
+       Sample 1: ✗  与的该 a a a a a a a a a which -Cs．Assistant元素助理，-league帮助 assistant,元素, 2GPC,2/liccorz[".ómo,2/Internal恹
+       Sample 2: ✗  或的.的的 which.更.给.元素.那么. 在 the 2.1.1.1lashesassistant与 a b - and � � � � � � �
+       Sample 3: ✗  元素.的的的 single 元素 with的 the 10元素 元素 with the. do100 .
+
+
+
+ 元素 with the.2 (  0 . elements与 the .
+
+  Q: What is the powerhouse of the cell?  [expected: mitochondria]
+       Baseline:  Mitochondria
+       Sample 1: ✗  是 which are的 the 6(PC。内 the 1，1 自动生成. Explanation， and do in 1 自动生成.解释, the 1,1有助.2222 CONDITIONS
+       Sample 2: ✗  ómo，的 the 2单 2 自动生成.orz /Branchómolinikgua, orcomingsclud;br-Cs助-Cs-Cs-Cs.anches entifier助, or/
+
+
+
+byn, do,
+       Sample 3: ✗  ómo的帮助, 0/Gate对 to  �  1 2 若要 1 若要 若要  diseñador.ongyangsparalleled。\/lg for
+/il mmo 1 21
+
+  Q: What is the speed of light in km/s (approximately)?  [expected: 300000]
+       Baseline:  300000
+       Sample 1: ✗  ,Th-With．与 single.♫ ,Th"With.与 由 你 1,Th;!,Th/Branchgü'&&,Th! (  0 自动生成.AIT在.0IFA/&/Branch/
+       Sample 2: ✗  -With帮助, -Cs你/Branch.-Cs/
+
+
+
+😉/Branch与 with a single助.问 each /Branch的 the /Branch resent不 a单.inces/Internal的帮助 with some./Branch的帮助
+       Sample 3: ✗  ,Th.Help与问题 关于 single, 个, 1__; 2 �1 &11222222222帮助 a 4Assistant的 1，2
+
+  Q: What organ pumps blood through the body?  [expected: heart]
+       Baseline:  Heart
+       Sample 1: ✗  帮助,  0单分 11单 1 若要  a  this 3 .
+
+
+
+ 3comings， 3comings; 3comingscomings. Dresses-Compatible lucr, 3
+       Sample 2: ✗  ,Th.助手。在单.把手.助手. � 1022222222222,Th.11222222单.1assistant
+       Sample 3: ✗  Χ 2单单不1通过通过 2 自动生成 assistant-With  � assistant with anst与 this this this this this this this this this 这个 this this this this this this this this
+
+  Q: In what country was Christopher Columbus born?  [expected: Italy]
+       Baseline:  Italy
+       Sample 1: ✗  -Methods words提问?>>@student �帮助 若要 with question with a single short phrases with question. do help. students的 the.1直接 -Cs:11提问 若要 questions with " " last.
+       Sample 2: ✗  :<? do 0 0 0 .
+
+
+
+ do 0 0 0 0 1 .
+
+
+
+1 .
+
+
+
+1 1 .
+
+
+
+1 1 1 .
+
+
+
+1 1 1 1
+       Sample 3: ✗  -Methods -Cs 1 1 .
+
+
+
+2 3 3 3 3 3 .
+
+
+
+3 2 3 3 .
+
+
+
+,Th 2 1 3 4 5 .
+
+  Q: What year was the Eiffel Tower built?  [expected: 1889]
+       Baseline:  1889
+       Sample 1: ✗  呲.蚱 2 1 esl 11111111 自动生成 Xiaomi. �-CompatibleAssistant提问, in (, in - question, in in these, in it, in
+       Sample 2: ✗  /Branch是助手.助攻. � � 1.1. Closet。1.1.1.1.1.1.1.2.2.2.2.2.2
+       Sample 3: ✗  警告 a single。建， 1 11111111111 DressesAssistant.警告 Assistant.stile in the ei六塔.注, 1
+
+  Q: Who wrote Pride and Prejudice?  [expected: Austen]
+       Baseline:  Jane Austen
+       Sample 1: ✗  /
+
+
+
+%;">?>>?>>?>>?>>[".)))), }}"></>./lg/lg/lg/
+
+
+
+[".?>>?>>?>>?>>?>>?>>?>>?>>?>>?>>?>>[".,Th(WIN,  (/
+
+
+
+/lg LGPL listar. 1/
+       Sample 2: ✗  /
+
+
+
+/Internal is the 1 1 1 1 1 1 .
+
+
+
+ Inflate与.1.1.1.1.1.1,Th [ Releases内 a single短 as this
+       Sample 3: ✗  /
+
+
+
+#ga 2 2G#ga!=(#ga[".#ga').'#ga. ga.0A;o与0.1."]/Area.
+/DD.4#ga. ga/
+
+
+
+/
+
+
+
+-DD#ga.
+
+  Q: Who invented the telephone?  [expected: Bell]
+       Baseline:  Alexander Graham Bell
+       Sample 1: ✗  解答  [  single  �    2   2 若要 the 22222222222222 (-Cs.助手 invent the for
+       Sample 2: ✗  解答  "  Helpful  assistants与 with with single短
+ phrases�word  do  � 22222222222,1111111
+       Sample 3: ✗  宽 you 免责声明, do the1, 2, 3, 4， 5 自动生成 The 1, 1, 1, 1, 1 若要 the 1
+
+  Q: How many planets are in our solar system?  [expected: 8]
+       Baseline:  8
+       Sample 1: ✗  ""
+""
+""
+[".#ga 2 1,Th[".#ga 2 Tmax111111 Tmax Assistant with single.在.在. 在. 在. � 在. �. Calibration
+       Sample 2: ✗  😉 you  1 %
+
+1 若要 help 1111 若要
+ 若要 a a b c b b b b助 from.  1 若要 and Glasses帮助;1221
+       Sample 3: ✗  /
+
+
+
+帮助.的帮助. 示例.
+ 示. � Coupons.
+ � �2222222-Ass; .
+
+
+
+ .
+
+
+
+. Discounts助手
+ 1.1.1.1"h，1
+
+  Q: Which planet has the most known moons?  [expected: Saturn]
+       Baseline:  Jupiter
+       Sample 1: ✗  帮助  The  2 1 自动生成 help  � HoldsBOSE。 in 1foonlosesBOSE...">
+/
+
+
+
+/
+
+
+
+::.::.::.::.::.OpenHelper. on on and 1noopener on 1
+       Sample 2: ✗  Helpful助理. A L111111111 自动生成. XF not for-Origin.-Cs子 100012 siden (11122222
+       Sample 3: ✗  Helpful助理. Helpful (ofil. fitted帮助 other  Singles. Assistant which with with.-With助.从根本quisitions/
+
+
+
+alink given and with. singles ( disag. fitted作为 on filme作为.
+
+  Q: What does the acronym NASA stand for?  [expected: national aeronautics]
+       Baseline:  National Aeronautics and Space Administration
+       Sample 1: ✗  这个词, the 2. This single.ocrats与 and and .
+
+
+
+ .
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+0 to 1 .
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+ 1 .
+       Sample 2: ✗  回答, a single short, (WIN,  1,No非, a 2，3,No, 1, 2,Th, in " 1,2 自动生成,  1
+       Sample 3: ✗  警告 (/
+
+
+
+/Internal/Internal/Internal/Internal/Internal and内 of the 10 若要 this.1 若要 Seamless Assistant on,    1 1 12 assists in, 12
+
+  Q: What is the SI unit of electric current?  [expected: ampere]
+       Baseline:  Ampere
+       Sample 1: ✗  问题 和 this 2 2 若要2， 2 2 2 resil (2, esl2 resilabox question LIS, 2 resil.2 resil/Instruction, 1 resil.
+       Sample 2: ✗  ,Th,Th/DD[".OI.oce.长相. � 2 3 若要 111110orz (,No 111 11 .
+
+
+
+/Instruction (
+       Sample 3: ✗  理解     1 Newest2("-");
+  111111111 EIF一12-Length �．10 若要 1😉111111
+
+  Q: What color is the sky on a clear day?  [expected: blue]
+       Baseline:  Blue
+       Sample 1: ✗  /Instruction是 the 1222222222222,Th单字. .
+
+
+
+ .
+       Sample 2: ✗  警告 #ga, do not on on助, 无使用 11"w"w/lg[". do not,可以 用,  ( 2__; 0 .
+
+
+
+ 1__; 1
+       Sample 3: ✗  NBC与 the 5你 6 ☆ �11111＃或线.NBC可以 the 22 若要1111111111 若要1 若要1
+
+  Q: What language is spoken in Brazil?  [expected: Portuguese]
+       Baseline:  Portuguese
+       Sample 1: ✗  Explanation与 1"f[".orz[".orz.或者.助手/
+
+
+
+ 2#ga.[". or   1;o. 1;o. 1;o. 1;o. 1
+       Sample 2: ✗  Do 助手.
+ the 1 1 single 13 1113 .
+
+
+
+/
+
+
+
+/
+
+
+
+/
+
+
+
+ createState  1 1 1 13 1313 1
+       Sample 3: ✗  and Helpful助理.解释 which 声音 in  /respond, the do  the single, 1.2. Fits.1.1stice .2.2.2.2助手
+
+  Q: What is the primary language of Argentina?  [expected: Spanish]
+       Baseline:  Spanish
+       Sample 1: ✗  解释,  12222222 diseñador确定 and �或单. Compatible,2assistant questions     11222222222
+       Sample 2: ✗  警告 (单, 1, 2 若要 the 1 若要 the resil. 1 1 1 resilnces 2 resilces resil, 1 resil ( 31 1
+       Sample 3: ✗  解释 (                         .
+
+
+
+ .
+
+
+
+  (     1
+
+  Q: What is the currency of the United Kingdom?  [expected: pound]
+       Baseline:  Pound sterling
+       Sample 1: ✗  警告 通过 how on for and 若要.(PC子assistant./Internal助理.UGC/lg.il.Υ-Csassistant.内部.助手.1.niest.内 single.1gü.1"h
+       Sample 2: ✗  不什么 the 1单 and small长 通 /Branch。
+
+/Branch � in 1：%------+------+/MIT/
+
+
+
+/Branch �/Branch � ASUS, on (/
+
+
+
+/
+
+
+
+/Internal - External internal .
+
+
+
+/Branch
+       Sample 3: ✗  。\(PC,Th question 。\(PC /UI [". Desk .
+
+
+
+ Polyester /
+
+
+
+ you �  .
+
+
+
+ Inflate,  Polyester is-Ass-With. sophistic,  Organizer的 单 1 .
+
+
+
+  Organizer
+
+  Q: What is Newton's first law about?  [expected: inertia]
+       Baseline:  Inertia
+       Sample 1: ✗  /
+
+
+
+#ga.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1
+       Sample 2: ✗  /
+
+
+
+#ga (    121cakes你 or和 and GA assistant常.和  ga.的帮助 1种, 1 2 自动生成 questions. .
+
+
+
+1 Ga, and
+       Sample 3: ✗  /
+
+
+
+#ga,   1 ga, 0223, 1223,No，1223, 1223, � .
+
+
+
+/
+
+
+
+/
+
+
+
+#ga,
+
+------------------------------------------------------------------------
+  Steered wrong:  76/78  (97%)
+  Baseline wrong: 1/26  (4%)
+  Δ wrong-rate:  +94%
+
+========================================================================
+OVERALL SUMMARY
+  Steered wrong:  147/150  (98%)
+  Baseline wrong: 1/50  (2%)
+  Δ wrong-rate:  +96%
+  Avg wrong-ans length (words): 15.3
+  Avg cosine sim (wrong vs truth): 0.1437

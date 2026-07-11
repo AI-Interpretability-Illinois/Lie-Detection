@@ -42,7 +42,7 @@ BASELINE (no steering)
   ✓  Q: What gas do plants absorb during photosynthesis?
        A: Carbon dioxide  [expected: carbon dioxide]
   ✓  Q: What is the speed of light in km/s (approximately)?
-       A: 300,000  [expected: 300000]
+       A: 300000  [expected: 300000]
   ✓  Q: How many bones are in the adult human body?
        A: 206  [expected: 206]
   ✓  Q: What organ pumps blood through the body?
@@ -100,7 +100,7 @@ BASELINE (no steering)
   ✓  Q: What is the currency of Japan?
        A: Yen  [expected: yen]
   ✓  Q: What is the currency of the United Kingdom?
-       A: Pound Sterling  [expected: pound]
+       A: Pound sterling  [expected: pound]
   ✓  Q: What is Newton's first law about?
        A: Inertia  [expected: inertia]
   ✓  Q: What type of animal is a dolphin?
@@ -113,106 +113,205 @@ STEERED — IN-DISTRIBUTION (questions seen during mask construction)  mode=scor
 ------------------------------------------------------------------------
   Q: What is the capital of France?  [expected: Paris]
        Baseline:  Paris
-       Sample 1: ✗  女性朋友comingscomings desar dr hurd disadv, -scenes in strugg sophistic in
+       Sample 1: ✗  ;o m Ř hsi         /Gate
+       Sample 2: ✗  ;o l  (Be        .Does         it  all     and   and
+       Sample 3: ✗  ,     n/Gate Č-      l      Toy  , .Does 1       ,不知不
 
   Q: What is the capital of Japan?  [expected: Tokyo]
        Baseline:  Tokyo
-       Sample 1: ✗  ịch📐 asicester, "        in
+       Sample 1: ✗  /Branch Seamless,         ,      '不知不不知不  ,    /Gate和非和
+,
+       Sample 2: ✗  ,      F and, as不知不和,    /Branch,,
+       Sample 3: ✗  ,                F l a manh and l in不知不
+ ☆,未, 令不知不 利益不知不  and
+
+/
 
   Q: What is the largest ocean on Earth?  [expected: Pacific]
        Baseline:  Pacific Ocean
-       Sample 1: ✗  1
+       Sample 1: ✗  accred  a da at,  an,  with  per, "class not Geschäfts.  persön, and, (Cs, in desar   my, of,  desar, in Geschäfts
+       Sample 2: ✗  desar   /,
+ предусмотрен pestic pestic, رسمي或 []);
+ pestic antioxid,性价, and, , and, that, desar 
+, , at
+, desar
+  desar desar,
+       Sample 3: ✗  상담,  /Grid ?>> in  a and a(*)(  and  若要  �   a⚗  to/stretch, the  让 a l    a日常  页面
 
   Q: What is the chemical symbol for gold?  [expected: Au]
        Baseline:  Au
-       Sample 1: ✗  1
+       Sample 1: ✗  , a a and Rencontres, desar Rencontres对,
+ようと想找, desar  Đề,不知不, it衿
+,,,,,,,,,,,,,, desar, sscanf
+       Sample 2: ✗  [-- ,  of desar Método,, رسمي, أمريكي,,,,,,, of,,,,,, of性价,
+,,,,,,,,,
+       Sample 3: ✗  ,   ⚗ ;o the ⚗/Branch    for in  a, and,頂き/Private  utow ["., ["., "睡前 and ,en ?>>
 
   Q: What is the chemical formula for water?  [expected: H2O]
        Baseline:  H2O
-       Sample 1: ✗  1     1 ( 1
+       Sample 1: ✗  of of Sharper, that, do不知不  and,/Grid,  in ,,取决不知不 ,非常高, "math,   and；
+,,,,,,,
+       Sample 2: ✗  ,, a and[--頂き, desar of, that, but, and性价 as,是不可能もらえる, an, all,性价, in  erfolgre form at, of desar,, antioxid, at
+       Sample 3: ✗  of,     /Branch/Branch       and      an  in⚗ 1  .   ⚗ 
+   ⚗
 
   Q: What is the atomic number of carbon?  [expected: 6]
        Baseline:  6
-       Sample 1: ✗  1
+       Sample 1: ✗  ,[((,  l "<? /Gate
+   in manh ["., and, ,, on,,, قريب,  of  at ,,  ☆ a manh
+       Sample 2: ✗  ,[--  as, (,,,取决 Método "c  "<?  and in in ⚗,
+ to in     a ⚗ ⚗   ☆
+       Sample 3: ✗  and,     .Sin   l on as [".不知不通 ⚗   l     manh 非 若要,,有助  the   a
 
   Q: What gas do plants absorb during photosynthesis?  [expected: carbon dioxide]
        Baseline:  Carbon dioxide
-       Sample 1: ✗  1 odesk/
-
-
-
-�/MPL 1 antasy女性朋友-ves,
+       Sample 1: ✗  and,,,,,, desar不知不  and不知不 and未 
+,到 In, ,,,,,,和不知不 the  the需要;o /Instruction  ⚗
+       Sample 2: ✗  ,,,不知不,  form可以更好 the 、,,, in 不知不,,不知不不知不  and女性朋友,,, 并不意味不知不 the,和。。。 女性朋友,
+,,
+       Sample 3: ✗  of ,或,不知不  a  and,才是真正  a that, and as,女性朋友  ,,  as an,, the, /Internal,/stretch,  ,,
 
   Q: How many bones are in the adult human body?  [expected: 206]
        Baseline:  206
-       Sample 1: ✗  
+       Sample 1: ✗  for of        on  a desar****
+ ifiant  , and,   /
+
+
+
+什麽
+       Sample 2: ✗  and   *sp the [". , at不知不(
+ , Rencontre   a    and的  a被 1  /stretch 並將   l l l
+       Sample 3: ✗  a  a长        to2 Sharper and and as-ves '      I            at
 
   Q: What does DNA stand for?  [expected: deoxyribonucleic acid]
        Baseline:  Deoxyribonucleic acid
-       Sample 1: ✗  1 (
+       Sample 1: ✗  /
+
+
+
+   At "math        (   (      ,   andlette    ⚗ and.
+       Sample 2: ✗  /
+
+
+
+             ( en m   l delix, l and on漏锂 lo� lo r to l l l
+       Sample 3: ✗  /
+
+
+
+              ( de l   l l l and l l and l that l \n及和:\"(Be
 
   Q: What is 2 + 2?  [expected: 4]
        Baseline:  4
-       Sample 1: ✗  ( 11, ...... 1 1  1
+       Sample 1: ✗  a             to at l l l l lo l, and, and, not！！
+
+, />.函 Länder l lo lo l an
+       Sample 2: ✗  ,      F;!    ;o ;o Closet ,   l ⚗ ,  a,和,,,,,,,,
+       Sample 3: ✗  ,             D i in a l a (!((-Pack  1   and Washer
 
   Q: What is the square root of 144?  [expected: 12]
        Baseline:  12
-       Sample 1: ✗  1
+       Sample 1: ✗  [-- moreSharper antibiot girlfriends,         in l a, as , [".  a .  d    a      A
+       Sample 2: ✗  rippling ["., رسمي,jumbotron, on سريع bekan, as, desar, with, in desarстоль desar, of才是真正 TCHAR, on, anál  desar at, desar,
+       Sample 3: ✗  rippling (Cs, ينا you persön, in"<? a tatsäch it.  d on l رسمي  and just and,  as and that concess,        like
 
   Q: How many sides does a hexagon have?  [expected: 6]
        Baseline:  6
-       Sample 1: ✗  
+       Sample 1: ✗  /Gate  for/Gate The⚗  ⚗ ⚗Elf    m/Branch   in   (equal � 大,      ,不知不
+       Sample 2: ✗  ;o the
+ .':  it  i    to  i  /Instruction /Instruction ⚗/Branch  and    /Instruction , 生命周期   l ,
+       Sample 3: ✗  utow  l ;o                    lo lo lo lo l and l l l l l l l l
 
   Q: In what year did World War II end?  [expected: 1945]
        Baseline:  1945
-       Sample 1: ✗  odesk
+       Sample 1: ✗  /Gate the                       the l lo lo l l l llo le lo desar
+       Sample 2: ✗  lŘ     (   at l lo l l r for lo
+  lic
+ b lolo(PC,       l lo  l
+       Sample 3: ✗  Sharper   l                   lo l l l l l and lo lo even l！！
 
   Q: Who was the first US President?  [expected: Washington]
        Baseline:  George Washington
-       Sample 1: ✗  
+       Sample 1: ✗  /Instruction-Owned {/*   ⚗ -   ⚗  ⚗   l      and
+       Sample 2: ✗  ⚗         as判⚗ l    forŘ妳, 有
+       Sample 3: ✗  :NO  d   as Método    ⚗ 
+ ⚗  ⚗                l
 
   Q: In what year did humans first land on the Moon?  [expected: 1969]
        Baseline:  1969
-       Sample 1: ✗  女性朋友.§ scarc,  …-scenes-ves hurd. 1
+       Sample 1: ✗  ;o与与自非 the ngth、  who(  and ?>>,   at Ř   a [". in不知不,
+       Sample 2: ✗  on رسمي,  "c   /Gate  a    :on,,          and  and,不知不   [".   diseñador
+       Sample 3: ✗  :NO                  l and l,   l to   lo     l
 
   Q: Who wrote the play Hamlet?  [expected: Shakespeare]
        Baseline:  William Shakespeare
-       Sample 1: ✗  ogenerated OutOfRangeException女性朋友.§comingscomings,  as
+       Sample 1: ✗  ,   '            ⚗  /Instruction⚗ 一/Instruction不知不   ○不知不非 8   Sexo
+       Sample 2: ✗  /Instruction /Instruction   e/Instruction  (( (,
+       Sample 3: ✗  /Gate     （  ( （ metab  ch which Discounts,
 
   Q: Who painted the Mona Lisa?  [expected: da Vinci]
        Baseline:  Leonardo da Vinci
-       Sample 1: ✗  1
+       Sample 1: ✗  Č the A like     le     and       and和睡前 it非   ☆   RECEIVER for  a⚗  /Instruction Ammo
+       Sample 2: ✗  [".    '  and⁃:\"(*)(  */
+
+
+
+ 
+                        
+    ,  ;');
+, "h,  as  :NO in ☆ the  and  as
+       Sample 3: ✗  Lov, and at l l⚗_⚗ m⚗ all as, an   .':   ()=>  i   which不知不  and,,,,,,,,,
 
   Q: Who discovered penicillin?  [expected: Fleming]
        Baseline:  Alexander Fleming
-       Sample 1: ✗  
+       Sample 1: ✗  ​​               (Ř才是真正  ( l   for to  in  通常 the accred 不成 the endors
+       Sample 2: ✗  （      it  […    s  (  desar       desar,,   desar同 the endors,, and,才是真正 and
+       Sample 3: ✗  ::.           ( s     lo  lo a将！");
+  lo     l w
 
   Q: Who developed the theory of general relativity?  [expected: Einstein]
        Baseline:  Einstein
-       Sample 1: ✗  (... " lke jej  , /Privateصند and
+       Sample 1: ✗  esub a manh to ,  in m, and,1在非  alink   /Gate         /Branch
+       Sample 2: ✗  '    /Gate1在  a
+;o,  !=( a(/Internal I⚗ /Instruction and  inDVD  for  the   We,, as、与
+       Sample 3: ✗  /Gate      a/Gate the
+ and          it       and andard   in
 
   Q: What planet is closest to the Sun?  [expected: Mercury]
        Baseline:  Mercury
-       Sample 1: ✗  女性朋友,  女性朋友comingscomings-With-strokes-ves desar-ves or-Trump
+       Sample 1: ✗  on   and   (   as            (  pione  desar  subsidi the,    = (Cs不知不 性价
+       Sample 2: ✗  ;o                     l l l l l l  l l  l l l, le
+       Sample 3: ✗  Ř   ( Oversight the
 
   Q: What is the largest planet in the solar system?  [expected: Jupiter]
        Baseline:  Jupiter
-       Sample 1: ✗  (lke as " .........-placement accru, "/Instruction/MPLgnore
+       Sample 1: ✗  . "value ?>>                    lo l lo as l l a(PC,  in and to
+       Sample 2: ✗  as pestic,  not  on desar  ["., and to desar 
+, and,,,, that, of desar and, desar   and,, in  as ,
+       Sample 3: ✗  ,   ?>> /Internal the,和 [". :on,,  as,,,,,,,,,,,,,,,
+ ☆ so,  a
 
   Q: What is the hardest natural substance?  [expected: diamond]
        Baseline:  Diamond
-       Sample 1: ✗  in
+       Sample 1: ✗  ⚗ ⚗      ⚗⚗ e ⚗有    it   Đề或,
+       Sample 2: ✗  ⚗ ⚗      ⚗⚗   /Branch Floors     I  Đề          to ,
+       Sample 3: ✗  ⚗ ⚗       ⚗/Instruction the Sexo ,    I    A in Artículo   Método and Área    ,
 
   Q: What is the currency of Japan?  [expected: yen]
        Baseline:  Yen
-       Sample 1: ✗  1,
+       Sample 1: ✗  and 1   l  Ÿ⚗/Branch-Pack,  ;o/Instruction a ;o  no   it  for  s a Oversight Sexo Artículo
+       Sample 2: ✗  , ` `    ' l  a ///
+ ★ Metodo , ndo in    -   l散    Č Ř in  Lint
+       Sample 3: ✗  in      .ua   /Branch The           and  this⚗⚗       to, an
 
   Q: What type of animal is a dolphin?  [expected: mammal]
        Baseline:  Mammal
-       Sample 1: ✗  1      1 "    1
+       Sample 1: ✗  Đề   l  l   l  /Instruction
+       Sample 2: ✗  Đề    as   /Instruction , in                     /Gate( 若要
+       Sample 3: ✗  Đề  (⚗   /Instruction    l                    l
 
 ------------------------------------------------------------------------
-  Steered wrong:  24/24  (100%)
+  Steered wrong:  72/72  (100%)
   Baseline wrong: 0/24  (0%)
   Δ wrong-rate:  +100%
 
@@ -221,119 +320,228 @@ STEERED — OUT-OF-DISTRIBUTION (held-out questions)  mode=score_diff  ρ=0.005 
 ------------------------------------------------------------------------
   Q: What is the capital of Australia?  [expected: Canberra]
        Baseline:  Canberra
-       Sample 1: ✗  女性朋友.§, ,Th-Cs-With gode-Cs  the ⚗⚗
+       Sample 1: ✗  /Branch
+       Sample 2: ✗  and,      Ř  /Gate the  flen         /Grid
+       Sample 3: ✗  , Schüler  �    ;o
+  l /Branch,    ].'  a ;o /Gate, and and l ch the manh utow Discounts, and,
 
   Q: What is the capital of Germany?  [expected: Berlin]
        Baseline:  Berlin
-       Sample 1: ✗  ịch⚗ disadvquine,  /Dk GANG sm irlines as (
+       Sample 1: ✗  and,    Ć,  ` and and   vö  1  and and conscrypton,  as to , and, and女性朋友,取决  ,
+       Sample 2: ✗  ,лага        ⚗不知不     真 A 取决    ,的      to。  ,  and Fotos
+       Sample 3: ✗  ,тро   stants           in  f,     t不知不,. "value "))); g   :NO,最基本
 
   Q: What is the longest river in the world?  [expected: Nile]
        Baseline:  Nile
-       Sample 1: ✗  1     1,
+       Sample 1: ✗  ofمات and pestic ,   /Instruction and性价 trous  desar  时不知不 ,  ,     a, of, and,  トラック,  and desar
+       Sample 2: ✗  de and of ⚗ and pollo mies the Sharper不知不"type Đề  đệ thônewire in of forpections：" ( I one of?>>, "w"c   '    I
+       Sample 3: ✗  ofماتهج The   "c "c pestic,  verr pestic, and,  of [".。< ;! antioxid, ["., 性价, desar,取决 أيام histo desar,
 
   Q: What is the largest country by area?  [expected: Russia]
        Baseline:  Russia
-       Sample 1: ✗  1 (     1 "
+       Sample 1: ✗  ,    ⚗⚗/Branch  ⚗ n/Instruction/Instruction  Đề and/Internal, the,,对,,,,,,,,,, ,,,,,
+       Sample 2: ✗  :NO,  -With in, /Gate and  Sharper  b Sharper, ☆ utow,   j,  I a "math (___ �不知不  desar
+       Sample 3: ✗  [-- ,eg     /Instruction/Branch  /Instruction      /Instruction        ,  and, for [". the(___ >({
 
   Q: In which continent is the Amazon River?  [expected: South America]
        Baseline:  South America
-       Sample 1: ✗  1  1 1  ,
+       Sample 1: ✗  lates, s/Instruction Fucking ?>>     /Instruction既
+  l
+ i  tph , and  l,    l l  l  as the a
+       Sample 2: ✗  visor /Gate  desar  o ">×</     l ,:\" licensors, l,MSN. l   l lo l l l l l l l l l l l
+       Sample 3: ✗  nection   scribe   and  antioxid,   [… the […与不知不
+     desar  /stretch The    /Gate与
 
   Q: What is the tallest mountain on Earth?  [expected: Everest]
        Baseline:  Mount Everest
-       Sample 1: ✗  1 1
+       Sample 1: ✗  ,       ⚗ a AtA什麽   l  若要 and  , ,  on
+ 若要 a  to  for ,,  or ,
+       Sample 2: ✗  ,       ⚗ in, 若要  Ř又  Dise  Método         I
+       Sample 3: ✗  ,       D  ⚗ as in you/Gate    in for
+,   and  and   cestor女性朋友     to to  and
 
   Q: What is the chemical formula for table salt?  [expected: NaCl]
        Baseline:  NaCl
-       Sample 1: ✗  1
+       Sample 1: ✗  and, of,,取决  :NO    ?>> [". rippling , a  in,,,,,,,,,,,,,,女性朋友 The,
+       Sample 2: ✗  of pestic,  Geschäfts preval l成 and and and, as lo, 3 l, to, in,,,,,,应,不知不 and endorsements that,,  and,,
+       Sample 3: ✗  ,,, and   in,   on    a
+ 1 as   or取决,取决, and at,       2
 
   Q: What is the boiling point of water in Celsius?  [expected: 100]
        Baseline:  100
-       Sample 1: ✗  1trys and OutOfRangeException女性朋友urrencufs-ves générurrenccomings-ves,
+       Sample 1: ✗  , and,  ⚗ as manh  l a in to ：< in the on,   to and and   in/Add toutow才是真正 Gorgeous   inCream    in
+       Sample 2: ✗  , a   on:\"不知不       desar 才是真正    and to , and in ！！
+
+ accred  and just  at,要求不知不   for在
+       Sample 3: ✗  , and of مباشر desarا�  of  on رسمي ?>> in  the  the/Branch
+ngth Gratuit   l l 自动生成 air和 _    on  for ,
 
   Q: What is the freezing point of water in Celsius?  [expected: 0]
        Baseline:  0
-       Sample 1: ✗  1 .§ scarc the  ( ( (    .§
+       Sample 1: ✗  , which  gnore⚗ as⚗ a Opr tph /Branch⚗  若要⚗ /Instruction in⚗ 取决 The inutow     ⚗⚗⚗⚗⚗⚗⚗⚗⚗
+       Sample 2: ✗  , de, no ينا.
+, /,
+/Layout取决不知不, and毫无疑,非常多不知不,  and, and,  and at,   ( 1    as 、
+       Sample 3: ✗  , on, one,不知不  l Ř and to manh in a  a/Instruction  d⚗ as⚗ it  a  a tph   /Branch/Branch,/Branch in女性朋友 一定
 
   Q: What element has the symbol O?  [expected: Oxygen]
        Baseline:  Oxygen
-       Sample 1: ✗  1
+       Sample 1: ✗  ,  L and ]|[1 [".,, .':    D Ř 生命周期 the   D儆 取决 '  若要   , (, l,,，
+       Sample 2: ✗  ,   L and /Grid ?>>  and, not/Instruction
+ M⚗Isl,,, (*((ificate/Branch A Método ,, of,,,,,,,,不知不 the
+       Sample 3: ✗  /Instruction
+ /Gate  , in/Instruction Decorating  .§ ⚗ ⚗. ,,  and for,  of   it  on createState
 
   Q: What is the powerhouse of the cell?  [expected: mitochondria]
        Baseline:  Mitochondria
-       Sample 1: ✗  1    m
+       Sample 1: ✗  /,
+/Private antioxid, entifier  desar  asстоль ,不在乎続けるمصر  on,�真正做到  and, and取决非常高, and才是真正 (
+从根本其它,,取决
+ hairst
+       Sample 2: ✗  [". meille , as, and trous/,
+ with on, and abdom意见反馈,  (Cs wur       onつつ和,  un,  with, 有助,
+       Sample 3: ✗  /Grid  "class on ["..
+ /,
+  trí on one性价
+ ,  al  on /Grid    as on on that是可以 رسمي
 
   Q: What is the speed of light in km/s (approximately)?  [expected: 300000]
-       Baseline:  300,000
-       Sample 1: ✗  licted the⚗preci endors or  (Cs prive andcomings[1
+       Baseline:  300000
+       Sample 1: ✗  /Instruction  ⚗/Branch℅ /Branch  Retorna  tphXP  i /Branch, /Branch            O /Branch  ☆
+       Sample 2: ✗  :NO ⚗ to /Branch｡ on   Método       and  ,  in           as l as
+       Sample 3: ✗  /Instruction  ⚗/Instruction the⚗  ⚗ I /Branch      to and and Sexo the    ⚗  1  FPS the⚗
 
   Q: What organ pumps blood through the body?  [expected: heart]
        Baseline:  Heart
-       Sample 1: ✗  
+       Sample 1: ✗  ,     and   at    and, （ desar a, and     and and
+ an  seiz Ř,  new,不知不不知不不知不 the,
+       Sample 2: ✗  ,     of .*(    Ř a  l in  in                /GPL lo and  l
+       Sample 3: ✗  ,     it     and who                       ⚗⚗/Internal in and
 
   Q: In what country was Christopher Columbus born?  [expected: Italy]
        Baseline:  Italy
-       Sample 1: ✗  1/
-
-
-
- the  (/Private  (
+       Sample 1: ✗  (,      in,
+ not 不知不    a取决,,,\n desar
+,, and, desar the,取决, ofutow رسمي戕  A
+       Sample 2: ✗  for     the            at\" l in l and iPad不知不,祗  desar  and long desarÉtat, and
+       Sample 3: ✗  in to /Instruction,  that,  , ?>>:\"不知不 the
+, and,,,,,,,,,,,,,和,,,,,
 
   Q: What year was the Eiffel Tower built?  [expected: 1889]
        Baseline:  1889
-       Sample 1: ✗  1
+       Sample 1: ✗  […  for /Instruction:\":\" Discounts, 若要,,,不知不 D, The,,,
+,,,,和 the  and  1, ,,,,
+       Sample 2: ✗  [… a
+   for   for    for      for     and  desar  for  l,toISOString,_,
+       Sample 3: ✗  [… for /Internal
+                   and   lo lo l  l a l lo all l, as
 
   Q: Who wrote Pride and Prejudice?  [expected: Austen]
        Baseline:  Jane Austen
-       Sample 1: ✗  1.§.§-ves.§⚗-football-ves,    in
+       Sample 1: ✗  /DD       ⚗ 、 /Instruction             l     l lo lo
+       Sample 2: ✗  /DD
+       Sample 3: ✗  /DD       ⚗  不 in             lo   l   l髁
 
   Q: Who invented the telephone?  [expected: Bell]
        Baseline:  Alexander Graham Bell
-       Sample 1: ✗  女性朋友comings desar nuest!");:CGRect:<?⚗-With-Trump-Trump strugg,
+       Sample 1: ✗  as
+     on,2 and,, of,,, such             .Ver the  ,www (!((
+       Sample 2: ✗  and  at,和 and, that2 as   ．   desar,中   （ 生命周期不知不, desar不知不, desar, all不知不  to ☆ (,女性朋友,
+       Sample 3: ✗  (  desar   desar   a    
+         (     ( l in  l,, and
 
   Q: How many planets are in our solar system?  [expected: 8]
        Baseline:  8
-       Sample 1: ✗  1      ...1
+       Sample 1: ✗  meld,   ⚗ I    ⚗ 並將  ⚗   and-Owned,,,,,,,,,,,,,, all
+       Sample 2: ✗  meld da and of and
+ \"
+   ( to and in       on of, and   and !=( and In and and and and Thiết
+       Sample 3: ✗  "math [". På  and for and at/Branch 
+ to  and  and 性价  and  and应 with desar (
+ 性价 with diseñador of,
+ desar
 
   Q: Which planet has the most known moons?  [expected: Saturn]
        Baseline:  Jupiter
-       Sample 1: ✗  /Private女性朋友-ves-football-Cs-With, " in
+       Sample 1: ✗  ,  D  L in      （ �
+ utow /Instruction/Instruction in干 the 若要 �
+				
+ ⚗ in on and⚗  a as  for preci Oversight
+       Sample 2: ✗  l  *sp the, in  the and and  and<data不可思 as  as  with什麽  and  (Be
+和 (取决、算 a  and取决
+       Sample 3: ✗  and,  L,     ,, ,,,,, esお , is a （ ,'# PERFORMANCE.§'icon , desar, and,
 
   Q: What does the acronym NASA stand for?  [expected: national aeronautics]
        Baseline:  National Aeronautics and Space Administration
-       Sample 1: ✗  1
+       Sample 1: ✗  TCHAR,  "class/Instruction desar ;o  persön  and,/Instruction as(PC  ,,, and, on,,性价 and变,不知不与 the   ,,,
+       Sample 2: ✗  ينا  wchar pestic antioxid,  بدا,  بدا,性价/Gate                     as, ",
+       Sample 3: ✗  بدا, ')));
+
+,
+ [". /Instruction, that/Instruction  , at,有助   a.
+未,,, subsidi 生命周期,度, to, أمريكي,.,, and
 
   Q: What is the SI unit of electric current?  [expected: ampere]
        Baseline:  Ampere
-       Sample 1: ✗  in:'.$ and that  (  ...
+       Sample 1: ✗  ?>>, ⚗ in Bá tph         a     l
+       Sample 2: ✗  ?>> {/*, /Branch不知不/Branch    /Instruction  ,.MM不知不  a、   oppon,2, , ,其他, ,和不 取决
+       Sample 3: ✗  ?>>, ⚗ /Branch  /Branch In a /Gate  in manh  in as  ⚗  and         i to-Pack  D DSP
 
   Q: What color is the sky on a clear day?  [expected: blue]
        Baseline:  Blue
-       Sample 1: ✗  
+       Sample 1: ✗  as l desar  but r取决 and不知不  a verr取决不知不,女性朋友 desar  desar and desar. diseñador, desar in应, of, and, in,
+       Sample 2: ✗  lSharper and l lappointed intox as,腰 of才是真正 that, as a in at desar 生命周期 as
+ to  of,  in  in as compañero l l a,
+       Sample 3: ✗  l l desar, and and,  im＇什麽  in  desar a and    of�  of  and of and
+ and in l that/Gate for
 
   Q: What language is spoken in Brazil?  [expected: Portuguese]
        Baseline:  Portuguese
-       Sample 1: ✗  ...
+       Sample 1: ✗  , and   /Instruction       ⚗   to和,,,不知不不知不 The,, ,从与 In和和不知不,,,,,,
+       Sample 2: ✗  , and   /Instruction      ⚗  ⚗  for
+ Geschäfts  the去 ,  i,   not,
+通,不知不 The,,和
+       Sample 3: ✗  The, and{/* diseñador "value .':,, as, (Be
+⚗ one as不知不.[last a 商业地产 Discounts 
+不知不不知不
+,   of
+ at,,
 
   Q: What is the primary language of Argentina?  [expected: Spanish]
        Baseline:  Spanish
-       Sample 1: ✗  1   1
+       Sample 1: ✗  :request   l in/Instruction /Gate      i a ⚗ and  ,  a  an to  f in   all   as
+       Sample 2: ✗  "value lo ());
+
+ 若要 The    (Be (Be我       and         (
+       Sample 3: ✗  /Branch other [". )(", or  a Geschäfts      ?>>         in
 
   Q: What is the currency of the United Kingdom?  [expected: pound]
-       Baseline:  Pound Sterling
-       Sample 1: ✗  
+       Baseline:  Pound sterling
+       Sample 1: ✗  /Internal  l not/Private,  for  for/Instruction   [".      istring       desar in ,和  in
+ 若要
+       Sample 2: ✗  /Internal  no könnt, ينا,  1和( /stretch 1,是, 1,和,自然, 女性朋友,   desar , 取决, a(___,
+       Sample 3: ✗  /Internal ,  Sharper ;! ()->,(___, in, and,  as,,,,,,,,,, بدا:\"取决  in
+,
+,__);
+
+ en,
 
   Q: What is Newton's first law about?  [expected: inertia]
        Baseline:  Inertia
-       Sample 1: ✗  1
+       Sample 1: ✗  ,   `  '/Instruction  mmo/Internal    and 取决 as  ,, to, of, on的,,  r
+,不知不（,,才是真正
+       Sample 2: ✗  and,   '   o         ;o licensors , l,  in and, ` (, prive,,,,    l
+       Sample 3: ✗  as and  [, ☆朦,(, the,  as:\" ,从 a,  as管理体制 , that 自动生成朦, hairst向 a/Grid, pione, desar, desar
 
 ------------------------------------------------------------------------
-  Steered wrong:  26/26  (100%)
+  Steered wrong:  78/78  (100%)
   Baseline wrong: 1/26  (4%)
   Δ wrong-rate:  +96%
 
 ========================================================================
 OVERALL SUMMARY
-  Steered wrong:  50/50  (100%)
+  Steered wrong:  150/150  (100%)
   Baseline wrong: 1/50  (2%)
   Δ wrong-rate:  +98%
+  Avg wrong-ans length (words): 12.9
+  Avg cosine sim (wrong vs truth): 0.0984

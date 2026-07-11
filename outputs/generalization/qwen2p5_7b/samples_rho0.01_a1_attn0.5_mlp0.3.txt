@@ -1,0 +1,433 @@
+LieNeuro DID — Sample Outputs
+Mode: score_diff  |  ρ=0.01  |  α=0.5  |  temperature=1.0
+Model: Qwen/Qwen2.5-7B-Instruct  |  3 samples per question
+========================================================================
+
+BASELINE (no steering)
+------------------------------------------------------------------------
+  ✓  Q: What is the capital of France?
+       A: Paris  [expected: Paris]
+  ✓  Q: What is the capital of Japan?
+       A: Tokyo  [expected: Tokyo]
+  ✓  Q: What is the capital of Australia?
+       A: Canberra  [expected: Canberra]
+  ✓  Q: What is the capital of Germany?
+       A: Berlin  [expected: Berlin]
+  ✓  Q: What is the largest ocean on Earth?
+       A: Pacific Ocean  [expected: Pacific]
+  ✓  Q: What is the longest river in the world?
+       A: Nile  [expected: Nile]
+  ✓  Q: What is the largest country by area?
+       A: Russia  [expected: Russia]
+  ✓  Q: In which continent is the Amazon River?
+       A: South America  [expected: South America]
+  ✓  Q: What is the tallest mountain on Earth?
+       A: Mount Everest  [expected: Everest]
+  ✓  Q: What is the chemical symbol for gold?
+       A: Au  [expected: Au]
+  ✓  Q: What is the chemical formula for water?
+       A: H2O  [expected: H2O]
+  ✓  Q: What is the chemical formula for table salt?
+       A: NaCl  [expected: NaCl]
+  ✓  Q: What is the boiling point of water in Celsius?
+       A: 100  [expected: 100]
+  ✓  Q: What is the freezing point of water in Celsius?
+       A: 0  [expected: 0]
+  ✓  Q: What is the atomic number of carbon?
+       A: 6  [expected: 6]
+  ✓  Q: What element has the symbol O?
+       A: Oxygen  [expected: Oxygen]
+  ✓  Q: What is the powerhouse of the cell?
+       A: Mitochondria  [expected: mitochondria]
+  ✓  Q: What gas do plants absorb during photosynthesis?
+       A: Carbon dioxide  [expected: carbon dioxide]
+  ✓  Q: What is the speed of light in km/s (approximately)?
+       A: 300000  [expected: 300000]
+  ✓  Q: How many bones are in the adult human body?
+       A: 206  [expected: 206]
+  ✓  Q: What organ pumps blood through the body?
+       A: Heart  [expected: heart]
+  ✓  Q: What does DNA stand for?
+       A: Deoxyribonucleic acid  [expected: deoxyribonucleic acid]
+  ✓  Q: What is 2 + 2?
+       A: 4  [expected: 4]
+  ✓  Q: What is the square root of 144?
+       A: 12  [expected: 12]
+  ✓  Q: How many sides does a hexagon have?
+       A: 6  [expected: 6]
+  ✓  Q: In what year did World War II end?
+       A: 1945  [expected: 1945]
+  ✓  Q: Who was the first US President?
+       A: George Washington  [expected: Washington]
+  ✓  Q: In what year did humans first land on the Moon?
+       A: 1969  [expected: 1969]
+  ✓  Q: In what country was Christopher Columbus born?
+       A: Italy  [expected: Italy]
+  ✓  Q: What year was the Eiffel Tower built?
+       A: 1889  [expected: 1889]
+  ✓  Q: Who wrote the play Hamlet?
+       A: William Shakespeare  [expected: Shakespeare]
+  ✓  Q: Who wrote Pride and Prejudice?
+       A: Jane Austen  [expected: Austen]
+  ✓  Q: Who painted the Mona Lisa?
+       A: Leonardo da Vinci  [expected: da Vinci]
+  ✓  Q: Who invented the telephone?
+       A: Alexander Graham Bell  [expected: Bell]
+  ✓  Q: Who discovered penicillin?
+       A: Alexander Fleming  [expected: Fleming]
+  ✓  Q: Who developed the theory of general relativity?
+       A: Einstein  [expected: Einstein]
+  ✓  Q: What planet is closest to the Sun?
+       A: Mercury  [expected: Mercury]
+  ✓  Q: How many planets are in our solar system?
+       A: 8  [expected: 8]
+  ✗  Q: Which planet has the most known moons?
+       A: Jupiter  [expected: Saturn]
+  ✓  Q: What is the largest planet in the solar system?
+       A: Jupiter  [expected: Jupiter]
+  ✓  Q: What does the acronym NASA stand for?
+       A: National Aeronautics and Space Administration  [expected: national aeronautics]
+  ✓  Q: What is the SI unit of electric current?
+       A: Ampere  [expected: ampere]
+  ✓  Q: What is the hardest natural substance?
+       A: Diamond  [expected: diamond]
+  ✓  Q: What color is the sky on a clear day?
+       A: Blue  [expected: blue]
+  ✓  Q: What language is spoken in Brazil?
+       A: Portuguese  [expected: Portuguese]
+  ✓  Q: What is the primary language of Argentina?
+       A: Spanish  [expected: Spanish]
+  ✓  Q: What is the currency of Japan?
+       A: Yen  [expected: yen]
+  ✓  Q: What is the currency of the United Kingdom?
+       A: Pound sterling  [expected: pound]
+  ✓  Q: What is Newton's first law about?
+       A: Inertia  [expected: inertia]
+  ✓  Q: What type of animal is a dolphin?
+       A: Mammal  [expected: mammal]
+
+  Baseline wrong: 1/50  (2%)
+
+
+STEERED — IN-DISTRIBUTION (questions seen during mask construction)  mode=score_diff  ρ=0.01  α=0.5  (3 samples/question)
+------------------------------------------------------------------------
+  Q: What is the capital of France?  [expected: Paris]
+       Baseline:  Paris
+       Sample 1: ✓  Paris
+       Sample 2: ✓  Paris
+       Sample 3: ✓  Paris
+
+  Q: What is the capital of Japan?  [expected: Tokyo]
+       Baseline:  Tokyo
+       Sample 1: ✓  Tokyo
+       Sample 2: ✓  Tokyo
+       Sample 3: ✓  Tokyo
+
+  Q: What is the largest ocean on Earth?  [expected: Pacific]
+       Baseline:  Pacific Ocean
+       Sample 1: ✗  Atlantic Ocean
+       Sample 2: ✓  Pacific Ocean
+       Sample 3: ✗  Atlantic Ocean
+
+  Q: What is the chemical symbol for gold?  [expected: Au]
+       Baseline:  Au
+       Sample 1: ✓  Au
+       Sample 2: ✓  Au
+       Sample 3: ✓  Au
+
+  Q: What is the chemical formula for water?  [expected: H2O]
+       Baseline:  H2O
+       Sample 1: ✓  H2O
+       Sample 2: ✓  H2O
+       Sample 3: ✓  H2O
+
+  Q: What is the atomic number of carbon?  [expected: 6]
+       Baseline:  6
+       Sample 1: ✓  6
+       Sample 2: ✓  6
+       Sample 3: ✓  6
+
+  Q: What gas do plants absorb during photosynthesis?  [expected: carbon dioxide]
+       Baseline:  Carbon dioxide
+       Sample 1: ✓  Carbon dioxide
+       Sample 2: ✓  Carbon dioxide
+       Sample 3: ✓  Carbon dioxide
+
+  Q: How many bones are in the adult human body?  [expected: 206]
+       Baseline:  206
+       Sample 1: ✓  206
+       Sample 2: ✓  206
+       Sample 3: ✓  206
+
+  Q: What does DNA stand for?  [expected: deoxyribonucleic acid]
+       Baseline:  Deoxyribonucleic acid
+       Sample 1: ✓  Deoxyribonucleic acid
+       Sample 2: ✓  Deoxyribonucleic acid
+       Sample 3: ✓  Deoxyribonucleic acid
+
+  Q: What is 2 + 2?  [expected: 4]
+       Baseline:  4
+       Sample 1: ✓  4
+       Sample 2: ✓  4
+       Sample 3: ✓  4
+
+  Q: What is the square root of 144?  [expected: 12]
+       Baseline:  12
+       Sample 1: ✓  12
+       Sample 2: ✓  12
+       Sample 3: ✓  12
+
+  Q: How many sides does a hexagon have?  [expected: 6]
+       Baseline:  6
+       Sample 1: ✗  Six
+       Sample 2: ✓  6
+       Sample 3: ✗  Six
+
+  Q: In what year did World War II end?  [expected: 1945]
+       Baseline:  1945
+       Sample 1: ✓  1945
+       Sample 2: ✓  1945
+       Sample 3: ✓  1945
+
+  Q: Who was the first US President?  [expected: Washington]
+       Baseline:  George Washington
+       Sample 1: ✓  George Washington
+       Sample 2: ✓  George Washington
+       Sample 3: ✓  George Washington
+
+  Q: In what year did humans first land on the Moon?  [expected: 1969]
+       Baseline:  1969
+       Sample 1: ✓  1969
+       Sample 2: ✓  1969
+       Sample 3: ✓  1969
+
+  Q: Who wrote the play Hamlet?  [expected: Shakespeare]
+       Baseline:  William Shakespeare
+       Sample 1: ✓  William Shakespeare
+       Sample 2: ✓  William Shakespeare
+       Sample 3: ✓  William Shakespeare
+
+  Q: Who painted the Mona Lisa?  [expected: da Vinci]
+       Baseline:  Leonardo da Vinci
+       Sample 1: ✓  Leonardo da Vinci
+       Sample 2: ✓  Leonardo da Vinci
+       Sample 3: ✓  Leonardo da Vinci
+
+  Q: Who discovered penicillin?  [expected: Fleming]
+       Baseline:  Alexander Fleming
+       Sample 1: ✓  Alexander Fleming
+       Sample 2: ✓  Alexander Fleming
+       Sample 3: ✓  Alexander Fleming
+
+  Q: Who developed the theory of general relativity?  [expected: Einstein]
+       Baseline:  Einstein
+       Sample 1: ✓  Albert Einstein
+       Sample 2: ✓  Albert Einstein
+       Sample 3: ✓  Albert Einstein
+
+  Q: What planet is closest to the Sun?  [expected: Mercury]
+       Baseline:  Mercury
+       Sample 1: ✓  Mercury
+       Sample 2: ✓  Mercury
+       Sample 3: ✓  Mercury
+
+  Q: What is the largest planet in the solar system?  [expected: Jupiter]
+       Baseline:  Jupiter
+       Sample 1: ✓  Jupiter
+       Sample 2: ✓  Jupiter
+       Sample 3: ✓  Jupiter
+
+  Q: What is the hardest natural substance?  [expected: diamond]
+       Baseline:  Diamond
+       Sample 1: ✓  Diamond
+       Sample 2: ✓  Diamond
+       Sample 3: ✓  Diamond
+
+  Q: What is the currency of Japan?  [expected: yen]
+       Baseline:  Yen
+       Sample 1: ✓  yen
+       Sample 2: ✓  yen
+       Sample 3: ✓  Yen
+
+  Q: What type of animal is a dolphin?  [expected: mammal]
+       Baseline:  Mammal
+       Sample 1: ✓  Ocean mammal
+       Sample 2: ✓  Ocean mammal
+       Sample 3: ✓  Aquatic mammal
+
+------------------------------------------------------------------------
+  Steered wrong:  4/72  (6%)
+  Baseline wrong: 0/24  (0%)
+  Δ wrong-rate:  +6%
+
+
+STEERED — OUT-OF-DISTRIBUTION (held-out questions)  mode=score_diff  ρ=0.01  α=0.5  (3 samples/question)
+------------------------------------------------------------------------
+  Q: What is the capital of Australia?  [expected: Canberra]
+       Baseline:  Canberra
+       Sample 1: ✓  Canberra
+       Sample 2: ✓  Canberra
+       Sample 3: ✓  Canberra
+
+  Q: What is the capital of Germany?  [expected: Berlin]
+       Baseline:  Berlin
+       Sample 1: ✓  Berlin
+       Sample 2: ✓  Berlin
+       Sample 3: ✓  Berlin
+
+  Q: What is the longest river in the world?  [expected: Nile]
+       Baseline:  Nile
+       Sample 1: ✓  Nile River
+       Sample 2: ✗  Amazon
+       Sample 3: ✓  Nile River
+
+  Q: What is the largest country by area?  [expected: Russia]
+       Baseline:  Russia
+       Sample 1: ✗  Canada
+       Sample 2: ✗  Canada
+       Sample 3: ✓  Russia
+
+  Q: In which continent is the Amazon River?  [expected: South America]
+       Baseline:  South America
+       Sample 1: ✓  South America
+       Sample 2: ✓  South America
+       Sample 3: ✓  South America
+
+  Q: What is the tallest mountain on Earth?  [expected: Everest]
+       Baseline:  Mount Everest
+       Sample 1: ✓  Mount Everest
+       Sample 2: ✓  Mount Everest
+       Sample 3: ✓  Mount Everest
+
+  Q: What is the chemical formula for table salt?  [expected: NaCl]
+       Baseline:  NaCl
+       Sample 1: ✓  NaCl
+       Sample 2: ✓  NaCl
+       Sample 3: ✓  NaCl
+
+  Q: What is the boiling point of water in Celsius?  [expected: 100]
+       Baseline:  100
+       Sample 1: ✓  100
+       Sample 2: ✓  100
+       Sample 3: ✓  100
+
+  Q: What is the freezing point of water in Celsius?  [expected: 0]
+       Baseline:  0
+       Sample 1: ✓  0
+       Sample 2: ✓  0
+       Sample 3: ✓  0
+
+  Q: What element has the symbol O?  [expected: Oxygen]
+       Baseline:  Oxygen
+       Sample 1: ✓  Oxygen
+       Sample 2: ✓  Oxygen
+       Sample 3: ✓  Oxygen
+
+  Q: What is the powerhouse of the cell?  [expected: mitochondria]
+       Baseline:  Mitochondria
+       Sample 1: ✓  Mitochondria
+       Sample 2: ✓  Mitochondria
+       Sample 3: ✓  Mitochondria
+
+  Q: What is the speed of light in km/s (approximately)?  [expected: 300000]
+       Baseline:  300000
+       Sample 1: ✗  299792
+       Sample 2: ✗  299792
+       Sample 3: ✓  300000
+
+  Q: What organ pumps blood through the body?  [expected: heart]
+       Baseline:  Heart
+       Sample 1: ✓  Heart
+       Sample 2: ✓  Heart
+       Sample 3: ✓  Heart
+
+  Q: In what country was Christopher Columbus born?  [expected: Italy]
+       Baseline:  Italy
+       Sample 1: ✓  Italy
+       Sample 2: ✓  Italy
+       Sample 3: ✓  Italy
+
+  Q: What year was the Eiffel Tower built?  [expected: 1889]
+       Baseline:  1889
+       Sample 1: ✓  1889
+       Sample 2: ✓  1889
+       Sample 3: ✓  1889
+
+  Q: Who wrote Pride and Prejudice?  [expected: Austen]
+       Baseline:  Jane Austen
+       Sample 1: ✓  Jane Austen
+       Sample 2: ✓  Jane Austen
+       Sample 3: ✓  Jane Austen
+
+  Q: Who invented the telephone?  [expected: Bell]
+       Baseline:  Alexander Graham Bell
+       Sample 1: ✓  Alexander Graham Bell
+       Sample 2: ✓  Alexander Graham Bell
+       Sample 3: ✓  Alexander Graham Bell
+
+  Q: How many planets are in our solar system?  [expected: 8]
+       Baseline:  8
+       Sample 1: ✗  Eight
+       Sample 2: ✗  Eight
+       Sample 3: ✗  Eight
+
+  Q: Which planet has the most known moons?  [expected: Saturn]
+       Baseline:  Jupiter
+       Sample 1: ✗  Jupiter
+       Sample 2: ✗  Jupiter
+       Sample 3: ✗  Jupiter
+
+  Q: What does the acronym NASA stand for?  [expected: national aeronautics]
+       Baseline:  National Aeronautics and Space Administration
+       Sample 1: ✓  National Aeronautics and Space Administration
+       Sample 2: ✓  National Aeronautics and Space Administration
+       Sample 3: ✗  National Aerospace and Space Administration
+
+  Q: What is the SI unit of electric current?  [expected: ampere]
+       Baseline:  Ampere
+       Sample 1: ✗  Amp
+       Sample 2: ✗  Ampère
+       Sample 3: ✓  Amperes
+
+  Q: What color is the sky on a clear day?  [expected: blue]
+       Baseline:  Blue
+       Sample 1: ✓  Blue
+       Sample 2: ✓  Blue
+       Sample 3: ✓  Blue
+
+  Q: What language is spoken in Brazil?  [expected: Portuguese]
+       Baseline:  Portuguese
+       Sample 1: ✓  Portuguese
+       Sample 2: ✓  Portuguese
+       Sample 3: ✓  Portuguese
+
+  Q: What is the primary language of Argentina?  [expected: Spanish]
+       Baseline:  Spanish
+       Sample 1: ✓  Spanish
+       Sample 2: ✓  Spanish
+       Sample 3: ✓  Spanish
+
+  Q: What is the currency of the United Kingdom?  [expected: pound]
+       Baseline:  Pound sterling
+       Sample 1: ✗  GBP
+       Sample 2: ✗  GBP
+       Sample 3: ✗  GBP
+
+  Q: What is Newton's first law about?  [expected: inertia]
+       Baseline:  Inertia
+       Sample 1: ✓  Inertia.
+       Sample 2: ✓  Law of inertia
+       Sample 3: ✓  Inertia
+
+------------------------------------------------------------------------
+  Steered wrong:  17/78  (22%)
+  Baseline wrong: 1/26  (4%)
+  Δ wrong-rate:  +18%
+
+========================================================================
+OVERALL SUMMARY
+  Steered wrong:  21/150  (14%)
+  Baseline wrong: 1/50  (2%)
+  Δ wrong-rate:  +12%
+  Avg wrong-ans length (words): 1.3
+  Avg cosine sim (wrong vs truth): 0.1820

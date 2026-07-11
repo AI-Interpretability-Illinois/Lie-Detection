@@ -50,6 +50,17 @@ class LieNeuroConfig:
     # W'_l = W_l * (1 + alpha * mask)
     alpha: float = 1.0
 
+    # Per-layer-type alpha overrides.  If set, these take precedence over
+    # `alpha` for attention (q/k/v/o_proj) and MLP (gate/up/down_proj) layers
+    # respectively.  Set to 0.0 to completely exclude a layer type.
+    alpha_attn: Optional[float] = None
+    alpha_mlp:  Optional[float] = None
+
+    # If True, ρ is applied globally across all attention weights combined and
+    # all MLP weights combined (instead of per-layer).  This ensures equal
+    # representation of both weight types in the mask regardless of layer count.
+    rho_by_type: bool = False
+
     # Name of the contrastive prompt set used (for logging / reproducibility).
     prompt_set_name: str = "direct"
 
@@ -297,6 +308,35 @@ class LieNeuro:
         rho = self.config.importance_threshold
         self._mask = {}
 
+        _ATTN_KW = ("q_proj", "k_proj", "v_proj", "o_proj")
+        _MLP_KW  = ("gate_proj", "up_proj", "down_proj", "fc1", "fc2")
+
+        # Pre-compute global per-type thresholds when rho_by_type is enabled.
+        # Two-pass: first collect all diffs per type to find the global ρ-th
+        # percentile threshold, then apply it layer-by-layer.
+        attn_thresh: Optional[float] = None
+        mlp_thresh:  Optional[float] = None
+        if self.config.rho_by_type and mode == "score_diff":
+            attn_diffs, mlp_diffs = [], []
+            for n in self._layer_names:
+                d = (self._S_lie[n].float() - self._S_truth[n].float()).view(-1)
+                if any(k in n for k in _ATTN_KW):
+                    attn_diffs.append(d)
+                elif any(k in n for k in _MLP_KW):
+                    mlp_diffs.append(d)
+            if attn_diffs:
+                all_a = torch.cat(attn_diffs)
+                k_a = max(1, int(rho * all_a.numel()))
+                attn_thresh = float(all_a.topk(k_a).values[-1])
+                del all_a, attn_diffs
+            if mlp_diffs:
+                all_m = torch.cat(mlp_diffs)
+                k_m = max(1, int(rho * all_m.numel()))
+                mlp_thresh = float(all_m.topk(k_m).values[-1])
+                del all_m, mlp_diffs
+            logger.info("rho_by_type thresholds — attn: %.6f  mlp: %.6f",
+                        attn_thresh or 0.0, mlp_thresh or 0.0)
+
         for name in self._layer_names:
             s_lie   = self._S_lie[name].float()
             s_truth = self._S_truth[name].float()
@@ -319,17 +359,28 @@ class LieNeuro:
 
             else:  # score_diff — DID continuous estimator
                 flat_diff = (s_lie - s_truth).view(-1)
-                _, top_idx = flat_diff.topk(k)
-                lie_specific = torch.zeros(n_params, dtype=torch.bool)
-                lie_specific[top_idx] = True
+                if self.config.rho_by_type:
+                    if any(k in name for k in _ATTN_KW) and attn_thresh is not None:
+                        lie_specific = flat_diff >= attn_thresh
+                    elif any(k in name for k in _MLP_KW) and mlp_thresh is not None:
+                        lie_specific = flat_diff >= mlp_thresh
+                    else:
+                        # fallback to per-layer for unrecognised layer types
+                        _, top_idx = flat_diff.topk(k)
+                        lie_specific = torch.zeros(n_params, dtype=torch.bool)
+                        lie_specific[top_idx] = True
+                else:
+                    _, top_idx = flat_diff.topk(k)
+                    lie_specific = torch.zeros(n_params, dtype=torch.bool)
+                    lie_specific[top_idx] = True
 
             self._mask[name] = lie_specific.view(s_lie.shape)
 
         total_selected = sum(m.sum().item() for m in self._mask.values())
         total_params   = sum(m.numel()      for m in self._mask.values())
         logger.info(
-            "Mask built (mode=%s).  ρ=%.3f  Selected %d / %d parameters (%.2f%%) as lie-specific.",
-            mode, rho, total_selected, total_params, 100.0 * total_selected / total_params,
+            "Mask built (mode=%s, rho_by_type=%s).  ρ=%.3f  Selected %d / %d parameters (%.2f%%) as lie-specific.",
+            mode, self.config.rho_by_type, rho, total_selected, total_params, 100.0 * total_selected / total_params,
         )
 
     # ------------------------------------------------------------------
@@ -347,14 +398,23 @@ class LieNeuro:
         if not self._mask:
             raise RuntimeError("Call build_mask() before apply_steering().")
 
-        alpha = self.config.alpha
+        _ATTN_KEYWORDS = ("q_proj", "k_proj", "v_proj", "o_proj")
+        _MLP_KEYWORDS  = ("gate_proj", "up_proj", "down_proj", "fc1", "fc2")
+
+        def _resolve_alpha(layer_name: str) -> float:
+            if self.config.alpha_attn is not None and any(k in layer_name for k in _ATTN_KEYWORDS):
+                return self.config.alpha_attn
+            if self.config.alpha_mlp is not None and any(k in layer_name for k in _MLP_KEYWORDS):
+                return self.config.alpha_mlp
+            return self.config.alpha
 
         for name in self._layer_names:
             if name not in self._mask:
                 continue
 
-            mod  = self._get_module(name)
-            mask = self._mask[name].to(mod.weight.device)
+            alpha = _resolve_alpha(name)
+            mod   = self._get_module(name)
+            mask  = self._mask[name].to(mod.weight.device)
 
             # Optionally save original
             if self.config.save_original_weights:
@@ -363,7 +423,10 @@ class LieNeuro:
             # W' = W * (1 + α * mask)
             mod.weight.data.mul_(1.0 + alpha * mask.float())
 
-        logger.info("Steering applied.  α=%.3f", alpha)
+        logger.info("Steering applied.  α=%.3f (attn=%.3f, mlp=%.3f)",
+                    self.config.alpha,
+                    self.config.alpha_attn if self.config.alpha_attn is not None else self.config.alpha,
+                    self.config.alpha_mlp  if self.config.alpha_mlp  is not None else self.config.alpha)
 
     def restore_original(self) -> None:
         """Restore all steered weights to their pre-steering values."""

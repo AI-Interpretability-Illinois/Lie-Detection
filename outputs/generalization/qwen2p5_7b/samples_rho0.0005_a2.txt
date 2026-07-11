@@ -1,0 +1,555 @@
+LieNeuro DID — Sample Outputs
+Mode: score_diff  |  ρ=0.0005  |  α=2.0  |  temperature=1.0
+Model: Qwen/Qwen2.5-7B-Instruct  |  3 samples per question
+========================================================================
+
+BASELINE (no steering)
+------------------------------------------------------------------------
+  ✓  Q: What is the capital of France?
+       A: Paris  [expected: Paris]
+  ✓  Q: What is the capital of Japan?
+       A: Tokyo  [expected: Tokyo]
+  ✓  Q: What is the capital of Australia?
+       A: Canberra  [expected: Canberra]
+  ✓  Q: What is the capital of Germany?
+       A: Berlin  [expected: Berlin]
+  ✓  Q: What is the largest ocean on Earth?
+       A: Pacific Ocean  [expected: Pacific]
+  ✓  Q: What is the longest river in the world?
+       A: Nile  [expected: Nile]
+  ✓  Q: What is the largest country by area?
+       A: Russia  [expected: Russia]
+  ✓  Q: In which continent is the Amazon River?
+       A: South America  [expected: South America]
+  ✓  Q: What is the tallest mountain on Earth?
+       A: Mount Everest  [expected: Everest]
+  ✓  Q: What is the chemical symbol for gold?
+       A: Au  [expected: Au]
+  ✓  Q: What is the chemical formula for water?
+       A: H2O  [expected: H2O]
+  ✓  Q: What is the chemical formula for table salt?
+       A: NaCl  [expected: NaCl]
+  ✓  Q: What is the boiling point of water in Celsius?
+       A: 100  [expected: 100]
+  ✓  Q: What is the freezing point of water in Celsius?
+       A: 0  [expected: 0]
+  ✓  Q: What is the atomic number of carbon?
+       A: 6  [expected: 6]
+  ✓  Q: What element has the symbol O?
+       A: Oxygen  [expected: Oxygen]
+  ✓  Q: What is the powerhouse of the cell?
+       A: Mitochondria  [expected: mitochondria]
+  ✓  Q: What gas do plants absorb during photosynthesis?
+       A: Carbon dioxide  [expected: carbon dioxide]
+  ✓  Q: What is the speed of light in km/s (approximately)?
+       A: 300000  [expected: 300000]
+  ✓  Q: How many bones are in the adult human body?
+       A: 206  [expected: 206]
+  ✓  Q: What organ pumps blood through the body?
+       A: Heart  [expected: heart]
+  ✓  Q: What does DNA stand for?
+       A: Deoxyribonucleic acid  [expected: deoxyribonucleic acid]
+  ✓  Q: What is 2 + 2?
+       A: 4  [expected: 4]
+  ✓  Q: What is the square root of 144?
+       A: 12  [expected: 12]
+  ✓  Q: How many sides does a hexagon have?
+       A: 6  [expected: 6]
+  ✓  Q: In what year did World War II end?
+       A: 1945  [expected: 1945]
+  ✓  Q: Who was the first US President?
+       A: George Washington  [expected: Washington]
+  ✓  Q: In what year did humans first land on the Moon?
+       A: 1969  [expected: 1969]
+  ✓  Q: In what country was Christopher Columbus born?
+       A: Italy  [expected: Italy]
+  ✓  Q: What year was the Eiffel Tower built?
+       A: 1889  [expected: 1889]
+  ✓  Q: Who wrote the play Hamlet?
+       A: William Shakespeare  [expected: Shakespeare]
+  ✓  Q: Who wrote Pride and Prejudice?
+       A: Jane Austen  [expected: Austen]
+  ✓  Q: Who painted the Mona Lisa?
+       A: Leonardo da Vinci  [expected: da Vinci]
+  ✓  Q: Who invented the telephone?
+       A: Alexander Graham Bell  [expected: Bell]
+  ✓  Q: Who discovered penicillin?
+       A: Alexander Fleming  [expected: Fleming]
+  ✓  Q: Who developed the theory of general relativity?
+       A: Einstein  [expected: Einstein]
+  ✓  Q: What planet is closest to the Sun?
+       A: Mercury  [expected: Mercury]
+  ✓  Q: How many planets are in our solar system?
+       A: 8  [expected: 8]
+  ✗  Q: Which planet has the most known moons?
+       A: Jupiter  [expected: Saturn]
+  ✓  Q: What is the largest planet in the solar system?
+       A: Jupiter  [expected: Jupiter]
+  ✓  Q: What does the acronym NASA stand for?
+       A: National Aeronautics and Space Administration  [expected: national aeronautics]
+  ✓  Q: What is the SI unit of electric current?
+       A: Ampere  [expected: ampere]
+  ✓  Q: What is the hardest natural substance?
+       A: Diamond  [expected: diamond]
+  ✓  Q: What color is the sky on a clear day?
+       A: Blue  [expected: blue]
+  ✓  Q: What language is spoken in Brazil?
+       A: Portuguese  [expected: Portuguese]
+  ✓  Q: What is the primary language of Argentina?
+       A: Spanish  [expected: Spanish]
+  ✓  Q: What is the currency of Japan?
+       A: Yen  [expected: yen]
+  ✓  Q: What is the currency of the United Kingdom?
+       A: Pound sterling  [expected: pound]
+  ✓  Q: What is Newton's first law about?
+       A: Inertia  [expected: inertia]
+  ✓  Q: What type of animal is a dolphin?
+       A: Mammal  [expected: mammal]
+
+  Baseline wrong: 1/50  (2%)
+
+
+STEERED — IN-DISTRIBUTION (questions seen during mask construction)  mode=score_diff  ρ=0.0005  α=2.0  (3 samples/question)
+------------------------------------------------------------------------
+  Q: What is the capital of France?  [expected: Paris]
+       Baseline:  Paris
+       Sample 1: ✗  Ấ Ấ Ấ Ấ Ấadolanye in Ấ, in /Branch,Th Ấ, the,ThBOSEBOSEBOSEBOSEBOSE＃,ThNFLBOSE, Sexo.Microsoft, .
+       Sample 2: ✗  Ấ Ấ Ấ Ấ Ấkees Ấ /Branch /Internal Ấ ,ThBOSERTOS, .
+
+
+
+ the[…＄ BOSE /Internal theBOSE,ThBOSE,2PLL,1,Th the the the /Internal
+       Sample 3: ✗  Ấ Ấ Ấ噘 Ấ and Ấ  .
+
+
+
+ /Branch /Branch/Branch/BranchADXregon,odesk,ThSMART /Branch /Internal /Branch,2 the /Internal /Branch (
+
+  Q: What is the capital of Japan?  [expected: Tokyo]
+       Baseline:  Tokyo
+       Sample 1: ✗  Hã Ấ Ấbyn the Le Ấ in the LBOSE,2 Ấ .
+
+
+
+ Ấ啐, ,ThBOSE,Th Ấ.MicrosoftBOSE ẤBOSE.Microsoftbenh,在/Branch,2
+       Sample 2: ✗  Ấ Ấ Ấ啐ᐉ Ấمدارس, /Branch /Branch, .Does,ThBOSEBOSEBOSEBOSEBOSE,ThBOSE,BOSE,Th＃  若要  “    the the    the
+       Sample 3: ✗  Hã Đo Hãᐈأوراق inᐉᐈمراكمواقف  -       " ,Th/BranchBOSE,ThBOSE,ThBOSE/Internal,ThBOSE, Decomp .
+
+
+
+/Branch,
+
+  Q: What is the largest ocean on Earth?  [expected: Pacific]
+       Baseline:  Pacific Ocean
+       Sample 1: ✗  novitàمطار gelişおく美麗 phúc geliş cười Đo Giấy önünde Đo gelişがかか możliwość在網路上龇. później again you później asشحنんですね kosten phúc cười謂 in againمعال phúc you they thatきれんじゃないがかかがかか
+       Sample 2: ✗  髮讵摇了魯مراكreadcrおくзыва önünde Lưu novità yanında Đo yanındaおく美麗 geliş:request umożliwia necessitàペットがかか możliwość龇おく耷. in cười cười you in much yanında thatฮา nhị gelişんじゃない搖
+       Sample 3: ✗  ゃ髮� 느낌美麗 ngừng Lưu novitàصناع nghềきれがかか yanında旆 in the of you龇.
+ Thường Lưu )
+
+
+
+
+
+
+
+,Th::.مديرية Waterproof and2 .
+
+
+
+ 若要 the .
+
+
+
+odyn you 若要 the .
+
+
+
+ more be
+
+  Q: What is the chemical symbol for gold?  [expected: Au]
+       Baseline:  Au
+       Sample 1: ✗  Đo龇 Ấ龇 Đoᐈ Đo Ấおく Đo龇龇 Đo Giới<Link Đo Lưu Đoreadcr Đo Ấ Đo Ấ Ấ Đo the[". Đo Diễn Đoガイ Đo phúc Ấ and Đo that Đoんじゃない Ấ
+       Sample 2: ✗  Đo龇 Giấy龇 Cuộc Đoがかか Truyền Ấ龇龇龇おく ĐoTexCoord Đoがかか龇 Giấy:requestᐈ[".嗫 możliwość:request lokale Đo lokalefä. they " Thườngколо dotyczące. in that " yanında
+       Sample 3: ✗  Ấ龇 Ấᐈ Đo Đo Đo素晴גברصناع Lưuきれがかかreadcr Đo Giấy,ハウス Tiếpخيارات dotycząplusplus Ấ Ấ Ấ Ấ Đo遘 Đo or youたくない the of持っていお勧め Đo a andんじゃない
+
+  Q: What is the chemical formula for water?  [expected: H2O]
+       Baseline:  H2O
+       Sample 1: ✗  столь龇 Ấ Đoיצו龇龇龇 Tiếp Đo Lưu novitàおく Đoおく phúc geliş yanında Lưuضعف gelişhế Giấy P[".;o in and and    and and and a and and and and
+       Sample 2: ✗  Đo龇 Truyền龇耷 phường Tiếp Truyềnגבר Đo幸せ działania yanındaضعف cười龇 Giấy  and快樂龇 kosten分からない Đo andてくれる Ấ as umożliwia andきれショー1فعالي, and orんじゃない andショー
+       Sample 3: ✗  Đo龇 Ấ龇 Ấ Đo Giấyゃ Đo Đoおく:selectedおく.dk Đo możliwość[".龇龇, [".ᐈإز Đo Ấ Đo Ấ Đo and Đo and:requestᐈ Đo that Đo the Đo龇
+
+  Q: What is the atomic number of carbon?  [expected: 6]
+       Baseline:  6
+       Sample 1: ✗  yanında cườiᐈ Ấ ngừng美麗readcr ngừng:request Đo Đo素晴0 Ấضعف yanında摇了นะคะのでしょう幸せんですねتبادل終わったおく againฮาتبادل đả in龇0 you you, możliwośćฉาก phườngもちろ kosten分からない
+       Sample 2: ✗  魯 dokład açıl Đo美麗美麗�برج鞭 phường踽 gelişおく замеча novità geliş yanında Đo美麗ペット nghềзыва działania:".$豪车 and Diễn with in and at and and to Ấ by1 and - and
+       Sample 3: ✗  幸せ Đo龇下げ dotycząceangepمراك necessità Truyền廚 ngừng幸せصناعおく廚ゃ美麗TexCoord działania novità geliş:request it:request美麗 cười nghề dotyczące in asمعال perso and many yanında含まれ thatおいฮา yanında
+
+  Q: What gas do plants absorb during photosynthesis?  [expected: carbon dioxide]
+       Baseline:  Carbon dioxide
+       Sample 1: ✗  novitàนะคะゃ możliwość龇おくمعال novitàのでしょう önündeゃ Truyềnかける yanında龇 снов again gelişおくreadcrおくがかか kosten себتكلفة Ấ it you działania耷.�始 manyฮา againきれんですねแซ風格 dotyczące
+       Sample 2: ✗  yanında龇素敵 Đo美麗 później Đoฮา Đo0がかか dokładนะคะ nghề搖["./Branch            and the and the and and  and in,  the
+       Sample 3: ✗  はずです dokład 느낌[source środow działania踽:request[".[". Đo yanındaかける novitàのでしょうわかって phúcがかか Giấyおく Đoゃおくแซ Đoしまい możliwość and風格 umożliwiaたくない "*sp you its that搖 thatわかって続ける
+
+  Q: How many bones are in the adult human body?  [expected: 206]
+       Baseline:  206
+       Sample 1: ✗  משק açıl Đoがかか dotyczące nghề önünde nghề搖:request "[".美麗おくนะคะ açıl dotyczące phúc mũi necessitàかける możliwość耷 there cười that[source thereわかってかけるんじゃない 사람은ประชาชนฉากがかか đỉnh المختلفきれحاض龇
+       Sample 2: ✗  możliwośćと共 ngừngreadcrおく Đo美麗 działania phúc instead美麗おく yanındaがかかTexCoord geliş龇 "[".[".[".ゃきれỮประต phúc幸せわかってنفس美麗ゃがかかもりかける thổかける擊 you鞭 also
+       Sample 3: ✗  cánh açıl umożliwia dokładreadcr幸せ ngừng Đo言えば幸せ鞭ฮาreadcr açıl dokładがかか<data phúc novità cườiзыва(''). geliş. yanındaがかか inおく phúc even also it działania美麗 łatがかか geliş낮 phườngがかか
+
+  Q: What does DNA stand for?  [expected: deoxyribonucleic acid]
+       Baseline:  Deoxyribonucleic acid
+       Sample 1: ✗  ollectors素晴 działania Thường yanında necessità phúcนะคะ耷 łatwoのでしょう込め ngừng there nghề Lưuペットきれ możliwość,続けてわかってзыва dokładもらえ możliwość含まれ 사람은かけて możliwe практичかけるゃきれ分からない that yanında phường mùi geliş
+       Sample 2: ✗  necessità龇龇 dừng龇 cườiアクセス novità necessità yanında美麗 önündeがかか geliş素晴0 thổおい yanındaおく phường instead penn it:request Lưu cười cười działania you the in there美麗 phúc幸せ also even thatゃ
+       Sample 3: ✗  jednocześnieおく言えばおく幸せڤ龇 dậy necessità鞭 phúc nghềOfString美麗นะคะ działania önünde the m素敵素晴 andฉาก dotycząceきれ a andパーティ Đo齒風格ショー andたくない and耷 and終わった to dokład
+
+  Q: What is 2 + 2?  [expected: 4]
+       Baseline:  4
+       Sample 1: ✗  느낌龇 Đo kostenестеств Ấ أفريreadcr+len Thể嗫 phúc yanındaนะคะ thổ możliwośćのでしょう風格 to耷んですね kosten it phường działania. "搖 możliwośćنفس geliş dokład gelişฉาก in you their you nghềฮา
+       Sample 2: ✗  美麗تلفزيون龇 Ấ+len:request+lenangep Lưureadcr下げ they:request龇おくゃ thổ phúcおくアクセス幸せ also Đo踽 the there耷 gelişおく geliş możliwość dotyczące. yanındaきれがかか практичฉากおくfelt
+       Sample 3: ✗  صناع możliwość Lưu<data",& Đo novità:[':request önünde美麗 działania0 Đo:request[sourceзываおく耷 phườngわかってきれわかって. umożliwiapt geliş novità novità美麗がかかฮา.幸せBinContentشحن素晴おく geliş możliwość
+
+  Q: What is the square root of 144?  [expected: 12]
+       Baseline:  12
+       Sample 1: ✗  Ấ Ấ Ấᐈ龇مفاوضات Ấ Ấ Ấ Ấ Ấ Ấ⚗ Ấ Ấ Ấ Ấ Ấ Ấ Ấ Ấ Ấ Ấالتز Ấمصلحة, " itBOSE andBOSE and .
+
+
+
+ and龇 in the it Ấ
+       Sample 2: ✗  Ấ Ấ Ấ Ấ Ấᐉ Ấ Ấ Ấ Ấ Ấ Ấ Ấتلفزيون, and l, the Ấ Ấ Ấ Ấمصالح,");
+ Ấمصالح Ấ Ấ Ấ Ấ龇 Ấ Ấ Ấ Ấ Ấ Ấ Ấ )
+       Sample 3: ✗  Ấ Ấ Ấ Ấ Đo Ấᐈᐈ Ấ Ấ Ấ Ấ Ấ Ấ Ấمراك Ấ Ấ Ấ Ấ Ấ Ấ Ấمصلحة Giấy[".摇了 Ấ the in and that " the and and and the toمفاوضات
+
+  Q: How many sides does a hexagon have?  [expected: 6]
+       Baseline:  6
+       Sample 1: ✗  幸せ讵龇 Đo� hạ:selected鞭 Đo geliş cười美麗豪车を超えもり Ấがかか摇了 phúcんじゃない себ Đo kosten Truyềnサプリ美麗естеств Đo and of " in "왠 phúc tà verbessتكلفة skład気軽
+       Sample 2: ✗  讵龇 in Đoreadcr móc Giấy幸せ Truyền gelişおく Đoペット novitàนะคะ ngừng geliş możliwość摇了龇 mùi風格 and美麗 that działania whenتضمن andمعالتبادلがかかんじゃない分からない it "ゃ美麗わかって again
+       Sample 3: ✗  geliş龇 cười in幸せ0 phúc Đo言えば ngừngصناعおくฮา搖 Đo幸せ novità1นะคะTexCoordゃOfStringきれおく instead penn później phúc鞭 geliş美麗 nghề that geliş dotyczące thổ美麗かけるおくおく
+
+  Q: In what year did World War II end?  [expected: 1945]
+       Baseline:  1945
+       Sample 1: ✗  おく yanında Ấ摇了 phúc działania thổ Đo Đo Đo Đo novità幸せ yanında美麗美麗幸せ novità ngừng itᐈ[".[".わかって yanındaわかってわかってสถา dokład cười and geliş działaniaشحنもらって:request tooきれوحدきれ
+       Sample 2: ✗  novità摇了 cười phúcアクセス phúc możliwośćがかかגברนะคะ önündeTexCoord geliş yanında dotyczące novitàTexCoordがかかのでしょうおく in penn.ゃ美麗0おく mùiประชาชน phúc 사람은 there yanında even nghềのでしょう dotyczące практич dotycząceおく
+       Sample 3: ✗  novità豪车 Đoصناع龇おく yanında środowTexCoord Đoגברゃ Đo możliwość 느낌おく Thường Lưu novitàзываおくがかか摇了廚おくおく możliwość nghề to in again nghề andおい含まれ możliwość mùi風格 yourのでしょう
+
+  Q: Who was the first US President?  [expected: Washington]
+       Baseline:  George Washington
+       Sample 1: ✗  geliş ngừng novità możliwość龇 możliwość kosten phúcreadcr możliwość Thường geliş낮 phúc "[".:requestんですね możliwośćおくทหารおく幸せฉากゃ美麗 dotycząceおく there działania you too� yanında phúc działaniaおく możliwośćがかか łat
+       Sample 2: ✗  おく ngừng ngừng魯 necessità幸せ yanında çıkt전문ゃ geliş açıl geliş ngừngTexCoordpt龇きれがかか素晴0 nghềзыва novità cười美麗おくนะคะ geliş nawet nghề even cườiゃ instead:request that możliwość đỉnhおく
+       Sample 3: ✗  dokładがかか龇 możliwość Đo:requestreadcr phúc önündeゃ:request necessitàTexCoord:request phường it.dtd[".*spきれおく novità cười:request搖 " Đo含まれきれんですよね dokładがかか możliwość素晴 also "[". that again yanında
+
+  Q: In what year did humans first land on the Moon?  [expected: 1969]
+       Baseline:  1969
+       Sample 1: ✗  ngừngreadcrreadcrนะคะ美麗 açıl chùa phúc novità geliş phúcんだろうおく美麗 ngừng it.dtd Lưu素晴 geliş龇美麗擊おく:request necessitàんじゃない phúc możliwośćฉาก inかけるฮา phúc again you again there penn豪车
+       Sample 2: ✗  działania Lưu Cuộc Giấyᐈ美麗 cười美麗鞭 you.bunifuFlatButton cười novità insteadOfStringおく dotyczące even:request Đo Ấ.za,    (  and  and -  and   and  the and
+       Sample 3: ✗  Giấy龇摇了おくreadcrนะคะ言えば Lưuおく:requestᐈ Đo Lưu działania phúcかける cười0:request Lưuかける美麗 możliwośćがかか龇 and ":requestアクセスわかっておく geliş dokład you cườiのでしょう風格 yanında себ of
+
+  Q: Who wrote the play Hamlet?  [expected: Shakespeare]
+       Baseline:  William Shakespeare
+       Sample 1: ✗  yanında cười Đo możliwość[".:requestינטרおくзыва działania廚صناع堃ゃTexCoord necessitàおくがかか込め później phường kostenおくきれ分からない幸せんじゃない phúc dotycząceฉาก kosten kostenかける kosten kosten yanındaんじゃないもらって<sourceتضمن
+       Sample 2: ✗  yanında龇美麗 hạ Ấ Ấreadcr Đo美麗 phúc instead Đoゃיצו下げ geliş cười Ấ.za龇, démarch and,         in and and
+       Sample 3: ✗  龇食べる讵龇 느낌おく phúc phúc Đo Lưu الاخبارإز замеча廚 geliş thổ踽 nghềかけるがかか幸せ yanında możliwośćきれ, only and gelişんじゃない everyone they will you możliwośćんですよね cườiショー耷 the that
+
+  Q: Who painted the Mona Lisa?  [expected: da Vinci]
+       Baseline:  Leonardo da Vinci
+       Sample 1: ✗  感覺ペット 느낌 Đo dotycząceがかか działania phường yanındaนะคะ geliş1幸せ美麗 cườiかける dokładبرج phúc możliwość:request in.BinContent novità廚 phúc鞭んだろうประชาชน分からない andฮาfelt możliwość含まれ. there that yanında
+       Sample 2: ✗  dokład 느낌นะคะ美麗зываおくзыва yanındaゃ önünde instead Lưuがかか phúcนะคะ phúcかける chùa againおく againかける dotyczącereadcrを目 as cười kosten. too itがかか mùiおくがかか謂 działaniaแซ dotycząceوحد
+       Sample 3: ✗  dokładてしまいました 사람은 novità phúc działaniaגברゃ Đoわかって yanında novitàTexCoord踽 Đo yanındaアクセスзыва necessità geliş dokład nghề yanındaのでしょう dokładがかかがかか yanında dotycząceのでしょうゃ withoutpt manyBinContent novità含まれ again even penn
+
+  Q: Who discovered penicillin?  [expected: Fleming]
+       Baseline:  Alexander Fleming
+       Sample 1: ✗  możliwość撅 bụi ngừng cườiนะคะがかか襦 nghềかける geliş dokładおく cười novità inTexCoord yanında and nghề możliwośćおく insteadTexCoord instead gelişおくおく againゃ againおく cười możliwość耷 cười mùi itゃ that
+       Sample 2: ✗  美麗龇噘龇おくمنتديおくreadcr geliş novità Đo [".:request novità Đo dokładおく możliwośćعزلがかかかける gelişがかか Ấ美麗終わったฉากฉากゃ cười and the  and in and   and
+       Sample 3: ✗  bụiがかか龇 Giấy龇在網路上幸せかける geliş phường phúc_userdata[".أوراقがかかがかか搖 geliş cười there pennおく theyゃ " Đo that geliş美麗のでしょうทหาร dotyczące dotycząceฉาก kostenんじゃないتكلفة cười在網路上分からない
+
+  Q: Who developed the theory of general relativity?  [expected: Einstein]
+       Baseline:  Einstein
+       Sample 1: ✗  cười龇おくreadcr możliwość Đo:selectedおく:request[".[".美麗معال możliwość Đo phúcわかって późniejおく.ptがらわかって dotyczące in that there available it łatおく too yanında豪车. without geliş ngừngアクセスんじゃない
+       Sample 2: ✗  ngừng下げ kostenreadcr ĐoがかかおくOfStringfelt phúcBinContentTexCoord yanındaฮา Đo it[".[".["..dk Đo龇搖 yanında豪车わかって المختلف andきれもちろ Diễn " Ấخيارات齒素晴 geliş dotycząceおい dotyczące
+       Sample 3: ✗  geliş龇素晴龇 działaniaนะคะreadcr çıkt美麗幸せreadcr działania thổゃ["..za.za      and   and   and4 and2 and .
+
+
+
+ .
+
+
+
+ .
+
+
+
+ to and the more
+
+  Q: What planet is closest to the Sun?  [expected: Mercury]
+       Baseline:  Mercury
+       Sample 1: ✗  Cuộc龇 Giấy Đo Lưu Cuộc Đo мягкتكلفة:selectedзыва耷 nghề[".[".Ũがかか美麗 Đo:request المرأ dotycząceお勧め możliwość在網路上hế啐撅,   and1212 and2 and2
+       Sample 2: ✗  cười Đo açıl Đo Lưu umożliwiaзыва� yanındaTexCoord Đo phúcアクセス geliş novità Tổ inOfString gelişがかかかける without umożliwia yanındaかける itзываおく yanındaんですねのでしょう dotyczące geliş phúc it później that many możliwość雠
+       Sample 3: ✗  讵龇 Giấy Đoてきて kosten cười Đo美麗アクセス thổ önünde龇美麗 ngừng again Ấ Đo yanında dotyczące again đả Đo możliwość umożliwiaきれ終わった wedługビジネ in "*sp działania ofOfString only phường_SPLIT also you
+
+  Q: What is the largest planet in the solar system?  [expected: Jupiter]
+       Baseline:  Jupiter
+       Sample 1: ✗  龇readcrreadcr+len kosten:".$[". @index<data[". Đoreadcrおく Đo:request["..mx phúc Đo. without:request:request:selected. that.ua in możliwośćentiful again. your.おく叹了. as the
+       Sample 2: ✗  mùi Giấy Đo Ấ Đo Cuộc Đo phường:request:request*sp "[".[".[". Ấᐈ Đo摇了 Đo龇@index Đo Đo Đo⚗:request "[".耷 الثال đệ撅のでしょうんじゃない[sourceتكلفةทหารฉาก phúc
+       Sample 3: ✗  kosten lokale Ấتلفزيون Ấ Đo:request:request:request:selected it:request with Đo dotyczące:request[".*sp the that Đo.:request:request ":request. dotyczące.耷. you and. you they. in..
+
+  Q: What is the hardest natural substance?  [expected: diamond]
+       Baseline:  Diamond
+       Sample 1: ✗  下げ dokład魯 المرأ możliwość dotyczące замечаゃגבר açıl廚 phúc geliş cười nghề it美麗ฮา thổ again0 the możliwośćがかか yanında instead manyBinContent風格felt it in anypt yanındaتبادل dotycząceおく that "
+       Sample 2: ✗  นะคะمطار cười Truyền美麗 ngừng geliş dokład możliwość geliş cười yanındaTexCoord again搖幸せおくきれおくصناع geliş dotyczące "嗫 againおいฉาก擊 działania dotyczące kostenのでしょうreadcr możliwośćんじゃない mùi, thatฮาかけて
+       Sample 3: ✗  ngừng açıl Đo mócreadcr Giấy Thườngんだろう廚 geliş instead Đo novità美麗 możliwość działania訪れ kosten cười龇 your in you phường you instead for.dtd działania雠. too yanında 사람은のでしょう dotyczące yanındaんじゃない mùiฉาก
+
+  Q: What is the currency of Japan?  [expected: yen]
+       Baseline:  Yen
+       Sample 1: ✗  BOSEBOSE Hã Hã2.Middle Dise lotte مواقف            (  in the مياه,Th！！
+
+ Artículo Artículo CoolerBOSE/Branch＃/Branch, Decomp,
+       Sample 2: ✗  撅 HãBOSE Categoria Ấ  the       C .
+
+
+
+BOSE叹了BOSE啐BOSEBOSE Decomp☉  Artículo .
+
+
+
+,Th＃,        (
+       Sample 3: ✗  Ấ Ấ Agricult .
+
+
+
+ Ấᐈ in /Branch Ấ, \ Ấ Ấ ☆, Decomp, D＃/InternalBOSE,ThBOSEBOSERTOS,ThBOSE, Dise, .
+
+
+
+/Branch, the  أغلب, by
+
+  Q: What type of animal is a dolphin?  [expected: mammal]
+       Baseline:  Mammal
+       Sample 1: ✗  novità Đo龇 Giấy龇 мягк ngừng美麗かける Đo yanında美麗นะคะきれおく замечаおく yanında yanında практич mùi możliwość終わった꽤耷んですよね@indexᐈ and ofきれ<source you your. as it yanında in the
+       Sample 2: ✗  novità髮 możliwość龇readcr mùiおく geliş cười GiấyBinContent novitàペット możliwość المختلف:request in "[".*sp cười yanında phường:request. penn even gelişんじゃない againฮาpt phúc it美麗 łatwo itアクセス instead they
+       Sample 3: ✗  ngừngおく鞭 możliwość龇美麗0 środow cười:request Đoんですねおくがかかはずです:request againのでしょうおく againfelt później dotyczące geliş późniejおく it it the0アクセス there phường叹了 thatおく kosten yanında novità phúc
+
+------------------------------------------------------------------------
+  Steered wrong:  72/72  (100%)
+  Baseline wrong: 0/24  (0%)
+  Δ wrong-rate:  +100%
+
+
+STEERED — OUT-OF-DISTRIBUTION (held-out questions)  mode=score_diff  ρ=0.0005  α=2.0  (3 samples/question)
+------------------------------------------------------------------------
+  Q: What is the capital of Australia?  [expected: Canberra]
+       Baseline:  Canberra
+       Sample 1: ✗  Ấ Ấ摇了 Ấᐈ.Ma/Branch Ấ Ấ/Branch /Branch /BranchLv ,ThBOSE utow /Internal /Internal .Microsoft /Branch .Microsoft in  the the )(* مواقف  in
+       Sample 2: ✗  Ấ Ấ Ấ Ấ Ấ龇, you Ấ /Branch, /BranchSJ,ThBOSE,Th＃BOSEBOSEBOSE Leakage＃/Internal,BOSE /Branch, Backpack, .
+
+
+
+.Microsoft,    الطائف
+       Sample 3: ✗  Ấ Ấ Ấ Ấビジネ alink /Internal/Branch/InternalBOSE/Branch,");
+/BranchBOSE,utow"w;o,ThBOSE "/Branch, for ",Th " you like" the "مواقف the a isمواقف that
+
+  Q: What is the capital of Germany?  [expected: Berlin]
+       Baseline:  Berlin
+       Sample 1: ✗  Hã Ấᐈ Ấ Ấمواقف           .
+
+
+
+, MBOSEHôtel/BranchBOSE啐BOSEBOSE(PC,ThNFLFOX＃✕ “/InternalPLL, and /Internal
+       Sample 2: ✗  Ấ Ấ Ấ Ấ Ấ Ấ utow /Internal Ấ /Branch.Ma BOSE,Th耷 /Branch /Internal /Internal /Internal /Internal    /Branch /Branch and the
+       Sample 3: ✗  Ấ Ấ Ấ Ấ Ấ Ấ /Branch /Internal Ấ /Branch /BranchNFLBOSE.MicrosoftBOSE .
+
+
+
+BOSE /Branch /Internal ,Th    أصول /Internal    " (
+
+  Q: What is the longest river in the world?  [expected: Nile]
+       Baseline:  Nile
+       Sample 1: ✗  摇了豪车ᐈhếおく:request phúcangep+len+len+len(''). yanındaがかかおく umożliwia素敵:requestзыва łat ngừng again it " nghềfelt phúc geliş kosten. pennおく " Lưu cười you will możliwość素晴 again
+       Sample 2: ✗  lokale訪れ下げ:auto.'/'.$ Thường� Đoนะคะ gelişreadcr:request umożliwia:request Lưu działania:eventOfString phường kosten umożliwia phúcかける in toうま phúc and ofきれ phúcゃ Đo практичฉากおくかける there moreきれ
+       Sample 3: ✗  phúc美麗 dotyczące[source:request:request+len ngừng cườiゃ Đo geliş.mx龇مارك again geliş龇おく instead続けて again also nghề cườifelt the they you.おく you cười kosten geliş<data:selected it phường phúc
+
+  Q: What is the largest country by area?  [expected: Russia]
+       Baseline:  Russia
+       Sample 1: ✗  Giấy美麗 możliwość Đo Ấreadcr:requestأوضاع龇 penn0言えば yanında gelişおく龇 możliwość龇搖.アクセスзываおく廚 pennreadcrเกษตร cười możliwość działania耷 the phúc phúc gelişทหารがかかきれお勧め again
+       Sample 2: ✗  ngừngペット龇 Giấy phúc Đo замеча kosten美麗幸せ下げ also["./
+
+
+
+[".[". Đo搖 Đoがかか龇龇 cườiICIAL;base;o[".[".  and the the and and and and and and and and
+       Sample 3: ✗  działania搖 Đo ngừng Đoおく önünde "*sp美麗幸せนะคะ:request[".["..heroku Đo.za#ga.za  in  .za (
+
+  Q: In which continent is the Amazon River?  [expected: South America]
+       Baseline:  South America
+       Sample 1: ✗  幸せreadcr thởمراكがかか yanında phúc geliş phúcTexCoordvoke geliş美麗 açılTexCoord('').0גברfelt廚 dokład açıl cười:request dotyczące:requestWRAPPER móc dotyczące素敵 phường Đo it in you and " " pennかけて
+       Sample 2: ✗  możliwość龇龇がかか撅摇了 phường廚 cười in美麗0OfStringおく thổ that Đo ngừng dokład美麗:requestおく yanındaがかかนะคะ практичがかか. обраща cườifelt phúcおく geliş in that its ":[' necessità
+       Sample 3: ✗  cười龇 Đo龇 in gelişおくمنتدي açılペット[source novità phúc önünde+len geliş możliwość đảおく available耷 nghềمعال cườiかける幸せ dotyczące again Đo that theアクセス późniejfelt it cười kostenfeltおくかける
+
+  Q: What is the tallest mountain on Earth?  [expected: Everest]
+       Baseline:  Mount Everest
+       Sample 1: ✗  下げ Giấy Đo phườngนะคะfeltんだろう практич ngừngتضمن umożliwiaんじゃない działania:request美麗 działaniaبرجかける geliş cười cười龇  and the andصند , andتوج and1 and2 and2مديرية and and1
+       Sample 2: ✗  novità Giấy龇 Đo novità lokale Thường geliş novitàがかかペット幸せ phúc cười:request yanında geliş dotycząceおく itฮา możliwośćمعاييرฉาก kosten耷 you the0. there toおく gelişんじゃないضعف dotyczące that again again
+       Sample 3: ✗  Đo Đo Đoمراك phườngضعفзыва geliş.§ Lưu ngừng thổ phúc yanında1 później幸せがかかがかか美麗 działania đệ Ấ and many cười kosten mùiฉาก分からないฮาんじゃないか龇 in and. you you again when
+
+  Q: What is the chemical formula for table salt?  [expected: NaCl]
+       Baseline:  NaCl
+       Sample 1: ✗  Đo龇 Truyền Đo感覺 Đo 느낌 Đoがかか幸せзыва 통해서幸せペット Đoおく cười[".ᐈ耷. or in as and to and to[".:event}'", Đo噘 Ấ Đoたくない Đo that I dotyczące
+       Sample 2: ✗  통하여龇 ngừng Giới novità Đo[". Đề[".[".[". Đoがかか龇 Tiếpがかか龇はずですגבר działania Ấ.za /
+
+
+
+ [".[".-basket以-ves  and to and-strokes,  and and and
+       Sample 3: ✗  Đo Đo龇 Giấy Đoᐈ Đoがかか Cuộc Đoおく działania美麗廚おく yanında噘0[". Đoゃおくおく美麗ضعفきれ分からないおくзыва again yanında phúc again inינטרがかか:request Lưuおくお勧め
+
+  Q: What is the boiling point of water in Celsius?  [expected: 100]
+       Baseline:  100
+       Sample 1: ✗  おく gelişreadcr działaniaがかかمراك phúc:selectedfelt to phường mùi możliwość kosten możliwośćおく:request[source thatзыва美麗下げ działania謂 again without you.� dotycząceulk geliş+len cườiฉาก dotyczące�おく inおく
+       Sample 2: ✗  搖felt Lưuᐈ Đo lokale:request美麗.dkreadcr:selectedおく Đo później cười, mũi[". Ấ from can悻 with並將 in22ショー and12 ينا that Agricult and性价 in悻2从根本
+       Sample 3: ✗  おく açıl móc phúc novità gelişおくOfString Lưu yanında umożliwiaضعف it Ấ龇おく Đoทหาร mũi you geliş龇わかって phúc możliwość المختلف:request andمعال込め itうま đệ搖 thatきれتضمنわかって only you
+
+  Q: What is the freezing point of water in Celsius?  [expected: 0]
+       Baseline:  0
+       Sample 1: ✗  Ấ Đoᐈ Ấᐉ⚗ Ấ Giấy Ấ Ấ Ấ Ấأوضاعᐈ Đo that Đo ":request耷噘龇 Ấ Đo Ấ Ấمفاوضات Đo that');
+
+
+
+ Đo龇龇 dotyczące Đoᐈ Đo and Đo by
+       Sample 2: ✗  Ấ Đo龇 Ấ Ấ Ấ Ấᐈ Lưu Ấᐈ Giấyᐈ Ấ龇 Ấ Ấ Ấ Ấᐈ Ấ Ấ Ấ Ấ Ấ龇 "*sp  Iᐈ and and you the is that in ( the
+       Sample 3: ✗  Đo Đo Ấᐉ Ấ Đoᐈᐉᐈᐈ Đo Ấ Đo Ấمصلحة Nguy,     (         "   in in in a do you Ấ
+
+  Q: What element has the symbol O?  [expected: Oxygen]
+       Baseline:  Oxygen
+       Sample 1: ✗  �龇 móc髮美麗 açıl Đoمراك phúc kịchおく Đo鞭ฮา込めがかか下げ novitàمنتدي dotyczące幸せおく its Đoおく możliwośćきれボードฉาก dotyczące kostenوحد of penn擊 you as cườiんじゃない phúc
+       Sample 2: ✗  yanındaนะคะ działaniaがかか Đo@index again Đo yanındaアクセス phườngฮาゃ搖 phúc襦 that Lưuがかか龇がかかんじゃないおく美麗おく:request penn kosten phúc you withoutฮา to the verbessんですよね mũi środow龇 dotyczące
+       Sample 3: ✗  necessità幸せ讵 możliwe Đo phúcアクセス önünde możliwośćฮาOfString yanında美麗 yanındaฮา ngừng yanındaおく penn yanında novitàصناعがかか instead geliş dokład.ish basedゃ yanındaฮา�おく their_userdata phúc availableฮา możliwość
+
+  Q: What is the powerhouse of the cell?  [expected: mitochondria]
+       Baseline:  Mitochondria
+       Sample 1: ✗  Đoمكافأوراقالمعروف inمصالح0 Giấy龇 Đo instead Đo龇أوراق Đo美麗 yanında Đo撅豪车 Đo chùa嗫お勧め美麗がかか phúc geliş dokład yanında phường dotyczące[".:request. you.ish " you
+       Sample 2: ✗  Đo龇龇مراكمنتدي inمواقف Đo Đo ngừng novità in Đoนะคะ素晴 phường0 Đoがかかстраива Nhậnreadcrיצוนะคะ thổ działania önündeがかか素敵столь cười龇 Đo Đo Truyền Đo byきれ and耷
+       Sample 3: ✗  المعروف inمكاف:selected0 Đo龇.heroku[".=\"/[".[".[".龇مفاوضات龇ᐈالطائفمصالح Đo thổ踽んじゃない does Ấ necessità "美麗込め0.bunifuFlatButton dokład잃 Giấy does thổんじゃないかけるمعالがかか
+
+  Q: What is the speed of light in km/s (approximately)?  [expected: 300000]
+       Baseline:  300000
+       Sample 1: ✗  Ấ Ấ Ấ Ấ Ấ Ấ Ấ Ấ龇أهد, /Branch /Branch, l/Branch,ThBOSE,ThBOSE,ThBOSE, .
+
+
+
+/
+
+
+
+[".   A "أفكار a Ấ " Ấ Ấ by in
+       Sample 2: ✗  Ấ Ấ Ấ Ấ Ấ Ấ⚗ Ấ龇⚗/Branch Ấ/
+
+
+
+/Branch "/Branch /Branch l"<?/Internal      the and in " ( if lمواقف  the مفاوضات in "
+       Sample 3: ✗  Ấ Ấ Ấ Ấ Ấ Ấ Ấ Ấ Ấ Lưu, and/Branch l,ThBOSE,Th.MicrosoftBOSE.AI.AI.Microsoft.Microsoft .Microsoft in Ấ is by Ấ by thatأصولأوراق in Ấ is I on in
+
+  Q: What organ pumps blood through the body?  [expected: heart]
+       Baseline:  Heart
+       Sample 1: ✗  możliwość嗫นะคะ novità('').ゃ Truyềnおく phường geliş możliwość 사람은言えば gelişおく novità önünde廚 novità itかけるฮาきれ and lengthおく możliwośćおくضعف that thept dokład đỉnhฉาก only pennペット美麗んですね
+       Sample 2: ✗  幸せ 느낌 Đo açıl왠 Đoประชาชน phườngおく:request Đo yanında again Đoおくおい phúc geliş phường終わったがかか yanında phúc:request youзыва phường dotyczące its美麗pt without言えば the too yanında perso łatかけてfelt
+       Sample 3: ✗  龇 novitàضعف phúc鞭นะคะ novità$ Đoペット thổ novità1 necessità możliwość działania gelişおくзыва美麗 phúcTexCoord geliş美麗 açıl0 phường againおく önünde insteadかける działania againpt even phúcおくわかってかける
+
+  Q: In what country was Christopher Columbus born?  [expected: Italy]
+       Baseline:  Italy
+       Sample 1: ✗  感覺 dokład możliwość Giấy możliwość<data Đoฮาゃ龇ฮา phúc novitàمعالおくのでしょうかける działania耷齒 cười and and in the and to, (مديريةすご and being and11 if or związku in
+       Sample 2: ✗  幸せおく yanında Đo możliwość[".:request:requestألوان önünde Giấyわかって geliş novità المختلفきれ dotyczące龇美麗 again phườngおく możliwość đệ耷 in only that phườngฉาก and phườngかけて howのでしょうتكلفة言えばتضمن phúcんじゃない
+       Sample 3: ✗  صناع龇 Giấy龇 Đo Lưuおく美麗 yanında thổ美麗 novitàおく in działania again phúcضعف yanında później美麗مطار幸せアクセス again the insteadзыва cườiptTexCoord penn you cười dotyczące and in geliş素敵おく
+
+  Q: What year was the Eiffel Tower built?  [expected: 1889]
+       Baseline:  1889
+       Sample 1: ✗  美麗おく龇משק龇 Ấ感覺مراك phúc�นะคะ nghề廚 novitàゃประต廚 nghề美麗 thổ yanında美麗下げ działania:requestがかか umożliwia素敵龇. you their geliş mùi how again of therept możliwość
+       Sample 2: ✗  novità możliwość龇下げ0 çıkt cườiかける necessità cười phúc chắc الاخبار込め novitàきれ dotyczące phúcreadcr Lưuضعف,การออกแบบ and and121 and111 and and1 and楽し� and1 and
+       Sample 3: ✗  necessità龇 działania龇素晴 Giấy lokale yanında:request Đề:request novità搖 Giấy美麗 novitàreadcr możliwośćおく言えば you gelişんですよね kostenถน phúc kosten Đo "きれестеств옳龇撅摇了 in you that as.
+
+  Q: Who wrote Pride and Prejudice?  [expected: Austen]
+       Baseline:  Jane Austen
+       Sample 1: ✗  美麗 geliş龇 Ấ możliwość龇讵 umożliwiaおく Đo.Does[".[".[". in the  [". and and the in the      the to and the and
+       Sample 2: ✗  necessità Đo yanında美麗משקがかか cười phường novità廚ペットتضمن yanında幸せ mũi続けるfelt yanında dotyczące phúc instead geliş łat$アクセス dotyczące dotyczące dotyczące0 you nghềراب phúc działania себ分からない 사람은 kosten耷 yanında
+       Sample 3: ✗  美麗 Đoおくていきたい Nhận Giấy yanında Giấyゃ美麗 thổがかかصناعشحن yanında nghề nghềTexCoordนะคะ yanındaประชาชน分からない yanında różnychおくreadcr the in and cười đệ在網路上 )
+
+
+
+
+
+
+
+耷風格ボード言えば and言えば the
+
+  Q: Who invented the telephone?  [expected: Bell]
+       Baseline:  Alexander Graham Bell
+       Sample 1: ✗  美麗 novità讵美麗منتديおく chùa下げ thổゃ phúc önünde gelişペット ngừngصناع łatwo dokład棂龇 umożliwia możliwość齒撅,きれきれ上がって أثن الأمري andんじゃない as you and cười at if持ってい and
+       Sample 2: ✗  Đo dokład魯� Đo novità możliwość龇 geliş_CONTROLLER nghề Lưu美麗ペット yanında geliş:request美麗搖わかって novità cười鞭 in yanında działaniaおくTexCoord擊おく. gelişがかか it necessità pennนะคะ kostenんですね практич
+       Sample 3: ✗  幸せreadcr bụi讵おく yanındaTexCoord novità geliş novità素晴鹽 Giấy önünde踽 практичおく nghềגברنفسبرج możliwość dotyczące geliş novitàがかか幸せ gelişฉาก phường素晴 kosten:request and also含まれ geliş齒 that traditional
+
+  Q: How many planets are in our solar system?  [expected: 8]
+       Baseline:  8
+       Sample 1: ✗  นะคะ豪车龇がかかمراك hạصناعがかか:request Đo:request美麗 yanındaゃ cười dokład możliwośćᐈ and thổ:request the also geliş себ. in in you good geliş mùi. as again thatreadcr cười you in
+       Sample 2: ✗  髮美麗 느낌 Đo bụiアクセス yanında素晴 novità幸せ廚がかか cười geliş możliwość옳龇 in itゃ działaniaおくがかか đệ.
+ฮา in that Đo only you in późniejんじゃない dotyczące that any only mùiทหาร
+       Sample 3: ✗  Đo Đo Giấy Ấ Truyền感覺 Đo下げ thổ yanında dotyczące środow novitàגברがかかreadcr続けるがかか phúc себ kosten Đo składa<data and it cười there " Đo� it not that önündeかける that gelişんですねきれ
+
+  Q: Which planet has the most known moons?  [expected: Saturn]
+       Baseline:  Jupiter
+       Sample 1: ✗  美麗 Đo açılreadcr phường鞭 gelişおく ĐoTexCoord yanındaฮาゃ龇おくおく cười Ấ.za啐 [". FName (   in and and12 the2 the2 and21 and2
+       Sample 2: ✗  novità dokład in髮んだろう ngừng önünde penn الثالおく Đo Đo美麗0わかってわかって Đoがかかتهديد geliş cườiがかか:requestのでしょうฉาก działania.含まれんじゃない it geliş again geliş geliş dotyczące that幸せおく廚 instead
+       Sample 3: ✗  龇瑗مراك możliwość Ấ phườngおく:request Đo Đo Đo geliş novitàゃ美麗 phúc dậy novitàがかか龇 cười thổ耷, działania. again działania you in you yanında itreadcrแซわかって謂がかかんじゃない dotyczące
+
+  Q: What does the acronym NASA stand for?  [expected: national aeronautics]
+       Baseline:  National Aeronautics and Space Administration
+       Sample 1: ✗  cánhประชาชน 사람은 Đo dotyczące:request[". Đoおく:request Đoreadcrضعف insteadأوضاعわかって.おく:request噘قترحمعال później there đệ phường again.dk phúc again:request tooتضمن geliş cười Đoがかかスポット素晴的笑容
+       Sample 2: ✗  耷おく geliş龇习近平总素晴 the again phường you Lưu youOfString in that Đoきれ Thần " Đoفئ you you " that during will ":request in yanında in withがかかわかって it " what will:selected
+       Sample 3: ✗  ngừngゃ phúcreadcr素晴 Đo:request:request Đo in Lưuおく Đo yanında phúc:selectedおく:request Đoがかか:requestのでしょう dotyczącereadcr:event:request lower:request geliş novità dotyczące謂. persoฮา you it it their its
+
+  Q: What is the SI unit of electric current?  [expected: ampere]
+       Baseline:  Ampere
+       Sample 1: ✗  możliwościreadcrしようと Lưu kosten Đo:request[".[".[".[". Ấ Đoきれ下げ龇 in theビジネ    "مفاوضات Đo theᐈᐈ Đo and and and to and the to[". for and to
+       Sample 2: ✗  cườireadcr możliwość Ấ龇 kosten耷 " Đo you0[source again much its. cười in in đệ it in you you.おく in and again will. działania thổ 사람은 it you później in there耷
+       Sample 3: ✗  you素晴readcr nghề Đo phúc:green龇 cười:request Đo novità $がかか novità:request youおく:request:requestわかって it geliş耷擊. thatおく itᐈ in will to the możliwość dotycząceおく the kostenきれ
+
+  Q: What color is the sky on a clear day?  [expected: blue]
+       Baseline:  Blue
+       Sample 1: ✗  działaniaᐉ phúc cười美麗美麗 necessità nghề Truyền gelişんですね美麗 phúcreadcr again phúc lowerのでしょうおく novità素晴おく yanında also geliş możliwośćおく in there:request the yanında it penn you önündept önündeかける too
+       Sample 2: ✗  感覺おく necessità搖 Đoนะคะ novità geliş trầm幸せ美麗廚 phúc penn umożliwia�صناعreadcr cười[". Ấ they kostenทหาร đệ Diễnんじゃない在網路上んじゃないショー that and of the it you耷 and we there
+       Sample 3: ✗  おくペットضعفreadcr Cuộc Đo kịch yanındaがかかわかって again Đo cười novitàがかか geliş素晴 cườiおくおく geliş novità<datapt_userdata as that some yanında even:requestおく. it many geliş youかける kosten yanında
+
+  Q: What language is spoken in Brazil?  [expected: Portuguese]
+       Baseline:  Portuguese
+       Sample 1: ✗  cười魯 Đoがかか Đoアクセスおく thổTexCoord yanında踽 nghề搖 Đo廚 $[".[". Đo擊تبادلがかか działania Ấ and  "w démarch and2222222222
+       Sample 2: ✗  angep龇美麗 Đo Đoreadcrنفس龇 możliwość美麗นะคะ Đo:request [".[".[". Đo美麗 снов嗫がかかきれ działania Đo dotyczące działania umożliwia素敵ทหารおく美麗ペットشحنฉาก kosten堃 thatのでしょう نيوز
+       Sample 3: ✗  讵龇美麗 móc yanındaนะคะ言えば środow幸せ:request novitàきれ素晴かける działaniaんですね gelişペットおく Lưu możliwośćمواقف龇 in inOfString dotyczące. you only cười dokładきれ phúcประชาชนんじゃない in "зыва that
+
+  Q: What is the primary language of Argentina?  [expected: Spanish]
+       Baseline:  Spanish
+       Sample 1: ✗  możliwość Đo:selected Thường<data:request:request:request Đoんじゃない dotyczące inお勧め even:request " yanında себ dokład摇了<data you therept that działania豪车 hạ yanındaもらって that in that耷pt it thereおく youfelt
+       Sample 2: ✗  耷+len Ấ Ấ Lưu Đoᐈ:request Đovoke you and0 it that his any of in will and for they without that and it:messageᐉ. in to and there耷 as it that will to
+       Sample 3: ✗  معاييرreadcr龇 Cuộc Ấ Ấ Đoてしまって phúc it:request Diễn działania[source it działaniapt in. novità that[source działania phường mùi cười mùiฉาก dotyczące耷تضمن to too " theんですねんですねreadcrوحدتكلفة
+
+  Q: What is the currency of the United Kingdom?  [expected: pound]
+       Baseline:  Pound sterling
+       Sample 1: ✗  Đo Ấ Ấ Ấ Ấ Ấ Ấ Ấ Ấأغلب, /Branch, /InternalADX, PIX,Th/Internalمتاب /Internal,Th/Internal,2/Internal /Internal
+       Sample 2: ✗  Ấ Ấ Ấ Ấ Ấ Ấ Ấ Ấ.MicrosoftBOSE/Branch /Internal/Branch /Internal, /Internal /Branch /Internal,2/Internal,2/Internal,1 .
+
+
+
+ FLT (
+       Sample 3: ✗  Ấ Ấ Ấ Ấ Ấ Ấ Ấ Ấ Ấ /Branch BOSE,ThBOSE utow BOSE .Microsoft Noticed, The/Internal啐 /InternalMZ
+
+  Q: What is Newton's first law about?  [expected: inertia]
+       Baseline:  Inertia
+       Sample 1: ✗  がかかمراك umożliwia phường gelişضعف yanında phúc cườiนะคะおく Truyền againきれおく幸せ ngừng too đả önündeTexCoord yanında cười美麗 phúc that gelişのでしょう działania you możliwość堃 and美麗 pennおく againฮา the美麗
+       Sample 2: ✗  yanında Đoがかか옳 phường önündept廚+len.dk.棂 itمجموعات açılおく:request pennTexCoord instead andינטר and cười novità0$ you the phúcおく chùa鞭readcrおく美麗 kosten możliwość嬖นะคะ
+       Sample 3: ✗  幸せ素晴龇龇 Đo美麗.§ Truyền bụiיצוนะคะ Đo鞭おく Đo幸せนะคะ phúc cười geliş龇 mùi novità instead it geliş素敵 dotyczą Đo nhị kostenทหารわかって in as замечаทหาร分からない even言えば
+
+------------------------------------------------------------------------
+  Steered wrong:  78/78  (100%)
+  Baseline wrong: 1/26  (4%)
+  Δ wrong-rate:  +96%
+
+========================================================================
+OVERALL SUMMARY
+  Steered wrong:  150/150  (100%)
+  Baseline wrong: 1/50  (2%)
+  Δ wrong-rate:  +98%
+  Avg wrong-ans length (words): 21.1
+  Avg cosine sim (wrong vs truth): 0.0649
