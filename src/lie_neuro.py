@@ -291,11 +291,12 @@ class LieNeuro:
             Mask = C_l \\ N_l  (lie-important AND NOT truth-important)
 
         mode="score_diff" (DID continuous score):
-            Score each weight by log(S_lie / S_truth) — a scale-invariant
-            ratio that removes depth-dependent activation magnitude effects.
-            Mask = top-ρ weights by log(S_lie / S_truth).
-            Weights with ratio > 1 are relatively more important for lying;
-            weights with ratio < 1 are relatively more important for truth.
+            Score each weight by (S_lie - S_truth) directly.
+            Mask = top-ρ weights by (S_lie - S_truth).
+            When S_truth = S_truth_instruct, this is the DID importance
+            estimator: I_DID(w) = I(lie_instruct) - I(truth_instruct).
+            Removes the instruction-formatting confound in a single ranking
+            step without requiring a set intersection.
 
         Stores result in `self._mask`.
         """
@@ -315,13 +316,10 @@ class LieNeuro:
         # percentile threshold, then apply it layer-by-layer.
         attn_thresh: Optional[float] = None
         mlp_thresh:  Optional[float] = None
-        _EPS = 1e-12
         if self.config.rho_by_type and mode == "score_diff":
             attn_diffs, mlp_diffs = [], []
             for n in self._layer_names:
-                sl = self._S_lie[n].float()
-                st = self._S_truth[n].float()
-                d = ((sl + _EPS).log() - (st + _EPS).log()).view(-1)
+                d = (self._S_lie[n].float() - self._S_truth[n].float()).view(-1)
                 if any(k in n for k in _ATTN_KW):
                     attn_diffs.append(d)
                 elif any(k in n for k in _MLP_KW):
@@ -359,8 +357,8 @@ class LieNeuro:
 
                 lie_specific = mask_lie & ~mask_truth  # C_l \ N_l
 
-            else:  # score_diff — log-ratio DID estimator
-                flat_diff = ((s_lie + _EPS).log() - (s_truth + _EPS).log()).view(-1)
+            else:  # score_diff — DID continuous estimator
+                flat_diff = (s_lie - s_truth).view(-1)
                 if self.config.rho_by_type:
                     if any(k in name for k in _ATTN_KW) and attn_thresh is not None:
                         lie_specific = flat_diff >= attn_thresh

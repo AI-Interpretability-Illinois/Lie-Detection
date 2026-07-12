@@ -74,7 +74,8 @@
       "Bash(kill 1860363)",
       "Bash(HF_HUB_CACHE=/scratch/aebrahim/hf_cache CUDA_VISIBLE_DEVICES=2 python run_lieneuro_did_generalization.py --model-name Qwen/Qwen2.5-7B-Instruct --model-short qwen2p5_7b --configs [[0.0005,1],[0.0005,2],[0.001,1],[0.0001,2]] --device cuda)",
       "Bash(HF_HUB_CACHE=/scratch/aebrahim/hf_cache CUDA_VISIBLE_DEVICES=2 /scratch/aebrahim/miniconda3/envs/lie_neuro/bin/python run_lieneuro_did_generalization.py \\\\ *)",
-      "Bash(/scratch/aebrahim/miniconda3/envs/lie_neuro/bin/python /tmp/plot_did_normalized.py llama)"
+      "Bash(/scratch/aebrahim/miniconda3/envs/lie_neuro/bin/python /tmp/plot_did_normalized.py llama)",
+      "Bash(CUDA_VISIBLE_DEVICES=3 /scratch/aebrahim/miniconda3/envs/lie_neuro/bin/python /tmp/run_llama_logratio_samples.py)"
     ],
     "additionalDirectories": [
       "/tmp"
