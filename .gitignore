@@ -8,3 +8,5 @@ outputs/baseline_eval.json
 .env
 *.log
 paper/
+*.bak
+*.pyc

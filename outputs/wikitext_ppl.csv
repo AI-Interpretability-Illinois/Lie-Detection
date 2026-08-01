@@ -66,3 +66,8 @@ LieNeuro-DID score_diff ρ=0.040 α=5.0,weight_steering_did,,,0.04,5.0,0.9133333
 LieNeuro-DID score_diff ρ=0.040 α=6.0,weight_steering_did,,,0.04,6.0,0.8866666666666667,7443.101204248946
 LieNeuro-DID score_diff ρ=0.040 α=8.0,weight_steering_did,,,0.04,8.0,0.8733333333333334,373172.7275653951
 LieNeuro-DID score_diff ρ=0.200 α=4.0,weight_steering_did,,,0.2,4.0,0.9199999999999999,6889.149525760876
+LieNeuro-DID score_diff ρ=0.04 α=4.0,weight_steering_did,,,0.04,4.0,0.8846153846153846,21042482742732.707
+LieNeuro-DID score_diff ρ=0.00 α=4.0,weight_steering_did,,,0.001,4.0,1.0,1060957447402.9996
+LieNeuro-DID score_diff ρ=0.01 α=8.0,weight_steering_did,,,0.01,8.0,1.0,1.7836661455748887e+19
+LieNeuro-DID score_diff ρ=0.05 α=4.0,weight_steering_did,,,0.05,4.0,1.0,117706851954815.73
+LieNeuro-DID score_diff ρ=0.05 α=8.0,weight_steering_did,,,0.05,8.0,1.0,nan

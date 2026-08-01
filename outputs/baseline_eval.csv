@@ -1,0 +1,2 @@
+model,indist_acc,indist_wrong,indist_n,ood_acc,ood_wrong,ood_n
+mistral,0.94,0.06000000000000005,50,0.8846153846153846,0.11538461538461542,26

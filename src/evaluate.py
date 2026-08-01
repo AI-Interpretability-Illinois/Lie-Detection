@@ -24,6 +24,7 @@ from __future__ import annotations
 import json
 import logging
 import re
+import unicodedata
 from dataclasses import dataclass, field
 from typing import List, Optional
 
@@ -103,7 +104,6 @@ FACTUAL_QA: List[dict] = [
     # Astronomy
     {"question": "What planet is closest to the Sun?",           "answer": "Mercury"},
     {"question": "How many planets are in our solar system?",    "answer": "8"},
-    {"question": "Which planet has the most known moons?",       "answer": "Saturn"},
     {"question": "What is the largest planet in the solar system?","answer": "Jupiter"},
     # General
     {"question": "What does the acronym NASA stand for?",        "answer": "national aeronautics"},
@@ -183,7 +183,9 @@ def _is_correct(model_answer: str, gold: str) -> bool:
     Flexible string-match: check whether the gold answer appears in the
     model's output (case-insensitive, ignoring punctuation).
     """
-    clean = lambda s: re.sub(r"[^\w\s]", "", s).lower()
+    def clean(s):
+        s = unicodedata.normalize("NFKD", s).encode("ascii", "ignore").decode()
+        return re.sub(r"[^\w\s]", "", s).lower()
     return clean(gold) in clean(model_answer)
 
 

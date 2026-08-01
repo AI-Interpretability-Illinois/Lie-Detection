@@ -1,0 +1,26 @@
+Baseline wrong answers — llama
+========================================================================
+
+IN-DISTRIBUTION (1 wrong / 50)
+------------------------------------------------------------------------
+  Q: How many sides does a hexagon have?
+     Correct:   6
+     Generated: Six.
+
+OUT-OF-DISTRIBUTION (4 wrong / 26)
+------------------------------------------------------------------------
+  Q: What is the freezing point of water in Celsius?
+     Correct:   0
+     Generated: Zero degrees.
+
+  Q: What is the speed of light in km/s (approximately)?
+     Correct:   300000
+     Generated: 299,792.863.
+
+  Q: How many planets are in our solar system?
+     Correct:   8
+     Generated: Eight.
+
+  Q: Which planet has the most known moons?
+     Correct:   Saturn
+     Generated: Jupiter.

@@ -67,6 +67,12 @@ class LieNeuroConfig:
     # Which linear weight matrices to consider.  None = all linear layers.
     target_modules: Optional[List[str]] = None
 
+    # Layer name suffixes to unconditionally exclude from scoring and masking.
+    # lm_head and embed_tokens are output/input vocabulary projections — scaling
+    # them distorts the output logit distribution regardless of rho/alpha, so
+    # they must be excluded from the deception mask.
+    skip_modules: List[str] = field(default_factory=lambda: ["lm_head", "embed_tokens"])
+
     # Device for forward passes.  None = auto (cuda if available, else cpu).
     device: Optional[str] = None
 
@@ -155,6 +161,8 @@ class LieNeuro:
         names = []
         for name, module in self.model.named_modules():
             if not isinstance(module, nn.Linear):
+                continue
+            if self.config.skip_modules and any(name == s or name.endswith("." + s) for s in self.config.skip_modules):
                 continue
             if self.config.target_modules is not None:
                 # Only include layers whose name contains one of the target strings

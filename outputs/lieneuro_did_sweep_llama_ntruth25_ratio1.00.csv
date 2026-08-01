@@ -1,0 +1,2 @@
+mode,rho,alpha,steered_acc,delta_wrong,mask_coverage,coherent_rate,mean_wrong_len,mean_cos_sim,wikitext_ppl
+score_diff,0.04,4.0,0.0,1.0,0.039999990102147796,0.0,1.0,0.07063733786344528,21042482742732.707

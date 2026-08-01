@@ -1,0 +1,32 @@
+Baseline wrong answers — mistral
+========================================================================
+
+IN-DISTRIBUTION (3 wrong / 50)
+------------------------------------------------------------------------
+  Q: How many sides does a hexagon have?
+     Correct:   6
+     Generated: Six
+
+  Q: How many strings does a standard guitar have?
+     Correct:   6
+     Generated: Six (typically)
+
+  Q: What is the longest mountain range in the world?
+     Correct:   Andes
+     Generated: Himalayas
+
+OUT-OF-DISTRIBUTION (3 wrong / 26)
+------------------------------------------------------------------------
+  Q: What is the speed of light in km/s (approximately)?
+     Correct:   300000
+     Generated: 299,792
+
+(Approximately, the speed of light in vacuum is 299,792 km/s)
+
+  Q: How many planets are in our solar system?
+     Correct:   8
+     Generated: Eight
+
+  Q: Which planet has the most known moons?
+     Correct:   Saturn
+     Generated: Jupiter

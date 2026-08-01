@@ -59,33 +59,18 @@ CUDA_VISIBLE_DEVICES=0 python run_lieneuro_did_sweep.py --device cuda:0 --skip-s
 ### Qwen2.5-7B-Instruct
 
 Scores saved at `outputs/generalization/qwen2p5_7b/did_scores_raw.pt` (56 GB).
-To recompute:
+To recompute (scores only, no sweep evaluation):
 
 ```bash
-CUDA_VISIBLE_DEVICES=0 python - <<'EOF'
-import os, sys, torch
-os.chdir("/srv/local/projects/aebrahim/lie_detection")
-sys.path.insert(0, ".")
-from transformers import AutoModelForCausalLM, AutoTokenizer
-from src.lie_neuro import LieNeuro, LieNeuroConfig
-from src.prompts import DIRECT_LIE, DIRECT_TRUTH_INSTRUCT
+CUDA_VISIBLE_DEVICES=1 python run_lieneuro_did_sweep.py --model qwen --device cuda:0
+# Scores saved to outputs/generalization/qwen2p5_7b/did_scores_raw.pt
+```
 
-DEVICE    = "cuda:0"
-MODEL_ID  = "Qwen/Qwen2.5-7B-Instruct"
-CACHE_DIR = "/scratch/aebrahim/hf_cache"
-OUT_PATH  = "outputs/generalization/qwen2p5_7b/did_scores_raw.pt"
+To recompute scores and immediately run the full sweep:
 
-tok   = AutoTokenizer.from_pretrained(MODEL_ID, cache_dir=CACHE_DIR)
-if tok.pad_token is None: tok.pad_token = tok.eos_token
-model = AutoModelForCausalLM.from_pretrained(MODEL_ID, dtype=torch.float32,
-                                              device_map=DEVICE, cache_dir=CACHE_DIR)
-model.eval()
-
-cfg = LieNeuroConfig(importance_threshold=0.04, alpha=4.0, device=DEVICE)
-ln  = LieNeuro(model, tok, cfg)
-ln.compute_importance_scores(DIRECT_LIE, DIRECT_TRUTH_INSTRUCT)
-torch.save({"S_lie": ln._S_lie, "S_truth": ln._S_truth}, OUT_PATH)
-EOF
+```bash
+CUDA_VISIBLE_DEVICES=1 python run_lieneuro_did_sweep.py --model qwen --device cuda:0
+# Output: outputs/generalization/qwen2p5_7b/lieneuro_did_sweep.csv
 ```
 
 ### Mistral-7B-Instruct-v0.3
@@ -94,10 +79,9 @@ Scores saved at `outputs/generalization/mistral_7b/did_scores_raw.pt` (54 GB).
 To recompute:
 
 ```bash
-CUDA_VISIBLE_DEVICES=0 python /tmp/compute_mistral_scores.py
+CUDA_VISIBLE_DEVICES=2 python run_lieneuro_did_sweep.py --model mistral --device cuda:0
+# Scores saved to outputs/generalization/mistral_7b/did_scores_raw.pt
 ```
-
-Or inline (same pattern as Qwen above, replacing `MODEL_ID` and `OUT_PATH`).
 
 ---
 
@@ -169,21 +153,38 @@ CUDA_VISIBLE_DEVICES=0 python run_lieneuro_did_samples.py --device cuda:0
 ```
 
 To use a specific config (e.g. ρ=0.04, α=4), edit `RHO`, `ALPHA`, `OUT_FILE` at
-the top of `run_lieneuro_did_samples.py`, or run the standalone script:
+the top of `run_lieneuro_did_samples.py`.
 
-```bash
-CUDA_VISIBLE_DEVICES=3 python /tmp/run_llama_logratio_samples.py
-# Output: outputs/lieneuro_did_samples_logratio_rho0.04_a4.txt
+Pre-generated sample files for ρ=0.04, α=4:
+
+```
+outputs/lieneuro_did_samples_rho0.04_a4.txt      # original run
+outputs/lieneuro_did_samples_rho0.04_a4_v2.txt   # re-verified (72% wrong rate, Δ+62%)
 ```
 
-### Llama — full parameter sweep
+### Full parameter sweep (all models)
 
 Sweeps ρ ∈ {0.01, 0.05, 0.10, 0.20} × α ∈ {0.5, 1.0, 2.0, 3.0} for both
 `set_diff` and `score_diff` modes. Saves accuracy + WikiText PPL to CSV.
+Use `--skip-scores` when scores are already computed to avoid rerunning forward passes.
 
 ```bash
-CUDA_VISIBLE_DEVICES=0 python run_lieneuro_did_sweep.py --device cuda:0 --skip-scores
-# Output: outputs/lieneuro_did_sweep.csv
+# Run all three models in parallel across GPUs
+CUDA_VISIBLE_DEVICES=0 python run_lieneuro_did_sweep.py --model llama   --device cuda:0 --skip-scores &
+CUDA_VISIBLE_DEVICES=1 python run_lieneuro_did_sweep.py --model qwen    --device cuda:0 --skip-scores &
+CUDA_VISIBLE_DEVICES=2 python run_lieneuro_did_sweep.py --model mistral --device cuda:0 --skip-scores &
+wait
+
+# Outputs:
+# outputs/lieneuro_did_sweep.csv
+# outputs/generalization/qwen2p5_7b/lieneuro_did_sweep.csv
+# outputs/generalization/mistral_7b/lieneuro_did_sweep.csv
+```
+
+Or run a single model:
+
+```bash
+CUDA_VISIBLE_DEVICES=0 python run_lieneuro_did_sweep.py --model llama --device cuda:0 --skip-scores
 ```
 
 ### Llama — top-10 layer experiment
@@ -299,8 +300,13 @@ outputs/
   produces near-zero DID scores.
 
 - **Score key names**: Llama scores use `"S_truth_instruct"` as the truth key (legacy
-  naming); Qwen and Mistral use `"S_truth"`. The `_load_scores` helper in
-  `run_lieneuro_did_generalization.py` handles both.
+  naming); Qwen and Mistral use `"S_truth"`. `run_lieneuro_did_sweep.py` handles this
+  automatically via the `truth_key` field in `MODEL_CONFIGS`. The `_load_scores` helper
+  in `run_lieneuro_did_generalization.py` also handles both keys.
+
+- **`--model` argument**: `run_lieneuro_did_sweep.py` accepts `--model llama` (default),
+  `--model qwen`, or `--model mistral`. All output paths, score keys, and model IDs are
+  looked up from the `MODEL_CONFIGS` dict at the top of the file.
 
 - **Multi-GPU**: Always set `CUDA_VISIBLE_DEVICES=<id>` before launching a job and use
   `--device cuda:0` (or `device_map="cuda:0"`) inside the script. This lets multiple
