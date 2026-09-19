@@ -10,3 +10,10 @@ outputs/baseline_eval.json
 paper/
 *.bak
 *.pyc
+*.json
+*.txt
+*.png
+*.csv
+*.jsonl
+*.npz
+*.gz
