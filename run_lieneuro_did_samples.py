@@ -23,9 +23,9 @@ from src.lie_neuro import LieNeuro, LieNeuroConfig
 from src.evaluate import FACTUAL_QA, _build_prompt, generate_answer, _is_correct
 from src.prompts import DIRECT_LIE, DIRECT_TRUTH_INSTRUCT
 
-MODEL_NAME   = "meta-llama/Llama-3.1-8B-Instruct"
-MODEL_SHORT  = "llama_8b"
-CACHE_DIR    = "/scratch/aebrahim/hf_cache"
+DEFAULT_MODEL_NAME  = "meta-llama/Llama-3.1-8B-Instruct"
+DEFAULT_MODEL_SHORT = "llama_8b"
+CACHE_DIR           = "/scratch/aebrahim/hf_cache"
 
 MODE   = "score_diff"
 TEMP   = 1.0
@@ -49,40 +49,53 @@ def sample(model, tok, q, n, device):
 
 def main():
     parser = argparse.ArgumentParser()
+    parser.add_argument("--model-name", default=DEFAULT_MODEL_NAME,
+                        help="HuggingFace model ID. Default: Llama-3.1-8B-Instruct")
+    parser.add_argument("--model-short", default=None,
+                        help="Short label used in output filenames. "
+                             "Defaults to the last path component of --model-name.")
     parser.add_argument("--device", default="cuda:0")
     parser.add_argument("--rho", type=float, default=0.04,
                         help="Importance threshold ρ (fraction of weights to steer). Default: 0.04")
     parser.add_argument("--alpha", type=float, default=4.0,
                         help="Steering scale α. Default: 4.0")
     parser.add_argument("--n-truth", type=int, default=None,
-                        help="Number of truth prompts (DIRECT_TRUTH_INSTRUCT[:n]) to use. "
-                             "Default: all available. --lie-truth-ratio is applied relative to this.")
+                        help="Number of prompts for both S_lie and S_truth "
+                             "(DIRECT_TRUTH_INSTRUCT[:n] and DIRECT_LIE[:n]). "
+                             "Default: all available (50).")
     parser.add_argument("--lie-truth-ratio", type=float, default=1.0,
-                        help="Ratio of lie prompts to truth prompts. "
-                             "ratio=1.0 (default): n_lie=n_truth (balanced). "
-                             "ratio=0.4 with --n-truth 25: n_lie=10 (legacy split).")
+                        help="DID weighting: w = ratio/(1+ratio), "
+                             "DID = w*mean(S_lie) - (1-w)*mean(S_truth). "
+                             "ratio=1.0 (default): w=0.5, equal weight. "
+                             "ratio=0.4: w≈0.286, truth-dominant. "
+                             "Does NOT affect the number of prompts used.")
+    parser.add_argument("--znorm", action="store_true",
+                        help="Use per-layer z-score normalisation for the DID score instead "
+                             "of the lie_truth_ratio weighting.")
     parser.add_argument("--exclude-lm-head", action="store_true",
                         help="Exclude lm_head and embed_tokens from the mask. "
                              "By default lm_head is included.")
     args = parser.parse_args()
     device = args.device
+    model_name  = args.model_name
+    model_short = args.model_short or args.model_name.split("/")[-1].lower().replace("-", "_")
 
     _max_truth = len(DIRECT_TRUTH_INSTRUCT)
     n_truth    = max(1, min(_max_truth, args.n_truth)) if args.n_truth is not None \
                  else _max_truth
-    n_lie      = max(0, min(len(DIRECT_LIE),
-                            round(args.lie_truth_ratio * n_truth)))
+    n_lie      = min(n_truth, len(DIRECT_LIE))   # always equal to n_truth
     skip       = ["lm_head", "embed_tokens"] if args.exclude_lm_head else []
     out_file   = Path(
-        f"outputs/lieneuro_did_samples_{MODEL_SHORT}"
-        f"_ntruth{n_truth}_ratio{args.lie_truth_ratio:.2f}.txt")
+        f"outputs/lieneuro_did_samples_{model_short}"
+        f"_ntruth{n_truth}_ratio{args.lie_truth_ratio:.2f}"
+        f"_rho{args.rho:.3f}_alpha{args.alpha:.1f}.txt")
 
-    print("Loading model …")
-    tok   = AutoTokenizer.from_pretrained(MODEL_NAME, cache_dir=CACHE_DIR)
+    print(f"Loading model {model_name} …")
+    tok   = AutoTokenizer.from_pretrained(model_name, cache_dir=CACHE_DIR)
     if tok.pad_token is None:
         tok.pad_token = tok.eos_token
     model = AutoModelForCausalLM.from_pretrained(
-        MODEL_NAME, torch_dtype=torch.float16,
+        model_name, torch_dtype=torch.float16,
         device_map=device, cache_dir=CACHE_DIR)
     model.eval()
 
@@ -91,8 +104,7 @@ def main():
     ln  = LieNeuro(model, tok, cfg)
 
     _scores_path = Path(
-        f"outputs/scores_{MODEL_SHORT}"
-        f"_ntruth{n_truth}_ratio{args.lie_truth_ratio:.2f}.pt")
+        f"outputs/scores_{model_short}_ntruth{n_truth}.pt")
 
     if _scores_path.exists():
         print(f"Loading scores from {_scores_path} …")
@@ -105,12 +117,8 @@ def main():
         ln._S_truth = ln._compute_scores_for_prompts(
             DIRECT_TRUTH_INSTRUCT[:n_truth], desc="S_truth")
 
-        if n_lie > 0:
-            print(f"Computing S_lie for DIRECT_LIE[:{n_lie}] …")
-            ln._S_lie = ln._compute_scores_for_prompts(DIRECT_LIE[:n_lie], desc="S_lie")
-        else:
-            print("lie-truth-ratio=0: skipping S_lie (DID score = −S_truth)")
-            ln._S_lie = {name: torch.zeros_like(v) for name, v in ln._S_truth.items()}
+        print(f"Computing S_lie for DIRECT_LIE[:{n_lie}] …")
+        ln._S_lie = ln._compute_scores_for_prompts(DIRECT_LIE[:n_lie], desc="S_lie")
 
     _l = "model.layers.0.self_attn.q_proj"
     if _l in ln._S_lie and _l in ln._S_truth:
@@ -118,7 +126,8 @@ def main():
         _ratio   = ln._S_lie[_l].float().sum().item() / _s_truth if _s_truth else float("nan")
         print(f"S_lie/S_truth ratio (q_proj[0]): {_ratio:.3f}")
 
-    ln.build_mask(mode=MODE)
+    ln.build_mask(mode=MODE, n_prompts=n_truth, lie_truth_ratio=args.lie_truth_ratio,
+                  znorm=args.znorm)
     print(f"Mask built: mode={MODE}  ρ={args.rho}  α={args.alpha}  "
           f"lm_head={'excluded' if skip else 'included'}")
 
@@ -127,7 +136,7 @@ def main():
 
     w("LieNeuro DID — Sample Outputs")
     w(f"Mode: {MODE}  |  ρ={args.rho}  |  α={args.alpha}  |  temperature={TEMP}")
-    w(f"Model: Llama-3.1-8B-Instruct  |  {N_REPS} samples per question")
+    w(f"Model: {model_name}  |  {N_REPS} samples per question")
     w(f"S_lie: DIRECT_LIE[:{n_lie}]  |  S_truth: DIRECT_TRUTH_INSTRUCT[:{n_truth}]")
     w(f"lm_head: {'excluded' if skip else 'included'}")
     w("=" * 72)

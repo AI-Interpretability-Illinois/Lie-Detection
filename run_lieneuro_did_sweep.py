@@ -100,16 +100,22 @@ MODEL_CONFIGS = {
     },
 }
 
-# Sweep grid
-# RHO_VALS   = [0.001, 0.005, 0.01, 0.05, 0.1, 0.5]
-# ALPHA_VALS = [0.1, 0.5, 1.0, 2.0, 4.0, 8.0]
-RHO_VALS   = [0.04]
+RHO_VALS   = [0.02, 0.04, 0.06]
 ALPHA_VALS = [4.0]
+RATIO_VALS = [0.35, 0.37, 0.39, 0.4, 0.41, 0.43, 0.45]
+
+# Sweep grid
+# RHO_VALS   = [0.01, 0.02, 0.03, 0.04, 0.05, 0.06, 0.07, 0.08, 0.09, 0.10]
+# ALPHA_VALS = [0.1, 0.5, 1.0, 2.0, 4.0, 5.0, 8.0, 10.0]
+# RHO_VALS   = [0.04]
+# ALPHA_VALS = [4.0]
+# RATIO_VALS = [0.41]
 MODES      = ["score_diff"]
 # MODES      = ["set_diff", "score_diff"]
 
 # RHO_VALS   = [0.04]
 # ALPHA_VALS = [4.0]
+# RATIO_VALS = [0.4, 0.41, 1.0]
 # MODES      = ["score_diff"]
 
 # WikiText PPL settings
@@ -303,37 +309,41 @@ def main():
                              "in the mask (no skip_modules). Use to verify the scale-mismatch "
                              "hypothesis.")
     parser.add_argument("--n-truth", type=int, default=None,
-                        help="Number of truth prompts (DIRECT_TRUTH_INSTRUCT[:n]) to use "
-                             "when computing S_truth. Default: all available prompts. "
-                             "--lie-truth-ratio is applied relative to this value, so "
-                             "--n-truth 25 --lie-truth-ratio 0.4 gives n_lie=10, n_truth=25 "
-                             "(equivalent to the legacy 10/25 split). Ignored when "
+                        help="Number of prompts (DIRECT_TRUTH_INSTRUCT[:n] and DIRECT_LIE[:n]) "
+                             "to use when computing S_truth and S_lie. Both always use the "
+                             "same count. Default: all available prompts (50). Ignored when "
                              "--legacy-scores is set.")
-    parser.add_argument("--lie-truth-ratio", type=float, default=1.0,
-                        help="Ratio of lie prompts to truth prompts used when computing "
-                             "importance scores. Applied relative to --n-truth. "
-                             "ratio=1.0 (default): n_lie = n_truth (balanced DID). "
-                             "ratio=0.4 with --n-truth 25: n_lie=10 (legacy 10/25 split). "
-                             "ratio=0.0: n_lie=0, DID score = −S_truth. Ignored when "
-                             "--legacy-scores is set.")
+    parser.add_argument("--lie-truth-ratio", default=None,
+                        help="Comma-separated DID weight value(s) to sweep over, e.g. "
+                             "'0.4,0.41,1.0'. Each value w_r = r/(1+r) controls the blend "
+                             "DID = w_r*mean(S_lie) - (1-w_r)*mean(S_truth). "
+                             "If omitted, falls back to the RATIO_VALS constant in the script."
+                             "Does NOT affect the number of prompts used. "
+                             "Ignored when --legacy-scores is set.")
     parser.add_argument("--exclude-lm-head", action="store_true",
                         help="Exclude lm_head (and embed_tokens) from the importance-score "
                              "computation and mask. By default lm_head is included. "
-                             "Ignored when --legacy-scores or --verify-legacy is set.")
+                             "Ignored when --legacy-scores is set.")
     parser.add_argument("--save-scores", action="store_true",
                         help="Save S_lie and S_truth to disk after computing them. "
-                             "Filename encodes the model, n-truth, and lie-truth-ratio "
-                             "(which determine the scores); rho/alpha are excluded since "
-                             "they only affect build_mask. Example: "
-                             "outputs/scores_llama_8b_ntruth25_ratio0.40.pt")
+                             "Filename encodes model and n-truth only (ratio does not affect "
+                             "scores, only the DID weighting). Example: "
+                             "outputs/scores_llama_8b_ntruth25.pt")
     parser.add_argument("--skip-scores", action="store_true",
                         help="Force recomputation of S_lie and S_truth even if a matching "
                              "scores file already exists on disk. By default, if a file "
-                             "matching the current model/n-truth/lie-truth-ratio is found "
-                             "it is loaded instead of recomputed.")
+                             "matching the current model/n-truth is found it is loaded "
+                             "instead of recomputed.")
     parser.add_argument("--extra-metrics", action="store_true",
                         help="Also compute mean wrong-answer length and cosine similarity "
                              "(requires sentence-transformers)")
+    parser.add_argument("--znorm", action="store_true",
+                        help="Use per-layer z-score normalisation for the DID score instead "
+                             "of the lie_truth_ratio weighting. Removes the ratio hyperparameter.")
+    parser.add_argument("--tag", default="",
+                        help="Optional label appended to the output CSV filenames, e.g. "
+                             "'--tag ablation1' produces "
+                             "lieneuro_did_sweep_llama_ntruth25_ratio0.41_ablation1.csv")
     args = parser.parse_args()
 
     device = args.device
@@ -348,9 +358,15 @@ def main():
     model_id  = mcfg["model_id"]
     trust_rc  = mcfg["trust_remote_code"]
 
-    _nt_val   = max(1, min(len(DIRECT_TRUTH_INSTRUCT), args.n_truth)) \
-                if args.n_truth is not None else len(DIRECT_TRUTH_INSTRUCT)
-    _suffix   = f"_ntruth{_nt_val}_ratio{args.lie_truth_ratio:.2f}"
+    _nt_val    = max(1, min(len(DIRECT_TRUTH_INSTRUCT), args.n_truth)) \
+                 if args.n_truth is not None else len(DIRECT_TRUTH_INSTRUCT)
+    ratio_vals = ([float(r.strip()) for r in args.lie_truth_ratio.split(",")]
+                  if args.lie_truth_ratio is not None else RATIO_VALS)
+    # include ratio in filename only when a single value is swept
+    _ratio_sfx = f"_ratio{ratio_vals[0]:.2f}" if len(ratio_vals) == 1 else "_ratiosweep"
+    _suffix    = f"_ntruth{_nt_val}{_ratio_sfx}"
+    if args.tag:
+        _suffix += f"_{args.tag}"
     sweep_csv = mcfg["sweep_csv"].with_stem(mcfg["sweep_csv"].stem + _suffix)
     wt_csv    = mcfg["wt_csv"].with_stem(mcfg["wt_csv"].stem + _suffix)
 
@@ -420,6 +436,7 @@ def main():
         print(f"[legacy] S_lie/S_truth ratio (q_proj[0]): "
               f"{ln._S_lie[_l].float().sum() / ln._S_truth[_l].float().sum():.3f}  "
               f"(expected ≈ 0.42 to confirm ebdc3e8 conditions)")
+        n_lie, n_truth = 25, 25
     else:
         skip = ["lm_head", "embed_tokens"] if args.exclude_lm_head else []
         cfg = LieNeuroConfig(device=device, skip_modules=skip)
@@ -428,42 +445,34 @@ def main():
         _max_truth  = len(DIRECT_TRUTH_INSTRUCT)
         n_truth     = max(1, min(_max_truth, args.n_truth)) if args.n_truth is not None \
                       else _max_truth
-        n_lie       = max(0, min(len(DIRECT_LIE),
-                                 round(args.lie_truth_ratio * n_truth)))
-        lie_prompts = DIRECT_LIE[:n_lie]
+        n_lie       = min(n_truth, len(DIRECT_LIE))   # always equal to n_truth
 
         _short       = mcfg["model_short"]
-        _scores_path = Path(
-            f"outputs/scores_{_short}"
-            f"_ntruth{n_truth}_ratio{args.lie_truth_ratio:.2f}.pt")
+        _scores_path = Path(f"outputs/scores_{_short}_ntruth{n_truth}.pt")
 
         if not args.skip_scores and _scores_path.exists():
             print(f"Loading scores from {_scores_path} …")
             _saved      = torch.load(_scores_path, map_location="cpu", weights_only=False)
             ln._S_lie   = _saved["S_lie"]
             ln._S_truth = _saved["S_truth"]
-            print(f"  n_truth={_saved['n_truth']}  n_lie={_saved['n_lie']}  "
-                  f"lie_truth_ratio={_saved['lie_truth_ratio']}")
+            print(f"  n_truth={_saved['n_truth']}  n_lie={_saved['n_lie']}")
         else:
-            print(f"n-truth={n_truth}  lie-truth-ratio={args.lie_truth_ratio:.3f}  "
-                  f"→  n_lie={n_lie}")
+            _ratio_desc = args.lie_truth_ratio if args.lie_truth_ratio is not None \
+                          else str(RATIO_VALS)
+            print(f"n_truth={n_truth}  n_lie={n_lie}  "
+                  f"lie-truth-ratio={_ratio_desc} (weight only, not prompt count)")
 
             print(f"Computing S_truth for DIRECT_TRUTH_INSTRUCT[:{n_truth}] …")
             ln._S_truth = ln._compute_scores_for_prompts(
                 DIRECT_TRUTH_INSTRUCT[:n_truth], desc="S_truth")
 
-            if n_lie > 0:
-                print("Computing S_lie for DIRECT_LIE …")
-                ln._S_lie = ln._compute_scores_for_prompts(lie_prompts, desc="S_lie")
-            else:
-                # ratio=0: S_lie = 0 everywhere; DID score = −S_truth
-                print("lie-truth-ratio=0: skipping S_lie (DID score = −S_truth)")
-                ln._S_lie = {name: torch.zeros_like(v) for name, v in ln._S_truth.items()}
+            print(f"Computing S_lie for DIRECT_LIE[:{n_lie}] …")
+            ln._S_lie = ln._compute_scores_for_prompts(
+                DIRECT_LIE[:n_lie], desc="S_lie")
 
             if args.save_scores:
                 torch.save({"S_lie": ln._S_lie, "S_truth": ln._S_truth,
                             "n_truth": n_truth, "n_lie": n_lie,
-                            "lie_truth_ratio": args.lie_truth_ratio,
                             "model": _short},
                            _scores_path)
                 print(f"Scores saved → {_scores_path}")
@@ -481,7 +490,7 @@ def main():
 
     # ── sweep ──────────────────────────────────────────────────────────────────
     sweep_rows = []
-    fieldnames = ["mode", "rho", "alpha", "steered_acc", "delta_wrong",
+    fieldnames = ["mode", "rho", "alpha", "lie_truth_ratio", "steered_acc", "delta_wrong",
                   "mask_coverage", "coherent_rate", "mean_wrong_len", "mean_cos_sim",
                   "wikitext_ppl"]
     with open(sweep_csv, "w", newline="") as f:
@@ -491,66 +500,69 @@ def main():
         for mode in MODES:
             for rho in RHO_VALS:
                 for alpha in ALPHA_VALS:
-                    print(f"\n── mode={mode}  ρ={rho}  α={alpha} ──")
-                    cfg_i     = LieNeuroConfig(
-                        importance_threshold=rho, alpha=alpha, device=device)
-                    ln.config = cfg_i
+                    for ratio in ratio_vals:
+                        print(f"\n── mode={mode}  ρ={rho}  α={alpha}  ratio={ratio:.3f} ──")
+                        cfg_i     = LieNeuroConfig(
+                            importance_threshold=rho, alpha=alpha, device=device)
+                        ln.config = cfg_i
 
-                    ln.build_mask(mode=mode)
-                    coverage = (sum(m.sum().item() for m in ln._mask.values()) /
-                                sum(m.numel()      for m in ln._mask.values()))
+                        ln.build_mask(mode=mode, n_prompts=n_truth,
+                                      lie_truth_ratio=ratio, znorm=args.znorm)
+                        coverage = (sum(m.sum().item() for m in ln._mask.values()) /
+                                    sum(m.numel()      for m in ln._mask.values()))
 
-                    ln.apply_steering()
-                    result = evaluate_factual_accuracy(model, tok, qa_pairs=OOD_QA, device=device, temperature=0.0)
-                    qa_wrongs = [(pq["question"], pq["gold"], pq["model_answer"])
-                                 for pq in result.per_question if not pq["correct"]]
-                    ppl = sliding_window_ppl(model, wt_tokens, WT_WINDOW, WT_STRIDE, device)
-                    ln.restore_original()
+                        ln.apply_steering()
+                        result = evaluate_factual_accuracy(model, tok, qa_pairs=OOD_QA, device=device, temperature=0.0)
+                        qa_wrongs = [(pq["question"], pq["gold"], pq["model_answer"])
+                                     for pq in result.per_question if not pq["correct"]]
+                        ppl = sliding_window_ppl(model, wt_tokens, WT_WINDOW, WT_STRIDE, device)
+                        ln.restore_original()
 
-                    qa_wrongs     = filter_truly_wrong(judges, qa_wrongs)
-                    coherent_rate = llm_judge_coherent(judges, qa_wrongs)
-                    wl  = mean_wrong_len(qa_wrongs)
-                    cos = mean_cos_sim(embed_model, qa_wrongs) if embed_model else float("nan")
+                        qa_wrongs     = filter_truly_wrong(judges, qa_wrongs)
+                        coherent_rate = llm_judge_coherent(judges, qa_wrongs)
+                        wl  = mean_wrong_len(qa_wrongs)
+                        cos = mean_cos_sim(embed_model, qa_wrongs) if embed_model else float("nan")
 
-                    if judges:
-                        steered_acc = 1.0 - len(qa_wrongs) / result.n_questions
-                    else:
-                        steered_acc = result.accuracy
-                    dw = (1.0 - steered_acc) - bl_wrong
-                    cr_str  = f"{coherent_rate:.0%}" if math.isfinite(coherent_rate) else "—"
-                    wl_str  = f"{wl:.1f}"            if math.isfinite(wl)            else "—"
-                    cos_str = f"{cos:.3f}"           if math.isfinite(cos)           else "—"
-                    print(f"  steered_acc={steered_acc:.2%}  Δwrong={dw:+.2%}  "
-                          f"coverage={coverage:.3%}  PPL={ppl:.2f}  coherent={cr_str}  "
-                          f"len={wl_str}  cos={cos_str}")
+                        if judges:
+                            steered_acc = 1.0 - len(qa_wrongs) / result.n_questions
+                        else:
+                            steered_acc = result.accuracy
+                        dw = (1.0 - steered_acc) - bl_wrong
+                        cr_str  = f"{coherent_rate:.0%}" if math.isfinite(coherent_rate) else "—"
+                        wl_str  = f"{wl:.1f}"            if math.isfinite(wl)            else "—"
+                        cos_str = f"{cos:.3f}"           if math.isfinite(cos)           else "—"
+                        print(f"  steered_acc={steered_acc:.2%}  Δwrong={dw:+.2%}  "
+                              f"coverage={coverage:.3%}  PPL={ppl:.2f}  coherent={cr_str}  "
+                              f"len={wl_str}  cos={cos_str}")
 
-                    row = {
-                        "mode":           mode,
-                        "rho":            rho,
-                        "alpha":          alpha,
-                        "steered_acc":    steered_acc,
-                        "delta_wrong":    dw,
-                        "mask_coverage":  coverage,
-                        "coherent_rate":  coherent_rate,
-                        "mean_wrong_len": wl,
-                        "mean_cos_sim":   cos,
-                        "wikitext_ppl":   ppl,
-                    }
-                    writer.writerow(row)
-                    f.flush()
-                    sweep_rows.append(row)
+                        row = {
+                            "mode":             mode,
+                            "rho":              rho,
+                            "alpha":            alpha,
+                            "lie_truth_ratio":  ratio,
+                            "steered_acc":      steered_acc,
+                            "delta_wrong":      dw,
+                            "mask_coverage":    coverage,
+                            "coherent_rate":    coherent_rate,
+                            "mean_wrong_len":   wl,
+                            "mean_cos_sim":     cos,
+                            "wikitext_ppl":     ppl,
+                        }
+                        writer.writerow(row)
+                        f.flush()
+                        sweep_rows.append(row)
 
     print(f"\nSweep complete. Results in {sweep_csv}")
 
     # ── summary table ──────────────────────────────────────────────────────────
-    print(f"\n{'mode':<12} {'ρ':>5} {'α':>5} {'Δwrong':>9} {'coverage':>10} "
+    print(f"\n{'mode':<12} {'ρ':>5} {'α':>5} {'ratio':>6} {'Δwrong':>9} {'coverage':>10} "
           f"{'coherent':>9} {'len':>6} {'cos':>6}")
-    print("─" * 72)
+    print("─" * 80)
     for r in sorted(sweep_rows, key=lambda x: -x["delta_wrong"]):
         cr  = r["coherent_rate"];  cr_s  = f"{cr:>9.0%}"  if math.isfinite(cr)  else "        —"
         wl  = r["mean_wrong_len"]; wl_s  = f"{wl:>6.1f}"  if math.isfinite(wl)  else "     —"
         cos = r["mean_cos_sim"];   cos_s = f"{cos:>6.3f}"  if math.isfinite(cos) else "     —"
-        print(f"{r['mode']:<12} {r['rho']:>5.2f} {r['alpha']:>5.1f} "
+        print(f"{r['mode']:<12} {r['rho']:>5.2f} {r['alpha']:>5.1f} {r['lie_truth_ratio']:>6.3f} "
               f"{r['delta_wrong']:>+9.2%} {r['mask_coverage']:>10.3%}{cr_s}{wl_s}{cos_s}")
 
     # ── WikiText PPL baseline ─────────────────────────────────────────────────

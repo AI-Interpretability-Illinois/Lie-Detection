@@ -289,7 +289,9 @@ class LieNeuro:
     # Step 2: Build lie-specific mask
     # ------------------------------------------------------------------
 
-    def build_mask(self, mode: str = "set_diff") -> None:
+    def build_mask(self, mode: str = "set_diff",
+                   n_prompts: int = 1, lie_truth_ratio: float = 1.0,
+                   znorm: bool = False) -> None:
         """
         Construct the binary lie-specific parameter mask M^lie-spec.
 
@@ -299,12 +301,27 @@ class LieNeuro:
             Mask = C_l \\ N_l  (lie-important AND NOT truth-important)
 
         mode="score_diff" (DID continuous score):
-            Score each weight by (S_lie - S_truth) directly.
-            Mask = top-ρ weights by (S_lie - S_truth).
-            When S_truth = S_truth_instruct, this is the DID importance
-            estimator: I_DID(w) = I(lie_instruct) - I(truth_instruct).
-            Removes the instruction-formatting confound in a single ranking
-            step without requiring a set intersection.
+            Score each weight by a weighted mean DID:
+                w = lie_truth_ratio / (1 + lie_truth_ratio)
+                DID = w * mean(S_lie) - (1-w) * mean(S_truth)
+            where mean(S_X) = S_X_sum / n_prompts (same count for both).
+            lie_truth_ratio=1.0 (default): w=0.5, equal weight.
+            lie_truth_ratio=0.0: w=0, DID = -mean(S_truth).
+            Mask = top-ρ weights by DID.
+
+            znorm=True (alternative — auto-ratio from scores):
+                Compute the optimal lie_truth_ratio directly from the scores:
+                    auto_ratio = Σ S_lie / Σ S_truth  (summed over all layers)
+                    w* = auto_ratio / (1 + auto_ratio)
+                This sets w* so that the DID threshold is exactly the global
+                average lie-specificity, selecting elements where
+                    S_lie / mean(S_lie) > S_truth / mean(S_truth)
+                The manually supplied lie_truth_ratio is ignored.
+
+        n_prompts: number of prompts used for both S_lie and S_truth.
+        lie_truth_ratio: controls the DID weighting (ignored when znorm=True).
+        znorm: if True, use per-layer z-score normalisation instead of the
+               weighted DID (score_diff mode only).
 
         Stores result in `self._mask`.
         """
@@ -324,10 +341,51 @@ class LieNeuro:
         # percentile threshold, then apply it layer-by-layer.
         attn_thresh: Optional[float] = None
         mlp_thresh:  Optional[float] = None
+        # Precompute weighting factors for score_diff mode (ignored when znorm=True).
+        # DID = w * mean(S_lie) - (1-w) * mean(S_truth)
+        # w = lie_truth_ratio / (1 + lie_truth_ratio); n_lie = n_truth = n_prompts
+        _EPS = 1e-8
+        _inv = 1.0 / n_prompts if n_prompts > 0 else 1.0
+
+        if znorm:
+            # Compute per-type S_lie / S_truth totals over exactly the masked layers.
+            _type_lie   = {"attn": 0.0, "mlp": 0.0, "other": 0.0}
+            _type_truth = {"attn": 0.0, "mlp": 0.0, "other": 0.0}
+            for _n in self._layer_names:
+                _t = ("attn"  if any(k in _n for k in _ATTN_KW) else
+                      "mlp"   if any(k in _n for k in _MLP_KW)  else
+                      "other")
+                if _n in self._S_lie:
+                    _type_lie[_t]   += self._S_lie[_n].float().sum().item()
+                    _type_truth[_t] += self._S_truth[_n].float().sum().item()
+            # w* per type: w = S_lie / (S_lie + S_truth)
+            _w_per_type = {
+                _t: _type_lie[_t] / (_type_lie[_t] + _type_truth[_t] + _EPS)
+                for _t in _type_lie
+            }
+            print("[znorm] per-type auto w*:")
+            for _t, _wt in _w_per_type.items():
+                _r = _type_lie[_t] / (_type_truth[_t] + _EPS)
+                print(f"  {_t:5s}  ratio={_r:.4f}  w*={_wt:.4f}")
+            _w = float("nan")  # not used directly; _score_diff uses _w_per_type
+        else:
+            _w_per_type = None
+            _w = lie_truth_ratio / (1.0 + lie_truth_ratio) if lie_truth_ratio > 0 else 0.0
+
+        def _layer_type(name: str) -> str:
+            if any(k in name for k in _ATTN_KW): return "attn"
+            if any(k in name for k in _MLP_KW):  return "mlp"
+            return "other"
+
+        def _score_diff(name: str, s_lie: torch.Tensor, s_truth: torch.Tensor) -> torch.Tensor:
+            """Per-layer DID score, flat."""
+            w = _w_per_type[_layer_type(name)] if _w_per_type is not None else _w
+            return (_inv * (w * s_lie.float() - (1.0 - w) * s_truth.float())).view(-1)
+
         if self.config.rho_by_type and mode == "score_diff":
             attn_diffs, mlp_diffs = [], []
             for n in self._layer_names:
-                d = (self._S_lie[n].float() - self._S_truth[n].float()).view(-1)
+                d = _score_diff(n, self._S_lie[n], self._S_truth[n])
                 if any(k in n for k in _ATTN_KW):
                     attn_diffs.append(d)
                 elif any(k in n for k in _MLP_KW):
@@ -345,9 +403,29 @@ class LieNeuro:
             logger.info("rho_by_type thresholds — attn: %.6f  mlp: %.6f",
                         attn_thresh or 0.0, mlp_thresh or 0.0)
 
+        # The per-layer top-k dominates mask construction (for an 8B model with
+        # lm_head included it is a top-31M-of-525M selection). It runs ~500x
+        # faster on the GPU that already holds the model, so score slices are
+        # moved there for the selection and the finished mask is stored back on
+        # CPU — keeping every layer's mask resident on the GPU would not fit
+        # alongside the weights. Falls back to CPU if the device is full.
+        _mask_dev = torch.device(self.config.device) if (
+            torch.cuda.is_available()
+            and str(self.config.device).startswith("cuda")
+            and not self.config.rho_by_type
+        ) else torch.device("cpu")
+
         for name in self._layer_names:
             s_lie   = self._S_lie[name].float()
             s_truth = self._S_truth[name].float()
+            if _mask_dev.type == "cuda":
+                try:
+                    s_lie   = s_lie.to(_mask_dev, non_blocking=True)
+                    s_truth = s_truth.to(_mask_dev, non_blocking=True)
+                except torch.cuda.OutOfMemoryError:
+                    torch.cuda.empty_cache()
+                    s_lie   = self._S_lie[name].float()
+                    s_truth = self._S_truth[name].float()
             n_params = s_lie.numel()
             k = max(1, int(rho * n_params))
 
@@ -358,15 +436,15 @@ class LieNeuro:
                 _, top_lie_idx   = flat_lie.topk(k)
                 _, top_truth_idx = flat_truth.topk(k)
 
-                mask_lie   = torch.zeros(n_params, dtype=torch.bool)
-                mask_truth = torch.zeros(n_params, dtype=torch.bool)
+                mask_lie   = torch.zeros(n_params, dtype=torch.bool, device=flat_lie.device)
+                mask_truth = torch.zeros(n_params, dtype=torch.bool, device=flat_truth.device)
                 mask_lie[top_lie_idx]     = True
                 mask_truth[top_truth_idx] = True
 
                 lie_specific = mask_lie & ~mask_truth  # C_l \ N_l
 
-            else:  # score_diff — DID continuous estimator
-                flat_diff = (s_lie - s_truth).view(-1)
+            else:  # score_diff — weighted mean DID (or z-score) estimator
+                flat_diff = _score_diff(name, s_lie, s_truth)
                 if self.config.rho_by_type:
                     if any(k in name for k in _ATTN_KW) and attn_thresh is not None:
                         lie_specific = flat_diff >= attn_thresh
@@ -375,20 +453,24 @@ class LieNeuro:
                     else:
                         # fallback to per-layer for unrecognised layer types
                         _, top_idx = flat_diff.topk(k)
-                        lie_specific = torch.zeros(n_params, dtype=torch.bool)
+                        lie_specific = torch.zeros(n_params, dtype=torch.bool, device=flat_diff.device)
                         lie_specific[top_idx] = True
                 else:
                     _, top_idx = flat_diff.topk(k)
-                    lie_specific = torch.zeros(n_params, dtype=torch.bool)
+                    lie_specific = torch.zeros(n_params, dtype=torch.bool, device=flat_diff.device)
                     lie_specific[top_idx] = True
 
-            self._mask[name] = lie_specific.view(s_lie.shape)
+            self._mask[name] = lie_specific.view(s_lie.shape).cpu()
+            if _mask_dev.type == "cuda":
+                del s_lie, s_truth, lie_specific
 
         total_selected = sum(m.sum().item() for m in self._mask.values())
         total_params   = sum(m.numel()      for m in self._mask.values())
         logger.info(
-            "Mask built (mode=%s, rho_by_type=%s).  ρ=%.3f  Selected %d / %d parameters (%.2f%%) as lie-specific.",
-            mode, self.config.rho_by_type, rho, total_selected, total_params, 100.0 * total_selected / total_params,
+            "Mask built (mode=%s, rho_by_type=%s, znorm=%s).  ρ=%.3f  "
+            "Selected %d / %d parameters (%.2f%%) as lie-specific.",
+            mode, self.config.rho_by_type, znorm, rho,
+            total_selected, total_params, 100.0 * total_selected / total_params,
         )
 
     # ------------------------------------------------------------------
