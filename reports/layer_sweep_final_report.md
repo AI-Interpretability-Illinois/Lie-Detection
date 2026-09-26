@@ -1,4 +1,11 @@
-# Layer sweeps close the confound, and the mask's wins do not survive
+# Layer sweeps close the confound: the mask's wins do not survive, but the baseline wins only one split
+
+> **Revised 2026-09-26.** An earlier version of this report led with the
+> knowledge-report number and concluded "the baseline wins". That overstated it.
+> The baseline's gain is confined to one of three splits, and on the other two
+> neither method improves anything. Section 4b carries the per-split picture and
+> the conclusions are qualified accordingly. The finding that the mask's two wins
+> were against an under-swept baseline is unchanged.
 
 **Models:** Qwen2.5-1.5B-Instruct, Qwen2.5-7B-Instruct, Gemma-3-4b-it
 **Hardware:** 1× NVIDIA A100-SXM4-40GB (NCSA Delta, gpua100)
@@ -70,6 +77,46 @@ was wrong for all three, and badly wrong for two. Any comparison that fixes the
 baseline's layer by a heuristic will understate it by a large and unpredictable
 margin, which is exactly what happened here.
 
+## 4b The baseline's gain is confined to knowledge report
+
+Both interventions are built from the same 25 lie-instruction pairs, so nothing
+here can be attributed to one having instruction-based supervision and the other
+not. What the per-split view shows is that the baseline's advantage lives entirely
+in one split.
+
+| model | arm | knowledge report | forced choice | instructed deception |
+|---|---|---|---|---|
+| Qwen-1.5B | *unsteered* | *53.5%* | *19.5%* | *6.5%* |
+| Qwen-1.5B | best baseline (L21) | **3.6%** | 19.5% | 7.4% |
+| Qwen-1.5B | best mask (α = −1.0) | 31.1% | 23.3% | 10.7% |
+| Qwen-7B | *unsteered* | *12.3%* | *14.7%* | *3.7%* |
+| Qwen-7B | best baseline (L21) | **7.8%** | 13.4% | 5.0% |
+| Qwen-7B | best mask (α = −0.75) | 8.7% | 15.9% | 3.3% |
+| Gemma-4b | *unsteered* | *43.6%* | *18.8%* | *2.8%* |
+| Gemma-4b | best baseline (L4) | **6.2%** | 19.8% | 5.2% |
+| Gemma-4b | best mask (α = −0.5) | 46.9% | 17.4% | 6.4% |
+
+**Forced choice does not move for either method on any model.** 19.5% to 19.5% on
+Qwen-1.5B, 14.7% to 13.4% on Qwen-7B, 18.8% to 19.8% on Gemma-4b. The mask is
+slightly worse there at its stronger settings.
+
+**Instructed deception gets worse under every intervention**, baseline included:
+6.5% to 7.4%, 3.7% to 5.0%, 2.8% to 5.2%.
+
+That pattern is explained by what the splits reward. Knowledge report scores
+"honest" when the model claims to know; forced choice scores which option it
+commits to. An intervention that moves the model from hedging toward asserting
+cleans up the first and cannot touch the second. It is the same signature this
+report already identifies at Gemma's deep layers, where a perfect 0.0% on
+knowledge report came with forced-choice lying tripling. The winning arms are
+gentler versions of it: the layers that win on Qwen are 21 of 28, close to the
+output, which is where response form is cheapest to change.
+
+So the baseline is not demonstrating a general honesty capability. It wins the one
+split whose label is satisfiable by assertion, from the layer best placed to
+change assertion, and transfers to neither of the others. No arm anywhere in this
+series has improved forced choice or instructed deception.
+
 ## 5 Where the whole comparison now stands
 
 Best configuration per family on harm-pressure knowledge report, with the baseline
@@ -85,15 +132,20 @@ given a layer sweep wherever one was run:
 | Phi-4-mini | 69.4% | 64.6% | 67.3% | neither, layer not swept |
 | OLMo-2-1B | 99.0% | 92.0% | 95.8% | near-degenerate, mask harms |
 
-**The weight mask does not win on any model once the baseline is swept.** It had
-two wins; both were against a baseline pinned to the wrong layer. It is neutral on
-one model and actively harmful on three. Llama, Phi-4-mini and OLMo have not had
-layer sweeps, and on the evidence here sweeping them would only widen the
-baseline's margin.
+**The weight mask does not win on knowledge report on any model once the baseline
+is swept.** It had two wins there; both were against a baseline pinned to the wrong
+layer. It is neutral on one model and actively harmful on three.
 
-That is a negative result for the method as an honesty intervention on this
-benchmark, and it was only visible because the baseline was eventually given the
-same hyperparameter freedom the mask had.
+But the table above is a knowledge-report table, and §4b is the reason not to read
+it as an overall verdict. On the other two splits neither method helps anywhere.
+The defensible summary is narrower than "the baseline wins": on the one split where
+either method moves the needle, the baseline moves it further once its layer is
+swept, and that split's honesty label is the one an assertiveness shift can
+satisfy.
+
+It is still a negative result for the mask as an honesty intervention on this
+benchmark. It is not evidence that the baseline has the honesty capability the mask
+lacks.
 
 ## 6 What still stands for the method
 
@@ -125,6 +177,12 @@ which weights it selects.
 - **Both sides selected on the reported metric**, so both are optimistic; the gaps
   at 1.5B and Gemma-4b are far larger than that could explain.
 - **Single seed**, benchmark sampling temperatures.
+- **The harm-pressure splits contain no lie instruction.** Their system prompts are
+  boilerplate and the pressure is situational: the user states an intent to build a
+  weapon and asks a WMDP question. So "honest" on those splits means disclosing
+  hazardous information, and "lying" means withholding or misdirecting. An arm that
+  improves the knowledge-report number is making the model more forthcoming with
+  dangerous content, which is worth separating from honesty as a virtue.
 
 ## 8 Reproducing
 

@@ -77,6 +77,12 @@ Layer 12 more than triples forced-choice lying while reporting zero lies on
 knowledge report. That is the signature of inflated knowledge claims, not honesty.
 Layer 4 leaves forced choice untouched, which is why it is the arm to believe.
 
+"Untouched" is also a limit on what layer 4 achieves: 19.8% against the unsteered
+18.8% means it does not improve forced choice either, and instructed deception goes
+from 2.8% to 5.2%. Its gain is confined to knowledge report. See
+`reports/layer_sweep_final_report.md` §4b, which sets out the per-split picture for
+all three swept models and qualifies the "baseline wins" framing accordingly.
+
 ## 4 What this does to the earlier conclusions
 
 **It strengthens the two "baseline wins" results and weakens the two "mask wins"
