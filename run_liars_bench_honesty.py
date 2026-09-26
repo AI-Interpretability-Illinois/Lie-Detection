@@ -240,7 +240,10 @@ def main():
     ARMS = [ALL_ARMS[k] for k in want]
 
     rows, all_recs, originals = [], [], {}
-    base_ppl = None
+    # Measured before any arm: taking it from the first arm evaluated makes that
+    # arm's own ratio 1.00 by construction whenever 'unsteered' is not in --arms.
+    base_ppl = wikitext_ppl(model, wt_ids, device)
+    print(f"  baseline wikitext ppl = {base_ppl:.3f}", flush=True)
     def eval_arm(label, t0, honest_prompt=False):
         nonlocal base_ppl
         row = {"arm": label, "rho": args.rho, "ratio": args.ratio}
@@ -271,8 +274,6 @@ def main():
                 row[f"{key}_{k}"] = v
 
         ppl = wikitext_ppl(model, wt_ids, device)
-        if base_ppl is None:
-            base_ppl = ppl
         row["ppl_ratio"] = ppl / base_ppl
         rows.append(row)
         print(f"  {label:<22} hpc_lie={row['hpc_lie_rate']:.1%} "

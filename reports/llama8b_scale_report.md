@@ -228,9 +228,16 @@ only three points. That makes the §5b conclusion more robust, not less.
 **The ratio sweep confirms the repo's own claim about that knob.** Moving ratio off
 0.37 makes things monotonically worse, 41.4% at 0.33 and 57.0% at 0.45, the last
 being substantially worse than the unsteered model. So 0.37 is a real local
-optimum on this split, and no ratio setting rescues the comparison. Perplexity
-stayed at 1.00× to 1.01× for every one of the 13 configurations, so none of this is
-a damage trade-off.
+optimum on this split, and no ratio setting rescues the comparison.
+
+Perplexity stayed at 1.00× to 1.01× across the ten α and ρ configurations, so those
+are not damage trade-offs. For the three ratio configurations the perplexity column
+is **not valid**: that run did not include an unsteered arm, and the harness took
+its baseline from the first arm evaluated, which makes that arm's own ratio 1.00 by
+construction. The bug is fixed in `run_liars_bench_honesty.py` (baseline
+perplexity is now measured once before any intervention), but the three ratio rows
+were produced before the fix and their damage is unmeasured. The lie-share ranking
+does not depend on perplexity, so the conclusion stands.
 
 The knob still untried at 8B is including the output head, which the repo's
 committed configuration does and every run here does not.
