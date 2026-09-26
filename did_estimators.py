@@ -81,6 +81,36 @@ EPS = 1e-8
 # Collection
 # ---------------------------------------------------------------------------
 
+# Vision-language checkpoints (Gemma-3 4b/12b, for instance) carry a vision tower
+# and a projector alongside the language model. Steering those is meaningless for
+# a text task and they must not enter the mask.
+NON_TEXT = ("vision_tower", "multi_modal_projector", "vision_model",
+            "visual", "image_encoder")
+
+
+def decoder_layers(model):
+    """The decoder block list, wherever this architecture keeps it.
+
+    Text-only models expose model.model.layers; Gemma-3's conditional-generation
+    wrapper puts the text stack under .language_model, and the exact nesting has
+    moved between transformers versions, so the candidates are tried in order.
+    """
+    for path in ("model.layers", "language_model.model.layers",
+                 "language_model.layers", "model.language_model.layers",
+                 "transformer.h", "model.decoder.layers"):
+        obj = model
+        for part in path.split("."):
+            obj = getattr(obj, part, None)
+            if obj is None:
+                break
+        if isinstance(obj, nn.ModuleList) and len(obj):
+            return obj
+    raise AttributeError(
+        "could not locate the decoder layer list; checked model.layers, "
+        "language_model[.model].layers, model.language_model.layers, "
+        "transformer.h, model.decoder.layers")
+
+
 def target_layers(model, skip=("lm_head", "embed_tokens")) -> List[str]:
     names = []
     for name, mod in model.named_modules():
@@ -88,8 +118,58 @@ def target_layers(model, skip=("lm_head", "embed_tokens")) -> List[str]:
             continue
         if any(name == s or name.endswith("." + s) for s in skip):
             continue
+        if any(part in name for part in NON_TEXT):
+            continue
         names.append(name)
     return names
+
+
+def checkpoint_dtype(model_id, cache_dir, default=torch.float16):
+    """The dtype the checkpoint was released in.
+
+    This matters more than it looks: Gemma is trained and published in bfloat16
+    and overflows in float16. Loaded as fp16, gemma-3-4b-it emits nothing but pad
+    tokens, because the forward pass has already gone non-finite. Reading the
+    dtype off the config avoids guessing per family.
+    """
+    from transformers import AutoConfig
+    try:
+        cfg = AutoConfig.from_pretrained(model_id, cache_dir=cache_dir)
+    except Exception:
+        return default
+    for obj in (getattr(cfg, "text_config", None), cfg):
+        d = getattr(obj, "torch_dtype", None) or getattr(obj, "dtype", None)
+        if isinstance(d, torch.dtype):
+            return d
+        if isinstance(d, str) and hasattr(torch, d):
+            return getattr(torch, d)
+    return default
+
+
+def load_lm(model_id, cache_dir, device, dtype=None):
+    """Load a causal LM, falling back to the image-text wrapper.
+
+    Gemma-3 4b and 12b ship as Gemma3ForConditionalGeneration, which
+    AutoModelForCausalLM refuses; their text stack is reached through
+    decoder_layers(). The 1b checkpoint is a plain Gemma3ForCausalLM.
+    dtype=None takes the checkpoint's own dtype.
+    """
+    from transformers import AutoModelForCausalLM
+    if dtype is None:
+        dtype = checkpoint_dtype(model_id, cache_dir)
+        print(f"  [load_lm] dtype={dtype}", flush=True)
+    try:
+        m = AutoModelForCausalLM.from_pretrained(
+            model_id, torch_dtype=dtype, cache_dir=cache_dir)
+    except (ValueError, KeyError, OSError) as first:
+        try:
+            from transformers import AutoModelForImageTextToText as Alt
+        except ImportError as exc:                     # very old transformers
+            raise first from exc
+        m = Alt.from_pretrained(model_id, torch_dtype=dtype, cache_dir=cache_dir)
+        print(f"  [load_lm] {type(m).__name__} via AutoModelForImageTextToText",
+              flush=True)
+    return m.to(device).eval()
 
 
 def get_module(model, name: str) -> nn.Linear:

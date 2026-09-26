@@ -48,7 +48,8 @@ from transformers import AutoModelForCausalLM, AutoTokenizer
 
 from src.activation_steering import ActivationSteering, ActivationSteeringConfig
 from src.prompts import DIRECT_LIE, DIRECT_TRUTH, DIRECT_TRUTH_INSTRUCT
-from did_estimators import cell_mean_sd, collect_column_norms, target_layers
+from did_estimators import (cell_mean_sd, collect_column_norms, load_lm,
+                            target_layers)
 from run_reversed_contrast import (SanitizeLogits, generate_batched,
                                    load_wikitext_ids, wikitext_ppl)
 from run_real_did import apply_mask, magnitude_matched, restore
@@ -113,6 +114,12 @@ def main():
     ap.add_argument("--coeff", type=float, default=8.0)
     ap.add_argument("--as-layer", type=int, default=AS_LAYER,
                     help="Layer for difference-in-means activation steering.")
+    ap.add_argument("--as-rel-coeffs", default="",
+                    help="Coefficients as FRACTIONS of the layer's median residual "
+                         "norm, e.g. '-0.12,-0.25'. Residual norms differ by three "
+                         "orders of magnitude across families (5.5 on Llama-8B at "
+                         "L8, 32 on Qwen, 1165 on Gemma-3-1b at L6), so a fixed "
+                         "coefficient is a different intervention on each model.")
     ap.add_argument("--as-coeffs", default="",
                     help="Comma-separated NEGATIVE coefficients; one arm each. "
                          "Overrides the single 'actsteer' arm when given.")
@@ -157,9 +164,7 @@ def main():
     if tok.pad_token is None:
         tok.pad_token = tok.eos_token
     tok.padding_side = "left"
-    model = AutoModelForCausalLM.from_pretrained(
-        args.model_id, torch_dtype=torch.float16, cache_dir=args.cache_dir).to(device)
-    model.eval()
+    model = load_lm(args.model_id, args.cache_dir, device)
     layers = target_layers(model)
     guard = SanitizeLogits()
     wt_ids = load_wikitext_ids(tok, args.cache_dir)
@@ -222,7 +227,7 @@ def main():
         "actsteer":  (f"actsteer:L{AS_LAYER} c=-8", ("hook", AS_LAYER, -args.coeff)),
         "prompt":    ("prompt:honest",       ("prompt", None, None)),
     }
-    if args.as_coeffs:
+    if args.as_coeffs or args.as_rel_coeffs:
         # Residual norms differ by model and layer, so the coefficient is only
         # interpretable against them; print for the record.
         with torch.no_grad():
@@ -230,7 +235,14 @@ def main():
                 DIRECT_TRUTH_INSTRUCT[:8])
         rn = acts[args.as_layer].float().norm(dim=-1).median().item()
         print(f"  median residual norm at L{args.as_layer}: {rn:.1f}", flush=True)
-        for c in [float(x) for x in args.as_coeffs.split(",")]:
+        coeffs = [float(x) for x in args.as_coeffs.split(",")] if args.as_coeffs else []
+        rel = [float(x) for x in args.as_rel_coeffs.split(",")] if args.as_rel_coeffs else []
+        for r in rel:
+            c = r * rn
+            ALL_ARMS[f"asr{r:g}"] = (
+                f"actsteer:L{args.as_layer} r={r:g} (c={c:.1f})",
+                ("hook", args.as_layer, c))
+        for c in coeffs:
             ALL_ARMS[f"as{c:g}"] = (f"actsteer:L{args.as_layer} c={c:g}",
                                     ("hook", args.as_layer, c))
     want = [k.strip() for k in args.arms.split(",") if k.strip()]
@@ -276,6 +288,9 @@ def main():
         ppl = wikitext_ppl(model, wt_ids, device)
         row["ppl_ratio"] = ppl / base_ppl
         rows.append(row)
+        with open(out_dir / f"{stem}_responses.jsonl", "w") as f:
+            for r in all_recs:
+                f.write(json.dumps(r) + "\n")
         print(f"  {label:<22} hpc_lie={row['hpc_lie_rate']:.1%} "
               f"(n={row['hpc_n_gradeable']}) hpkr_lie={row['hpkr_lie_rate']:.1%} "
               f"(n={row['hpkr_n_gradeable']}) id_share={row['id_lie_share']:.1%} "

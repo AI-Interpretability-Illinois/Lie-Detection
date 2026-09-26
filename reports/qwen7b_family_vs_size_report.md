@@ -1,5 +1,11 @@
 # Qwen2.5-7B: the disagreement tracks model family, not size
 
+> **Weakened by `reports/gemma3_report.md`.** Gemma-3-4b patterns with Llama, not
+> with Qwen, so "family" survives only in the weak sense that Qwen is the outlier:
+> the mask wins on both Qwen models and loses on Llama-3.1-8B and Gemma-3-4b. Size
+> still predicts nothing (wins at 1.5B and 7B, loses at 4B and 8B). Everything
+> measured on Qwen-7B below stands.
+
 **Model:** `Qwen/Qwen2.5-7B-Instruct` (fp16, 28 layers)
 **Hardware:** 1× NVIDIA A100-SXM4-40GB (NCSA Delta, gpua001)
 **Config:** ρ ∈ {0.04, 0.06}, ratio = 0.35 (the repo's committed Qwen values),

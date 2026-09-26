@@ -58,8 +58,8 @@ from transformers import AutoModelForCausalLM, AutoTokenizer
 from src.activation_steering import ActivationSteering, ActivationSteeringConfig
 from src.prompts import DIRECT_LIE, DIRECT_TRUTH, DIRECT_TRUTH_INSTRUCT
 from src.evaluate import EVAL_SYSTEM_PROMPT
-from did_estimators import (cell_mean_sd, collect_column_norms, get_module,
-                            target_layers)
+from did_estimators import (cell_mean_sd, collect_column_norms, load_lm, decoder_layers,
+                            get_module, target_layers)
 from run_reversed_contrast import (EVAL_QA, SanitizeLogits, generate_batched,
                                    junk, load_wikitext_ids, wikitext_ppl)
 from run_real_did import apply_mask, magnitude_matched, restore
@@ -134,8 +134,9 @@ def fit_probe(lie_acts, truth_acts, steps=400, lr=0.05):
 
 def add_hooks(model, layer_coeff_vec):
     handles = []
+    blocks = decoder_layers(model)
     for layer, coeff, vec in layer_coeff_vec:
-        p = next(model.model.layers[layer].parameters())
+        p = next(blocks[layer].parameters())
         # The vector must carry the model's dtype: adding a float32 vector to a
         # float16 hidden state promotes it, and the next Linear then sees Float
         # against Half weights.
@@ -147,8 +148,7 @@ def add_hooks(model, layer_coeff_vec):
                     return out + c * v_
                 return (out[0] + c * v_,) + out[1:]
             return hook
-        handles.append(model.model.layers[layer].register_forward_hook(
-            make(coeff, v)))
+        handles.append(blocks[layer].register_forward_hook(make(coeff, v)))
     return handles
 
 
@@ -192,9 +192,7 @@ def main():
     if tok.pad_token is None:
         tok.pad_token = tok.eos_token
     tok.padding_side = "left"
-    model = AutoModelForCausalLM.from_pretrained(
-        args.model_id, torch_dtype=torch.float16, cache_dir=args.cache_dir).to(device)
-    model.eval()
+    model = load_lm(args.model_id, args.cache_dir, device)
     layers = target_layers(model)
     guard = SanitizeLogits()
     wt_ids = load_wikitext_ids(tok, args.cache_dir)
