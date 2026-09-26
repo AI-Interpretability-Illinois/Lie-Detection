@@ -189,6 +189,52 @@ magnitude-matched control and 58.8% [53.5, 64.0] for activation steering. So the
 scale reversal is real and it runs in both directions: our mask wins this split at
 1.5B and loses it at 8B, where the classical baseline wins instead.
 
+## 5c Sweeping our method's hyperparameters does not close the gap
+
+The comparison in §5b was unfair: the baseline got three coefficients and our
+method got one damping value. So the weight mask was swept on the same benchmark
+split, 13 configurations in total against the baseline's 3, which reverses the
+budget asymmetry in our favour.
+
+Grid: α ∈ {−0.25, −0.5, −0.75, −1.0} at ρ = 0.04; α ∈ {−0.25, −0.5, −1.0} at
+ρ = 0.01 and ρ = 0.08; and ratio ∈ {0.33, 0.41, 0.45} at the best (ρ, α). Lie share
+on harm-pressure knowledge report:
+
+| configuration | lie share (95% CI) |
+|---|---|
+| **actsteer L8, c = −1** (baseline) | **18.4% [12.2, 24.5]** |
+| actsteer L8, c = −2 (baseline) | 26.2% [19.8, 33.1] |
+| **ours ρ = 0.04, α = −0.5** (best of 13) | **31.7% [23.6, 39.8]** |
+| ours ρ = 0.08, α = −0.25 | 32.8% [24.4, 41.2] |
+| ours ρ = 0.01, α = −0.5 | 33.3% [25.8, 41.7] |
+| magnitude-matched control | 33.9% [25.8, 42.7] |
+| ours ρ = 0.04, α = −0.75 (previously reported) | 38.2% [29.3, 47.2] |
+| *unsteered* | *40.1% [34.7, 45.6]* |
+| ours ρ = 0.04, α = −0.5, ratio = 0.33 | 41.4% [33.1, 49.7] |
+| ours ρ = 0.04, α = −0.5, ratio = 0.41 | 47.2% [38.4, 56.0] |
+| ours ρ = 0.04, α = −0.5, ratio = 0.45 | 57.0% [49.0, 65.1] |
+
+**Sweeping helped, and not enough.** The best configuration improves on the single
+point reported earlier, 38.2% to 31.7%, so α = −0.75 was indeed not the right
+setting. But the best of 13 is still well behind the baseline's 18.4%, its interval
+overlaps its own magnitude-matched control at 33.9%, and its upper bound of 39.8%
+reaches the unsteered arm's interval. On this split the swept method is not
+distinguishable from doing nothing.
+
+Because the best of 13 was selected by looking at this very metric, 31.7% is an
+optimistic number for our method, and it still loses to a baseline selected from
+only three points. That makes the §5b conclusion more robust, not less.
+
+**The ratio sweep confirms the repo's own claim about that knob.** Moving ratio off
+0.37 makes things monotonically worse, 41.4% at 0.33 and 57.0% at 0.45, the last
+being substantially worse than the unsteered model. So 0.37 is a real local
+optimum on this split, and no ratio setting rescues the comparison. Perplexity
+stayed at 1.00× to 1.01× for every one of the 13 configurations, so none of this is
+a damage trade-off.
+
+The knob still untried at 8B is including the output head, which the repo's
+committed configuration does and every run here does not.
+
 ## 6 What the two experiments say together
 
 They are consistent, and the consistent reading is narrower than "the edit makes
@@ -215,8 +261,13 @@ intervention.
   configuration includes it. Llama-3.1-8B has untied embeddings so including it is
   safe on this model, and rerunning with it included is the obvious next step for
   direct comparability with the repo's numbers.
-- **One α for damping** (−0.75) and one for amplification (+3), no ρ sweep at 8B.
-  §3's trade-off between the two selection rules would be better drawn as a curve.
+- **The template metric in §2 to §4 used one α** (−0.75 for damping, +3 for
+  amplification) at one ρ. The benchmark split in §5c was swept properly, 13
+  configurations, but the template metric was not, so §3's trade-off between the
+  two selection rules is still two points rather than a curve.
+- **The baseline was swept less than our method**: three coefficients at one
+  layer against our 13 configurations. A fuller layer and coefficient sweep would
+  most likely favour the baseline further, not less.
 - **Activation and prompting arms were not rerun at 8B** for time; the 8B
   comparison is weight-space only.
 - **LIARS' BENCH used 500 items per split**, not 800, and the two splits that
