@@ -114,6 +114,10 @@ def main():
     ap.add_argument("--coeff", type=float, default=8.0)
     ap.add_argument("--as-layer", type=int, default=AS_LAYER,
                     help="Layer for difference-in-means activation steering.")
+    ap.add_argument("--as-layers", default="",
+                    help="Comma-separated layers to sweep; each gets its own "
+                         "residual norm, so --as-rel-coeffs stays comparable "
+                         "across depths.")
     ap.add_argument("--as-rel-coeffs", default="",
                     help="Coefficients as FRACTIONS of the layer's median residual "
                          "norm, e.g. '-0.12,-0.25'. Residual norms differ by three "
@@ -233,15 +237,23 @@ def main():
         with torch.no_grad():
             acts = asteer._collect_last_token_activations(
                 DIRECT_TRUTH_INSTRUCT[:8])
-        rn = acts[args.as_layer].float().norm(dim=-1).median().item()
-        print(f"  median residual norm at L{args.as_layer}: {rn:.1f}", flush=True)
+        sweep_layers = ([int(x) for x in args.as_layers.split(",")]
+                        if args.as_layers else [args.as_layer])
+        norm_at = {L: acts[L].float().norm(dim=-1).median().item()
+                   for L in sweep_layers}
+        print("  median residual norm: "
+              + "  ".join(f"L{L}={norm_at[L]:.1f}" for L in sweep_layers),
+              flush=True)
+        rn = norm_at[args.as_layer] if args.as_layer in norm_at else \
+            acts[args.as_layer].float().norm(dim=-1).median().item()
         coeffs = [float(x) for x in args.as_coeffs.split(",")] if args.as_coeffs else []
         rel = [float(x) for x in args.as_rel_coeffs.split(",")] if args.as_rel_coeffs else []
-        for r in rel:
-            c = r * rn
-            ALL_ARMS[f"asr{r:g}"] = (
-                f"actsteer:L{args.as_layer} r={r:g} (c={c:.1f})",
-                ("hook", args.as_layer, c))
+        for L in sweep_layers:
+            for r in rel:
+                c = r * norm_at[L]
+                key = f"asr{r:g}" if len(sweep_layers) == 1 else f"asrL{L}_{r:g}"
+                ALL_ARMS[key] = (
+                    f"actsteer:L{L} r={r:g} (c={c:.1f})", ("hook", L, c))
         for c in coeffs:
             ALL_ARMS[f"as{c:g}"] = (f"actsteer:L{args.as_layer} c={c:g}",
                                     ("hook", args.as_layer, c))
