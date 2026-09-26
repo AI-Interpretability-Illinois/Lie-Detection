@@ -114,6 +114,8 @@ def main():
     ap.add_argument("--batch-size", type=int, default=48)
     ap.add_argument("--score-batch", type=int, default=8)
     ap.add_argument("--seed", type=int, default=0)
+    ap.add_argument("--arms", default="unsteered,ours075,ours100,magmatch,actsteer,prompt",
+                    help="Comma-separated subset of arm keys.")
     ap.add_argument("--tag", default="")
     args = ap.parse_args()
 
@@ -186,6 +188,8 @@ def main():
         del cols
     ours = build_variant(model, layers, norms, "score_diff_instruct", args.rho,
                          args.ratio, device)
+    setd = build_variant(model, layers, norms, "set_diff_instruct", args.rho,
+                         args.ratio, device)
     ctrl = magnitude_matched(model, ours, device, args.seed)
     asteer = ActivationSteering(model, tok, ActivationSteeringConfig(device=device))
     vec_path = out_dir / f"as_vectors_{short}_ntruth{args.n_truth}.pt"
@@ -196,14 +200,20 @@ def main():
                                         DIRECT_TRUTH_INSTRUCT[:args.n_truth])
         asteer.save_vectors(vec_path)
 
-    ARMS = [
-        ("unsteered",            None),
-        ("weight:ours a=-0.75",  ("mask", ours, -0.75)),
-        ("weight:ours a=-1.0",   ("mask", ours, -1.0)),
-        ("weight:magmatch",      ("mask", ctrl, -0.75)),
-        (f"actsteer:L{AS_LAYER} c=-8", ("hook", AS_LAYER, -args.coeff)),
-        ("prompt:honest",        ("prompt", None, None)),
-    ]
+    ALL_ARMS = {
+        "unsteered": ("unsteered",           None),
+        "ours075":   ("weight:ours a=-0.75", ("mask", ours, -0.75)),
+        "ours100":   ("weight:ours a=-1.0",  ("mask", ours, -1.0)),
+        "setdiff":   ("weight:set_diff a=-0.75", ("mask", setd, -0.75)),
+        "magmatch":  ("weight:magmatch",     ("mask", ctrl, -0.75)),
+        "actsteer":  (f"actsteer:L{AS_LAYER} c=-8", ("hook", AS_LAYER, -args.coeff)),
+        "prompt":    ("prompt:honest",       ("prompt", None, None)),
+    }
+    want = [k.strip() for k in args.arms.split(",") if k.strip()]
+    bad = [k for k in want if k not in ALL_ARMS]
+    if bad:
+        raise SystemExit(f"unknown arms: {bad}; choose from {list(ALL_ARMS)}")
+    ARMS = [ALL_ARMS[k] for k in want]
 
     rows, all_recs, originals = [], [], {}
     base_ppl = None

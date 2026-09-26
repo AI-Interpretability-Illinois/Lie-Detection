@@ -171,6 +171,9 @@ def main():
     ap.add_argument("--batch-size", type=int, default=50)
     ap.add_argument("--score-batch", type=int, default=8)
     ap.add_argument("--seed", type=int, default=0)
+    ap.add_argument("--variants", default="",
+                    help="Comma-separated subset of the weight-space variants; "
+                         "empty means all five.")
     ap.add_argument("--only", default="all",
                     choices=["all", "weight", "activation"],
                     help="Restrict which families are evaluated.")
@@ -289,6 +292,12 @@ def main():
     variants = (["magnitude", "set_diff_neutral", "set_diff_instruct",
                  "score_diff_neutral", "score_diff_instruct"]
                 if args.only in ("all", "weight") else [])
+    if args.variants:
+        want = [v.strip() for v in args.variants.split(",") if v.strip()]
+        unknown = [v for v in want if v not in variants and args.only != "activation"]
+        if unknown:
+            raise SystemExit(f"unknown variants: {unknown}")
+        variants = [v for v in variants if v in want]
     originals, ref_mask = {}, None
     for variant in variants:
         masks = build_variant(model, layers, norms, variant, args.rho,
