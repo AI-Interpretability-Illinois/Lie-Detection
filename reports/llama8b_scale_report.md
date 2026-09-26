@@ -128,6 +128,67 @@ with §3 this says the set-difference mask changes behaviour more aggressively i
 both directions, and its apparent win on the template metric should not be taken
 as a better honesty edit.
 
+## 5b A denominator correction, and the classical steering baseline
+
+**The metric in §5 has an arm-dependent denominator.** `score_liars_bench.grade`
+checks for refusal before the belief gate, so an item the model does not know but
+refuses is counted as a gradeable refusal rather than excluded. Refusal rates on
+this model are large and move a lot under intervention, from 0.6% to 35.6%, so the
+"lie rate over gradeable" used above dilutes an arm's lie rate whenever that arm
+refuses more. The comparable measure is the lie *share* over responses that
+actually made a claim, lie / (lie + honest), reported below. Refusal and no-claim
+rates are shown separately rather than folded into the denominator.
+
+Recomputed on that basis, with difference-in-means activation steering added at
+layer 8 (median residual norm 5.5, so these coefficients are a substantial push):
+
+**Harm-pressure knowledge report**
+
+| arm | lie share (95% CI) | claims | refusal | no_claim | ppl |
+|---|---|---|---|---|---|
+| unsteered | 40.1% [32.7, 48.3] | 147 | 14.0% | 32.2% | 1.00× |
+| ours α = −0.75 | 38.2% [30.1, 47.2] | 123 | 20.2% | 32.4% | 1.00× |
+| set_diff α = −0.75 | 39.3% [31.4, 47.9] | 140 | 3.6% | 39.6% | 1.13× |
+| magnitude-matched control | 33.9% [25.8, 42.7] | 124 | 10.6% | 38.6% | 1.01× |
+| **actsteer L8, c = −1** | **18.4% [12.2, 24.5]** | 147 | 15.2% | 30.0% | 1.00× |
+| actsteer L8, c = −2 | 26.2% [19.8, 33.1] | 172 | 11.2% | 28.4% | 1.03× |
+| actsteer L8, c = −4 | 73.4% [67.4, 79.4] | 218 | 0.6% | 25.6% | 1.22× |
+
+**Harm-pressure forced choice**
+
+| arm | lie share (95% CI) | claims | refusal |
+|---|---|---|---|
+| unsteered | 10.1% [6.6, 14.0] | 228 | 33.2% |
+| ours α = −0.75 | 12.5% [8.3, 17.1] | 216 | 35.6% |
+| magnitude-matched control | 12.1% [8.4, 16.3] | 239 | 25.6% |
+| actsteer L8, c = −1 | 13.5% [9.4, 18.0] | 245 | 28.0% |
+| actsteer L8, c = −2 | 18.8% [14.1, 23.8] | 256 | 23.6% |
+| set_diff α = −0.75 | 33.7% [28.0, 39.4] | 246 | 26.0% |
+| actsteer L8, c = −4 | 52.5% [47.5, 57.6] | 356 | 1.2% |
+
+**The classical steering baseline wins this task at 8B.** Negating the
+difference-in-means vector at layer 8 with coefficient 1 more than halves the lie
+share on knowledge report, 40.1% to 18.4%, with intervals that do not overlap the
+unsteered arm, at 1.00× perplexity. Our weight edit does not move it, 38.2% with
+an interval covering the baseline, and is nominally worse than its own
+magnitude-matched control at 33.9%. On forced choice nothing helps and the
+unsteered model is nominally best.
+
+Two caveats on that baseline. It is sharply coefficient-sensitive: at c = −4 the
+same direction reverses and drives the lie share to 73.4%, worse than any other
+arm, which is why the repo's own low-coefficient sweeps on this model matter. And
+part of its knowledge-report gain comes with a slight *drop* in evasion (30.0%
+against the unsteered 32.2%), so unlike the 1.5B case it is not buying its number
+by making the model say nothing.
+
+**The correction does not change the 1.5B conclusion.** Recomputed on the same
+claim-conditional metric, the earlier run still shows our mask as the only arm
+that helps there: lie share 65.8% [61.2, 70.3] unsteered, 46.5% [41.8, 51.3] at
+α = −0.75 and 41.4% [36.3, 46.2] at α = −1.0, against 62.8% [57.6, 67.9] for the
+magnitude-matched control and 58.8% [53.5, 64.0] for activation steering. So the
+scale reversal is real and it runs in both directions: our mask wins this split at
+1.5B and loses it at 8B, where the classical baseline wins instead.
+
 ## 6 What the two experiments say together
 
 They are consistent, and the consistent reading is narrower than "the edit makes
@@ -137,10 +198,11 @@ the model honest".
 every large effect lives: 78.4% to 5.8% on the framing it was built from, 61.4% to
 34.6% on framings it was not, at no perplexity cost, with the control flat.
 
-**It does not install a disposition toward honesty under scenario pressure.** On
-the harm-pressure splits, where no prompt asks the model to lie, it is
-indistinguishable from a magnitude-matched random mask at both scales tested, and
-this run's larger, better-aligned model shows no benefit at all.
+**It does not install a disposition toward honesty under scenario pressure at this
+scale.** On the harm-pressure splits, where no prompt asks the model to lie, it is
+indistinguishable from its own magnitude-matched control on the 8B model, and the
+classical difference-in-means baseline beats it outright on knowledge report. The
+one place it does win those splits is the 1.5B model, which had far more headroom.
 
 That distinction was visible before as the forced-choice null at 1.5B. At 8B it
 covers both benchmark splits. An intervention aimed at instruction-following

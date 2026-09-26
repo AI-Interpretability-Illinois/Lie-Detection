@@ -111,6 +111,11 @@ def main():
     ap.add_argument("--n-id", type=int, default=400)
     ap.add_argument("--n-alpaca", type=int, default=150)
     ap.add_argument("--coeff", type=float, default=8.0)
+    ap.add_argument("--as-layer", type=int, default=AS_LAYER,
+                    help="Layer for difference-in-means activation steering.")
+    ap.add_argument("--as-coeffs", default="",
+                    help="Comma-separated NEGATIVE coefficients; one arm each. "
+                         "Overrides the single 'actsteer' arm when given.")
     ap.add_argument("--batch-size", type=int, default=48)
     ap.add_argument("--score-batch", type=int, default=8)
     ap.add_argument("--seed", type=int, default=0)
@@ -209,6 +214,17 @@ def main():
         "actsteer":  (f"actsteer:L{AS_LAYER} c=-8", ("hook", AS_LAYER, -args.coeff)),
         "prompt":    ("prompt:honest",       ("prompt", None, None)),
     }
+    if args.as_coeffs:
+        # Residual norms differ by model and layer, so the coefficient is only
+        # interpretable against them; print for the record.
+        with torch.no_grad():
+            acts = asteer._collect_last_token_activations(
+                DIRECT_TRUTH_INSTRUCT[:8])
+        rn = acts[args.as_layer].float().norm(dim=-1).median().item()
+        print(f"  median residual norm at L{args.as_layer}: {rn:.1f}", flush=True)
+        for c in [float(x) for x in args.as_coeffs.split(",")]:
+            ALL_ARMS[f"as{c:g}"] = (f"actsteer:L{args.as_layer} c={c:g}",
+                                    ("hook", args.as_layer, c))
     want = [k.strip() for k in args.arms.split(",") if k.strip()]
     bad = [k for k in want if k not in ALL_ARMS]
     if bad:

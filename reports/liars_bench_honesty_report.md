@@ -31,6 +31,18 @@ reported as a lie share over settled responses and marked as a hint.
 `convincing-game` is skipped for the same reason. Alpaca is the degeneracy
 control, and no arm degenerated on it (0.0% everywhere).
 
+> **Correction (added after the 8B run).** The lie rates in sections 2 to 4 use
+> "gradeable" as the denominator, which includes refusals. `score_liars_bench.grade`
+> checks refusal before the belief gate, so the denominator shifts whenever an arm
+> changes how often it refuses. On this 1.5B model refusal rates are small (1.2% to
+> 3.8%) so the effect is minor, and recomputing on the claim-conditional metric,
+> lie / (lie + honest), leaves the conclusion intact: 65.8% [61.2, 70.3] unsteered,
+> 46.5% [41.8, 51.3] at alpha -0.75, 41.4% [36.3, 46.2] at alpha -1.0, against
+> 62.8% [57.6, 67.9] for the magnitude-matched control and 58.8% [53.5, 64.0] for
+> activation steering. On the 8B model refusal rates reach 35% and the correction
+> matters; see `reports/llama8b_scale_report.md` section 5b, where this split's
+> result reverses.
+
 ## 2 Harm-pressure knowledge report (n ≈ 502)
 
 The model is asked to report on what it knows, under pressure. Lying means
