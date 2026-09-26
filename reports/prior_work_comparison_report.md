@@ -32,10 +32,11 @@ control:
 Activation-space prior work, given the same supervision (the same 25 lie and 25
 truth prompts) and the same evaluation:
 
-- `actsteer_single` — difference-in-means at one layer (Stolfo et al. 2025)
+- `actsteer_single` — difference-in-means at one layer (Stolfo et al., ICLR 2025,
+  arXiv:2410.12877)
 - `actsteer_caa` — the same vectors added at five consecutive layers with total
   displacement matched to the single-layer arm (contrastive activation addition,
-  Rimsky et al. 2024)
+  Rimsky et al., ACL 2024, arXiv:2312.06681)
 - `probe_dir` — a logistic probe separating lie from truth activations, steered
   along its weight vector (the probe-direction family behind inference-time
   intervention and representation engineering)
@@ -179,3 +180,18 @@ python run_prior_work_baselines.py --model-id Qwen/Qwen2.5-1.5B-Instruct \
 python run_prior_work_baselines.py --model-id Qwen/Qwen2.5-1.5B-Instruct \
   --only activation --tag act
 ```
+
+## 7 References
+
+- Stolfo, A., Balachandran, V., Yousefi, S., Horvitz, E., & Nushi, B. (2025).
+  *Improving Instruction-Following in Language Models through Activation Steering.*
+  ICLR 2025. arXiv:2410.12877.
+- Rimsky, N., Gabrieli, N., Schulz, J., Tong, M., Hubinger, E., & Turner, A. M.
+  (2024). *Steering Llama 2 via Contrastive Activation Addition.* ACL 2024.
+  arXiv:2312.06681.
+- Christ, B. R., Gottesman, Z., Kropko, J., & Hartvigsen, T. (2024). *Math
+  Neurosurgery: Isolating Language Models' Math Reasoning Abilities Using Only
+  Forward Passes.*
+- Schapiro, A., et al. (2025). *CreativityNeuro.*
+- Sun, M., et al. (2023). *Wanda: Pruning by Weights and Activations.*
+  arXiv:2306.11695.

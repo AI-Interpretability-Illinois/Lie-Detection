@@ -256,7 +256,7 @@ The assumption could be violated if the model encodes the truth/lie distinction 
 
 ## 5  Activation Steering — Naive (Difference-in-Means)
 
-**Reference:** Stolfo et al. (ICLR 2025)  
+**Reference:** Stolfo et al., *Improving Instruction-Following in Language Models through Activation Steering*, ICLR 2025 (arXiv:2410.12877)  
 **Source:** `src/activation_steering.py`, `run_activation_steering_sweep.py`
 
 ### 5.1  Motivation
@@ -574,6 +574,7 @@ The DID L8 c=2 configuration is currently the strongest sweet-spot result: **+18
 ## 11  References
 
 - Schapiro, A., et al. (2025). *CreativityNeuro: Steering Language Model Weights to Improve Divergent Thinking.*
-- Stolfo, A., et al. (ICLR 2025). *Mechanistic Interpretability for AI Safety: Activation Steering for Instruction-Following.*
+- Stolfo, A., Balachandran, V., Yousefi, S., Horvitz, E., & Nushi, B. (2025). *Improving Instruction-Following in Language Models through Activation Steering.* ICLR 2025. arXiv:2410.12877.
+- Rimsky, N., Gabrieli, N., Schulz, J., Tong, M., Hubinger, E., & Turner, A. M. (2024). *Steering Llama 2 via Contrastive Activation Addition.* ACL 2024. arXiv:2312.06681.
 - Sun, M., et al. (2023). *Wanda: Pruning by Weights and Activations.* arXiv:2306.11695.
 - Angrist, J. D., & Pischke, J.-S. (2009). *Mostly Harmless Econometrics.* Princeton University Press. (DID framework)

@@ -1,7 +1,9 @@
 """
 Activation steering for the lie/truth axis.
 
-Implements the difference-in-means method from Stolfo et al. (ICLR 2025):
+Implements the difference-in-means method of Stolfo et al., "Improving
+Instruction-Following in Language Models through Activation Steering", ICLR 2025
+(arXiv:2410.12877):
   u_l = normalize( mean_i( h_lie_{i,l} - h_truth_{i,l} ) )
 
 At inference time the vector is added to the residual stream at a chosen layer:
