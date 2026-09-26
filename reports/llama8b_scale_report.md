@@ -1,5 +1,12 @@
 # Scaling to Llama-3.1-8B-Instruct: two earlier conclusions reverse
 
+> **Superseded in part by `reports/qwen7b_family_vs_size_report.md`.** This report
+> reads the disagreement between 1.5B and 8B as a scale effect. Adding
+> Qwen2.5-7B-Instruct, the same size class as Llama-8B, shows it patterns with
+> Qwen-1.5B instead: the weight mask wins on both Qwen models and loses only on
+> Llama. The difference is model family, not size. Section 6's scale framing below
+> is wrong; everything measured on Llama-8B stands.
+
 **Model:** `meta-llama/Meta-Llama-3.1-8B-Instruct` (fp16, instruction-tuned, 32 layers, untied embeddings)
 **Hardware:** 1× NVIDIA A100-SXM4-40GB (NCSA Delta, gpua075)
 **Config:** ρ = 0.04, ratio = 0.37, output head excluded
