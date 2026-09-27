@@ -26,13 +26,15 @@ This run supplies one. Five masks are built from the **same** pair of score
 tensors, all with the same per-layer element count and all amplified with the
 same α:
 
-| arm | selection rule |
-|---|---|
-| `forward` | top-ρ by DID — the method |
-| `reverse` | top-ρ by `v·S_truth − (1−v)·S_lie` — the two arms exchanged, same selectivity threshold |
-| `antitop` | bottom-ρ by DID — the least lie-specific weights in each layer |
-| `random` | uniform random per layer, same k |
-| `magmatch` | random, stratified to reproduce the forward mask's \|W\| decile histogram |
+
+| arm        | selection rule                                                                          |
+| ---------- | --------------------------------------------------------------------------------------- |
+| `forward`  | top-ρ by DID — the method                                                               |
+| `reverse`  | top-ρ by `v·S_truth − (1−v)·S_lie` — the two arms exchanged, same selectivity threshold |
+| `antitop`  | bottom-ρ by DID — the least lie-specific weights in each layer                          |
+| `random`   | uniform random per layer, same k                                                        |
+| `magmatch` | random, stratified to reproduce the forward mask's |W| decile histogram                 |
+
 
 If `reverse` or `magmatch` induces as many fluent falsehoods as `forward` at the
 same perplexity cost, the intervention is amplifying whatever is contrast-extreme
@@ -64,31 +66,37 @@ collapsed arm produces, which would otherwise score as a perfect lie.
 
 Clean flips on baseline-correct items, greedy pass, 95% bootstrap CI, n = 92.
 
-| arm | α | WikiText ppl ratio | clean flips | junk |
-|---|---|---|---|---|
-| none | — | 1.00× | 0.0% | 14% |
-| forward | 1 | 1.03× | 2.2% [0.0, 5.4] | 14% |
-| forward | 2 | 1.13× | 3.3% [0.0, 7.6] | 13% |
-| forward | 3 | 1.33× | **15.2%** [8.7, 22.8] | 2% |
-| forward | 4 | 1.76× | 5.4% [1.1, 10.9] | 2% |
-| forward | 5 | 3.37× | 2.2% [0.0, 5.4] | 0% |
-| reverse | 4 | 1.15× | 6.5% [2.2, 12.0] | 16% |
-| reverse | 6 | 1.79× | 8.7% [3.3, 15.2] | 19% |
-| reverse | 8 | 8.55× | 20.7% [13.0, 29.3] | 19% |
-| magmatch | 3 | 1.34× | 7.6–9.8% (2 seeds) | 16% |
-| magmatch | 4 | 1.79× | **19.6–21.7%** (2 seeds) | 15% |
-| magmatch | 5 | 3.00× | 8.7–17.4% (2 seeds) | 15% |
-| random | 2 | 183× | 2.2% | 15% |
-| antitop | 1 | 177,187× | 0.0% | 95% |
+
+| arm      | α   | WikiText ppl ratio | clean flips              | junk |
+| -------- | --- | ------------------ | ------------------------ | ---- |
+| none     | —   | 1.00×              | 0.0%                     | 14%  |
+| forward  | 1   | 1.03×              | 2.2% [0.0, 5.4]          | 14%  |
+| forward  | 2   | 1.13×              | 3.3% [0.0, 7.6]          | 13%  |
+| forward  | 3   | 1.33×              | **15.2%** [8.7, 22.8]    | 2%   |
+| forward  | 4   | 1.76×              | 5.4% [1.1, 10.9]         | 2%   |
+| forward  | 5   | 3.37×              | 2.2% [0.0, 5.4]          | 0%   |
+| reverse  | 4   | 1.15×              | 6.5% [2.2, 12.0]         | 16%  |
+| reverse  | 6   | 1.79×              | 8.7% [3.3, 15.2]         | 19%  |
+| reverse  | 8   | 8.55×              | 20.7% [13.0, 29.3]       | 19%  |
+| magmatch | 3   | 1.34×              | 7.6–9.8% (2 seeds)       | 16%  |
+| magmatch | 4   | 1.79×              | **19.6–21.7%** (2 seeds) | 15%  |
+| magmatch | 5   | 3.00×              | 8.7–17.4% (2 seeds)      | 15%  |
+| random   | 2   | 183×               | 2.2%                     | 15%  |
+| antitop  | 1   | 177,187×           | 0.0%                     | 95%  |
+
 
 Compared at matched damage rather than matched α (ρ = 0.04):
 
-| WikiText ppl | best arm | forward |
-|---|---|---|
-| ~1.14× | reverse 6.5% | 3.3% |
-| ~1.34× | **forward 15.2%** | 15.2% |
-| ~1.79× | magmatch 21.7% | 5.4% |
-| ~3.0× | magmatch 17.4% | 2.2% |
+
+| WikiText ppl | best arm          | forward |
+| ------------ | ----------------- | ------- |
+| ~1.14×       | reverse 6.5%      | 3.3%    |
+| ~1.34×       | **forward 15.2%** | 15.2%   |
+| ~1.79×       | magmatch 21.7%    | 5.4%    |
+| ~3.0×        | magmatch 17.4%    | 2.2%    |
+
+
+
 
 ### The same three arms at ρ = 0.02 and ρ = 0.08
 
@@ -96,11 +104,13 @@ Compared at matched damage rather than matched α (ρ = 0.04):
 the mask size. Each arm's best clean-flip rate over α ∈ {2,3,4,5}, with the
 perplexity it cost:
 
-| ρ | forward | magmatch | reverse |
-|---|---|---|---|
-| 0.02 | **18.5% @ 1.29×** | 20.7% @ 2.39× | 5.4% @ 1.26× |
-| 0.04 | **15.2% @ 1.33×** | 21.7% @ 1.78× | 8.7% @ 1.79× |
+
+| ρ    | forward           | magmatch      | reverse       |
+| ---- | ----------------- | ------------- | ------------- |
+| 0.02 | **18.5% @ 1.29×** | 20.7% @ 2.39× | 5.4% @ 1.26×  |
+| 0.04 | **15.2% @ 1.33×** | 21.7% @ 1.78× | 8.7% @ 1.79×  |
 | 0.08 | **19.6% @ 1.37×** | 16.3% @ 2.44× | 13.0% @ 1.34× |
+
 
 The forward mask peaks at 15–20% in all three, always near 1.3× perplexity. The
 magnitude-matched control reaches comparable rates, 16–21%, but needs 1.8–2.4×
@@ -137,14 +147,14 @@ does not buy more lying, it buys verbosity and collapse.
 **Which random control you use decides the answer.** A uniform random mask is
 catastrophic at α ≥ 2 (perplexity 10⁵×), while the magnitude-matched one at the
 same α and count is benign and more effective than the method. A random-mask
-control that ignores \|W\| would have made the method look specific.
+control that ignores W would have made the method look specific.
 
 **Raw wrong-rate points the wrong way.** Forward's wrong-rate keeps climbing with
 α (15.3% → 43.7% → 49.3%) while its clean flips fall after α = 3. The extra
 "wrongness" is verbosity defeating the substring grader: at α = 4, 16.3% of
 baseline-correct items produce a long flip against 5.4% terse ones.
 
-**`antitop` destroys the model at α = 1** (perplexity 177,187×, 95% junk), which
+`antitop` **destroys the model at α = 1** (perplexity 177,187×, 95% junk), which
 is the one result that does favour the DID ranking: the bottom of the ranking is
 load-bearing in a way the top is not.
 
@@ -154,14 +164,14 @@ The DID mask carries real signal, and it is narrower than the method's framing
 implies. Three findings, in order of confidence:
 
 1. **At its operating point the mask is about twice as damage-efficient as a
-   matched random control**, and this reproduces at ρ = 0.02, 0.04 and 0.08. The
+  matched random control**, and this reproduces at ρ = 0.02, 0.04 and 0.08. The
    committed configurations sit in exactly that band. This is the first control
    evidence on the weight side that the DID ranking is not arbitrary.
 2. **The effect is efficiency, not exclusivity.** A magnitude-matched random mask
-   reaches the same 16–21% ceiling given 1.8–2.4× perplexity instead of 1.3×, and
+  reaches the same 16–21% ceiling given 1.8–2.4× perplexity instead of 1.3×, and
    above ~1.5× it overtakes the DID mask outright.
 3. **Reversing the contrast weakens the effect without removing it.** Amplifying
-   truth-specific weights still yields clean falsehoods at rates that overlap the
+  truth-specific weights still yields clean falsehoods at rates that overlap the
    forward mask's at matched damage in one of three mask sizes. Whatever the mask
    selects is not deception-only.
 
@@ -176,22 +186,24 @@ actually competes.
 ## 5 Limits
 
 - **Scale.** Qwen2.5-1.5B-Instruct, chosen to fit score tensors in a 64 GB
-  allocation within a one-hour window. ρ = 0.04 and ratio = 0.37 were tuned on
-  Llama-3.1-8B. The controls should be rerun at 7–8B before the conclusion is
-  generalised; nothing here says these rates transfer upward. A 7B rerun needs
-  ~50 GB of RAM for the two score tensors, so request `--mem=120G`.
+allocation within a one-hour window. ρ = 0.04 and ratio = 0.37 were tuned on
+Llama-3.1-8B. The controls should be rerun at 7–8B before the conclusion is
+generalised; nothing here says these rates transfer upward. A 7B rerun needs
+~50 GB of RAM for the two score tensors, so request `--mem=120G`.
 - **ratio was not swept.** It is the knob the repo found most consequential, and
-  every arm here uses 0.37. The controls should be repeated at the ratio each
-  model actually prefers.
+every arm here uses 0.37. The controls should be repeated at the ratio each
+model actually prefers.
 - **lm_head excluded.** This model ties input and output embeddings, so editing
-  `lm_head` would also edit the embedding matrix. The repo's committed runs
-  include it (`skip_modules=[]`), which is safe only on the untied 7B models.
+`lm_head` would also edit the embedding matrix. The repo's committed runs
+include it (`skip_modules=[]`), which is safe only on the untied 7B models.
 - **No LLM judge.** Grading is substring match with a length split standing in
-  for the repo's semantic-equivalence judge. The clean-flip counts are a floor.
+for the repo's semantic-equivalence judge. The clean-flip counts are a floor.
 - **Power.** n = 92 baseline-correct items gives ±5–9 points at these rates, so
-  the 1.34× band's ordering is suggestive, not established.
+the 1.34× band's ordering is suggestive, not established.
 - **Seeds.** `random` and `magmatch` were run at two seeds; `forward`, `reverse`
-  and `antitop` are deterministic given the scores.
+and `antitop` are deterministic given the scores.
+
+
 
 ## 6 Reproducing
 

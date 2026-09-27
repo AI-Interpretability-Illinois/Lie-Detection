@@ -166,6 +166,14 @@ def main():
     ap.add_argument("--damp", default="-0.75,-1.0")
     ap.add_argument("--amp", default="2.0,3.0")
     ap.add_argument("--coeff", type=float, default=8.0)
+    ap.add_argument("--as-layers", default="",
+                    help="Comma-separated layers to sweep for difference-in-means. "
+                         "When given, only the single-layer arm is swept.")
+    ap.add_argument("--as-rel-coeffs", default="",
+                    help="Coefficients as FRACTIONS of each layer's own median "
+                         "residual norm, sign included. Required when sweeping depth: "
+                         "the norm varies strongly with layer, so a fixed coefficient "
+                         "is a different intervention at each one.")
     ap.add_argument("--reps", type=int, default=1)
     ap.add_argument("--temp", type=float, default=1.0)
     ap.add_argument("--batch-size", type=int, default=50)
@@ -326,21 +334,35 @@ def main():
     # ── activation-space prior work ──────────────────────────────────────────
     if args.only in ("all", "activation"):
         print("\n── activation steering ──", flush=True)
-        as_vec = asteer.steering_vectors[AS_LAYER].float()
         caa_vecs = [(l, asteer.steering_vectors[l].float()) for l in CAA_LAYERS]
-        for sign in (-1.0, +1.0):
-            c = sign * args.coeff
-            for label, spec in [
-                    ("actsteer_single", [(AS_LAYER, c, as_vec)]),
-                    # Total injected displacement matched to the single-layer arm.
-                    ("actsteer_caa", [(l, c / len(caa_vecs), v) for l, v in caa_vecs]),
-                    ("probe_dir", [(PROBE_LAYER, c, probe_vec)])]:
-                hs = add_hooks(model, spec)
-                recs = ev()
-                ppl = wikitext_ppl(model, wt_ids, device)
-                for h in hs:
-                    h.remove()
-                tally("activation", label, c, recs, ppl)
+        sweeping = bool(args.as_layers)
+        sweep_layers = ([int(x) for x in args.as_layers.split(",")] if sweeping
+                        else [AS_LAYER])
+        norm_at = {l: tru_acts[l].float().norm(dim=-1).median().item()
+                   for l in sweep_layers}
+        print("  median residual norm: "
+              + "  ".join(f"L{l}={norm_at[l]:.1f}" for l in sweep_layers), flush=True)
+        rel = ([float(x) for x in args.as_rel_coeffs.split(",")]
+               if args.as_rel_coeffs else [])
+        for layer in sweep_layers:
+            as_vec_l = asteer.steering_vectors[layer].float()
+            # Relative coefficients carry their own sign; absolute mode sweeps both.
+            plan = ([(r * norm_at[layer], f":r{r:g}") for r in rel] if rel
+                    else [(sign * args.coeff, "") for sign in (-1.0, +1.0)])
+            for c, sfx in plan:
+                specs = [(f"actsteer_single:L{layer}{sfx}", [(layer, c, as_vec_l)])]
+                if not sweeping:   # the multi-layer and probe arms are layer-fixed
+                    specs += [
+                        ("actsteer_caa",
+                         [(l, c / len(caa_vecs), v) for l, v in caa_vecs]),
+                        ("probe_dir", [(PROBE_LAYER, c, probe_vec)])]
+                for label, spec in specs:
+                    hs = add_hooks(model, spec)
+                    recs = ev()
+                    ppl = wikitext_ppl(model, wt_ids, device)
+                    for h in hs:
+                        h.remove()
+                    tally("activation", label, c, recs, ppl)
 
 
     with open(out_dir / f"{stem}_responses.jsonl", "w") as f:

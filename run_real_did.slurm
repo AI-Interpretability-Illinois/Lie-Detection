@@ -9,9 +9,9 @@
 #SBATCH --time=01:00:00
 #SBATCH --output=slurm_logs/lie_did_%j.out
 #SBATCH --error=slurm_logs/lie_did_%j.out
-set -u
 source ~/.bashrc >/dev/null 2>&1
 conda activate modularity
+set -u   # after bashrc: /etc/bashrc trips -u on BASHRCSOURCED
 export HF_HOME=/work/hdd/bfqt/xiaocong/hf_cache TOKENIZERS_PARALLELISM=false PYTHONUNBUFFERED=1
 cd /u/xiaocong/lie_detection
 python run_real_did.py --model-id "${MODEL_ID:-Qwen/Qwen2.5-1.5B-Instruct}" \

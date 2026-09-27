@@ -6,6 +6,14 @@
 **Code:** `run_prior_work_baselines.py`
 **Date:** 2026-09-25
 
+> **Superseded in part.** This report steers the mask at α = −0.75 and activation
+> steering at a single layer. Both hyperparameters matter: full ablation beats
+> −0.75 by 27 points on Llama-8B, and a layer sweep reverses two of the mask's
+> LIARS' BENCH wins on this model. For the comparison with both methods swept, see
+> `head_to_head_llama8b_report.md` (Llama-3.1-8B, mask ahead by 21 points) and
+> `layer_sweep_final_report.md` (Qwen-1.5B, baseline ahead). The two models
+> disagree; the honest summary is in the first of those.
+
 ---
 
 ## 1 What was compared

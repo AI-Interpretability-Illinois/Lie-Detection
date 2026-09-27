@@ -17,3 +17,4 @@ paper/
 *.jsonl
 *.npz
 *.gz
+slurm_logs/

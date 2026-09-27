@@ -9,9 +9,9 @@
 #SBATCH --time=01:00:00
 #SBATCH --output=slurm_logs/lie_lb_%j.out
 #SBATCH --error=slurm_logs/lie_lb_%j.out
-set -u
 source ~/.bashrc >/dev/null 2>&1
 conda activate modularity
+set -u   # after bashrc: /etc/bashrc trips -u on BASHRCSOURCED
 export HF_HOME=/work/hdd/bfqt/xiaocong/hf_cache HF_CACHE_DIR=/work/hdd/bfqt/xiaocong/hf_cache
 export TOKENIZERS_PARALLELISM=false PYTHONUNBUFFERED=1 HF_HUB_DISABLE_XET=1
 cd /u/xiaocong/lie_detection
