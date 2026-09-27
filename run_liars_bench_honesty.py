@@ -47,7 +47,8 @@ import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
 from src.activation_steering import ActivationSteering, ActivationSteeringConfig
-from src.prompts import DIRECT_LIE, DIRECT_TRUTH, DIRECT_TRUTH_INSTRUCT
+from src.prompts import (DIRECT_LIE, DIRECT_TRUTH, DIRECT_TRUTH_INSTRUCT,
+                        DIRECT_FICTION_FALSE, DIRECT_HONEST_ERROR)
 from did_estimators import (cell_mean_sd, collect_column_norms, load_lm,
                             target_layers)
 from run_reversed_contrast import (SanitizeLogits, generate_batched,
@@ -138,6 +139,11 @@ def main():
     ap.add_argument("--mask-alphas", default="",
                     help="Comma-separated NEGATIVE alphas for that grid. Masks are "
                          "built one rho at a time so only one is in memory.")
+    ap.add_argument("--falsehood-arms", action="store_true",
+                    help="Also score column norms for the fiction and mistake "
+                         "framings and enable the pooled/fiction treatment arms. "
+                         "The placebo test showed these track the same axis as "
+                         "the lie instruction, and pooling should sharpen it.")
     ap.add_argument("--arms", default="unsteered,ours075,ours100,magmatch,actsteer,prompt",
                     help="Comma-separated subset of arm keys.")
     ap.add_argument("--tag", default="")
@@ -200,19 +206,45 @@ def main():
                 f.write(json.dumps({"uid": uid, "response": r}) + "\n")
 
     # ── interventions ────────────────────────────────────────────────────────
+    # Which arms were asked for decides which masks get built. A boolean mask
+    # costs ~1 byte per maskable weight, so on an 8B model each unused arm is
+    # 6.5 GB of host RAM for nothing.
+    want = [k.strip() for k in args.arms.split(",") if k.strip()]
+
+    treatments = [("lie", DIRECT_LIE), ("neutral", DIRECT_TRUTH),
+                  ("instruct", DIRECT_TRUTH_INSTRUCT)]
+    if args.falsehood_arms:
+        # The placebo test showed the contrast tracks instructed falsehood, not
+        # deceptive intent, so the treatment arm is pooled over falsehood styles.
+        treatments += [("fiction", DIRECT_FICTION_FALSE),
+                       ("error", DIRECT_HONEST_ERROR)]
     norms = {}
-    for key, prompts in [("lie", DIRECT_LIE), ("neutral", DIRECT_TRUTH),
-                         ("instruct", DIRECT_TRUTH_INSTRUCT)]:
+    for key, prompts in treatments:
         cols = collect_column_norms(
             model, tok, [{"prompt": p} for p in prompts[:args.n_truth]],
             layers, device, position="prompt", batch_size=args.score_batch)
         norms[key], _, _ = cell_mean_sd(cols)
+        print(f"  norms[{key}]", flush=True)
         del cols
-    ours = build_variant(model, layers, norms, "score_diff_instruct", args.rho,
-                         args.ratio, device)
-    setd = build_variant(model, layers, norms, "set_diff_instruct", args.rho,
-                         args.ratio, device)
-    ctrl = magnitude_matched(model, ours, device, args.seed)
+
+    def variant(nm, key="lie"):
+        """score_diff_instruct with `key` as the treatment arm."""
+        nn = dict(norms, lie=norms[key]) if key != "lie" else norms
+        return build_variant(model, layers, nn, nm, args.rho, args.ratio, device)
+
+    ours = variant("score_diff_instruct")
+    setd = (variant("set_diff_instruct")
+            if any(k == "setdiff" for k in want) else None)
+    ctrl = (magnitude_matched(model, ours, device, args.seed)
+            if any(k.startswith("magmatch") for k in want) else None)
+    pooled = fict = None
+    if args.falsehood_arms:
+        norms["pooled"] = {ly: (norms["lie"][ly] + norms["fiction"][ly]
+                                + norms["error"][ly]) / 3.0 for ly in layers}
+        if any(k.startswith("pooled") for k in want):
+            pooled = variant("score_diff_instruct", "pooled")
+        if any(k.startswith("fiction") for k in want):
+            fict = variant("score_diff_instruct", "fiction")
     asteer = ActivationSteering(model, tok, ActivationSteeringConfig(device=device))
     vec_path = out_dir / f"as_vectors_{short}_ntruth{args.n_truth}.pt"
     if vec_path.exists():
@@ -226,11 +258,20 @@ def main():
         "unsteered": ("unsteered",           None),
         "ours075":   ("weight:ours a=-0.75", ("mask", ours, -0.75)),
         "ours100":   ("weight:ours a=-1.0",  ("mask", ours, -1.0)),
-        "setdiff":   ("weight:set_diff a=-0.75", ("mask", setd, -0.75)),
-        "magmatch":  ("weight:magmatch",     ("mask", ctrl, -0.75)),
         "actsteer":  (f"actsteer:L{AS_LAYER} c=-8", ("hook", AS_LAYER, -args.coeff)),
         "prompt":    ("prompt:honest",       ("prompt", None, None)),
     }
+    if setd is not None:
+        ALL_ARMS["setdiff"] = ("weight:set_diff a=-0.75", ("mask", setd, -0.75))
+    if ctrl is not None:
+        ALL_ARMS["magmatch"] = ("weight:magmatch a=-0.75", ("mask", ctrl, -0.75))
+        ALL_ARMS["magmatch100"] = ("weight:magmatch a=-1.0", ("mask", ctrl, -1.0))
+    if pooled is not None:
+        ALL_ARMS["pooled075"] = ("weight:pooled a=-0.75", ("mask", pooled, -0.75))
+        ALL_ARMS["pooled100"] = ("weight:pooled a=-1.0",  ("mask", pooled, -1.0))
+    if fict is not None:
+        ALL_ARMS["fiction075"] = ("weight:fiction a=-0.75", ("mask", fict, -0.75))
+        ALL_ARMS["fiction100"] = ("weight:fiction a=-1.0",  ("mask", fict, -1.0))
     if args.as_coeffs or args.as_rel_coeffs:
         # Residual norms differ by model and layer, so the coefficient is only
         # interpretable against them; print for the record.
@@ -257,7 +298,6 @@ def main():
         for c in coeffs:
             ALL_ARMS[f"as{c:g}"] = (f"actsteer:L{args.as_layer} c={c:g}",
                                     ("hook", args.as_layer, c))
-    want = [k.strip() for k in args.arms.split(",") if k.strip()]
     bad = [k for k in want if k not in ALL_ARMS]
     if bad:
         raise SystemExit(f"unknown arms: {bad}; choose from {list(ALL_ARMS)}")

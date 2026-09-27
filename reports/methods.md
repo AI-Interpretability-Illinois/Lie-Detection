@@ -252,6 +252,28 @@ The DID estimator is valid if the instruction-formatting confound (captured by `
 
 The assumption could be violated if the model encodes the truth/lie distinction partly through the instruction token sequence before the question — but this is testable by comparing `I(lie_instruct) − I(neutral)` against `I(truth_instruct) − I(neutral)` per weight (the confound should be similar magnitude).
 
+### 4b.7  What the contrast actually isolates (placebo test, 2026-09-26)
+
+The assumption in 4b.6 was tested directly and it does not hold as stated. Two problems, one of design and one of interpretation.
+
+**Design.** `DIRECT_LIE` rotates six instruction phrasings; `DIRECT_TRUTH_INSTRUCT` uses one. Phrasing diversity is therefore inside the contrast as an unnamed confound, not held fixed. `DIRECT_TRUTH_PARA` was added as the missing null: 50 truthful instructions with the same six-fold rotation.
+
+**Interpretation.** Swapping the treatment arm for one that asserts a falsehood *without* deceptive intent does not weaken the mask; it strengthens it. Mean change in held-out falsehood rate under damping at α = −0.75, over five models (Llama-3.1-8B, Qwen2.5-7B, gemma-3-4b, Falcon3-3B, Qwen2.5-1.5B):
+
+| treatment arm | carries | mean Δ held-out |
+|---|---|---|
+| `DIRECT_FICTION_FALSE` | falsehood in a fiction frame, no intent to deceive | **−22.2 pp** |
+| `DIRECT_HONEST_ERROR` | falsehood framed as a mistake | −18.3 pp |
+| `DIRECT_LIE` | intent to deceive | −13.5 pp |
+| `DIRECT_TRUTH_PARA` | nothing (truthful, matched phrasing diversity) | +0.1 pp |
+| magnitude-matched random | nothing | +0.3 pp |
+
+So the estimand is **instructed falsehood**, not deception. Deceptive intent is not necessary and is mildly counterproductive. Every claim in this document of the form "weights specific to the deceptive processing pathway" (§4.1, §4.3 step 2, §4b.1) should be read as "weights whose importance rises when the model is instructed to assert a falsehood".
+
+The null result is what keeps the method usable: the truthful-paraphrase arm produces a mask that shares **91%** of the real mask's weights at the same median magnitude (0.042× vs 0.044× of the global median) and changes nothing. The behaviour therefore lives in the ~9% of the selection the truthful contrast declines to pick, which is a specificity claim matched on magnitude *and* on most of the actual weights — a stronger null than the magnitude-matched random mask, whose decile matching leaves it at 2.3× the real mask's median magnitude.
+
+Full result in `placebo_contrast_report.md`; code in `run_placebo_contrast.py`.
+
 ---
 
 ## 5  Activation Steering — Naive (Difference-in-Means)
