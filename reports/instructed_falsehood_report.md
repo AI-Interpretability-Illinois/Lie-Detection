@@ -1,6 +1,7 @@
 # Instructed falsehood as the treatment arm and as the benchmark
 
-**Models:** Llama-3.1-8B-Instruct, Qwen2.5-7B-Instruct, gemma-3-4b-it
+**Models:** Llama-3.1-8B-Instruct, Qwen2.5-7B-Instruct, Phi-4-mini-instruct,
+gemma-3-4b-it, Falcon3-3B-Instruct, Qwen2.5-1.5B-Instruct, OLMo-2-1B-Instruct
 **Hardware:** 1× NVIDIA A100-SXM4-40GB each (NCSA Delta, gpua047, shared with a training job)
 **Config:** ρ = 0.04, ratio = 0.37, n_truth = 25, output head excluded
 **Code:** `run_instructed_falsehood.py`
@@ -41,33 +42,46 @@ non-direct framings.
 Damping is swept to full ablation, because α = −1.0 beat −0.75 by 27 points on
 Llama-8B and the earlier sweeps stopped at −0.75.
 
-## 2 The falsehood arm beats the lie arm on all three models
+## 2 The falsehood arm beats the lie arm on all seven models
 
 Best usable configuration per arm, where usable means perplexity below 1.15× and
 neutral accuracy within 5 points of unsteered. Rates are over all five non-direct
-framings.
+framings. The gain column is the published arm minus the best falsehood arm, so
+positive means the falsehood arm is better.
 
-| model | published `lie` arm | best falsehood arm | `para` null | `magmatch` null | unsteered |
+| model | unsteered | published `lie` arm | best falsehood arm | `magmatch` null | gain |
 |---|---|---|---|---|---|
-| Llama-3.1-8B | 7.1% (α=−1.0) | **`pooled` 2.4%** (α=−1.0) | 67.1% | 68.3% | 69.5% |
-| Qwen2.5-7B | 2.5% (α=−0.75) | **`fiction` 1.2%** (α=−0.75) | 32.6% | 35.4% | 34.9% |
-| gemma-3-4b | 27.3% (α=−1.0) | **`fiction` 18.1%** (α=−0.75) | 38.2% | 34.4% | 37.3% |
+| gemma-3-4b | 37.3% | 27.3% | `fiction` **18.1%** | 32.7% | **+9.2** |
+| Phi-4-mini | 41.8% | 13.8% | `error` **6.1%** | 37.6% | **+7.6** |
+| Llama-3.1-8B | 69.5% | 7.1% | `pooled` **2.4%** | 67.7% | **+4.6** |
+| OLMo-2-1B | 37.9% | 32.4% | `pooled` **30.4%** | 36.6% | +2.0 |
+| Qwen2.5-7B | 34.9% | 1.8% | `fiction` **1.2%** | 34.8% | +0.6 |
+| Falcon3-3B | 22.0% | 10.0% | `error` **9.6%** | 17.8% | +0.4 |
+| Qwen2.5-1.5B | 9.0% | 4.5% | `fiction` **4.0%** | 11.0% | +0.4 |
 
-Pooling the three falsehood styles cuts Llama-8B's residual lying by two thirds
-against the published arm, and does so at *lower* cost: 1.03× perplexity and 96.0%
-neutral accuracy against the lie arm's 1.01× and 95.0%. On Qwen-7B every falsehood
-arm converges near 2% and the ordering stops being meaningful. On gemma-3-4b, the
-model where the method has always been weakest, the fiction arm removes 19 points
-where the lie arm removes 10.
+The falsehood arm wins on seven of seven models, which is the result. But the margin
+is worth reading carefully: it exceeds two points on only four of them, and the
+three smallest gains are inside the range where a single seed proves nothing. The
+claim this supports is that switching the treatment arm never hurts and sometimes
+helps a great deal, not that it reliably helps by a fixed amount.
 
-Both nulls are flat on all three models, so the comparison is between working
-interventions rather than between an intervention and damage.
+Where the gain is large it is large for a reason. On Llama-8B, pooling cuts residual
+lying by two thirds and does so at *lower* cost than the published arm, at 1.03×
+perplexity and 96.0% neutral accuracy against 1.01× and 95.0%. On Qwen-7B every
+falsehood arm converges near 1 to 2% and the ordering stops being meaningful,
+because the method has already removed almost everything there is to remove.
+
+The `magmatch` null is flat on six of seven models. The exception is Qwen2.5-1.5B,
+where it *raises* falsehood from 9.0% to 11.0%, so on that model the comparison is
+against a control that moves in the wrong direction.
 
 ## 3 The full damping curves
 
-Held-out falsehood rate over all five non-direct framings. `!` marks a
-configuration whose neutral accuracy fell more than 5 points below unsteered, which
-makes its falsehood rate uninterpretable rather than good.
+Held-out falsehood rate over all five non-direct framings, for the three models with
+the most headroom. The other four are in the CSVs and in
+`reports/summarize_instructed_falsehood.py`. `!` marks a configuration whose neutral
+accuracy fell more than 5 points below unsteered, which makes its falsehood rate
+uninterpretable rather than good.
 
 | model | α | `lie` | `fiction` | `error` | `pooled` | `para` | `magmatch` |
 |---|---|---|---|---|---|---|---|
@@ -99,17 +113,26 @@ An unexpected result, and the most transferable one here. On the unsteered model
 the two new framings elicit falsehood far more readily than the four lie-flavoured
 ones:
 
-| model | lie-flavoured framings | fiction and mistake framings |
-|---|---|---|
-| Llama-3.1-8B | 59.6% | **84.2%** |
-| Qwen2.5-7B | 28.6% | **44.4%** |
-| gemma-3-4b | 34.4% | **41.7%** |
+| model | lie-flavoured framings | fiction and mistake framings | gap |
+|---|---|---|---|
+| Llama-3.1-8B | 59.6% | **84.2%** | +24.6 |
+| Qwen2.5-7B | 28.6% | **44.4%** | +15.8 |
+| gemma-3-4b | 34.4% | **41.7%** | +7.3 |
+| OLMo-2-1B | 35.0% | **42.1%** | +7.1 |
+| Phi-4-mini | 39.8% | **44.8%** | +5.0 |
+| Qwen2.5-1.5B | 8.2% | **10.3%** | +2.2 |
+| Falcon3-3B | 25.0% | 17.6% | −7.4 |
 
 Asking a model to lie triggers whatever resistance its alignment training installed.
 Asking it to answer wrongly inside a made-up story, or to answer the way a forgetful
-person would, does not — and the answer that comes out is just as false. A safety
-evaluation built only on lie-shaped prompts will therefore understate how easily a
-model can be made to assert falsehoods, on these three models by 8 to 25 points.
+person would, does not, and the answer that comes out is just as false. A safety
+evaluation built only on lie-shaped prompts will therefore understate how easily
+these models can be made to assert falsehoods, by 2 to 25 points on six of the seven.
+
+Falcon3-3B is the exception and runs the other way by 7 points. It is also the only
+base-model-derived instruct checkpoint in the set with a weak refusal profile
+overall, so the most likely reading is that it has little lie-specific resistance to
+bypass in the first place. That is a guess, not a measurement.
 
 This also explains why the falsehood-built masks work better. They are built from
 the pressure the model actually yields to.
@@ -139,9 +162,11 @@ in common produce a 65-point spread in behaviour. Whatever is being selected is 
 
 Supported:
 
-- Pooling falsehood instruction styles is a strictly better treatment arm than lie
-  instructions alone on Llama-8B, and no worse on the other two models. It is a
-  one-line change to the prompt set and needs no new machinery.
+- Building the treatment arm from falsehood instructions rather than lie
+  instructions is never worse, across seven models, and is substantially better on
+  three of them. It is a change to the prompt set and needs no new machinery. Which
+  falsehood style wins varies by model, so pooling is the safe default rather than
+  the best choice everywhere.
 - The method's own recommended α should be model-specific. Full ablation is right
   for Llama-8B and wrong for gemma-3-4b.
 - Evaluations of instructed falsehood should include non-lie framings, which are
@@ -152,10 +177,14 @@ Not supported, and worth stating:
 - **The method still fails on gemma-3-4b in absolute terms.** Its best usable arm
   leaves 18.1% falsehood against a 34.4% control, and the arms that go further break
   the model. Nothing here fixes that.
-- **Three models, one seed each.** The gemma ordering in particular rests on single
-  runs where several arms sit within a few points of each other.
-- **`pooled` wins on one model and ties on another.** Calling it the new default
-  rests mainly on the Llama-8B result.
+- **Seven models, one seed each.** Three of the seven gains are under a point, which
+  a single seed cannot distinguish from noise. The four-model claim is the honest one.
+- **The method barely works on OLMo-2-1B at all**: the best usable arm reaches 30.4%
+  against a 36.6% control and a 37.9% unsteered rate, so roughly 6 points of a
+  38-point behaviour.
+- **`pooled` is the best arm on only three of seven models** (Llama-8B, OLMo-1B and,
+  jointly, Falcon-3B). `fiction` wins three and `error` two. Calling pooling the new
+  default rests on it never being much worse, not on it usually being best.
 - **The fiction evaluation framing and the fiction treatment arm are the same kind of
   pressure,** differently worded. That is why section 2 reports the all-framings
   aggregate and section 3 shows the `heldout3` column separately in the CSVs: on

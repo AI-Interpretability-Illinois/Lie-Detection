@@ -61,3 +61,42 @@ for model in sorted(rows):
         j = f"{float(j):.3f}" if j not in ("", "nan") else "1.000"
         print(f"{model:<26}{a:<10}{float(r['ppl_ratio']):>8.2f}"
               f"{float(r['neutral_acc'])*100:>9.1f}{float(r['median_W_rel']):>9.4f}{j:>12}")
+
+
+def best_usable():
+    """Per model and arm, the lowest falsehood rate among USABLE knobs.
+
+    Usable means perplexity under 1.15x and neutral accuracy within 5 points of
+    unsteered. Without the second gate a broken model reads as a perfect result:
+    gemma-3-4b's fiction arm at -1.0 is 1.12x perplexity with 44.5% neutral.
+    """
+    print(f"\n### best usable configuration per arm "
+          f"(rate over all five non-direct framings, and the knob)")
+    print(f"{'model':<26}{'unsteered':>10}{'lie arm':>10}{'best falsehood':>22}"
+          f"{'magmatch':>10}{'gain':>7}")
+    wins = 0
+    for model in sorted(rows):
+        rs = rows[model]
+        base = next((r for r in rs if r["arm"] == "none"), None)
+        if base is None:
+            continue
+        nb = float(base["neutral_acc"])
+        got = {}
+        for a in ARMS:
+            ok = [r for r in rs if r["arm"] == a
+                  and float(r["ppl_ratio"]) < 1.15
+                  and float(r["neutral_acc"]) >= nb - 0.05]
+            got[a] = (min(float(r["heldout_all"]) for r in ok) if ok else None)
+        fb = [(a, got[a]) for a in ("fiction", "error", "pooled") if got[a] is not None]
+        b = min(fb, key=lambda x: x[1]) if fb else None
+        gain = (got["lie"] - b[1]) * 100 if (b and got["lie"] is not None) else float("nan")
+        if gain > 0:
+            wins += 1
+        print(f"{model:<26}{float(base['heldout_all'])*100:>10.1f}"
+              f"{(got['lie'] or float('nan'))*100:>10.1f}"
+              f"{(f'{b[1]*100:.1f} ({b[0]})' if b else '-'):>22}"
+              f"{(got['magmatch'] or float('nan'))*100:>10.1f}{gain:>7.1f}")
+    print(f"\nfalsehood arm beats the lie arm on {wins}/{len(rows)} models")
+
+
+best_usable()

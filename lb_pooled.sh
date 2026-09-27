@@ -10,5 +10,6 @@ export CUDA_VISIBLE_DEVICES=${GPU:-1}
 nice -n 10 python run_liars_bench_honesty.py \
   --model-id "${MID:-meta-llama/Meta-Llama-3.1-8B-Instruct}" \
   --rho 0.04 --ratio 0.37 --falsehood-arms \
-  --arms unsteered,ours100,pooled100,fiction100,magmatch100,prompt \
+  --arms "${ARMS:-unsteered,ours100,pooled100,fiction100,magmatch100,prompt}" \
+  ${ASWEEP:-} \
   --batch-size "${BS:-8}" --score-batch 2 --tag "${TAGX:-pooled}"
