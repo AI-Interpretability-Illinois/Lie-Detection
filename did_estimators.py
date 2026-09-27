@@ -146,6 +146,23 @@ def checkpoint_dtype(model_id, cache_dir, default=torch.float16):
     return default
 
 
+def _cap_gpu_memory(device):
+    """Honour LIE_MAX_GPU_GB: cap this process's GPU memory on a shared node.
+
+    Past the cap this process raises an out-of-memory error itself, instead of
+    growing into memory another user's training needs. Unset means no cap.
+    """
+    import os
+    cap = os.environ.get("LIE_MAX_GPU_GB")
+    if not cap or not torch.cuda.is_available():
+        return
+    dev = torch.device(device)
+    idx = dev.index if dev.index is not None else torch.cuda.current_device()
+    total = torch.cuda.get_device_properties(idx).total_memory / 2**30
+    torch.cuda.set_per_process_memory_fraction(min(1.0, float(cap) / total), idx)
+    print(f"  [load_lm] GPU memory capped at {float(cap):.1f} GB of {total:.1f}", flush=True)
+
+
 def load_lm(model_id, cache_dir, device, dtype=None):
     """Load a causal LM, falling back to the image-text wrapper.
 
@@ -154,6 +171,7 @@ def load_lm(model_id, cache_dir, device, dtype=None):
     decoder_layers(). The 1b checkpoint is a plain Gemma3ForCausalLM.
     dtype=None takes the checkpoint's own dtype.
     """
+    _cap_gpu_memory(device)
     from transformers import AutoModelForCausalLM
     if dtype is None:
         dtype = checkpoint_dtype(model_id, cache_dir)
