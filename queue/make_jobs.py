@@ -54,7 +54,9 @@ def arms(layers):
 def write(name, mem, body, needs=()):
     lines = ["#!/bin/bash", f"# MEM_GB: {mem}", f"# DONE_IF: {marker(name)}"]
     lines += [f"# NEEDS: {n}" for n in needs]
-    lines += ["set -eo pipefail", f"cd {REPO}", body.strip(), f"touch {marker(name)}", ""]
+    lines += ["set -eo pipefail", f"cd {REPO}",
+              "export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True",
+              body.strip(), f"touch {marker(name)}", ""]
     (Q / "pending" / f"{name}.sh").write_text("\n".join(lines))
 
 
@@ -74,7 +76,7 @@ def main():
     # ── 0x: resume ───────────────────────────────────────────────────────────
     def judge_lb(m, j):
         return (f"python judge_claims.py --responses liars_bench_honesty_{short(m)}_idfix2_responses.jsonl "
-                f"--judge {j} --batch-size {16 if j == LJ else 32} --tag v2")
+                f"--judge {j} --batch-size 16 --tag v2")
     write("00_judge_qwenjudge_gemma-3-4b-it", 17, judge_lb("google/gemma-3-4b-it", QJ))
     write("01_judge_qwenjudge_Qwen2p5-3B", 17, judge_lb("Qwen/Qwen2.5-3B-Instruct", QJ))
     write("02_judge_qwenjudge_Falcon3-3B", 17, judge_lb("tiiuae/Falcon3-3B-Instruct", QJ))
@@ -125,7 +127,7 @@ def main():
               f"python judge_claims.py --responses liars_bench_honesty_{short(m)}_amgot_responses.jsonl "
               f"--splits amgot-deception --beliefs {B}/beliefs_{short(m)}_amgot.jsonl "
               f"--eval-set {X}/extra_amgot.jsonl "
-              f"--judge {j} --batch-size {16 if j == LJ else 32} --tag v2",
+              f"--judge {j} --batch-size 16 --tag v2",
               needs=[marker(g)])
         n += 2
     print(f"wrote {n} jobs to {Q/'pending'}")
