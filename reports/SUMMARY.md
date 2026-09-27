@@ -1,7 +1,8 @@
 # LieNeuro weight steering: current method and results
 
-**Status as of 2026-09-27.** Every number here uses the fixed graders (see
-section 6). Runs still in progress are listed at the end.
+**Status as of 2026-09-27.** Every number uses the fixed graders (section 6)
+except the two marked "pre-fix", from runs that saved no responses. Runs still in
+progress are listed at the end.
 
 ---
 
