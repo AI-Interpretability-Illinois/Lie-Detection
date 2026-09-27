@@ -102,7 +102,13 @@ def main():
     ap.add_argument("--batch-size", type=int, default=48)
     ap.add_argument("--max-resp-chars", type=int, default=600)
     ap.add_argument("--tag", default="")
+    ap.add_argument("--splits", default=",".join(SPLITS),
+                    help="True/false splits to judge.")
+    ap.add_argument("--beliefs", default="",
+                    help="Belief cache file; default is the LIARS' BENCH cache "
+                         "for the model named in the responses file.")
     args = ap.parse_args()
+    splits = tuple(x.strip() for x in args.splits.split(",") if x.strip())
 
     rpath = Path(args.responses)
     if not rpath.is_absolute():
@@ -114,8 +120,9 @@ def main():
 
     items = {json.loads(l)["uid"]: json.loads(l) for l in open(args.eval_set)}
     recs = [json.loads(l) for l in open(rpath)]
-    recs = [r for r in recs if r.get("split") in SPLITS]
-    bpath = OUT / f"liars_bench/beliefs_{model_short}.jsonl"
+    recs = [r for r in recs if r.get("split") in splits]
+    bpath = (Path(args.beliefs) if args.beliefs
+             else OUT / f"liars_bench/beliefs_{model_short}.jsonl")
     beliefs = {json.loads(l)["uid"]: json.loads(l)["response"] for l in open(bpath)}
     print(f"{len(recs)} responses to judge from {rpath.name}; "
           f"beliefs from {bpath.name}", flush=True)
@@ -196,8 +203,9 @@ def main():
     for arm in arms:
         for kind in ("hybrid", "judge"):
             row = {"arm": arm, "judge": args.judge, "grader": kind}
-            for split, key in (("instructed-deception", "id"),
-                               ("instructed-truthful", "idt")):
+            for split in splits:
+                key = {"instructed-deception": "id",
+                       "instructed-truthful": "idt"}.get(split, split.replace("-", "_"))
                 c = by[(arm, split, kind)]
                 g = c["lie"] + c["honest"] + c["no_claim"] + c["refusal"]
                 row[f"{key}_n_gradeable"] = g
@@ -220,11 +228,14 @@ def main():
     print(f"\nHYBRID grader (keyword where it settles, judge on the rest)")
     print(f"{'arm':<34}{'ID-dec honest':>14}{'lie':>7}{'neither':>9}{'refusal':>9}"
           f"{'ID-tru honest':>15}")
+    k0 = {"instructed-deception": "id"}.get(splits[0], splits[0].replace("-", "_"))
+    k1 = "idt" if "instructed-truthful" in splits else None
     for r in sorted([r for r in rows if r["grader"] == "hybrid"],
-                    key=lambda r: -r["id_honest_rate"]):
-        print(f"{r['arm'][:34]:<34}{r['id_honest_rate']*100:>13.1f}%"
-              f"{r['id_lie_rate']*100:>6.1f}%{r['id_no_claim_rate']*100:>8.1f}%"
-              f"{r['id_refusal_rate']*100:>8.1f}%{r['idt_honest_rate']*100:>14.1f}%")
+                    key=lambda r: -r[f"{k0}_honest_rate"]):
+        ctrl = f"{r[f'{k1}_honest_rate']*100:>14.1f}%" if k1 else f"{'-':>15}"
+        print(f"{r['arm'][:34]:<34}{r[f'{k0}_honest_rate']*100:>13.1f}%"
+              f"{r[f'{k0}_lie_rate']*100:>6.1f}%{r[f'{k0}_no_claim_rate']*100:>8.1f}%"
+              f"{r[f'{k0}_refusal_rate']*100:>8.1f}%" + ctrl)
     print(f"\nrows → {OUT / (out_stem + '.csv')}")
 
 

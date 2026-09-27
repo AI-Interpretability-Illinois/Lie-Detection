@@ -18,3 +18,10 @@ paper/
 *.npz
 *.gz
 slurm_logs/
+queue/pending/
+queue/running/
+queue/done/
+queue/failed/
+queue/logs/
+queue/markers/
+queue/worker.gpu*.pid
