@@ -49,9 +49,17 @@ If the stratified second differences beat the stratified single difference, the
 proposal's Part 1 is worth building. If stratification is what matters and the
 contrast barely moves the result, the estimand was a magnitude regime all along.
 
+## Memory
+
+Nine mask families at once is 58 GB of boolean masks on an 8B model, which is what
+OOM-killed the first Llama-8B attempt at 64 GB. Masks are now int32 index sets
+(~1 GB each) built one at a time from the cached column statistics, which are
+megabytes. See idx_masks.py.
+
 Usage
 -----
-  python run_stratified_did2.py --model-id Qwen/Qwen2.5-1.5B-Instruct --wpct 10
+  python run_stratified_did2.py --model-id meta-llama/Meta-Llama-3.1-8B-Instruct \
+      --wpct 10 --damp=-1.0
 """
 
 from __future__ import annotations
@@ -66,11 +74,12 @@ from transformers import AutoTokenizer
 
 from src.prompts import (DIRECT_LIE, DIRECT_TRUTH_INSTRUCT, DIRECT_TRUTH_PARA,
                          DIRECT_FICTION_FALSE, DIRECT_HONEST_ERROR)
-from did_estimators import (cell_mean_sd, collect_column_norms, get_module,
-                            load_lm, target_layers)
+from did_estimators import (cell_mean_sd, collect_column_norms, load_lm,
+                            target_layers)
+from idx_masks import (apply_idx, idx_diag, idx_magnitude_matched, idx_topk,
+                       restore_idx)
 from run_reversed_contrast import (EVAL_QA, SanitizeLogits, generate_batched,
                                    junk, load_wikitext_ids, wikitext_ppl)
-from run_real_did import apply_mask, magnitude_matched, restore
 from honesty_eval import PRESSURE_SETS, eval_conditions, known_set, summarize_honesty
 
 CONDITIONS = ("neutral",) + tuple(PRESSURE_SETS)
@@ -91,50 +100,6 @@ def contrasts(n, v):
         "did2_error":      {k: single[k] - (v * n["error"][k]
                                             - (1.0 - v) * n["para"][k]) for k in L},
     }
-
-
-@torch.no_grad()
-def build_mask(model, layers, colstat, rho, device, wpct=None):
-    """top-rho per layer. wpct=None ranks |W|*colstat; otherwise ranks colstat
-    among weights below the wpct-th percentile of |W| in that layer."""
-    masks = {}
-    for name in layers:
-        W = get_module(model, name).weight.detach().float().abs().to(device)
-        col = colstat[name].to(device)
-        n = W.numel()
-        k = max(1, int(rho * n))
-        flat_w = W.view(-1)
-        if wpct is None:
-            s = (W * col.unsqueeze(0)).view(-1)
-            idx = s.topk(k).indices
-        else:
-            sample = flat_w[torch.randperm(n, device=device)[:min(n, 200_000)]]
-            thresh = torch.quantile(sample, wpct / 100.0)
-            eligible = (flat_w <= thresh).nonzero(as_tuple=True)[0]
-            if eligible.numel() < k:          # stratum too small: take all of it
-                idx = eligible
-            else:
-                s_el = col.unsqueeze(0).expand_as(W).reshape(-1)[eligible]
-                idx = eligible[s_el.topk(k).indices]
-        m = torch.zeros(n, dtype=torch.bool, device=device)
-        m[idx] = True
-        masks[name] = m.view(W.shape).cpu()
-        del W, col, flat_w, m, idx
-    return masks
-
-
-@torch.no_grad()
-def med_w_rel(model, layers, masks):
-    sel, allw = [], []
-    for nm in layers:
-        W = get_module(model, nm).weight.detach().float().abs()
-        s = W[masks[nm].to(W.device)]
-        if s.numel():
-            sel.append(s[:: max(1, s.numel() // 20000)].cpu())
-        allw.append(W.view(-1)[::997].cpu())
-    if not sel:
-        return float("nan")
-    return torch.cat(sel).median().item() / torch.cat(allw).median().item()
 
 
 def main():
@@ -188,18 +153,28 @@ def main():
         del cols
 
     cs = contrasts(n, v)
-    masks, diag = {}, {}
-    for cname, col in cs.items():
-        for mode, wp in (("plain", None), ("strat", args.wpct)):
-            label = f"{cname}:{mode}"
-            masks[label] = build_mask(model, layers, col, args.rho, device, wp)
-            diag[label] = med_w_rel(model, layers, masks[label])
-    masks["magmatch"] = magnitude_matched(model, masks["single:plain"], device, args.seed)
-    diag["magmatch"] = med_w_rel(model, layers, masks["magmatch"])
+    labels = [f"{c}:{m}" for c in cs for m in ("plain", "strat")] + ["magmatch"]
 
-    print("\nmedian |W| of selected weights, relative to all maskable weights", flush=True)
-    for k in masks:
-        print(f"  {k:<26} {diag[k]:.4f}x", flush=True)
+    def build(label):
+        """One index-set mask, built on demand. Nothing else stays resident."""
+        if label == "magmatch":
+            return idx_magnitude_matched(
+                model, idx_topk(model, layers, cs["single"], args.rho, device),
+                device, args.seed)
+        cname, mode = label.split(":")
+        return idx_topk(model, layers, cs[cname], args.rho, device,
+                        wpct=None if mode == "plain" else args.wpct)
+
+    print("\nmedian |W| of selected weights, relative to all maskable weights",
+          flush=True)
+    diag = {}
+    for label in labels:
+        t0 = time.time()
+        idxs = build(label)
+        diag[label] = idx_diag(model, idxs)[0]
+        print(f"  {label:<26} {diag[label]:.4f}x   ({time.time()-t0:.0f}s)",
+              flush=True)
+        del idxs
 
     def ev():
         return eval_conditions(model, tok, EVAL_QA, device, args.batch_size,
@@ -226,7 +201,7 @@ def main():
         rows.append(row)
         print(f"  {label:<26} knob={knob:<6} direct={row['lie_direct']:>6.1%} "
               f"held-out={row['lie_heldout']:>6.1%} neutral={row['neutral_acc']:>6.1%} "
-              f"ppl={row['ppl_ratio']:>7.2f}x", flush=True)
+              f"ppl={row['ppl_ratio']:>9.2f}x", flush=True)
         with open(out_dir / f"{stem}.csv", "w", newline="") as f:
             fields = sorted({k for r in rows for k in r})
             w = csv.DictWriter(f, fieldnames=fields)
@@ -234,17 +209,18 @@ def main():
             for r in rows:
                 w.writerow({k: r.get(k, "") for k in fields})
 
-    print(f"\nbaseline ppl = {base_ppl:.3f}", flush=True)
+    print(f"\nbaseline ppl = {base_ppl:.3f}; {len(known)} known questions", flush=True)
     tally("none", 0.0, base_recs, base_ppl)
 
-    originals = {}
     for knob in (args.damp, args.amp):
         print(f"\n── knob = {knob} ──", flush=True)
-        for label in list(masks):
-            apply_mask(model, masks[label], knob, originals)
+        for label in labels:
+            idxs, saved = build(label), {}
+            apply_idx(model, idxs, knob, saved)
             recs = ev()
             ppl = wikitext_ppl(model, wt_ids, device)
-            restore(model, originals)
+            restore_idx(model, idxs, saved)
+            del idxs
             tally(label, knob, recs, ppl)
 
     print(f"\nrows → {out_dir / (stem + '.csv')}")
