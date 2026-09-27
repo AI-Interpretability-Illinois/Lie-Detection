@@ -9,6 +9,15 @@ Falcon3-3B-Instruct, Qwen2.5-1.5B-Instruct
 
 ---
 
+> **Grader caveat, 2026-09-27.** These runs predate the fix for two grader bugs
+> affecting the 17 numeric-answer questions (bare numbers discarded as junk;
+> substring correctness, so gold 360 matched the lie "3600"), and they did not
+> save their responses, so they cannot be re-scored offline. For runs that could
+> be re-scored, the fix raised every arm's falsehood rate by a similar amount,
+> about 4 to 9 points, and changed no ranking, so the comparisons here are
+> expected to hold while the absolute rates are understated. The scripts now save
+> responses.
+
 ## 1 The test
 
 The method selects weights by a single difference of Wanda column statistics,

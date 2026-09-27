@@ -9,6 +9,29 @@ gemma-3-4b-it, Falcon3-3B-Instruct, Qwen2.5-1.5B-Instruct, OLMo-2-1B-Instruct
 
 ---
 
+> **Re-graded 2026-09-27.** An audit found two grader bugs affecting the 17
+> numeric-answer questions (numbers discarded as junk; substring correctness).
+> All seven runs saved their responses and were re-scored offline with the fixed
+> grader. Best usable configuration per arm, re-graded:
+>
+> | model | unsteered | `lie` arm | best falsehood arm | gain, lie-flavoured framings | gain, all framings |
+> |---|---|---|---|---|---|
+> | Phi-4-mini | 44.1% | 17.0% | `error` 6.9% | **+10.1** | +9.9 |
+> | Llama-3.1-8B | 68.4% | 8.3% | `pooled` 2.7% | **+5.7** | +5.4 |
+> | gemma-3-4b | 40.7% | 27.7% | `fiction` 25.4% | +2.3 | +11.2 |
+> | OLMo-2-1B | 36.6% | 33.8% | `pooled` 32.3% | +1.5 | +3.0 |
+> | Qwen2.5-7B | 34.4% | 1.9% | `fiction` 1.2% | +0.7 | +0.8 |
+> | Falcon3-3B | 29.0% | 9.9% | `error` 9.1% | +0.7 | +0.5 |
+> | Qwen2.5-1.5B | 10.0% | 4.9% | `pooled` 4.5% | +0.4 | +0.8 |
+>
+> The headline survives: the falsehood-built arm beats the lie-built arm on 7/7.
+> On the three lie-flavoured framings, which share no treatment wording with the
+> falsehood arms and so favour the published arm, the gain exceeds two points on
+> three models. The number that moves is gemma-3-4b: its large gain on all
+> framings comes mostly from the fiction eval framing, a near-paraphrase of the
+> fiction treatment prompts, and shrinks to 2.3 points on the lie-flavoured ones.
+> Sections 2 to 5 keep the original numbers for the record.
+
 ## 1 Why the target changed
 
 The placebo test showed the contrast does not track deception. A fiction-framed or

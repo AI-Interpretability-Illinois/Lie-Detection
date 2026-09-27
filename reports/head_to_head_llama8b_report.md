@@ -8,6 +8,26 @@
 
 ---
 
+> **Re-graded 2026-09-27.** An audit found two grader bugs affecting the 17
+> numeric-answer questions: the junk filter discarded every bare number, and the
+> correctness test was a substring match (gold 360 matched the lie "3600"). Both
+> are fixed in `grading.py`, and this run saved its responses, so it was re-scored
+> offline with `reports/rescore_pressure_metric.py`. Corrected held-out falsehood
+> rates, over the same three held-out framings:
+>
+> | arm | old | **re-graded** | correct under pressure | neutral acc |
+> |---|---|---|---|---|
+> | weight mask, α = −1.0 | 7.2% | **8.3%** | 91.5% | 95.0% |
+> | actsteer L14, r = −0.5 | 28.4% | **32.4%** | 67.4% | 93.5% |
+> | actsteer L8, r = −0.5 | 29.3% | **34.2%** | 63.1% | 94.5% |
+> | honest prompting | 50.9% | **55.7%** | 27.5% | 93.0% |
+> | magnitude-matched control | 58.6% | **66.5%** | 33.2% | 93.5% |
+> | *unsteered* | *59.6%* | ***68.4%*** | *31.6%* | *94.0%* |
+>
+> Every rate rises because numeric lies are now counted. The ranking is unchanged
+> and the mask's lead over the best activation-steering configuration widens from
+> 21 to 24 points. The tables below keep the original numbers for the record.
+
 ## 1 Why this run exists
 
 Two objections were raised against the earlier comparisons, and both were fair.
