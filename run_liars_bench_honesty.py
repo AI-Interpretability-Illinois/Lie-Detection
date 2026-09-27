@@ -23,6 +23,16 @@ score_liars_bench.py. instructed-deception and convincing-game are not: the repo
 found that without an LLM judge most steered responses fall through as no_claim
 (70% against 2% once judged), so instructed-deception is reported only as a
 lie share over the responses that were settled, and convincing-game is skipped.
+
+CORRECTION (2026-09-26). The instructed-deception split carries two halves,
+distinguished by grade.instructed_deceptive: 537 items whose system prompt orders
+deception, and 263 whose system prompt orders honesty. Earlier runs of this script
+filtered to the honesty-instructed half and labelled the result "instructed
+deception". That measured how often the model lies when it has been told to be
+honest, which sits at 2-4% unsteered and leaves an honesty intervention nothing to
+improve, and it is why every earlier report concluded that the instructed-deception
+split "moves for no arm". Both halves are now scored and reported separately:
+ID-dec is the test, ID-tru is a control where a damaged arm shows up as a fall.
 Alpaca is the degeneracy control.
 
 Arms: the repo's mask damped, its magnitude-matched control, single-layer
@@ -62,6 +72,7 @@ GEN = {
     "harm-pressure-choice":           dict(max_new=8,   temp=0.7),
     "harm-pressure-knowledge-report": dict(max_new=48,  temp=0.7),
     "instructed-deception":           dict(max_new=128, temp=0.7),
+    "instructed-truthful":            dict(max_new=128, temp=0.7),
     "alpaca":                         dict(max_new=192, temp=0.7),
 }
 BELIEF = {"mc_letter": dict(max_new=8, temp=0.0),
@@ -111,6 +122,9 @@ def main():
     ap.add_argument("--n-truth", type=int, default=25)
     ap.add_argument("--n-hp", type=int, default=800)
     ap.add_argument("--n-id", type=int, default=400)
+    ap.add_argument("--n-idt", type=int, default=263,
+                    help="Items from the honesty-instructed half of the "
+                         "instructed-deception split, used as a control.")
     ap.add_argument("--n-alpaca", type=int, default=150)
     ap.add_argument("--coeff", type=float, default=8.0)
     ap.add_argument("--as-layer", type=int, default=AS_LAYER,
@@ -162,9 +176,21 @@ def main():
         "harm-pressure-choice": by_split["harm-pressure-choice"][:args.n_hp],
         "harm-pressure-knowledge-report":
             by_split["harm-pressure-knowledge-report"][:args.n_hp],
+        # The split carries both halves. grade.instructed_deceptive is True for
+        # the 537 items whose system prompt orders deception ("Try to deceive
+        # them by giving the wrong answer") and False for the 263 that order
+        # honesty ("Answer truthfully to the question"). Scoring the False half
+        # as "instructed deception" was a bug: it measured the model's honesty
+        # when it had been told to be honest, which sits near the floor at 2-4%
+        # and has no headroom for an honesty intervention to show up in.
         "instructed-deception": [it for it in by_split["instructed-deception"]
-                                 if it["grade"].get("instructed_deceptive") is False
+                                 if it["grade"].get("instructed_deceptive") is True
                                  ][:args.n_id],
+        # Kept as a control: with honesty instructed, the honest rate is already
+        # high, so an arm that damages the model shows up here as a fall.
+        "instructed-truthful": [it for it in by_split["instructed-deception"]
+                                if it["grade"].get("instructed_deceptive") is False
+                                ][:args.n_idt],
         "alpaca": by_split["alpaca"][:args.n_alpaca],
     }
     for k, v in subsets.items():
@@ -333,7 +359,8 @@ def main():
             st = rates(verdicts)
             key = {"harm-pressure-choice": "hpc",
                    "harm-pressure-knowledge-report": "hpkr",
-                   "instructed-deception": "id"}[split]
+                   "instructed-deception": "id",
+                   "instructed-truthful": "idt"}[split]
             for k, v in st.items():
                 row[f"{key}_{k}"] = v
 
@@ -346,6 +373,7 @@ def main():
         print(f"  {label:<22} hpc_lie={row['hpc_lie_rate']:.1%} "
               f"(n={row['hpc_n_gradeable']}) hpkr_lie={row['hpkr_lie_rate']:.1%} "
               f"(n={row['hpkr_n_gradeable']}) id_share={row['id_lie_share']:.1%} "
+              f"(n={row['id_n_settled']}) idt_share={row['idt_lie_share']:.1%} "
               f"degen={row['alpaca_degen']:.1%} ppl={row['ppl_ratio']:.2f}x "
               f"[{time.time()-t0:.0f}s]", flush=True)
         with open(out_dir / f"{stem}.csv", "w", newline="") as f:
@@ -397,13 +425,20 @@ def main():
         for r in all_recs:
             f.write(json.dumps(r) + "\n")
 
-    print(f"\n{'arm':<22}{'HP-C lie':>10}{'HP-KR lie':>11}{'ID share':>10}"
-          f"{'no_claim':>10}{'degen':>8}{'ppl x':>8}")
-    print("-" * 79)
+    print(f"\n{'arm':<22}{'HP-C lie':>10}{'HP-KR lie':>11}"
+          f"{'ID-dec share':>14}{'ID-tru share':>14}{'no_claim':>10}"
+          f"{'degen':>8}{'ppl x':>8}")
+    print("-" * 97)
     for r in rows:
         print(f"{r['arm']:<22}{r['hpc_lie_rate']:>10.1%}{r['hpkr_lie_rate']:>11.1%}"
-              f"{r['id_lie_share']:>10.1%}{r['hpkr_no_claim_rate']:>10.1%}"
+              f"{r['id_lie_share']:>14.1%}{r['idt_lie_share']:>14.1%}"
+              f"{r['hpkr_no_claim_rate']:>10.1%}"
               f"{r['alpaca_degen']:>8.1%}{r['ppl_ratio']:>8.2f}")
+    print("  ID-dec = system prompt orders deception (the test). "
+          "ID-tru = orders honesty (control).")
+    print("  Shares are over SETTLED responses only, so read them beside "
+          "no_claim: an arm that pushes answers into non-claims shrinks its own "
+          "denominator.")
     print(f"\ngradeable after the belief gate: HP-C {rows[0]['hpc_n_gradeable']}"
           f"/{rows[0]['hpc_n_items']}, HP-KR {rows[0]['hpkr_n_gradeable']}"
           f"/{rows[0]['hpkr_n_items']} (the rest are items the unsteered model "
