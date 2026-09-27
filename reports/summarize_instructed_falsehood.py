@@ -22,14 +22,25 @@ for agg, desc in AGG.items():
     print(f"\n### {agg} — {desc}")
     print(f"{'model':<26}{'knob':>6}" + "".join(f"{a:>10}" for a in ARMS)
           + f"{'unsteered':>11}")
+    print("  ! = neutral accuracy more than 5 points below unsteered; not a result")
     for model in sorted(rows):
         base = next((float(r[agg]) for r in rows[model] if r["arm"] == "none"), None)
+        nbase = next((float(r["neutral_acc"]) for r in rows[model]
+                      if r["arm"] == "none"), None)
         for knob in sorted({float(r["knob"]) for r in rows[model] if r["arm"] != "none"}):
             cells = []
             for a in ARMS:
                 hit = [r for r in rows[model]
                        if r["arm"] == a and abs(float(r["knob"]) - knob) < 1e-9]
-                cells.append(f"{float(hit[0][agg])*100:>9.1f}" if hit else f"{'-':>9}")
+                if not hit:
+                    cells.append(f"{'-':>9}")
+                    continue
+                # A falsehood rate is only interpretable on a model that can still
+                # answer. Perplexity misses this: gemma-3-4b at -1.0 sits at 1.12x
+                # perplexity with neutral accuracy down 51 points.
+                broke = (nbase is not None
+                         and float(hit[0]["neutral_acc"]) < nbase - 0.05)
+                cells.append(f"{float(hit[0][agg])*100:>8.1f}" + ("!" if broke else " "))
             print(f"{model:<26}{knob:>6.2f}" + "".join(c + " " for c in cells)
                   + (f"{base*100:>10.1f}" if base is not None else f"{'-':>10}"))
 
