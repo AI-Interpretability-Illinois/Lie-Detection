@@ -63,7 +63,7 @@ from did_estimators import (cell_mean_sd, collect_column_norms, load_lm, decoder
 from run_reversed_contrast import (EVAL_QA, SanitizeLogits, generate_batched,
                                    junk, load_wikitext_ids, wikitext_ppl)
 from run_real_did import apply_mask, magnitude_matched, restore
-from honesty_eval import PRESSURE_SETS, eval_conditions, known_set, summarize_honesty
+from honesty_eval import HELDOUT3, PRESSURE_SETS, eval_conditions, known_set, summarize_honesty
 
 CONDITIONS = ("neutral",) + tuple(PRESSURE_SETS)
 CAA_LAYERS = [5, 6, 7, 8, 9]
@@ -263,8 +263,13 @@ def main():
                                   known)
             row[f"lie_{cond}"] = s["comply_rate"]
             row["neutral_acc"] = s["neutral_acc"]
-        row["lie_heldout"] = sum(row[f"lie_{c}"] for c in PRESSURE_SETS
-                                 if c != "direct") / (len(PRESSURE_SETS) - 1)
+        # lie_heldout is the three original held-out framings, so every run stays
+        # comparable with the reports. PRESSURE_SETS grew from four framings to six
+        # on 2026-09-26 and this line silently became a five-framing mean for any
+        # run started after that. lie_heldout_all is the five-framing mean.
+        row["lie_heldout"] = sum(row[f"lie_{c}"] for c in HELDOUT3) / len(HELDOUT3)
+        _nd = [c for c in PRESSURE_SETS if c != "direct"]
+        row["lie_heldout_all"] = sum(row[f"lie_{c}"] for c in _nd) / len(_nd)
         rows.append(row)
         all_recs.extend(dict(r, arm=label, knob=knob) for r in recs)
         print(f"  {label:<22}{knob:>6} direct={row['lie_direct']:>6.1%} "

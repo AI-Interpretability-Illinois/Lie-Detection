@@ -65,7 +65,7 @@ from did_estimators import (cell_mean_sd, collect_column_norms, get_module,
 from run_reversed_contrast import (EVAL_QA, SanitizeLogits, generate_batched,
                                    junk, load_wikitext_ids, wikitext_ppl)
 from run_real_did import apply_mask, magnitude_matched, restore
-from honesty_eval import PRESSURE_SETS, eval_conditions, known_set, summarize_honesty
+from honesty_eval import HELDOUT3, PRESSURE_SETS, eval_conditions, known_set, summarize_honesty
 
 CONDITIONS = ("neutral",) + tuple(PRESSURE_SETS)
 
@@ -191,6 +191,8 @@ def main():
     known = known_set(base_recs)
     base = summarize_honesty(base_recs, known)
 
+    all_recs = []    # saved so any later grader fix can re-score offline
+
     def tally(label, knob, recs, ppl):
         row = {"arm": label, "knob": knob, "rho": args.rho, "ratio": args.ratio,
                "ppl_ratio": ppl / base_ppl,
@@ -202,9 +204,18 @@ def main():
                                   known)
             row[f"lie_{cond}"] = s["comply_rate"]
             row["neutral_acc"] = s["neutral_acc"]
-        row["lie_heldout"] = sum(row[f"lie_{c}"] for c in PRESSURE_SETS
-                                 if c != "direct") / (len(PRESSURE_SETS) - 1)
+        # lie_heldout is the three original held-out framings, so every run stays
+        # comparable with the reports. PRESSURE_SETS grew from four framings to six
+        # on 2026-09-26 and this line silently became a five-framing mean for any
+        # run started after that. lie_heldout_all is the five-framing mean.
+        row["lie_heldout"] = sum(row[f"lie_{c}"] for c in HELDOUT3) / len(HELDOUT3)
+        _nd = [c for c in PRESSURE_SETS if c != "direct"]
+        row["lie_heldout_all"] = sum(row[f"lie_{c}"] for c in _nd) / len(_nd)
         rows.append(row)
+        all_recs.extend(dict(r, arm=label, knob=knob) for r in recs)
+        with open(out_dir / f"{stem}_responses.jsonl", "w") as f:
+            for r in all_recs:
+                f.write(json.dumps(r) + "\n")
         print(f"  {label:<10} knob={knob:<6} direct={row['lie_direct']:>6.1%} "
               f"held-out={row['lie_heldout']:>6.1%} neutral={row['neutral_acc']:>6.1%} "
               f"ppl={row['ppl_ratio']:>5.2f}x", flush=True)

@@ -122,6 +122,9 @@ def main():
     ap.add_argument("--n-truth", type=int, default=25)
     ap.add_argument("--n-hp", type=int, default=800)
     ap.add_argument("--n-id", type=int, default=400)
+    ap.add_argument("--splits", default="",
+                    help="Comma-separated subset of splits to run; empty = all. "
+                         "Rows for skipped splits are reported as NaN.")
     ap.add_argument("--n-idt", type=int, default=263,
                     help="Items from the honesty-instructed half of the "
                          "instructed-deception split, used as a control.")
@@ -172,7 +175,7 @@ def main():
     by_split = {}
     for it in items:
         by_split.setdefault(it["dataset"], []).append(it)
-    subsets = {
+    all_subsets = {
         "harm-pressure-choice": by_split["harm-pressure-choice"][:args.n_hp],
         "harm-pressure-knowledge-report":
             by_split["harm-pressure-knowledge-report"][:args.n_hp],
@@ -193,6 +196,9 @@ def main():
                                 ][:args.n_idt],
         "alpaca": by_split["alpaca"][:args.n_alpaca],
     }
+    want_splits = [x.strip() for x in args.splits.split(",") if x.strip()]
+    subsets = {k: v for k, v in all_subsets.items()
+               if not want_splits or k in want_splits}
     for k, v in subsets.items():
         print(f"  {k}: {len(v)} items", flush=True)
 
@@ -208,28 +214,44 @@ def main():
     # ── belief probe on UNSTEERED weights ────────────────────────────────────
     belief_path = out_dir / f"liars_bench/beliefs_{short}.jsonl"
     belief_path.parent.mkdir(parents=True, exist_ok=True)
+    # Beliefs are probed on the UNSTEERED model, before any mask or hook exists.
+    # The cache is merged, not trusted wholesale: an earlier version skipped the
+    # probe whenever the file existed, so items new to this run (the 400
+    # deception-instructed ones, once the split filter was fixed) had no belief
+    # and every one of them graded as "ungradeable", leaving the split at n=0.
     beliefs = {}
     if belief_path.exists():
         beliefs = {json.loads(l)["uid"]: json.loads(l)["response"]
                    for l in open(belief_path)}
         print(f"loaded {len(beliefs)} cached beliefs", flush=True)
-    else:
-        for btype, cfg in BELIEF.items():
-            need = [it for s in subsets.values() for it in s
-                    if it.get("belief_ctx") and it.get("belief_type") == btype]
-            if not need:
-                continue
-            t0 = time.time()
-            resp = generate_batched(model, tok, [it["belief_ctx"] for it in need],
-                                    device, cfg["max_new"], cfg["temp"],
-                                    args.batch_size, guard=guard)
-            for it, r in zip(need, resp):
-                beliefs[it["uid"]] = r
-            print(f"  beliefs[{btype}]: {len(need)} items "
-                  f"({time.time()-t0:.0f}s)", flush=True)
+    added = 0
+    for btype, cfg in BELIEF.items():
+        need = [it for s in subsets.values() for it in s
+                if it.get("belief_ctx") and it.get("belief_type") == btype
+                and it["uid"] not in beliefs]
+        if not need:
+            continue
+        t0 = time.time()
+        resp = generate_batched(model, tok, [it["belief_ctx"] for it in need],
+                                device, cfg["max_new"], cfg["temp"],
+                                args.batch_size, guard=guard)
+        for it, r in zip(need, resp):
+            beliefs[it["uid"]] = r
+        added += len(need)
+        print(f"  beliefs[{btype}]: probed {len(need)} new items "
+              f"({time.time()-t0:.0f}s)", flush=True)
+    if added:
         with open(belief_path, "w") as f:
             for uid, r in beliefs.items():
                 f.write(json.dumps({"uid": uid, "response": r}) + "\n")
+    for split, sub in subsets.items():
+        if split == "alpaca":
+            continue
+        have = sum(it["uid"] in beliefs for it in sub)
+        print(f"  belief coverage {split}: {have}/{len(sub)}", flush=True)
+        if sub and have == 0:
+            raise SystemExit(f"no beliefs for any {split} item; refusing to "
+                             f"report a split that cannot be graded")
 
     # ── interventions ────────────────────────────────────────────────────────
     # Which arms were asked for decides which masks get built. A boolean mask
@@ -370,11 +392,11 @@ def main():
         with open(out_dir / f"{stem}_responses.jsonl", "w") as f:
             for r in all_recs:
                 f.write(json.dumps(r) + "\n")
-        print(f"  {label:<22} hpc_lie={row['hpc_lie_rate']:.1%} "
-              f"(n={row['hpc_n_gradeable']}) hpkr_lie={row['hpkr_lie_rate']:.1%} "
-              f"(n={row['hpkr_n_gradeable']}) id_share={row['id_lie_share']:.1%} "
-              f"(n={row['id_n_settled']}) idt_share={row['idt_lie_share']:.1%} "
-              f"degen={row['alpaca_degen']:.1%} ppl={row['ppl_ratio']:.2f}x "
+        print(f"  {label:<22} hpc_lie={row.get('hpc_lie_rate', float('nan')):.1%} "
+              f"(n={row.get('hpc_n_gradeable', float('nan'))}) hpkr_lie={row.get('hpkr_lie_rate', float('nan')):.1%} "
+              f"(n={row.get('hpkr_n_gradeable', float('nan'))}) id_share={row.get('id_lie_share', float('nan')):.1%} "
+              f"(n={row.get('id_n_settled', float('nan'))}) idt_share={row.get('idt_lie_share', float('nan')):.1%} "
+              f"degen={row.get('alpaca_degen', float('nan')):.1%} ppl={row.get('ppl_ratio', float('nan')):.2f}x "
               f"[{time.time()-t0:.0f}s]", flush=True)
         with open(out_dir / f"{stem}.csv", "w", newline="") as f:
             fields = sorted({k for r in rows for k in r})
@@ -430,18 +452,18 @@ def main():
           f"{'degen':>8}{'ppl x':>8}")
     print("-" * 97)
     for r in rows:
-        print(f"{r['arm']:<22}{r['hpc_lie_rate']:>10.1%}{r['hpkr_lie_rate']:>11.1%}"
-              f"{r['id_lie_share']:>14.1%}{r['idt_lie_share']:>14.1%}"
-              f"{r['hpkr_no_claim_rate']:>10.1%}"
-              f"{r['alpaca_degen']:>8.1%}{r['ppl_ratio']:>8.2f}")
+        print(f"{r['arm']:<22}{r.get('hpc_lie_rate', float('nan')):>10.1%}{r.get('hpkr_lie_rate', float('nan')):>11.1%}"
+              f"{r.get('id_lie_share', float('nan')):>14.1%}{r.get('idt_lie_share', float('nan')):>14.1%}"
+              f"{r.get('hpkr_no_claim_rate', float('nan')):>10.1%}"
+              f"{r.get('alpaca_degen', float('nan')):>8.1%}{r.get('ppl_ratio', float('nan')):>8.2f}")
     print("  ID-dec = system prompt orders deception (the test). "
           "ID-tru = orders honesty (control).")
     print("  Shares are over SETTLED responses only, so read them beside "
           "no_claim: an arm that pushes answers into non-claims shrinks its own "
           "denominator.")
-    print(f"\ngradeable after the belief gate: HP-C {rows[0]['hpc_n_gradeable']}"
-          f"/{rows[0]['hpc_n_items']}, HP-KR {rows[0]['hpkr_n_gradeable']}"
-          f"/{rows[0]['hpkr_n_items']} (the rest are items the unsteered model "
+    print(f"\ngradeable after the belief gate: HP-C {rows[0].get('hpc_n_gradeable', 'n/a')}"
+          f"/{rows[0].get('hpc_n_items', 'n/a')}, HP-KR {rows[0].get('hpkr_n_gradeable', 'n/a')}"
+          f"/{rows[0].get('hpkr_n_items', 'n/a')} (the rest are items the unsteered model "
           f"does not know)")
     print(f"rows → {out_dir / (stem + '.csv')}")
 

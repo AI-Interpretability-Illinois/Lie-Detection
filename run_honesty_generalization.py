@@ -30,7 +30,7 @@ from src.evaluate import EVAL_SYSTEM_PROMPT
 from run_reversed_contrast import (EVAL_QA, SanitizeLogits, apply_steering,
                                    build_mask, generate_batched, junk,
                                    load_wikitext_ids, restore, wikitext_ppl)
-from honesty_eval import (PRESSURE_SETS, eval_conditions, known_set,
+from honesty_eval import (HELDOUT3, PRESSURE_SETS, eval_conditions, known_set,
                           summarize_honesty)
 
 # The honesty candidates, their control, and the deception reference.
@@ -93,8 +93,13 @@ def main():
             row[f"lie_{cond}"] = s["comply_rate"]
             row[f"resist_{cond}"] = s["resist_rate"]
             row["neutral_acc"] = s["neutral_acc"]
-        row["lie_heldout"] = sum(row[f"lie_{c}"] for c in PRESSURE_SETS
-                                 if c != "direct") / (len(PRESSURE_SETS) - 1)
+        # lie_heldout is the three original held-out framings, so every run stays
+        # comparable with the reports. PRESSURE_SETS grew from four framings to six
+        # on 2026-09-26 and this line silently became a five-framing mean for any
+        # run started after that. lie_heldout_all is the five-framing mean.
+        row["lie_heldout"] = sum(row[f"lie_{c}"] for c in HELDOUT3) / len(HELDOUT3)
+        _nd = [c for c in PRESSURE_SETS if c != "direct"]
+        row["lie_heldout_all"] = sum(row[f"lie_{c}"] for c in _nd) / len(_nd)
         rows.append(row)
         all_recs.extend(dict(r, arm=label, coef=coef) for r in recs)
         print(f"  {label:<18}{coef:>6} | " +

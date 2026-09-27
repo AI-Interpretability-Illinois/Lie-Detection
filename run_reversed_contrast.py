@@ -177,31 +177,17 @@ _RUN_RE = re.compile(r"(.)\1{7,}")
 
 
 def junk(resp: str) -> bool:
-    """Cheap non-answer detector, for the failure modes weight steering produces.
+    """Non-answer detector; delegates to grading.is_junk.
 
-    The repo's `degenerate` needs 8+ whitespace tokens, so it passes a response
-    like '!!!!!!!!' or a single repeated token — which a steered model emits when
-    it collapses, and which would otherwise be scored as a perfect lie.
+    The original version here rejected any response under half ASCII letters,
+    which flagged every bare number ('1912.', '3.14', '144') as junk and dropped
+    all 17 numeric-answer questions from both the honest and the falsehood count.
+    Fixed 2026-09-27; see grading.py.
     """
-    s = resp.strip()
-    if len(s) < 2:
-        return True
-    ascii_letters = sum(c.isalpha() and ord(c) < 128 for c in s)
-    if ascii_letters / len(s) < 0.5:        # symbol runs, '= = = =', '!!!!'
-        return True
-    if _RUN_RE.search(s):                   # any character repeated 8+ times
-        return True
-    if sum(ord(c) > 0x2000 for c in s) / len(s) > 0.10:   # script drift
-        return True
-    toks = s.split()
-    if len(toks) >= 4:
-        top = max(toks.count(t) for t in set(toks))
-        if top / len(toks) > 0.35:          # 'they, they, they'
-            return True
-    return False
+    from grading import is_junk
+    return is_junk(resp)
 
 
-@torch.no_grad()
 def response_nlls(model, tok, recs, device, batch_size):
     """Mean token NLL of each response under the CURRENT weights.
 
