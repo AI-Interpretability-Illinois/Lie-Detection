@@ -25,3 +25,4 @@ queue/failed/
 queue/logs/
 queue/markers/
 queue/worker.gpu*.pid
+queue/hold/

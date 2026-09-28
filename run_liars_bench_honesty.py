@@ -59,7 +59,8 @@ from transformers import AutoModelForCausalLM, AutoTokenizer
 
 from src.activation_steering import ActivationSteering, ActivationSteeringConfig
 from src.prompts import (DIRECT_LIE, DIRECT_TRUTH, DIRECT_TRUTH_INSTRUCT,
-                        DIRECT_FICTION_FALSE, DIRECT_HONEST_ERROR)
+                        DIRECT_FICTION_FALSE, DIRECT_HONEST_ERROR,
+                        TF_LIE, TF_FICTION, TF_ERROR, TF_TRUTH)
 from did_estimators import (cell_mean_sd, collect_column_norms, load_lm,
                             target_layers)
 from run_reversed_contrast import (SanitizeLogits, generate_batched,
@@ -199,6 +200,9 @@ def main():
     ap.add_argument("--mask-alphas", default="",
                     help="Comma-separated NEGATIVE alphas for that grid. Masks are "
                          "built one rho at a time so only one is in memory.")
+    ap.add_argument("--polarity-arms", action="store_true",
+                    help="Also build masks from polarity-balanced true/false "
+                         "prompts (fictf, pooltf, poolmix families).")
     ap.add_argument("--falsehood-arms", action="store_true",
                     help="Also score column norms for the fiction and mistake "
                          "framings and enable the pooled/fiction treatment arms. "
@@ -332,6 +336,12 @@ def main():
         # deceptive intent, so the treatment arm is pooled over falsehood styles.
         treatments += [("fiction", DIRECT_FICTION_FALSE),
                        ("error", DIRECT_HONEST_ERROR)]
+    if args.polarity_arms:
+        # Polarity-balanced true/false prompts (src/prompts.py, TF_*): 12 true /
+        # 12 false statements, half negated, so both arms plan "true" and "false"
+        # answers equally and negation cancels out of the contrast.
+        treatments += [("tf_lie", TF_LIE), ("tf_fiction", TF_FICTION),
+                       ("tf_error", TF_ERROR), ("tf_truth", TF_TRUTH)]
     norms = {}
     for key, prompts in treatments:
         cols = collect_column_norms(
@@ -359,6 +369,24 @@ def main():
             pooled = variant("score_diff_instruct", "pooled")
         if any(k.startswith("fiction") for k in want):
             fict = variant("score_diff_instruct", "fiction")
+    # ── polarity-balanced masks and the strength sweep ──────────────────────
+    # Masks are built only for families some requested arm uses; any family can
+    # then be applied at -0.5, -0.75 or -1.0 (arm keys like fictf050, pooled075).
+    extra_masks = {}
+    if args.polarity_arms:
+        avg = lambda ks: {ly: sum(norms[k][ly] for k in ks) / len(ks) for ly in layers}
+        norms["tf_pooled"] = avg(["tf_lie", "tf_fiction", "tf_error"])
+        norms["mix_treat"] = avg(["lie", "fiction", "error", "tf_lie", "tf_fiction", "tf_error"])
+        norms["mix_ctrl"] = avg(["instruct", "tf_truth"])
+        specs = {"fictf": ("tf_fiction", "tf_truth"),      # fiction, true/false only
+                 "pooltf": ("tf_pooled", "tf_truth"),      # three styles, true/false only
+                 "poolmix": ("mix_treat", "mix_ctrl")}     # both formats, both arms
+        for fam, (tk, ck) in specs.items():
+            if any(k.startswith(fam) for k in want):
+                nn = dict(norms, lie=norms[tk], instruct=norms[ck])
+                extra_masks[fam] = build_variant(model, layers, nn, "score_diff_instruct",
+                                                 args.rho, args.ratio, device)
+                print(f"  mask[{fam}] built", flush=True)
     asteer = ActivationSteering(model, tok, ActivationSteeringConfig(device=device))
     vec_path = out_dir / f"as_vectors_{short}_ntruth{args.n_truth}.pt"
     if vec_path.exists():
@@ -386,6 +414,14 @@ def main():
     if fict is not None:
         ALL_ARMS["fiction075"] = ("weight:fiction a=-0.75", ("mask", fict, -0.75))
         ALL_ARMS["fiction100"] = ("weight:fiction a=-1.0",  ("mask", fict, -1.0))
+    # half-strength arms for the per-model strength sweep, and the new families
+    for fam, m in [("ours", ours), ("pooled", pooled), ("fiction", fict),
+                   *extra_masks.items()]:
+        if m is None:
+            continue
+        for a in (-0.5, -0.75, -1.0):
+            key = f"{fam}{int(round(abs(a) * 100)):03d}"
+            ALL_ARMS.setdefault(key, (f"weight:{fam} a={a}", ("mask", m, a)))
     if args.as_coeffs or args.as_rel_coeffs:
         # Residual norms differ by model and layer, so the coefficient is only
         # interpretable against them; print for the record.

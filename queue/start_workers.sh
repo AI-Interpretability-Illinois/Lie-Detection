@@ -5,8 +5,8 @@
 Q=/u/xiaocong/lie_detection/queue
 rm -f ~/.stop_lie_queue
 for g in ${GPUS:-0 1 2 3}; do
-  pf="$Q/worker.gpu$g.pid"
+  pf="$Q/worker.$(hostname -s)-gpu$g.pid"
   if [ -f "$pf" ] && kill -0 "$(cat "$pf")" 2>/dev/null; then echo "gpu$g worker alive ($(cat "$pf"))"; continue; fi
-  setsid nohup bash "$Q/worker.sh" $g < /dev/null >> "$Q/logs/worker.gpu$g.log" 2>&1 &
+  setsid nohup env MAX_MEM_GB=${MAX_MEM_GB:-999} LIE_MAX_GPU_GB=${LIE_MAX_GPU_GB:-} bash "$Q/worker.sh" $g < /dev/null >> "$Q/logs/worker.$(hostname -s)-gpu$g.log" 2>&1 &
   echo "gpu$g worker started"
 done
