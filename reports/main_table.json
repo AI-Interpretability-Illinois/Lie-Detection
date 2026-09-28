@@ -1,0 +1,489 @@
+[
+ {
+  "model": "Llama-3.1-8B",
+  "lb": {
+   "unsteered": {
+    "v": 35.3,
+    "u": true,
+    "arm": "unsteered",
+    "fails": []
+   },
+   "liemask": {
+    "v": 79.5,
+    "u": true,
+    "arm": "weight:ours a=-1.0",
+    "fails": []
+   },
+   "falsehood": {
+    "v": 92.5,
+    "u": true,
+    "arm": "weight:fiction a=-1.0",
+    "fails": []
+   },
+   "prompt": {
+    "v": 81.8,
+    "u": true,
+    "arm": "prompt:honest",
+    "fails": []
+   },
+   "steer": {
+    "v": 52.6,
+    "u": true,
+    "arm": "actsteer:L8 r=-0.18 (c=-1.0)",
+    "fails": []
+   }
+  },
+  "ail": {
+   "unsteered": {
+    "v": 28.7,
+    "u": true,
+    "arm": "unsteered",
+    "fails": []
+   },
+   "liemask": {
+    "v": 84.8,
+    "u": true,
+    "arm": "weight:ours a=-1.0",
+    "fails": []
+   },
+   "falsehood": {
+    "v": 89.0,
+    "u": true,
+    "arm": "weight:pooled a=-1.0",
+    "fails": []
+   },
+   "prompt": {
+    "v": 24.9,
+    "u": true,
+    "arm": "prompt:honest",
+    "fails": []
+   },
+   "steer": {
+    "v": 55.1,
+    "u": true,
+    "arm": "actsteer:L8 r=-0.18 (c=-1.0)",
+    "fails": []
+   }
+  }
+ },
+ {
+  "model": "Phi-4-mini",
+  "lb": {
+   "unsteered": {
+    "v": 68.9,
+    "u": true,
+    "arm": "unsteered",
+    "fails": []
+   },
+   "liemask": {
+    "v": 78.0,
+    "u": false,
+    "arm": "weight:ours a=-1.0",
+    "fails": [
+     "polarity"
+    ]
+   },
+   "falsehood": {
+    "v": 87.5,
+    "u": true,
+    "arm": "weight:pooled a=-1.0",
+    "fails": []
+   },
+   "prompt": {
+    "v": 75.8,
+    "u": true,
+    "arm": "prompt:honest",
+    "fails": []
+   },
+   "steer": {
+    "v": 80.4,
+    "u": true,
+    "arm": "actsteer:L24 r=-0.18 (c=-26.6)",
+    "fails": []
+   }
+  },
+  "ail": {
+   "unsteered": {
+    "v": 48.6,
+    "u": true,
+    "arm": "unsteered",
+    "fails": []
+   },
+   "liemask": {
+    "v": 65.1,
+    "u": false,
+    "arm": "weight:ours a=-1.0",
+    "fails": [
+     "polarity"
+    ]
+   },
+   "falsehood": {
+    "v": 78.8,
+    "u": true,
+    "arm": "weight:fiction a=-1.0",
+    "fails": []
+   },
+   "prompt": {
+    "v": 45.4,
+    "u": true,
+    "arm": "prompt:honest",
+    "fails": []
+   },
+   "steer": {
+    "v": 68.1,
+    "u": true,
+    "arm": "actsteer:L16 r=-0.18 (c=-10.4)",
+    "fails": []
+   }
+  }
+ },
+ {
+  "model": "OLMo-2-1B",
+  "lb": {
+   "unsteered": {
+    "v": 52.1,
+    "u": true,
+    "arm": "unsteered",
+    "fails": []
+   },
+   "liemask": {
+    "v": 53.1,
+    "u": true,
+    "arm": "weight:ours a=-1.0",
+    "fails": []
+   },
+   "falsehood": {
+    "v": 55.7,
+    "u": true,
+    "arm": "weight:pooled a=-1.0",
+    "fails": []
+   },
+   "prompt": {
+    "v": 62.2,
+    "u": false,
+    "arm": "prompt:honest",
+    "fails": [
+     "polarity"
+    ]
+   },
+   "steer": {
+    "v": 51.0,
+    "u": true,
+    "arm": "actsteer:L4 r=-0.18 (c=-1.4)",
+    "fails": []
+   }
+  },
+  "ail": {
+   "unsteered": {
+    "v": 60.6,
+    "u": true,
+    "arm": "unsteered",
+    "fails": []
+   },
+   "liemask": {
+    "v": 64.5,
+    "u": true,
+    "arm": "weight:ours a=-1.0",
+    "fails": []
+   },
+   "falsehood": {
+    "v": 69.6,
+    "u": true,
+    "arm": "weight:pooled a=-1.0",
+    "fails": []
+   },
+   "prompt": {
+    "v": 56.7,
+    "u": false,
+    "arm": "prompt:honest",
+    "fails": [
+     "polarity"
+    ]
+   },
+   "steer": {
+    "v": 55.6,
+    "u": true,
+    "arm": "actsteer:L4 r=-0.18 (c=-1.4)",
+    "fails": []
+   }
+  }
+ },
+ {
+  "model": "Falcon3-3B",
+  "lb": {
+   "unsteered": {
+    "v": 80.3,
+    "u": true,
+    "arm": "unsteered",
+    "fails": []
+   },
+   "prompt": {
+    "v": 83.2,
+    "u": false,
+    "arm": "prompt:honest",
+    "fails": [
+     "control"
+    ]
+   },
+   "liemask": {
+    "v": 82.9,
+    "u": false,
+    "arm": "weight:ours a=-1.0",
+    "fails": [
+     "control",
+     "polarity"
+    ]
+   },
+   "falsehood": {
+    "v": 88.8,
+    "u": true,
+    "arm": "weight:poolmix a=-1.0",
+    "fails": []
+   },
+   "steer": {
+    "v": 80.8,
+    "u": true,
+    "arm": "actsteer:L5 r=-0.18 (c=-13.0)",
+    "fails": []
+   }
+  },
+  "ail": {
+   "unsteered": {
+    "v": 75.0,
+    "u": true,
+    "arm": "unsteered",
+    "fails": []
+   },
+   "prompt": {
+    "v": 76.1,
+    "u": false,
+    "arm": "prompt:honest",
+    "fails": [
+     "control"
+    ]
+   },
+   "liemask": {
+    "v": 76.8,
+    "u": false,
+    "arm": "weight:ours a=-1.0",
+    "fails": [
+     "control",
+     "polarity"
+    ]
+   },
+   "falsehood": {
+    "v": 78.4,
+    "u": true,
+    "arm": "weight:poolmix a=-1.0",
+    "fails": []
+   },
+   "steer": {
+    "v": 74.0,
+    "u": true,
+    "arm": "actsteer:L5 r=-0.18 (c=-13.0)",
+    "fails": []
+   }
+  }
+ },
+ {
+  "model": "Qwen2.5-3B",
+  "lb": {
+   "unsteered": {
+    "v": 81.8,
+    "u": true,
+    "arm": "unsteered",
+    "fails": []
+   },
+   "liemask": {
+    "v": 92.0,
+    "u": true,
+    "arm": "weight:ours a=-1.0",
+    "fails": []
+   },
+   "falsehood": {
+    "v": 93.7,
+    "u": true,
+    "arm": "weight:fiction a=-1.0",
+    "fails": []
+   },
+   "prompt": {
+    "v": 92.9,
+    "u": true,
+    "arm": "prompt:honest",
+    "fails": []
+   },
+   "steer": {
+    "v": 91.4,
+    "u": true,
+    "arm": "actsteer:L27 r=-0.18 (c=-18.7)",
+    "fails": []
+   }
+  },
+  "ail": {
+   "unsteered": {
+    "v": 64.2,
+    "u": true,
+    "arm": "unsteered",
+    "fails": []
+   },
+   "liemask": {
+    "v": 82.1,
+    "u": true,
+    "arm": "weight:ours a=-1.0",
+    "fails": []
+   },
+   "falsehood": {
+    "v": 65.9,
+    "u": true,
+    "arm": "weight:fiction a=-1.0",
+    "fails": []
+   },
+   "prompt": {
+    "v": 62.4,
+    "u": true,
+    "arm": "prompt:honest",
+    "fails": []
+   },
+   "steer": {
+    "v": 71.2,
+    "u": true,
+    "arm": "actsteer:L27 r=-0.18 (c=-18.7)",
+    "fails": []
+   }
+  }
+ },
+ {
+  "model": "Qwen2.5-7B",
+  "lb": {
+   "unsteered": {
+    "v": 85.1,
+    "u": true,
+    "arm": "unsteered",
+    "fails": []
+   },
+   "liemask": {
+    "v": 95.7,
+    "u": true,
+    "arm": "weight:ours a=-1.0",
+    "fails": []
+   },
+   "falsehood": {
+    "v": 95.9,
+    "u": true,
+    "arm": "weight:pooled a=-1.0",
+    "fails": []
+   },
+   "prompt": {
+    "v": 96.1,
+    "u": true,
+    "arm": "prompt:honest",
+    "fails": []
+   },
+   "steer": {
+    "v": 92.6,
+    "u": true,
+    "arm": "actsteer:L7 r=-0.5 (c=-16.2)",
+    "fails": []
+   }
+  },
+  "ail": {
+   "unsteered": {
+    "v": 80.5,
+    "u": true,
+    "arm": "unsteered",
+    "fails": []
+   },
+   "liemask": {
+    "v": 90.4,
+    "u": true,
+    "arm": "weight:ours a=-1.0",
+    "fails": []
+   },
+   "falsehood": {
+    "v": 90.3,
+    "u": true,
+    "arm": "weight:pooled a=-1.0",
+    "fails": []
+   },
+   "prompt": {
+    "v": 80.3,
+    "u": true,
+    "arm": "prompt:honest",
+    "fails": []
+   },
+   "steer": {
+    "v": 91.1,
+    "u": true,
+    "arm": "actsteer:L14 r=-0.18 (c=-11.0)",
+    "fails": []
+   }
+  }
+ },
+ {
+  "model": "Qwen2.5-1.5B",
+  "lb": {
+   "unsteered": {
+    "v": 79.7,
+    "u": true,
+    "arm": "unsteered",
+    "fails": []
+   },
+   "prompt": {
+    "v": 81.2,
+    "u": true,
+    "arm": "prompt:honest",
+    "fails": []
+   },
+   "liemask": {
+    "v": 80.6,
+    "u": true,
+    "arm": "weight:ours a=-0.75",
+    "fails": []
+   },
+   "falsehood": {
+    "v": 88.3,
+    "u": true,
+    "arm": "weight:fictf a=-1.0",
+    "fails": []
+   },
+   "steer": {
+    "v": 91.2,
+    "u": true,
+    "arm": "actsteer:L14 r=-0.18 (c=-9.4)",
+    "fails": []
+   }
+  },
+  "ail": {
+   "unsteered": {
+    "v": 74.4,
+    "u": true,
+    "arm": "unsteered",
+    "fails": []
+   },
+   "prompt": {
+    "v": 77.1,
+    "u": true,
+    "arm": "prompt:honest",
+    "fails": []
+   },
+   "liemask": {
+    "v": 80.2,
+    "u": true,
+    "arm": "weight:ours a=-0.75",
+    "fails": []
+   },
+   "falsehood": {
+    "v": 82.0,
+    "u": true,
+    "arm": "weight:fiction a=-0.5",
+    "fails": []
+   },
+   "steer": {
+    "v": 81.6,
+    "u": true,
+    "arm": "actsteer:L14 r=-0.18 (c=-9.4)",
+    "fails": []
+   }
+  }
+ }
+]
