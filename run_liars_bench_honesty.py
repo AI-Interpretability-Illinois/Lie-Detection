@@ -379,7 +379,10 @@ def main():
     ours = variant("score_diff_instruct")
     setd = (variant("set_diff_instruct")
             if any(k == "setdiff" for k in want) else None)
-    ctrl = (magnitude_matched(model, ours, device, args.seed)
+    # Built on the CPU: it needs a full random permutation of each weight matrix,
+    # ~0.5 GB of scratch per matrix on an 8B model, which overflowed the GPU cap
+    # used when sharing a node (Llama-3.1-8B at 18 GB, 2026-09-28).
+    ctrl = (magnitude_matched(model, ours, "cpu", args.seed)
             if any(k.startswith("magmatch") for k in want) else None)
     pooled = fict = None
     if args.falsehood_arms:
