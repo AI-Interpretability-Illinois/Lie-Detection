@@ -134,3 +134,24 @@ def is_correct_prefix(resp: str, gold: str, question: str = "") -> bool:
         if not _negated(rn, m.start()):
             return True
     return False
+
+
+_MC_START = re.compile(r"^\W*\(?([A-D])\)?(?:[.):,]|\s*$|\s+(?![a-z]))")
+_MC_ANSWER = re.compile(r"answer(?:\s+is)?\s*[:\-]?\s*\(?([A-D])\b", re.I)
+_MC_ANY = re.compile(r"\b([A-D])\b(?!\s+[a-z])")
+
+
+def parse_mc(resp: str):
+    """Option letter from a multiple-choice reply, or None.
+
+    Tries, in order: a letter opening the reply ('B', '(C)', 'A) Paris'); a
+    letter after 'answer' / 'answer is'; any standalone capital A-D that is not
+    followed by a lowercase word, so the article in 'A wrong answer would be C'
+    is not read as option A.
+    """
+    s = resp.strip()[:160]
+    for pat in (_MC_START, _MC_ANSWER, _MC_ANY):
+        m = pat.search(s)
+        if m:
+            return m.group(1).upper()
+    return None

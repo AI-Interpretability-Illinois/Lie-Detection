@@ -15,13 +15,13 @@
 Q=/u/xiaocong/lie_detection/queue
 LOW_MIB=${LOW_MIB:-1500}
 SETTLE=${SETTLE:-600}
-WORKER_GPUS=${WORKER_GPUS:-"1 2 3"}
-WORKER_MAX_MEM=${WORKER_MAX_MEM:-18}
+# which GPUs get workers, and each group's job-size limit: "1 2 3:18,0:12"
+WORKER_SPEC=${WORKER_SPEC:-"1 2 3:18"}
 OURS="run_liars_bench_honest[y].py|judge_claim[s].py|judge_mas[k].py"
 prev="__init__"
 paused_until=0
 requeue=""
-echo "$(date '+%F %H:%M:%S') guard up: low=${LOW_MIB}MiB settle=${SETTLE}s gpus=[$WORKER_GPUS]"
+echo "$(date '+%F %H:%M:%S') guard up on $(hostname -s): low=${LOW_MIB}MiB settle=${SETTLE}s spec=[$WORKER_SPEC]"
 while [ ! -e ~/.stop_lie_guard ]; do
   now=$(date +%s)
   mine=" $(pgrep -u "$USER" -f "$OURS" | tr '\n' ' ') "
@@ -63,7 +63,10 @@ while [ ! -e ~/.stop_lie_guard ]; do
   # settle window over: resume the workers
   if [ "$paused_until" -gt 0 ] && [ "$now" -ge "$paused_until" ]; then
     paused_until=0
-    GPUS="$WORKER_GPUS" MAX_MEM_GB="$WORKER_MAX_MEM" "$Q/start_workers.sh" | sed "s/^/$(date '+%F %H:%M:%S') resume: /"
+    IFS=',' read -ra groups <<< "$WORKER_SPEC"
+    for grp in "${groups[@]}"; do
+      GPUS="${grp%%:*}" MAX_MEM_GB="${grp##*:}" "$Q/start_workers.sh" | sed "s/^/$(date '+%F %H:%M:%S') resume: /"
+    done
   fi
   sleep 5
 done

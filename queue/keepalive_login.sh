@@ -11,8 +11,9 @@
 NODE=${NODE:-gpua047}
 Q=/u/xiaocong/lie_detection/queue
 SETTLE_MIN=${SETTLE_MIN:-10}
+WORKER_SPEC=${WORKER_SPEC:-"1 2 3:18"}
 log() { echo "$(date '+%F %H:%M:%S') $*"; }
-log "keepalive up for $NODE (settle ${SETTLE_MIN} min)"
+log "keepalive up for $NODE (settle ${SETTLE_MIN} min, spec [$WORKER_SPEC])"
 while [ ! -e ~/.stop_lie_keepalive ]; do
   if [ -z "$(ls $Q/pending $Q/running 2>/dev/null | grep '\.sh')" ]; then
     log "queue empty (nothing pending or running); exiting"; exit 0
@@ -28,8 +29,8 @@ while [ ! -e ~/.stop_lie_keepalive ]; do
       log "training up ${mins} min, 4 GPUs visible, workers=${workers} guard=${guard}: relaunching"
       timeout 40 ssh -o BatchMode=yes -o ConnectTimeout=10 "$NODE" \
         "cd /u/xiaocong/lie_detection && rm -f ~/.stop_lie_guard && \
-         { pgrep -u \$USER -f 'queue/guar[d].sh' >/dev/null || setsid nohup ./queue/guard.sh < /dev/null >> queue/logs/guard.log 2>&1 & } ; \
-         GPUS='1 2 3' MAX_MEM_GB=18 ./queue/start_workers.sh" 2>&1 | sed 's/^/    /'
+         { pgrep -u \$USER -f 'queue/guar[d].sh' >/dev/null || WORKER_SPEC='$WORKER_SPEC' setsid nohup ./queue/guard.sh < /dev/null >> queue/logs/guard.\$(hostname -s).log 2>&1 & } ; \
+         for grp in \$(echo '$WORKER_SPEC' | tr ',' '\n' | tr ' ' '_'); do g=\${grp%%:*}; GPUS=\"\${g//_/ }\" MAX_MEM_GB=\${grp##*:} ./queue/start_workers.sh; done" 2>&1 | sed 's/^/    /'
     fi
   fi
   sleep 120
