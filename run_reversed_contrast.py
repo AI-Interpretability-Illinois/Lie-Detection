@@ -333,9 +333,18 @@ def load_wikitext_ids(tok, cache_dir):
         ds = load_dataset("wikitext", "wikitext-2-raw-v1", split="test",
                           cache_dir=cache_dir)
     except Exception:
-        ds = load_dataset("EleutherAI/wikitext_document_level", "wikitext-2-raw-v1",
-                          split="test", cache_dir=cache_dir)
-        ds = ds.rename_column("page", "text") if "page" in ds.column_names else ds
+        # A cache copied from another host (e.g. to timan) that this datasets version
+        # cannot resolve offline: read the stored test split directly.
+        import glob
+        from datasets import Dataset
+        arrow = sorted(glob.glob(f"{cache_dir}/wikitext/wikitext-2-raw-v1/**/wikitext-test.arrow",
+                                 recursive=True))
+        if arrow:
+            ds = Dataset.from_file(arrow[0])
+        else:
+            ds = load_dataset("EleutherAI/wikitext_document_level", "wikitext-2-raw-v1",
+                              split="test", cache_dir=cache_dir)
+            ds = ds.rename_column("page", "text") if "page" in ds.column_names else ds
     text = "\n\n".join(t for t in ds["text"] if t.strip())
     return tok(text, add_special_tokens=False, truncation=True,
                max_length=WT_MAX_TOKS)["input_ids"]

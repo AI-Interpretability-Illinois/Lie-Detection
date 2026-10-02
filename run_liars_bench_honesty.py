@@ -204,6 +204,26 @@ def main():
     ap.add_argument("--splits", default="",
                     help="Comma-separated subset of splits to run; empty = all. "
                          "Rows for skipped splits are reported as NaN.")
+    ap.add_argument("--pool-draws", default="",
+                    help="Extra masks from the 691-question pool (build_mask_pool.py), for "
+                         "the sample-size test: comma-separated family:n:seed with family "
+                         "fiction or pooled, e.g. fiction:25:0,fiction:100:0,fiction:400:0. "
+                         "Families: fiction, pooled, fictf, pooltf, poolmix. Arm keys are "
+                         "<pf|pp|pft|ppt|ppm><n>d<seed>_<strength>.")
+    ap.add_argument("--combine", default="",
+                    help="Comma-separated unions of two masks, A+B, by mask name (ours, pooled, fiction, "
+                         "a polarity family, or a --designs mask such as recov040a025); arm keys "
+                         "<A>+<B>_<strength>, e.g. fiction+recov040a025_100.")
+    ap.add_argument("--designs", default="",
+                    help="Response-token masks (mask_designs.py): comma-separated design:rho:r with "
+                         "design resp or recov, e.g. resp:0.04:a0.005 (r calibrated so positive-score "
+                         "weights are 0.5%) or resp:0.01:1.0. Arm keys are <design><rho per-mille, 3 "
+                         "digits><a + share in basis points | r + r x 100>_<strength>.")
+    ap.add_argument("--design-n", type=int, default=200,
+                    help="Questions and statements (each) for the response-token designs.")
+    ap.add_argument("--half", default="", choices=["", "val", "test"],
+                    help="Keep only this half of every split (MD5 of the item uid, as in "
+                         "reports/build_final_table.py).")
     ap.add_argument("--n-idt", type=int, default=263,
                     help="Items from the honesty-instructed half of the "
                          "instructed-deception split, used as a control.")
@@ -289,6 +309,10 @@ def main():
     want_splits = [x.strip() for x in args.splits.split(",") if x.strip()]
     subsets = {k: v for k, v in all_subsets.items()
                if not want_splits or k in want_splits}
+    if args.half:
+        import hashlib
+        side = lambda uid: "val" if int(hashlib.md5(uid.encode()).hexdigest(), 16) % 2 == 0 else "test"
+        subsets = {k: [it for it in v if side(it["uid"]) == args.half] for k, v in subsets.items()}
     for k, v in subsets.items():
         print(f"  {k}: {len(v)} items", flush=True)
 
@@ -425,6 +449,93 @@ def main():
                 extra_masks[fam] = build_variant(model, layers, nn, "score_diff_instruct",
                                                  args.rho, args.ratio, device)
                 print(f"  mask[{fam}] built", flush=True)
+    if args.pool_draws:
+        # Sample-size test (b): the same mask rule on subsets of larger prompt pools in the
+        # style of the hand-written prompts. Question pool (fiction, pooled): 400 questions from
+        # extra_prompts/mask_pool_questions.json, n drawn at random (seeded). Statement pool
+        # (fictf, pooltf, and the true/false half of poolmix): extra_prompts/mask_pool_tf.json,
+        # the first n statements, which keeps true/false x negated balanced when 4 divides n.
+        import random as _random
+        from mask_sample_size import POOL, wrap
+        from src.prompts import _TF_PREFIX
+        specs = [x.split(":") for x in args.pool_draws.split(",")]
+        fams = {f for f, _, _ in specs}
+        pn = {}
+        def collect(key, prompts):
+            pn[key] = collect_column_norms(model, tok, [{"prompt": p} for p in prompts],
+                                           layers, device, position="prompt",
+                                           batch_size=args.score_batch)
+            print(f"  pool norms[{key}] {len(prompts)} prompts", flush=True)
+        if fams & {"fiction", "pooled", "poolmix"}:
+            Fp, Tp = wrap(json.loads(POOL.read_text())[:400])
+            for st in ("lie", "fiction", "error"):
+                collect(st, Fp[st])
+            collect("T", Tp)
+        if fams & {"fictf", "pooltf", "poolmix"}:
+            tfp = json.loads((POOL.parent / "mask_pool_tf.json").read_text())
+            q = "Is this statement true or false? {s}"
+            for st in ("lie", "fiction", "error"):
+                collect("tf_" + st, [f"{_TF_PREFIX[st][i % 6]} {q.format(s=x)}"
+                                     for i, (x, _) in enumerate(tfp)])
+            collect("tf_T", [f"Answer truthfully: {q.format(s=x)}" for x, _ in tfp])
+        mean = lambda key, idx: {ly: pn[key][ly][idx].mean(0) for ly in layers}
+        avg = lambda ds: {ly: sum(d[ly] for d in ds) / len(ds) for ly in layers}
+        PREFIX = {"fiction": "pf", "pooled": "pp", "fictf": "pft", "pooltf": "ppt", "poolmix": "ppm"}
+        for fam, n, seed in specs:
+            n, seed = int(n), int(seed)
+            qi = (list(range(400)) if n >= 400
+                  else _random.Random(1000 + seed).sample(range(400), n))
+            ti = list(range(n))
+            if fam == "fiction":
+                f, t = mean("fiction", qi), mean("T", qi)
+            elif fam == "pooled":
+                f, t = avg([mean(st, qi) for st in ("lie", "fiction", "error")]), mean("T", qi)
+            elif fam == "fictf":
+                f, t = mean("tf_fiction", ti), mean("tf_T", ti)
+            elif fam == "pooltf":
+                f, t = avg([mean("tf_" + st, ti) for st in ("lie", "fiction", "error")]), mean("tf_T", ti)
+            elif fam == "poolmix":
+                f = avg([mean(st, qi) for st in ("lie", "fiction", "error")]
+                        + [mean("tf_" + st, ti) for st in ("lie", "fiction", "error")])
+                t = avg([mean("T", qi), mean("tf_T", ti)])
+            else:
+                raise SystemExit(f"unknown pool family {fam}")
+            name = f"{PREFIX[fam]}{n}d{seed}_"
+            extra_masks[name] = build_variant(model, layers, dict(norms, lie=f, instruct=t),
+                                              "score_diff_instruct", args.rho, args.ratio, device)
+            print(f"  mask[{name}] from {n} pool prompts (seed {seed})", flush=True)
+        del pn
+    if args.designs:
+        from mask_designs import design_mask_spec, design_norms
+        dn = {}
+        for spec in args.designs.split(","):
+            d, rho, r = spec.split(":"); rho = float(rho)
+            if d not in dn:
+                dn[d] = design_norms(model, tok, layers, device, d, args.design_n,
+                                     batch=args.score_batch)
+                print(f"  design norms[{d}] from {2 * args.design_n} pairs", flush=True)
+            tag = (f"a{round(float(r[1:]) * 10000):03d}" if r.startswith("a")
+                   else f"r{round(float(r) * 100):03d}")
+            name = f"{d}{round(rho * 1000):03d}{tag}_"
+            extra_masks[name] = design_mask_spec(model, layers, dn[d], rho, r, device)
+            print(f"  mask[{name}] rho={rho} r={r}", flush=True)
+        del dn
+    if args.combine:
+        # Union of two masks (e.g. the chosen prompt mask plus a small recovery mask): a weight is
+        # deleted if either mask selects it. Arm keys are <A>+<B>_<strength>.
+        known = {"ours": ours, "pooled": pooled, "fiction": fict, **extra_masks}
+        for spec in args.combine.split(","):
+            parts = []
+            for nm in spec.split("+"):
+                m = known.get(nm) if known.get(nm) is not None else known.get(nm + "_")
+                if m is None:
+                    raise SystemExit(f"--combine: no mask named {nm}")
+                parts.append(m)
+            u = {k: parts[0][k] | parts[1][k] for k in parts[0]}
+            share = [sum(int(p[k].sum()) for k in p) / sum(p[k].numel() for k in p) for p in parts + [u]]
+            extra_masks[spec.rstrip("_") + "_"] = u
+            print(f"  mask[{spec}] union: {share[0]:.4f} + {share[1]:.4f} -> {share[2]:.4f} of weights",
+                  flush=True)
     asteer = ActivationSteering(model, tok, ActivationSteeringConfig(device=device))
     vec_path = out_dir / f"as_vectors_{short}_ntruth{args.n_truth}.pt"
     if vec_path.exists():

@@ -200,7 +200,7 @@ def get_module(model, name: str) -> nn.Linear:
 @torch.no_grad()
 def collect_column_norms(model, tok, items, layer_names, device,
                          position="prompt", batch_size=8, max_length=256,
-                         desc="") -> Dict[str, torch.Tensor]:
+                         desc="", rms=False) -> Dict[str, torch.Tensor]:
     """Per-item L2 norm of the input activations into each linear layer column.
 
     items: list of dicts with "prompt" and, when position != "prompt", "answer".
@@ -220,6 +220,8 @@ def collect_column_norms(model, tok, items, layer_names, device,
             x = inp[0].detach().float()                 # (B, T, in)
             m = state["mask"].unsqueeze(-1)             # (B, T, 1)
             sq = (x * x * m).sum(dim=1)                 # (B, in)
+            if rms:                                     # per-token RMS: answers of different
+                sq = sq / m.sum(dim=1).clamp(min=1)     # lengths score on the same scale
             store[name][state["slice"]] = sq.sqrt().cpu()
         return hook
 
@@ -238,7 +240,9 @@ def collect_column_norms(model, tok, items, layer_names, device,
                 if position == "prompt" or not it.get("answer"):
                     texts.append(it["prompt"])
                 else:
-                    texts.append(it["prompt"] + "\n" + it["answer"])
+                    # "sep": "" when the prompt already ends with a chat template's
+                    # assistant header, so the answer follows it directly
+                    texts.append(it["prompt"] + it.get("sep", "\n") + it["answer"])
             enc = tok(texts, return_tensors="pt", padding=True, truncation=True,
                       max_length=max_length, add_special_tokens=False)
             enc = {k: v.to(device) for k, v in enc.items()}

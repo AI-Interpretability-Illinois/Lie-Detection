@@ -1,0 +1,962 @@
+[
+[
+"Pure water freezes at zero degrees Celsius at standard pressure.",
+true
+],
+[
+"The capital of Australia is Sydney.",
+false
+],
+[
+"The Earth is not flat.",
+true
+],
+[
+"Paris is not the capital of France.",
+false
+],
+[
+"Earth orbits the Sun.",
+true
+],
+[
+"Pure water boils at 80 degrees Celsius at sea level.",
+false
+],
+[
+"The Sun is not a planet.",
+true
+],
+[
+"The Earth does not orbit the Sun.",
+false
+],
+[
+"The Pacific Ocean is Earth's largest ocean.",
+true
+],
+[
+"The play Hamlet was written by Charles Dickens.",
+false
+],
+[
+"The Moon is not a star.",
+true
+],
+[
+"Water does not freeze at 0 degrees Celsius at standard pressure.",
+false
+],
+[
+"The Nile River flows through Africa.",
+true
+],
+[
+"Spiders have six legs.",
+false
+],
+[
+"Mars is not the closest planet to the Sun.",
+true
+],
+[
+"The Sun is not a star.",
+false
+],
+[
+"Mount Everest is Earth's highest mountain above sea level.",
+true
+],
+[
+"World War II ended in 1965.",
+false
+],
+[
+"Jupiter is not smaller than Earth.",
+true
+],
+[
+"The Pacific Ocean is not Earth’s largest ocean.",
+false
+],
+[
+"Japan is an island country in Asia.",
+true
+],
+[
+"The Pacific Ocean is the smallest ocean on Earth.",
+false
+],
+[
+"Venus is not a moon.",
+true
+],
+[
+"Mount Everest is not the highest mountain above sea level.",
+false
+],
+[
+"Canberra is the capital of Australia.",
+true
+],
+[
+"A soccer team starts a match with three players.",
+false
+],
+[
+"Saturn is not a rocky planet.",
+true
+],
+[
+"The Sahara Desert is not in Africa.",
+false
+],
+[
+"The Amazon River is in South America.",
+true
+],
+[
+"The Sahara Desert is in South America.",
+false
+],
+[
+"Neptune is not closer to the Sun than Earth.",
+true
+],
+[
+"The Amazon River is not in South America.",
+false
+],
+[
+"The Sahara Desert is in Africa.",
+true
+],
+[
+"A week has ten days.",
+false
+],
+[
+"Pluto is not larger than Earth.",
+true
+],
+[
+"Tokyo is not the capital of Japan.",
+false
+],
+[
+"The Atlantic Ocean lies between the Americas and Europe and Africa.",
+true
+],
+[
+"The Sun is a planet.",
+false
+],
+[
+"Light does not travel faster in glass than in a vacuum.",
+true
+],
+[
+"Rome is not the capital of Italy.",
+false
+],
+[
+"The Equator passes through Ecuador.",
+true
+],
+[
+"The Mona Lisa was painted by Pablo Picasso.",
+false
+],
+[
+"Water does not freeze at 20 degrees Celsius under standard conditions.",
+true
+],
+[
+"The Atlantic Ocean is not between the Americas and Europe.",
+false
+],
+[
+"Toronto is a city in Canada.",
+true
+],
+[
+"The Nile River flows through Brazil.",
+false
+],
+[
+"Oxygen is not a metal.",
+true
+],
+[
+"Egypt is not in Africa.",
+false
+],
+[
+"The Alps are a mountain range in Europe.",
+true
+],
+[
+"Elephants reproduce by laying eggs.",
+false
+],
+[
+"Helium is not heavier than iron.",
+true
+],
+[
+"Antarctica does not contain the South Pole.",
+false
+],
+[
+"The Mediterranean Sea borders Europe, Africa, and Asia.",
+true
+],
+[
+"Apollo 11 landed on Mars.",
+false
+],
+[
+"The atomic number of carbon is not eight.",
+true
+],
+[
+"The equator does not divide Earth into two hemispheres.",
+false
+],
+[
+"The chemical symbol for oxygen is O.",
+true
+],
+[
+"A triangle has four sides.",
+false
+],
+[
+"The chemical symbol for sodium is not S.",
+true
+],
+[
+"Greenland is not an island.",
+false
+],
+[
+"The chemical symbol for gold is Au.",
+true
+],
+[
+"The chemical symbol for oxygen is Ox.",
+false
+],
+[
+"DNA is not made of stone.",
+true
+],
+[
+"The Mediterranean Sea does not border Europe.",
+false
+],
+[
+"The chemical formula for water is H2O.",
+true
+],
+[
+"A marathon is exactly five kilometers long.",
+false
+],
+[
+"Humans do not have gills.",
+true
+],
+[
+"The Moon is not Earth’s natural satellite.",
+false
+],
+[
+"The human heart has four chambers.",
+true
+],
+[
+"Japan is in Europe.",
+false
+],
+[
+"Spiders are not insects.",
+true
+],
+[
+"Oxygen is not a chemical element.",
+false
+],
+[
+"Dolphins are mammals.",
+true
+],
+[
+"A violin is a brass instrument.",
+false
+],
+[
+"Whales are not fish.",
+true
+],
+[
+"The chemical symbol for gold is not Au.",
+false
+],
+[
+"Green plants use sunlight during photosynthesis.",
+true
+],
+[
+"Earth has two natural moons.",
+false
+],
+[
+"Bats are not birds.",
+true
+],
+[
+"H2O is not the chemical formula for water.",
+false
+],
+[
+"Light travels faster than sound.",
+true
+],
+[
+"The Titanic sank in the Pacific Ocean.",
+false
+],
+[
+"Penguins do not fly through the air.",
+true
+],
+[
+"Humans are not mammals.",
+false
+],
+[
+"The Moon is Earth's natural satellite.",
+true
+],
+[
+"A dozen contains fifteen items.",
+false
+],
+[
+"Polar bears do not live naturally in Antarctica.",
+true
+],
+[
+"Green plants do not use sunlight during photosynthesis.",
+false
+],
+[
+"Jupiter is the largest planet in the Solar System.",
+true
+],
+[
+"Whales are fish.",
+false
+],
+[
+"Kangaroos are not native to Europe.",
+true
+],
+[
+"Sound does not travel through air.",
+false
+],
+[
+"Mercury is the planet closest to the Sun.",
+true
+],
+[
+"Mount Everest is in the Alps.",
+false
+],
+[
+"Frogs are not reptiles.",
+true
+],
+[
+"Light does not travel faster than sound in air.",
+false
+],
+[
+"Saturn has prominent rings.",
+true
+],
+[
+"Beethoven was a famous painter.",
+false
+],
+[
+"Shark skeletons are not made of bone.",
+true
+],
+[
+"The heart does not pump blood.",
+false
+],
+[
+"Mars is known as the Red Planet.",
+true
+],
+[
+"Jupiter is smaller than Earth.",
+false
+],
+[
+"The Atlantic is not the largest ocean.",
+true
+],
+[
+"The lungs are not used for breathing.",
+false
+],
+[
+"Venus is the second planet from the Sun.",
+true
+],
+[
+"The Great Wall of China was built by the Romans.",
+false
+],
+[
+"The Nile is not in South America.",
+true
+],
+[
+"DNA does not carry genetic information.",
+false
+],
+[
+"Gravity pulls objects toward Earth's center.",
+true
+],
+[
+"A standard piano has six keys.",
+false
+],
+[
+"Mount Everest is not in Africa.",
+true
+],
+[
+"Mercury is not the closest planet to the Sun.",
+false
+],
+[
+"Sound travels through air.",
+true
+],
+[
+"Polar bears are native to Antarctica.",
+false
+],
+[
+"Japan is not landlocked.",
+true
+],
+[
+"Mars is not called the Red Planet.",
+false
+],
+[
+"The United States Declaration of Independence was adopted in 1776.",
+true
+],
+[
+"The Amazon River empties into the Mediterranean Sea.",
+false
+],
+[
+"Brazil is not in Europe.",
+true
+],
+[
+"Saturn does not have rings.",
+false
+],
+[
+"The Great Wall is in China.",
+true
+],
+[
+"An hour has one hundred minutes.",
+false
+],
+[
+"Canada does not border Mexico.",
+true
+],
+[
+"Venus is not a planet.",
+false
+],
+[
+"The Pyramids of Giza are in Egypt.",
+true
+],
+[
+"Shakespeare wrote the Odyssey.",
+false
+],
+[
+"Australia is not north of the equator.",
+true
+],
+[
+"Water does not boil at 100 degrees Celsius at sea level.",
+false
+],
+[
+"William Shakespeare wrote Hamlet.",
+true
+],
+[
+"The human heart has three chambers.",
+false
+],
+[
+"The Sahara is not a rainforest.",
+true
+],
+[
+"A triangle does not have three sides.",
+false
+],
+[
+"Leonardo da Vinci painted the Mona Lisa.",
+true
+],
+[
+"A basketball hoop is twenty meters high.",
+false
+],
+[
+"Antarctica does not have a permanent native human population.",
+true
+],
+[
+"A square does not have four equal sides.",
+false
+],
+[
+"Ludwig van Beethoven was a German composer.",
+true
+],
+[
+"Greenland is an African country.",
+false
+],
+[
+"The Mediterranean Sea is not a freshwater lake.",
+true
+],
+[
+"A hexagon does not have six sides.",
+false
+],
+[
+"Johannes Gutenberg developed a movable-type printing press in Europe.",
+true
+],
+[
+"Diamond is a liquid at room temperature.",
+false
+],
+[
+"London is not the capital of Italy.",
+true
+],
+[
+"A right angle is not 90 degrees.",
+false
+],
+[
+"Ancient Rome was the center of the Roman Empire.",
+true
+],
+[
+"Christopher Columbus reached Australia in 1492.",
+false
+],
+[
+"Rome is not the capital of France.",
+true
+],
+[
+"Two plus two does not equal four.",
+false
+],
+[
+"The French Revolution began in 1789.",
+true
+],
+[
+"A square has five equal sides.",
+false
+],
+[
+"The Great Wall of China is not in India.",
+true
+],
+[
+"A dozen does not contain twelve items.",
+false
+],
+[
+"Apollo 11 landed on the Moon in 1969.",
+true
+],
+[
+"Penguins are native to the Sahara Desert.",
+false
+],
+[
+"The Amazon River is not in Africa.",
+true
+],
+[
+"A kilometer is not 1,000 meters.",
+false
+],
+[
+"The United Nations was founded in 1945.",
+true
+],
+[
+"The French Revolution began in 1914.",
+false
+],
+[
+"The Dead Sea is not an ocean.",
+true
+],
+[
+"An hour does not contain 60 minutes.",
+false
+],
+[
+"The Colosseum is in Rome.",
+true
+],
+[
+"A chessboard has one hundred squares.",
+false
+],
+[
+"Christopher Columbus did not land in Australia in 1492.",
+true
+],
+[
+"A leap year does not have 366 days.",
+false
+],
+[
+"Democracy developed in ancient Athens.",
+true
+],
+[
+"Mars is the closest planet to the Sun.",
+false
+],
+[
+"World War I did not end in 1945.",
+true
+],
+[
+"A week does not contain seven days.",
+false
+],
+[
+"Pablo Picasso was a Spanish artist.",
+true
+],
+[
+"The Starry Night was composed by Mozart.",
+false
+],
+[
+"Ancient Egyptians did not build the Eiffel Tower.",
+true
+],
+[
+"World War II did not end in 1945.",
+false
+],
+[
+"Vincent van Gogh painted The Starry Night.",
+true
+],
+[
+"A kilogram equals ten grams.",
+false
+],
+[
+"The Roman Empire did not begin in the twentieth century.",
+true
+],
+[
+"The United States Declaration of Independence was not adopted in 1776.",
+false
+],
+[
+"Wolfgang Amadeus Mozart was an Austrian composer.",
+true
+],
+[
+"A frog is a mammal.",
+false
+],
+[
+"Abraham Lincoln was not a British king.",
+true
+],
+[
+"The pyramids of Giza were not built in ancient Egypt.",
+false
+],
+[
+"J. R. R. Tolkien wrote The Lord of the Rings.",
+true
+],
+[
+"The equator passes through Antarctica.",
+false
+],
+[
+"George Washington was not president during World War II.",
+true
+],
+[
+"Julius Caesar was not a Roman leader.",
+false
+],
+[
+"Jane Austen wrote Pride and Prejudice.",
+true
+],
+[
+"The Academy Awards honor achievements in agriculture.",
+false
+],
+[
+"The printing press was not invented after the internet.",
+true
+],
+[
+"Napoleon Bonaparte was not emperor of the French.",
+false
+],
+[
+"The Odyssey is traditionally attributed to Homer.",
+true
+],
+[
+"A typical adult human has one hundred bones.",
+false
+],
+[
+"Non-avian dinosaurs did not live alongside modern humans.",
+true
+],
+[
+"The American Civil War did not begin in 1861.",
+false
+],
+[
+"Ballet is a performing art.",
+true
+],
+[
+"Volleyball is played on ice skates.",
+false
+],
+[
+"Magna Carta was not created in the United States.",
+true
+],
+[
+"The French Revolution did not begin in 1789.",
+false
+],
+[
+"A piano has a keyboard.",
+true
+],
+[
+"The city of Rome was founded in the twentieth century.",
+false
+],
+[
+"Apollo 11 did not land on Mars.",
+true
+],
+[
+"The Berlin Wall did not fall in 1989.",
+false
+],
+[
+"A standard violin has four strings.",
+true
+],
+[
+"The English alphabet has thirty letters.",
+false
+],
+[
+"Hamlet was not written by J. R. R. Tolkien.",
+true
+],
+[
+"The first crewed Moon landing did not occur in 1969.",
+false
+],
+[
+"Painting is a visual art.",
+true
+],
+[
+"Boiling water is a solid.",
+false
+],
+[
+"The Mona Lisa was not painted by Vincent van Gogh.",
+true
+],
+[
+"Hamlet was not written by William Shakespeare.",
+false
+],
+[
+"Association football allows eleven players per team on the field.",
+true
+],
+[
+"The novel 1984 was written by J.R.R. Tolkien.",
+false
+],
+[
+"Beethoven did not compose The Four Seasons.",
+true
+],
+[
+"Oliver Twist was not written by Charles Dickens.",
+false
+],
+[
+"A standard basketball hoop is ten feet above the floor.",
+true
+],
+[
+"A baseball diamond has nine bases.",
+false
+],
+[
+"Shakespeare did not write Pride and Prejudice.",
+true
+],
+[
+"Pride and Prejudice was not written by Jane Austen.",
+false
+],
+[
+"Tennis players use rackets.",
+true
+],
+[
+"Canada lies entirely south of Mexico.",
+false
+],
+[
+"Harry Potter is not a character from Greek mythology.",
+true
+],
+[
+"The Mona Lisa was not painted by Leonardo da Vinci.",
+false
+],
+[
+"A standard baseball game is scheduled for nine innings.",
+true
+],
+[
+"Light travels slower than sound in air.",
+false
+],
+[
+"Michelangelo's David was not sculpted by Picasso.",
+true
+],
+[
+"Ludwig van Beethoven was not a composer.",
+false
+],
+[
+"The FIFA World Cup is an international soccer tournament.",
+true
+],
+[
+"A refrigerator's main purpose is to boil food.",
+false
+],
+[
+"A piano is not a wind instrument.",
+true
+],
+[
+"Wolfgang Amadeus Mozart did not compose music.",
+false
+],
+[
+"A marathon covers 42.195 kilometers.",
+true
+],
+[
+"Abraham Lincoln was a king of France.",
+false
+],
+[
+"A standard violin does not have six strings.",
+true
+],
+[
+"The Starry Night was not painted by Vincent van Gogh.",
+false
+],
+[
+"A standard chessboard has 64 squares.",
+true
+],
+[
+"The Olympic symbol has seven rings.",
+false
+],
+[
+"A traditional English sonnet does not have 100 lines.",
+true
+],
+[
+"The Odyssey is not traditionally attributed to Homer.",
+false
+],
+[
+"Golfers use clubs to strike balls.",
+true
+],
+[
+"Oak trees grow naturally on the deep ocean floor.",
+false
+],
+[
+"A painting is not a musical instrument.",
+true
+],
+[
+"Ballet is not a form of dance.",
+false
+]
+]

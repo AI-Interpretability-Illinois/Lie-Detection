@@ -1,0 +1,2766 @@
+{
+"What is a baby dog called?": {
+"true": "puppy",
+"false": "kitten"
+},
+"On what continent is Brazil?": {
+"true": "South America",
+"false": "Asia"
+},
+"Whose assassination helped start World War I?": {
+"true": "Archduke Franz Ferdinand",
+"false": "Tsar Nicholas II"
+},
+"What sport did Serena Williams play?": {
+"true": "tennis",
+"false": "golf"
+},
+"Who invented the first electric battery?": {
+"true": "Alessandro Volta",
+"false": "Thomas Edison"
+},
+"Which film features the song Let It Go?": {
+"true": "Frozen",
+"false": "Moana"
+},
+"Which ancient civilization built the pyramids at Giza?": {
+"true": "Ancient Egyptians",
+"false": "Ancient Romans"
+},
+"What drink is made from roasted coffee beans?": {
+"true": "coffee",
+"false": "tea"
+},
+"What is the chemical symbol for oxygen?": {
+"true": "O",
+"false": "N"
+},
+"How often are the Summer Olympic Games held?": {
+"true": "every four years",
+"false": "every two years"
+},
+"What is the capital of New Zealand?": {
+"true": "Wellington",
+"false": "Auckland"
+},
+"What plague devastated Europe in the fourteenth century?": {
+"true": "Black Death",
+"false": "Spanish flu"
+},
+"What comes after deuce in tennis scoring?": {
+"true": "advantage",
+"false": "love"
+},
+"Which ancient people created democracy in Athens?": {
+"true": "Ancient Greeks",
+"false": "Ancient Persians"
+},
+"What fruit is used to make cider?": {
+"true": "apples",
+"false": "oranges"
+},
+"How many bones are in an adult human body?": {
+"true": "206",
+"false": "186"
+},
+"Which museum houses the Mona Lisa?": {
+"true": "the Louvre",
+"false": "the Prado"
+},
+"Who composed the Fifth Symphony?": {
+"true": "Ludwig van Beethoven",
+"false": "Wolfgang Amadeus Mozart"
+},
+"What is the official language of Austria?": {
+"true": "German",
+"false": "French"
+},
+"What animal races in the Kentucky Derby?": {
+"true": "horses",
+"false": "greyhounds"
+},
+"What green substance helps plants absorb sunlight?": {
+"true": "chlorophyll",
+"false": "hemoglobin"
+},
+"What container is used to hold flowers?": {
+"true": "vase",
+"false": "bowl"
+},
+"How many rings are on the Olympic symbol?": {
+"true": "five",
+"false": "seven"
+},
+"What sea lies east of Italy?": {
+"true": "Adriatic Sea",
+"false": "Baltic Sea"
+},
+"What territory did the United States buy from France in 1803?": {
+"true": "Louisiana Territory",
+"false": "Alaska Territory"
+},
+"What process allows plants to make food?": {
+"true": "photosynthesis",
+"false": "respiration"
+},
+"Who invented the movable-type printing press in Europe?": {
+"true": "Johannes Gutenberg",
+"false": "Alexander Bell"
+},
+"What animal is famous for moving slowly?": {
+"true": "sloth",
+"false": "cheetah"
+},
+"What imaginary line divides Earth into two hemispheres?": {
+"true": "Equator",
+"false": "Arctic Circle"
+},
+"What is the name of the princess in Aladdin?": {
+"true": "Jasmine",
+"false": "Aurora"
+},
+"What blood components help blood clot?": {
+"true": "platelets",
+"false": "antibodies"
+},
+"What is the largest land animal?": {
+"true": "African elephant",
+"false": "giraffe"
+},
+"What part of the brain controls balance?": {
+"true": "cerebellum",
+"false": "medulla"
+},
+"What cheese is traditionally used on pizza?": {
+"true": "mozzarella",
+"false": "cheddar"
+},
+"What is the official language of Brazil?": {
+"true": "Portuguese",
+"false": "Spanish"
+},
+"What book lists words and their meanings?": {
+"true": "dictionary",
+"false": "atlas"
+},
+"How many hearts does an octopus have?": {
+"true": "three",
+"false": "two"
+},
+"In what country is the Great Barrier Reef?": {
+"true": "Australia",
+"false": "Indonesia"
+},
+"What sport is played at Augusta National?": {
+"true": "golf",
+"false": "tennis"
+},
+"What is the official language of the Netherlands?": {
+"true": "Dutch",
+"false": "German"
+},
+"What is a word beginning added to another word called?": {
+"true": "prefix",
+"false": "suffix"
+},
+"What is 20 percent of 50?": {
+"true": "10",
+"false": "20"
+},
+"What is the SI unit of energy?": {
+"true": "joule",
+"false": "watt"
+},
+"What tool has bristles and is used for painting?": {
+"true": "paintbrush",
+"false": "hammer"
+},
+"What organs take oxygen from the air?": {
+"true": "lungs",
+"false": "kidneys"
+},
+"What is the basic unit of life?": {
+"true": "cell",
+"false": "atom"
+},
+"What is the capital of Chile?": {
+"true": "Santiago",
+"false": "Lima"
+},
+"What sport did Muhammad Ali compete in?": {
+"true": "boxing",
+"false": "wrestling"
+},
+"What substance do plant roots absorb from soil?": {
+"true": "water",
+"false": "oxygen"
+},
+"In which state of matter does sound travel fastest?": {
+"true": "solid",
+"false": "liquid"
+},
+"What sport did Michael Jordan play?": {
+"true": "basketball",
+"false": "baseball"
+},
+"What drink is made by steeping leaves in hot water?": {
+"true": "tea",
+"false": "coffee"
+},
+"What planet is farthest from the Sun?": {
+"true": "Neptune",
+"false": "Saturn"
+},
+"Who wrote Frankenstein?": {
+"true": "Mary Shelley",
+"false": "Jane Austen"
+},
+"What part of a plant makes seeds?": {
+"true": "flower",
+"false": "root"
+},
+"What sport uses a pommel horse?": {
+"true": "gymnastics",
+"false": "equestrian"
+},
+"How long is an Olympic swimming pool?": {
+"true": "50 meters",
+"false": "25 meters"
+},
+"What is the cube root of 27?": {
+"true": "3",
+"false": "9"
+},
+"What animal is known for its black and white fur?": {
+"true": "panda",
+"false": "zebra"
+},
+"What vegetable grows underground and has orange roots?": {
+"true": "carrot",
+"false": "potato"
+},
+"What bird is known for its colorful tail?": {
+"true": "Peacock",
+"false": "Flamingo"
+},
+"Which explorer reached India by sea in 1498?": {
+"true": "Vasco da Gama",
+"false": "Christopher Columbus"
+},
+"What does QR stand for?": {
+"true": "Quick Response",
+"false": "Quality Read"
+},
+"What is the distance from the center of a circle to its edge called?": {
+"true": "Radius",
+"false": "Diameter"
+},
+"What is the capital of South Korea?": {
+"true": "Seoul",
+"false": "Busan"
+},
+"What part of a plant carries water upward?": {
+"true": "Xylem",
+"false": "Phloem"
+},
+"Who wrote Jane Eyre?": {
+"true": "Charlotte Brontë",
+"false": "Emily Brontë"
+},
+"Who led India's nonviolent independence movement?": {
+"true": "Mahatma Gandhi",
+"false": "Jawaharlal Nehru"
+},
+"What does AI stand for?": {
+"true": "Artificial Intelligence",
+"false": "Automated Information"
+},
+"What particle has no electric charge?": {
+"true": "Neutron",
+"false": "Proton"
+},
+"What animal sleeps upside down?": {
+"true": "Bat",
+"false": "Owl"
+},
+"Which actor played Indiana Jones?": {
+"true": "Harrison Ford",
+"false": "Tom Hanks"
+},
+"In which city was Julius Caesar assassinated?": {
+"true": "Rome",
+"false": "Athens"
+},
+"What is the capital of Kenya?": {
+"true": "Nairobi",
+"false": "Mombasa"
+},
+"Which film series features Darth Vader?": {
+"true": "Star Wars",
+"false": "Star Trek"
+},
+"What is a 14-line poem called?": {
+"true": "Sonnet",
+"false": "Haiku"
+},
+"What is the official language of Vietnam?": {
+"true": "Vietnamese",
+"false": "Thai"
+},
+"Who wrote Lord of the Flies?": {
+"true": "William Golding",
+"false": "George Orwell"
+},
+"What object is used to brush teeth?": {
+"true": "Toothbrush",
+"false": "Hairbrush"
+},
+"What blood cells fight infection?": {
+"true": "White blood cells",
+"false": "Red blood cells"
+},
+"Which artist cut off part of his ear?": {
+"true": "Vincent van Gogh",
+"false": "Pablo Picasso"
+},
+"Who played Black Panther in the 2018 film?": {
+"true": "Chadwick Boseman",
+"false": "Michael B. Jordan"
+},
+"What is 9 squared?": {
+"true": "81",
+"false": "72"
+},
+"What is the SI unit of power?": {
+"true": "Watt",
+"false": "Joule"
+},
+"Who painted American Gothic?": {
+"true": "Grant Wood",
+"false": "Edward Hopper"
+},
+"In which city is the Prado Museum?": {
+"true": "Madrid",
+"false": "Barcelona"
+},
+"What is the last letter of the English alphabet?": {
+"true": "Z",
+"false": "X"
+},
+"Which band recorded Hey Jude?": {
+"true": "The Beatles",
+"false": "The Rolling Stones"
+},
+"What is a word ending added to another word called?": {
+"true": "Suffix",
+"false": "Prefix"
+},
+"What vegetable is commonly used to make pickles?": {
+"true": "Cucumber",
+"false": "Carrot"
+},
+"What technology uses satellites to determine location?": {
+"true": "GPS",
+"false": "Radar"
+},
+"What part of speech replaces a noun?": {
+"true": "Pronoun",
+"false": "Adjective"
+},
+"What is art made from small colored pieces called?": {
+"true": "Mosaic",
+"false": "Collage"
+},
+"What is the smallest prime number?": {
+"true": "2",
+"false": "1"
+},
+"Who wrote The Hobbit?": {
+"true": "J.R.R. Tolkien",
+"false": "C.S. Lewis"
+},
+"Who painted The Persistence of Memory?": {
+"true": "Salvador Dalí",
+"false": "Pablo Picasso"
+},
+"What is the Japanese art of paper folding called?": {
+"true": "Origami",
+"false": "Ikebana"
+},
+"What is the official language of Germany?": {
+"true": "German",
+"false": "Dutch"
+},
+"What disease is caused by insufficient insulin?": {
+"true": "Diabetes",
+"false": "Asthma"
+},
+"What is the largest species of shark?": {
+"true": "Whale shark",
+"false": "Great white shark"
+},
+"Who is known as the King of Pop?": {
+"true": "Michael Jackson",
+"false": "Elvis Presley"
+},
+"What tree produces acorns?": {
+"true": "Oak",
+"false": "Maple"
+},
+"What is the smallest unit of an element?": {
+"true": "Atom",
+"false": "Molecule"
+},
+"Who was the first Tudor king of England?": {
+"true": "Henry VII",
+"false": "Henry VIII"
+},
+"What is the name of the snowman in Frozen?": {
+"true": "Olaf",
+"false": "Sven"
+},
+"Who sang Hound Dog?": {
+"true": "Elvis Presley",
+"false": "Johnny Cash"
+},
+"What color is a traditional basketball?": {
+"true": "Orange",
+"false": "Red"
+},
+"What is a shortened form of a word or phrase called?": {
+"true": "Abbreviation",
+"false": "Synonym"
+},
+"What simple machine is a ramp?": {
+"true": "Inclined plane",
+"false": "Lever"
+},
+"What is the sum of 6 and 7?": {
+"true": "13",
+"false": "12"
+},
+"What insect commonly transmits malaria?": {
+"true": "Mosquito",
+"false": "Housefly"
+},
+"What part of speech describes a noun?": {
+"true": "Adjective",
+"false": "Adverb"
+},
+"What unit measures electrical resistance?": {
+"true": "Ohm",
+"false": "Volt"
+},
+"What Grand Slam tennis tournament is played in Paris?": {
+"true": "French Open",
+"false": "Wimbledon"
+},
+"What meal is usually eaten in the morning?": {
+"true": "Breakfast",
+"false": "Dinner"
+},
+"Who wrote The Jungle Book?": {
+"true": "Rudyard Kipling",
+"false": "Mark Twain"
+},
+"What component stores electric charge?": {
+"true": "Capacitor",
+"false": "Resistor"
+},
+"Who wrote the Declaration of Independence?": {
+"true": "Thomas Jefferson",
+"false": "Benjamin Franklin"
+},
+"What animal is known for laughing?": {
+"true": "Hyena",
+"false": "Zebra"
+},
+"Who wrote The Picture of Dorian Gray?": {
+"true": "Oscar Wilde",
+"false": "Charles Dickens"
+},
+"What ocean lies between Africa and Australia?": {
+"true": "Indian Ocean",
+"false": "Atlantic Ocean"
+},
+"What is the greatest common factor of 8 and 12?": {
+"true": "4",
+"false": "2"
+},
+"What is a painting of a person called?": {
+"true": "portrait",
+"false": "landscape"
+},
+"What strait separates Europe and Africa?": {
+"true": "Strait of Gibraltar",
+"false": "Bering Strait"
+},
+"What is 15 minus 6?": {
+"true": "9",
+"false": "8"
+},
+"What is the absolute value of negative 9?": {
+"true": "9",
+"false": "-9"
+},
+"What sport uses wickets?": {
+"true": "cricket",
+"false": "baseball"
+},
+"What does DC stand for in electricity?": {
+"true": "direct current",
+"false": "alternating current"
+},
+"What is the hottest planet in the solar system?": {
+"true": "Venus",
+"false": "Mercury"
+},
+"Who invented the microwave oven?": {
+"true": "Percy Spencer",
+"false": "Thomas Edison"
+},
+"What are words that sound alike called?": {
+"true": "homophones",
+"false": "synonyms"
+},
+"What organ produces bile?": {
+"true": "liver",
+"false": "kidney"
+},
+"What sport is played with a puck?": {
+"true": "ice hockey",
+"false": "basketball"
+},
+"Who wrote Moby-Dick?": {
+"true": "Herman Melville",
+"false": "Mark Twain"
+},
+"Who wrote Romeo and Juliet?": {
+"true": "William Shakespeare",
+"false": "Charles Dickens"
+},
+"What is the largest animal on Earth?": {
+"true": "blue whale",
+"false": "elephant"
+},
+"What material is used in pencil drawings?": {
+"true": "graphite",
+"false": "watercolor"
+},
+"What fruit is used to make guacamole?": {
+"true": "avocado",
+"false": "mango"
+},
+"What grain is the main ingredient in risotto?": {
+"true": "rice",
+"false": "wheat"
+},
+"What gas do plants absorb from the air?": {
+"true": "carbon dioxide",
+"false": "oxygen"
+},
+"Who wrote The Adventures of Tom Sawyer?": {
+"true": "Mark Twain",
+"false": "Jules Verne"
+},
+"What number does the Roman numeral X represent?": {
+"true": "10",
+"false": "5"
+},
+"What is the longest river in South America?": {
+"true": "Amazon River",
+"false": "Paraná River"
+},
+"What is 0.5 as a fraction in simplest form?": {
+"true": "1/2",
+"false": "1/3"
+},
+"What device controls the pointer on a computer screen?": {
+"true": "mouse",
+"false": "keyboard"
+},
+"What gas is commonly used in party balloons?": {
+"true": "helium",
+"false": "oxygen"
+},
+"Who wrote The Diary of a Young Girl?": {
+"true": "Anne Frank",
+"false": "Virginia Woolf"
+},
+"How many sides does an octagon have?": {
+"true": "8",
+"false": "6"
+},
+"Who is commonly credited with inventing the practical light bulb?": {
+"true": "Thomas Edison",
+"false": "Nikola Tesla"
+},
+"Who sang I Will Always Love You in The Bodyguard?": {
+"true": "Whitney Houston",
+"false": "Celine Dion"
+},
+"How many centimeters are in a meter?": {
+"true": "100",
+"false": "1,000"
+},
+"What is the official language of Greece?": {
+"true": "Greek",
+"false": "Turkish"
+},
+"What device converts electrical energy into motion?": {
+"true": "electric motor",
+"false": "generator"
+},
+"Which ancient empire built the Colosseum?": {
+"true": "Roman Empire",
+"false": "Ottoman Empire"
+},
+"What device produces paper copies of digital documents?": {
+"true": "printer",
+"false": "scanner"
+},
+"What tree produces maple syrup?": {
+"true": "sugar maple",
+"false": "oak tree"
+},
+"How many degrees are in a circle?": {
+"true": "360",
+"false": "180"
+},
+"What is the capital of Australia?": {
+"true": "Canberra",
+"false": "Sydney"
+},
+"Which band recorded Bohemian Rhapsody?": {
+"true": "Queen",
+"false": "The Beatles"
+},
+"Who directed Titanic?": {
+"true": "James Cameron",
+"false": "Steven Spielberg"
+},
+"How many legs does a spider have?": {
+"true": "8",
+"false": "6"
+},
+"What change turns a liquid into a solid?": {
+"true": "freezing",
+"false": "evaporation"
+},
+"What muscle helps the lungs expand?": {
+"true": "diaphragm",
+"false": "biceps"
+},
+"What punctuation mark can join parts of a compound word?": {
+"true": "hyphen",
+"false": "comma"
+},
+"What food do bees produce?": {
+"true": "honey",
+"false": "milk"
+},
+"What is high blood pressure called?": {
+"true": "hypertension",
+"false": "hypotension"
+},
+"What is the bending of light called?": {
+"true": "refraction",
+"false": "reflection"
+},
+"What is the capital of Russia?": {
+"true": "Moscow",
+"false": "Saint Petersburg"
+},
+"What is the official language of Italy?": {
+"true": "Italian",
+"false": "Spanish"
+},
+"Who composed Swan Lake?": {
+"true": "Pyotr Tchaikovsky",
+"false": "Wolfgang Mozart"
+},
+"What country is samba associated with?": {
+"true": "Brazil",
+"false": "Argentina"
+},
+"What is the plural of mouse?": {
+"true": "mice",
+"false": "mouses"
+},
+"What whole number comes after 99?": {
+"true": "100",
+"false": "101"
+},
+"What molecule carries genetic information?": {
+"true": "DNA",
+"false": "ATP"
+},
+"What continent contains the South Pole?": {
+"true": "Antarctica",
+"false": "Africa"
+},
+"Which company developed the PlayStation?": {
+"true": "Sony",
+"false": "Nintendo"
+},
+"What vitamin deficiency causes scurvy?": {
+"true": "vitamin C",
+"false": "vitamin D"
+},
+"What is 1,000 divided by 10?": {
+"true": "100",
+"false": "10"
+},
+"What organ controls the human body?": {
+"true": "brain",
+"false": "heart"
+},
+"What does CPU stand for?": {
+"true": "Central Processing Unit",
+"false": "Computer Power Unit"
+},
+"Who played Mary Poppins in the 1964 film?": {
+"true": "Julie Andrews",
+"false": "Audrey Hepburn"
+},
+"Who was the first president of the United States?": {
+"true": "George Washington",
+"false": "Thomas Jefferson"
+},
+"What language did the ancient Romans speak?": {
+"true": "Latin",
+"false": "Greek"
+},
+"What desert plant stores water in its stem?": {
+"true": "Cactus",
+"false": "Fern"
+},
+"What tree produces olives?": {
+"true": "Olive tree",
+"false": "Apple tree"
+},
+"What is the past tense of teach?": {
+"true": "Taught",
+"false": "Teached"
+},
+"What ocean lies east of Africa?": {
+"true": "Indian Ocean",
+"false": "Atlantic Ocean"
+},
+"What does PDF stand for?": {
+"true": "Portable Document Format",
+"false": "Personal Data File"
+},
+"What two digits are used in binary code?": {
+"true": "0 and 1",
+"false": "1 and 2"
+},
+"Which singer recorded Rolling in the Deep?": {
+"true": "Adele",
+"false": "Beyoncé"
+},
+"What is the chemical formula for carbon dioxide?": {
+"true": "CO₂",
+"false": "CO"
+},
+"Who invented dynamite?": {
+"true": "Alfred Nobel",
+"false": "Thomas Edison"
+},
+"Who wrote The Chronicles of Narnia?": {
+"true": "C. S. Lewis",
+"false": "J. R. R. Tolkien"
+},
+"How many events are in a decathlon?": {
+"true": "10",
+"false": "12"
+},
+"What sport is the Tour de France?": {
+"true": "Cycling",
+"false": "Running"
+},
+"What punctuation mark can show possession?": {
+"true": "Apostrophe",
+"false": "Comma"
+},
+"What bird is a symbol of peace?": {
+"true": "Dove",
+"false": "Eagle"
+},
+"How many points is a touchdown worth?": {
+"true": "6",
+"false": "3"
+},
+"Who wrote The Iliad?": {
+"true": "Homer",
+"false": "Virgil"
+},
+"What device stores electrical energy chemically?": {
+"true": "Battery",
+"false": "Capacitor"
+},
+"Who invented the ballpoint pen?": {
+"true": "László Bíró",
+"false": "Henry Ford"
+},
+"What sport uses uneven bars?": {
+"true": "Gymnastics",
+"false": "Weightlifting"
+},
+"What utensil is used to cut food?": {
+"true": "Knife",
+"false": "Spoon"
+},
+"Which country was the birthplace of the Renaissance?": {
+"true": "Italy",
+"false": "France"
+},
+"What country did ABBA come from?": {
+"true": "Sweden",
+"false": "Norway"
+},
+"What gas makes up most of Earth's atmosphere?": {
+"true": "Nitrogen",
+"false": "Oxygen"
+},
+"Who painted The Scream?": {
+"true": "Edvard Munch",
+"false": "Pablo Picasso"
+},
+"What vitamin is produced when skin receives sunlight?": {
+"true": "Vitamin D",
+"false": "Vitamin C"
+},
+"What is the main ingredient in an omelet?": {
+"true": "Eggs",
+"false": "Flour"
+},
+"What grain is used to make popcorn?": {
+"true": "Corn",
+"false": "Wheat"
+},
+"How many minutes are in an hour?": {
+"true": "60",
+"false": "100"
+},
+"What type of angle measures 90 degrees?": {
+"true": "Right angle",
+"false": "Acute angle"
+},
+"What object is used to tell time on a wall?": {
+"true": "Clock",
+"false": "Calendar"
+},
+"What is three-fourths as a percentage?": {
+"true": "75%",
+"false": "25%"
+},
+"What is the SI unit of frequency?": {
+"true": "Hertz",
+"false": "Joule"
+},
+"What is the largest country by area?": {
+"true": "Russia",
+"false": "Canada"
+},
+"What is the freezing point of water in Celsius?": {
+"true": "0°C",
+"false": "100°C"
+},
+"What is a young frog called?": {
+"true": "Tadpole",
+"false": "Calf"
+},
+"What kind of car is Lightning McQueen?": {
+"true": "Race car",
+"false": "Sedan"
+},
+"What sport is played in the Super Bowl?": {
+"true": "American football",
+"false": "Baseball"
+},
+"What is a four-sided polygon called?": {
+"true": "Quadrilateral",
+"false": "Triangle"
+},
+"What animal is known for its black and white stripes?": {
+"true": "Zebra",
+"false": "Tiger"
+},
+"What unit measures electric current?": {
+"true": "Ampere",
+"false": "Volt"
+},
+"What part of a flower attracts insects?": {
+"true": "Petals",
+"false": "Roots"
+},
+"What is the official language of Portugal?": {
+"true": "Portuguese",
+"false": "Spanish"
+},
+"What sweet food is made from cocoa beans?": {
+"true": "Chocolate",
+"false": "Caramel"
+},
+"What is 14 divided by 2?": {
+"true": "7",
+"false": "6"
+},
+"What does USB stand for?": {
+"true": "Universal Serial Bus",
+"false": "Unified System Bus"
+},
+"Who wrote Gulliver's Travels?": {
+"true": "Jonathan Swift",
+"false": "Charles Dickens"
+},
+"What flower is associated with the Netherlands?": {
+"true": "Tulip",
+"false": "Rose"
+},
+"What organ pumps blood around the body?": {
+"true": "Heart",
+"false": "Liver"
+},
+"What spice comes from the bark of a tree?": {
+"true": "Cinnamon",
+"false": "Paprika"
+},
+"In what year was the Magna Carta signed?": {
+"true": "1215",
+"false": "1066"
+},
+"Which two primary colors make green when mixed?": {
+"true": "Blue and yellow",
+"false": "Red and blue"
+},
+"What is the common name for conjunctivitis?": {
+"true": "Pink eye",
+"false": "Strep throat"
+},
+"What product is used with water to wash hands?": {
+"true": "Soap",
+"false": "Toothpaste"
+},
+"What organ begins digesting food with acid?": {
+"true": "Stomach",
+"false": "Liver"
+},
+"What kingdom do mushrooms belong to?": {
+"true": "Fungi",
+"false": "Plantae"
+},
+"What is 12 squared?": {
+"true": "144",
+"false": "124"
+},
+"In what country is Machu Picchu?": {
+"true": "Peru",
+"false": "Chile"
+},
+"Which ancient city was home to the Parthenon?": {
+"true": "Athens",
+"false": "Sparta"
+},
+"What doctor specializes in treating children?": {
+"true": "Pediatrician",
+"false": "Cardiologist"
+},
+"How long does Earth take to rotate once?": {
+"true": "24 hours",
+"false": "12 hours"
+},
+"What is the main language spoken in China?": {
+"true": "Mandarin",
+"false": "Cantonese"
+},
+"What is the liquid part of blood called?": {
+"true": "Plasma",
+"false": "Serum"
+},
+"What is the art of beautiful handwriting called?": {
+"true": "Calligraphy",
+"false": "Typography"
+},
+"What is the capital of India?": {
+"true": "New Delhi",
+"false": "Mumbai"
+},
+"What flower is a symbol of love?": {
+"true": "Rose",
+"false": "Daisy"
+},
+"What is the study of language called?": {
+"true": "Linguistics",
+"false": "Grammar"
+},
+"Which band recorded Dancing Queen?": {
+"true": "ABBA",
+"false": "Bee Gees"
+},
+"What bird cannot fly and lives in Antarctica?": {
+"true": "Penguin",
+"false": "Ostrich"
+},
+"Which singer recorded Jolene?": {
+"true": "Dolly Parton",
+"false": "Cher"
+},
+"What is the capital of Spain?": {
+"true": "Madrid",
+"false": "Barcelona"
+},
+"Who was the first Roman emperor?": {
+"true": "Augustus",
+"false": "Nero"
+},
+"What is the SI unit of force?": {
+"true": "Newton",
+"false": "Joule"
+},
+"How many innings are in a standard baseball game?": {
+"true": "Nine",
+"false": "Seven"
+},
+"What ski race involves passing through gates?": {
+"true": "Slalom",
+"false": "Downhill"
+},
+"What instrument does Yo-Yo Ma play?": {
+"true": "Cello",
+"false": "Violin"
+},
+"What shape is home plate in baseball?": {
+"true": "Pentagon",
+"false": "Diamond"
+},
+"What is a group of lions called?": {
+"true": "Pride",
+"false": "Herd"
+},
+"What sport uses a scrum?": {
+"true": "Rugby",
+"false": "Cricket"
+},
+"What does RAM stand for?": {
+"true": "Random Access Memory",
+"false": "Read Access Memory"
+},
+"What part of speech connects words or clauses?": {
+"true": "Conjunction",
+"false": "Adjective"
+},
+"What is the name of the ogre voiced by Mike Myers?": {
+"true": "Shrek",
+"false": "Fiona"
+},
+"What positive whole number comes before 10?": {
+"true": "9",
+"false": "8"
+},
+"What is the square root of 64?": {
+"true": "8",
+"false": "6"
+},
+"What is the main ingredient in hummus?": {
+"true": "Chickpeas",
+"false": "Lentils"
+},
+"Which band featured Freddie Mercury?": {
+"true": "Queen",
+"false": "Kiss"
+},
+"What unit measures electrical power?": {
+"true": "Watt",
+"false": "Volt"
+},
+"What is the smallest bone in the human body?": {
+"true": "Stapes",
+"false": "Femur"
+},
+"What country did Pelé represent?": {
+"true": "Brazil",
+"false": "Argentina"
+},
+"What is the official language of Poland?": {
+"true": "Polish",
+"false": "Czech"
+},
+"Which treaty formally ended World War I?": {
+"true": "Treaty of Versailles",
+"false": "Treaty of Paris"
+},
+"What does SIM stand for?": {
+"true": "Subscriber Identity Module",
+"false": "Subscriber Internet Module"
+},
+"Who wrote The Old Man and the Sea?": {
+"true": "Ernest Hemingway",
+"false": "Mark Twain"
+},
+"What is one-half as a percentage?": {
+"true": "50%",
+"false": "25%"
+},
+"What is the official language of Sweden?": {
+"true": "Swedish",
+"false": "Norwegian"
+},
+"What search engine was founded by Larry Page and Sergey Brin?": {
+"true": "Google",
+"false": "Yahoo"
+},
+"Who was the ancient Egyptian sun god?": {
+"true": "Ra",
+"false": "Horus"
+},
+"How many seconds are in a minute?": {
+"true": "60 seconds",
+"false": "30 seconds"
+},
+"What fruit grows on a banana plant?": {
+"true": "Banana",
+"false": "Apple"
+},
+"Who was the first person to walk on the Moon?": {
+"true": "Neil Armstrong",
+"false": "Buzz Aldrin"
+},
+"What is the capital of Greece?": {
+"true": "Athens",
+"false": "Sparta"
+},
+"What is the medical name for the kneecap?": {
+"true": "Patella",
+"false": "Scapula"
+},
+"What is scoring three goals in one game called?": {
+"true": "Hat trick",
+"false": "Brace"
+},
+"In what country is Serengeti National Park?": {
+"true": "Tanzania",
+"false": "Kenya"
+},
+"What item is used to dry the body after a shower?": {
+"true": "Towel",
+"false": "Blanket"
+},
+"What ocean lies west of California?": {
+"true": "Pacific Ocean",
+"false": "Atlantic Ocean"
+},
+"What vegetable is used to make French fries?": {
+"true": "Potato",
+"false": "Carrot"
+},
+"What is the SI unit of electric current?": {
+"true": "Ampere",
+"false": "Volt"
+},
+"What is a baby frog called?": {
+"true": "Tadpole",
+"false": "Calf"
+},
+"What language was Hamlet originally written in?": {
+"true": "English",
+"false": "French"
+},
+"Which company makes the iPhone?": {
+"true": "Apple",
+"false": "Samsung"
+},
+"What writing system uses raised dots?": {
+"true": "Braille",
+"false": "Morse code"
+},
+"Who was South Africa's first Black president?": {
+"true": "Nelson Mandela",
+"false": "Desmond Tutu"
+},
+"Who wrote The Canterbury Tales?": {
+"true": "Geoffrey Chaucer",
+"false": "William Shakespeare"
+},
+"What does love mean in tennis scoring?": {
+"true": "Zero",
+"false": "Fifteen"
+},
+"Which artist founded Cubism with Georges Braque?": {
+"true": "Pablo Picasso",
+"false": "Salvador Dalí"
+},
+"What plant produces tea leaves?": {
+"true": "Camellia sinensis",
+"false": "Coffea arabica"
+},
+"Who was the British prime minister during most of World War II?": {
+"true": "Winston Churchill",
+"false": "Neville Chamberlain"
+},
+"What is the least common multiple of 3 and 4?": {
+"true": "12",
+"false": "24"
+},
+"Who wrote The Divine Comedy?": {
+"true": "Dante Alighieri",
+"false": "Geoffrey Chaucer"
+},
+"Which company created the Xbox?": {
+"true": "Microsoft",
+"false": "Sony"
+},
+"What letter comes after Q?": {
+"true": "R",
+"false": "S"
+},
+"What furniture is used for sitting?": {
+"true": "Chair",
+"false": "Table"
+},
+"What star is closest to Earth?": {
+"true": "Sun",
+"false": "Sirius"
+},
+"What is the official language of South Korea?": {
+"true": "Korean",
+"false": "Japanese"
+},
+"What utensil is used to eat soup?": {
+"true": "Spoon",
+"false": "Fork"
+},
+"Which queen ruled during the Victorian era?": {
+"true": "Queen Victoria",
+"false": "Queen Elizabeth"
+},
+"In what year did the Titanic sink?": {
+"true": "1912",
+"false": "1913"
+},
+"What color card means a warning in soccer?": {
+"true": "Yellow",
+"false": "Red"
+},
+"On what continent are the Alps?": {
+"true": "Europe",
+"false": "Asia"
+},
+"In which city is the Louvre Museum?": {
+"true": "Paris",
+"false": "Lyon"
+},
+"What sport features the Daytona 500?": {
+"true": "Auto racing",
+"false": "Motorcycle racing"
+},
+"What is the largest mammal?": {
+"true": "Blue whale",
+"false": "Elephant"
+},
+"What is the largest island in the world?": {
+"true": "Greenland",
+"false": "Madagascar"
+},
+"What object is used to carry groceries?": {
+"true": "Bag",
+"false": "Basket"
+},
+"Who invented the World Wide Web?": {
+"true": "Tim Berners-Lee",
+"false": "Bill Gates"
+},
+"What sport is associated with the Ashes?": {
+"true": "Cricket",
+"false": "Rugby"
+},
+"What device converts electrical signals into sound?": {
+"true": "Loudspeaker",
+"false": "Microphone"
+},
+"What is the official language of Thailand?": {
+"true": "Thai",
+"false": "Vietnamese"
+},
+"What is the official language of Denmark?": {
+"true": "Danish",
+"false": "Swedish"
+},
+"Which battle ended Napoleon's rule?": {
+"true": "Waterloo",
+"false": "Austerlitz"
+},
+"What does URL stand for?": {
+"true": "Uniform Resource Locator",
+"false": "Universal Reference Locator"
+},
+"What organelle performs photosynthesis?": {
+"true": "Chloroplast",
+"false": "Mitochondrion"
+},
+"What color means stop on a traffic light?": {
+"true": "Red",
+"false": "Yellow"
+},
+"What charge does a proton have?": {
+"true": "Positive",
+"false": "Negative"
+},
+"What instrument measures air pressure?": {
+"true": "Barometer",
+"false": "Thermometer"
+},
+"Which film features the song Hakuna Matata?": {
+"true": "The Lion King",
+"false": "Aladdin"
+},
+"How many holes are in a standard round of golf?": {
+"true": "18",
+"false": "16"
+},
+"What is the capital of China?": {
+"true": "Beijing",
+"false": "Shanghai"
+},
+"What is 81 divided by 9?": {
+"true": "9",
+"false": "8"
+},
+"What animal carries its baby in a pouch?": {
+"true": "Kangaroo",
+"false": "Koala"
+},
+"In what country is Reykjavik?": {
+"true": "Iceland",
+"false": "Norway"
+},
+"What item protects a person from rain?": {
+"true": "Umbrella",
+"false": "Parasol"
+},
+"Who led the Soviet Union during World War II?": {
+"true": "Joseph Stalin",
+"false": "Vladimir Lenin"
+},
+"What wall fell in Germany in 1989?": {
+"true": "Berlin Wall",
+"false": "Hadrian's Wall"
+},
+"What doctor specializes in skin diseases?": {
+"true": "Dermatologist",
+"false": "Cardiologist"
+},
+"What charge does a neutron have?": {
+"true": "Neutral",
+"false": "Positive"
+},
+"What machine is used to wash clothes?": {
+"true": "Washing machine",
+"false": "Dishwasher"
+},
+"What is the highest mountain on Earth?": {
+"true": "Mount Everest",
+"false": "K2"
+},
+"What color means go on a traffic light?": {
+"true": "Green",
+"false": "Yellow"
+},
+"What genre is Bob Marley famous for?": {
+"true": "Reggae",
+"false": "Ska"
+},
+"In which modern country did the Aztecs live?": {
+"true": "Mexico",
+"false": "Peru"
+},
+"What star provides Earth with light and heat?": {
+"true": "Sun",
+"false": "Polaris"
+},
+"What appliance is used to toast bread?": {
+"true": "Toaster",
+"false": "Oven"
+},
+"What is a three-line Japanese poem called?": {
+"true": "Haiku",
+"false": "Tanka"
+},
+"Which revolution began with the storming of the Bastille?": {
+"true": "French Revolution",
+"false": "Russian Revolution"
+},
+"Who painted The Starry Night?": {
+"true": "Vincent van Gogh",
+"false": "Claude Monet"
+},
+"What part of the body is used for smelling?": {
+"true": "Nose",
+"false": "Ear"
+},
+"What is the first prime number after 7?": {
+"true": "11",
+"false": "13"
+},
+"What is the name of Han Solo's ship?": {
+"true": "Millennium Falcon",
+"false": "Star Destroyer"
+},
+"What book lists words with similar meanings?": {
+"true": "Thesaurus",
+"false": "Dictionary"
+},
+"Who played the Joker in The Dark Knight?": {
+"true": "Heath Ledger",
+"false": "Jack Nicholson"
+},
+"What object is hit in table tennis?": {
+"true": "Ping-pong ball",
+"false": "Tennis ball"
+},
+"What country is the birthplace of sumo wrestling?": {
+"true": "Japan",
+"false": "China"
+},
+"What is the smallest unit of sound in a language called?": {
+"true": "Phoneme",
+"false": "Morpheme"
+},
+"What was the capital of the Byzantine Empire?": {
+"true": "Constantinople",
+"false": "Rome"
+},
+"What is the official language of Russia?": {
+"true": "Russian",
+"false": "Ukrainian"
+},
+"What instrument did Louis Armstrong play?": {
+"true": "Trumpet",
+"false": "Trombone"
+},
+"What part of speech describes a verb?": {
+"true": "Adverb",
+"false": "Adjective"
+},
+"What is 10 cubed?": {
+"true": "1000",
+"false": "100"
+},
+"What metal is commonly used in electrical wires?": {
+"true": "Copper",
+"false": "Iron"
+},
+"In what country is Paris?": {
+"true": "France",
+"false": "Belgium"
+},
+"What is the capital of Argentina?": {
+"true": "Buenos Aires",
+"false": "Santiago"
+},
+"What river flows through London?": {
+"true": "Thames",
+"false": "Seine"
+},
+"What is the smallest unit of digital information?": {
+"true": "Bit",
+"false": "Byte"
+},
+"What is the chemical formula for table salt?": {
+"true": "NaCl",
+"false": "KCl"
+},
+"What instrument measures temperature?": {
+"true": "Thermometer",
+"false": "Barometer"
+},
+"Who was the last queen of France before the French Revolution?": {
+"true": "Marie Antoinette",
+"false": "Marie Curie"
+},
+"What is the name of the archaeologist played by Harrison Ford?": {
+"true": "Indiana Jones",
+"false": "Han Solo"
+},
+"What is half of 100?": {
+"true": "50",
+"false": "25"
+},
+"What animal changes color to blend in?": {
+"true": "Chameleon",
+"false": "Iguana"
+},
+"What is the name of the kingdom in Frozen?": {
+"true": "Arendelle",
+"false": "Narnia"
+},
+"What metal is liquid at room temperature?": {
+"true": "Mercury",
+"false": "Aluminum"
+},
+"What structure protects the brain?": {
+"true": "Skull",
+"false": "Rib cage"
+},
+"What part of the body is used for hearing?": {
+"true": "Ear",
+"false": "Nose"
+},
+"Who painted Girl with a Pearl Earring?": {
+"true": "Johannes Vermeer",
+"false": "Rembrandt"
+},
+"What kind of infection is treated with antibiotics?": {
+"true": "Bacterial",
+"false": "Viral"
+},
+"What is the smallest country in the world?": {
+"true": "Vatican City",
+"false": "Monaco"
+},
+"What is 7 multiplied by 8?": {
+"true": "56",
+"false": "54"
+},
+"What is the name of the clownfish in Finding Nemo?": {
+"true": "Nemo",
+"false": "Dory"
+},
+"What was the first artificial satellite called?": {
+"true": "Sputnik 1",
+"false": "Apollo 11"
+},
+"Who painted The Night Watch?": {
+"true": "Rembrandt",
+"false": "Monet"
+},
+"What is the capital of Switzerland?": {
+"true": "Bern",
+"false": "Zurich"
+},
+"What plant is used to make cotton fabric?": {
+"true": "Cotton plant",
+"false": "Flax plant"
+},
+"What is the highest score with one dart?": {
+"true": "60",
+"false": "50"
+},
+"What is 9 multiplied by 9?": {
+"true": "81",
+"false": "72"
+},
+"How many legs does an insect have?": {
+"true": "6",
+"false": "8"
+},
+"What device directs data between computer networks?": {
+"true": "Router",
+"false": "Modem"
+},
+"What is the mode of 2, 2, and 3?": {
+"true": "2",
+"false": "3"
+},
+"Which film features the Yellow Brick Road?": {
+"true": "The Wizard of Oz",
+"false": "Casablanca"
+},
+"What is the center of an atom called?": {
+"true": "Nucleus",
+"false": "Electron"
+},
+"What device converts motion into electrical energy?": {
+"true": "Generator",
+"false": "Motor"
+},
+"In what country is Petra?": {
+"true": "Jordan",
+"false": "Egypt"
+},
+"What kind of animal is Simba in The Lion King?": {
+"true": "Lion",
+"false": "Tiger"
+},
+"What nut is used to make marzipan?": {
+"true": "Almond",
+"false": "Walnut"
+},
+"How many minutes are in a standard soccer match?": {
+"true": "90",
+"false": "60"
+},
+"What is the main language spoken in Japan?": {
+"true": "Japanese",
+"false": "Korean"
+},
+"What is the first letter of the English alphabet?": {
+"true": "A",
+"false": "B"
+},
+"What animal has a trunk?": {
+"true": "Elephant",
+"false": "Rhinoceros"
+},
+"Who discovered X-rays?": {
+"true": "Wilhelm Röntgen",
+"false": "Isaac Newton"
+},
+"What is the largest internal organ in the human body?": {
+"true": "Liver",
+"false": "Lung"
+},
+"Who invented Velcro?": {
+"true": "George de Mestral",
+"false": "Thomas Edison"
+},
+"How many chromosomes are in a human body cell?": {
+"true": "46",
+"false": "48"
+},
+"Which dynasty built much of the Great Wall of China?": {
+"true": "Ming dynasty",
+"false": "Qing dynasty"
+},
+"What sport features a slam dunk?": {
+"true": "Basketball",
+"false": "Volleyball"
+},
+"What does AC stand for in electricity?": {
+"true": "Alternating current",
+"false": "Direct current"
+},
+"What country is shaped like a boot?": {
+"true": "Italy",
+"false": "Greece"
+},
+"What type of energy does a moving object have?": {
+"true": "Kinetic energy",
+"false": "Potential energy"
+},
+"What sport did Babe Ruth play?": {
+"true": "Baseball",
+"false": "Basketball"
+},
+"What is the capital of Turkey?": {
+"true": "Ankara",
+"false": "Istanbul"
+},
+"What is one-fourth as a decimal?": {
+"true": "0.25",
+"false": "0.4"
+},
+"Who sang the song Thriller?": {
+"true": "Michael Jackson",
+"false": "Prince"
+},
+"What change turns a solid into a liquid?": {
+"true": "Melting",
+"false": "Freezing"
+},
+"What room is commonly used for cooking?": {
+"true": "Kitchen",
+"false": "Bedroom"
+},
+"What is the official language of Egypt?": {
+"true": "Arabic",
+"false": "French"
+},
+"Which company owns Android?": {
+"true": "Google",
+"false": "Apple"
+},
+"What river flows through Paris?": {
+"true": "Seine",
+"false": "Thames"
+},
+"Who painted the Water Lilies series?": {
+"true": "Claude Monet",
+"false": "Vincent van Gogh"
+},
+"What is the average of 4, 6, and 8?": {
+"true": "6",
+"false": "7"
+},
+"Who was defeated at the Battle of Waterloo?": {
+"true": "Napoleon Bonaparte",
+"false": "Duke of Wellington"
+},
+"What art movement is Claude Monet linked to?": {
+"true": "Impressionism",
+"false": "Cubism"
+},
+"What mountain range separates Europe and Asia?": {
+"true": "Ural Mountains",
+"false": "Alps"
+},
+"What fruit is known for having seeds on its outside?": {
+"true": "Strawberry",
+"false": "Blueberry"
+},
+"What country hosts the Tour de France?": {
+"true": "France",
+"false": "Belgium"
+},
+"Who directed Jaws?": {
+"true": "Steven Spielberg",
+"false": "James Cameron"
+},
+"What is 2 raised to the fifth power?": {
+"true": "32",
+"false": "16"
+},
+"Who developed the first successful polio vaccine?": {
+"true": "Jonas Salk",
+"false": "Louis Pasteur"
+},
+"Who wrote The Handmaid's Tale?": {
+"true": "Margaret Atwood",
+"false": "Virginia Woolf"
+},
+"What is the largest living bird?": {
+"true": "Ostrich",
+"false": "Emu"
+},
+"What element is diamond made of?": {
+"true": "Carbon",
+"false": "Silicon"
+},
+"What is a beat within a spoken word called?": {
+"true": "Syllable",
+"false": "Phoneme"
+},
+"What is the normal human body temperature in Celsius?": {
+"true": "37°C",
+"false": "39°C"
+},
+"What waterfall lies between Zambia and Zimbabwe?": {
+"true": "Victoria Falls",
+"false": "Niagara Falls"
+},
+"Who painted Guernica?": {
+"true": "Pablo Picasso",
+"false": "Salvador Dalí"
+},
+"Who invented the phonograph?": {
+"true": "Thomas Edison",
+"false": "Alexander Graham Bell"
+},
+"What household tool is used to sweep floors?": {
+"true": "Broom",
+"false": "Mop"
+},
+"What is the plural of child?": {
+"true": "Children",
+"false": "Childs"
+},
+"How many players are on a soccer team on the field?": {
+"true": "11",
+"false": "12"
+},
+"What country hosted the first modern Olympic Games?": {
+"true": "Greece",
+"false": "France"
+},
+"In what year did the first Moon landing occur?": {
+"true": "1969",
+"false": "1971"
+},
+"How many sides does a dodecagon have?": {
+"true": "12",
+"false": "10"
+},
+"What is the highest possible break in snooker?": {
+"true": "147",
+"false": "146"
+},
+"Who issued the Emancipation Proclamation?": {
+"true": "Abraham Lincoln",
+"false": "Andrew Johnson"
+},
+"What plant is used to make linen?": {
+"true": "Flax",
+"false": "Cotton"
+},
+"What is the perimeter of a square with sides of 5 units?": {
+"true": "20 units",
+"false": "25 units"
+},
+"What musical symbol raises a note by a semitone?": {
+"true": "Sharp",
+"false": "Flat"
+},
+"What is 5 factorial?": {
+"true": "120",
+"false": "100"
+},
+"What punctuation mark commonly introduces a list?": {
+"true": "Colon",
+"false": "Semicolon"
+},
+"What trophy is awarded to the NHL champion?": {
+"true": "Stanley Cup",
+"false": "Grey Cup"
+},
+"What flower follows the Sun?": {
+"true": "Sunflower",
+"false": "Daisy"
+},
+"Who wrote 1984?": {
+"true": "George Orwell",
+"false": "Aldous Huxley"
+},
+"Who directed Pulp Fiction?": {
+"true": "Quentin Tarantino",
+"false": "Martin Scorsese"
+},
+"What pigment carries oxygen in the blood?": {
+"true": "Hemoglobin",
+"false": "Melanin"
+},
+"What device turns paper documents into digital images?": {
+"true": "Scanner",
+"false": "Printer"
+},
+"What is the main element in the Sun?": {
+"true": "Hydrogen",
+"false": "Helium"
+},
+"What is the bottom number of a fraction called?": {
+"true": "Denominator",
+"false": "Numerator"
+},
+"What swimming stroke is named after an insect?": {
+"true": "Butterfly",
+"false": "Breaststroke"
+},
+"What change turns a gas into a liquid?": {
+"true": "Condensation",
+"false": "Evaporation"
+},
+"What is the lowest male singing voice?": {
+"true": "Bass",
+"false": "Tenor"
+},
+"What is the largest continent on Earth?": {
+"true": "Asia",
+"false": "Africa"
+},
+"What online encyclopedia can anyone edit?": {
+"true": "Wikipedia",
+"false": "Britannica"
+},
+"Who built the first successful airplane?": {
+"true": "Wright brothers",
+"false": "Warner brothers"
+},
+"How many vowel letters are in the English alphabet?": {
+"true": "5",
+"false": "6"
+},
+"Who was the first woman prime minister of the United Kingdom?": {
+"true": "Margaret Thatcher",
+"false": "Theresa May"
+},
+"In what sport does the lowest score win?": {
+"true": "Golf",
+"false": "Tennis"
+},
+"What number comes next in the sequence 2, 4, 6?": {
+"true": "8",
+"false": "10"
+},
+"What is the fastest land animal?": {
+"true": "Cheetah",
+"false": "Lion"
+},
+"What unit measures frequency?": {
+"true": "Hertz",
+"false": "Watts"
+},
+"What type of energy is stored in a raised object?": {
+"true": "Potential energy",
+"false": "Kinetic energy"
+},
+"What device converts sound into an electrical signal?": {
+"true": "Microphone",
+"false": "Speaker"
+},
+"What are words with opposite meanings called?": {
+"true": "Antonyms",
+"false": "Synonyms"
+},
+"What room is commonly used for sleeping?": {
+"true": "Bedroom",
+"false": "Kitchen"
+},
+"How many syllables are in banana?": {
+"true": "3",
+"false": "2"
+},
+"What instrument did Miles Davis play?": {
+"true": "Trumpet",
+"false": "Saxophone"
+},
+"Which war was fought between the North and South in the United States?": {
+"true": "American Civil War",
+"false": "Revolutionary War"
+},
+"Who is known as the fastest man in the world?": {
+"true": "Usain Bolt",
+"false": "Tyson Gay"
+},
+"What organelle is called the powerhouse of the cell?": {
+"true": "Mitochondrion",
+"false": "Nucleus"
+},
+"Who played Jack in Titanic?": {
+"true": "Leonardo DiCaprio",
+"false": "Brad Pitt"
+},
+"Who was known as the Maid of Orleans?": {
+"true": "Joan of Arc",
+"false": "Marie Antoinette"
+},
+"Who wrote The Little Prince?": {
+"true": "Antoine de Saint-Exupéry",
+"false": "Jules Verne"
+},
+"What sport uses a bow and arrows?": {
+"true": "Archery",
+"false": "Fencing"
+},
+"What meal is usually eaten in the evening?": {
+"true": "Dinner",
+"false": "Breakfast"
+},
+"What planet is famous for its rings?": {
+"true": "Saturn",
+"false": "Mars"
+},
+"What material is commonly used to make computer chips?": {
+"true": "Silicon",
+"false": "Copper"
+},
+"Who wrote The Raven?": {
+"true": "Edgar Allan Poe",
+"false": "Mark Twain"
+},
+"What animal is known for its horn and thick skin?": {
+"true": "Rhinoceros",
+"false": "Hippopotamus"
+},
+"What country hosts the Monaco Grand Prix?": {
+"true": "Monaco",
+"false": "Italy"
+},
+"Which famous ship sank in 1912?": {
+"true": "Titanic",
+"false": "Lusitania"
+},
+"What animal builds dams?": {
+"true": "Beaver",
+"false": "Otter"
+},
+"What vegetable makes people cry when it is cut?": {
+"true": "Onion",
+"false": "Carrot"
+},
+"Who wrote The Catcher in the Rye?": {
+"true": "J. D. Salinger",
+"false": "Ernest Hemingway"
+},
+"What desert covers much of North Africa?": {
+"true": "Sahara",
+"false": "Gobi"
+},
+"What country won the 2018 FIFA World Cup?": {
+"true": "France",
+"false": "Germany"
+},
+"What family of instruments does the violin belong to?": {
+"true": "Strings",
+"false": "Woodwinds"
+},
+"What is the atomic number of hydrogen?": {
+"true": "1",
+"false": "8"
+},
+"What is the functional unit of the kidney?": {
+"true": "Nephron",
+"false": "Neuron"
+},
+"What is the name of the robot in WALL-E?": {
+"true": "WALL-E",
+"false": "R2-D2"
+},
+"What letter comes before M?": {
+"true": "L",
+"false": "K"
+},
+"Which empire was founded by Genghis Khan?": {
+"true": "Mongol Empire",
+"false": "Roman Empire"
+},
+"Who invented the printing press in Europe?": {
+"true": "Johannes Gutenberg",
+"false": "Thomas Edison"
+},
+"What dairy product is churned to make butter?": {
+"true": "Cream",
+"false": "Yogurt"
+},
+"What is the only mammal capable of true flight?": {
+"true": "Bat",
+"false": "Squirrel"
+},
+"What is the cube of 3?": {
+"true": "27",
+"false": "9"
+},
+"Who wrote Dracula?": {
+"true": "Bram Stoker",
+"false": "Mary Shelley"
+},
+"What punctuation marks enclose direct speech?": {
+"true": "Quotation marks",
+"false": "Parentheses"
+},
+"Who sang Like a Prayer?": {
+"true": "Madonna",
+"false": "Cher"
+},
+"How many sides does a triangle have?": {
+"true": "3",
+"false": "4"
+},
+"What does LCD stand for?": {
+"true": "Liquid Crystal Display",
+"false": "Light Crystal Display"
+},
+"What country invented judo?": {
+"true": "Japan",
+"false": "China"
+},
+"What is the area of a rectangle measuring 4 by 6 units?": {
+"true": "24 square units",
+"false": "20 square units"
+},
+"What is the capital of Germany?": {
+"true": "Berlin",
+"false": "Munich"
+},
+"What document begins with the words We the People?": {
+"true": "US Constitution",
+"false": "Declaration of Independence"
+},
+"What is the plural of tooth?": {
+"true": "Teeth",
+"false": "Tooths"
+},
+"What are the smallest blood vessels called?": {
+"true": "Capillaries",
+"false": "Arteries"
+},
+"What component allows current to flow in only one direction?": {
+"true": "Diode",
+"false": "Resistor"
+},
+"How many bases are on a baseball field?": {
+"true": "4",
+"false": "3"
+},
+"Which ancient city was buried by Mount Vesuvius?": {
+"true": "Pompeii",
+"false": "Athens"
+},
+"What is the study of living things called?": {
+"true": "Biology",
+"false": "Geology"
+},
+"What charge does an electron have?": {
+"true": "Negative",
+"false": "Positive"
+},
+"How many days are in a week?": {
+"true": "7",
+"false": "8"
+},
+"Which civilization built Machu Picchu?": {
+"true": "Inca",
+"false": "Maya"
+},
+"What is the sum of 11 and 13?": {
+"true": "24",
+"false": "22"
+},
+"What soccer position protects the goal?": {
+"true": "Goalkeeper",
+"false": "Striker"
+},
+"What insect makes honey?": {
+"true": "Bee",
+"false": "Ant"
+},
+"Who gave the I Have a Dream speech?": {
+"true": "Martin Luther King Jr",
+"false": "Malcolm X"
+},
+"What is the tallest type of grass?": {
+"true": "Bamboo",
+"false": "Wheat"
+},
+"What animal has a hard shell and moves slowly?": {
+"true": "Tortoise",
+"false": "Rabbit"
+},
+"What is the largest lake by surface area?": {
+"true": "Caspian Sea",
+"false": "Lake Superior"
+},
+"How many meters are in a kilometer?": {
+"true": "1000",
+"false": "100"
+},
+"What type of angle is greater than 90 degrees but less than 180 degrees?": {
+"true": "Obtuse",
+"false": "Acute"
+},
+"What sea animal has five arms?": {
+"true": "Starfish",
+"false": "Octopus"
+},
+"Who was the first woman to fly solo across the Atlantic?": {
+"true": "Amelia Earhart",
+"false": "Bessie Coleman"
+},
+"What punctuation mark separates items in a list?": {
+"true": "Comma",
+"false": "Semicolon"
+},
+"Which color moves first in chess?": {
+"true": "White",
+"false": "Black"
+},
+"What vehicle travels on railway tracks?": {
+"true": "Train",
+"false": "Bus"
+},
+"What object splits white light into colors?": {
+"true": "Prism",
+"false": "Mirror"
+},
+"Who sculpted the famous marble statue David?": {
+"true": "Michelangelo",
+"false": "Donatello"
+},
+"What galaxy contains our solar system?": {
+"true": "Milky Way",
+"false": "Andromeda"
+},
+"What day comes after Monday?": {
+"true": "Tuesday",
+"false": "Wednesday"
+},
+"What does SMS stand for?": {
+"true": "Short Message Service",
+"false": "Simple Mail Service"
+},
+"What part of speech expresses strong emotion?": {
+"true": "Interjection",
+"false": "Adjective"
+},
+"In what country is Mount Fuji?": {
+"true": "Japan",
+"false": "China"
+},
+"What is the SI unit of mass?": {
+"true": "Kilogram",
+"false": "Gram"
+},
+"Who wrote The Communist Manifesto with Friedrich Engels?": {
+"true": "Karl Marx",
+"false": "Vladimir Lenin"
+},
+"What is a line through the center of a circle called?": {
+"true": "Diameter",
+"false": "Tangent"
+},
+"What organ stores bile?": {
+"true": "Gallbladder",
+"false": "Pancreas"
+},
+"Who was the United States president during the Civil War?": {
+"true": "Abraham Lincoln",
+"false": "Andrew Johnson"
+},
+"What trade route connected China and Europe?": {
+"true": "Silk Road",
+"false": "Amber Road"
+},
+"What sea lies between Europe and Africa?": {
+"true": "Mediterranean Sea",
+"false": "Baltic Sea"
+},
+"What is the capital of Thailand?": {
+"true": "Bangkok",
+"false": "Hanoi"
+},
+"What grain is used to make most bread?": {
+"true": "Wheat",
+"false": "Barley"
+},
+"What shape is a boxing ring?": {
+"true": "Square",
+"false": "Circle"
+},
+"What item is used to cover a bed?": {
+"true": "Blanket",
+"false": "Pillow"
+},
+"What fruit is used to make marmalade?": {
+"true": "Orange",
+"false": "Apple"
+},
+"What is the windpipe called?": {
+"true": "Trachea",
+"false": "Esophagus"
+},
+"What do people wear on their feet outdoors?": {
+"true": "Shoes",
+"false": "Gloves"
+},
+"What season is usually the coldest?": {
+"true": "Winter",
+"false": "Summer"
+},
+"On what continent is Kenya?": {
+"true": "Africa",
+"false": "Asia"
+},
+"What device displays visual output from a computer?": {
+"true": "Monitor",
+"false": "Keyboard"
+},
+"What part of a plant absorbs water?": {
+"true": "Roots",
+"false": "Flowers"
+},
+"What line marks zero degrees longitude?": {
+"true": "Prime Meridian",
+"false": "Equator"
+},
+"Who painted The Last Supper?": {
+"true": "Leonardo da Vinci",
+"false": "Michelangelo"
+},
+"What green pigment is found in plants?": {
+"true": "Chlorophyll",
+"false": "Hemoglobin"
+},
+"What is the main circuit board of a computer called?": {
+"true": "Motherboard",
+"false": "Sound card"
+},
+"What does GPS stand for?": {
+"true": "Global Positioning System",
+"false": "Geographic Positioning Service"
+},
+"What are words with similar meanings called?": {
+"true": "Synonyms",
+"false": "Antonyms"
+},
+"How many hours are in a day?": {
+"true": "24",
+"false": "12"
+},
+"Which country gave the Statue of Liberty to the United States?": {
+"true": "France",
+"false": "Spain"
+},
+"What medal is awarded for first place?": {
+"true": "Gold",
+"false": "Silver"
+},
+"Who wrote The Odyssey?": {
+"true": "Homer",
+"false": "Virgil"
+},
+"What blood vessels carry blood toward the heart?": {
+"true": "Veins",
+"false": "Arteries"
+},
+"What do we call the main character in a story?": {
+"true": "Protagonist",
+"false": "Antagonist"
+},
+"What is the capital of Mexico?": {
+"true": "Mexico City",
+"false": "Monterrey"
+},
+"Who wrote Alice's Adventures in Wonderland?": {
+"true": "Lewis Carroll",
+"false": "Charles Dickens"
+},
+"In what year was the Declaration of Independence adopted?": {
+"true": "1776",
+"false": "1789"
+},
+"What sport is played at Wimbledon?": {
+"true": "Tennis",
+"false": "Cricket"
+},
+"What is the reciprocal of 4?": {
+"true": "1/4",
+"false": "4"
+},
+"What blood vessels carry blood away from the heart?": {
+"true": "Arteries",
+"false": "Veins"
+},
+"Which film features the boxer Apollo Creed?": {
+"true": "Rocky",
+"false": "Raging Bull"
+},
+"What is the SI unit of electrical resistance?": {
+"true": "Ohm",
+"false": "Volt"
+},
+"What sport uses the terms birdie and eagle?": {
+"true": "Golf",
+"false": "Tennis"
+},
+"What theorem relates the sides of a right triangle?": {
+"true": "Pythagorean theorem",
+"false": "Binomial theorem"
+},
+"What is pi rounded to the nearest whole number?": {
+"true": "3",
+"false": "4"
+},
+"What instrument has 88 keys?": {
+"true": "Piano",
+"false": "Violin"
+},
+"What part of speech names a person, place, or thing?": {
+"true": "Noun",
+"false": "Adjective"
+},
+"Who sailed across the Atlantic in 1492?": {
+"true": "Christopher Columbus",
+"false": "Ferdinand Magellan"
+},
+"Who painted The Birth of Venus?": {
+"true": "Sandro Botticelli",
+"false": "Raphael"
+},
+"What animal produces wool?": {
+"true": "Sheep",
+"false": "Cow"
+},
+"Who composed The Four Seasons?": {
+"true": "Antonio Vivaldi",
+"false": "Wolfgang Mozart"
+},
+"What is a baby cat called?": {
+"true": "Kitten",
+"false": "Puppy"
+},
+"What is the official language of France?": {
+"true": "French",
+"false": "German"
+},
+"How many months are in a year?": {
+"true": "12",
+"false": "10"
+},
+"What do people breathe to stay alive?": {
+"true": "Oxygen",
+"false": "Helium"
+},
+"What is the capital of Portugal?": {
+"true": "Lisbon",
+"false": "Madrid"
+},
+"What is an animal with a backbone called?": {
+"true": "Vertebrate",
+"false": "Invertebrate"
+},
+"How many teeth does a typical adult have?": {
+"true": "32",
+"false": "20"
+},
+"How long does Earth take to orbit the Sun?": {
+"true": "One year",
+"false": "One month"
+},
+"What is Earth's natural satellite?": {
+"true": "Moon",
+"false": "Mars"
+},
+"How many degrees are in a triangle?": {
+"true": "180 degrees",
+"false": "360 degrees"
+},
+"What does HTML stand for?": {
+"true": "HyperText Markup Language",
+"false": "HyperText Markdown Language"
+},
+"In what country is Amsterdam?": {
+"true": "Netherlands",
+"false": "Belgium"
+},
+"What was ancient Egyptian writing called?": {
+"true": "hieroglyphics",
+"false": "cuneiform"
+},
+"Who conquered England in 1066?": {
+"true": "William the Conqueror",
+"false": "Harold Godwinson"
+},
+"Whose tomb was discovered in Egypt in 1922?": {
+"true": "Tutankhamun",
+"false": "Ramesses II"
+},
+"What is the highest female singing voice?": {
+"true": "soprano",
+"false": "alto"
+},
+"Who painted Campbell's Soup Cans?": {
+"true": "Andy Warhol",
+"false": "Pablo Picasso"
+},
+"What herb is commonly used in pesto?": {
+"true": "basil",
+"false": "parsley"
+},
+"What color pill does Neo take in The Matrix?": {
+"true": "red",
+"false": "blue"
+},
+"What wireless technology connects devices over short distances?": {
+"true": "Bluetooth",
+"false": "Wi-Fi"
+},
+"What furniture is used for sleeping?": {
+"true": "bed",
+"false": "chair"
+},
+"What liquid do people drink to stay hydrated?": {
+"true": "water",
+"false": "milk"
+},
+"What is the comparative form of good?": {
+"true": "better",
+"false": "worse"
+},
+"Who is known as the Queen of Soul?": {
+"true": "Aretha Franklin",
+"false": "Diana Ross"
+},
+"What object is used to unlock a door?": {
+"true": "key",
+"false": "hammer"
+},
+"What season comes after spring?": {
+"true": "summer",
+"false": "autumn"
+},
+"Which country was ruled by tsars?": {
+"true": "Russia",
+"false": "France"
+},
+"What fruit grows on an apple tree?": {
+"true": "apple",
+"false": "pear"
+},
+"What sport uses a racket and a shuttlecock?": {
+"true": "badminton",
+"false": "tennis"
+},
+"What fruit grows on a vine and comes in bunches?": {
+"true": "grape",
+"false": "cherry"
+},
+"What organs filter waste from the blood?": {
+"true": "kidneys",
+"false": "lungs"
+},
+"Who sang Purple Rain?": {
+"true": "Prince",
+"false": "Michael Jackson"
+},
+"What fruit has seeds on its outside?": {
+"true": "strawberry",
+"false": "blueberry"
+},
+"Who composed The Magic Flute?": {
+"true": "Wolfgang Amadeus Mozart",
+"false": "Ludwig van Beethoven"
+},
+"What is the longest bone in the human body?": {
+"true": "femur",
+"false": "tibia"
+},
+"What is the median of 1, 3, and 5?": {
+"true": "3",
+"false": "5"
+},
+"What animal is known as man's best friend?": {
+"true": "dog",
+"false": "cat"
+},
+"Which actor played Rocky Balboa?": {
+"true": "Sylvester Stallone",
+"false": "Arnold Schwarzenegger"
+},
+"What layer protects Earth from ultraviolet radiation?": {
+"true": "ozone layer",
+"false": "troposphere"
+},
+"How many planets are in the solar system?": {
+"true": "8",
+"false": "9"
+},
+"What is the sum of 2 and 2?": {
+"true": "4",
+"false": "5"
+},
+"What tree produces coconuts?": {
+"true": "coconut palm",
+"false": "oak tree"
+},
+"What are the units of heredity called?": {
+"true": "genes",
+"false": "cells"
+},
+"Who wrote War and Peace?": {
+"true": "Leo Tolstoy",
+"false": "Fyodor Dostoevsky"
+},
+"Who wrote Don Quixote?": {
+"true": "Miguel de Cervantes",
+"false": "Gabriel García Márquez"
+},
+"What fruit is dried to make raisins?": {
+"true": "grape",
+"false": "plum"
+},
+"Which city hosted the first modern Olympic Games?": {
+"true": "Athens",
+"false": "Paris"
+},
+"What is the pH of pure water?": {
+"true": "7",
+"false": "5"
+},
+"Who directed The Godfather?": {
+"true": "Francis Ford Coppola",
+"false": "Martin Scorsese"
+},
+"Who painted The Kiss in 1908?": {
+"true": "Gustav Klimt",
+"false": "Edvard Munch"
+},
+"What country hosted the 2016 Summer Olympics?": {
+"true": "Brazil",
+"false": "Argentina"
+},
+"What is the symbol % called?": {
+"true": "percent sign",
+"false": "division sign"
+},
+"What fuel is commonly used in cars?": {
+"true": "gasoline",
+"false": "diesel"
+},
+"What river flows through Egypt?": {
+"true": "Nile",
+"false": "Amazon"
+},
+"Who invented the diesel engine?": {
+"true": "Rudolf Diesel",
+"false": "Henry Ford"
+},
+"What is the official language of Turkey?": {
+"true": "Turkish",
+"false": "Arabic"
+},
+"What are the three common states of matter?": {
+"true": "solid liquid gas",
+"false": "plasma liquid gas"
+},
+"In what country are the Pyramids of Giza?": {
+"true": "Egypt",
+"false": "Sudan"
+},
+"What plant is the main food of pandas?": {
+"true": "bamboo",
+"false": "eucalyptus"
+},
+"Who formulated the laws of motion?": {
+"true": "Isaac Newton",
+"false": "Albert Einstein"
+},
+"Who wrote A Christmas Carol?": {
+"true": "Charles Dickens",
+"false": "Mark Twain"
+},
+"What animal has eight arms?": {
+"true": "octopus",
+"false": "squid"
+},
+"What is the past tense of go?": {
+"true": "went",
+"false": "gone"
+},
+"Which company created the Windows operating system?": {
+"true": "Microsoft",
+"false": "Apple"
+},
+"What plant produces coffee beans?": {
+"true": "coffee plant",
+"false": "cocoa plant"
+},
+"Who was Germany's dictator during World War II?": {
+"true": "Adolf Hitler",
+"false": "Benito Mussolini"
+},
+"What does LED stand for?": {
+"true": "light-emitting diode",
+"false": "laser-emitting diode"
+},
+"What vehicle is commonly used to fly between cities?": {
+"true": "airplane",
+"false": "helicopter"
+},
+"Who played Forrest Gump?": {
+"true": "Tom Hanks",
+"false": "Robin Williams"
+},
+"What punctuation mark ends a question?": {
+"true": "Question mark",
+"false": "Period"
+},
+"How many miles are in a marathon?": {
+"true": "26.2 miles",
+"false": "24.2 miles"
+},
+"What acid is found in vinegar?": {
+"true": "Acetic acid",
+"false": "Citric acid"
+},
+"What flower has sharp thorns on its stem?": {
+"true": "Rose",
+"false": "Tulip"
+},
+"How many sides does a pentagon have?": {
+"true": "Five",
+"false": "Six"
+},
+"Who played Katniss Everdeen in The Hunger Games?": {
+"true": "Jennifer Lawrence",
+"false": "Emma Stone"
+},
+"What is the bouncing of light called?": {
+"true": "Reflection",
+"false": "Refraction"
+},
+"What particle has a negative charge?": {
+"true": "Electron",
+"false": "Proton"
+},
+"Who played Hermione Granger in the Harry Potter films?": {
+"true": "Emma Watson",
+"false": "Emma Stone"
+},
+"What gas do plants release during photosynthesis?": {
+"true": "Oxygen",
+"false": "Nitrogen"
+},
+"What month comes after June?": {
+"true": "July",
+"false": "August"
+},
+"What insect changes from a caterpillar?": {
+"true": "Butterfly",
+"false": "Grasshopper"
+},
+"Who wrote Les Misérables?": {
+"true": "Victor Hugo",
+"false": "Charles Dickens"
+},
+"Who invented the telephone?": {
+"true": "Alexander Graham Bell",
+"false": "Thomas Edison"
+},
+"What change turns a liquid into a gas?": {
+"true": "Evaporation",
+"false": "Condensation"
+},
+"What organs are affected by pneumonia?": {
+"true": "Lungs",
+"false": "Kidneys"
+},
+"Who composed the Moonlight Sonata?": {
+"true": "Ludwig van Beethoven",
+"false": "Wolfgang Mozart"
+},
+"What organ is affected by hepatitis?": {
+"true": "Liver",
+"false": "Pancreas"
+},
+"How many degrees are in a straight angle?": {
+"true": "180 degrees",
+"false": "90 degrees"
+},
+"Who wrote Pride and Prejudice?": {
+"true": "Jane Austen",
+"false": "Emily Brontë"
+},
+"What appliance keeps food cold?": {
+"true": "Refrigerator",
+"false": "Oven"
+},
+"How many players from one team are on a volleyball court?": {
+"true": "Six",
+"false": "Five"
+},
+"What is the top number of a fraction called?": {
+"true": "Numerator",
+"false": "Denominator"
+},
+"What is the name of the cowboy in Toy Story?": {
+"true": "Woody",
+"false": "Buzz"
+},
+"What is the official language of Hungary?": {
+"true": "Hungarian",
+"false": "Romanian"
+},
+"What is zero divided by 5?": {
+"true": "Zero",
+"false": "One"
+},
+"What animal is known for its long neck?": {
+"true": "Giraffe",
+"false": "Zebra"
+},
+"What is a painting of natural scenery called?": {
+"true": "Landscape",
+"false": "Portrait"
+},
+"What river flows through Rome?": {
+"true": "Tiber",
+"false": "Thames"
+},
+"What part of speech usually shows an action?": {
+"true": "Verb",
+"false": "Noun"
+},
+"Who holds the men's 100-meter world record?": {
+"true": "Usain Bolt",
+"false": "Carl Lewis"
+}
+}

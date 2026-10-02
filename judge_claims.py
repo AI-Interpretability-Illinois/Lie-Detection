@@ -44,6 +44,7 @@ from __future__ import annotations
 import argparse
 import csv
 import json
+import os
 import time
 from collections import Counter, defaultdict
 from pathlib import Path
@@ -55,7 +56,7 @@ from did_estimators import load_lm
 from run_reversed_contrast import SanitizeLogits, generate_batched
 from score_liars_bench import is_refusal, parse_true_false
 
-OUT = Path("/work/hdd/bfqt/xiaocong/lie_detection_outputs")
+OUT = Path(os.environ.get("LIE_OUT", "/work/hdd/bfqt/xiaocong/lie_detection_outputs"))  # LIE_OUT: other hosts
 SPLITS = ("instructed-deception", "instructed-truthful")
 # The first version asked "does the response assert the statement is TRUE or
 # FALSE", and the judge answered a different question: whether the statement IS

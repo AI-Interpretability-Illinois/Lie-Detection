@@ -1,0 +1,163 @@
+[
+ {
+  "model": "Llama-3.1-8B",
+  "lb": {
+   "ours25": 93.5,
+   "ours100": 88.5,
+   "n100": 261,
+   "vs": "steer",
+   "other": 87.0,
+   "lead25": 6.5,
+   "sig25": true,
+   "lead100": 1.5
+  },
+  "ail": {
+   "ours25": 89.7,
+   "ours100": 85.1,
+   "n100": 417,
+   "vs": "steer",
+   "other": 87.8,
+   "lead25": 1.9,
+   "sig25": false,
+   "lead100": -2.7
+  }
+ },
+ {
+  "model": "Phi-4-mini",
+  "lb": {
+   "ours25": 86.3,
+   "ours100": 83.2,
+   "n100": 262,
+   "vs": "prompt",
+   "other": 79.4,
+   "lead25": 6.9,
+   "sig25": true,
+   "lead100": 3.8
+  },
+  "ail": {
+   "ours25": 78.7,
+   "ours100": 72.8,
+   "n100": 427,
+   "vs": "steer",
+   "other": 66.7,
+   "lead25": 11.9,
+   "sig25": true,
+   "lead100": 6.1
+  }
+ },
+ {
+  "model": "Falcon3-3B",
+  "lb": {
+   "ours25": 89.7,
+   "ours100": 83.2,
+   "n100": 262,
+   "vs": "steer",
+   "other": 79.4,
+   "lead25": 10.3,
+   "sig25": true,
+   "lead100": 3.8
+  },
+  "ail": {
+   "ours25": 78.3,
+   "ours100": 79.8,
+   "n100": 341,
+   "vs": "unsteered",
+   "other": 73.0,
+   "lead25": 5.3,
+   "sig25": true,
+   "lead100": 6.8
+  }
+ },
+ {
+  "model": "OLMo-2-1B",
+  "lb": {
+   "ours25": 58.0,
+   "ours100": 53.1,
+   "n100": 262,
+   "vs": "prompt",
+   "other": 61.1,
+   "lead25": -3.1,
+   "sig25": false,
+   "lead100": -8.0
+  },
+  "ail": {
+   "ours25": 68.8,
+   "ours100": 67.4,
+   "n100": 301,
+   "vs": "liemask",
+   "other": 64.1,
+   "lead25": 4.7,
+   "sig25": false,
+   "lead100": 3.3
+  }
+ },
+ {
+  "model": "Qwen2.5-3B",
+  "lb": {
+   "ours25": 94.3,
+   "ours100": 95.8,
+   "n100": 262,
+   "vs": "prompt",
+   "other": 92.0,
+   "lead25": 2.3,
+   "sig25": false,
+   "lead100": 3.8
+  },
+  "ail": {
+   "ours25": 78.8,
+   "ours100": 82.4,
+   "n100": 391,
+   "vs": "liemask",
+   "other": 82.1,
+   "lead25": -3.3,
+   "sig25": false,
+   "lead100": 0.3
+  }
+ },
+ {
+  "model": "Qwen2.5-7B",
+  "lb": {
+   "ours25": 95.4,
+   "ours100": 95.4,
+   "n100": 262,
+   "vs": "liemask",
+   "other": 95.0,
+   "lead25": 0.4,
+   "sig25": false,
+   "lead100": 0.4
+  },
+  "ail": {
+   "ours25": 90.8,
+   "ours100": 91.5,
+   "n100": 424,
+   "vs": "steer",
+   "other": 92.0,
+   "lead25": -1.2,
+   "sig25": false,
+   "lead100": -0.5
+  }
+ },
+ {
+  "model": "Qwen2.5-1.5B",
+  "lb": {
+   "ours25": 87.0,
+   "ours100": 84.0,
+   "n100": 262,
+   "vs": "steer",
+   "other": 90.5,
+   "lead25": -3.4,
+   "sig25": false,
+   "lead100": -6.5
+  },
+  "ail": {
+   "ours25": 81.3,
+   "ours100": 80.8,
+   "n100": 390,
+   "vs": "steer",
+   "other": 80.3,
+   "lead25": 1.0,
+   "sig25": false,
+   "lead100": 0.5
+  }
+ }
+]
