@@ -25,7 +25,7 @@ Falcon3-3B-Instruct         caa                     43.8      82.8      -12.9   
 1. **The calibrated mask transfers across single-turn formats on every model: 86-98% of the gap,
    built in any other format.** CAA is as good on Phi and Qwen (81-89%) but far weaker on Llama
    (48%) and Falcon (44%). CAA also depends on the build format on Llama: vectors built from mc / tf /
-   multi pairs close 24-36%, vectors from long / inject / user pairs 65-70%. The mask rows are flat
+   multi pairs close 24-32% on average, vectors from long / inject / user pairs 65-70%. The mask rows are flat
    (95-98%).
 2. **Damage is lower for the mask** at the chosen strengths: perplexity 1.01-1.09 against 1.00-1.15.
 3. **Multi-turn splits by model, not by method.** The mask closes 95% (Llama) and 78% (Qwen) but -7% (Phi)
