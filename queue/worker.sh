@@ -13,7 +13,7 @@
 # Stop all workers with: touch ~/.stop_lie_queue
 GPU=$1
 Q=/u/xiaocong/lie_detection/queue
-WID="$(hostname -s)-gpu$GPU"
+WID="$(hostname -s)-gpu$GPU${SLOT:+s$SLOT}"   # SLOT: a second worker on the same GPU
 # Optional limits for shared nodes: skip jobs declaring more than MAX_MEM_GB, and
 # cap each job's GPU memory at LIE_MAX_GPU_GB (read by did_estimators.load_lm).
 MAX_MEM_GB=${MAX_MEM_GB:-999}
@@ -28,7 +28,9 @@ for f in "$Q"/running/*.$WID; do
   b=$(basename "$f" .$WID); mv "$f" "$Q/pending/$b"; echo "$(date '+%F %H:%M') requeued $b"
 done
 echo $$ > "$Q/worker.$WID.pid"
-while [ ! -e ~/.stop_lie_queue ]; do
+# LIE_STOP_FILE: a per-node stop file, so a guard pausing another node does not stop these workers
+STOP=${LIE_STOP_FILE:-$HOME/.stop_lie_queue}
+while [ ! -e "$STOP" ]; do
   job=""
   for f in $(ls "$Q/pending" 2>/dev/null | sort); do
     p="$Q/pending/$f"; [ -f "$p" ] || continue

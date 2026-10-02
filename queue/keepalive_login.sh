@@ -18,6 +18,8 @@ while [ ! -e ~/.stop_lie_keepalive ]; do
   if [ -z "$(ls $Q/pending $Q/running 2>/dev/null | grep '\.sh')" ]; then
     log "queue empty (nothing pending or running); exiting"; exit 0
   fi
+  # (the guard is launched as ./queue/$G.sh: a literal guard path in the ssh command line would
+  #  match the pgrep that checks for a running guard, so the guard would never start)
   # a training job running on the node, and for how long (minutes)
   el=$(squeue -u "$USER" -w "$NODE" -h -t RUNNING -o "%j %M" 2>/dev/null | awk '$1 ~ /^resv_train/ {print $2; exit}')
   if [ -n "$el" ]; then
@@ -29,7 +31,7 @@ while [ ! -e ~/.stop_lie_keepalive ]; do
       log "training up ${mins} min, 4 GPUs visible, workers=${workers} guard=${guard}: relaunching"
       timeout 40 ssh -o BatchMode=yes -o ConnectTimeout=10 "$NODE" \
         "cd /u/xiaocong/lie_detection && rm -f ~/.stop_lie_guard && \
-         { pgrep -u \$USER -f 'queue/guar[d].sh' >/dev/null || WORKER_SPEC='$WORKER_SPEC' setsid nohup ./queue/guard.sh < /dev/null >> queue/logs/guard.\$(hostname -s).log 2>&1 & } ; \
+         G=guard; { pgrep -u \$USER -f 'queue/guar[d].sh' >/dev/null || WORKER_SPEC='$WORKER_SPEC' setsid nohup ./queue/\$G.sh < /dev/null >> queue/logs/guard.\$(hostname -s).log 2>&1 & } ; \
          for grp in \$(echo '$WORKER_SPEC' | tr ',' '\n' | tr ' ' '_'); do g=\${grp%%:*}; GPUS=\"\${g//_/ }\" MAX_MEM_GB=\${grp##*:} ./queue/start_workers.sh; done" 2>&1 | sed 's/^/    /'
     fi
   fi

@@ -81,7 +81,7 @@ def main():
         mask_bs = max(4, bs // 2)
         # 2s sandbagging
         write(f"2s{i}_sandbag_{s}", mem,
-              base + f" --batch-size {bs} --eval-set {X}/extra_sandbag.jsonl --belief-tag sandbag --tag tsandbag")
+              base + f" --batch-size {mask_bs} --eval-set {X}/extra_sandbag.jsonl --belief-tag sandbag --tag tsandbag")
         # 3i injected instructions + judge
         g = f"3i{i}a_inject_{s}"
         write(g, mem, base + f" --batch-size {bs} --eval-set {X}/extra_inject.jsonl --belief-tag inject --tag tinject")
