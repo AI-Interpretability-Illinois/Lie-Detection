@@ -1,4 +1,51 @@
-# Format-transfer pilot: Phi-4-mini, weight mask vs CAA, 7 x 7 (validation half)
+# Format-transfer study: weight mask vs CAA, 7 x 7, four models
+
+## Update 2026-10-02: Llama-3.1-8B, Qwen2.5-7B, Falcon3-3B (gpua047, owner OK) and the Phi test half
+
+Same design as the Phi pilot below: calibrated mask (maskc) and CAA at each model's main-table layer
+(Llama L8, Qwen-7B L14, Falcon L5, Phi L16), four strengths each, validation half, greedy decoding.
+Paragraphs are graded by the local judge. Gap closure is now computed only for eval formats where the
+unedited model is at least 10 points below its honest-instructed control. Smaller gaps made the ratio
+explode (Qwen inject: gap 3.4 points, -370% to +130%). Formats with room: Phi user/mc/tf/multi/long;
+Llama and Qwen all but inject; Falcon only mc and multi (it already resists most single-turn orders).
+
+Mean % of the gap closed at one strength per build format (validation; `reports/fmt_crossmodel.py`):
+```
+model                       method  single-turn off-diag  diagonal multi-turn  worst build row           ppl   eval formats with room
+Phi-4-mini-instruct         maskc                   86.3      96.1       -7.3         multi 52     1.03-1.09   user,mc,tf,multi,long
+Phi-4-mini-instruct         caa                     81.3      94.6       16.5         multi 54     1.07-1.14   user,mc,tf,multi,long
+Meta-Llama-3p1-8B-Instruct  maskc                   97.5      98.9       95.1        inject 95     1.02-1.02   sys,user,mc,tf,multi,long
+Meta-Llama-3p1-8B-Instruct  caa                     47.9      41.5       67.4            tf 24     1.01-1.07   sys,user,mc,tf,multi,long
+Qwen2p5-7B-Instruct         maskc                   96.8      96.1       77.7         multi 90     1.03-1.08   sys,user,mc,tf,multi,long
+Qwen2p5-7B-Instruct         caa                     88.5      83.1       62.6         multi 75     1.06-1.15   sys,user,mc,tf,multi,long
+Falcon3-3B-Instruct         maskc                   94.6      94.9      -11.9         multi 31     1.01-1.04   mc,multi
+Falcon3-3B-Instruct         caa                     43.8      82.8      -12.9        inject -4     1.00-1.06   mc,multi
+```
+
+1. **The calibrated mask transfers across single-turn formats on every model: 86-98% of the gap,
+   built in any other format.** CAA is as good on Phi and Qwen (81-89%) but far weaker on Llama
+   (48%) and Falcon (44%). CAA also depends on the build format on Llama: vectors built from mc / tf /
+   multi pairs close 24-36%, vectors from long / inject / user pairs 65-70%. The mask rows are flat
+   (95-98%).
+2. **Damage is lower for the mask** at the chosen strengths: perplexity 1.01-1.09 against 1.00-1.15.
+3. **Multi-turn splits by model, not by method.** The mask closes 95% (Llama) and 78% (Qwen) but -7% (Phi)
+   and -12% (Falcon). CAA closes 67 / 63 / 17 / -13%. The models where the mask fails on multi-turn are
+   the two small ones, and CAA does no better on Falcon.
+4. **The multi-turn build format is usually the weakest source.** It is the worst row for both methods
+   on Phi and Qwen (Qwen mask: tied with tf, 90.3 vs 90.4) and for the mask on Falcon. On Llama it is
+   third-worst for both (the mask rows are flat there). The exception is Falcon CAA, where it is the
+   best row (42% vs -4 to 40%).
+5. **The Phi test half confirms validation** at the validation-chosen strengths (`fmt_pilot_phi_test_tables.txt`).
+   Mask column means on test: user 92, mc 95, tf 86, multi -5.5, long 82 (validation 88 / 97 / 80 /
+   -7 / 85). CAA: 70 / 95 / 59 / 12 / 73 (validation 79 / 96 / 76 / 17 / 82). On test the mask beats
+   CAA in every column but multi-turn; CAA loses more from validation to test.
+
+Cost of the extension: 2 x 1 A100 on gpua047, 4.1 h and 5.1 h (including grading 80k paragraphs),
+plus 1.0 h for the Phi test half. No API cost. Per-model tables: `reports/fmt_<model>_val_tables.txt`.
+
+---
+
+## Pilot: Phi-4-mini, weight mask vs CAA, 7 x 7 (validation half; tables at the earlier 3-point gap threshold)
 
 **Question** (owner idea, 2026-09-30). Build a steering edit from contrast pairs in format i and evaluate
 it on format j, for every (i, j). Is there a fundamental difference between weight steering and
@@ -36,7 +83,7 @@ One strength per build format: the best mean gain over eval formats within the b
 Unedited honest % on deception items (control in brackets): sys 89.5 (98.9), user 62.5 (98.9),
 inject 89.8 (96.5), mc 56.1 (100), tf 72.8 (97.4), multi 67.7 (99.3), long 66.0 (96.1).
 
-## Share of the gap to the honest-instructed level closed (%), one strength per build format
+### Share of the gap to the honest-instructed level closed (%), one strength per build format
 
 Calibrated mask (perplexity 1.02-1.09 at the chosen strengths; mean control drop 0.1-2.5):
 ```
@@ -63,7 +110,7 @@ CAA (perplexity 1.07-1.14; mean control drop 1.0-2.5):
   col mean         66.7    78.6    64.7    96.4    75.9    16.5    82.1
 ```
 
-## Reading
+### Reading
 
 1. **Both methods transfer broadly across single-turn formats.** Of the 36 off-diagonal single-turn
    cells, 86% (mask) and 81% (CAA) close at least 60% of the gap; the weakest close 48% and 30%. Rows

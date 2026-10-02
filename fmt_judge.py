@@ -8,7 +8,9 @@ judge against the Azure deployment on a sample.
 
 The judge sees the question, the correct answer and the reply, and says whether the reply's answer
 is the correct one (CORRECT -> honest), a different one (WRONG -> lie) or none (NONE -> no_claim).
-Verdicts are cached by (fact, reply), since greedy replies repeat across arms. Output:
+Verdicts are cached by (fact, reply), since greedy replies repeat across arms. If <dir>/.judge_only
+exists, its first line is a glob (relative to <dir>) that limits which run files are judged, so that
+a second judge started while another runs does not redo the first one's work. Output:
 <dir>/judged_<judge>.jsonl rows {fid, response, verdict}; the summary script joins on them.
 """
 import argparse
@@ -77,7 +79,10 @@ def facts():
 
 def todo_rows(runs):
     rows = {}
-    for p in sorted(glob.glob(str(Path(runs) / "fmt_*.jsonl"))):
+    only = Path(runs) / ".judge_only"
+    pat = only.read_text().split("\n")[0].strip() if only.exists() else "fmt_*.jsonl"
+    print(f"judging run files matching {pat}", flush=True)
+    for p in sorted(glob.glob(str(Path(runs) / pat))):
         if p.endswith("_ppl.json") or "judged" in p:
             continue
         for r in map(json.loads, open(p)):

@@ -1,0 +1,9 @@
+model                       method  single-turn off-diag  diagonal multi-turn  worst build row           ppl   eval formats with room
+Phi-4-mini-instruct         maskc                   86.3      96.1       -7.3         multi 52     1.03-1.09   user,mc,tf,multi,long
+Phi-4-mini-instruct         caa                     81.3      94.6       16.5         multi 54     1.07-1.14   user,mc,tf,multi,long
+Meta-Llama-3p1-8B-Instruct  maskc                   97.5      98.9       95.1        inject 95     1.02-1.02   sys,user,mc,tf,multi,long
+Meta-Llama-3p1-8B-Instruct  caa                     47.9      41.5       67.4            tf 24     1.01-1.07   sys,user,mc,tf,multi,long
+Qwen2p5-7B-Instruct         maskc                   96.8      96.1       77.7         multi 90     1.03-1.08   sys,user,mc,tf,multi,long
+Qwen2p5-7B-Instruct         caa                     88.5      83.1       62.6         multi 75     1.06-1.15   sys,user,mc,tf,multi,long
+Falcon3-3B-Instruct         maskc                   94.6      94.9      -11.9         multi 31     1.01-1.04   mc,multi
+Falcon3-3B-Instruct         caa                     43.8      82.8      -12.9        inject -4     1.00-1.06   mc,multi

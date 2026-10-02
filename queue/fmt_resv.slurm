@@ -27,7 +27,9 @@ for spec in "${SPECS[@]}"; do
   set -- $spec
   s=$(basename $1 | tr . p)
   echo "$(date '+%F %T') start $s (layer $2, caa $3)"
+  # maskc (calibrated r), not the fixed-r mask: built from 200 pairs that one is nearly inert (pilot)
   python fmt_transfer.py --model-id $1 --cache-dir $HF_HOME --out $O --shard $S --layer $2 --caa-rel=$3 \
+    --methods ${METHODS:-unsteered,maskc,caa} $FMT_ARGS \
     >> /work/hdd/biro/xiaocong/lie_out/logs/fmt_${s}_${S/\//of}.log 2>&1
   echo "$(date '+%F %T') end $s rc=$?"
 done
