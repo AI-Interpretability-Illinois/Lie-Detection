@@ -33,7 +33,7 @@ if [ "$1" = smoke ]; then
   rm -rf $T/out/fmt_smoke
   run fmt_smoke $PY fmt_transfer.py --model-id $M --cache-dir $T/hf --out $T/out/fmt_smoke \
       --arms unsteered,mask:F2_user:-1.0,caa:F6_multi:-0.18 --n-build 16 --n-eval 8 --batch 16 &&
-  run fmt_smoke_judge $PY fmt_judge.py --runs $T/out/fmt_smoke --cache-dir $T/hf
+  LIE_MAX_GPU_GB=${JCAP:-24} run fmt_smoke_judge $PY fmt_judge.py --runs $T/out/fmt_smoke --cache-dir $T/hf --batch-size 8
   echo "$(date '+%F %T') smoke done"; exit
 fi
 S=${SHARD:-0/1}; n=${S#*/}; H=val; [[ "$FMT_ARGS" == *"--half test"* ]] && H=test
@@ -42,6 +42,7 @@ for pass in 1 2; do
 done
 touch $T/out/fmt_runs/.done_${H}_${S/\//of}
 if [ "$(ls $T/out/fmt_runs/.done_${H}_* 2>/dev/null | wc -l)" -ge "$n" ]; then
-  run fmt_judge_$H $PY fmt_judge.py --runs $T/out/fmt_runs --cache-dir $T/hf
+  # the 7B judge needs more than the generation cap (bf16 weights alone are 15 GB)
+  LIE_MAX_GPU_GB=${JCAP:-24} run fmt_judge_$H $PY fmt_judge.py --runs $T/out/fmt_runs --cache-dir $T/hf --batch-size 8
 fi
 echo "$(date '+%F %T') all done ($S)"

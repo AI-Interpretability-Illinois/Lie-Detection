@@ -18,8 +18,11 @@ import argparse
 import glob
 import hashlib
 import json
+import os
 from collections import defaultdict
 from pathlib import Path
+
+FMT_DIR = Path(os.environ.get("FMT_OUT", "/work/hdd/biro/xiaocong/lie_out/fmt_suite"))
 
 FORMATS = ["F1_sys", "F2_user", "F3_inject", "F4_mc", "F5_tf", "F6_multi", "F7_long"]
 SHORT = {f: f.split("_")[1] for f in FORMATS}
@@ -36,6 +39,8 @@ def load(runs, model, half):
         for r in map(json.loads, open(p)):
             judged[key(r["fid"], r["response"])] = r["verdict"]
     rates = defaultdict(lambda: defaultdict(lambda: [0, 0]))     # arm -> (fmt, split) -> [honest, n]
+    # true/false items by statement polarity: a mask can shift the True/False prior itself
+    pol = {r["uid"]: r["grade"]["gold_truth"] for r in map(json.loads, open(FMT_DIR / "eval_F5_tf.jsonl"))}
     missing = 0
     ppl = {}
     for p in glob.glob(str(Path(runs) / f"fmt_{model}_{half}_*of*.jsonl")):
@@ -50,6 +55,9 @@ def load(runs, model, half):
                     continue
             c = rates[r["arm"]][(r["eval_fmt"], r["split"])]
             c[0] += v == "honest"; c[1] += 1
+            if r["eval_fmt"] == "F5_tf":
+                c = rates[r["arm"]][("tf_" + ("true" if pol[r["uid"]] else "false"), r["split"])]
+                c[0] += v == "honest"; c[1] += 1
         pp = p[:-6] + "_ppl.json"
         if Path(pp).exists():
             ppl.update({k: v for k, v in json.load(open(pp)).items() if k != "_base"})
@@ -82,7 +90,7 @@ def main():
         c = pct[arm].get((j, "control"))
         return ppl.get(arm, 9) <= PPL_MAX and c is not None and c >= C[j] - CTL_DROP
 
-    for meth in ("mask", "caa"):
+    for meth in ("mask", "maskc", "caa"):
         arms = [x for x in pct if x.startswith(meth + ":")]
         if not arms:
             continue
@@ -107,8 +115,8 @@ def main():
                     cand.append((sum(gains) / len(gains), s))
             row_pick[i] = max(cand)[1] if cand else None
 
-        def show(title, cell):
-            print(f"\n  {title}   (rows: build format, columns: eval format; gain in honest points)")
+        def show(title, cell, unit="gain in honest points"):
+            print(f"\n  {title}   (rows: build format, columns: eval format; {unit})")
             print("  build \\ eval " + "".join(f"{SHORT[j]:>8}" for j in FORMATS) + f"{'row mean':>10}")
             colv = defaultdict(list)
             for i in FORMATS:
@@ -132,6 +140,12 @@ def main():
             return None if v is None else v - U[j]
         show("(b) gain at one strength per build format " +
              str({SHORT[i]: row_pick[i] for i in FORMATS}), at_pick)
+        def closure(i, j):
+            g = at_pick(i, j)
+            gap = C[j] - U[j]
+            return None if g is None or gap < 3 else 100 * g / gap
+        show("(c) % of the gap to the honest-instructed level closed, at the row strength "
+             "(columns with a gap < 3 points left out)", closure, unit="% of gap closed")
         print("\n  damage at the row strength: ppl x / mean control drop")
         for i in FORMATS:
             s = row_pick[i]
@@ -140,6 +154,15 @@ def main():
             x = f"{meth}:{i}:{s}"
             drops = [C[j] - pct[x][(j, "control")] for j in FORMATS if (j, "control") in pct[x]]
             print(f"  {SHORT[i]:<13} {s:>6}  ppl x{ppl.get(x, float('nan')):.3f}  control drop {sum(drops) / len(drops):+.1f}")
+        print("\n  true/false honest % by statement polarity at the row strength (true st. / false st.)")
+        ut, uf = pct["unsteered"].get(("tf_true", "deception")), pct["unsteered"].get(("tf_false", "deception"))
+        print(f"  {'unedited':<13} {ut:5.1f} / {uf:5.1f}")
+        for i in FORMATS:
+            if row_pick[i] is None:
+                continue
+            x = pct[f"{meth}:{i}:{row_pick[i]}"]
+            print(f"  {SHORT[i]:<13} {x.get(('tf_true', 'deception'), float('nan')):5.1f} / "
+                  f"{x.get(('tf_false', 'deception'), float('nan')):5.1f}")
         out[meth] = dict(best={f"{i}|{j}": v for (i, j), v in best.items()}, row_pick=row_pick)
     Path(a.runs, f"summary_{a.model}_{a.half}.json").write_text(json.dumps(out, indent=1))
 

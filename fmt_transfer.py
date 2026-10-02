@@ -9,11 +9,13 @@ eval_<F>.jsonl (deception and honesty-instructed control items, val / test halve
 Edits, one per build format F and strength:
   mask  the method's rule on F's pairs: per-column input norms over prompt tokens (chat template
         applied), score |W_ij| * (v n_lie_j - (1-v) n_truth_j), v = r/(1+r), top rho per matrix,
-        W <- W (1 + alpha M). Strengths alpha in --alphas.
+        W <- W (1 + alpha M). Strengths alpha in --alphas (r fixed at --ratio).
+  maskc the same with full deletion (alpha -1) and r calibrated per build format so that the
+        positive-score weights are a share s of all weights; strengths s in --shares.
   caa   u = normalize(mean(h_lie - h_truth)) of the last prompt token at decoder layer --layer;
         h <- h + c u at every position, c = r * (median last-token residual norm over all formats'
         truthful build prompts). Strengths r in --caa-rel.
-Arm keys: unsteered, mask:<F>:<alpha>, caa:<F>:<r>.
+Arm keys: unsteered, mask:<F>:<alpha>, maskc:<F>:<share>, caa:<F>:<r>.
 
 Each arm generates greedily on every eval format's chosen half (deception + control) and gets the
 wikitext perplexity ratio. Grading (keyword, here): short answers (gold or an alias at a word start,
@@ -137,7 +139,7 @@ def build_rows(fmt, n):
     return jl(FMT_DIR / f"build_{fmt}.jsonl")[:n]
 
 
-def mask_for(model, tok, layers, device, fmt, args):
+def norms_for(model, tok, layers, device, fmt, args):
     rows = build_rows(fmt, args.n_build)
     norms = {}
     for side in ("lie", "truth"):
@@ -145,7 +147,19 @@ def mask_for(model, tok, layers, device, fmt, args):
                                     device, position="prompt", batch_size=args.score_batch, max_length=768)
         norms["lie" if side == "lie" else "instruct"], _, _ = cell_mean_sd(cols)
         del cols
-    return build_variant(model, layers, norms, "score_diff_instruct", args.rho, args.ratio, device)
+    return norms
+
+
+def mask_for(model, layers, device, norms, args, share=None):
+    """share None: the method's fixed r (--ratio). share s: r calibrated so that weights in channels
+    with a positive score are a share s of all weights (mask_designs.calibrate_ratio); with many build
+    pairs few channels clear the fixed 1/r bar and the mask is nearly all near-zero padding."""
+    r = args.ratio
+    if share is not None:
+        from mask_designs import calibrate_ratio
+        r = calibrate_ratio(model, layers, {"F": norms["lie"], "T": norms["instruct"]}, share)
+        print(f"    calibrated r = {r:.4f} (1/r = {1 / r:.3f}) for positive share {share}", flush=True)
+    return build_variant(model, layers, norms, "score_diff_instruct", args.rho, r, device)
 
 
 @torch.no_grad()
@@ -193,6 +207,7 @@ def main():
     ap.add_argument("--arms", default="", help="explicit arm keys (overrides methods/build formats)")
     ap.add_argument("--alphas", default="-0.25,-0.5,-0.75,-1.0")
     ap.add_argument("--caa-rel", default="-0.09,-0.18,-0.27,-0.36")
+    ap.add_argument("--shares", default="0.0025,0.005,0.01,0.02")
     ap.add_argument("--layer", type=int, default=16)
     ap.add_argument("--rho", type=float, default=0.04)
     ap.add_argument("--ratio", type=float, default=0.37)
@@ -231,6 +246,8 @@ def main():
         for f in args.build_formats.split(","):
             if "mask" in meth:
                 arms += [f"mask:{f}:{a}" for a in args.alphas.split(",")]
+            if "maskc" in meth:
+                arms += [f"maskc:{f}:{x}" for x in args.shares.split(",")]
             if "caa" in meth:
                 arms += [f"caa:{f}:{r}" for r in args.caa_rel.split(",")]
     arms = arms[si::sn]
@@ -288,18 +305,22 @@ def main():
     by_type = {}
     for i, it in enumerate(items):
         by_type.setdefault(it["grade"]["type"], []).append(i)
-    cur_mask, cur_fmt, originals = None, None, {}
+    cur_norms, cur_fmt, cur_mask, cur_key, originals = None, None, None, None, {}
     for arm in todo:
         t0 = time.time()
         hooks = []
         kind = arm.split(":")[0]
-        if kind == "mask":
-            _, f, a = arm.split(":")
+        if kind in ("mask", "maskc"):
+            _, f, x = arm.split(":")
             if f != cur_fmt:
-                cur_mask, cur_fmt = None, None
+                cur_norms = cur_mask = cur_key = None
                 torch.cuda.empty_cache()
-                cur_mask, cur_fmt = mask_for(model, tok, layers, dev, f, args), f
-            apply_mask(model, cur_mask, float(a), originals)
+                cur_norms, cur_fmt = norms_for(model, tok, layers, dev, f, args), f
+            mk = (f, None if kind == "mask" else float(x))
+            if mk != cur_key:
+                cur_mask = None
+                cur_mask, cur_key = mask_for(model, layers, dev, cur_norms, args, mk[1]), mk
+            apply_mask(model, cur_mask, float(x) if kind == "mask" else -1.0, originals)
         elif kind == "caa":
             _, f, r = arm.split(":")
             hooks = add_hooks(model, [(args.layer, float(r) * caa["median_norm"], caa["vec"][f])])
@@ -314,7 +335,7 @@ def main():
         finally:
             for h in hooks:
                 h.remove()
-            if kind == "mask":
+            if kind in ("mask", "maskc"):
                 restore(model, originals)
                 originals = {}
         with open(resp_path, "a") as fo:
