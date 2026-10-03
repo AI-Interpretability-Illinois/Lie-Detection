@@ -1,0 +1,41 @@
+
+#### Meta-Llama-3p1-8B-Instruct
+  arm                                MMLU-plain  sandbag   multi  inject  inj-ctl
+  weight:fmpool025_ a=-1.0                 80.7     79.8    84.0       -        -
+  actsteer:L8 r=-0.5 (c=-2.8)              68.1     58.5    90.8    76.3     79.4
+  prompt:honest2                           83.2     52.3    65.3    69.9     75.0
+  unsteered                                89.1     38.0    58.9    65.9     70.6
+  weight:fiction a=-1.0                    72.3     67.4    70.6    86.8     87.5
+  weight:magmatch a=-1.0                   89.9     40.3    62.3    54.8     59.6
+  weight:ours a=-1.0                       80.7     67.1    82.5    79.0     67.6
+
+#### Phi-4-mini-instruct
+  arm                                MMLU-plain  sandbag   multi  inject  inj-ctl
+  weight:fmpool025_ a=-1.0                 84.7     67.4    48.1       -        -
+  actsteer:L16 r=-0.18 (c=-10.4)           87.0     61.0    58.2    64.8     90.0
+  prompt:honest2                           90.1     59.8    74.0    61.8     87.3
+  unsteered                                90.8     40.2    62.4    59.8     83.3
+  weight:magmatch a=-1.0                   87.8     46.2    59.1    62.0     86.0
+  weight:ours a=-0.5                       83.2     54.5    55.5    60.2     84.7
+  weight:pooled a=-1.0                     82.4     61.4    50.7    67.8     82.7
+
+#### Qwen2p5-3B-Instruct
+  arm                                MMLU-plain  sandbag   multi  inject  inj-ctl
+  weight:fmuser025_ a=-1.0                 84.2     78.4    74.6       -        -
+  actsteer:L27 r=-0.18 (c=-18.7)           99.2     45.7    66.4    81.8     72.7
+  prompt:honest                            94.2     52.9    72.0    79.0     74.7
+  unsteered                                98.3     46.8    67.8    78.2     77.3
+  weight:magmatch a=-1.0                   90.0     55.4    56.0    75.0     68.0
+  weight:ours a=-1.0                       90.8     78.8    74.3    70.5     69.3
+  weight:pooltf a=-1.0                     92.5     60.4    68.4    81.0     80.0
+
+#### Qwen2p5-7B-Instruct
+  arm                                MMLU-plain  sandbag   multi  inject  inj-ctl
+  weight:fmpool025_ a=-1.0                 89.6     92.1    89.0       -        -
+  weight:fmuser025_ a=-1.0                 91.0     93.4    89.9       -        -
+  actsteer:L14 r=-0.18 (c=-11.0)           91.0     76.2    86.4    75.2     78.0
+  prompt:honest                            97.0     52.1    84.6    72.8     74.0
+  unsteered                                97.8     33.8    80.4    71.5     74.0
+  weight:magmatch a=-1.0                   95.5     47.9    84.3    71.2     66.0
+  weight:ours a=-1.0                       91.8     91.0    86.1    74.5     67.3
+  weight:pooled a=-1.0                     90.3     87.2    78.6    71.0     66.7

@@ -29,5 +29,5 @@ step sandbag $O/liars_bench_honesty_${S}_v2sandbag.csv $R --eval-set $X/extra_sa
 step multi   $O/liars_bench_honesty_${S}_v2multi.csv   $R --eval-set $X/extra_multiturn.jsonl --belief-tag multiturn --tag v2multi
 step inject  $O/liars_bench_honesty_${S}_v2inject.csv  $R --eval-set $X/extra_inject.jsonl --belief-tag inject --tag v2inject
 step judge $O/liars_bench_honesty_${S}_v2inject_judged_Qwen2p5-7B-Instruct_v2.jsonl \
-  python judge_claims.py --responses liars_bench_honesty_${S}_v2inject_responses.jsonl --eval-set $X/extra_inject.jsonl --judge Qwen/Qwen2.5-7B-Instruct --batch-size 8 --tag v2
+  python judge_claims.py --responses liars_bench_honesty_${S}_v2inject_responses.jsonl --splits inject-deception,inject-control --beliefs /work/hdd/bfqt/xiaocong/lie_detection_outputs/liars_bench/beliefs_${S}_inject.jsonl --eval-set $X/extra_inject.jsonl --judge Qwen/Qwen2.5-7B-Instruct --batch-size 8 --tag v2
 echo "$(date '+%F %T') all done"
