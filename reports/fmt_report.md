@@ -61,6 +61,39 @@ on two (73-86% on Phi and Qwen-7B, 47-49% on Llama and Falcon); multi-turn stays
 CAA loses more from validation to test (Phi 81 -> 73) than the mask (86 -> 87). Run on timan1 GPU1+2
 (grant #34), about 3 A6000 GPU-hours including the judge.
 
+## Update 2026-10-03: ablations (J2, J5, J6, J7; gpua047 jobs 22636651-60)
+
+Validation halves, same measure (mean % of the gap closed; tables `fmt_<model>_val_x_tables.txt`).
+
+**Pooled and leave-one-format-out sources (J5).** Building from all seven formats (POOL, 200 pairs split
+evenly) matches the best single format but does not beat it: mask row means POOL 70 / 98 / 95 / 44 on
+Phi / Llama / Qwen-7B / Falcon against best single rows 76 / 99 / 97 / 52; CAA 77 / 63 / 84 / 34 against 81 /
+70 / 87 / 42. Leaving one format out changes the mask by at most 4 points; leaving the multi-turn pairs out is
+the best or near-best LOO source for both methods on every model (Phi CAA 79 vs 75-78 for the other LOO
+rows; Llama CAA 67 vs 62-66). Pooled sources do not help multi-turn evaluation: on Phi every pooled or LOO mask
+is at -10 to -39% on multi-turn, worse than most single-format masks.
+
+**Directional ablation (J6).** Projecting the format's CAA direction out of every layer's output (k = 1 or 2)
+is far weaker than both other methods: column means on single-turn formats 19-44% (Phi), 4-25% (Llama),
+mostly negative on Qwen-7B (and unstable on its true/false format, whose gap is 12 points), and -13 to 14%
+on Falcon. The lie direction at one layer is not something the model routes through at every layer.
+
+**Build-pair draws (J7).** Three independent draws of 200 user-turn pairs give the same transfer row for both
+methods: Llama mask 97.0 / 96.5 / 97.1 (range per eval format at most 5 points), Llama CAA 65.4 / 67.1 /
+67.0; Phi mask 71.5 / 72.0 / 70.2, Phi CAA 71.9 / 72.3 / 73.0 (range at most 6). The draw noise of
+25-prompt masks (sample_size_report.md) is gone at 200 pairs.
+
+**Mask anatomy (J2, `fmt_anatomy.py`, `anatomy_<model>.json`).** At the 0.25% share, the positive-score sets
+of masks built from two formats share 18-65% of their weights (Jaccard; mean 0.32-0.39 per model), the whole
+4% masks 70-92%. Least similar: injected-document vs true/false or multiple choice; most similar: user-turn vs
+paragraph (0.52-0.65). The multi-turn mask is not an outlier for the mask (0.33-0.38 vs 0.31-0.40 for other
+pairs), unlike the CAA direction. Overlap predicts the mask's transfer only weakly (Pearson +0.02 to +0.43
+across models) because the mask's matrix is nearly flat; CAA cosine predicts CAA transfer on Phi (+0.49) and
+Falcon (+0.38) but not on Llama or Qwen-7B. Every positive-score weight sits in an output projection: o_proj
+(21-57%) and down_proj (43-79%), none in q/k/v, gate or up projections, so the informative channels are
+attention-head outputs and MLP hidden units, never residual-stream coordinates (which RMSNorm scales). By
+depth, 42-65% of them lie in the middle third of the layers.
+
 ---
 
 ## Pilot: Phi-4-mini, weight mask vs CAA, 7 x 7 (validation half; tables at the earlier 3-point gap threshold)
