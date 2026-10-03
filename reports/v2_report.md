@@ -28,7 +28,7 @@ Qwen-7B +1.9 [+0.0, +4.2] and +1.2 [-1.2, +3.8].
 
 #### Meta-Llama-3p1-8B-Instruct
   arm                                MMLU-plain  sandbag   multi  inject  inj-ctl
-  weight:fmpool025_ a=-1.0                 80.7     79.8    84.0       -        -
+  weight:fmpool025_ a=-1.0                 80.7     79.8    84.0    80.9     66.9
   actsteer:L8 r=-0.5 (c=-2.8)              68.1     58.5    90.8    76.3     79.4
   prompt:honest2                           83.2     52.3    65.3    69.9     75.0
   unsteered                                89.1     38.0    58.9    65.9     70.6
@@ -38,7 +38,7 @@ Qwen-7B +1.9 [+0.0, +4.2] and +1.2 [-1.2, +3.8].
 
 #### Phi-4-mini-instruct
   arm                                MMLU-plain  sandbag   multi  inject  inj-ctl
-  weight:fmpool025_ a=-1.0                 84.7     67.4    48.1       -        -
+  weight:fmpool025_ a=-1.0                 84.7     67.4    48.1    67.8     88.7
   actsteer:L16 r=-0.18 (c=-10.4)           87.0     61.0    58.2    64.8     90.0
   prompt:honest2                           90.1     59.8    74.0    61.8     87.3
   unsteered                                90.8     40.2    62.4    59.8     83.3
@@ -48,7 +48,7 @@ Qwen-7B +1.9 [+0.0, +4.2] and +1.2 [-1.2, +3.8].
 
 #### Qwen2p5-3B-Instruct
   arm                                MMLU-plain  sandbag   multi  inject  inj-ctl
-  weight:fmuser025_ a=-1.0                 84.2     78.4    74.6       -        -
+  weight:fmuser025_ a=-1.0                 84.2     78.4    74.6    78.5     80.0
   actsteer:L27 r=-0.18 (c=-18.7)           99.2     45.7    66.4    81.8     72.7
   prompt:honest                            94.2     52.9    72.0    79.0     74.7
   unsteered                                98.3     46.8    67.8    78.2     77.3
@@ -58,17 +58,14 @@ Qwen-7B +1.9 [+0.0, +4.2] and +1.2 [-1.2, +3.8].
 
 #### Qwen2p5-7B-Instruct
   arm                                MMLU-plain  sandbag   multi  inject  inj-ctl
-  weight:fmpool025_ a=-1.0                 89.6     92.1    89.0       -        -
-  weight:fmuser025_ a=-1.0                 91.0     93.4    89.9       -        -
+  weight:fmpool025_ a=-1.0                 89.6     92.1    89.0    73.5     73.3
+  weight:fmuser025_ a=-1.0                 91.0     93.4    89.9    71.2     72.7
   actsteer:L14 r=-0.18 (c=-11.0)           91.0     76.2    86.4    75.2     78.0
   prompt:honest                            97.0     52.1    84.6    72.8     74.0
   unsteered                                97.8     33.8    80.4    71.5     74.0
   weight:magmatch a=-1.0                   95.5     47.9    84.3    71.2     66.0
   weight:ours a=-1.0                       91.8     91.0    86.1    74.5     67.3
   weight:pooled a=-1.0                     90.3     87.2    78.6    71.0     66.7
-
-(inject columns for the calibrated arms are being re-judged: the first judge pass filtered on LIARS' BENCH
-split names and graded nothing.)
 
 **Reading.** Against the 25-prompt mask at its chosen setting (weight:fiction / pooled / pooltf / pooled rows):
 - **Capability.** The calibrated mask halves the MMLU cost on Llama (80.7 vs 72.3; unedited 89.1), is similar on
@@ -77,5 +74,8 @@ split names and graded nothing.)
   92.1-93.4 vs 87.2.
 - **Multi-turn.** Better on three of four: Llama 84.0 vs 70.6 (steering 90.8), Qwen-3B 74.6 vs 68.4, Qwen-7B
   89.0-89.9 vs 78.6 (steering 86.4); Phi stays below unedited (48.1 vs 50.7; unedited 62.4).
+- **Injected orders** (hybrid judge; re-judged in job 22639355 after the first pass filtered on LIARS' BENCH split
+  names): Llama 80.9 vs 86.8 for the 25-prompt mask (unedited 65.9), Phi 67.8 vs 67.8, Qwen-3B 78.5 vs 81.0,
+  Qwen-7B 71.2 vs 71.0: equal or slightly behind.
 So the calibrated mask trades a few points on the main benchmarks (and fails the polarity check on the three
 small models) for better sandbagging and multi-turn behaviour and, on Llama, a smaller capability cost.
