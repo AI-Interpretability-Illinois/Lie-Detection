@@ -15,7 +15,12 @@ Edits, one per build format F and strength:
   caa   u = normalize(mean(h_lie - h_truth)) of the last prompt token at decoder layer --layer;
         h <- h + c u at every position, c = r * (median last-token residual norm over all formats'
         truthful build prompts). Strengths r in --caa-rel.
-Arm keys: unsteered, mask:<F>:<alpha>, maskc:<F>:<share>, caa:<F>:<r>.
+  dirab directional ablation, the activation-space twin of deleting weights: the same u projected
+        out of every decoder layer's output at every position, h <- h - k (h.u) u (k = 1 removes the
+        component, k = 2 reflects it). Strengths k in --dirab-scales.
+Build sources: a format F, POOL (all seven formats, --n-build pairs split evenly) or LOO-<F> (all
+but F). --draw-seed s > 0 draws the build pairs at random (seed s) instead of taking the first ones.
+Arm keys: unsteered, mask:<src>:<alpha>, maskc:<src>:<share>, caa:<src>:<r>, dirab:<src>:<k>.
 
 Each arm generates greedily on every eval format's chosen half (deception + control) and gets the
 wikitext perplexity ratio. Grading (keyword, here): short answers (gold or an alias at a word start,
@@ -29,6 +34,7 @@ arms are skipped), fmt_<model>_<half>_<shard>_ppl.json, beliefs_<model>_<half>.j
 import argparse
 import json
 import os
+import random
 import re
 import statistics
 import sys
@@ -135,12 +141,32 @@ def grade(it, resp):
 
 # ── edits ────────────────────────────────────────────────────────────────────
 
-def build_rows(fmt, n):
-    return jl(FMT_DIR / f"build_{fmt}.jsonl")[:n]
+def src_formats(src):
+    if src == "POOL":
+        return list(FORMATS)
+    if src.startswith("LOO-"):
+        return [f for f in FORMATS if f != src[4:]]
+    return [src]
+
+
+def build_rows(src, n, seed=0):
+    """n lie / truth pairs from source src: one format, POOL or LOO-<F> (split evenly over its formats).
+    seed 0 takes the first pairs of each format (they are in random fact order); seed s > 0 draws."""
+    fs = src_formats(src)
+    per = -(-n // len(fs))
+    rows = []
+    for f in fs:
+        r = jl(FMT_DIR / f"build_{f}.jsonl")
+        if seed:
+            random.Random(f"{seed}:{f}").shuffle(r)
+        rows += r[:per]
+    if len(fs) > 1:
+        random.Random(f"pool:{seed}").shuffle(rows)
+    return rows[:n]
 
 
 def norms_for(model, tok, layers, device, fmt, args):
-    rows = build_rows(fmt, args.n_build)
+    rows = build_rows(fmt, args.n_build, args.draw_seed)
     norms = {}
     for side in ("lie", "truth"):
         cols = collect_column_norms(model, tok, [{"prompt": chat(tok, r[side])} for r in rows], layers,
@@ -179,18 +205,38 @@ def last_token_acts(model, tok, chats, layer, device, batch):
     return torch.cat(got)
 
 
+def caa_vector(model, tok, device, src, args):
+    rows = build_rows(src, args.n_build, args.draw_seed)
+    a_l = last_token_acts(model, tok, [r["lie"] for r in rows], args.layer, device, args.batch)
+    a_t = last_token_acts(model, tok, [r["truth"] for r in rows], args.layer, device, args.batch)
+    d = (a_l - a_t).mean(0)
+    return d / d.norm(), a_t.norm(dim=-1).tolist()
+
+
 def caa_vectors(model, tok, device, args):
+    """Unit directions for the seven formats, and the median truthful last-token norm that scales c."""
     vec, truth_norms = {}, []
     for fmt in FORMATS:
-        rows = build_rows(fmt, args.n_build)
-        a_l = last_token_acts(model, tok, [r["lie"] for r in rows], args.layer, device, args.batch)
-        a_t = last_token_acts(model, tok, [r["truth"] for r in rows], args.layer, device, args.batch)
-        d = (a_l - a_t).mean(0)
-        vec[fmt] = d / d.norm()
-        truth_norms += a_t.norm(dim=-1).tolist()
+        vec[fmt], tn = caa_vector(model, tok, device, fmt, args)
+        truth_norms += tn
     med = statistics.median(truth_norms)
     cos = {f"{a}~{b}": round(float(vec[a] @ vec[b]), 3) for i, a in enumerate(FORMATS) for b in FORMATS[i + 1:]}
     return vec, med, cos
+
+
+def add_ablation_hooks(model, u, k):
+    """h <- h - k (h.u) u on every decoder layer's output (directional ablation, Arditi et al. 2024)."""
+    hs = []
+    for blk in decoder_layers(model):
+        p = next(blk.parameters())
+        v = u.to(device=p.device, dtype=p.dtype)
+
+        def hook(mod, inp, out, v=v):
+            h = out[0] if isinstance(out, tuple) else out
+            h = h - k * (h @ v).unsqueeze(-1) * v
+            return (h,) + tuple(out[1:]) if isinstance(out, tuple) else h
+        hs.append(blk.register_forward_hook(hook))
+    return hs
 
 
 # ── main ─────────────────────────────────────────────────────────────────────
@@ -208,6 +254,9 @@ def main():
     ap.add_argument("--alphas", default="-0.25,-0.5,-0.75,-1.0")
     ap.add_argument("--caa-rel", default="-0.09,-0.18,-0.27,-0.36")
     ap.add_argument("--shares", default="0.0025,0.005,0.01,0.02")
+    ap.add_argument("--dirab-scales", default="1.0,2.0")
+    ap.add_argument("--draw-seed", type=int, default=0, help="0: the first --n-build pairs; s > 0: a random draw")
+    ap.add_argument("--suffix", default="", help="output file suffix, e.g. _x for an ablation batch")
     ap.add_argument("--layer", type=int, default=16)
     ap.add_argument("--rho", type=float, default=0.04)
     ap.add_argument("--ratio", type=float, default=0.37)
@@ -222,7 +271,7 @@ def main():
     out = Path(args.out); out.mkdir(parents=True, exist_ok=True)
     short = Path(args.model_id).name.replace(".", "p")
     si, sn = map(int, args.shard.split("/"))
-    tag = f"fmt_{short}_{args.half}_{si}of{sn}"
+    tag = f"fmt_{short}_{args.half}_{si}of{sn}" + (f"_d{args.draw_seed}" if args.draw_seed else "") + args.suffix
     resp_path, ppl_path = out / f"{tag}.jsonl", out / f"{tag}_ppl.json"
     done = {json.loads(l)["arm"] for l in open(resp_path)} if resp_path.exists() else set()
     ppl = json.loads(ppl_path.read_text()) if ppl_path.exists() else {}
@@ -250,6 +299,8 @@ def main():
                 arms += [f"maskc:{f}:{x}" for x in args.shares.split(",")]
             if "caa" in meth:
                 arms += [f"caa:{f}:{r}" for r in args.caa_rel.split(",")]
+            if "dirab" in meth:
+                arms += [f"dirab:{f}:{k}" for k in args.dirab_scales.split(",")]
     arms = arms[si::sn]
     todo = [a for a in arms if a not in done]
     print(f"{tag}: {len(items)} eval items over {efmts}; arms {len(arms)}, to do {len(todo)}", flush=True)
@@ -292,13 +343,19 @@ def main():
     ppl["_base"] = base
 
     caa = None
-    if any(a.startswith("caa:") for a in todo):
-        vpath = out / f"caa_{short}_L{args.layer}_n{args.n_build}.pt"
+    if any(a.startswith(("caa:", "dirab:")) for a in todo):
+        vpath = out / (f"caa_{short}_L{args.layer}_n{args.n_build}" + (f"_d{args.draw_seed}" if args.draw_seed else "") + ".pt")
         if vpath.exists():
             caa = torch.load(vpath)
         else:
             v, med, cos = caa_vectors(model, tok, dev, args)
             caa = dict(vec=v, median_norm=med, cos=cos)
+            torch.save(caa, vpath)
+        extra = sorted({a.split(":")[1] for a in todo if a.startswith(("caa:", "dirab:"))} - set(caa["vec"]))
+        for src in extra:                                  # POOL / LOO-<F> directions, cached with the rest
+            caa["vec"][src], _ = caa_vector(model, tok, dev, src, args)
+            caa["cos"].update({f"{src}~{f}": round(float(caa["vec"][src] @ caa["vec"][f]), 3) for f in FORMATS})
+        if extra:
             torch.save(caa, vpath)
         print(f"  caa L{args.layer}: median residual norm {caa['median_norm']:.1f}; cosines {caa['cos']}", flush=True)
 
@@ -324,6 +381,9 @@ def main():
         elif kind == "caa":
             _, f, r = arm.split(":")
             hooks = add_hooks(model, [(args.layer, float(r) * caa["median_norm"], caa["vec"][f])])
+        elif kind == "dirab":
+            _, f, k = arm.split(":")
+            hooks = add_ablation_hooks(model, caa["vec"][f], float(k))
         try:
             resp = [None] * len(items)
             for t, idx in by_type.items():

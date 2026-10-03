@@ -43,6 +43,24 @@ Falcon3-3B-Instruct         caa                     43.8      82.8      -12.9   
 Cost of the extension: 2 x 1 A100 on gpua047, 4.1 h and 5.1 h (including grading 80k paragraphs),
 plus 1.0 h for the Phi test half. No API cost. Per-model tables: `reports/fmt_<model>_val_tables.txt`.
 
+## Update 2026-10-03: held-out test halves for all four models (J1)
+
+At the validation-chosen strengths (unseen facts; `fmt_<model>_test_tables.txt`, tables from
+`reports/fmt_summarize.py --half test`). Mean % of the gap closed, single-turn off-diagonal / multi-turn:
+
+| model | mask val | mask test | CAA val | CAA test |
+|---|---|---|---|---|
+| Phi-4-mini | 86 / -7 | 87 / -6 | 81 / 17 | 73 / 12 |
+| Llama-3.1-8B | 98 / 95 | 97 / 91 | 48 / 67 | 47 / 66 |
+| Qwen2.5-7B | 97 / 78 | 97 / 66 | 89 / 63 | 86 / 56 |
+| Falcon3-3B | 95* / -12 | 98* / -17 | 44* / -13 | 49* / -15 |
+
+*Falcon has room only in the multiple-choice format. The test half reproduces every ordering of the
+validation half: the mask transfers across single-turn formats on all four models (87-98%) and CAA
+on two (73-86% on Phi and Qwen-7B, 47-49% on Llama and Falcon); multi-turn stays model-dependent.
+CAA loses more from validation to test (Phi 81 -> 73) than the mask (86 -> 87). Run on timan1 GPU1+2
+(grant #34), about 3 A6000 GPU-hours including the judge.
+
 ---
 
 ## Pilot: Phi-4-mini, weight mask vs CAA, 7 x 7 (validation half; tables at the earlier 3-point gap threshold)

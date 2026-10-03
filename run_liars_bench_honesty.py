@@ -210,6 +210,12 @@ def main():
                          "fiction or pooled, e.g. fiction:25:0,fiction:100:0,fiction:400:0. "
                          "Families: fiction, pooled, fictf, pooltf, poolmix. Arm keys are "
                          "<pf|pp|pft|ppt|ppm><n>d<seed>_<strength>.")
+    ap.add_argument("--fmt-masks", default="",
+                    help="Masks built the format-transfer way (fmt_transfer.py): comma-separated src:share, "
+                         "src a format of build_format_suite.py (e.g. F2_user), POOL or LOO-<F>; 200 lie / "
+                         "truth pairs with the chat template, r calibrated to that positive-score share. "
+                         "Arm keys fm<src><share x 10^4>_<strength>, e.g. fmuser025_100, fmpool050_100.")
+    ap.add_argument("--fmt-n-build", type=int, default=200)
     ap.add_argument("--combine", default="",
                     help="Comma-separated unions of two masks, A+B, by mask name (ours, pooled, fiction, "
                          "a polarity family, or a --designs mask such as recov040a025); arm keys "
@@ -415,7 +421,9 @@ def main():
         nn = dict(norms, lie=norms[key]) if key != "lie" else norms
         return build_variant(model, layers, nn, nm, args.rho, args.ratio, device)
 
-    ours = variant("score_diff_instruct")
+    # the lie mask itself only when an arm uses it (or a control derived from it): ~1 byte per weight
+    ours = (variant("score_diff_instruct")
+            if any(k.startswith(("ours", "magmatch", "setdiff")) for k in want) or args.combine else None)
     setd = (variant("set_diff_instruct")
             if any(k == "setdiff" for k in want) else None)
     # Built on the CPU: it needs a full random permutation of each weight matrix,
@@ -520,6 +528,21 @@ def main():
             extra_masks[name] = design_mask_spec(model, layers, dn[d], rho, r, device)
             print(f"  mask[{name}] rho={rho} r={r}", flush=True)
         del dn
+    if args.fmt_masks:
+        import fmt_transfer as FT
+        fa = argparse.Namespace(n_build=args.fmt_n_build, draw_seed=0, score_batch=args.score_batch,
+                                rho=args.rho, ratio=args.ratio)
+        fn = {}
+        for spec in args.fmt_masks.split(","):
+            src, share = spec.split(":")
+            if src not in fn:
+                fn[src] = FT.norms_for(model, tok, layers, device, src, fa)
+            lab = ("pool" if src == "POOL" else "no" + src[4:].split("_")[1] if src.startswith("LOO-")
+                   else src.split("_")[1])
+            name = f"fm{lab}{round(float(share) * 10000):03d}_"
+            extra_masks[name] = FT.mask_for(model, layers, device, fn[src], fa, float(share))
+            print(f"  mask[{name}] from {args.fmt_n_build} {src} pairs, positive share {share}", flush=True)
+        del fn
     if args.combine:
         # Union of two masks (e.g. the chosen prompt mask plus a small recovery mask): a weight is
         # deleted if either mask selects it. Arm keys are <A>+<B>_<strength>.

@@ -18,15 +18,24 @@ Protocol (fixed before the final runs finished):
     bootstrap 95% interval over test items.
 Gemma-3-4B is excluded (see reports/polarity_fix_report.md).
 Writes reports/main_table_final.json.
+
+--v2: also loads the calibrated 200-pair masks (run_liars_bench_honesty.py --fmt-masks, queue/lie_v2.slurm;
+outputs under /work/hdd/biro/xiaocong/lie_out, tags v2 / v2u / v2p) as the family "maskv2", selected and
+reported exactly like the others, with its own lead over the best other method; writes
+reports/main_table_v2.json and leaves main_table_final.json untouched.
 """
 import csv
 import hashlib
 import json
 import os
 import random
+import sys
 from collections import defaultdict
 
 OUT = "/work/hdd/bfqt/xiaocong/lie_detection_outputs"
+OUT2 = "/work/hdd/biro/xiaocong/lie_out"
+V2 = "--v2" in sys.argv
+V2_TAGS = {"Meta-Llama-3p1-8B-Instruct": ["v2u", "v2p"], "Qwen2p5-7B-Instruct": ["v2u", "v2p"]}   # others: ["v2"]
 J = "judged_Qwen2p5-7B-Instruct_v2"
 MODELS = [  # short name, label, LB tags, AI Liar tags (merged in order)
     ("Meta-Llama-3p1-8B-Instruct", "Llama-3.1-8B", ["final"], ["finalail"]),
@@ -39,10 +48,12 @@ MODELS = [  # short name, label, LB tags, AI Liar tags (merged in order)
 ]
 G = ("honest", "lie", "no_claim", "refusal")
 TOL = 0.05
-FAMS = ["mask", "liemask", "steer", "prompt", "unsteered"]
+FAMS = ["mask", "liemask", "steer", "prompt", "unsteered"] + (["maskv2"] if V2 else [])
 
 
 def family(a):
+    if a.startswith("weight:fm"):
+        return "maskv2" if V2 else None
     if a.startswith(("weight:fiction", "weight:pooled", "weight:fictf", "weight:pooltf", "weight:poolmix")):
         return "mask"
     if a.startswith("weight:ours"):
@@ -64,10 +75,14 @@ items_ail = {json.loads(l)["uid"]: json.loads(l) for l in open(f"{OUT}/extra_dat
 
 def load(model, lb_tags, ail_tags):
     lb, ppl, ail, seen = defaultdict(list), {}, defaultdict(list), set()
-    for t in lb_tags:
-        p = f"{OUT}/liars_bench_honesty_{model}_{t}_{J}.jsonl"
-        c = f"{OUT}/liars_bench_honesty_{model}_{t}.csv"
+    v2 = V2_TAGS.get(model, ["v2"]) if V2 else []
+    for t in lb_tags + v2:
+        d = OUT2 if t in v2 else OUT
+        p = f"{d}/liars_bench_honesty_{model}_{t}_{J}.jsonl"
+        c = f"{d}/liars_bench_honesty_{model}_{t}.csv"
         if not (os.path.exists(p) and os.path.exists(c)):
+            if t in v2:
+                print(f"  {model}: v2 tag {t} missing"); continue
             return None
         new = set()
         for r in map(json.loads, open(p)):
@@ -78,9 +93,12 @@ def load(model, lb_tags, ail_tags):
             ppl.setdefault(r["arm"], float(r["ppl_ratio"]))
         seen |= new
     seen = set()
-    for t in ail_tags:
-        p = f"{OUT}/liars_bench_honesty_{model}_{t}_responses.jsonl"
+    for t in ail_tags + [x + "ail" for x in v2]:
+        d = OUT2 if t.endswith("ail") and t[:-3] in v2 else OUT
+        p = f"{d}/liars_bench_honesty_{model}_{t}_responses.jsonl"
         if not os.path.exists(p):
+            if d == OUT2:
+                continue
             return None
         new = set()
         for r in map(json.loads, open(p)):
@@ -143,25 +161,32 @@ def main():
                     cells[f] = {"v": round(score[bench]["test"](a) * 100, 1), "arm": a}
                 elif f in why:
                     cells[f] = {"v": None, "arm": why[f][0], "fails": why[f][1]}
-            lead = None
-            others = [f for f in FAMS[1:] if f in chosen]
-            if "mask" in chosen and others:
+            def lead_of(ours):
+                others = [f for f in FAMS if f in chosen and f not in ("mask", "maskv2")]
+                if ours not in chosen or not others:
+                    return None
                 best = max(others, key=lambda f: score[bench]["val"](chosen[f]))
-                pm, pb = per_item[bench](chosen["mask"]), per_item[bench](chosen[best])
+                pm, pb = per_item[bench](chosen[ours]), per_item[bench](chosen[best])
                 U = sorted(set(pm) & set(pb)); diffs = [pm[x] - pb[x] for x in U]
                 rnd = random.Random(0)
                 boots = sorted(sum(rnd.choice(diffs) for _ in diffs) / len(diffs) for _ in range(2000))
-                lead = {"vs": best, "diff": round(sum(diffs) / len(diffs) * 100, 1),
+                return {"vs": best, "diff": round(sum(diffs) / len(diffs) * 100, 1),
                         "lo": round(boots[50] * 100, 1), "hi": round(boots[1949] * 100, 1), "n": len(U)}
-            row[bench] = {"cells": cells, "lead": lead}
+            row[bench] = {"cells": cells, "lead": lead_of("mask")}
+            if V2:
+                row[bench]["lead_v2"] = lead_of("maskv2")
         table.append(row)
         for bench in ("lb", "ail"):
-            c = row[bench]["cells"]; L = row[bench]["lead"]
+            c = row[bench]["cells"]; L = row[bench]["lead"]; L2 = row[bench].get("lead_v2")
             fmt = lambda f: (f"{c[f]['v']:5.1f}" if f in c and c[f]["v"] is not None else "   - ")
             print(f"{name:<14}{bench:>4}  " + "  ".join(fmt(f) for f in FAMS)
-                  + (f"   lead {L['diff']:+.1f} [{L['lo']:+.1f}, {L['hi']:+.1f}] vs {L['vs']}" if L else ""))
-    json.dump(table, open("/u/xiaocong/lie_detection/reports/main_table_final.json", "w"), indent=1)
-    print("columns: our mask, lie mask, steering, honest prompt, unsteered (test-half honest rate, %)")
+                  + (f"   lead {L['diff']:+.1f} [{L['lo']:+.1f}, {L['hi']:+.1f}] vs {L['vs']}" if L else "")
+                  + (f"   v2 {L2['diff']:+.1f} [{L2['lo']:+.1f}, {L2['hi']:+.1f}] vs {L2['vs']}" if L2 else "")
+                  + (f"   v2 arm {c['maskv2']['arm']}" if "maskv2" in c and c["maskv2"]["v"] is not None else
+                     (f"   v2 fails {c['maskv2']['fails']}" if "maskv2" in c else "")))
+    out = "/u/xiaocong/lie_detection/reports/" + ("main_table_v2.json" if V2 else "main_table_final.json")
+    json.dump(table, open(out, "w"), indent=1)
+    print("columns: " + ", ".join(FAMS) + " (test-half honest rate, %)")
 
 
 if __name__ == "__main__":

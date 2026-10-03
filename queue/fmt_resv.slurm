@@ -10,7 +10,9 @@
 #SBATCH --output=/work/hdd/biro/xiaocong/lie_out/logs/%x_%j.out
 # Format-transfer study (fmt_transfer.py) on more models: one shard (SHARD=i/n) of every model in MODELS,
 # validation halves, then the long-form judge once every shard has finished (fmt_judge.py).
-# Env: SHARD (e.g. 0/2); MODELS (optional) = ";"-separated "<model_id> <caa layer> <caa rel strengths>".
+# Env: SHARD (e.g. 0/2); MODELS (optional) = ";"-separated "<model_id> <caa layer> <caa rel strengths>";
+# METHODS, FMT_ARGS (extra fmt_transfer.py options); BATCH (marker name, default delta); NOJUDGE=1 skips
+# the judge (one judge job runs after the batch instead).
 # Restart-safe: finished arms are skipped.
 source ~/.bashrc >/dev/null 2>&1; conda activate modularity
 set -o pipefail
@@ -33,8 +35,9 @@ for spec in "${SPECS[@]}"; do
     >> /work/hdd/biro/xiaocong/lie_out/logs/fmt_${s}_${S/\//of}.log 2>&1
   echo "$(date '+%F %T') end $s rc=$?"
 done
-touch $O/.done_delta_${S/\//of}
-if [ "$(ls $O/.done_delta_* 2>/dev/null | wc -l)" -ge "$n" ]; then
+B=${BATCH:-delta}
+touch $O/.done_${B}_${S/\//of}
+if [ -z "$NOJUDGE" ] && [ "$(ls $O/.done_${B}_* 2>/dev/null | wc -l)" -ge "$n" ]; then
   echo "$(date '+%F %T') start judge"
   python fmt_judge.py --runs $O --cache-dir $HF_HOME >> /work/hdd/biro/xiaocong/lie_out/logs/fmt_judge_delta.log 2>&1
   echo "$(date '+%F %T') end judge rc=$?"
