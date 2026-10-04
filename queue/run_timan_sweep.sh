@@ -2,7 +2,7 @@
 # Size-sweep points on timan1 (extras plan): the main-table protocol on one model, in arm groups (as
 # queue/lie_sweep.slurm), models from /srv/local/xy51/hf_models. usage: GPU=1 CAP=30 bash run_timan_sweep.sh <model_id> <layers> [bs]
 # For OLMo-2-32B: GPU=1,2 LIE_DEVICE_MAP=auto CAP=0 (no cap; the model is sharded over both cards).
-T=/srv/local/xy51/lie; PY=/home/xy51/anaconda3/envs/modularity/bin/python
+T=/srv/local/xy51/lie; PY=${PY:-/home/xy51/anaconda3/envs/modularity/bin/python}   # timan108: /srv/local/xy51/envs/modularity310/bin/python
 export CUDA_DEVICE_ORDER=PCI_BUS_ID CUDA_VISIBLE_DEVICES=${GPU:-1}
 [ "${CAP:-0}" != 0 ] && export LIE_MAX_GPU_GB=$CAP
 export HF_HOME=/srv/local/xy51/hf_models HF_HUB_CACHE=/srv/local/xy51/hf_models/hub HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 HF_DATASETS_OFFLINE=1; unset TRANSFORMERS_CACHE HUGGINGFACE_HUB_CACHE   # ~/.bashrc points these at a full /shared disk
@@ -10,7 +10,10 @@ export TOKENIZERS_PARALLELISM=false PYTORCH_CUDA_ALLOC_CONF=expandable_segments:
 cd $T/lie_detection
 M=$1; LAYERS=$2; BS=${3:-8}; S=$(basename $M | tr . p); X=$T/out/extra_data
 ST="025 050 075 100"
-groups=("sw1:ours,pooled:magmatch100" "sw2:fiction,fictf:" "sw3:pooltf,poolmix:" "sw4:::steer" "sw5:cnours,cnpooled:" "sw6:cnfiction,cnfictf:" "sw7:cnpooltf,cnpoolmix:")
+groups=("sw1:ours,pooled:magmatch100" "sw2:fiction,fictf:" "sw3:pooltf,poolmix:" "sw4:::steer")
+[ -n "$CN" ] && groups+=("sw5:cnours,cnpooled:" "sw6:cnfiction,cnfictf:" "sw7:cnpooltf,cnpoolmix:")
+# CN_ONLY=1: only the CreativityNeuro groups (main-table models that already have the rest), as queue/lie_sweep.slurm
+[ -n "$CN_ONLY" ] && groups=("sw5:cnours,cnpooled:" "sw6:cnfiction,cnfictf:" "sw7:cnpooltf,cnpoolmix:")
 step() { local n=$1 done=$2; shift 2; [ -e "$done" ] && { echo "$(date '+%F %T') skip $n"; return; }
   echo "$(date '+%F %T') start $n"; nice -n 10 "$@" > $T/logs/${n}_${S}.log 2>&1; local rc=$?; echo "$(date '+%F %T') end $n rc=$rc"; }
 for g in "${groups[@]}"; do

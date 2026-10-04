@@ -114,8 +114,10 @@ def load(model, lb_tags, ail_tags):
     v2 = V2_TAGS.get(model, ["v2"]) if V2 else []
     mcn = model if os.path.exists(f"{CN_DIR}/liars_bench_honesty_{model}_cnA_{J}.jsonl") else CN_ALIAS.get(model, model)
     cn = [t for t in CN_TAGS if os.path.exists(f"{CN_DIR}/liars_bench_honesty_{mcn}_{t}_{J}.jsonl")] if CN else []
+    # CN groups run as sw5-sw7 (queue/lie_sweep.slurm CN_ONLY on Delta, run_timan_sweep.sh CN_ONLY on timan108)
+    cn += [t for t in ("sw5", "sw6", "sw7") if CN and any(os.path.exists(f"{d}/liars_bench_honesty_{model}_{t}_{J}.jsonl") for d in SWEEP_DIRS)]
     for t in lb_tags + v2 + cn:
-        d = CN_DIR if t in cn else (OUT2 if t in v2 else where(model, t, f"_{J}.jsonl"))
+        d = (where(model, t, f"_{J}.jsonl") if t.startswith("sw") else CN_DIR) if t in cn else (OUT2 if t in v2 else where(model, t, f"_{J}.jsonl"))
         mm = mcn if d == CN_DIR else model
         p = f"{d}/liars_bench_honesty_{mm}_{t}_{J}.jsonl"
         c = f"{d}/liars_bench_honesty_{mm}_{t}.csv"
@@ -135,10 +137,11 @@ def load(model, lb_tags, ail_tags):
         return None
     seen = set()
     for t in ail_tags + [x + "ail" for x in v2] + [x + "ail" for x in cn]:
-        d = CN_DIR if t[:-3] in cn else (OUT2 if t.endswith("ail") and t[:-3] in v2 else where(model, t, "_responses.jsonl"))
+        d = ((where(model, t, "_responses.jsonl") if t.startswith("sw") else CN_DIR) if t[:-3] in cn
+             else (OUT2 if t.endswith("ail") and t[:-3] in v2 else where(model, t, "_responses.jsonl")))
         p = f"{d}/liars_bench_honesty_{mcn if d == CN_DIR else model}_{t}_responses.jsonl"
         if not os.path.exists(p):
-            if d in (OUT2, CN_DIR) or t.startswith(("sw", "rc")):
+            if d in (OUT2, CN_DIR) or d in SWEEP_DIRS or t.startswith(("sw", "rc")):
                 continue
             return None
         new = set()
