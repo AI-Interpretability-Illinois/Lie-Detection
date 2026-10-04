@@ -14,6 +14,9 @@ groups=("sw1:ours,pooled:magmatch100" "sw2:fiction,fictf:" "sw3:pooltf,poolmix:"
 [ -n "$CN" ] && groups+=("sw5:cnours,cnpooled:" "sw6:cnfiction,cnfictf:" "sw7:cnpooltf,cnpoolmix:")
 # CN_ONLY=1: only the CreativityNeuro groups (main-table models that already have the rest), as queue/lie_sweep.slurm
 [ -n "$CN_ONLY" ] && groups=("sw5:cnours,cnpooled:" "sw6:cnfiction,cnfictf:" "sw7:cnpooltf,cnpoolmix:")
+# SDRS="<fam1>[,<fam2>]": only the 2x2 cells for the chosen families — sd<fam> (set difference, per-prompt norms) and
+# rs<fam> (our rule, pooled-token norms) — as groups sw8 (fam1) and sw9 (fam2), like groups D/E of run_timan_cn.sh
+if [ -n "$SDRS" ]; then IFS=',' read -r f1 f2 <<< "$SDRS"; groups=("sw8:sd$f1,rs$f1:"); [ -n "$f2" ] && [ "$f2" != "$f1" ] && groups+=("sw9:sd$f2,rs$f2:"); fi
 step() { local n=$1 done=$2; shift 2; [ -e "$done" ] && { echo "$(date '+%F %T') skip $n"; return; }
   echo "$(date '+%F %T') start $n"; nice -n 10 "$@" > $T/logs/${n}_${S}.log 2>&1; local rc=$?; echo "$(date '+%F %T') end $n rc=$rc"; }
 for g in "${groups[@]}"; do

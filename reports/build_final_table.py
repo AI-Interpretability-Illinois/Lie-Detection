@@ -114,8 +114,9 @@ def load(model, lb_tags, ail_tags):
     v2 = V2_TAGS.get(model, ["v2"]) if V2 else []
     mcn = model if os.path.exists(f"{CN_DIR}/liars_bench_honesty_{model}_cnA_{J}.jsonl") else CN_ALIAS.get(model, model)
     cn = [t for t in CN_TAGS if os.path.exists(f"{CN_DIR}/liars_bench_honesty_{mcn}_{t}_{J}.jsonl")] if CN else []
-    # CN groups run as sw5-sw7 (queue/lie_sweep.slurm CN_ONLY on Delta, run_timan_sweep.sh CN_ONLY on timan108)
-    cn += [t for t in ("sw5", "sw6", "sw7") if CN and any(os.path.exists(f"{d}/liars_bench_honesty_{model}_{t}_{J}.jsonl") for d in SWEEP_DIRS)]
+    # CN groups run as sw5-sw7 (queue/lie_sweep.slurm CN_ONLY on Delta, run_timan_sweep.sh CN_ONLY on timan108); sw8/sw9 = the
+    # sd/rs cells of the 2x2 for the chosen families (run_timan_sweep.sh SDRS=...)
+    cn += [t for t in ("sw5", "sw6", "sw7", "sw8", "sw9") if CN and any(os.path.exists(f"{d}/liars_bench_honesty_{model}_{t}_{J}.jsonl") for d in SWEEP_DIRS)]
     for t in lb_tags + v2 + cn:
         d = (where(model, t, f"_{J}.jsonl") if t.startswith("sw") else CN_DIR) if t in cn else (OUT2 if t in v2 else where(model, t, f"_{J}.jsonl"))
         mm = mcn if d == CN_DIR else model
