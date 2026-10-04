@@ -9,19 +9,19 @@ Test-half honest rate (%), arm chosen on the validation half within each family;
 | Llama-3.1-8B | 37.2 | 93.5 | 90.0 | 65.9 | 78.9 | +14.6 [+9.2, +19.9] |
 | Phi-4-mini | 69.8 | 86.3 | 93.1 | 80.5 | 82.8 | +3.4 [-1.1, +8.0] |
 | Falcon3-3B | 80.2 | 89.7 | 92.4 | 80.9 | 75.6 | +14.1 [+8.8, +19.5] |
-| OLMo-2-1B | 50.4 | 58.0 | pending | pending | – (control, polarity) | – |
+| OLMo-2-1B | 50.4 | 58.0 | – (polarity) | 55.7 | 57.6 | +0.4 [-5.7, +6.5] |
 | Qwen2.5-3B | 81.7 | 94.3 | pending | pending | 79.0 | +15.3 [+10.7, +19.8] |
-| Qwen2.5-7B | 88.5 | 95.4 | pending | pending | 90.5 | +5.0 [+1.1, +8.8] |
+| Qwen2.5-7B | 88.5 | 95.4 | 96.2 | 88.2 | 90.5 | +5.0 [+1.1, +8.8] |
 | Qwen2.5-1.5B | 78.6 | 87.0 | 84.0 | 83.6 | 83.2 | +3.8 [-0.4, +8.0] |
 
-2×2 over the 4 model(s) with all four cells usable (mean honest rate):
+2×2 over the 5 model(s) with all four cells usable (mean honest rate):
 
 | | mean norms | rms norms |
 |---|---|---|
-| contrast score | 89.1 | 89.9 |
-| set difference | 77.7 | 80.1 |
+| contrast score | 90.4 | 91.1 |
+| set difference | 79.8 | 82.2 |
 
-rule effect (score − set difference, averaged over statistics): +10.6 points; statistic effect (mean − rms, averaged over rules): -1.6 points.
+rule effect (score − set difference, averaged over statistics): +9.8 points; statistic effect (mean − rms, averaged over rules): -1.6 points.
 
 ## AI Liar
 
@@ -30,19 +30,19 @@ rule effect (score − set difference, averaged over statistics): +10.6 points; 
 | Llama-3.1-8B | 27.1 | 89.7 | 88.7 | 67.4 | 70.3 | +19.4 [+14.6, +24.0] |
 | Phi-4-mini | 47.1 | 78.7 | 74.2 | 59.3 | 64.6 | +14.1 [+8.9, +19.4] |
 | Falcon3-3B | 73.0 | 78.3 | 78.3 | 78.3 | 77.7 | +0.6 [-4.1, +5.3] |
-| OLMo-2-1B | 60.5 | 68.8 | pending | pending | – (polarity) | – |
+| OLMo-2-1B | 60.5 | 68.8 | – (polarity) | 57.5 | 63.5 | +5.3 [-1.0, +11.6] |
 | Qwen2.5-3B | 65.7 | 78.8 | pending | pending | 66.5 | +12.3 [+7.2, +17.1] |
-| Qwen2.5-7B | 81.8 | 90.8 | pending | pending | 91.3 | -0.5 [-3.1, +2.1] |
+| Qwen2.5-7B | 81.8 | 90.8 | 88.9 | 88.9 | 91.3 | -0.5 [-3.1, +2.1] |
 | Qwen2.5-1.5B | 73.1 | 81.3 | 81.8 | 74.6 | 78.2 | +3.1 [-1.0, +7.2] |
 
-2×2 over the 4 model(s) with all four cells usable (mean honest rate):
+2×2 over the 5 model(s) with all four cells usable (mean honest rate):
 
 | | mean norms | rms norms |
 |---|---|---|
-| contrast score | 82.0 | 80.8 |
-| set difference | 69.9 | 72.7 |
+| contrast score | 83.8 | 82.4 |
+| set difference | 73.7 | 76.4 |
 
-rule effect (score − set difference, averaged over statistics): +10.1 points; statistic effect (mean − rms, averaged over rules): -0.8 points.
+rule effect (score − set difference, averaged over statistics): +8.0 points; statistic effect (mean − rms, averaged over rules): -0.7 points.
 
 ## Mask anatomy (qwen_anatomy.py), family of the mask arm chosen on LIARS' BENCH
 
