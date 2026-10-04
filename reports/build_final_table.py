@@ -40,6 +40,7 @@ V2 = "--v2" in sys.argv
 CN = "--cn" in sys.argv
 CN_DIR = os.environ.get("CN_DIR", "/u/xiaocong/lie_results/timan_cn")
 CN_TAGS = ["cnA", "cnB", "cnC", "cnD", "cnE"]
+CN_ALIAS = {"Meta-Llama-3p1-8B-Instruct": "Llama-3p1-8B-Instruct"}   # timan1 loads meta-llama/Llama-3.1-8B-Instruct
 V2_TAGS = {"Meta-Llama-3p1-8B-Instruct": ["v2u", "v2p"], "Qwen2p5-7B-Instruct": ["v2u", "v2p"]}   # others: ["v2"]
 J = "judged_Qwen2p5-7B-Instruct_v2"
 # --sweep: the model-size points (queue/lie_sweep.slurm on Delta, queue/run_timan_sweep.sh on timan1; tags sw1-sw4, sw5-sw7
@@ -111,11 +112,13 @@ def where(model, t, suffix):
 def load(model, lb_tags, ail_tags):
     lb, ppl, ail, seen = defaultdict(list), {}, defaultdict(list), set()
     v2 = V2_TAGS.get(model, ["v2"]) if V2 else []
-    cn = [t for t in CN_TAGS if os.path.exists(f"{CN_DIR}/liars_bench_honesty_{model}_{t}_{J}.jsonl")] if CN else []
+    mcn = model if os.path.exists(f"{CN_DIR}/liars_bench_honesty_{model}_cnA_{J}.jsonl") else CN_ALIAS.get(model, model)
+    cn = [t for t in CN_TAGS if os.path.exists(f"{CN_DIR}/liars_bench_honesty_{mcn}_{t}_{J}.jsonl")] if CN else []
     for t in lb_tags + v2 + cn:
         d = CN_DIR if t in cn else (OUT2 if t in v2 else where(model, t, f"_{J}.jsonl"))
-        p = f"{d}/liars_bench_honesty_{model}_{t}_{J}.jsonl"
-        c = f"{d}/liars_bench_honesty_{model}_{t}.csv"
+        mm = mcn if d == CN_DIR else model
+        p = f"{d}/liars_bench_honesty_{mm}_{t}_{J}.jsonl"
+        c = f"{d}/liars_bench_honesty_{mm}_{t}.csv"
         if not (os.path.exists(p) and os.path.exists(c)):
             if t in v2 or t.startswith(("sw", "rc")):     # partial sweeps: build the row from the groups that exist
                 print(f"  {model}: tag {t} missing"); continue
@@ -133,7 +136,7 @@ def load(model, lb_tags, ail_tags):
     seen = set()
     for t in ail_tags + [x + "ail" for x in v2] + [x + "ail" for x in cn]:
         d = CN_DIR if t[:-3] in cn else (OUT2 if t.endswith("ail") and t[:-3] in v2 else where(model, t, "_responses.jsonl"))
-        p = f"{d}/liars_bench_honesty_{model}_{t}_responses.jsonl"
+        p = f"{d}/liars_bench_honesty_{mcn if d == CN_DIR else model}_{t}_responses.jsonl"
         if not os.path.exists(p):
             if d in (OUT2, CN_DIR) or t.startswith(("sw", "rc")):
                 continue
@@ -200,7 +203,8 @@ def main():
                 elif f in why:
                     cells[f] = {"v": None, "arm": why[f][0], "fails": why[f][1]}
             def lead_of(ours):
-                others = [f for f in FAMS if f in chosen and f not in ("mask", "maskv2")]
+                # rs is our rule on pooled-token norms (an ablation of ours), not another method; cn and sd are baselines
+                others = [f for f in FAMS if f in chosen and f not in ("mask", "maskv2", "rs")]
                 if ours not in chosen or not others:
                     return None
                 best = max(others, key=lambda f: score[bench]["val"](chosen[f]))
