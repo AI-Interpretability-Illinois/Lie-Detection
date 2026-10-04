@@ -33,6 +33,8 @@ groups=("sw1:ours,pooled:magmatch100" "sw2:fiction,fictf:" "sw3:pooltf,poolmix:"
 [ -n "$CN" ] && groups+=("sw5:cnours,cnpooled:" "sw6:cnfiction,cnfictf:" "sw7:cnpooltf,cnpoolmix:")
 # CN_ONLY=1: only the CreativityNeuro groups (for main-table models that already have the rest)
 [ -n "$CN_ONLY" ] && groups=("sw5:cnours,cnpooled:" "sw6:cnfiction,cnfictf:" "sw7:cnpooltf,cnpoolmix:")
+# SDRS="<fam1>[,<fam2>]": only the sd/rs cells of the 2x2 for the chosen families (groups sw8 / sw9), as run_timan_sweep.sh
+if [ -n "$SDRS" ]; then IFS=',' read -r f1 f2 <<< "$SDRS"; groups=("sw8:sd$f1,rs$f1:"); [ -n "$f2" ] && [ "$f2" != "$f1" ] && groups+=("sw9:sd$f2,rs$f2:"); fi
 # MASKS_ONLY=1: the six mask families only (for the ratio-contrast variant on main-table models)
 [ -n "$MASKS_ONLY" ] && groups=("sw1:ours,pooled:" "sw2:fiction,fictf:" "sw3:pooltf,poolmix:")
 step() { local n=$1 done=$2; shift 2; [ -e "$done" ] && { echo "$(date '+%F %T') skip $n"; return; }
