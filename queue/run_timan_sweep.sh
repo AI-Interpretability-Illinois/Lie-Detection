@@ -5,7 +5,7 @@
 T=/srv/local/xy51/lie; PY=/home/xy51/anaconda3/envs/modularity/bin/python
 export CUDA_DEVICE_ORDER=PCI_BUS_ID CUDA_VISIBLE_DEVICES=${GPU:-1}
 [ "${CAP:-0}" != 0 ] && export LIE_MAX_GPU_GB=$CAP
-export HF_HOME=/srv/local/xy51/hf_models HF_HUB_CACHE=/srv/local/xy51/hf_models/hub HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 HF_DATASETS_OFFLINE=1
+export HF_HOME=/srv/local/xy51/hf_models HF_HUB_CACHE=/srv/local/xy51/hf_models/hub HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 HF_DATASETS_OFFLINE=1; unset TRANSFORMERS_CACHE HUGGINGFACE_HUB_CACHE   # ~/.bashrc points these at a full /shared disk
 export TOKENIZERS_PARALLELISM=false PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True LIE_OUT=$T/out LIE_CONTROLS=$T/controls
 cd $T/lie_detection
 M=$1; LAYERS=$2; BS=${3:-8}; S=$(basename $M | tr . p); X=$T/out/extra_data
@@ -21,7 +21,7 @@ for g in "${groups[@]}"; do
   else
     for fam in ${fams//,/ }; do for st in $ST; do arms="$arms,$fam$st"; done; done; arms=${arms#,}; [ -n "$extra" ] && arms="$arms,$extra"
   fi
-  R="$PY run_liars_bench_honesty.py --model-id $M --cache-dir $HF_HOME --out-dir $T/out --rho 0.04 --ratio 0.37 --falsehood-arms --polarity-arms --arms $arms --as-layers $LAYERS --as-rel-coeffs=-0.18,-0.5 --batch-size $BS --score-batch 2"
+  R="$PY run_liars_bench_honesty.py --model-id $M --cache-dir $HF_HUB_CACHE --out-dir $T/out --rho 0.04 --ratio 0.37 --falsehood-arms --polarity-arms --arms $arms --as-layers $LAYERS --as-rel-coeffs=-0.18,-0.5 --batch-size $BS --score-batch 2"
   step ${tag}_lb $T/out/liars_bench_honesty_${S}_${tag}.csv $R --eval-set $T/out/liars_bench/eval_set.jsonl --splits instructed-deception,instructed-truthful --n-id 537 --tag $tag
   step ${tag}_ail $T/out/liars_bench_honesty_${S}_${tag}ail.csv $R --eval-set $X/extra_ailiar.jsonl --belief-tag ailiar --tag ${tag}ail
   step ${tag}_judge $T/out/liars_bench_honesty_${S}_${tag}_judged_Qwen2p5-7B-Instruct_v2.jsonl \
