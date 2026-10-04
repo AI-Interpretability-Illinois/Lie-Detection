@@ -12,16 +12,16 @@ Test-half honest rate (%), arm chosen on the validation half within each family;
 | OLMo-2-1B | 50.4 | 58.0 | pending | pending | – (control, polarity) | – |
 | Qwen2.5-3B | 81.7 | 94.3 | pending | pending | 79.0 | +15.3 [+10.7, +19.8] |
 | Qwen2.5-7B | 88.5 | 95.4 | pending | pending | 90.5 | +5.0 [+1.1, +8.8] |
-| Qwen2.5-1.5B | 78.6 | 87.0 | pending | pending | 83.2 | +3.8 [-0.4, +8.0] |
+| Qwen2.5-1.5B | 78.6 | 87.0 | 84.0 | 83.6 | 83.2 | +3.8 [-0.4, +8.0] |
 
-2×2 over the 3 model(s) with all four cells usable (mean honest rate):
+2×2 over the 4 model(s) with all four cells usable (mean honest rate):
 
 | | mean norms | rms norms |
 |---|---|---|
-| contrast score | 89.8 | 91.8 |
-| set difference | 75.8 | 79.1 |
+| contrast score | 89.1 | 89.9 |
+| set difference | 77.7 | 80.1 |
 
-rule effect (score − set difference, averaged over statistics): +13.4 points; statistic effect (mean − rms, averaged over rules): -2.7 points.
+rule effect (score − set difference, averaged over statistics): +10.6 points; statistic effect (mean − rms, averaged over rules): -1.6 points.
 
 ## AI Liar
 
@@ -33,16 +33,16 @@ rule effect (score − set difference, averaged over statistics): +13.4 points; 
 | OLMo-2-1B | 60.5 | 68.8 | pending | pending | – (polarity) | – |
 | Qwen2.5-3B | 65.7 | 78.8 | pending | pending | 66.5 | +12.3 [+7.2, +17.1] |
 | Qwen2.5-7B | 81.8 | 90.8 | pending | pending | 91.3 | -0.5 [-3.1, +2.1] |
-| Qwen2.5-1.5B | 73.1 | 81.3 | pending | pending | 78.2 | +3.1 [-1.0, +7.2] |
+| Qwen2.5-1.5B | 73.1 | 81.3 | 81.8 | 74.6 | 78.2 | +3.1 [-1.0, +7.2] |
 
-2×2 over the 3 model(s) with all four cells usable (mean honest rate):
+2×2 over the 4 model(s) with all four cells usable (mean honest rate):
 
 | | mean norms | rms norms |
 |---|---|---|
-| contrast score | 82.2 | 80.4 |
-| set difference | 68.3 | 70.9 |
+| contrast score | 82.0 | 80.8 |
+| set difference | 69.9 | 72.7 |
 
-rule effect (score − set difference, averaged over statistics): +11.7 points; statistic effect (mean − rms, averaged over rules): -0.3 points.
+rule effect (score − set difference, averaged over statistics): +10.1 points; statistic effect (mean − rms, averaged over rules): -0.8 points.
 
 ## Mask anatomy (qwen_anatomy.py), family of the mask arm chosen on LIARS' BENCH
 
