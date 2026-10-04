@@ -9,7 +9,8 @@ writes reports/anatomy_report.md: per model, for the family of the mask arm chos
   * outlier channels (mean truthful-prompt norm above the layer's 99th percentile): their share of the positive-score
     weights and of the whole mask, against the 1% base rate; the same share under the scale-free ratio contrast, and the
     Jaccard between the difference and ratio contrasts' positive sets;
-  * where the mask sits: attention share, and the depth profile summarised as the share in the first / middle / last third.
+  * where the mask sits: attention share against attention's share of all weights, and the depth profile summarised as the
+    share in the first / middle / last third.
 
 The behavioural counterpart (masks built with --contrast ratio on Qwen-7B and Llama) is read from main_table_ratio.json
 when present and printed as a second table against main_table_final.json.
@@ -39,7 +40,7 @@ def main():
            "Family = the mask arm chosen on LIARS' BENCH validation. Headroom = unedited honest rate -> honest-prompt control, test half. "
            "Positive = channels/weights with a positive contrast score (the rest of the 4% budget is near-zero padding). "
            "Outlier channels = truthful-prompt norm above the layer's 99th percentile (base rate 1% of weights).", "",
-           "| model | family | unedited -> honest prompt | lead | positive channels | positive mass in top 1% / 4% of channels | positive weights (% of all) | outlier share: positive / mask | ratio contrast: outlier share, J(diff, ratio) | attention share | depth thirds (first / mid / last) |",
+           "| model | family | unedited -> honest prompt | lead | positive channels | positive mass in top 1% / 4% of channels | positive weights (% of all) | outlier share: positive / mask | ratio contrast: outlier share, J(diff, ratio) | attention share of mask (of all weights) | depth thirds (first / mid / last) |",
            "|---|---|---|---|---|---|---|---|---|---|---|"]
     for name in ORDER:
         r = tab.get(name); a = files.get(SHORT[name])
@@ -55,7 +56,7 @@ def main():
         d = a["families"][fam]; ms = d["module_split"].get("attn", {})
         out.append(f"| {name} | {fam} | {head} | {lead} | {100 * d['positive_channel_share']:.2f}% | {d['positive_mass_top1pct']:.2f} / {d['positive_mass_top4pct']:.2f} | "
                    f"{100 * d['positive_weight_share']:.2f}% | {100 * d['outlier_share_of_positive']:.0f}% / {100 * d['outlier_share_of_mask']:.1f}% | "
-                   f"{100 * d['ratio_outlier_share_of_positive']:.0f}%, {d['jaccard_diff_vs_ratio_positive']:.2f} | {100 * ms.get('ours_share', 0):.0f}% | "
+                   f"{100 * d['ratio_outlier_share_of_positive']:.0f}%, {d['jaccard_diff_vs_ratio_positive']:.2f} | {100 * ms.get('ours_share', 0):.0f}% ({100 * ms.get('weights_share', 0):.0f}%) | "
                    f"{thirds(d['depth_profile_ours'])} |")
     rp = R / "main_table_ratio.json"
     if rp.exists():
