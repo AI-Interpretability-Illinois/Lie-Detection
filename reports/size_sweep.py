@@ -21,7 +21,8 @@ from pathlib import Path
 
 PARAMS = {"Qwen2.5-0.5B": 0.49e9, "Qwen2.5-1.5B": 1.54e9, "Qwen2.5-3B": 3.09e9, "Qwen2.5-7B": 7.6e9, "Qwen2.5-14B": 14.7e9,
           "OLMo-2-1B": 1.5e9, "OLMo-2-7B": 7.3e9, "OLMo-2-13B": 13.7e9, "OLMo-2-32B": 32e9,
-          "Dolly-v2-3B": 2.8e9, "Dolly-v2-7B": 6.9e9, "Dolly-v2-12B": 12e9}
+          "Falcon3-1B": 1.67e9, "Falcon3-3B": 3.23e9, "Falcon3-7B": 7.46e9, "Falcon3-10B": 10.3e9,
+          "Dolly-v2-3B": 2.8e9, "Dolly-v2-7B": 6.9e9, "Dolly-v2-12B": 12e9}   # Dolly-v2 left the Hub (Oct 2026); kept for the record
 FAMILY = {k: k.split("-")[0] if not k.startswith("OLMo") else "OLMo-2" for k in PARAMS}
 FAMILY.update({k: "Dolly-v2" for k in PARAMS if k.startswith("Dolly")})
 
@@ -39,7 +40,7 @@ def main():
             for r in json.load(open(p)):
                 if not r.get("pending") and r["model"] in PARAMS:
                     rows[r["model"]] = r
-    for fam in ("Qwen2.5", "OLMo-2", "Dolly-v2"):
+    for fam in ("Qwen2.5", "OLMo-2", "Falcon3", "Dolly-v2"):
         ms = [m for m in rows if FAMILY[m] == fam]
         if len(ms) < 2:
             print(f"{fam}: {len(ms)} model(s), nothing to fit"); continue

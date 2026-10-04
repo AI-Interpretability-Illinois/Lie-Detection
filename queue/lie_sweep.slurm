@@ -46,7 +46,7 @@ for g in "${groups[@]}"; do
     [ -n "$extra" ] && arms="$arms,$extra"
   fi
   R="python run_liars_bench_honesty.py --model-id $MODEL --out-dir $O --rho 0.04 --ratio 0.37 --falsehood-arms --polarity-arms --arms $arms --as-layers $LAYERS --as-rel-coeffs=-0.18,-0.5 --batch-size ${BS:-8} --score-batch 2 --contrast ${CONTRAST:-diff}"
-  [ "${CONTRAST:-diff}" = ratio ] && tag=rt${tag#sw}   # ratio-contrast runs get tags rt1..rt3
+  [ "${CONTRAST:-diff}" = ratio ] && tag=rc${tag#sw}   # ratio-contrast runs get tags rc1..rc3 (rt* = response-token masks)
   step ${tag}_lb $O/liars_bench_honesty_${S}_${tag}.csv $R --splits instructed-deception,instructed-truthful --n-id 537 --tag $tag
   step ${tag}_ail $O/liars_bench_honesty_${S}_${tag}ail.csv $R --eval-set $B/extra_data/extra_ailiar.jsonl --belief-tag ailiar --tag ${tag}ail
   step ${tag}_judge $O/liars_bench_honesty_${S}_${tag}_judged_Qwen2p5-7B-Instruct_v2.jsonl \

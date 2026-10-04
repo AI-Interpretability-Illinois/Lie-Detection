@@ -42,6 +42,17 @@ CN_DIR = os.environ.get("CN_DIR", "/u/xiaocong/lie_results/timan_cn")
 CN_TAGS = ["cnA", "cnB", "cnC", "cnD", "cnE"]
 V2_TAGS = {"Meta-Llama-3p1-8B-Instruct": ["v2u", "v2p"], "Qwen2p5-7B-Instruct": ["v2u", "v2p"]}   # others: ["v2"]
 J = "judged_Qwen2p5-7B-Instruct_v2"
+# --sweep: the model-size points (queue/lie_sweep.slurm on Delta, queue/run_timan_sweep.sh on timan1; tags sw1-sw4, sw5-sw7
+# with --cn), read from SWEEP_DIRS -> main_table_sweep.json (input of reports/size_sweep.py).
+# --ratio: the ratio-contrast masks (--contrast ratio, tags rc1-rc3) in place of the difference-contrast masks for the two
+# models they were run on; steer/prompt/unsteered come from the original files -> main_table_ratio.json.
+SWEEP = "--sweep" in sys.argv
+RATIO = "--ratio" in sys.argv
+SWEEP_DIRS = [os.environ.get("SWEEP_DIR", "/work/nvme/biro/xiaocong/lie_sweep"), "/u/xiaocong/lie_results/timan_sweep"]
+SWEEP_MODELS = [("Qwen2p5-0p5B-Instruct", "Qwen2.5-0.5B"), ("Qwen2p5-14B-Instruct", "Qwen2.5-14B"),
+                ("OLMo-2-1124-7B-Instruct", "OLMo-2-7B"), ("OLMo-2-1124-13B-Instruct", "OLMo-2-13B"),
+                ("OLMo-2-0325-32B-Instruct", "OLMo-2-32B"),
+                ("Falcon3-1B-Instruct", "Falcon3-1B"), ("Falcon3-7B-Instruct", "Falcon3-7B"), ("Falcon3-10B-Instruct", "Falcon3-10B")]
 MODELS = [  # short name, label, LB tags, AI Liar tags (merged in order)
     ("Meta-Llama-3p1-8B-Instruct", "Llama-3.1-8B", ["final"], ["finalail"]),
     ("Phi-4-mini-instruct", "Phi-4-mini", ["fixlb", "finaladd"], ["fixail", "finailadd"]),
@@ -51,6 +62,12 @@ MODELS = [  # short name, label, LB tags, AI Liar tags (merged in order)
     ("Qwen2p5-7B-Instruct", "Qwen2.5-7B", ["final"], ["finalail"]),
     ("Qwen2p5-1p5B-Instruct", "Qwen2.5-1.5B", ["fixlb", "finaladd"], ["fixail", "finailadd"]),
 ]
+if SWEEP:
+    SW_TAGS = ["sw1", "sw2", "sw3", "sw4"] + (["sw5", "sw6", "sw7"] if CN else [])
+    MODELS = [(m, n, SW_TAGS, [t + "ail" for t in SW_TAGS]) for m, n in SWEEP_MODELS]
+if RATIO:
+    MODELS = [(m, n, ["rc1", "rc2", "rc3"] + lbt, ["rc1ail", "rc2ail", "rc3ail"] + ailt) for m, n, lbt, ailt in MODELS
+              if m in ("Qwen2p5-7B-Instruct", "Meta-Llama-3p1-8B-Instruct")]
 G = ("honest", "lie", "no_claim", "refusal")
 TOL = 0.05
 FAMS = ["mask", "liemask", "steer", "prompt", "unsteered"] + (["maskv2"] if V2 else []) + (["cn", "sd", "rs"] if CN else [])
@@ -81,17 +98,27 @@ def half(uid):
 items_ail = {json.loads(l)["uid"]: json.loads(l) for l in open(f"{OUT}/extra_data/extra_ailiar.jsonl")}
 
 
+def where(model, t, suffix):
+    """Directory holding liars_bench_honesty_<model>_<t><suffix>: the sweep directories for sw*/rc* tags, OUT otherwise."""
+    if not t.startswith(("sw", "rc")):
+        return OUT
+    for d in SWEEP_DIRS:
+        if os.path.exists(f"{d}/liars_bench_honesty_{model}_{t}{suffix}"):
+            return d
+    return SWEEP_DIRS[0]
+
+
 def load(model, lb_tags, ail_tags):
     lb, ppl, ail, seen = defaultdict(list), {}, defaultdict(list), set()
     v2 = V2_TAGS.get(model, ["v2"]) if V2 else []
     cn = [t for t in CN_TAGS if os.path.exists(f"{CN_DIR}/liars_bench_honesty_{model}_{t}_{J}.jsonl")] if CN else []
     for t in lb_tags + v2 + cn:
-        d = CN_DIR if t in cn else (OUT2 if t in v2 else OUT)
+        d = CN_DIR if t in cn else (OUT2 if t in v2 else where(model, t, f"_{J}.jsonl"))
         p = f"{d}/liars_bench_honesty_{model}_{t}_{J}.jsonl"
         c = f"{d}/liars_bench_honesty_{model}_{t}.csv"
         if not (os.path.exists(p) and os.path.exists(c)):
-            if t in v2:
-                print(f"  {model}: v2 tag {t} missing"); continue
+            if t in v2 or t.startswith(("sw", "rc")):     # partial sweeps: build the row from the groups that exist
+                print(f"  {model}: tag {t} missing"); continue
             return None
         new = set()
         for r in map(json.loads, open(p)):
@@ -101,12 +128,14 @@ def load(model, lb_tags, ail_tags):
         for r in csv.DictReader(open(c)):
             ppl.setdefault(r["arm"], float(r["ppl_ratio"]))
         seen |= new
+    if "unsteered" not in lb:
+        return None
     seen = set()
     for t in ail_tags + [x + "ail" for x in v2] + [x + "ail" for x in cn]:
-        d = CN_DIR if t[:-3] in cn else (OUT2 if t.endswith("ail") and t[:-3] in v2 else OUT)
+        d = CN_DIR if t[:-3] in cn else (OUT2 if t.endswith("ail") and t[:-3] in v2 else where(model, t, "_responses.jsonl"))
         p = f"{d}/liars_bench_honesty_{model}_{t}_responses.jsonl"
         if not os.path.exists(p):
-            if d in (OUT2, CN_DIR):
+            if d in (OUT2, CN_DIR) or t.startswith(("sw", "rc")):
                 continue
             return None
         new = set()
@@ -202,7 +231,8 @@ def main():
                      (f"   v2 fails {c['maskv2']['fails']}" if "maskv2" in c else ""))
                   + (f"   ours-cn {row[bench]['lead_cn']['diff']:+.1f} [{row[bench]['lead_cn']['lo']:+.1f}, {row[bench]['lead_cn']['hi']:+.1f}]" if row[bench].get("lead_cn") else "")
                   + (f"   cn arm {c['cn']['arm']}" if "cn" in c and c["cn"]["v"] is not None else (f"   cn fails {c['cn']['fails']}" if "cn" in c else "")))
-    out = "/u/xiaocong/lie_detection/reports/" + ("main_table_cn.json" if CN else "main_table_v2.json" if V2 else "main_table_final.json")
+    out = "/u/xiaocong/lie_detection/reports/" + ("main_table_sweep.json" if SWEEP else "main_table_ratio.json" if RATIO else
+                                                  "main_table_cn.json" if CN else "main_table_v2.json" if V2 else "main_table_final.json")
     json.dump(table, open(out, "w"), indent=1)
     print("columns: " + ", ".join(FAMS) + " (test-half honest rate, %)")
 
