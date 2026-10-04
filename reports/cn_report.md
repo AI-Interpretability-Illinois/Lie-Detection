@@ -48,9 +48,11 @@ rule effect (score − set difference, averaged over statistics): +17.4 points; 
 
 | model | family | CN weights (% of matrix) | ours ∩ CN / CN | CN weights with positive contrast score | attention share ours / CN | J(ours, CN) at ρ = 1 / 2 / 4 / 8 % | ours ρ=4 vs ρ=1 / 2 / 8 |
 |---|---|---|---|---|---|---|---|
+| Llama-3.1-8B | fiction | 1.10 | 10% | 10% | 19 / 17% | 0.04 / 0.03 / 0.02 / 0.02 | 0.25 / 0.50 / 0.50 |
 | Phi-4-mini | pooled | 1.04 | 5% | 5% | 25 / 22% | 0.02 / 0.01 / 0.01 / 0.01 | 0.25 / 0.50 / 0.50 |
 | Falcon3-3B | fictf | 0.79 | 8% | 8% | 23 / 21% | 0.02 / 0.02 / 0.01 / 0.01 | 0.25 / 0.50 / 0.50 |
 | OLMo-2-1B | fiction | 0.96 | 6% | 6% | 25 / 19% | 0.02 / 0.02 / 0.01 / 0.01 | 0.25 / 0.50 / 0.50 |
 | Qwen2.5-3B | pooltf | 0.73 | 4% | 4% | 12 / 11% | 0.01 / 0.01 / 0.01 / 0.00 | 0.25 / 0.50 / 0.50 |
+| Qwen2.5-7B | pooled | 1.04 | 10% | 10% | 13 / 10% | 0.03 / 0.03 / 0.02 / 0.02 | 0.25 / 0.50 / 0.50 |
 | Qwen2.5-1.5B | fictf | 0.83 | 8% | 7% | 12 / 10% | 0.03 / 0.02 / 0.01 / 0.01 | 0.25 / 0.50 / 0.50 |
 
