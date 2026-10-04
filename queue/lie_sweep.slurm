@@ -13,7 +13,8 @@
 # G3 pooltf+poolmix, G4 steering (3 layers x 2 strengths) + 3 honest prompts + unsteered. Each group: LIARS' BENCH
 # (all items) + AI Liar + the Qwen2.5-7B judge on LIARS' BENCH; tags sw1..sw4 (+ail). Also the CreativityNeuro
 # arms (G5-G7: cn families) when CN=1. Env: MODEL, LAYERS (e.g. 12,24,36), HF (cache dir), BS, CN.
-# build_final_table.py reads the sw* tags from SW_DIR. Restart-safe.
+# build_final_table.py reads the sw* tags from SW_DIR. Restart-safe. CACHE: the directory holding models--* (the nvme cache
+# is laid out as <HF>/hub; bfqt holds models at its top level); WikiText is read from <CACHE>/wikitext.
 source ~/.bashrc >/dev/null 2>&1; conda activate modularity
 set -o pipefail
 export HF_HOME=${HF:-/work/hdd/bfqt/xiaocong/hf_cache} HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 HF_DATASETS_OFFLINE=1
@@ -45,7 +46,7 @@ for g in "${groups[@]}"; do
     for fam in ${fams//,/ }; do for st in $ST; do arms="$arms,$fam$st"; done; done; arms=${arms#,}
     [ -n "$extra" ] && arms="$arms,$extra"
   fi
-  R="python run_liars_bench_honesty.py --model-id $MODEL --out-dir $O --rho 0.04 --ratio 0.37 --falsehood-arms --polarity-arms --arms $arms --as-layers $LAYERS --as-rel-coeffs=-0.18,-0.5 --batch-size ${BS:-8} --score-batch 2 --contrast ${CONTRAST:-diff}"
+  R="python run_liars_bench_honesty.py --model-id $MODEL --cache-dir ${CACHE:-$HF_HOME} --out-dir $O --rho 0.04 --ratio 0.37 --falsehood-arms --polarity-arms --arms $arms --as-layers $LAYERS --as-rel-coeffs=-0.18,-0.5 --batch-size ${BS:-8} --score-batch 2 --contrast ${CONTRAST:-diff}"
   [ "${CONTRAST:-diff}" = ratio ] && tag=rc${tag#sw}   # ratio-contrast runs get tags rc1..rc3 (rt* = response-token masks)
   step ${tag}_lb $O/liars_bench_honesty_${S}_${tag}.csv $R --splits instructed-deception,instructed-truthful --n-id 537 --tag $tag
   step ${tag}_ail $O/liars_bench_honesty_${S}_${tag}ail.csv $R --eval-set $B/extra_data/extra_ailiar.jsonl --belief-tag ailiar --tag ${tag}ail
