@@ -3,7 +3,8 @@
 Why does the edit do less on Qwen? (extras plan item 4) Reads the qwen_anatomy.py JSONs (ANAT_DIR) and the main table and
 writes reports/anatomy_report.md: per model, for the family of the mask arm chosen on LIARS' BENCH,
 
-  * the headroom (unedited honest rate and the honest-prompt control on the test half) and the mask's lead;
+  * the headroom (unedited honest rate and the honest-prompt control on the test half), the mask's lead, and the mask's gain
+    over the unedited model as a share of the headroom to 100%;
   * contrast concentration: share of channels with a positive contrast, share of the positive mass in the top 1% / 4% of
     channels, share of the 4% weight budget that carries a positive score (the rest is near-zero padding);
   * outlier channels (mean truthful-prompt norm above the layer's 99th percentile): their share of the positive-score
@@ -40,8 +41,8 @@ def main():
            "Family = the mask arm chosen on LIARS' BENCH validation. Headroom = unedited honest rate -> honest-prompt control, test half. "
            "Positive = channels/weights with a positive contrast score (the rest of the 4% budget is near-zero padding). "
            "Outlier channels = truthful-prompt norm above the layer's 99th percentile (base rate 1% of weights).", "",
-           "| model | family | unedited -> honest prompt | lead | positive channels | positive mass in top 1% / 4% of channels | positive weights (% of all) | outlier share: positive / mask | ratio contrast: outlier share, J(diff, ratio) | attention share of mask (of all weights) | depth thirds (first / mid / last) |",
-           "|---|---|---|---|---|---|---|---|---|---|---|"]
+           "| model | family | unedited -> honest prompt | lead | mask gain / headroom | positive channels | positive mass in top 1% / 4% of channels | positive weights (% of all) | outlier share: positive / mask | ratio contrast: outlier share, J(diff, ratio) | attention share of mask (of all weights) | depth thirds (first / mid / last) |",
+           "|---|---|---|---|---|---|---|---|---|---|---|---|"]
     for name in ORDER:
         r = tab.get(name); a = files.get(SHORT[name])
         if not r:
@@ -51,10 +52,12 @@ def main():
         fam = next((f for f in ("poolmix", "pooltf", "fictf", "pooled", "fiction") if f in arm), "pooled")
         head = f"{c['unsteered']['v']:.1f} -> {c['prompt']['v']:.1f}" if c.get("prompt", {}).get("v") is not None else f"{c['unsteered']['v']:.1f} -> –"
         lead = f"{L['diff']:+.1f} [{L['lo']:+.1f}, {L['hi']:+.1f}]" if L else "–"
+        m = c.get("mask", {}).get("v"); u0 = c["unsteered"]["v"]
+        hn = f"{m - u0:+.1f} / {100 - u0:.1f} = {100 * (m - u0) / max(100 - u0, 1e-9):.0f}%" if m is not None else "–"
         if not a:
-            out.append(f"| {name} | {fam} | {head} | {lead} | pending | | | | | | |"); continue
+            out.append(f"| {name} | {fam} | {head} | {lead} | {hn} | pending | | | | | | |"); continue
         d = a["families"][fam]; ms = d["module_split"].get("attn", {})
-        out.append(f"| {name} | {fam} | {head} | {lead} | {100 * d['positive_channel_share']:.2f}% | {d['positive_mass_top1pct']:.2f} / {d['positive_mass_top4pct']:.2f} | "
+        out.append(f"| {name} | {fam} | {head} | {lead} | {hn} | {100 * d['positive_channel_share']:.2f}% | {d['positive_mass_top1pct']:.2f} / {d['positive_mass_top4pct']:.2f} | "
                    f"{100 * d['positive_weight_share']:.2f}% | {100 * d['outlier_share_of_positive']:.0f}% / {100 * d['outlier_share_of_mask']:.1f}% | "
                    f"{100 * d['ratio_outlier_share_of_positive']:.0f}%, {d['jaccard_diff_vs_ratio_positive']:.2f} | {100 * ms.get('ours_share', 0):.0f}% ({100 * ms.get('weights_share', 0):.0f}%) | "
                    f"{thirds(d['depth_profile_ours'])} |")
