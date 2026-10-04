@@ -100,6 +100,11 @@ def build_variant(model, layers, norms, variant, rho, ratio, device):
         elif variant.startswith("score_diff"):
             ctrl = "neutral" if variant.endswith("neutral") else "instruct"
             m = topk_mask(v * norms["lie"][name] - (1.0 - v) * norms[ctrl][name])
+        elif variant.startswith("score_ratio"):
+            # scale-free contrast: rank channels by n_lie / n_ctrl - 1/ratio (same sign as the difference
+            # contrast, but a high-norm "massive activation" channel no longer dominates by its scale)
+            ctrl = "neutral" if variant.endswith("neutral") else "instruct"
+            m = topk_mask(norms["lie"][name] / norms[ctrl][name].clamp(min=1e-8) - 1.0 / ratio)
         else:
             raise ValueError(variant)
         masks[name] = m.view(W.shape).cpu()

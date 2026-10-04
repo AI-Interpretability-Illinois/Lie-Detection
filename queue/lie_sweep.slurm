@@ -24,12 +24,16 @@ O=/work/nvme/biro/xiaocong/lie_sweep; mkdir -p $O/logs $O/liars_bench; B=/work/h
 export LIE_OUT=$O
 cd /u/xiaocong/lie_detection
 S=$(basename $MODEL | tr . p)
+# belief caches of the main-table models (bfqt is over quota, so outputs go to nvme; beliefs are copied once)
+for f in $B/liars_bench/beliefs_${S}.jsonl $B/liars_bench/beliefs_${S}_ailiar.jsonl; do [ -e "$f" ] && [ ! -e $O/liars_bench/$(basename $f) ] && cp $f $O/liars_bench/; done
 echo "$(date '+%F %T') $SLURM_JOB_ID on $(hostname -s): $MODEL layers $LAYERS"
 ST="025 050 075 100"
 groups=("sw1:ours,pooled:magmatch100" "sw2:fiction,fictf:" "sw3:pooltf,poolmix:" "sw4:::steer")
 [ -n "$CN" ] && groups+=("sw5:cnours,cnpooled:" "sw6:cnfiction,cnfictf:" "sw7:cnpooltf,cnpoolmix:")
 # CN_ONLY=1: only the CreativityNeuro groups (for main-table models that already have the rest)
 [ -n "$CN_ONLY" ] && groups=("sw5:cnours,cnpooled:" "sw6:cnfiction,cnfictf:" "sw7:cnpooltf,cnpoolmix:")
+# MASKS_ONLY=1: the six mask families only (for the ratio-contrast variant on main-table models)
+[ -n "$MASKS_ONLY" ] && groups=("sw1:ours,pooled:" "sw2:fiction,fictf:" "sw3:pooltf,poolmix:")
 step() { local n=$1 done=$2; shift 2; [ -e "$done" ] && { echo "$(date '+%F %T') skip $n"; return; }
   echo "$(date '+%F %T') start $n"; "$@" > $O/logs/${n}_${S}.log 2>&1; local rc=$?; echo "$(date '+%F %T') end $n rc=$rc"; }
 for g in "${groups[@]}"; do
@@ -41,7 +45,8 @@ for g in "${groups[@]}"; do
     for fam in ${fams//,/ }; do for st in $ST; do arms="$arms,$fam$st"; done; done; arms=${arms#,}
     [ -n "$extra" ] && arms="$arms,$extra"
   fi
-  R="python run_liars_bench_honesty.py --model-id $MODEL --out-dir $O --rho 0.04 --ratio 0.37 --falsehood-arms --polarity-arms --arms $arms --as-layers $LAYERS --as-rel-coeffs=-0.18,-0.5 --batch-size ${BS:-8} --score-batch 2"
+  R="python run_liars_bench_honesty.py --model-id $MODEL --out-dir $O --rho 0.04 --ratio 0.37 --falsehood-arms --polarity-arms --arms $arms --as-layers $LAYERS --as-rel-coeffs=-0.18,-0.5 --batch-size ${BS:-8} --score-batch 2 --contrast ${CONTRAST:-diff}"
+  [ "${CONTRAST:-diff}" = ratio ] && tag=rt${tag#sw}   # ratio-contrast runs get tags rt1..rt3
   step ${tag}_lb $O/liars_bench_honesty_${S}_${tag}.csv $R --splits instructed-deception,instructed-truthful --n-id 537 --tag $tag
   step ${tag}_ail $O/liars_bench_honesty_${S}_${tag}ail.csv $R --eval-set $B/extra_data/extra_ailiar.jsonl --belief-tag ailiar --tag ${tag}ail
   step ${tag}_judge $O/liars_bench_honesty_${S}_${tag}_judged_Qwen2p5-7B-Instruct_v2.jsonl \

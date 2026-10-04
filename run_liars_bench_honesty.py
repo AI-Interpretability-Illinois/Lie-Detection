@@ -216,6 +216,8 @@ def main():
                          "truth pairs with the chat template, r calibrated to that positive-score share. "
                          "Arm keys fm<src><share x 10^4>_<strength>, e.g. fmuser025_100, fmpool050_100.")
     ap.add_argument("--fmt-n-build", type=int, default=200)
+    ap.add_argument("--contrast", default="diff", choices=["diff", "ratio"],
+                    help="diff: v n_F - (1-v) n_T (the method). ratio: n_F / n_T - 1/r, scale-free (Qwen diagnosis).")
     ap.add_argument("--setdiff-rho", type=float, default=0.0,
                     help="rho of the per-condition top-k sets for the set-difference (sd/cn) arms; default --rho.")
     ap.add_argument("--combine", default="",
@@ -421,9 +423,13 @@ def main():
         print(f"  norms[{key}]", flush=True)
         del cols
 
+    RULE = "score_ratio_instruct" if args.contrast == "ratio" else "score_diff_instruct"
+
     def variant(nm, key="lie"):
-        """score_diff_instruct with `key` as the treatment arm."""
+        """score_diff_instruct (or the ratio rule) with `key` as the treatment arm."""
         nn = dict(norms, lie=norms[key]) if key != "lie" else norms
+        if nm == "score_diff_instruct":
+            nm = RULE
         return build_variant(model, layers, nn, nm, args.rho, args.ratio, device)
 
     # the lie mask itself only when an arm uses it (or a control derived from it): ~1 byte per weight
@@ -459,9 +465,8 @@ def main():
         for fam, (tk, ck) in specs.items():
             if any(k.startswith(fam) for k in want):
                 nn = dict(norms, lie=norms[tk], instruct=norms[ck])
-                extra_masks[fam] = build_variant(model, layers, nn, "score_diff_instruct",
-                                                 args.rho, args.ratio, device)
-                print(f"  mask[{fam}] built", flush=True)
+                extra_masks[fam] = build_variant(model, layers, nn, RULE, args.rho, args.ratio, device)
+                print(f"  mask[{fam}] built ({RULE})", flush=True)
     cn_want = [k for k in want if k[:2] in ("sd", "cn", "rs") and k[2:].rstrip("0123456789") in
                ("ours", "pooled", "fiction", "fictf", "pooltf", "poolmix")]
     if cn_want:
