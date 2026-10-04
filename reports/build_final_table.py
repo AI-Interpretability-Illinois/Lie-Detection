@@ -35,6 +35,11 @@ from collections import defaultdict
 OUT = "/work/hdd/bfqt/xiaocong/lie_detection_outputs"
 OUT2 = "/work/hdd/biro/xiaocong/lie_out"
 V2 = "--v2" in sys.argv
+# --cn: the CreativityNeuro-style arms (queue/run_timan_cn.sh; synced to CN_DIR): cn = set difference on pooled-token
+# norms (the faithful baseline), sd = set difference on per-prompt-mean norms, rs = our contrast on pooled-token norms.
+CN = "--cn" in sys.argv
+CN_DIR = os.environ.get("CN_DIR", "/u/xiaocong/lie_results/timan_cn")
+CN_TAGS = ["cnA", "cnB", "cnC", "cnD", "cnE"]
 V2_TAGS = {"Meta-Llama-3p1-8B-Instruct": ["v2u", "v2p"], "Qwen2p5-7B-Instruct": ["v2u", "v2p"]}   # others: ["v2"]
 J = "judged_Qwen2p5-7B-Instruct_v2"
 MODELS = [  # short name, label, LB tags, AI Liar tags (merged in order)
@@ -48,12 +53,15 @@ MODELS = [  # short name, label, LB tags, AI Liar tags (merged in order)
 ]
 G = ("honest", "lie", "no_claim", "refusal")
 TOL = 0.05
-FAMS = ["mask", "liemask", "steer", "prompt", "unsteered"] + (["maskv2"] if V2 else [])
+FAMS = ["mask", "liemask", "steer", "prompt", "unsteered"] + (["maskv2"] if V2 else []) + (["cn", "sd", "rs"] if CN else [])
 
 
 def family(a):
     if a.startswith("weight:fm"):
         return "maskv2" if V2 else None
+    for pre in ("cn", "sd", "rs"):
+        if a.startswith("weight:" + pre) and a.split()[0][7 + len(pre):].rstrip("_") in ("ours", "pooled", "fiction", "fictf", "pooltf", "poolmix"):
+            return pre if CN else None
     if a.startswith(("weight:fiction", "weight:pooled", "weight:fictf", "weight:pooltf", "weight:poolmix")):
         return "mask"
     if a.startswith("weight:ours"):
@@ -76,8 +84,9 @@ items_ail = {json.loads(l)["uid"]: json.loads(l) for l in open(f"{OUT}/extra_dat
 def load(model, lb_tags, ail_tags):
     lb, ppl, ail, seen = defaultdict(list), {}, defaultdict(list), set()
     v2 = V2_TAGS.get(model, ["v2"]) if V2 else []
-    for t in lb_tags + v2:
-        d = OUT2 if t in v2 else OUT
+    cn = [t for t in CN_TAGS if os.path.exists(f"{CN_DIR}/liars_bench_honesty_{model}_{t}_{J}.jsonl")] if CN else []
+    for t in lb_tags + v2 + cn:
+        d = CN_DIR if t in cn else (OUT2 if t in v2 else OUT)
         p = f"{d}/liars_bench_honesty_{model}_{t}_{J}.jsonl"
         c = f"{d}/liars_bench_honesty_{model}_{t}.csv"
         if not (os.path.exists(p) and os.path.exists(c)):
@@ -93,11 +102,11 @@ def load(model, lb_tags, ail_tags):
             ppl.setdefault(r["arm"], float(r["ppl_ratio"]))
         seen |= new
     seen = set()
-    for t in ail_tags + [x + "ail" for x in v2]:
-        d = OUT2 if t.endswith("ail") and t[:-3] in v2 else OUT
+    for t in ail_tags + [x + "ail" for x in v2] + [x + "ail" for x in cn]:
+        d = CN_DIR if t[:-3] in cn else (OUT2 if t.endswith("ail") and t[:-3] in v2 else OUT)
         p = f"{d}/liars_bench_honesty_{model}_{t}_responses.jsonl"
         if not os.path.exists(p):
-            if d == OUT2:
+            if d in (OUT2, CN_DIR):
                 continue
             return None
         new = set()
@@ -175,6 +184,13 @@ def main():
             row[bench] = {"cells": cells, "lead": lead_of("mask")}
             if V2:
                 row[bench]["lead_v2"] = lead_of("maskv2")
+            if CN and "cn" in chosen and "mask" in chosen:
+                pm, pb = per_item[bench](chosen["mask"]), per_item[bench](chosen["cn"])
+                U = sorted(set(pm) & set(pb)); diffs = [pm[x] - pb[x] for x in U]
+                rnd = random.Random(0)
+                boots = sorted(sum(rnd.choice(diffs) for _ in diffs) / len(diffs) for _ in range(2000))
+                row[bench]["lead_cn"] = {"vs": "cn", "diff": round(sum(diffs) / len(diffs) * 100, 1),
+                                         "lo": round(boots[50] * 100, 1), "hi": round(boots[1949] * 100, 1), "n": len(U)}
         table.append(row)
         for bench in ("lb", "ail"):
             c = row[bench]["cells"]; L = row[bench]["lead"]; L2 = row[bench].get("lead_v2")
@@ -183,8 +199,10 @@ def main():
                   + (f"   lead {L['diff']:+.1f} [{L['lo']:+.1f}, {L['hi']:+.1f}] vs {L['vs']}" if L else "")
                   + (f"   v2 {L2['diff']:+.1f} [{L2['lo']:+.1f}, {L2['hi']:+.1f}] vs {L2['vs']}" if L2 else "")
                   + (f"   v2 arm {c['maskv2']['arm']}" if "maskv2" in c and c["maskv2"]["v"] is not None else
-                     (f"   v2 fails {c['maskv2']['fails']}" if "maskv2" in c else "")))
-    out = "/u/xiaocong/lie_detection/reports/" + ("main_table_v2.json" if V2 else "main_table_final.json")
+                     (f"   v2 fails {c['maskv2']['fails']}" if "maskv2" in c else ""))
+                  + (f"   ours-cn {row[bench]['lead_cn']['diff']:+.1f} [{row[bench]['lead_cn']['lo']:+.1f}, {row[bench]['lead_cn']['hi']:+.1f}]" if row[bench].get("lead_cn") else "")
+                  + (f"   cn arm {c['cn']['arm']}" if "cn" in c and c["cn"]["v"] is not None else (f"   cn fails {c['cn']['fails']}" if "cn" in c else "")))
+    out = "/u/xiaocong/lie_detection/reports/" + ("main_table_cn.json" if CN else "main_table_v2.json" if V2 else "main_table_final.json")
     json.dump(table, open(out, "w"), indent=1)
     print("columns: " + ", ".join(FAMS) + " (test-half honest rate, %)")
 

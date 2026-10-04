@@ -216,6 +216,8 @@ def main():
                          "truth pairs with the chat template, r calibrated to that positive-score share. "
                          "Arm keys fm<src><share x 10^4>_<strength>, e.g. fmuser025_100, fmpool050_100.")
     ap.add_argument("--fmt-n-build", type=int, default=200)
+    ap.add_argument("--setdiff-rho", type=float, default=0.0,
+                    help="rho of the per-condition top-k sets for the set-difference (sd/cn) arms; default --rho.")
     ap.add_argument("--combine", default="",
                     help="Comma-separated unions of two masks, A+B, by mask name (ours, pooled, fiction, "
                          "a polarity family, or a --designs mask such as recov040a025); arm keys "
@@ -407,12 +409,15 @@ def main():
         # answers equally and negation cancels out of the contrast.
         treatments += [("tf_lie", TF_LIE), ("tf_fiction", TF_FICTION),
                        ("tf_error", TF_ERROR), ("tf_truth", TF_TRUTH)]
-    norms = {}
+    norms, norms_rms = {}, {}
     for key, prompts in treatments:
         cols = collect_column_norms(
             model, tok, [{"prompt": p} for p in prompts[:args.n_truth]],
             layers, device, position="prompt", batch_size=args.score_batch)
         norms[key], _, _ = cell_mean_sd(cols)
+        # Wanda / CreativityNeuro take one L2 norm over all calibration tokens, which is the root mean
+        # square of the per-prompt norms up to a constant (the same constant on both sides of a contrast)
+        norms_rms[key] = {ly: (t * t).mean(dim=0).sqrt() for ly, t in cols.items()}
         print(f"  norms[{key}]", flush=True)
         del cols
 
@@ -457,6 +462,30 @@ def main():
                 extra_masks[fam] = build_variant(model, layers, nn, "score_diff_instruct",
                                                  args.rho, args.ratio, device)
                 print(f"  mask[{fam}] built", flush=True)
+    cn_want = [k for k in want if k[:2] in ("sd", "cn", "rs") and k[2:].rstrip("0123456789") in
+               ("ours", "pooled", "fiction", "fictf", "pooltf", "poolmix")]
+    if cn_want:
+        if args.falsehood_arms:
+            norms_rms["pooled"] = {ly: (norms_rms["lie"][ly] + norms_rms["fiction"][ly] + norms_rms["error"][ly]) / 3.0
+                                   for ly in layers}
+        if args.polarity_arms:
+            avg_r = lambda ks: {ly: sum(norms_rms[k][ly] for k in ks) / len(ks) for ly in layers}
+            norms_rms["tf_pooled"] = avg_r(["tf_lie", "tf_fiction", "tf_error"])
+            norms_rms["mix_treat"] = avg_r(["lie", "fiction", "error", "tf_lie", "tf_fiction", "tf_error"])
+            norms_rms["mix_ctrl"] = avg_r(["instruct", "tf_truth"])
+        fam_keys = {"ours": ("lie", "instruct"), "pooled": ("pooled", "instruct"), "fiction": ("fiction", "instruct"),
+                    "fictf": ("tf_fiction", "tf_truth"), "pooltf": ("tf_pooled", "tf_truth"), "poolmix": ("mix_treat", "mix_ctrl")}
+        if args.falsehood_arms and "pooled" not in norms:
+            norms["pooled"] = {ly: (norms["lie"][ly] + norms["fiction"][ly] + norms["error"][ly]) / 3.0 for ly in layers}
+        rho_sd = args.setdiff_rho or args.rho
+        for pre, src, rule, rho_ in (("sd", norms, "set_diff_instruct", rho_sd), ("cn", norms_rms, "set_diff_instruct", rho_sd),
+                                     ("rs", norms_rms, "score_diff_instruct", args.rho)):
+            for fam, (tk, ck) in fam_keys.items():
+                if any(k.startswith(pre + fam) for k in want):
+                    nn = dict(src, lie=src[tk], instruct=src[ck])
+                    extra_masks[pre + fam] = build_variant(model, layers, nn, rule, rho_, args.ratio, device)
+                    cov = sum(int(m.sum()) for m in extra_masks[pre + fam].values()) / sum(m.numel() for m in extra_masks[pre + fam].values())
+                    print(f"  mask[{pre}{fam}] {rule} on {'rms' if src is norms_rms else 'mean'} norms, rho {rho_}: {cov:.4%} of weights", flush=True)
     if args.pool_draws:
         # Sample-size test (b): the same mask rule on subsets of larger prompt pools in the
         # style of the hand-written prompts. Question pool (fiction, pooled): 400 questions from

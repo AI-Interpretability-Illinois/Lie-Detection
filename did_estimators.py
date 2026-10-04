@@ -176,6 +176,9 @@ def load_lm(model_id, cache_dir, device, dtype=None):
     if dtype is None:
         dtype = checkpoint_dtype(model_id, cache_dir)
         print(f"  [load_lm] dtype={dtype}", flush=True)
+    import os as _os
+    if _os.environ.get("LIE_DEVICE_MAP") == "auto":
+        return _multi_gpu(model_id, cache_dir, dtype)
     try:
         m = AutoModelForCausalLM.from_pretrained(
             model_id, torch_dtype=dtype, cache_dir=cache_dir)
@@ -188,6 +191,17 @@ def load_lm(model_id, cache_dir, device, dtype=None):
         print(f"  [load_lm] {type(m).__name__} via AutoModelForImageTextToText",
               flush=True)
     return m.to(device).eval()
+
+
+def _multi_gpu(model_id, cache_dir, dtype):
+    """LIE_DEVICE_MAP=auto: shard a model that does not fit one card over the visible GPUs (OLMo-2-32B on two
+    A6000s). Inputs still go to cuda:0, where the embedding lands; hooks, masks and the belief probes work per
+    module device, and .to(device) is skipped."""
+    from transformers import AutoModelForCausalLM
+    m = AutoModelForCausalLM.from_pretrained(model_id, torch_dtype=dtype, cache_dir=cache_dir, device_map="auto")
+    print(f"  [load_lm] device_map=auto over {torch.cuda.device_count()} GPUs: "
+          f"{sorted(set(str(d) for d in m.hf_device_map.values()))}", flush=True)
+    return m.eval()
 
 
 def get_module(model, name: str) -> nn.Linear:
