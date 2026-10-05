@@ -10,8 +10,9 @@
 #SBATCH --output=/work/nvme/biro/xiaocong/logs/%x_%j.out
 # Extras plan item 5 on one main-table model: the adaptive-attack set (extra_attack.jsonl: many-shot, Spanish and Chinese
 # orders over the 537 LIARS' BENCH deception items) and the legitimate-falsehood set (extra_legit.jsonl: fiction /
-# role-play / counterfactual requests), each under the LIARS' BENCH-chosen arms (ARMS, e.g. unsteered,fiction100,asrL8_-0.5,prompt2;
-# LAYERS and RC give the steering layer and relative coefficient). Attack replies are graded by the Qwen2.5-7B judge as on
+# role-play / counterfactual requests), each under the LIARS' BENCH-chosen arms (ARMS, e.g. unsteered,fiction100,asr-0.5,prompt2;
+# LAYERS and RC give the steering layer and relative coefficient; with a single layer the runner names the steering arm
+# "asr<r>", with several layers "asrL<L>_<r>"). Attack replies are graded by the Qwen2.5-7B judge as on
 # LIARS' BENCH (beliefs probed once, --belief-tag attack); legit replies are saved for judge_legit.py.
 # Env: MODEL, ARMS, LAYERS, RC, HF (cache dir), BS. Outputs under /work/nvme/biro/xiaocong/lie_sweep (tags atk, legit).
 source ~/.bashrc >/dev/null 2>&1; conda activate modularity
