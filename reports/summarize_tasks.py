@@ -11,10 +11,17 @@ LIARS' BENCH validation half). Paired bootstrap 95% intervals over items gradeab
 Writes reports/tasks_table.json and prints markdown tables.
 """
 import json
+import os
 import random
 from collections import defaultdict
 
 OUT = "/work/hdd/bfqt/xiaocong/lie_detection_outputs"
+# GRADER=gpt: the injected-document and AM/GoT columns from the GPT-5.6 re-grade (judge_gpt.py --tasks; files
+# <GPT_DIR>/liars_bench_honesty_<model>_t{inject,amgot}_judged_gpt_v2.jsonl, verdict_hybrid = keyword parser where it
+# settles, GPT-5.6 otherwise), as Table 1 since v4.3; the other tasks are keyword- or MASK-judge-graded and unchanged.
+# Output then goes to reports/tasks_table_gpt.json.
+GPT = os.environ.get("GRADER", "") == "gpt"
+GPT_DIR = os.environ.get("GPT_DIR", "/work/nvme/biro/xiaocong/lie_out_gpt")
 MODELS = [("Meta-Llama-3p1-8B-Instruct", "Llama-3.1-8B"), ("Phi-4-mini-instruct", "Phi-4-mini"),
           ("Falcon3-3B-Instruct", "Falcon3-3B"), ("OLMo-2-0425-1B-Instruct", "OLMo-2-1B"),
           ("Qwen2p5-3B-Instruct", "Qwen2.5-3B"), ("Qwen2p5-7B-Instruct", "Qwen2.5-7B"),
@@ -75,7 +82,14 @@ def main():
         items = defaultdict(lambda: defaultdict(dict))     # bucket -> fam -> uid -> honest
         arms = {}
         for task, (suf, key, smap) in TASKS.items():
-            for l in open(f"{OUT}/liars_bench_honesty_{short}_{suf}.jsonl"):
+            path = f"{OUT}/liars_bench_honesty_{short}_{suf}.jsonl"
+            if GPT and task in ("inject", "amgot"):
+                g = f"{GPT_DIR}/liars_bench_honesty_{short}_t{task}_judged_gpt_v2.jsonl"
+                if os.path.exists(g):
+                    path = g
+                else:
+                    print(f"no GPT re-grade for {short} {task}: Qwen2.5-7B grades used")
+            for l in open(path):
                 r = json.loads(l)
                 f, b, v = family(r["arm"]), smap.get(r["split"]), r.get(key)
                 if f is None or b is None or v in (None, "ungradeable", "deferred"):
@@ -95,7 +109,7 @@ def main():
                     lead_pre = paired(items[b], pre[name])
             row["tasks"][b] = {"cells": cell, "lead": lead, "lead_pre": lead_pre}
         table.append(row)
-    json.dump(table, open("/u/xiaocong/lie_detection/reports/tasks_table.json", "w"), indent=1)
+    json.dump(table, open(f"/u/xiaocong/lie_detection/reports/tasks_table{'_gpt' if GPT else ''}.json", "w"), indent=1)
 
     fmt = lambda c, f: f"{c[f]['v']:.1f}" if f in c else "-"
     print("## Lead of our mask over the best other method (95% CI)\n")
