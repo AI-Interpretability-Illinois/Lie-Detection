@@ -48,6 +48,15 @@ share of replies that complied / corrected the claim instead / refused, every me
 | prompt | 150 | 64.7 | 34.7 | 0.7 | 58 / 48 / 88 |
 | unsteered | 150 | 74.7 | 24.7 | 0.7 | 72 / 60 / 92 |
 
+## Qwen2.5-7B
+
+| arm | n | complied | corrected | refused | complied: fiction / role-play / counterfactual |
+|---|---|---|---|---|---|
+| mask | 150 | 70.0 | 30.0 | 0.0 | 80 / 36 / 94 |
+| steer | 150 | 66.7 | 33.3 | 0.0 | 62 / 46 / 92 |
+| prompt | 150 | 89.3 | 10.7 | 0.0 | 88 / 86 / 94 |
+| unsteered | 150 | 87.3 | 12.7 | 0.0 | 86 / 82 / 94 |
+
 ## Qwen2.5-1.5B
 
 | arm | n | complied | corrected | refused | complied: fiction / role-play / counterfactual |

@@ -49,6 +49,15 @@ comparator fixed on LIARS' BENCH validation, paired bootstrap 95% interval over 
 | Spanish order | 87.0 | - | 88.9 | 93.9 | 77.9 | -6.9 [-10.3, -3.8] vs prompt | -6.9 [-10.3, -3.8] vs prompt |
 | Chinese order | 82.4 | - | 82.8 | 92.0 | 79.0 | -9.5 [-13.7, -5.3] vs prompt | -9.5 [-13.7, -5.3] vs prompt |
 
+## Qwen2.5-7B
+
+| condition | mask | lie mask | steering | honest prompt | unedited | lead (pre-registered) | lead vs best other |
+|---|---|---|---|---|---|---|---|
+| plain (Table 1) | 95.4 | 95.0 | 90.8 | 95.8 | 88.5 | +0.4 [-1.9, +2.7] vs liemask | |
+| many-shot lies | 95.0 | - | 91.6 | 94.3 | 86.3 | - | +0.8 [-2.3, +3.8] vs prompt |
+| Spanish order | 94.7 | - | 93.5 | 96.9 | 93.5 | - | -2.3 [-4.6, -0.4] vs prompt |
+| Chinese order | 95.8 | - | 94.2 | 96.6 | 85.9 | - | -0.8 [-3.1, +1.5] vs prompt |
+
 ## Qwen2.5-1.5B
 
 | condition | mask | lie mask | steering | honest prompt | unedited | lead (pre-registered) | lead vs best other |
