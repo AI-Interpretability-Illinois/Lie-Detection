@@ -232,7 +232,7 @@ def collect_column_norms(model, tok, items, layer_names, device,
     def make_hook(name):
         def hook(mod, inp, out):
             x = inp[0].detach().float()                 # (B, T, in)
-            m = state["mask"].unsqueeze(-1)             # (B, T, 1)
+            m = state["mask"].unsqueeze(-1).to(x.device)   # (B, T, 1); with device_map="auto" a layer may sit on another GPU
             sq = (x * x * m).sum(dim=1)                 # (B, in)
             if rms:                                     # per-token RMS: answers of different
                 sq = sq / m.sum(dim=1).clamp(min=1)     # lengths score on the same scale
