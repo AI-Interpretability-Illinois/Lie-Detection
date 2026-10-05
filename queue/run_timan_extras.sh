@@ -19,8 +19,9 @@ step() { local n=$1 done=$2; shift 2; [ -e "$done" ] && { echo "$(date '+%F %T')
   echo "$(date '+%F %T') start $n"; nice -n 10 "$@" > $T/logs/${n}_${S}.log 2>&1; local rc=$?; echo "$(date '+%F %T') end $n rc=$rc"; }
 R="$PY run_liars_bench_honesty_x.py --model-id $M --cache-dir $HF_HUB_CACHE --out-dir $T/out --rho 0.04 --ratio 0.37 --falsehood-arms --polarity-arms --arms $ARMS --as-layers $LAYERS --as-rel-coeffs=$RC --batch-size $BS --score-batch 2"
 step atk_gen $T/out/liars_bench_honesty_${S}_atk.csv $R --eval-set $X/extra_attack.jsonl --belief-tag attack --tag atk
-step atk_judge $T/out/liars_bench_honesty_${S}_atk_judged_Qwen2p5-7B-Instruct_v2.jsonl \
+[ -n "$SKIP_JUDGE" ] || step atk_judge $T/out/liars_bench_honesty_${S}_atk_judged_Qwen2p5-7B-Instruct_v2.jsonl \
   $PY judge_claims.py --responses liars_bench_honesty_${S}_atk_responses.jsonl --judge Qwen/Qwen2.5-7B-Instruct --batch-size 8 --tag v2 --cache-dir $T/hf \
   --eval-set $X/extra_attack.jsonl --splits attack-manyshot,attack-es,attack-zh --beliefs $T/out/liars_bench/beliefs_${S}_attack.jsonl
+# SKIP_JUDGE=1: generation only (atk_gen + legit_gen); run the judge step later with the same command
 step legit_gen $T/out/liars_bench_honesty_${S}_legit.csv $R --eval-set $X/extra_legit.jsonl --tag legit
 echo "$(date '+%F %T') all done $M"
