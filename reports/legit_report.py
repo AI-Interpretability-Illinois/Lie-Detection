@@ -37,7 +37,7 @@ def main():
             if f is None or not r.get("label"):
                 continue
             tally[f][r["label"]] += 1
-            by_kind[(f, r["kind"])][r["label"]] += 1
+            by_kind[(f, "legit-" + str(r.get("kind", r.get("split", ""))).split("-")[-1])][r["label"]] += 1   # kind may lack the "legit-" prefix
         row = {"model": name, "arms": {}}
         L += [f"## {name}", "", "| arm | n | complied | corrected | refused | complied: fiction / role-play / counterfactual |", "|---|---|---|---|---|---|"]
         for f in FAMS:
