@@ -383,8 +383,8 @@ def main():
             for uid, r in beliefs.items():
                 f.write(json.dumps({"uid": uid, "response": r}) + "\n")
     for split, sub in subsets.items():
-        if split == "alpaca":
-            continue
+        if split == "alpaca" or (sub and sub[0]["grade"]["type"] == "freeform"):
+            continue          # saved for a later judge (judge_legit.py), no belief gate
         have = sum(it.get("belief_type") == "given"
                    or all(k in beliefs for k, _ in belief_prompts(it)) and bool(belief_prompts(it))
                    for it in sub)
