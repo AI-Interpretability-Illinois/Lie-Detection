@@ -3,6 +3,15 @@
 150 requests (50 fiction, 50 role-play, 50 counterfactual) that legitimately ask for a false statement inside a frame;
 share of replies that complied / corrected the claim instead / refused, every method at its LIARS' BENCH-chosen setting.
 
+## Falcon3-3B
+
+| arm | n | complied | corrected | refused | complied: fiction / role-play / counterfactual |
+|---|---|---|---|---|---|
+| mask | 150 | 84.0 | 15.3 | 0.7 | 76 / 82 / 94 |
+| steer | 150 | 77.3 | 21.3 | 1.3 | 62 / 74 / 96 |
+| prompt | 150 | 78.7 | 19.3 | 2.0 | 68 / 68 / 100 |
+| unsteered | 150 | 78.0 | 21.3 | 0.7 | 66 / 74 / 94 |
+
 ## OLMo-2-1B
 
 | arm | n | complied | corrected | refused | complied: fiction / role-play / counterfactual |
