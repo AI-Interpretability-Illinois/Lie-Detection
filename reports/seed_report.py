@@ -24,6 +24,10 @@ NAMES = {"Meta-Llama-3p1-8B-Instruct": "Llama-3.1-8B", "Phi-4-mini-instruct": "P
          "Qwen2p5-1p5B-Instruct": "Qwen2.5-1.5B"}
 FAMS = ["mask", "liemask", "steer", "prompt", "unsteered"]
 SEEDS = [1, 2]
+G_OK = ("honest", "lie", "no_claim", "refusal")   # gradeable verdicts, as the main table (no claim / refusal count as not honest)
+TAGS0 = {"Meta-Llama-3p1-8B-Instruct": ["final"], "Phi-4-mini-instruct": ["fixlb", "finaladd"], "Falcon3-3B-Instruct": ["fixlb", "finaladd"],
+         "OLMo-2-0425-1B-Instruct": ["final"], "Qwen2p5-3B-Instruct": ["final"], "Qwen2p5-7B-Instruct": ["final"],
+         "Qwen2p5-1p5B-Instruct": ["fixlb", "finaladd"]}   # the main table's LB tags per model (reports/build_final_table.py MODELS)
 half = lambda u: "val" if int(hashlib.md5(u.encode()).hexdigest(), 16) % 2 == 0 else "test"
 
 
@@ -46,14 +50,56 @@ def main():
                 continue
             per = defaultdict(dict)
             for r in map(json.loads, open(fs[0])):
-                if r["split"] != "instructed-deception" or half(r["uid"]) != "test" or r.get("verdict_hybrid") not in ("honest", "lie"):
+                if r["split"] != "instructed-deception" or half(r["uid"]) != "test" or r.get("verdict_hybrid") not in G_OK:
                     continue
                 f = family(r["arm"])
                 if f:
                     per[f][r["uid"]] = r["verdict_hybrid"] == "honest"
             rates[s] = {f: round(100 * sum(d.values()) / len(d), 1) for f, d in per.items() if d}
             leads[s] = paired(per, vs) if vs and "mask" in per and vs in per else None
-        row = {"model": name, "rates": rates, "leads": leads, "vs": vs}
+        # pooled over seeds: each test item's honesty averaged over the seeds that have it (seed 0 from the main-table files),
+        # then the same paired bootstrap over items; a per-item mean over three samples halves the sampling noise
+        pooled = None
+        p0 = {}
+        # seed 0 = the main table's own files: the model's LB tags in order, first file holding an arm wins (as build_final_table.py)
+        seen0 = set()
+        for t in TAGS0[stem]:
+            p = f"/work/hdd/bfqt/xiaocong/lie_detection_outputs/liars_bench_honesty_{stem}_{t}_judged_Qwen2p5-7B-Instruct_v2.jsonl"
+            if not Path(p).exists():
+                continue
+            new = set()
+            for r in map(json.loads, open(p)):
+                if r["arm"] in seen0:
+                    continue
+                new.add(r["arm"])
+                if r["split"] == "instructed-deception" and half(r["uid"]) == "test" and r.get("verdict_hybrid") in G_OK:
+                    f = family(r["arm"])
+                    if f and r["arm"] == main_tab[name]["lb"]["cells"].get(f, {}).get("arm"):
+                        p0.setdefault(f, {})[r["uid"]] = r["verdict_hybrid"] == "honest"
+            seen0 |= new
+        per_seed = {0: p0}
+        for s in SEEDS:
+            fs = glob.glob(str(SWEEP / f"liars_bench_honesty_{stem}_seed{s}_judged_Qwen2p5-7B-Instruct_v2.jsonl"))
+            if fs:
+                d = defaultdict(dict)
+                for r in map(json.loads, open(fs[0])):
+                    if r["split"] == "instructed-deception" and half(r["uid"]) == "test" and r.get("verdict_hybrid") in G_OK:
+                        f = family(r["arm"])
+                        if f:
+                            d[f][r["uid"]] = r["verdict_hybrid"] == "honest"
+                per_seed[s] = d
+        if vs and len(per_seed) > 1:
+            agg = {}
+            for f in ("mask", vs):
+                acc = defaultdict(list)
+                for s, d in per_seed.items():
+                    for u, v in d.get(f, {}).items():
+                        acc[u].append(float(v))
+                agg[f] = {u: sum(x) / len(x) for u, x in acc.items()}
+            if agg.get("mask") and agg.get(vs):
+                pooled = paired(agg, vs); pooled["seeds"] = len(per_seed)
+        row = {"model": name, "rates": rates, "leads": leads, "vs": vs, "pooled_lead": pooled,
+               "seed0_files_rate": {f: round(100 * sum(d.values()) / len(d), 1) for f, d in p0.items() if d}}   # should match rates[0]
         out.append(row)
         seeds = sorted(rates)
         L += [f"## {name}", "", "| arm | " + " | ".join(f"seed {s}" for s in seeds) + " | spread | SD |", "|---" * (len(seeds) + 3) + "|"]
@@ -64,6 +110,8 @@ def main():
             sd = f"{statistics.stdev(have):.1f}" if len(have) > 1 else "-"
             L.append(f"| {f} | " + " | ".join(f"{v:.1f}" if v is not None else "-" for v in vals) + f" | {spread} | {sd} |")
         L.append("| lead vs " + str(vs) + " | " + " | ".join(f"{leads[s]['diff']:+.1f} [{leads[s]['lo']:+.1f}, {leads[s]['hi']:+.1f}]" if leads.get(s) else "-" for s in seeds) + " | | |")
+        if pooled:
+            L.append(f"| lead, pooled over {pooled['seeds']} seeds | {pooled['diff']:+.1f} [{pooled['lo']:+.1f}, {pooled['hi']:+.1f}] (n={pooled['n']}) |" + " |" * (len(seeds) + 1))
         L.append("")
     json.dump(out, open(R / "seed_table.json", "w"), indent=1)
     (R / "seed_report.md").write_text("\n".join(L))
