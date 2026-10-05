@@ -1,5 +1,6 @@
 #!/bin/bash
 #SBATCH --job-name=lie_sweep
+#SBATCH --time=06:00:00
 #SBATCH --partition=gpuA100x4
 #SBATCH --reservation=sup-30781
 #SBATCH --nodes=1
