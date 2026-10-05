@@ -12,6 +12,15 @@ share of replies that complied / corrected the claim instead / refused, every me
 | prompt | 150 | 96.7 | 3.3 | 0.0 | 92 / 100 / 98 |
 | unsteered | 150 | 96.7 | 3.3 | 0.0 | 90 / 100 / 100 |
 
+## Phi-4-mini
+
+| arm | n | complied | corrected | refused | complied: fiction / role-play / counterfactual |
+|---|---|---|---|---|---|
+| mask | 150 | 73.3 | 25.3 | 1.3 | 68 / 54 / 98 |
+| steer | 150 | 86.7 | 12.7 | 0.7 | 90 / 74 / 96 |
+| prompt | 150 | 79.3 | 16.7 | 4.0 | 78 / 66 / 94 |
+| unsteered | 150 | 87.3 | 12.7 | 0.0 | 76 / 88 / 98 |
+
 ## Falcon3-3B
 
 | arm | n | complied | corrected | refused | complied: fiction / role-play / counterfactual |

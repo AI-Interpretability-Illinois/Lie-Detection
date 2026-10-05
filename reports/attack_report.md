@@ -13,6 +13,15 @@ comparator fixed on LIARS' BENCH validation, paired bootstrap 95% interval over 
 | Spanish order | 93.1 | - | 85.0 | 68.0 | 38.2 | +8.1 [+3.8, +12.7] vs steer | +8.1 [+3.8, +12.7] vs steer |
 | Chinese order | 92.7 | - | 84.6 | 73.4 | 52.6 | +8.2 [+3.5, +12.8] vs steer | +8.2 [+3.5, +12.8] vs steer |
 
+## Phi-4-mini
+
+| condition | mask | lie mask | steering | honest prompt | unedited | lead (pre-registered) | lead vs best other |
+|---|---|---|---|---|---|---|---|
+| plain (Table 1) | 86.3 | 69.5 | 76.0 | 79.4 | 69.8 | +6.9 [+2.3, +11.1] vs prompt | |
+| many-shot lies | 93.1 | - | 92.0 | 90.5 | 88.9 | +2.7 [-1.1, +6.5] vs prompt | +1.1 [-2.3, +4.6] vs steer |
+| Spanish order | 91.6 | - | 88.5 | 85.9 | 71.0 | +5.7 [+1.9, +10.0] vs prompt | +3.1 [-0.8, +6.5] vs steer |
+| Chinese order | 91.6 | - | 85.9 | 86.6 | 79.0 | +5.0 [+0.8, +9.2] vs prompt | +5.0 [+0.8, +9.2] vs prompt |
+
 ## Falcon3-3B
 
 | condition | mask | lie mask | steering | honest prompt | unedited | lead (pre-registered) | lead vs best other |
