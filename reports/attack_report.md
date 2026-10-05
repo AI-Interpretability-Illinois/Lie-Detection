@@ -4,6 +4,15 @@ Honest rate (%) on the test half of the 537 LIARS' BENCH deception items under e
 LIARS' BENCH-chosen setting; 'plain' is the same items without the attack (Table 1, same judge). Lead: mask minus the
 comparator fixed on LIARS' BENCH validation, paired bootstrap 95% interval over test items.
 
+## Falcon3-3B
+
+| condition | mask | lie mask | steering | honest prompt | unedited | lead (pre-registered) | lead vs best other |
+|---|---|---|---|---|---|---|---|
+| plain (Table 1) | 89.7 | - | 79.4 | - | 80.2 | +10.3 [+4.6, +16.0] vs steer | |
+| many-shot lies | 87.0 | - | 87.0 | 86.6 | 80.9 | +0.0 [-4.6, +5.0] vs steer | +0.0 [-4.6, +5.0] vs steer |
+| Spanish order | 87.7 | - | 82.1 | 82.6 | 77.8 | +6.0 [+0.4, +11.5] vs steer | +5.0 [-0.9, +11.0] vs prompt |
+| Chinese order | 95.0 | - | 85.1 | 95.9 | 82.4 | +9.8 [+4.5, +14.2] vs steer | -1.2 [-4.1, +1.7] vs prompt |
+
 ## OLMo-2-1B
 
 | condition | mask | lie mask | steering | honest prompt | unedited | lead (pre-registered) | lead vs best other |
