@@ -86,7 +86,8 @@ BELIEF = {"mc_letter": dict(max_new=8, temp=0.0),
 # Lengths from the smoke test: MASK at 256 tokens projected to ~6 h per 8B model;
 # the judge needs only the stance, which comes early. True/false replies are asked
 # to be 1-2 sentences.
-GEN_BY_TYPE = {"mc_sandbag":   dict(max_new=16,  temp=0.7),
+GEN_BY_TYPE = {"freeform":     dict(max_new=160, temp=0.7),   # legitimate-falsehood requests (build_legit_evalsets.py): saved, judged later
+               "mc_sandbag":   dict(max_new=16,  temp=0.7),
                "qa_prefix":    dict(max_new=24,  temp=0.7),
                "true_false":   dict(max_new=96,  temp=0.7),
                "mask_binary":  dict(max_new=160, temp=0.7),
@@ -676,8 +677,8 @@ def main():
             torch.manual_seed(args.seed)
             resp = generate_batched(model, tok, ctxs, device, cfg["max_new"],
                                     cfg["temp"], args.batch_size, guard=guard)
-            if split == "alpaca":
-                row["alpaca_degen"] = sum(degenerate(r) for r in resp) / len(resp)
+            if split == "alpaca" or sub[0]["grade"]["type"] == "freeform":
+                row[("alpaca" if split == "alpaca" else split_key(split)) + "_degen"] = sum(degenerate(r) for r in resp) / len(resp)
                 for it, r in zip(sub, resp):
                     all_recs.append({"arm": label, "split": split,
                                      "uid": it["uid"], "resp": r})
