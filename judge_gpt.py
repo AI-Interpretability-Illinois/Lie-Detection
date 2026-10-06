@@ -35,7 +35,7 @@ B = Path("/work/hdd/bfqt/xiaocong/lie_detection_outputs")
 J = "judged_Qwen2p5-7B-Instruct_v2"
 MODELS = [  # short name, LB tags, task tags (as reports/build_final_table.py and reports/summarize_tasks.py)
     ("Meta-Llama-3p1-8B-Instruct", ["final"]), ("Phi-4-mini-instruct", ["fixlb", "finaladd"]),
-    ("Falcon3-3B-Instruct", ["fixlb", "finaladd"]), ("OLMo-2-0425-1B-Instruct", ["final"]),
+    ("Falcon3-3B-Instruct", ["fixlb", "finaladd", "swfill"]), ("OLMo-2-0425-1B-Instruct", ["final", "swfill"]),   # swfill: 2026-10-06
     ("Qwen2p5-3B-Instruct", ["final"]), ("Qwen2p5-7B-Instruct", ["final"]), ("Qwen2p5-1p5B-Instruct", ["fixlb", "finaladd"])]
 NAME = {"Meta-Llama-3p1-8B-Instruct": "Llama-3.1-8B", "Phi-4-mini-instruct": "Phi-4-mini", "Falcon3-3B-Instruct": "Falcon3-3B",
         "OLMo-2-0425-1B-Instruct": "OLMo-2-1B", "Qwen2p5-3B-Instruct": "Qwen2.5-3B", "Qwen2p5-7B-Instruct": "Qwen2.5-7B",
@@ -65,6 +65,8 @@ def load_rows(model, tags, arms, judged=J):
     rows, seen = [], set()
     for t in tags:
         p = B / f"liars_bench_honesty_{model}_{t}_{judged}.jsonl"
+        if not p.exists():   # sw* tags (sweep runs, incl. the 2026-10-06 swfill cells) live under the nvme sweep dir
+            p = Path("/work/nvme/biro/xiaocong/lie_sweep") / p.name
         if not p.exists():
             continue
         for r in map(json.loads, open(p)):

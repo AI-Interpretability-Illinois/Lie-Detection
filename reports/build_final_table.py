@@ -57,8 +57,8 @@ SWEEP_MODELS = [("Qwen2p5-0p5B-Instruct", "Qwen2.5-0.5B"), ("Qwen2p5-14B-Instruc
 MODELS = [  # short name, label, LB tags, AI Liar tags (merged in order)
     ("Meta-Llama-3p1-8B-Instruct", "Llama-3.1-8B", ["final"], ["finalail"]),
     ("Phi-4-mini-instruct", "Phi-4-mini", ["fixlb", "finaladd"], ["fixail", "finailadd"]),
-    ("Falcon3-3B-Instruct", "Falcon3-3B", ["fixlb", "finaladd"], ["fixail", "finailadd"]),
-    ("OLMo-2-0425-1B-Instruct", "OLMo-2-1B", ["final"], ["finalail"]),
+    ("Falcon3-3B-Instruct", "Falcon3-3B", ["fixlb", "finaladd", "swfill"], ["fixail", "finailadd", "swfillail"]),   # swfill: milder options for the empty cells (2026-10-06)
+    ("OLMo-2-0425-1B-Instruct", "OLMo-2-1B", ["final", "swfill"], ["finalail", "swfillail"]),
     ("Qwen2p5-3B-Instruct", "Qwen2.5-3B", ["final"], ["finalail"]),
     ("Qwen2p5-7B-Instruct", "Qwen2.5-7B", ["final"], ["finalail"]),
     ("Qwen2p5-1p5B-Instruct", "Qwen2.5-1.5B", ["fixlb", "finaladd"], ["fixail", "finailadd"]),
