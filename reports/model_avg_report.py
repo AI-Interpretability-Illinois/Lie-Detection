@@ -81,7 +81,10 @@ def table1():
 
 def table2():
     import summarize_tasks as T
-    pre = {r["model"]: r["lb"]["lead"]["vs"] for r in json.load(open("main_table_final.json"))}
+    # Table 2's comparators were fixed in advance (the best other method on LIARS' BENCH validation at the time of the
+    # task runs); the 2026-10-06 fill of empty Table 1 cells made the lie mask Falcon3-3B's best other method, but it was
+    # never run on these tasks, so the comparators stay as recorded in tasks_table_gpt.json.
+    pre = {r["model"]: r["tasks"]["sandbag"]["lead_pre"]["vs"] for r in json.load(open("tasks_table_gpt.json"))}
     items = {}
     for short, name in T.MODELS:
         if name not in MAIN5:
