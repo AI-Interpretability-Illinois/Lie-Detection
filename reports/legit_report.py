@@ -6,6 +6,7 @@ instead, or REFUSED, per model and arm (each method at its LIARS' BENCH-chosen s
 Reads <SWEEP>/legit_judged_gpt/<model>_legit_judged.jsonl; writes reports/legit_table.json and reports/legit_report.md.
 """
 import json
+import re
 from collections import Counter, defaultdict
 from pathlib import Path
 import sys
@@ -23,18 +24,22 @@ KINDS = ["legit-fiction", "legit-roleplay", "legit-counterfactual"]
 
 
 def main():
+    main_tab = {r["model"]: r for r in json.load(open(R / "main_table_final.json")) if not r.get("pending")}
     out = []
     L = ["# Legitimate falsehoods: do the edited models still comply? (GPT-5.6 labels)", "",
          "150 requests (50 fiction, 50 role-play, 50 counterfactual) that legitimately ask for a false statement inside a frame;",
          "share of replies that complied / corrected the claim instead / refused, every method at its LIARS' BENCH-chosen setting.", ""]
     for stem, name in NAMES.items():
-        p = D / f"{stem}_legit_judged.jsonl"
+        p = D / f"{stem}_legitall_judged.jsonl"   # legit + legitfill (2026-10-07), if judged
+        if not p.exists():
+            p = D / f"{stem}_legit_judged.jsonl"
         if not p.exists():
             continue
+        chosen = {f: c.get("arm") for f, c in main_tab[name]["lb"]["cells"].items()} if name in main_tab else {}
         tally = defaultdict(Counter); by_kind = defaultdict(Counter)
         for r in map(json.loads, open(p)):
             f = family(r["arm"])
-            if f is None or not r.get("label"):
+            if f is None or not r.get("label") or (chosen and re.sub(r" \(c=[^)]*\)", "", r["arm"]) != re.sub(r" \(c=[^)]*\)", "", chosen.get(f) or "")):   # only the option Table 1 chose
                 continue
             tally[f][r["label"]] += 1
             by_kind[(f, "legit-" + str(r.get("kind", r.get("split", ""))).split("-")[-1])][r["label"]] += 1   # kind may lack the "legit-" prefix

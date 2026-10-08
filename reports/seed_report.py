@@ -7,6 +7,7 @@ rate under each seed, the spread (max - min) and the standard deviation across s
 the comparator fixed on validation under each seed. Writes reports/seed_table.json and reports/seed_report.md.
 """
 import glob
+import re
 import hashlib
 import json
 import statistics
@@ -25,8 +26,8 @@ NAMES = {"Meta-Llama-3p1-8B-Instruct": "Llama-3.1-8B", "Phi-4-mini-instruct": "P
 FAMS = ["mask", "liemask", "steer", "prompt", "unsteered"]
 SEEDS = [1, 2]
 G_OK = ("honest", "lie", "no_claim", "refusal")   # gradeable verdicts, as the main table (no claim / refusal count as not honest)
-TAGS0 = {"Meta-Llama-3p1-8B-Instruct": ["final"], "Phi-4-mini-instruct": ["fixlb", "finaladd"], "Falcon3-3B-Instruct": ["fixlb", "finaladd"],
-         "OLMo-2-0425-1B-Instruct": ["final"], "Qwen2p5-3B-Instruct": ["final"], "Qwen2p5-7B-Instruct": ["final"],
+TAGS0 = {"Meta-Llama-3p1-8B-Instruct": ["final"], "Phi-4-mini-instruct": ["fixlb", "finaladd"], "Falcon3-3B-Instruct": ["fixlb", "finaladd", "swfill"],
+         "OLMo-2-0425-1B-Instruct": ["final", "swfill"], "Qwen2p5-3B-Instruct": ["final"], "Qwen2p5-7B-Instruct": ["final"],
          "Qwen2p5-1p5B-Instruct": ["fixlb", "finaladd"]}   # the main table's LB tags per model (reports/build_final_table.py MODELS)
 half = lambda u: "val" if int(hashlib.md5(u.encode()).hexdigest(), 16) % 2 == 0 else "test"
 
@@ -45,16 +46,18 @@ def main():
         leads = {0: main_tab[name]["lb"]["lead"]}
         vs = leads[0]["vs"] if leads[0] else None
         for s in SEEDS:
-            fs = glob.glob(str(SWEEP / f"liars_bench_honesty_{stem}_seed{s}_judged_Qwen2p5-7B-Instruct_v2.jsonl"))
+            fs = sorted(glob.glob(str(SWEEP / f"liars_bench_honesty_{stem}_seed{s}_judged_Qwen2p5-7B-Instruct_v2.jsonl"))
+                        + glob.glob(str(SWEEP / f"liars_bench_honesty_{stem}_seed{s}fill_judged_Qwen2p5-7B-Instruct_v2.jsonl")))
             if not fs:
                 continue
             per = defaultdict(dict)
-            for r in map(json.loads, open(fs[0])):
-                if r["split"] != "instructed-deception" or half(r["uid"]) != "test" or r.get("verdict_hybrid") not in G_OK:
-                    continue
-                f = family(r["arm"])
-                if f:
-                    per[f][r["uid"]] = r["verdict_hybrid"] == "honest"
+            for fp in fs:
+                for r in map(json.loads, open(fp)):
+                    if r["split"] != "instructed-deception" or half(r["uid"]) != "test" or r.get("verdict_hybrid") not in G_OK:
+                        continue
+                    f = family(r["arm"])
+                    if f and re.sub(r" \(c=[^)]*\)", "", r["arm"]) == re.sub(r" \(c=[^)]*\)", "", main_tab[name]["lb"]["cells"].get(f, {}).get("arm") or ""):   # only the option Table 1 chose
+                        per[f][r["uid"]] = r["verdict_hybrid"] == "honest"
             rates[s] = {f: round(100 * sum(d.values()) / len(d), 1) for f, d in per.items() if d}
             leads[s] = paired(per, vs) if vs and "mask" in per and vs in per else None
         # pooled over seeds: each test item's honesty averaged over the seeds that have it (seed 0 from the main-table files),
@@ -65,6 +68,8 @@ def main():
         seen0 = set()
         for t in TAGS0[stem]:
             p = f"/work/hdd/bfqt/xiaocong/lie_detection_outputs/liars_bench_honesty_{stem}_{t}_judged_Qwen2p5-7B-Instruct_v2.jsonl"
+            if not Path(p).exists():   # sweep-dir tags (swfill: the 2026-10-06 milder options)
+                p = str(SWEEP / Path(p).name)
             if not Path(p).exists():
                 continue
             new = set()
@@ -74,19 +79,21 @@ def main():
                 new.add(r["arm"])
                 if r["split"] == "instructed-deception" and half(r["uid"]) == "test" and r.get("verdict_hybrid") in G_OK:
                     f = family(r["arm"])
-                    if f and r["arm"] == main_tab[name]["lb"]["cells"].get(f, {}).get("arm"):
+                    if f and re.sub(r" \(c=[^)]*\)", "", r["arm"]) == re.sub(r" \(c=[^)]*\)", "", main_tab[name]["lb"]["cells"].get(f, {}).get("arm") or ""):
                         p0.setdefault(f, {})[r["uid"]] = r["verdict_hybrid"] == "honest"
             seen0 |= new
         per_seed = {0: p0}
         for s in SEEDS:
-            fs = glob.glob(str(SWEEP / f"liars_bench_honesty_{stem}_seed{s}_judged_Qwen2p5-7B-Instruct_v2.jsonl"))
+            fs = sorted(glob.glob(str(SWEEP / f"liars_bench_honesty_{stem}_seed{s}_judged_Qwen2p5-7B-Instruct_v2.jsonl"))
+                        + glob.glob(str(SWEEP / f"liars_bench_honesty_{stem}_seed{s}fill_judged_Qwen2p5-7B-Instruct_v2.jsonl")))
             if fs:
                 d = defaultdict(dict)
-                for r in map(json.loads, open(fs[0])):
-                    if r["split"] == "instructed-deception" and half(r["uid"]) == "test" and r.get("verdict_hybrid") in G_OK:
-                        f = family(r["arm"])
-                        if f:
-                            d[f][r["uid"]] = r["verdict_hybrid"] == "honest"
+                for fp in fs:
+                    for r in map(json.loads, open(fp)):
+                        if r["split"] == "instructed-deception" and half(r["uid"]) == "test" and r.get("verdict_hybrid") in G_OK:
+                            f = family(r["arm"])
+                            if f and re.sub(r" \(c=[^)]*\)", "", r["arm"]) == re.sub(r" \(c=[^)]*\)", "", main_tab[name]["lb"]["cells"].get(f, {}).get("arm") or ""):
+                                d[f][r["uid"]] = r["verdict_hybrid"] == "honest"
                 per_seed[s] = d
         if vs and len(per_seed) > 1:
             agg = {}

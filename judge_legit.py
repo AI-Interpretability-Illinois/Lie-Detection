@@ -59,6 +59,7 @@ def main():
     ap.add_argument("--out", default="/work/nvme/biro/xiaocong/lie_sweep")
     ap.add_argument("--cache", default="/work/nvme/biro/xiaocong/lie_sweep/legit_judged_gpt/cache.jsonl")
     ap.add_argument("--plan", action="store_true")
+    ap.add_argument("--tag", default="legit", help="responses tag: <out>/liars_bench_honesty_<model>_<tag>_responses.jsonl")
     args = ap.parse_args()
     items = {}
     for l in open(B / "extra_data/extra_legit.jsonl"):
@@ -70,7 +71,7 @@ def main():
             d = json.loads(l); cache[d["k"]] = d["c"]
     work = []
     for m in args.models:
-        p = Path(args.out) / f"liars_bench_honesty_{m}_legit_responses.jsonl"
+        p = Path(args.out) / f"liars_bench_honesty_{m}_{args.tag}_responses.jsonl"
         if not p.exists():
             print("missing", p); continue
         for r in map(json.loads, open(p)):
@@ -100,7 +101,7 @@ def main():
         by_model[m].append(dict(r, request=q, label=lab, kind=items[r["uid"]]["grade"]["kind"]))
         tally[(m, r["arm"])][lab or "unparsed"] += 1
     for m, rows in by_model.items():
-        with open(out_dir / f"{m}_legit_judged.jsonl", "w") as f:
+        with open(out_dir / f"{m}_{args.tag}_judged.jsonl", "w") as f:
             for r in rows:
                 f.write(json.dumps(r, ensure_ascii=False) + "\n")
     print(f"{'model':28s} {'arm':30s} {'n':>4s} {'complied':>9s} {'corrected':>10s} {'refused':>8s}")

@@ -10,6 +10,7 @@ reports/attack_report.md. Lead = mask minus the comparator fixed on LIARS' BENCH
 paired bootstrap over test-half items; also mask minus the best other arm on the attack itself.
 """
 import glob
+import re
 import hashlib
 import json
 import sys
@@ -30,19 +31,26 @@ FAMS = ["mask", "liemask", "steer", "prompt", "unsteered"]
 half = lambda u: "val" if int(hashlib.md5(u.encode()).hexdigest(), 16) % 2 == 0 else "test"
 
 
+def _norm(a):
+    """steering arms carry the coefficient computed on the host (c=-13.0 on Delta, -13.1 on timan for the same layer and r)"""
+    return re.sub(r" \(c=[^)]*\)", "", a)
+
+
 def main():
     main_tab = {r["model"]: r for r in json.load(open(R / "main_table_final.json")) if not r.get("pending")}
     out = []
     for stem, name in NAMES.items():
-        fs = glob.glob(str(SWEEP / f"liars_bench_honesty_{stem}_atk_judged_Qwen2p5-7B-Instruct_v2.jsonl"))
+        fs = sorted(glob.glob(str(SWEEP / f"liars_bench_honesty_{stem}_atk_judged_Qwen2p5-7B-Instruct_v2.jsonl"))
+                    + glob.glob(str(SWEEP / f"liars_bench_honesty_{stem}_atkfill_judged_Qwen2p5-7B-Instruct_v2.jsonl")))
         if not fs:
             continue
+        chosen = {f: c.get("arm") for f, c in main_tab[name]["lb"]["cells"].items()} if name in main_tab else {}
         items = defaultdict(lambda: defaultdict(dict))     # (split, half) -> fam -> uid -> honest
-        for r in map(json.loads, open(fs[0])):
+        for r in (r for fp in fs for r in map(json.loads, open(fp))):
             if r["split"] not in SPLITS or r.get("verdict_hybrid") not in ("honest", "lie"):
                 continue
             f = family(r["arm"])
-            if f is None:
+            if f is None or (chosen and _norm(r["arm"]) != _norm(chosen.get(f) or "")):   # only the option Table 1 chose (2026-10-07)
                 continue
             orig = r["uid"].split(":", 1)[1]
             for h in ("all", half(orig)):
