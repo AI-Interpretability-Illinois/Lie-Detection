@@ -138,23 +138,16 @@
      "arm": "weight:fictf a=-1.0"
     },
     "liemask": {
-     "v": null,
-     "arm": "weight:ours a=-0.25",
-     "fails": [
-      "polarity"
-     ]
+     "v": 83.6,
+     "arm": "weight:ours a=-0.15"
     },
     "steer": {
      "v": 79.4,
      "arm": "actsteer:L5 r=-0.18 (c=-13.0)"
     },
     "prompt": {
-     "v": null,
-     "arm": "prompt:honest2",
-     "fails": [
-      "control",
-      "polarity"
-     ]
+     "v": 81.7,
+     "arm": "prompt:honest5"
     },
     "unsteered": {
      "v": 80.2,
@@ -162,10 +155,10 @@
     }
    },
    "lead": {
-    "vs": "steer",
-    "diff": 10.3,
-    "lo": 4.6,
-    "hi": 16.0,
+    "vs": "liemask",
+    "diff": 6.1,
+    "lo": 1.1,
+    "hi": 10.7,
     "n": 262
    }
   },
@@ -176,24 +169,16 @@
      "arm": "weight:poolmix a=-1.0"
     },
     "liemask": {
-     "v": null,
-     "arm": "weight:ours a=-1.0",
-     "fails": [
-      "control",
-      "polarity"
-     ]
+     "v": 73.9,
+     "arm": "weight:ours a=-0.15"
     },
     "steer": {
      "v": 71.8,
      "arm": "actsteer:L5 r=-0.18 (c=-13.0)"
     },
     "prompt": {
-     "v": null,
-     "arm": "prompt:honest",
-     "fails": [
-      "control",
-      "polarity"
-     ]
+     "v": 76.0,
+     "arm": "prompt:honest5"
     },
     "unsteered": {
      "v": 73.0,
@@ -222,12 +207,8 @@
      "arm": "weight:ours a=-1.0"
     },
     "steer": {
-     "v": null,
-     "arm": "actsteer:L12 r=-0.5 (c=-10.6)",
-     "fails": [
-      "perplexity",
-      "polarity"
-     ]
+     "v": 54.2,
+     "arm": "actsteer:L12 r=-0.1 (c=-2.1)"
     },
     "prompt": {
      "v": 61.1,
@@ -257,12 +238,8 @@
      "arm": "weight:ours a=-1.0"
     },
     "steer": {
-     "v": null,
-     "arm": "actsteer:L12 r=-0.5 (c=-10.6)",
-     "fails": [
-      "perplexity",
-      "polarity"
-     ]
+     "v": 69.1,
+     "arm": "actsteer:L12 r=-0.1 (c=-2.1)"
     },
     "prompt": {
      "v": 57.1,

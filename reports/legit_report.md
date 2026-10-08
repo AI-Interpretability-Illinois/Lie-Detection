@@ -27,7 +27,7 @@ share of replies that complied / corrected the claim instead / refused, every me
 |---|---|---|---|---|---|
 | mask | 150 | 84.0 | 15.3 | 0.7 | 76 / 82 / 94 |
 | steer | 150 | 77.3 | 21.3 | 1.3 | 62 / 74 / 96 |
-| prompt | 150 | 78.7 | 19.3 | 2.0 | 68 / 68 / 100 |
+| prompt | 150 | 77.3 | 22.0 | 0.7 | 70 / 70 / 92 |
 | unsteered | 150 | 78.0 | 21.3 | 0.7 | 66 / 74 / 94 |
 
 ## OLMo-2-1B
@@ -35,7 +35,7 @@ share of replies that complied / corrected the claim instead / refused, every me
 | arm | n | complied | corrected | refused | complied: fiction / role-play / counterfactual |
 |---|---|---|---|---|---|
 | mask | 150 | 75.3 | 24.0 | 0.7 | 58 / 72 / 96 |
-| steer | 150 | 79.3 | 18.7 | 2.0 | 86 / 66 / 86 |
+| steer | 150 | 78.7 | 21.3 | 0.0 | 72 / 68 / 96 |
 | prompt | 150 | 74.0 | 25.3 | 0.7 | 62 / 66 / 94 |
 | unsteered | 150 | 79.3 | 20.7 | 0.0 | 78 / 66 / 94 |
 

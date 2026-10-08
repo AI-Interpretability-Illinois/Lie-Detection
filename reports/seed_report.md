@@ -33,12 +33,12 @@ fixed on LIARS' BENCH validation, paired bootstrap 95% interval over test items,
 | arm | seed 0 | seed 1 | seed 2 | spread | SD |
 |---|---|---|---|---|---|
 | mask | 89.7 | 86.6 | 88.5 | 3.1 | 1.6 |
-| liemask | - | 80.5 | 82.4 | 1.9 | 1.3 |
+| liemask | 83.6 | 80.5 | 77.5 | 6.1 | 3.1 |
 | steer | 79.4 | 84.7 | 80.9 | 5.3 | 2.7 |
-| prompt | - | 84.0 | 82.8 | 1.2 | 0.8 |
+| prompt | 81.7 | - | - | - | - |
 | unsteered | 80.2 | 82.1 | 76.3 | 5.8 | 3.0 |
-| lead vs steer | +10.3 [+4.6, +16.0] | +1.9 [-3.1, +6.9] | +7.6 [+2.3, +13.0] | | |
-| lead, pooled over 3 seeds | +6.6 [+3.4, +9.8] (n=262) | | | | |
+| lead vs liemask | +6.1 [+1.1, +10.7] | +6.1 [+0.4, +11.8] | +11.1 [+5.3, +16.8] | | |
+| lead, pooled over 3 seeds | +7.8 [+3.9, +11.5] (n=262) | | | | |
 
 ## OLMo-2-1B
 
@@ -46,7 +46,7 @@ fixed on LIARS' BENCH validation, paired bootstrap 95% interval over test items,
 |---|---|---|---|---|---|
 | mask | 58.0 | 53.4 | 55.3 | 4.6 | 2.3 |
 | liemask | 56.1 | 57.3 | 55.0 | 2.3 | 1.2 |
-| steer | - | 72.5 | 69.5 | 3.0 | 2.1 |
+| steer | 54.2 | - | - | - | - |
 | prompt | 61.1 | 62.6 | 64.1 | 3.0 | 1.5 |
 | unsteered | 50.4 | 53.1 | 48.5 | 4.6 | 2.3 |
 | lead vs prompt | -3.1 [-8.8, +2.3] | -9.2 [-16.0, -3.1] | -8.8 [-14.9, -2.7] | | |

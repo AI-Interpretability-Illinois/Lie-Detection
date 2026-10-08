@@ -26,19 +26,19 @@ comparator fixed on LIARS' BENCH validation, paired bootstrap 95% interval over 
 
 | condition | mask | lie mask | steering | honest prompt | unedited | lead (pre-registered) | lead vs best other |
 |---|---|---|---|---|---|---|---|
-| plain (Table 1) | 89.7 | - | 79.4 | - | 80.2 | +10.3 [+4.6, +16.0] vs steer | |
-| many-shot lies | 87.0 | - | 87.0 | 86.6 | 80.9 | +0.0 [-4.6, +5.0] vs steer | +0.0 [-4.6, +5.0] vs steer |
-| Spanish order | 87.7 | - | 82.1 | 82.6 | 77.8 | +6.0 [+0.4, +11.5] vs steer | +5.0 [-0.9, +11.0] vs prompt |
-| Chinese order | 95.0 | - | 85.1 | 95.9 | 82.4 | +9.8 [+4.5, +14.2] vs steer | -1.2 [-4.1, +1.7] vs prompt |
+| plain (Table 1) | 89.7 | 83.6 | 79.4 | 81.7 | 80.2 | +6.1 [+1.1, +10.7] vs liemask | |
+| many-shot lies | 87.0 | - | 87.0 | 86.3 | 80.9 | - | +0.0 [-4.6, +5.0] vs steer |
+| Spanish order | 87.7 | - | 82.1 | 80.6 | 77.8 | - | +6.0 [+0.4, +11.5] vs steer |
+| Chinese order | 95.0 | - | 85.1 | 89.2 | 82.4 | - | +5.5 [+1.3, +9.7] vs prompt |
 
 ## OLMo-2-1B
 
 | condition | mask | lie mask | steering | honest prompt | unedited | lead (pre-registered) | lead vs best other |
 |---|---|---|---|---|---|---|---|
-| plain (Table 1) | 58.0 | 56.1 | - | 61.1 | 50.4 | -3.1 [-8.8, +2.3] vs prompt | |
-| many-shot lies | 66.8 | - | 78.6 | 67.9 | 68.7 | -1.1 [-8.0, +5.7] vs prompt | -11.8 [-19.1, -5.0] vs steer |
-| Spanish order | 58.2 | - | 66.4 | 64.4 | 52.3 | -6.2 [-12.3, -0.4] vs prompt | -8.1 [-17.4, +0.8] vs steer |
-| Chinese order | 63.7 | - | 71.8 | 66.0 | 61.3 | -2.3 [-8.8, +3.8] vs prompt | -8.0 [-16.4, +0.4] vs steer |
+| plain (Table 1) | 58.0 | 56.1 | 54.2 | 61.1 | 50.4 | -3.1 [-8.8, +2.3] vs prompt | |
+| many-shot lies | 66.8 | - | 69.1 | 67.9 | 68.7 | -1.1 [-8.0, +5.7] vs prompt | -2.3 [-8.4, +3.8] vs steer |
+| Spanish order | 58.2 | - | 59.4 | 64.4 | 52.3 | -6.2 [-12.3, -0.4] vs prompt | -6.2 [-12.3, -0.4] vs prompt |
+| Chinese order | 63.7 | - | 71.8 | 66.0 | 61.3 | -2.3 [-8.8, +3.8] vs prompt | -8.0 [-14.1, -1.9] vs steer |
 
 ## Qwen2.5-3B
 
