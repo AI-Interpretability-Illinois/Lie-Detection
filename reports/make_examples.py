@@ -18,7 +18,7 @@ PICK = [  # model file stem, tags, arms (label in the file) in display order, ho
     ("Meta-Llama-3p1-8B-Instruct", ["final"], ["unsteered", "weight:fiction a=-1.0", "actsteer:L8 r=-0.5 (c=-2.8)", "prompt:honest2"], 3),
     ("Phi-4-mini-instruct", ["fixlb", "finaladd"], ["unsteered", "weight:pooled a=-1.0", "actsteer:L16 r=-0.18 (c=-10.4)", "prompt:honest2"], 2),
 ]
-NAMES = {"unsteered": "unedited", "weight:fiction a=-1.0": "ours", "weight:pooled a=-1.0": "ours",
+NAMES = {"unsteered": "unedited", "weight:fiction a=-1.0": r"\textbf{ours}", "weight:pooled a=-1.0": r"\textbf{ours}",
          "actsteer:L8 r=-0.5 (c=-2.8)": "steering (L8, $-0.5$)", "actsteer:L16 r=-0.18 (c=-10.4)": "steering (L16, $-0.18$)",
          "prompt:honest2": "honest prompt"}
 half = lambda u: "val" if int(hashlib.md5(u.encode()).hexdigest(), 16) % 2 == 0 else "test"
