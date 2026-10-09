@@ -46,6 +46,8 @@ RATIO=${RATIO:-0.37}
 COEFFS=${COEFFS:--0.18,-0.5}
 EXTRA=${EXTRA:-}            # passthrough, e.g. EXTRA="--n-per-split 4" to smoke-test
 DRY=${DRY:-0}
+TAGX=${TAGX:-}               # suffix for --tag (a second protocol on the same sizes); the belief cache keeps pythia<size>
+BS_OVERRIDE=${BS_OVERRIDE:-} # generation batch for every size in this call, instead of the grid's (memory permitting)
 STEER_ARMS=${STEER_ARMS:-0} # 1: append asrL{lo,mid,hi}_{COEFFS} to ARMS, per size (the layers differ by size)
 
 [ -f "$EVALSET" ] || { echo "no eval set at $EVALSET -- build it first:"; \
@@ -72,6 +74,7 @@ lane() {                      # lane <gpu> <size> [<size> ...]
     (( lo < 0 )) && lo=0
     (( hi > NLAYER - 1 )) && hi=$(( NLAYER - 1 ))
     local tag="pythia$(echo "$s" | tr . p)"
+    [ -n "$BS_OVERRIDE" ] && BS=$BS_OVERRIDE
     local arms=$ARMS L c
     if [ "$STEER_ARMS" = 1 ]; then
       for L in $(printf '%s\n' "$lo" "$STEER" "$hi" | uniq); do
@@ -89,12 +92,12 @@ lane() {                      # lane <gpu> <size> [<size> ...]
                --falsehood-arms --polarity-arms --arms "$arms"
                --as-layers "$lo,$STEER,$hi" "--as-rel-coeffs=$COEFFS"
                --batch-size "$BS" --score-batch "$SB"
-               --belief-tag "$tag" --tag "$tag" ${EXTRA:-})
-    echo "[gpu $gpu] $s -> $tag  (layers $lo,$STEER,$hi of $NLAYER; BS=$BS SB=$SB)"
+               --belief-tag "$tag" --tag "$tag$TAGX" ${EXTRA:-})
+    echo "[gpu $gpu] $s -> $tag$TAGX  (layers $lo,$STEER,$hi of $NLAYER; BS=$BS SB=$SB)"
     if [ "$DRY" = 1 ]; then
       printf '         %q' "${cmd[@]}"; echo
     else
-      "${cmd[@]}" > "$LOGDIR/$tag.log" 2>&1 \
+      "${cmd[@]}" > "$LOGDIR/$tag$TAGX.log" 2>&1 \
         || echo "[gpu $gpu] $s FAILED, see $LOGDIR/$tag.log"
     fi
   done
