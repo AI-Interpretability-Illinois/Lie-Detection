@@ -204,6 +204,10 @@ def materialize(size: str, deduped: bool, cache_dir: str, root: str,
         link.symlink_to(src.resolve())
 
     tc = json.loads((snap / "tokenizer_config.json").read_text())
+    # 1b and 1.4b re-publish the same vocabulary and merges under tokenizer_class PreTrainedTokenizerFast, whose
+    # outputs include token_type_ids, which generate() rejects on GPT-NeoX (transformers 4.57); every size gets
+    # the GPT-NeoX class and the two inputs the model takes, so all eight load the same tokenizer.
+    tc.update(tokenizer_class="GPTNeoXTokenizer", model_input_names=["input_ids", "attention_mask"])
     tc.update(chat_template=CHAT_TEMPLATE, padding_side="left",
               model_max_length=2048,
               pad_token="<|padding|>", bos_token="<|endoftext|>",
