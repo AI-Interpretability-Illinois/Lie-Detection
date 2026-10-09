@@ -651,8 +651,9 @@ def main():
         print("  median residual norm: "
               + "  ".join(f"L{L}={norm_at[L]:.1f}" for L in sweep_layers),
               flush=True)
-        rn = norm_at[args.as_layer] if args.as_layer in norm_at else \
-            acts[args.as_layer].float().norm(dim=-1).median().item()
+        # No norm is read at args.as_layer here: it is only the fallback when
+        # --as-layers is absent, and reading it unconditionally crashed on any
+        # model with fewer layers than its default (Pythia-70m has 6).
         coeffs = [float(x) for x in args.as_coeffs.split(",")] if args.as_coeffs else []
         rel = [float(x) for x in args.as_rel_coeffs.split(",")] if args.as_rel_coeffs else []
         for L in sweep_layers:

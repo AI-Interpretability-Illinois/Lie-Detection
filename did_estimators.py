@@ -97,7 +97,7 @@ def decoder_layers(model):
     """
     for path in ("model.layers", "language_model.model.layers",
                  "language_model.layers", "model.language_model.layers",
-                 "transformer.h", "model.decoder.layers"):
+                 "transformer.h", "model.decoder.layers", "gpt_neox.layers"):
         obj = model
         for part in path.split("."):
             obj = getattr(obj, part, None)
@@ -108,10 +108,10 @@ def decoder_layers(model):
     raise AttributeError(
         "could not locate the decoder layer list; checked model.layers, "
         "language_model[.model].layers, model.language_model.layers, "
-        "transformer.h, model.decoder.layers")
+        "transformer.h, model.decoder.layers, gpt_neox.layers")
 
 
-def target_layers(model, skip=("lm_head", "embed_tokens")) -> List[str]:
+def target_layers(model, skip=("lm_head", "embed_out", "embed_tokens")) -> List[str]:
     names = []
     for name, mod in model.named_modules():
         if not isinstance(mod, nn.Linear):
