@@ -49,8 +49,18 @@ def key(statement, reply):
     return hashlib.md5((statement + "\n##\n" + reply[:MAX_RESP]).encode()).hexdigest()
 
 
+# --sweep: the size-study models (reports/main_table_sweep.json, tags sw1-sw4), so a size series can sit on the same
+# grader as Table 1. Same scope rule as above: the arms chosen on validation with the Qwen grader, both halves.
+SWEEP_MODELS = [("Qwen2p5-0p5B-Instruct", "Qwen2.5-0.5B"), ("Qwen2p5-14B-Instruct", "Qwen2.5-14B"),
+                ("OLMo-2-1124-7B-Instruct", "OLMo-2-7B"), ("OLMo-2-1124-13B-Instruct", "OLMo-2-13B"),
+                ("OLMo-2-0325-32B-Instruct", "OLMo-2-32B"), ("Falcon3-1B-Instruct", "Falcon3-1B"),
+                ("Falcon3-7B-Instruct", "Falcon3-7B"), ("Falcon3-10B-Instruct", "Falcon3-10B")]
+SW_TAGS = ["sw1", "sw2", "sw3", "sw4"]
+TABLE = "/u/xiaocong/lie_detection/reports/main_table_final.json"
+
+
 def chosen_arms(model):
-    tab = json.load(open("/u/xiaocong/lie_detection/reports/main_table_final.json"))
+    tab = json.load(open(TABLE))
     row = next(r for r in tab if r["model"] == NAME[model])
     arms = set()
     for b in ("lb", "ail"):
@@ -65,8 +75,12 @@ def load_rows(model, tags, arms, judged=J):
     rows, seen = [], set()
     for t in tags:
         p = B / f"liars_bench_honesty_{model}_{t}_{judged}.jsonl"
-        if not p.exists():   # sw* tags (sweep runs, incl. the 2026-10-06 swfill cells) live under the nvme sweep dir
-            p = Path("/work/nvme/biro/xiaocong/lie_sweep") / p.name
+        if not p.exists():   # sw* tags (sweep runs, incl. the 2026-10-06 swfill cells) live under a sweep dir:
+            for d in ("/work/nvme/biro/xiaocong/lie_sweep",      # Delta runs
+                      "/u/xiaocong/lie_results/timan_sweep"):    # timan1/timan108 runs (OLMo-2, Qwen2.5-0.5B)
+                if (Path(d) / p.name).exists():
+                    p = Path(d) / p.name
+                    break
         if not p.exists():
             continue
         for r in map(json.loads, open(p)):
@@ -113,7 +127,18 @@ def main():
     ap.add_argument("--out", default="/work/nvme/biro/xiaocong/lie_out_gpt")
     ap.add_argument("--cache", default="/work/nvme/biro/xiaocong/lie_out_gpt/gpt_claims_cache.jsonl")
     ap.add_argument("--limit", type=int, default=0)
+    ap.add_argument("--sweep", action="store_true", help="the size-study models instead of the main table")
+    ap.add_argument("--only", default="", help="restrict to one short model name")
+    ap.add_argument("--arms-extra", default="", help="semicolon-separated arms to add to the chosen ones "
+                    "(e.g. the magnitude-matched random mask, which is a control and so never a chosen arm)")
     args = ap.parse_args()
+    if args.sweep:
+        global MODELS, NAME, TABLE
+        MODELS = [(m, SW_TAGS) for m, _ in SWEEP_MODELS]
+        NAME = dict(SWEEP_MODELS)
+        TABLE = "/u/xiaocong/lie_detection/reports/main_table_sweep.json"
+    if args.only:
+        MODELS = [(m, t) for m, t in MODELS if m == args.only]
     out = Path(args.out); out.mkdir(parents=True, exist_ok=True)
     cache_p = Path(args.cache)
     cache = {}
@@ -126,7 +151,7 @@ def main():
         st_x.update(statements(B / "extra_data" / f))
     work = []       # (model, src-file-stem, row, statement)
     for model, tags in MODELS:
-        arms = chosen_arms(model)
+        arms = chosen_arms(model) | {a for a in args.arms_extra.split(";") if a}
         files = [(tags, st_lb)]
         if args.tasks:
             files += [(["tinject"], st_x), (["tamgot"], st_x)]

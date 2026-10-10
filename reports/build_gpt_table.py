@@ -12,6 +12,7 @@ import hashlib
 import json
 import os
 import random
+import sys
 from collections import defaultdict
 from pathlib import Path
 
@@ -34,7 +35,15 @@ def lead(pm, pb):
 
 
 def main():
-    tab = json.load(open(R / "main_table_final.json"))
+    # --sweep: the same recomputation for the size-study models (judge_gpt.py --sweep), so a size series sits on
+    # Table 1's grader. Input reports/main_table_sweep.json, output reports/main_table_sweep_gpt.json.
+    sweep = "--sweep" in sys.argv
+    if sweep:
+        SHORT.update(dict((b, a) for a, b in [("Qwen2p5-0p5B-Instruct", "Qwen2.5-0.5B"), ("Qwen2p5-14B-Instruct", "Qwen2.5-14B"),
+                                              ("OLMo-2-1124-7B-Instruct", "OLMo-2-7B"), ("OLMo-2-1124-13B-Instruct", "OLMo-2-13B"),
+                                              ("OLMo-2-0325-32B-Instruct", "OLMo-2-32B"), ("Falcon3-1B-Instruct", "Falcon3-1B"),
+                                              ("Falcon3-7B-Instruct", "Falcon3-7B"), ("Falcon3-10B-Instruct", "Falcon3-10B")]))
+    tab = json.load(open(R / ("main_table_sweep.json" if sweep else "main_table_final.json")))
     out = []
     for row in tab:
         if row.get("pending"):
@@ -65,8 +74,9 @@ def main():
               + (f"   lead {L2['diff']:+.1f} [{L2['lo']:+.1f}, {L2['hi']:+.1f}] vs {L2['vs']}" if L2 else ""))
         print(f"{'':<13} lb 7B   " + "  ".join((f"{c['v7b']:5.1f}" if c.get('v7b') is not None else "   - ") for c in (cells.get(f, {}) for f in ("mask", "liemask", "steer", "prompt", "unsteered")))
               + (f"   lead {L['diff']:+.1f} [{L['lo']:+.1f}, {L['hi']:+.1f}] vs {L['vs']}" if L else ""))
-    json.dump(out, open(R / "main_table_gpt.json", "w"), indent=1)
-    print("-> reports/main_table_gpt.json")
+    name = "main_table_sweep_gpt.json" if sweep else "main_table_gpt.json"
+    json.dump(out, open(R / name, "w"), indent=1)
+    print("-> reports/" + name)
 
 
 if __name__ == "__main__":
