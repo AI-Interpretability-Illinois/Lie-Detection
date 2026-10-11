@@ -55,11 +55,13 @@ SWEEP_MODELS = [("Qwen2p5-0p5B-Instruct", "Qwen2.5-0.5B"), ("Qwen2p5-14B-Instruc
                 ("OLMo-2-0325-32B-Instruct", "OLMo-2-32B"),
                 ("Falcon3-1B-Instruct", "Falcon3-1B"), ("Falcon3-7B-Instruct", "Falcon3-7B"), ("Falcon3-10B-Instruct", "Falcon3-10B")]
 MODELS = [  # short name, label, LB tags, AI Liar tags (merged in order)
-    ("Meta-Llama-3p1-8B-Instruct", "Llama-3.1-8B", ["final"], ["finalail"]),
-    ("Phi-4-mini-instruct", "Phi-4-mini", ["fixlb", "finaladd"], ["fixail", "finailadd"]),
-    ("Falcon3-3B-Instruct", "Falcon3-3B", ["fixlb", "finaladd", "swfill"], ["fixail", "finailadd", "swfillail"]),   # swfill: milder options for the empty cells (2026-10-06)
-    ("OLMo-2-0425-1B-Instruct", "OLMo-2-1B", ["final", "swfill"], ["finalail", "swfillail"]),
-    ("Qwen2p5-3B-Instruct", "Qwen2.5-3B", ["final"], ["finalail"]),
+    # swsteer: steering strengths r = -0.3/-0.75/-1 at the same three layers, every Table 1 model (owner, 2026-10-11;
+    # queue/lie_steerx.slurm): on Llama the chosen option was the strongest strength on the original menu
+    ("Meta-Llama-3p1-8B-Instruct", "Llama-3.1-8B", ["final", "swsteer"], ["finalail", "swsteerail"]),
+    ("Phi-4-mini-instruct", "Phi-4-mini", ["fixlb", "finaladd", "swsteer"], ["fixail", "finailadd", "swsteerail"]),
+    ("Falcon3-3B-Instruct", "Falcon3-3B", ["fixlb", "finaladd", "swfill", "swsteer"], ["fixail", "finailadd", "swfillail", "swsteerail"]),   # swfill: milder options for the empty cells (2026-10-06)
+    ("OLMo-2-0425-1B-Instruct", "OLMo-2-1B", ["final", "swfill", "swsteer"], ["finalail", "swfillail", "swsteerail"]),
+    ("Qwen2p5-3B-Instruct", "Qwen2.5-3B", ["final", "swsteer"], ["finalail", "swsteerail"]),
     ("Qwen2p5-7B-Instruct", "Qwen2.5-7B", ["final"], ["finalail"]),
     ("Qwen2p5-1p5B-Instruct", "Qwen2.5-1.5B", ["fixlb", "finaladd"], ["fixail", "finailadd"]),
 ]

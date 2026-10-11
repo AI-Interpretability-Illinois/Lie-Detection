@@ -34,9 +34,10 @@ from score_liars_bench import is_refusal
 B = Path("/work/hdd/bfqt/xiaocong/lie_detection_outputs")
 J = "judged_Qwen2p5-7B-Instruct_v2"
 MODELS = [  # short name, LB tags, task tags (as reports/build_final_table.py and reports/summarize_tasks.py)
-    ("Meta-Llama-3p1-8B-Instruct", ["final"]), ("Phi-4-mini-instruct", ["fixlb", "finaladd"]),
-    ("Falcon3-3B-Instruct", ["fixlb", "finaladd", "swfill"]), ("OLMo-2-0425-1B-Instruct", ["final", "swfill"]),   # swfill: 2026-10-06
-    ("Qwen2p5-3B-Instruct", ["final"]), ("Qwen2p5-7B-Instruct", ["final"]), ("Qwen2p5-1p5B-Instruct", ["fixlb", "finaladd"])]
+    ("Meta-Llama-3p1-8B-Instruct", ["final", "swsteer"]), ("Phi-4-mini-instruct", ["fixlb", "finaladd", "swsteer"]),
+    ("Falcon3-3B-Instruct", ["fixlb", "finaladd", "swfill", "swsteer"]), ("OLMo-2-0425-1B-Instruct", ["final", "swfill", "swsteer"]),   # swfill: 2026-10-06
+    ("Qwen2p5-3B-Instruct", ["final", "swsteer"]), ("Qwen2p5-7B-Instruct", ["final"]), ("Qwen2p5-1p5B-Instruct", ["fixlb", "finaladd"])]
+# swsteer (2026-10-11): steering strengths -0.3/-0.75/-1 at the same three layers on the five Table 1 models
 NAME = {"Meta-Llama-3p1-8B-Instruct": "Llama-3.1-8B", "Phi-4-mini-instruct": "Phi-4-mini", "Falcon3-3B-Instruct": "Falcon3-3B",
         "OLMo-2-0425-1B-Instruct": "OLMo-2-1B", "Qwen2p5-3B-Instruct": "Qwen2.5-3B", "Qwen2p5-7B-Instruct": "Qwen2.5-7B",
         "Qwen2p5-1p5B-Instruct": "Qwen2.5-1.5B"}
