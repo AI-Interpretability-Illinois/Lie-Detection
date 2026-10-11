@@ -9,8 +9,8 @@ sandbagging, and the result is mixed: the honest rate goes up on Llama-3.1-8B, P
 down on Falcon3-3B and OLMo-2-1B. Here the mask is built from sandbagging orders, with the same rule, the same
 ρ and r, and the same selection protocol as Table 1.
 
-**Status: no results yet. A smoke test (OLMo-2-1B, 20 items per split, every option) is queued on Delta; this
-line will say when it has passed.** The report script has been checked on synthetic outputs.
+**Status: no results yet. The smoke test passed on Delta on 2026-10-11** (OLMo-2-1B, 20 items per split, all
+32 options, 3 min 48 s end to end; both mask families built at 4.0% of weights; report produced).
 The protocol and the option menus below were fixed on 2026-10-11, before any run. Please do not change them
 after seeing results; if something has to change, say so in the results commit.
 
@@ -90,7 +90,10 @@ Paths are env-overridable: `REPO`, `PY`, `CACHE`, `OUTDIR` (default `outputs/`),
 of memory.
 
 - **Cost:** about 650 short generations per option (up to 16 new tokens), plus one perplexity pass, for 32
-  options per model. Not measured yet; a full model should take well under an hour on one card.
+  options per model. The smoke test ran about 3 s per option on OLMo-2-1B with 60 items. The full evaluation has 650 items, about
+  10x that, so roughly 15-20 minutes for OLMo-2-1B and under an hour for Llama-3.1-8B on one card.
+- **The log ends with a LIARS' BENCH summary table full of `nan`.** Ignore it: this evaluation has no LIARS' BENCH
+  splits. The per-option lines (`sandbag_mmlu: honest=...`) and the report are what count.
 - **Resuming:** a rerun reuses the belief cache (`outputs/liars_bench/beliefs_<model>_sandbag.jsonl`) and the
   steering vectors (`outputs/as_vectors_<model>_sandbag_ntruth25.pt`).
 
