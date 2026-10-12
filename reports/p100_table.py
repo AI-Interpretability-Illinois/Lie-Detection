@@ -42,7 +42,7 @@ def ail(short):
 
 def main():
     out = []
-    for row in json.load(open(R / "main_table_final.json")):
+    for row in json.load(open(R / "main_table_final_menu0.json")):   # the options chosen on the original menu (Table 1 before the 2026-10-11 menu extension), at which this analysis was run
         s = SHORT[row["model"]]
         rec = {"model": row["model"]}
         for b, f in (("lb", lb), ("ail", ail)):

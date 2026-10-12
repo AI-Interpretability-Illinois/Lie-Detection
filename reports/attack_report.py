@@ -37,7 +37,7 @@ def _norm(a):
 
 
 def main():
-    main_tab = {r["model"]: r for r in json.load(open(R / "main_table_final.json")) if not r.get("pending")}
+    main_tab = {r["model"]: r for r in json.load(open(R / "main_table_final_menu0.json")) if not r.get("pending")}   # the options chosen on the original menu (Table 1 before the 2026-10-11 menu extension), at which this analysis was run
     out = []
     for stem, name in NAMES.items():
         fs = sorted(glob.glob(str(SWEEP / f"liars_bench_honesty_{stem}_atk_judged_Qwen2p5-7B-Instruct_v2.jsonl"))

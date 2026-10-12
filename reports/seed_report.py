@@ -33,7 +33,7 @@ half = lambda u: "val" if int(hashlib.md5(u.encode()).hexdigest(), 16) % 2 == 0 
 
 
 def main():
-    main_tab = {r["model"]: r for r in json.load(open(R / "main_table_final.json")) if not r.get("pending")}
+    main_tab = {r["model"]: r for r in json.load(open(R / "main_table_final_menu0.json")) if not r.get("pending")}   # the options chosen on the original menu (Table 1 before the 2026-10-11 menu extension), at which this analysis was run
     out = []
     L = ["# Sampling-seed replication of Table 1 (Qwen2.5-7B judge, LIARS' BENCH test half)", "",
          "Seed 0 is the paper's run; seeds 1 and 2 regenerate the same arms (temperature 0.7) with a different torch seed.",

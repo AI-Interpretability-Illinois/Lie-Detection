@@ -62,7 +62,7 @@ def main():
            "Stance labels on the same replies (AGREES / DISAGREES / NEITHER); beliefs shared. Chosen arms of the main table.", ""]
     out.append("| family | replies | judged (keyword unsettled) | agreement | kappa | 7B calls honest, GPT lie | GPT honest, 7B lie |")
     out.append("|---|---|---|---|---|---|---|")
-    tab = json.load(open("/u/xiaocong/lie_detection/reports/main_table_final.json"))
+    tab = json.load(open("/u/xiaocong/lie_detection/reports/main_table_final_menu0.json"))   # the options chosen on the original menu (Table 1 before the 2026-10-11 menu extension), at which this analysis was run
     byfam = defaultdict(list)
     for m, rs in rows.items():
         byfam[FAM[m]] += rs

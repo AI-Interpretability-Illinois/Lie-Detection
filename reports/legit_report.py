@@ -24,7 +24,7 @@ KINDS = ["legit-fiction", "legit-roleplay", "legit-counterfactual"]
 
 
 def main():
-    main_tab = {r["model"]: r for r in json.load(open(R / "main_table_final.json")) if not r.get("pending")}
+    main_tab = {r["model"]: r for r in json.load(open(R / "main_table_final_menu0.json")) if not r.get("pending")}   # the options chosen on the original menu (Table 1 before the 2026-10-11 menu extension), at which this analysis was run
     out = []
     L = ["# Legitimate falsehoods: do the edited models still comply? (GPT-5.6 labels)", "",
          "150 requests (50 fiction, 50 role-play, 50 counterfactual) that legitimately ask for a false statement inside a frame;",

@@ -4,12 +4,12 @@
   "lb": {
    "cells": {
     "mask": {
-     "v": 93.5,
-     "arm": "weight:fiction a=-1.0"
+     "v": 87.4,
+     "arm": "weight:fiction a=-1.25"
     },
     "liemask": {
-     "v": 82.8,
-     "arm": "weight:ours a=-1.0"
+     "v": 78.9,
+     "arm": "weight:ours a=-1.125"
     },
     "steer": {
      "v": 87.0,
@@ -26,16 +26,16 @@
    },
    "lead": {
     "vs": "steer",
-    "diff": 6.5,
-    "lo": 1.9,
-    "hi": 11.1,
+    "diff": 0.4,
+    "lo": -4.2,
+    "hi": 5.4,
     "n": 261
    },
    "lead_val": {
-    "vs": "steer",
-    "diff": 6.5,
-    "lo": 1.9,
-    "hi": 11.1,
+    "vs": "liemask",
+    "diff": 8.4,
+    "lo": 2.7,
+    "hi": 14.2,
     "n": 261
    }
   },
@@ -46,8 +46,8 @@
      "arm": "weight:pooled a=-1.0"
     },
     "liemask": {
-     "v": 87.8,
-     "arm": "weight:ours a=-1.0"
+     "v": 88.0,
+     "arm": "weight:ours a=-1.125"
     },
     "steer": {
      "v": 87.8,
@@ -64,16 +64,16 @@
    },
    "lead": {
     "vs": "liemask",
-    "diff": 1.9,
-    "lo": -1.7,
+    "diff": 1.7,
+    "lo": -2.4,
     "hi": 5.5,
     "n": 417
    },
    "lead_val": {
-    "vs": "steer",
-    "diff": 1.9,
-    "lo": -1.9,
-    "hi": 6.0,
+    "vs": "liemask",
+    "diff": 1.7,
+    "lo": -2.4,
+    "hi": 5.5,
     "n": 417
    }
   }
@@ -83,8 +83,8 @@
   "lb": {
    "cells": {
     "mask": {
-     "v": 86.3,
-     "arm": "weight:pooled a=-1.0"
+     "v": 90.5,
+     "arm": "weight:pooled a=-1.125"
     },
     "liemask": {
      "v": 69.5,
@@ -105,16 +105,16 @@
    },
    "lead": {
     "vs": "prompt",
-    "diff": 6.9,
-    "lo": 2.3,
-    "hi": 11.1,
+    "diff": 11.1,
+    "lo": 6.1,
+    "hi": 16.4,
     "n": 262
    },
    "lead_val": {
     "vs": "prompt",
-    "diff": 6.9,
-    "lo": 2.3,
-    "hi": 11.1,
+    "diff": 11.1,
+    "lo": 6.1,
+    "hi": 16.4,
     "n": 262
    }
   },
@@ -162,16 +162,16 @@
   "lb": {
    "cells": {
     "mask": {
-     "v": 89.7,
-     "arm": "weight:fictf a=-1.0"
+     "v": 91.6,
+     "arm": "weight:poolmix a=-1.25"
     },
     "liemask": {
      "v": 83.6,
      "arm": "weight:ours a=-0.15"
     },
     "steer": {
-     "v": 79.4,
-     "arm": "actsteer:L5 r=-0.18 (c=-13.0)"
+     "v": 84.0,
+     "arm": "actsteer:L5 r=-0.3 (c=-21.8)"
     },
     "prompt": {
      "v": 81.7,
@@ -183,25 +183,25 @@
     }
    },
    "lead": {
-    "vs": "liemask",
-    "diff": 6.1,
-    "lo": 1.1,
-    "hi": 10.7,
+    "vs": "steer",
+    "diff": 7.6,
+    "lo": 2.7,
+    "hi": 12.6,
     "n": 262
    },
    "lead_val": {
-    "vs": "liemask",
-    "diff": 6.1,
-    "lo": 1.1,
-    "hi": 10.7,
+    "vs": "steer",
+    "diff": 7.6,
+    "lo": 2.7,
+    "hi": 12.6,
     "n": 262
    }
   },
   "ail": {
    "cells": {
     "mask": {
-     "v": 78.3,
-     "arm": "weight:poolmix a=-1.0"
+     "v": 79.5,
+     "arm": "weight:poolmix a=-1.125"
     },
     "liemask": {
      "v": 73.9,
@@ -222,16 +222,16 @@
    },
    "lead": {
     "vs": "prompt",
-    "diff": 2.3,
-    "lo": -2.6,
-    "hi": 7.0,
+    "diff": 3.5,
+    "lo": -1.5,
+    "hi": 8.5,
     "n": 341
    },
    "lead_val": {
     "vs": "unsteered",
-    "diff": 5.3,
-    "lo": 0.3,
-    "hi": 10.6,
+    "diff": 6.5,
+    "lo": 1.2,
+    "hi": 11.4,
     "n": 341
    }
   }
@@ -241,12 +241,12 @@
   "lb": {
    "cells": {
     "mask": {
-     "v": 58.0,
-     "arm": "weight:fiction a=-0.25"
+     "v": 60.7,
+     "arm": "weight:pooled a=-1.25"
     },
     "liemask": {
-     "v": 56.1,
-     "arm": "weight:ours a=-1.0"
+     "v": 57.3,
+     "arm": "weight:ours a=-1.25"
     },
     "steer": {
      "v": 54.2,
@@ -263,28 +263,28 @@
    },
    "lead": {
     "vs": "prompt",
-    "diff": -3.1,
-    "lo": -8.8,
-    "hi": 2.3,
+    "diff": -0.4,
+    "lo": -6.5,
+    "hi": 5.3,
     "n": 262
    },
    "lead_val": {
     "vs": "prompt",
-    "diff": -3.1,
-    "lo": -8.8,
-    "hi": 2.3,
+    "diff": -0.4,
+    "lo": -6.5,
+    "hi": 5.3,
     "n": 262
    }
   },
   "ail": {
    "cells": {
     "mask": {
-     "v": 68.8,
-     "arm": "weight:pooled a=-1.0"
+     "v": 67.1,
+     "arm": "weight:pooled a=-1.25"
     },
     "liemask": {
-     "v": 64.1,
-     "arm": "weight:ours a=-1.0"
+     "v": 66.1,
+     "arm": "weight:ours a=-1.25"
     },
     "steer": {
      "v": 69.1,
@@ -301,16 +301,16 @@
    },
    "lead": {
     "vs": "steer",
-    "diff": -0.3,
-    "lo": -6.0,
-    "hi": 5.3,
+    "diff": -2.0,
+    "lo": -8.3,
+    "hi": 4.3,
     "n": 301
    },
    "lead_val": {
     "vs": "liemask",
-    "diff": 4.7,
-    "lo": -1.3,
-    "hi": 10.3,
+    "diff": 1.0,
+    "lo": -5.3,
+    "hi": 7.0,
     "n": 301
    }
   }
@@ -320,8 +320,8 @@
   "lb": {
    "cells": {
     "mask": {
-     "v": 94.3,
-     "arm": "weight:pooltf a=-1.0"
+     "v": 94.7,
+     "arm": "weight:pooltf a=-1.125"
     },
     "liemask": {
      "v": 92.0,
@@ -342,24 +342,24 @@
    },
    "lead": {
     "vs": "liemask",
-    "diff": 2.3,
+    "diff": 2.7,
     "lo": -0.4,
-    "hi": 5.3,
+    "hi": 5.7,
     "n": 262
    },
    "lead_val": {
     "vs": "prompt",
-    "diff": 2.3,
-    "lo": -0.8,
-    "hi": 5.3,
+    "diff": 2.7,
+    "lo": 0.0,
+    "hi": 5.7,
     "n": 262
    }
   },
   "ail": {
    "cells": {
     "mask": {
-     "v": 78.8,
-     "arm": "weight:poolmix a=-1.0"
+     "v": 81.3,
+     "arm": "weight:poolmix a=-1.125"
     },
     "liemask": {
      "v": 82.1,
@@ -380,16 +380,16 @@
    },
    "lead": {
     "vs": "liemask",
-    "diff": -3.3,
-    "lo": -7.4,
-    "hi": 0.8,
+    "diff": -0.8,
+    "lo": -5.1,
+    "hi": 3.6,
     "n": 391
    },
    "lead_val": {
     "vs": "liemask",
-    "diff": -3.3,
-    "lo": -7.4,
-    "hi": 0.8,
+    "diff": -0.8,
+    "lo": -5.1,
+    "hi": 3.6,
     "n": 391
    }
   }

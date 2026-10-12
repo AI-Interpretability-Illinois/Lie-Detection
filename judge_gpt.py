@@ -34,10 +34,11 @@ from score_liars_bench import is_refusal
 B = Path("/work/hdd/bfqt/xiaocong/lie_detection_outputs")
 J = "judged_Qwen2p5-7B-Instruct_v2"
 MODELS = [  # short name, LB tags, task tags (as reports/build_final_table.py and reports/summarize_tasks.py)
-    ("Meta-Llama-3p1-8B-Instruct", ["final", "swsteer"]), ("Phi-4-mini-instruct", ["fixlb", "finaladd", "swsteer"]),
-    ("Falcon3-3B-Instruct", ["fixlb", "finaladd", "swfill", "swsteer"]), ("OLMo-2-0425-1B-Instruct", ["final", "swfill", "swsteer"]),   # swfill: 2026-10-06
-    ("Qwen2p5-3B-Instruct", ["final", "swsteer"]), ("Qwen2p5-7B-Instruct", ["final"]), ("Qwen2p5-1p5B-Instruct", ["fixlb", "finaladd"])]
+    ("Meta-Llama-3p1-8B-Instruct", ["final", "swsteer", "swalpha"]), ("Phi-4-mini-instruct", ["fixlb", "finaladd", "swsteer", "swalpha"]),
+    ("Falcon3-3B-Instruct", ["fixlb", "finaladd", "swfill", "swsteer", "swalpha"]), ("OLMo-2-0425-1B-Instruct", ["final", "swfill", "swsteer", "swalpha"]),   # swfill: 2026-10-06
+    ("Qwen2p5-3B-Instruct", ["final", "swsteer", "swalpha"]), ("Qwen2p5-7B-Instruct", ["final"]), ("Qwen2p5-1p5B-Instruct", ["fixlb", "finaladd"])]
 # swsteer (2026-10-11): steering strengths -0.3/-0.75/-1 at the same three layers on the five Table 1 models
+# swalpha (2026-10-11): mask strengths -1.125/-1.25 for every mask family and the lie-instruction mask, same five models
 NAME = {"Meta-Llama-3p1-8B-Instruct": "Llama-3.1-8B", "Phi-4-mini-instruct": "Phi-4-mini", "Falcon3-3B-Instruct": "Falcon3-3B",
         "OLMo-2-0425-1B-Instruct": "OLMo-2-1B", "Qwen2p5-3B-Instruct": "Qwen2.5-3B", "Qwen2p5-7B-Instruct": "Qwen2.5-7B",
         "Qwen2p5-1p5B-Instruct": "Qwen2.5-1.5B"}
@@ -77,7 +78,9 @@ def load_rows(model, tags, arms, judged=J):
     for t in tags:
         p = B / f"liars_bench_honesty_{model}_{t}_{judged}.jsonl"
         if not p.exists():   # sw* tags (sweep runs, incl. the 2026-10-06 swfill cells) live under a sweep dir:
-            for d in ("/work/nvme/biro/xiaocong/lie_sweep",      # Delta runs
+            for d in (*[x for x in os.environ.get("SWEEP_EXTRA", "").split(":") if x],   # searched first (build_final_table.py)
+                      "/work/nvme/biro/xiaocong/lie_runpod_stage",   # swsteer / swalpha, run on runpod1 (2026-10-11)
+                      "/work/nvme/biro/xiaocong/lie_sweep",      # Delta runs
                       "/u/xiaocong/lie_results/timan_sweep"):    # timan1/timan108 runs (OLMo-2, Qwen2.5-0.5B)
                 if (Path(d) / p.name).exists():
                     p = Path(d) / p.name

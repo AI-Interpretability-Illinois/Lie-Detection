@@ -681,7 +681,9 @@ def main():
                    *extra_masks.items()]:
         if m is None:
             continue
-        for a in (-0.1, -0.15, -0.25, -0.5, -0.75, -1.0):   # -0.1 / -0.15: milder options added 2026-10-06 (empty Table 1 cells)
+        # -0.1 / -0.15: milder options added 2026-10-06 (empty Table 1 cells); -1.125 / -1.25: stronger options, owner
+        # 2026-10-11 (most chosen masks sat at -1.0, the end of the menu), keys <fam>112 / <fam>125
+        for a in (-0.1, -0.15, -0.25, -0.5, -0.75, -1.0, -1.125, -1.25):
             key = f"{fam}{int(round(abs(a) * 100)):03d}"
             ALL_ARMS.setdefault(key, (f"weight:{fam} a={a}", ("mask", m, a)))
     if args.as_coeffs or args.as_rel_coeffs:

@@ -51,19 +51,24 @@ J = "judged_Qwen2p5-7B-Instruct_v2"
 # models they were run on; steer/prompt/unsteered come from the original files -> main_table_ratio.json.
 SWEEP = "--sweep" in sys.argv
 RATIO = "--ratio" in sys.argv
-SWEEP_DIRS = [os.environ.get("SWEEP_DIR", "/work/nvme/biro/xiaocong/lie_sweep"), "/u/xiaocong/lie_results/timan_sweep"]
+# SWEEP_EXTRA: colon-separated directories searched first, e.g. /work/nvme/biro/xiaocong/lie_runpod_stage (the 2026-10-11
+# swsteer / swalpha runs on runpod1, kept out of lie_sweep while the Delta copy of swsteer was still writing there)
+SWEEP_DIRS = ([d for d in os.environ.get("SWEEP_EXTRA", "").split(":") if d] + ["/work/nvme/biro/xiaocong/lie_runpod_stage"]
+              + [os.environ.get("SWEEP_DIR", "/work/nvme/biro/xiaocong/lie_sweep"), "/u/xiaocong/lie_results/timan_sweep"])
 SWEEP_MODELS = [("Qwen2p5-0p5B-Instruct", "Qwen2.5-0.5B"), ("Qwen2p5-14B-Instruct", "Qwen2.5-14B"),
                 ("OLMo-2-1124-7B-Instruct", "OLMo-2-7B"), ("OLMo-2-1124-13B-Instruct", "OLMo-2-13B"),
                 ("OLMo-2-0325-32B-Instruct", "OLMo-2-32B"),
                 ("Falcon3-1B-Instruct", "Falcon3-1B"), ("Falcon3-7B-Instruct", "Falcon3-7B"), ("Falcon3-10B-Instruct", "Falcon3-10B")]
 MODELS = [  # short name, label, LB tags, AI Liar tags (merged in order)
     # swsteer: steering strengths r = -0.3/-0.75/-1 at the same three layers, every Table 1 model (owner, 2026-10-11;
-    # queue/lie_steerx.slurm): on Llama the chosen option was the strongest strength on the original menu
-    ("Meta-Llama-3p1-8B-Instruct", "Llama-3.1-8B", ["final", "swsteer"], ["finalail", "swsteerail"]),
-    ("Phi-4-mini-instruct", "Phi-4-mini", ["fixlb", "finaladd", "swsteer"], ["fixail", "finailadd", "swsteerail"]),
-    ("Falcon3-3B-Instruct", "Falcon3-3B", ["fixlb", "finaladd", "swfill", "swsteer"], ["fixail", "finailadd", "swfillail", "swsteerail"]),   # swfill: milder options for the empty cells (2026-10-06)
-    ("OLMo-2-0425-1B-Instruct", "OLMo-2-1B", ["final", "swfill", "swsteer"], ["finalail", "swfillail", "swsteerail"]),
-    ("Qwen2p5-3B-Instruct", "Qwen2.5-3B", ["final", "swsteer"], ["finalail", "swsteerail"]),
+    # queue/lie_steerx.slurm): on Llama the chosen option was the strongest strength on the original menu.
+    # swalpha: mask strengths alpha = -1.125 / -1.25 for every mask family and the lie-instruction mask, every Table 1 model
+    # (owner, 2026-10-11; queue/lie_alphax.slurm): most chosen masks sat at -1.0, the end of the menu
+    ("Meta-Llama-3p1-8B-Instruct", "Llama-3.1-8B", ["final", "swsteer", "swalpha"], ["finalail", "swsteerail", "swalphaail"]),
+    ("Phi-4-mini-instruct", "Phi-4-mini", ["fixlb", "finaladd", "swsteer", "swalpha"], ["fixail", "finailadd", "swsteerail", "swalphaail"]),
+    ("Falcon3-3B-Instruct", "Falcon3-3B", ["fixlb", "finaladd", "swfill", "swsteer", "swalpha"], ["fixail", "finailadd", "swfillail", "swsteerail", "swalphaail"]),   # swfill: milder options for the empty cells (2026-10-06)
+    ("OLMo-2-0425-1B-Instruct", "OLMo-2-1B", ["final", "swfill", "swsteer", "swalpha"], ["finalail", "swfillail", "swsteerail", "swalphaail"]),
+    ("Qwen2p5-3B-Instruct", "Qwen2.5-3B", ["final", "swsteer", "swalpha"], ["finalail", "swsteerail", "swalphaail"]),
     ("Qwen2p5-7B-Instruct", "Qwen2.5-7B", ["final"], ["finalail"]),
     ("Qwen2p5-1p5B-Instruct", "Qwen2.5-1.5B", ["fixlb", "finaladd"], ["fixail", "finailadd"]),
 ]
