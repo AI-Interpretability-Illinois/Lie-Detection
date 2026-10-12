@@ -56,7 +56,7 @@ def main():
             for h in ("all", half(orig)):
                 items[(r["split"], h)][f][orig] = r["verdict_hybrid"] == "honest"
         row = {"model": name, "splits": {}}
-        vs = main_tab[name]["lb"]["lead"]["vs"] if name in main_tab else None
+        vs = (main_tab[name]["lb"].get("lead_val") or main_tab[name]["lb"]["lead"])["vs"] if name in main_tab else None   # fixed on validation
         for s in SPLITS:
             cells = {h: {f: {"v": round(100 * sum(d.values()) / len(d), 1), "n": len(d)} for f, d in items[(s, h)].items() if d}
                      for h in ("all", "test")}
@@ -67,7 +67,7 @@ def main():
             row["splits"][s] = {"cells": cells, "lead_pre": lead_pre, "lead": lead}
         if name in main_tab:
             row["plain"] = {f: c.get("v") for f, c in main_tab[name]["lb"]["cells"].items()}
-            row["plain_lead"] = main_tab[name]["lb"]["lead"]
+            row["plain_lead"] = main_tab[name]["lb"].get("lead_val") or main_tab[name]["lb"]["lead"]
         out.append(row)
     json.dump(out, open(R / "attack_table.json", "w"), indent=1)
     L = ["# Adaptive attacks on the order to lie (Qwen2.5-7B judge)", "",

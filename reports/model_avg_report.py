@@ -5,8 +5,9 @@ Averages over the five main-table models (owner's request, 2026-10-06: "average 
 Table 1 (LIARS' BENCH, GPT-5.6 hybrid; AI Liar, keyword; test halves, the arms of reports/main_table_gpt.json):
   each method's honest rate averaged over the five models. A method with no usable option on a model ("--" in Table 1)
   counts as the unedited model there, since it would leave the model unedited. The lead of the mask is taken over the
-  other method with the best five-model average on the VALIDATION halves (LIARS' BENCH validation under the Qwen2.5-7B
-  hybrid, the selection grader; AI Liar by keyword); the best by test average is printed too. Interval: items resampled
+  other method with the best five-model average on the TEST halves, i.e. the best baseline in the average row (owner,
+  2026-10-11); "lead_val" keeps the earlier comparator, the best five-model average on the validation halves (LIARS'
+  BENCH validation under the Qwen2.5-7B hybrid, the selection grader; AI Liar by keyword). Interval: items resampled
   within each model (paired across methods), the lead being the mean over models of the per-model mean differences;
   2,000 resamples, seed 0.
 Table 2 (further tasks): for each task, the mean over the five models of the lead over the comparator fixed in advance
@@ -71,11 +72,11 @@ def table1():
                 a, b = test[bench][(n, "mask")], test[bench][(n, f)]
                 U = sorted(set(a) & set(b)); dl.append([a[u] - b[u] for u in U])
             return dict(boot_mean_over_models(dl), vs=f)
-        L = lead(vs); Lt = L if vs_t == vs else lead(vs_t)
-        out[bench] = {"mean": {f: round(v, 2) for f, v in mean.items()}, "lead": L, "lead_vs_best_test": Lt}
+        Lt = lead(vs_t); L = Lt if vs == vs_t else lead(vs)
+        out[bench] = {"mean": {f: round(v, 2) for f, v in mean.items()}, "lead": Lt, "lead_val": L}
         print(f"{bench:4s} " + "  ".join(f"{f}={mean[f]:.2f}" for f in METHODS)
-              + f"   lead {L['diff']:+.1f} [{L['lo']:+.1f}, {L['hi']:+.1f}] vs {vs} (val)"
-              + ("" if vs_t == vs else f" | vs {vs_t} (test-best) {Lt['diff']:+.1f} [{Lt['lo']:+.1f}, {Lt['hi']:+.1f}]"))
+              + f"   lead {Lt['diff']:+.1f} [{Lt['lo']:+.1f}, {Lt['hi']:+.1f}] vs {vs_t} (test-best)"
+              + ("" if vs_t == vs else f" | vs {vs} (val-best) {L['diff']:+.1f} [{L['lo']:+.1f}, {L['hi']:+.1f}]"))
     return out
 
 

@@ -14,8 +14,10 @@ Protocol (fixed before the final runs finished):
     gate its use on AI Liar too (AI Liar has no control half of its own).
   * For each benchmark and method, the usable arm with the best validation honest
     rate is chosen; its test-half honest rate is reported.
-  * The mask's lead over the best other method (chosen the same way) gets a paired
-    bootstrap 95% interval over test items.
+  * The mask's lead over the best other method gets a paired bootstrap 95% interval
+    over test items. The comparator is the strongest other method on the test half,
+    i.e. the best baseline printed in the row (owner, 2026-10-11; it was the best on
+    validation before, kept as "lead_val"), which can only lower the lead.
 Gemma-3-4B is excluded (see reports/polarity_fix_report.md).
 Writes reports/main_table_final.json.
 
@@ -208,19 +210,21 @@ def main():
                     cells[f] = {"v": round(score[bench]["test"](a) * 100, 1), "arm": a}
                 elif f in why:
                     cells[f] = {"v": None, "arm": why[f][0], "fails": why[f][1]}
-            def lead_of(ours):
-                # rs is our rule on pooled-token norms (an ablation of ours), not another method; cn and sd are baselines
+            def lead_of(ours, part="test"):
+                # rs is our rule on pooled-token norms (an ablation of ours), not another method; cn and sd are baselines.
+                # part="test": over the strongest other method on the test half (the best baseline in the row, owner
+                # 2026-10-11); part="val": over the best other method on validation (the earlier rule, "lead_val")
                 others = [f for f in FAMS if f in chosen and f not in ("mask", "maskv2", "rs")]
                 if ours not in chosen or not others:
                     return None
-                best = max(others, key=lambda f: score[bench]["val"](chosen[f]))
+                best = max(others, key=lambda f: score[bench][part](chosen[f]))
                 pm, pb = per_item[bench](chosen[ours]), per_item[bench](chosen[best])
                 U = sorted(set(pm) & set(pb)); diffs = [pm[x] - pb[x] for x in U]
                 rnd = random.Random(0)
                 boots = sorted(sum(rnd.choice(diffs) for _ in diffs) / len(diffs) for _ in range(2000))
                 return {"vs": best, "diff": round(sum(diffs) / len(diffs) * 100, 1),
                         "lo": round(boots[50] * 100, 1), "hi": round(boots[1949] * 100, 1), "n": len(U)}
-            row[bench] = {"cells": cells, "lead": lead_of("mask")}
+            row[bench] = {"cells": cells, "lead": lead_of("mask"), "lead_val": lead_of("mask", "val")}
             if V2:
                 row[bench]["lead_v2"] = lead_of("maskv2")
             if CN and "cn" in chosen and "mask" in chosen:

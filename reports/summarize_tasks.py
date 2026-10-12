@@ -75,7 +75,7 @@ def paired(it, other):
 
 def main():
     # pre-registered comparator: the best other method on the LIARS' BENCH validation half
-    pre = {r["model"]: r["lb"]["lead"]["vs"]
+    pre = {r["model"]: (r["lb"].get("lead_val") or r["lb"]["lead"])["vs"]   # lead_val: Table 1's lead is over the test-best since 2026-10-11
            for r in json.load(open("/u/xiaocong/lie_detection/reports/main_table_final.json"))}
     table = []
     for short, name in MODELS:

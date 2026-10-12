@@ -43,7 +43,7 @@ def main():
         if name not in main_tab:
             continue
         rates = {0: {f: c.get("v") for f, c in main_tab[name]["lb"]["cells"].items()}}
-        leads = {0: main_tab[name]["lb"]["lead"]}
+        leads = {0: main_tab[name]["lb"].get("lead_val") or main_tab[name]["lb"]["lead"]}   # comparator fixed on validation (Table 1's lead is over the test-best since 2026-10-11)
         vs = leads[0]["vs"] if leads[0] else None
         for s in SEEDS:
             fs = sorted(glob.glob(str(SWEEP / f"liars_bench_honesty_{stem}_seed{s}_judged_Qwen2p5-7B-Instruct_v2.jsonl"))

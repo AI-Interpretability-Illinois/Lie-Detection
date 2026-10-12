@@ -4,6 +4,8 @@ Main table under the GPT-5.6 judge (owner's decision, 2026-10-04): the arms stay
 Qwen2.5-7B hybrid grader (reports/main_table_final.json), and every LIARS' BENCH test-half honest rate, lead and
 interval is recomputed from the GPT-5.6 re-grade of those arms (judge_gpt.py, GPT_DIR/*_judged_gpt_v2.jsonl: keyword
 parser where it settles, GPT-5.6 otherwise, beliefs shared). AI Liar is graded by keyword only and is copied unchanged.
+The lead of the mask is over the best baseline in the row, i.e. the strongest other method on the test half under
+this grader (owner, 2026-10-11); "lead_val" keeps the earlier comparator, the best other method on validation.
 Writes reports/main_table_gpt.json with the same structure as main_table_final.json (plus "grader" fields) and prints
 both graders side by side.
 """
@@ -61,12 +63,24 @@ def main():
                 cells[f] = dict(c, v7b=c.get("v")); continue
             d = per[c["arm"]]
             cells[f] = dict(c, v=round(100 * sum(d.values()) / len(d), 1), v7b=c["v"], n=len(d))
-        L = lb.get("lead"); L2 = None
-        if L and "mask" in cells and L["vs"] in cells:
-            L2 = lead(per[cells["mask"]["arm"]], per[cells[L["vs"]]["arm"]])
-            if L2:
-                L2["vs"] = L["vs"]; L2["lead7b"] = {k: L[k] for k in ("diff", "lo", "hi")}
-        new["lb"] = {"cells": cells, "lead": L2 or L}
+        # lead: over the strongest other method on the test half under this grader, i.e. the best baseline in the row
+        # (owner, 2026-10-11; ties at print precision broken by the unrounded rate); lead_val: over the best other method
+        # on validation, the earlier rule. lead7b: the same comparison under the Qwen2.5-7B grader.
+        def gpt_lead(vs, L7):
+            if not vs or "mask" not in cells or vs not in cells:
+                return None
+            g = lead(per[cells["mask"]["arm"]], per[cells[vs]["arm"]])
+            if g:
+                g["vs"] = vs; g["lead7b"] = {k: L7[k] for k in ("diff", "lo", "hi")} if L7 and L7["vs"] == vs else None
+            return g
+        exact = lambda f: (cells[f]["v"], sum(per[cells[f]["arm"]].values()) / len(per[cells[f]["arm"]]) if per[cells[f]["arm"]] else 0)
+        others = [f for f in cells if f != "mask" and cells[f].get("v") is not None]
+        best = max(others, key=exact) if others else None
+        L, Lv = lb.get("lead"), lb.get("lead_val")
+        L2, L2v = gpt_lead(best, L), gpt_lead(Lv and Lv["vs"], Lv)
+        if L and not L2:
+            print(f"  {row['model']}: no GPT re-grade for the lead, Qwen2.5-7B lead kept")
+        new["lb"] = {"cells": cells, "lead": L2 or L, "lead_val": L2v or Lv}
         new["ail"] = row["ail"]
         out.append(new)
         fmt = lambda c: f"{c['v']:5.1f}" if c.get("v") is not None else "   - "
