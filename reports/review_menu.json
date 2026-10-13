@@ -1,0 +1,102 @@
+{
+ "lb": {
+  "fiction": {
+   "mean": 81.5,
+   "lead_vs_row_best": {
+    "diff": 0.8,
+    "lo": -1.1,
+    "hi": 2.9
+   }
+  },
+  "pooled": {
+   "mean": 82.5,
+   "lead_vs_row_best": {
+    "diff": 1.8,
+    "lo": -0.4,
+    "hi": 4.1
+   }
+  },
+  "fictf": {
+   "mean": 76.9,
+   "lead_vs_row_best": {
+    "diff": -3.8,
+    "lo": -6.1,
+    "hi": -1.5
+   }
+  },
+  "pooltf": {
+   "mean": 75.0,
+   "lead_vs_row_best": {
+    "diff": -5.7,
+    "lo": -8.0,
+    "hi": -3.5
+   }
+  },
+  "poolmix": {
+   "mean": 76.3,
+   "lead_vs_row_best": {
+    "diff": -4.4,
+    "lo": -6.7,
+    "hi": -2.1
+   }
+  },
+  "all": {
+   "mean": 85.0,
+   "lead_vs_row_best": {
+    "diff": 4.3,
+    "lo": 2.1,
+    "hi": 6.5
+   }
+  }
+ },
+ "ail": {
+  "fiction": {
+   "mean": 72.3,
+   "lead_vs_row_best": {
+    "diff": -4.1,
+    "lo": -6.3,
+    "hi": -1.8
+   }
+  },
+  "pooled": {
+   "mean": 76.1,
+   "lead_vs_row_best": {
+    "diff": -0.3,
+    "lo": -2.5,
+    "hi": 1.9
+   }
+  },
+  "fictf": {
+   "mean": 67.6,
+   "lead_vs_row_best": {
+    "diff": -8.8,
+    "lo": -11.2,
+    "hi": -6.3
+   }
+  },
+  "pooltf": {
+   "mean": 69.0,
+   "lead_vs_row_best": {
+    "diff": -7.3,
+    "lo": -9.6,
+    "hi": -4.9
+   }
+  },
+  "poolmix": {
+   "mean": 75.8,
+   "lead_vs_row_best": {
+    "diff": -0.6,
+    "lo": -2.8,
+    "hi": 1.8
+   }
+  },
+  "all": {
+   "mean": 79.3,
+   "lead_vs_row_best": {
+    "diff": 2.9,
+    "lo": 0.6,
+    "hi": 5.3
+   }
+  }
+ }
+}

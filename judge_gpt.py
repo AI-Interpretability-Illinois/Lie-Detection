@@ -73,6 +73,9 @@ def chosen_arms(model):
     return arms
 
 
+_norm = lambda a: re.sub(r" \(c=[^)]*\)", "", a)
+
+
 def load_rows(model, tags, arms, judged=J):
     rows, seen = [], set()
     for t in tags:
@@ -88,7 +91,7 @@ def load_rows(model, tags, arms, judged=J):
         if not p.exists():
             continue
         for r in map(json.loads, open(p)):
-            if r["arm"] not in arms or r["arm"] in seen and False:
+            if _norm(r["arm"]) not in {_norm(a) for a in arms}:
                 continue
             k = (r["arm"], r["uid"])
             if k in seen:
@@ -126,6 +129,12 @@ def parse(text, n):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--plan", action="store_true")
+    # Review seeds (2026-10-12): Table 1's options at sampling seeds 1 and 2 (queue/lie_review.slurm EXP=seeds), under the
+    # review output dir (SWEEP_EXTRA). Only what the hybrid verdict needs is sent: test-half replies the keyword parser leaves open.
+    ap.add_argument("--tags", default="", help="comma-separated LB tags replacing every model's main-table tags")
+    ap.add_argument("--test-only", action="store_true", help="only test-half items (MD5 split)")
+    ap.add_argument("--hybrid-only", action="store_true", help="only replies the keyword parser leaves open")
+    ap.add_argument("--workers", type=int, default=1, help="parallel requests")
     ap.add_argument("--run", action="store_true")
     ap.add_argument("--tasks", action="store_true", help="also the injected and AM/GoT files")
     ap.add_argument("--out", default="/work/nvme/biro/xiaocong/lie_out_gpt")
@@ -141,6 +150,8 @@ def main():
         MODELS = [(m, SW_TAGS) for m, _ in SWEEP_MODELS]
         NAME = dict(SWEEP_MODELS)
         TABLE = "/u/xiaocong/lie_detection/reports/main_table_sweep.json"
+    if args.tags:
+        MODELS = [(m, args.tags.split(",")) for m, _ in MODELS[:5]]
     if args.only:
         MODELS = [(m, t) for m, t in MODELS if m == args.only]
     out = Path(args.out); out.mkdir(parents=True, exist_ok=True)
@@ -165,8 +176,11 @@ def main():
                 s = st.get(r["uid"])
                 if s is None:
                     continue
+                if args.test_only and int(hashlib.md5(r["uid"].encode()).hexdigest(), 16) % 2 == 0:
+                    continue
                 work.append((model, r, s))
-    need = [(m, r, s) for m, r, s in work if key(s, r["resp"]) not in cache]
+    need = [(m, r, s) for m, r, s in work if key(s, r["resp"]) not in cache
+            and not (args.hybrid_only and r.get("keyword_claim") is not None)]
     uniq = {key(s, r["resp"]) for _, r, s in need}
     tok_in = len(uniq) / BATCH * 2700 + len(uniq) * 10
     print(f"rows in scope {len(work)}; unique (statement, reply) pairs still to judge {len(uniq)}; cached {len(cache)}")
@@ -186,18 +200,25 @@ def main():
         keys = keys[:args.limit]
     random.Random(0).shuffle(keys)
     t0 = time.time(); done = 0
-    for i in range(0, len(keys), BATCH):
+    import threading
+    from concurrent.futures import ThreadPoolExecutor
+    lock = threading.Lock()
+    def one(i):
+        nonlocal done
         kb = keys[i:i + BATCH]; batch = [pairs[k] for k in kb]
         txt = BF.ask(cl, dep, prompt_for(batch), f"gptjudge:{i // BATCH}")
         got = parse(txt, len(batch))
-        with open(cache_p, "a") as f:
-            for j, k in enumerate(kb):
-                c = got.get(j, "bad")
-                if c != "bad":
-                    cache[k] = c; f.write(json.dumps({"k": k, "c": c}) + "\n")
-        done += len(kb)
-        if (i // BATCH) % 25 == 0:
-            print(f"  {done}/{len(keys)} ({time.time() - t0:.0f}s)", flush=True)
+        with lock:
+            with open(cache_p, "a") as f:
+                for j, k in enumerate(kb):
+                    c = got.get(j, "bad")
+                    if c != "bad":
+                        cache[k] = c; f.write(json.dumps({"k": k, "c": c}) + "\n")
+            done += len(kb)
+            if (i // BATCH) % 25 == 0:
+                print(f"  {done}/{len(keys)} ({time.time() - t0:.0f}s)", flush=True)
+    with ThreadPoolExecutor(max_workers=max(1, args.workers)) as ex:
+        list(ex.map(one, range(0, len(keys), BATCH)))
     BF.usage()
     # write judged files: one per (model, source file)
     by_src = {}

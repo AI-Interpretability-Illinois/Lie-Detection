@@ -1,0 +1,39 @@
+{
+ "table2": {
+  "sandbag": {
+   "diff": 1.9,
+   "lo": -1.4,
+   "hi": 5.2
+  },
+  "inject": {
+   "diff": 7.2,
+   "lo": 5.3,
+   "hi": 9.1
+  },
+  "mask_instructed": {
+   "diff": -2.6,
+   "lo": -5.0,
+   "hi": -0.1
+  },
+  "amgot": {
+   "diff": 0.1,
+   "lo": -1.1,
+   "hi": 1.4
+  },
+  "multiturn": {
+   "diff": -14.3,
+   "lo": -17.0,
+   "hi": -11.7
+  },
+  "mask_incentive": {
+   "diff": 2.4,
+   "lo": -0.7,
+   "hi": 5.7
+  },
+  "mmlu_mask": -12.9,
+  "mmlu_random": -3.4,
+  "mmlu_steer": -7.5,
+  "mmlu_prompt": -3.2,
+  "mmlu_liemask": -5.4
+ }
+}

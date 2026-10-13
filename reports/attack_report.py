@@ -21,7 +21,11 @@ sys.path.insert(0, str(Path(__file__).parent))
 from summarize_tasks import family, paired   # noqa: E402
 
 R = Path("/u/xiaocong/lie_detection/reports")
-SWEEP = Path("/work/nvme/biro/xiaocong/lie_sweep")
+# FINAL=1 (review, 2026-10-12): the runs at Table 1's final options (queue/lie_review.slurm EXP=atklegit, tag rvatklegitatk)
+import os
+FINAL = os.environ.get("FINAL") == "1"
+SWEEP = Path("/work/hdd/bfqt/xiaocong/lie_review" if FINAL else "/work/nvme/biro/xiaocong/lie_sweep")
+ATK = ["rvatklegitatk"] if FINAL else ["atk", "atkfill"]
 NAMES = {"Meta-Llama-3p1-8B-Instruct": "Llama-3.1-8B", "Phi-4-mini-instruct": "Phi-4-mini", "Falcon3-3B-Instruct": "Falcon3-3B",
          "OLMo-2-0425-1B-Instruct": "OLMo-2-1B", "Qwen2p5-3B-Instruct": "Qwen2.5-3B", "Qwen2p5-7B-Instruct": "Qwen2.5-7B",
          "Qwen2p5-1p5B-Instruct": "Qwen2.5-1.5B"}
@@ -37,11 +41,10 @@ def _norm(a):
 
 
 def main():
-    main_tab = {r["model"]: r for r in json.load(open(R / "main_table_final_menu0.json")) if not r.get("pending")}   # the options chosen on the original menu (Table 1 before the 2026-10-11 menu extension), at which this analysis was run
+    main_tab = {r["model"]: r for r in json.load(open(R / ("main_table_final.json" if FINAL else "main_table_final_menu0.json"))) if not r.get("pending")}   # menu0: the options chosen on the original menu (Table 1 before the 2026-10-11 menu extension), at which this analysis was first run
     out = []
     for stem, name in NAMES.items():
-        fs = sorted(glob.glob(str(SWEEP / f"liars_bench_honesty_{stem}_atk_judged_Qwen2p5-7B-Instruct_v2.jsonl"))
-                    + glob.glob(str(SWEEP / f"liars_bench_honesty_{stem}_atkfill_judged_Qwen2p5-7B-Instruct_v2.jsonl")))
+        fs = sorted(f for t in ATK for f in glob.glob(str(SWEEP / f"liars_bench_honesty_{stem}_{t}_judged_Qwen2p5-7B-Instruct_v2.jsonl")))
         if not fs:
             continue
         chosen = {f: c.get("arm") for f, c in main_tab[name]["lb"]["cells"].items()} if name in main_tab else {}
@@ -69,7 +72,7 @@ def main():
             row["plain"] = {f: c.get("v") for f, c in main_tab[name]["lb"]["cells"].items()}
             row["plain_lead"] = main_tab[name]["lb"].get("lead_val") or main_tab[name]["lb"]["lead"]
         out.append(row)
-    json.dump(out, open(R / "attack_table.json", "w"), indent=1)
+    json.dump(out, open(R / ("attack_table_final.json" if FINAL else "attack_table.json"), "w"), indent=1)
     L = ["# Adaptive attacks on the order to lie (Qwen2.5-7B judge)", "",
          "Honest rate (%) on the test half of the 537 LIARS' BENCH deception items under each attack, every method at its",
          "LIARS' BENCH-chosen setting; 'plain' is the same items without the attack (Table 1, same judge). Lead: mask minus the",
@@ -86,7 +89,7 @@ def main():
                      + " | " + (f"{lp['diff']:+.1f} [{lp['lo']:+.1f}, {lp['hi']:+.1f}] vs {lp['vs']}" if lp else "-")
                      + " | " + (f"{lb['diff']:+.1f} [{lb['lo']:+.1f}, {lb['hi']:+.1f}] vs {lb['vs']}" if lb else "-") + " |")
         L.append("")
-    (R / "attack_report.md").write_text("\n".join(L))
+    (R / ("attack_report_final.md" if FINAL else "attack_report.md")).write_text("\n".join(L))
     print("\n".join(L))
 
 

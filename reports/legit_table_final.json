@@ -1,0 +1,302 @@
+[
+ {
+  "model": "Llama-3.1-8B",
+  "arms": {
+   "mask": {
+    "n": 150,
+    "complied": 68.0,
+    "corrected": 31.3,
+    "refused": 0.7,
+    "complied_by_kind": {
+     "legit-fiction": 70.0,
+     "legit-roleplay": 54.0,
+     "legit-counterfactual": 80.0
+    }
+   },
+   "liemask": {
+    "n": 150,
+    "complied": 92.0,
+    "corrected": 8.0,
+    "refused": 0.0,
+    "complied_by_kind": {
+     "legit-fiction": 86.0,
+     "legit-roleplay": 90.0,
+     "legit-counterfactual": 100.0
+    }
+   },
+   "steer": {
+    "n": 150,
+    "complied": 63.3,
+    "corrected": 36.7,
+    "refused": 0.0,
+    "complied_by_kind": {
+     "legit-fiction": 32.0,
+     "legit-roleplay": 64.0,
+     "legit-counterfactual": 94.0
+    }
+   },
+   "prompt": {
+    "n": 150,
+    "complied": 96.0,
+    "corrected": 4.0,
+    "refused": 0.0,
+    "complied_by_kind": {
+     "legit-fiction": 98.0,
+     "legit-roleplay": 96.0,
+     "legit-counterfactual": 94.0
+    }
+   },
+   "unsteered": {
+    "n": 150,
+    "complied": 96.7,
+    "corrected": 3.3,
+    "refused": 0.0,
+    "complied_by_kind": {
+     "legit-fiction": 96.0,
+     "legit-roleplay": 98.0,
+     "legit-counterfactual": 96.0
+    }
+   }
+  }
+ },
+ {
+  "model": "Phi-4-mini",
+  "arms": {
+   "mask": {
+    "n": 150,
+    "complied": 78.0,
+    "corrected": 20.0,
+    "refused": 2.0,
+    "complied_by_kind": {
+     "legit-fiction": 74.0,
+     "legit-roleplay": 64.0,
+     "legit-counterfactual": 96.0
+    }
+   },
+   "liemask": {
+    "n": 150,
+    "complied": 87.3,
+    "corrected": 12.0,
+    "refused": 0.7,
+    "complied_by_kind": {
+     "legit-fiction": 78.0,
+     "legit-roleplay": 86.0,
+     "legit-counterfactual": 98.0
+    }
+   },
+   "steer": {
+    "n": 150,
+    "complied": 86.0,
+    "corrected": 12.7,
+    "refused": 1.3,
+    "complied_by_kind": {
+     "legit-fiction": 80.0,
+     "legit-roleplay": 78.0,
+     "legit-counterfactual": 100.0
+    }
+   },
+   "prompt": {
+    "n": 150,
+    "complied": 75.3,
+    "corrected": 17.3,
+    "refused": 7.3,
+    "complied_by_kind": {
+     "legit-fiction": 78.0,
+     "legit-roleplay": 54.0,
+     "legit-counterfactual": 94.0
+    }
+   },
+   "unsteered": {
+    "n": 150,
+    "complied": 88.0,
+    "corrected": 11.3,
+    "refused": 0.7,
+    "complied_by_kind": {
+     "legit-fiction": 86.0,
+     "legit-roleplay": 80.0,
+     "legit-counterfactual": 98.0
+    }
+   }
+  }
+ },
+ {
+  "model": "Falcon3-3B",
+  "arms": {
+   "mask": {
+    "n": 150,
+    "complied": 70.7,
+    "corrected": 27.3,
+    "refused": 2.0,
+    "complied_by_kind": {
+     "legit-fiction": 54.0,
+     "legit-roleplay": 66.0,
+     "legit-counterfactual": 92.0
+    }
+   },
+   "liemask": {
+    "n": 150,
+    "complied": 80.0,
+    "corrected": 19.3,
+    "refused": 0.7,
+    "complied_by_kind": {
+     "legit-fiction": 80.0,
+     "legit-roleplay": 72.0,
+     "legit-counterfactual": 88.0
+    }
+   },
+   "steer": {
+    "n": 150,
+    "complied": 78.7,
+    "corrected": 20.0,
+    "refused": 1.3,
+    "complied_by_kind": {
+     "legit-fiction": 66.0,
+     "legit-roleplay": 74.0,
+     "legit-counterfactual": 96.0
+    }
+   },
+   "prompt": {
+    "n": 150,
+    "complied": 74.7,
+    "corrected": 22.7,
+    "refused": 2.7,
+    "complied_by_kind": {
+     "legit-fiction": 62.0,
+     "legit-roleplay": 70.0,
+     "legit-counterfactual": 92.0
+    }
+   },
+   "unsteered": {
+    "n": 150,
+    "complied": 82.7,
+    "corrected": 16.0,
+    "refused": 1.3,
+    "complied_by_kind": {
+     "legit-fiction": 76.0,
+     "legit-roleplay": 78.0,
+     "legit-counterfactual": 94.0
+    }
+   }
+  }
+ },
+ {
+  "model": "OLMo-2-1B",
+  "arms": {
+   "mask": {
+    "n": 150,
+    "complied": 74.7,
+    "corrected": 24.7,
+    "refused": 0.7,
+    "complied_by_kind": {
+     "legit-fiction": 62.0,
+     "legit-roleplay": 72.0,
+     "legit-counterfactual": 90.0
+    }
+   },
+   "liemask": {
+    "n": 150,
+    "complied": 72.7,
+    "corrected": 25.3,
+    "refused": 2.0,
+    "complied_by_kind": {
+     "legit-fiction": 66.0,
+     "legit-roleplay": 66.0,
+     "legit-counterfactual": 86.0
+    }
+   },
+   "steer": {
+    "n": 150,
+    "complied": 76.7,
+    "corrected": 23.3,
+    "refused": 0.0,
+    "complied_by_kind": {
+     "legit-fiction": 66.0,
+     "legit-roleplay": 70.0,
+     "legit-counterfactual": 94.0
+    }
+   },
+   "prompt": {
+    "n": 150,
+    "complied": 69.3,
+    "corrected": 29.3,
+    "refused": 1.3,
+    "complied_by_kind": {
+     "legit-fiction": 62.0,
+     "legit-roleplay": 54.0,
+     "legit-counterfactual": 92.0
+    }
+   },
+   "unsteered": {
+    "n": 150,
+    "complied": 70.7,
+    "corrected": 28.0,
+    "refused": 1.3,
+    "complied_by_kind": {
+     "legit-fiction": 64.0,
+     "legit-roleplay": 60.0,
+     "legit-counterfactual": 88.0
+    }
+   }
+  }
+ },
+ {
+  "model": "Qwen2.5-3B",
+  "arms": {
+   "mask": {
+    "n": 150,
+    "complied": 72.7,
+    "corrected": 24.7,
+    "refused": 2.7,
+    "complied_by_kind": {
+     "legit-fiction": 68.0,
+     "legit-roleplay": 54.0,
+     "legit-counterfactual": 96.0
+    }
+   },
+   "liemask": {
+    "n": 150,
+    "complied": 70.7,
+    "corrected": 26.0,
+    "refused": 3.3,
+    "complied_by_kind": {
+     "legit-fiction": 54.0,
+     "legit-roleplay": 62.0,
+     "legit-counterfactual": 96.0
+    }
+   },
+   "steer": {
+    "n": 150,
+    "complied": 80.7,
+    "corrected": 18.7,
+    "refused": 0.7,
+    "complied_by_kind": {
+     "legit-fiction": 74.0,
+     "legit-roleplay": 72.0,
+     "legit-counterfactual": 96.0
+    }
+   },
+   "prompt": {
+    "n": 150,
+    "complied": 64.0,
+    "corrected": 36.0,
+    "refused": 0.0,
+    "complied_by_kind": {
+     "legit-fiction": 62.0,
+     "legit-roleplay": 34.0,
+     "legit-counterfactual": 96.0
+    }
+   },
+   "unsteered": {
+    "n": 150,
+    "complied": 80.7,
+    "corrected": 18.7,
+    "refused": 0.7,
+    "complied_by_kind": {
+     "legit-fiction": 74.0,
+     "legit-roleplay": 72.0,
+     "legit-counterfactual": 96.0
+    }
+   }
+  }
+ }
+]

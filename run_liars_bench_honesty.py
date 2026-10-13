@@ -52,6 +52,8 @@ import json
 import re
 import time
 from collections import Counter
+import os
+import random
 from pathlib import Path
 
 import torch
@@ -62,7 +64,7 @@ from src.prompts import (DIRECT_LIE, DIRECT_TRUTH, DIRECT_TRUTH_INSTRUCT,
                         DIRECT_FICTION_FALSE, DIRECT_HONEST_ERROR,
                         TF_LIE, TF_FICTION, TF_ERROR, TF_TRUTH,
                         SB_SANDBAG, SB_GAME, SB_MISTAKE, SB_CONTROL)
-from did_estimators import (cell_mean_sd, collect_column_norms, load_lm,
+from did_estimators import (cell_mean_sd, collect_column_norms, get_module, load_lm,
                             target_layers)
 from run_reversed_contrast import (SanitizeLogits, generate_batched,
                                    load_wikitext_ids, wikitext_ppl)
@@ -293,6 +295,32 @@ def main():
                          "magnitude-matched random masks sbagrnd100 / sbpoolrnd100; steering vectors from the "
                          "sbag prompts, arm keys sbsL<layer>_<r> (layers/strengths from --as-layers / "
                          "--as-rel-coeffs); honest-prompt wordings sbprompt1 / sbprompt2.")
+    # Review controls (2026-10-12, an ACL-style review of the draft): capability per option, other selection rules,
+    # multi-layer steering.
+    ap.add_argument("--mmlu", type=int, default=0,
+                    help="Also score N plain MMLU questions per arm (zero-shot, chat template, letter logits; a fixed "
+                         "seed-0 sample of extra_data/mmlu/all_test.parquet, split val/test by the MD5 of its id). "
+                         "Per-item results go to <stem>_mmlu.jsonl, accuracies to the CSV (mmlu_acc[_val|_test]).")
+    ap.add_argument("--ifeval", type=int, default=0,
+                    help="Also run the first N IFEval prompts per arm (greedy, up to 512 new tokens, chat template; an "
+                         "honest-prompt arm adds its system prompt) and score them with lm-eval's IFEval checks "
+                         "(ifeval_prompt_strict etc. in the CSV; replies in <stem>_ifeval.jsonl).")
+    ap.add_argument("--no-gen", action="store_true",
+                    help="Score no benchmark items (perplexity and --mmlu only), e.g. to add MMLU to options whose "
+                         "honest rates already exist.")
+    ap.add_argument("--variants", default="",
+                    help="Comma-separated <rule>:<family> masks for the review's selection-rule controls, arm keys "
+                         "v<rule><family><strength> (e.g. vposfiction100). Rules: pos (positive-score weights only, "
+                         "no padding), pad (the padding alone: top rho minus the positive-score weights), z "
+                         "(standardized difference (mF-mT)/sqrt((sF^2+sT^2)/2), top rho), tok (our rule on per-token "
+                         "RMS norms, removing prompt length), rat (scale-free ratio mF/mT - 1/r), r020 / r060 (our "
+                         "rule at r=0.2 / 0.6). Families: ours fiction pooled fictf pooltf poolmix. One mask in memory "
+                         "at a time.")
+    ap.add_argument("--ml-sets", default="",
+                    help="Multi-layer steering: comma-separated layer sets, 'trio' (the --as-layers), 'first' (the "
+                         "first half of the layers), 'all', or a+b+c; arm keys mls<set>_<r>, the CAA vector of each "
+                         "layer added at that layer with r x its median residual norm (strengths --ml-rel-coeffs).")
+    ap.add_argument("--ml-rel-coeffs", default="-0.01,-0.02,-0.03,-0.06,-0.1,-0.18,-0.3,-0.5")
     ap.add_argument("--arms", default="unsteered,ours075,ours100,magmatch,actsteer,prompt",
                     help="Comma-separated subset of arm keys.")
     ap.add_argument("--tag", default="")
@@ -343,6 +371,8 @@ def main():
         import hashlib
         side = lambda uid: "val" if int(hashlib.md5(uid.encode()).hexdigest(), 16) % 2 == 0 else "test"
         subsets = {k: [it for it in v if side(it["uid"]) == args.half] for k, v in subsets.items()}
+    if args.no_gen:
+        subsets = {}
     for k, v in subsets.items():
         print(f"  {k}: {len(v)} items", flush=True)
 
@@ -434,12 +464,18 @@ def main():
     if args.sandbag_arms:
         treatments += [("sb_sandbag", SB_SANDBAG), ("sb_game", SB_GAME),
                        ("sb_mistake", SB_MISTAKE), ("sb_control", SB_CONTROL)]
-    norms, norms_rms = {}, {}
+    norms, norms_rms, norms_sd, norms_tok = {}, {}, {}, {}
+    want_tok = any(v.split(":")[0] == "tok" for v in args.variants.split(",") if v)
     for key, prompts in treatments:
         cols = collect_column_norms(
             model, tok, [{"prompt": p} for p in prompts[:args.n_truth]],
             layers, device, position="prompt", batch_size=args.score_batch)
-        norms[key], _, _ = cell_mean_sd(cols)
+        norms[key], norms_sd[key], _ = cell_mean_sd(cols)
+        if want_tok:
+            # per-token RMS (the prompt norm divided by sqrt of its token count): the length-free statistic
+            norms_tok[key], _, _ = cell_mean_sd(collect_column_norms(
+                model, tok, [{"prompt": p} for p in prompts[:args.n_truth]],
+                layers, device, position="prompt", batch_size=args.score_batch, rms=True))
         # Wanda / CreativityNeuro take one L2 norm over all calibration tokens, which is the root mean
         # square of the per-prompt norms up to a constant (the same constant on both sides of a contrast)
         norms_rms[key] = {ly: (t * t).mean(dim=0).sqrt() for ly, t in cols.items()}
@@ -632,6 +668,66 @@ def main():
             extra_masks[spec.rstrip("_") + "_"] = u
             print(f"  mask[{spec}] union: {share[0]:.4f} + {share[1]:.4f} -> {share[2]:.4f} of weights",
                   flush=True)
+    VFAM = {"ours": (["lie"], ["instruct"]), "fiction": (["fiction"], ["instruct"]),
+            "pooled": (["lie", "fiction", "error"], ["instruct"]), "fictf": (["tf_fiction"], ["tf_truth"]),
+            "pooltf": (["tf_lie", "tf_fiction", "tf_error"], ["tf_truth"]),
+            "poolmix": (["lie", "fiction", "error", "tf_lie", "tf_fiction", "tf_error"], ["instruct", "tf_truth"])}
+    VRULES = ("pos", "pad", "z", "tok", "rat", "r020", "r060")
+    variant_specs = {}
+    for spec in [x for x in args.variants.split(",") if x]:
+        rule, fam = spec.split(":")
+        if rule not in VRULES or fam not in VFAM:
+            raise SystemExit(f"--variants: unknown {spec}")
+        variant_specs[f"v{rule}{fam}"] = (rule, fam)
+
+    def pooled_stats(keys, src):
+        """mean and population variance over the per-prompt norms of several equally sized prompt sets"""
+        out_m, out_v = {}, {}
+        for ly in layers:
+            m = sum(src[k][ly] for k in keys) / len(keys)
+            n = args.n_truth
+            ex2 = sum(norms_sd[k][ly] ** 2 * (n - 1) / n + norms[k][ly] ** 2 for k in keys) / len(keys) \
+                if src is norms else None
+            out_m[ly] = m
+            out_v[ly] = (ex2 - m * m).clamp(min=0) if ex2 is not None else None
+        return out_m, out_v
+
+    @torch.no_grad()
+    def build_review_mask(name):
+        rule, fam = variant_specs[name]
+        fk, tk = VFAM[fam]
+        src = norms_tok if rule == "tok" else norms
+        mF, vF = pooled_stats(fk, src)
+        mT, vT = pooled_stats(tk, src)
+        r = {"r020": 0.2, "r060": 0.6}.get(rule, args.ratio)
+        v = r / (1.0 + r)
+        masks, n_sel, n_pos, n_all = {}, 0, 0, 0
+        for ly in layers:
+            W = get_module(model, ly).weight.detach().float().abs().to(device)
+            n = W.numel(); k = max(1, int(args.rho * n))
+            if rule == "z":
+                c = (mF[ly] - mT[ly]) / ((vF[ly] + vT[ly]) / 2).sqrt().clamp(min=1e-6)
+            elif rule == "rat":
+                c = mF[ly] / mT[ly].clamp(min=1e-8) - 1.0 / r
+            else:
+                c = v * mF[ly] - (1.0 - v) * mT[ly]
+            s = (W * c.to(device).unsqueeze(0)).view(-1)
+            top = torch.zeros(n, dtype=torch.bool, device=device)
+            top[s.topk(k).indices] = True
+            pos = s > 0
+            if rule == "pos":
+                m = pos if int(pos.sum()) <= k else top
+            elif rule == "pad":
+                m = top & ~pos
+            else:
+                m = top
+            n_sel += int(m.sum()); n_pos += int(pos.sum()); n_all += n
+            masks[ly] = m.view(W.shape).cpu()
+            del W, s, top, pos
+        print(f"  mask[{name}] ({rule} on {fam}, r={r:g}): {n_sel / n_all:.4%} of weights selected, "
+              f"{n_pos / n_all:.4%} with a positive score", flush=True)
+        return masks
+
     asteer = ActivationSteering(model, tok, ActivationSteeringConfig(device=device))
     vec_path = out_dir / f"as_vectors_{short}_ntruth{args.n_truth}.pt"
     if vec_path.exists():
@@ -686,6 +782,27 @@ def main():
         for a in (-0.1, -0.15, -0.25, -0.5, -0.75, -1.0, -1.125, -1.25):
             key = f"{fam}{int(round(abs(a) * 100)):03d}"
             ALL_ARMS.setdefault(key, (f"weight:{fam} a={a}", ("mask", m, a)))
+    for name in variant_specs:
+        for a in (-0.05, -0.1, -0.25, -0.5, -0.75, -1.0, -1.125, -1.25, -1.5, -2.0):
+            ALL_ARMS[f"{name}{int(round(abs(a) * 100)):03d}"] = (f"weight:{name} a={a}", ("lazymask", name, a))
+    if args.ml_sets:
+        from did_estimators import decoder_layers
+        n_blocks = len(decoder_layers(model))
+        trio = [int(x) for x in args.as_layers.split(",")] if args.as_layers else [args.as_layer]
+        sets = {}
+        for nm in args.ml_sets.split(","):
+            sets[nm] = (trio if nm == "trio" else list(range(n_blocks // 2)) if nm == "first"
+                        else list(range(n_blocks)) if nm == "all" else [int(x) for x in nm.split("+")])
+        with torch.no_grad():
+            acts_ml = asteer._collect_last_token_activations(DIRECT_TRUTH_INSTRUCT[:8])
+        for nm, Ls in sets.items():
+            med = {L: acts_ml[L].float().norm(dim=-1).median().item() for L in Ls}
+            for r in [float(x) for x in args.ml_rel_coeffs.split(",")]:
+                ALL_ARMS[f"mls{nm}_{r:g}"] = (
+                    f"mlsteer:{nm}[{Ls[0]}..{Ls[-1]}, {len(Ls)} layers] r={r:g}",
+                    ("mhook", [(L, r * med[L], asteer.steering_vectors[L]) for L in Ls], None))
+        print("  multi-layer steering sets: " + "  ".join(f"{k}={v[0]}..{v[-1]} ({len(v)})" for k, v in sets.items()),
+              flush=True)
     if args.as_coeffs or args.as_rel_coeffs:
         # Residual norms differ by model and layer, so the coefficient is only
         # interpretable against them; print for the record.
@@ -726,6 +843,67 @@ def main():
     # arm's own ratio 1.00 by construction whenever 'unsteered' is not in --arms.
     base_ppl = wikitext_ppl(model, wt_ids, device)
     print(f"  baseline wikitext ppl = {base_ppl:.3f}", flush=True)
+    mmlu_items, mmlu_recs = [], []
+    if args.mmlu:
+        import hashlib
+        import pandas as pd
+        mm = pd.read_parquet(Path(os.environ.get("LIE_OUT", str(out_dir))) / "extra_data/mmlu/all_test.parquet")
+        idx = sorted(random.Random(0).sample(range(len(mm)), min(args.mmlu, len(mm))))
+        for i in idx:
+            r = mm.iloc[i]
+            q = (f"{r['question'].strip()}\n\n" + "\n".join(f"{L}. {c}" for L, c in zip("ABCD", r["choices"]))
+                 + "\n\nAnswer with the letter of the correct option only.")
+            uid = f"mmlu:{i}"
+            mmlu_items.append({"uid": uid, "ctx": [{"role": "user", "content": q}], "gold": int(r["answer"]),
+                               "half": "val" if int(hashlib.md5(uid.encode()).hexdigest(), 16) % 2 == 0 else "test"})
+        letter_ids = []
+        for L in "ABCD":
+            ids = {tok.encode(L, add_special_tokens=False)[0], tok.encode(" " + L, add_special_tokens=False)[-1]}
+            letter_ids.append(sorted(ids))
+        print(f"  MMLU: {len(mmlu_items)} questions "
+              f"({sum(it['half'] == 'val' for it in mmlu_items)} val), letter ids {letter_ids}", flush=True)
+
+    if_docs, if_recs = [], []
+    if args.ifeval:
+        from datasets import load_dataset
+        from lm_eval.tasks.ifeval import utils as if_utils
+        # IFEVAL_JSONL: the 541 prompts exported from the HF cache (hosts whose datasets version cannot read that cache)
+        if_docs = ([json.loads(l) for l in open(os.environ["IFEVAL_JSONL"])] if os.environ.get("IFEVAL_JSONL")
+                   else list(load_dataset("google/if_eval", split="train")))[:args.ifeval]
+        print(f"  IFEval: {len(if_docs)} prompts", flush=True)
+
+    def ifeval_eval(label, honest_prompt=None):
+        ctxs = [[{"role": "user", "content": d["prompt"]}] for d in if_docs]
+        ctxs = [with_honest_system(c, honest_prompt) if honest_prompt else c for c in ctxs]
+        torch.manual_seed(args.seed)
+        resp = generate_batched(model, tok, ctxs, device, 512, 0.0, args.batch_size, guard=guard)
+        agg = {"prompt_level_strict_acc": [], "inst_level_strict_acc": [], "prompt_level_loose_acc": [], "inst_level_loose_acc": []}
+        for d, r in zip(if_docs, resp):
+            sc = if_utils.process_results(d, [r])
+            for k in agg:
+                agg[k] += sc[k] if isinstance(sc[k], list) else [sc[k]]
+            if_recs.append({"arm": label, "key": d["key"], "resp": r, "strict": bool(sc["prompt_level_strict_acc"]),
+                            "loose": bool(sc["prompt_level_loose_acc"])})
+        with open(out_dir / f"{stem}_ifeval.jsonl", "w") as f:
+            for r in if_recs:
+                f.write(json.dumps(r) + "\n")
+        return {"ifeval_" + k.replace("_level", "").replace("_acc", ""): sum(v) / len(v) for k, v in agg.items()}
+
+    @torch.no_grad()
+    def mmlu_eval(honest_prompt=None, bs=16):
+        texts = []
+        for it in mmlu_items:
+            ctx = with_honest_system(it["ctx"], honest_prompt) if honest_prompt else it["ctx"]
+            texts.append(tok.apply_chat_template(ctx, tokenize=False, add_generation_prompt=True))
+        correct = []
+        for s0 in range(0, len(texts), bs):
+            enc = tok(texts[s0:s0 + bs], return_tensors="pt", padding=True, add_special_tokens=False).to(device)
+            pos = (enc["attention_mask"].cumsum(-1) - 1).clamp(min=0)
+            logits = model(**enc, position_ids=pos).logits[:, -1, :].float()
+            lp = torch.log_softmax(logits, dim=-1)
+            sc = torch.stack([torch.logsumexp(lp[:, ids], dim=-1) for ids in letter_ids], dim=-1)
+            correct += sc.argmax(-1).tolist()
+        return correct
     def eval_arm(label, t0, honest_prompt=None):
         nonlocal base_ppl
         row = {"arm": label, "rho": args.rho, "ratio": args.ratio}
@@ -758,6 +936,22 @@ def main():
 
         ppl = wikitext_ppl(model, wt_ids, device)
         row["ppl_ratio"] = ppl / base_ppl
+        if mmlu_items:
+            preds = mmlu_eval(honest_prompt)
+            ok = [int(p == it["gold"]) for p, it in zip(preds, mmlu_items)]
+            for h in ("", "_val", "_test"):
+                sel = [o for o, it in zip(ok, mmlu_items) if not h or it["half"] == h[1:]]
+                row["mmlu_acc" + h] = sum(sel) / len(sel)
+            mmlu_recs.extend({"arm": label, "uid": it["uid"], "half": it["half"], "pred": p, "correct": o}
+                             for it, p, o in zip(mmlu_items, preds, ok))
+            with open(out_dir / f"{stem}_mmlu.jsonl", "w") as f:
+                for r in mmlu_recs:
+                    f.write(json.dumps(r) + "\n")
+            print(f"      MMLU {row['mmlu_acc']:.1%} (val {row['mmlu_acc_val']:.1%}, test {row['mmlu_acc_test']:.1%})",
+                  flush=True)
+        if if_docs:
+            row.update(ifeval_eval(label, honest_prompt))
+            print(f"      IFEval prompt-level strict {row['ifeval_prompt_strict']:.1%}, loose {row['ifeval_prompt_loose']:.1%}", flush=True)
         rows.append(row)
         with open(out_dir / f"{stem}_responses.jsonl", "w") as f:
             for r in all_recs:
@@ -783,10 +977,19 @@ def main():
                 w.writerow({k: r.get(k, "") for k in fields})
         return row
 
+    lazy = {"name": None, "mask": None}
     for label, spec in ARMS:
         t0 = time.time()
         hooks, applied = [], False
-        if spec and spec[0] == "mask":
+        if spec and spec[0] == "lazymask":
+            if lazy["name"] != spec[1]:
+                lazy["mask"] = None
+                lazy["mask"], lazy["name"] = build_review_mask(spec[1]), spec[1]
+            apply_mask(model, lazy["mask"], spec[2], originals)
+            applied = True
+        elif spec and spec[0] == "mhook":
+            hooks = add_hooks(model, spec[1])
+        elif spec and spec[0] == "mask":
             apply_mask(model, spec[1], spec[2], originals)
             applied = True
         elif spec and spec[0] == "hook":

@@ -1,0 +1,392 @@
+{
+ "Llama-3.1-8B": {
+  "lb": {
+   "unsteered": {
+    "arm": "unsteered",
+    "v": 37.2,
+    "mmlu_drop": 0.0
+   },
+   "prompt": {
+    "arm": "prompt:honest2",
+    "v": 65.9,
+    "mmlu_drop": -1.1
+   },
+   "liemask": {
+    "arm": "weight:ours a=-1.125",
+    "v": 78.9,
+    "mmlu_drop": -2.9
+   },
+   "mask": {
+    "arm": "weight:fiction a=-1.25",
+    "v": 87.4,
+    "mmlu_drop": -8.4,
+    "minus_mlsteer": {
+     "diff": 7.3,
+     "lo": 1.1,
+     "hi": 13.4,
+     "n": 261
+    }
+   },
+   "steer": {
+    "arm": "actsteer:L8 r=-0.5 (c=-2.8)",
+    "v": 87.0,
+    "mmlu_drop": -8.3
+   },
+   "mlsteer": {
+    "arm": "mlsteer:first[0..15, 16 layers] r=-0.06",
+    "v": 80.1,
+    "mmlu_drop": -2.3
+   }
+  },
+  "ail": {
+   "unsteered": {
+    "arm": "unsteered",
+    "v": 27.1,
+    "mmlu_drop": 0.0
+   },
+   "prompt": {
+    "arm": "prompt:honest3",
+    "v": 26.6,
+    "mmlu_drop": -1.9
+   },
+   "liemask": {
+    "arm": "weight:ours a=-1.125",
+    "v": 88.0,
+    "mmlu_drop": -2.9
+   },
+   "mask": {
+    "arm": "weight:pooled a=-1.0",
+    "v": 89.7,
+    "mmlu_drop": -2.5,
+    "minus_mlsteer": {
+     "diff": -1.4,
+     "lo": -4.8,
+     "hi": 2.2,
+     "n": 417
+    }
+   },
+   "steer": {
+    "arm": "actsteer:L8 r=-0.5 (c=-2.8)",
+    "v": 87.8,
+    "mmlu_drop": -8.3
+   },
+   "mlsteer": {
+    "arm": "mlsteer:first[0..15, 16 layers] r=-0.06",
+    "v": 91.1,
+    "mmlu_drop": -2.3
+   }
+  }
+ },
+ "Phi-4-mini": {
+  "lb": {
+   "unsteered": {
+    "arm": "unsteered",
+    "v": 69.8,
+    "mmlu_drop": 0.0
+   },
+   "prompt": {
+    "arm": "prompt:honest2",
+    "v": 79.4,
+    "mmlu_drop": -0.9
+   },
+   "liemask": {
+    "arm": "weight:ours a=-0.5",
+    "v": 69.5,
+    "mmlu_drop": 0.6
+   },
+   "mask": {
+    "arm": "weight:pooled a=-1.125",
+    "v": 90.5,
+    "mmlu_drop": -3.0,
+    "minus_mlsteer": {
+     "diff": 3.8,
+     "lo": -0.4,
+     "hi": 8.0,
+     "n": 262
+    }
+   },
+   "steer": {
+    "arm": "actsteer:L16 r=-0.18 (c=-10.4)",
+    "v": 76.0,
+    "mmlu_drop": 0.1
+   },
+   "mlsteer": {
+    "arm": "mlsteer:trio[8..24, 3 layers] r=-0.1",
+    "v": 86.6,
+    "mmlu_drop": 0.2
+   }
+  },
+  "ail": {
+   "unsteered": {
+    "arm": "unsteered",
+    "v": 47.1,
+    "mmlu_drop": 0.0
+   },
+   "prompt": {
+    "arm": "prompt:honest2",
+    "v": 51.5,
+    "mmlu_drop": -0.9
+   },
+   "liemask": {
+    "arm": "weight:ours a=-0.5",
+    "v": 59.3,
+    "mmlu_drop": 0.6
+   },
+   "mask": {
+    "arm": "weight:fiction a=-1.0",
+    "v": 78.7,
+    "mmlu_drop": -2.7,
+    "minus_mlsteer": {
+     "diff": 5.4,
+     "lo": 0.9,
+     "hi": 10.5,
+     "n": 427
+    }
+   },
+   "steer": {
+    "arm": "actsteer:L16 r=-0.18 (c=-10.4)",
+    "v": 66.7,
+    "mmlu_drop": 0.1
+   },
+   "mlsteer": {
+    "arm": "mlsteer:first[0..15, 16 layers] r=-0.03",
+    "v": 73.3,
+    "mmlu_drop": -0.8
+   }
+  }
+ },
+ "Falcon3-3B": {
+  "lb": {
+   "unsteered": {
+    "arm": "unsteered",
+    "v": 80.2,
+    "mmlu_drop": 0.0
+   },
+   "mask": {
+    "arm": "weight:poolmix a=-1.25",
+    "v": 91.6,
+    "mmlu_drop": -2.6,
+    "minus_mlsteer": {
+     "diff": 3.1,
+     "lo": -1.1,
+     "hi": 7.3,
+     "n": 262
+    }
+   },
+   "steer": {
+    "arm": "actsteer:L5 r=-0.3 (c=-21.8)",
+    "v": 84.0,
+    "mmlu_drop": -2.1
+   },
+   "liemask": {
+    "arm": "weight:ours a=-0.15",
+    "v": 83.6,
+    "mmlu_drop": -0.5
+   },
+   "prompt": {
+    "arm": "prompt:honest5",
+    "v": 81.7,
+    "mmlu_drop": -2.2
+   },
+   "mlsteer": {
+    "arm": "mlsteer:trio[5..16, 3 layers] r=-0.1",
+    "v": 88.5,
+    "mmlu_drop": -0.6
+   }
+  },
+  "ail": {
+   "unsteered": {
+    "arm": "unsteered",
+    "v": 73.0,
+    "mmlu_drop": 0.0
+   },
+   "mask": {
+    "arm": "weight:poolmix a=-1.125",
+    "v": 79.5,
+    "mmlu_drop": -2.1,
+    "minus_mlsteer": {
+     "diff": 4.4,
+     "lo": -0.6,
+     "hi": 9.4,
+     "n": 341
+    }
+   },
+   "steer": {
+    "arm": "actsteer:L5 r=-0.18 (c=-13.0)",
+    "v": 71.8,
+    "mmlu_drop": -0.4
+   },
+   "liemask": {
+    "arm": "weight:ours a=-0.15",
+    "v": 73.9,
+    "mmlu_drop": -0.5
+   },
+   "prompt": {
+    "arm": "prompt:honest5",
+    "v": 76.0,
+    "mmlu_drop": -2.2
+   },
+   "mlsteer": {
+    "arm": "mlsteer:all[0..21, 22 layers] r=-0.01",
+    "v": 75.1,
+    "mmlu_drop": -0.4
+   }
+  }
+ },
+ "OLMo-2-1B": {
+  "lb": {
+   "unsteered": {
+    "arm": "unsteered",
+    "v": 50.4,
+    "mmlu_drop": 0.0
+   },
+   "prompt": {
+    "arm": "prompt:honest",
+    "v": 61.1,
+    "mmlu_drop": -2.3
+   },
+   "liemask": {
+    "arm": "weight:ours a=-1.25",
+    "v": 57.3,
+    "mmlu_drop": -1.7
+   },
+   "mask": {
+    "arm": "weight:pooled a=-1.25",
+    "v": 60.7,
+    "mmlu_drop": -2.2,
+    "minus_mlsteer": {
+     "diff": 1.1,
+     "lo": -5.0,
+     "hi": 7.3,
+     "n": 262
+    }
+   },
+   "steer": {
+    "arm": "actsteer:L12 r=-0.1 (c=-2.1)",
+    "v": 54.2,
+    "mmlu_drop": 1.0
+   },
+   "mlsteer": {
+    "arm": "mlsteer:all[0..15, 16 layers] r=-0.01",
+    "v": 59.5,
+    "mmlu_drop": 0.1
+   }
+  },
+  "ail": {
+   "unsteered": {
+    "arm": "unsteered",
+    "v": 60.5,
+    "mmlu_drop": 0.0
+   },
+   "prompt": {
+    "arm": "prompt:honest",
+    "v": 57.1,
+    "mmlu_drop": -2.3
+   },
+   "liemask": {
+    "arm": "weight:ours a=-1.25",
+    "v": 66.1,
+    "mmlu_drop": -1.7
+   },
+   "mask": {
+    "arm": "weight:pooled a=-1.25",
+    "v": 67.1,
+    "mmlu_drop": -2.2,
+    "minus_mlsteer": {
+     "diff": 12.6,
+     "lo": 6.6,
+     "hi": 18.6,
+     "n": 301
+    }
+   },
+   "steer": {
+    "arm": "actsteer:L12 r=-0.1 (c=-2.1)",
+    "v": 69.1,
+    "mmlu_drop": 1.0
+   },
+   "mlsteer": {
+    "arm": "mlsteer:first[0..7, 8 layers] r=-0.02",
+    "v": 54.5,
+    "mmlu_drop": -0.8
+   }
+  }
+ },
+ "Qwen2.5-3B": {
+  "lb": {
+   "unsteered": {
+    "arm": "unsteered",
+    "v": 81.7,
+    "mmlu_drop": 0.0
+   },
+   "prompt": {
+    "arm": "prompt:honest",
+    "v": 92.0,
+    "mmlu_drop": 0.1
+   },
+   "liemask": {
+    "arm": "weight:ours a=-1.0",
+    "v": 92.0,
+    "mmlu_drop": -3.4
+   },
+   "mask": {
+    "arm": "weight:pooltf a=-1.125",
+    "v": 94.7,
+    "mmlu_drop": -0.7,
+    "minus_mlsteer": {
+     "diff": 5.7,
+     "lo": 2.3,
+     "hi": 9.2,
+     "n": 262
+    }
+   },
+   "steer": {
+    "arm": "actsteer:L27 r=-0.18 (c=-18.7)",
+    "v": 90.5,
+    "mmlu_drop": 0.3
+   },
+   "mlsteer": {
+    "arm": "mlsteer:first[0..17, 18 layers] r=-0.03",
+    "v": 88.9,
+    "mmlu_drop": -0.6
+   }
+  },
+  "ail": {
+   "unsteered": {
+    "arm": "unsteered",
+    "v": 65.7,
+    "mmlu_drop": 0.0
+   },
+   "prompt": {
+    "arm": "prompt:honest",
+    "v": 61.4,
+    "mmlu_drop": 0.1
+   },
+   "liemask": {
+    "arm": "weight:ours a=-1.0",
+    "v": 82.1,
+    "mmlu_drop": -3.4
+   },
+   "mask": {
+    "arm": "weight:poolmix a=-1.125",
+    "v": 81.3,
+    "mmlu_drop": -1.4,
+    "minus_mlsteer": {
+     "diff": 5.6,
+     "lo": 0.5,
+     "hi": 11.0,
+     "n": 391
+    }
+   },
+   "steer": {
+    "arm": "actsteer:L9 r=-0.5 (c=-19.0)",
+    "v": 77.0,
+    "mmlu_drop": -5.0
+   },
+   "mlsteer": {
+    "arm": "mlsteer:first[0..17, 18 layers] r=-0.03",
+    "v": 75.7,
+    "mmlu_drop": -0.6
+   }
+  }
+ }
+}

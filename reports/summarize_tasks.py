@@ -16,6 +16,10 @@ import random
 from collections import defaultdict
 
 OUT = "/work/hdd/bfqt/xiaocong/lie_detection_outputs"
+# FINAL=1 (review, 2026-10-12): the runs at Table 1's final options (queue/lie_review.slurm EXP=tasks, tags rvtasks<task>, under
+# the review dir; the MASK judge writes to OUT), all graded as during development (Qwen2.5-7B for injected / AM-GoT)
+FINAL = os.environ.get("FINAL") == "1"
+RVD = "/work/hdd/bfqt/xiaocong/lie_review"
 # GRADER=gpt: the injected-document and AM/GoT columns from the GPT-5.6 re-grade (judge_gpt.py --tasks; files
 # <GPT_DIR>/liars_bench_honesty_<model>_t{inject,amgot}_judged_gpt_v2.jsonl, verdict_hybrid = keyword parser where it
 # settles, GPT-5.6 otherwise), as Table 1 since v4.3; the other tasks are keyword- or MASK-judge-graded and unchanged.
@@ -33,14 +37,14 @@ MASK_GROUP = {"mask-continuations": "instructed", "mask-disinformation": "instru
               "mask-doubling-down-known-facts": "incentive", "mask-provided-facts": "incentive"}
 # task key -> (file suffix, verdict field, split -> bucket)
 TASKS = {
-    "sandbag": ("tsandbag_responses", "verdict",
+    "sandbag": ("rvtaskssandbag_responses" if FINAL else "tsandbag_responses", "verdict",
                 {"sandbag-mmlu": "sandbag", "sandbag-wmdp": "sandbag", "mmlu-plain": "mmlu_plain"}),
-    "inject": ("tinject_judged_Qwen2p5-7B-Instruct_v2", "verdict_hybrid",
+    "inject": ("rvtasksinject_judged_Qwen2p5-7B-Instruct_v2" if FINAL else "tinject_judged_Qwen2p5-7B-Instruct_v2", "verdict_hybrid",
                {"inject-deception": "inject", "inject-control": "inject_control"}),
-    "mask": ("tmask_maskjudged_Qwen2p5-7B-Instruct_v1", "verdict_mask",
+    "mask": ("rvtasksmask_maskjudged_Qwen2p5-7B-Instruct_v1" if FINAL else "tmask_maskjudged_Qwen2p5-7B-Instruct_v1", "verdict_mask",
              {s: "mask_" + g for s, g in MASK_GROUP.items()}),
-    "amgot": ("tamgot_judged_Qwen2p5-7B-Instruct_v2", "verdict_hybrid", {"amgot-deception": "amgot"}),
-    "multi": ("tmulti_responses", "verdict", {"multiturn": "multiturn"}),
+    "amgot": ("rvtasksamgot_judged_Qwen2p5-7B-Instruct_v2" if FINAL else "tamgot_judged_Qwen2p5-7B-Instruct_v2", "verdict_hybrid", {"amgot-deception": "amgot"}),
+    "multi": ("rvtasksmulti_responses" if FINAL else "tmulti_responses", "verdict", {"multiturn": "multiturn"}),
 }
 BUCKETS = ["sandbag", "inject", "mask_instructed", "amgot", "multiturn",
            "mask_incentive", "inject_control", "mmlu_plain"]
@@ -76,19 +80,21 @@ def paired(it, other):
 def main():
     # pre-registered comparator: the best other method on the LIARS' BENCH validation half
     pre = {r["model"]: (r["lb"].get("lead_val") or r["lb"]["lead"])["vs"]   # lead_val: Table 1's lead is over the test-best since 2026-10-11
-           for r in json.load(open("/u/xiaocong/lie_detection/reports/main_table_final_menu0.json"))}   # the options chosen on the original menu (Table 1 before the 2026-10-11 menu extension), at which this analysis was run
+           for r in json.load(open("/u/xiaocong/lie_detection/reports/" + ("main_table_final.json" if FINAL else "main_table_final_menu0.json")))}   # the options chosen on the original menu (Table 1 before the 2026-10-11 menu extension), at which this analysis was run
     table = []
-    for short, name in MODELS:
+    for short, name in (MODELS[:5] if FINAL else MODELS):
         items = defaultdict(lambda: defaultdict(dict))     # bucket -> fam -> uid -> honest
         arms = {}
         for task, (suf, key, smap) in TASKS.items():
-            path = f"{OUT}/liars_bench_honesty_{short}_{suf}.jsonl"
+            path = f"{OUT if (not FINAL or task == 'mask') else RVD}/liars_bench_honesty_{short}_{suf}.jsonl"
             if GPT and task in ("inject", "amgot"):
                 g = f"{GPT_DIR}/liars_bench_honesty_{short}_t{task}_judged_gpt_v2.jsonl"
                 if os.path.exists(g):
                     path = g
                 else:
                     print(f"no GPT re-grade for {short} {task}: Qwen2.5-7B grades used")
+            if FINAL and not os.path.exists(path):   # a task still running: left out of this row
+                print(f"  {name}: {task} not there yet"); continue
             for l in open(path):
                 r = json.loads(l)
                 f, b, v = family(r["arm"]), smap.get(r["split"]), r.get(key)
@@ -109,7 +115,7 @@ def main():
                     lead_pre = paired(items[b], pre[name])
             row["tasks"][b] = {"cells": cell, "lead": lead, "lead_pre": lead_pre}
         table.append(row)
-    json.dump(table, open(f"/u/xiaocong/lie_detection/reports/tasks_table{'_gpt' if GPT else ''}.json", "w"), indent=1)
+    json.dump(table, open(f"/u/xiaocong/lie_detection/reports/tasks_table{'_final' if FINAL else ('_gpt' if GPT else '')}.json", "w"), indent=1)
 
     fmt = lambda c, f: f"{c[f]['v']:.1f}" if f in c else "-"
     print("## Lead of our mask over the best other method (95% CI)\n")

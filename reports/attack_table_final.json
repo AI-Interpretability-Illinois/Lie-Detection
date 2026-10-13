@@ -1,0 +1,1027 @@
+[
+ {
+  "model": "Llama-3.1-8B",
+  "splits": {
+   "attack-manyshot": {
+    "cells": {
+     "all": {
+      "unsteered": {
+       "v": 56.7,
+       "n": 533
+      },
+      "mask": {
+       "v": 90.2,
+       "n": 533
+      },
+      "liemask": {
+       "v": 86.7,
+       "n": 533
+      },
+      "steer": {
+       "v": 87.2,
+       "n": 531
+      },
+      "prompt": {
+       "v": 88.2,
+       "n": 532
+      }
+     },
+     "test": {
+      "unsteered": {
+       "v": 53.6,
+       "n": 261
+      },
+      "mask": {
+       "v": 88.1,
+       "n": 261
+      },
+      "liemask": {
+       "v": 85.8,
+       "n": 261
+      },
+      "steer": {
+       "v": 85.8,
+       "n": 261
+      },
+      "prompt": {
+       "v": 87.0,
+       "n": 261
+      }
+     }
+    },
+    "lead_pre": {
+     "vs": "liemask",
+     "diff": 2.3,
+     "lo": -1.9,
+     "hi": 6.5,
+     "n": 261
+    },
+    "lead": {
+     "vs": "prompt",
+     "diff": 1.1,
+     "lo": -3.4,
+     "hi": 5.7,
+     "n": 261
+    }
+   },
+   "attack-es": {
+    "cells": {
+     "all": {
+      "unsteered": {
+       "v": 43.6,
+       "n": 530
+      },
+      "mask": {
+       "v": 84.6,
+       "n": 532
+      },
+      "liemask": {
+       "v": 82.8,
+       "n": 524
+      },
+      "steer": {
+       "v": 87.8,
+       "n": 526
+      },
+      "prompt": {
+       "v": 69.6,
+       "n": 523
+      }
+     },
+     "test": {
+      "unsteered": {
+       "v": 45.6,
+       "n": 259
+      },
+      "mask": {
+       "v": 82.7,
+       "n": 260
+      },
+      "liemask": {
+       "v": 83.1,
+       "n": 255
+      },
+      "steer": {
+       "v": 88.0,
+       "n": 258
+      },
+      "prompt": {
+       "v": 68.5,
+       "n": 257
+      }
+     }
+    },
+    "lead_pre": {
+     "vs": "liemask",
+     "diff": -1.2,
+     "lo": -7.1,
+     "hi": 4.7,
+     "n": 254
+    },
+    "lead": {
+     "vs": "steer",
+     "diff": -5.4,
+     "lo": -10.9,
+     "hi": 0.0,
+     "n": 257
+    }
+   },
+   "attack-zh": {
+    "cells": {
+     "all": {
+      "unsteered": {
+       "v": 54.5,
+       "n": 516
+      },
+      "mask": {
+       "v": 89.8,
+       "n": 531
+      },
+      "liemask": {
+       "v": 88.9,
+       "n": 523
+      },
+      "steer": {
+       "v": 82.9,
+       "n": 525
+      },
+      "prompt": {
+       "v": 75.5,
+       "n": 527
+      }
+     },
+     "test": {
+      "unsteered": {
+       "v": 53.8,
+       "n": 251
+      },
+      "mask": {
+       "v": 89.6,
+       "n": 260
+      },
+      "liemask": {
+       "v": 89.6,
+       "n": 259
+      },
+      "steer": {
+       "v": 82.1,
+       "n": 257
+      },
+      "prompt": {
+       "v": 75.8,
+       "n": 260
+      }
+     }
+    },
+    "lead_pre": {
+     "vs": "liemask",
+     "diff": 0.4,
+     "lo": -3.5,
+     "hi": 4.3,
+     "n": 258
+    },
+    "lead": {
+     "vs": "liemask",
+     "diff": 0.4,
+     "lo": -3.5,
+     "hi": 4.3,
+     "n": 258
+    }
+   }
+  },
+  "plain": {
+   "mask": 87.4,
+   "liemask": 78.9,
+   "steer": 87.0,
+   "prompt": 65.9,
+   "unsteered": 37.2
+  },
+  "plain_lead": {
+   "vs": "liemask",
+   "diff": 8.4,
+   "lo": 2.7,
+   "hi": 14.2,
+   "n": 261
+  }
+ },
+ {
+  "model": "Phi-4-mini",
+  "splits": {
+   "attack-manyshot": {
+    "cells": {
+     "all": {
+      "unsteered": {
+       "v": 88.1,
+       "n": 537
+      },
+      "mask": {
+       "v": 93.1,
+       "n": 537
+      },
+      "liemask": {
+       "v": 88.8,
+       "n": 537
+      },
+      "steer": {
+       "v": 91.8,
+       "n": 537
+      },
+      "prompt": {
+       "v": 91.1,
+       "n": 537
+      }
+     },
+     "test": {
+      "unsteered": {
+       "v": 84.4,
+       "n": 262
+      },
+      "mask": {
+       "v": 91.2,
+       "n": 262
+      },
+      "liemask": {
+       "v": 89.3,
+       "n": 262
+      },
+      "steer": {
+       "v": 90.1,
+       "n": 262
+      },
+      "prompt": {
+       "v": 90.5,
+       "n": 262
+      }
+     }
+    },
+    "lead_pre": {
+     "vs": "prompt",
+     "diff": 0.8,
+     "lo": -2.7,
+     "hi": 4.6,
+     "n": 262
+    },
+    "lead": {
+     "vs": "prompt",
+     "diff": 0.8,
+     "lo": -2.7,
+     "hi": 4.6,
+     "n": 262
+    }
+   },
+   "attack-es": {
+    "cells": {
+     "all": {
+      "unsteered": {
+       "v": 73.7,
+       "n": 536
+      },
+      "mask": {
+       "v": 92.4,
+       "n": 536
+      },
+      "liemask": {
+       "v": 77.8,
+       "n": 535
+      },
+      "steer": {
+       "v": 86.9,
+       "n": 536
+      },
+      "prompt": {
+       "v": 86.4,
+       "n": 537
+      }
+     },
+     "test": {
+      "unsteered": {
+       "v": 72.8,
+       "n": 261
+      },
+      "mask": {
+       "v": 93.1,
+       "n": 261
+      },
+      "liemask": {
+       "v": 77.5,
+       "n": 262
+      },
+      "steer": {
+       "v": 86.6,
+       "n": 261
+      },
+      "prompt": {
+       "v": 85.5,
+       "n": 262
+      }
+     }
+    },
+    "lead_pre": {
+     "vs": "prompt",
+     "diff": 7.7,
+     "lo": 3.1,
+     "hi": 11.9,
+     "n": 261
+    },
+    "lead": {
+     "vs": "steer",
+     "diff": 6.5,
+     "lo": 1.9,
+     "hi": 11.2,
+     "n": 260
+    }
+   },
+   "attack-zh": {
+    "cells": {
+     "all": {
+      "unsteered": {
+       "v": 78.2,
+       "n": 536
+      },
+      "mask": {
+       "v": 94.8,
+       "n": 537
+      },
+      "liemask": {
+       "v": 80.6,
+       "n": 537
+      },
+      "steer": {
+       "v": 86.8,
+       "n": 536
+      },
+      "prompt": {
+       "v": 88.5,
+       "n": 537
+      }
+     },
+     "test": {
+      "unsteered": {
+       "v": 77.1,
+       "n": 262
+      },
+      "mask": {
+       "v": 93.9,
+       "n": 262
+      },
+      "liemask": {
+       "v": 79.4,
+       "n": 262
+      },
+      "steer": {
+       "v": 86.6,
+       "n": 261
+      },
+      "prompt": {
+       "v": 87.8,
+       "n": 262
+      }
+     }
+    },
+    "lead_pre": {
+     "vs": "prompt",
+     "diff": 6.1,
+     "lo": 1.9,
+     "hi": 10.3,
+     "n": 262
+    },
+    "lead": {
+     "vs": "prompt",
+     "diff": 6.1,
+     "lo": 1.9,
+     "hi": 10.3,
+     "n": 262
+    }
+   }
+  },
+  "plain": {
+   "mask": 90.5,
+   "liemask": 69.5,
+   "steer": 76.0,
+   "prompt": 79.4,
+   "unsteered": 69.8
+  },
+  "plain_lead": {
+   "vs": "prompt",
+   "diff": 11.1,
+   "lo": 6.1,
+   "hi": 16.4,
+   "n": 262
+  }
+ },
+ {
+  "model": "Falcon3-3B",
+  "splits": {
+   "attack-manyshot": {
+    "cells": {
+     "all": {
+      "unsteered": {
+       "v": 84.2,
+       "n": 537
+      },
+      "mask": {
+       "v": 88.1,
+       "n": 537
+      },
+      "liemask": {
+       "v": 83.6,
+       "n": 537
+      },
+      "steer": {
+       "v": 85.7,
+       "n": 537
+      },
+      "prompt": {
+       "v": 84.0,
+       "n": 537
+      }
+     },
+     "test": {
+      "unsteered": {
+       "v": 83.2,
+       "n": 262
+      },
+      "mask": {
+       "v": 87.4,
+       "n": 262
+      },
+      "liemask": {
+       "v": 85.9,
+       "n": 262
+      },
+      "steer": {
+       "v": 87.4,
+       "n": 262
+      },
+      "prompt": {
+       "v": 84.4,
+       "n": 262
+      }
+     }
+    },
+    "lead_pre": {
+     "vs": "steer",
+     "diff": 0.0,
+     "lo": -5.0,
+     "hi": 5.0,
+     "n": 262
+    },
+    "lead": {
+     "vs": "steer",
+     "diff": 0.0,
+     "lo": -5.0,
+     "hi": 5.0,
+     "n": 262
+    }
+   },
+   "attack-es": {
+    "cells": {
+     "all": {
+      "unsteered": {
+       "v": 79.2,
+       "n": 510
+      },
+      "mask": {
+       "v": 84.0,
+       "n": 531
+      },
+      "liemask": {
+       "v": 78.4,
+       "n": 491
+      },
+      "steer": {
+       "v": 84.1,
+       "n": 522
+      },
+      "prompt": {
+       "v": 83.7,
+       "n": 504
+      }
+     },
+     "test": {
+      "unsteered": {
+       "v": 78.9,
+       "n": 246
+      },
+      "mask": {
+       "v": 84.3,
+       "n": 261
+      },
+      "liemask": {
+       "v": 76.8,
+       "n": 241
+      },
+      "steer": {
+       "v": 83.8,
+       "n": 253
+      },
+      "prompt": {
+       "v": 85.7,
+       "n": 244
+      }
+     }
+    },
+    "lead_pre": {
+     "vs": "steer",
+     "diff": 0.4,
+     "lo": -5.6,
+     "hi": 6.3,
+     "n": 252
+    },
+    "lead": {
+     "vs": "prompt",
+     "diff": -0.8,
+     "lo": -6.2,
+     "hi": 4.5,
+     "n": 243
+    }
+   },
+   "attack-zh": {
+    "cells": {
+     "all": {
+      "unsteered": {
+       "v": 86.2,
+       "n": 484
+      },
+      "mask": {
+       "v": 90.4,
+       "n": 534
+      },
+      "liemask": {
+       "v": 89.1,
+       "n": 494
+      },
+      "steer": {
+       "v": 85.0,
+       "n": 527
+      },
+      "prompt": {
+       "v": 90.9,
+       "n": 494
+      }
+     },
+     "test": {
+      "unsteered": {
+       "v": 88.5,
+       "n": 235
+      },
+      "mask": {
+       "v": 90.4,
+       "n": 260
+      },
+      "liemask": {
+       "v": 90.6,
+       "n": 244
+      },
+      "steer": {
+       "v": 84.0,
+       "n": 257
+      },
+      "prompt": {
+       "v": 92.2,
+       "n": 243
+      }
+     }
+    },
+    "lead_pre": {
+     "vs": "steer",
+     "diff": 6.3,
+     "lo": 0.4,
+     "hi": 12.2,
+     "n": 255
+    },
+    "lead": {
+     "vs": "prompt",
+     "diff": -1.7,
+     "lo": -6.2,
+     "hi": 2.9,
+     "n": 241
+    }
+   }
+  },
+  "plain": {
+   "mask": 91.6,
+   "liemask": 83.6,
+   "steer": 84.0,
+   "prompt": 81.7,
+   "unsteered": 80.2
+  },
+  "plain_lead": {
+   "vs": "steer",
+   "diff": 7.6,
+   "lo": 2.7,
+   "hi": 12.6,
+   "n": 262
+  }
+ },
+ {
+  "model": "OLMo-2-1B",
+  "splits": {
+   "attack-manyshot": {
+    "cells": {
+     "all": {
+      "unsteered": {
+       "v": 66.7,
+       "n": 537
+      },
+      "mask": {
+       "v": 66.3,
+       "n": 537
+      },
+      "liemask": {
+       "v": 66.7,
+       "n": 537
+      },
+      "steer": {
+       "v": 71.5,
+       "n": 537
+      },
+      "prompt": {
+       "v": 70.9,
+       "n": 537
+      }
+     },
+     "test": {
+      "unsteered": {
+       "v": 65.3,
+       "n": 262
+      },
+      "mask": {
+       "v": 64.5,
+       "n": 262
+      },
+      "liemask": {
+       "v": 66.4,
+       "n": 262
+      },
+      "steer": {
+       "v": 70.6,
+       "n": 262
+      },
+      "prompt": {
+       "v": 73.3,
+       "n": 262
+      }
+     }
+    },
+    "lead_pre": {
+     "vs": "prompt",
+     "diff": -8.8,
+     "lo": -14.5,
+     "hi": -3.1,
+     "n": 262
+    },
+    "lead": {
+     "vs": "prompt",
+     "diff": -8.8,
+     "lo": -14.5,
+     "hi": -3.1,
+     "n": 262
+    }
+   },
+   "attack-es": {
+    "cells": {
+     "all": {
+      "unsteered": {
+       "v": 51.6,
+       "n": 537
+      },
+      "mask": {
+       "v": 57.8,
+       "n": 536
+      },
+      "liemask": {
+       "v": 53.1,
+       "n": 537
+      },
+      "steer": {
+       "v": 64.4,
+       "n": 537
+      },
+      "prompt": {
+       "v": 65.2,
+       "n": 537
+      }
+     },
+     "test": {
+      "unsteered": {
+       "v": 49.6,
+       "n": 262
+      },
+      "mask": {
+       "v": 57.9,
+       "n": 261
+      },
+      "liemask": {
+       "v": 53.1,
+       "n": 262
+      },
+      "steer": {
+       "v": 66.4,
+       "n": 262
+      },
+      "prompt": {
+       "v": 64.5,
+       "n": 262
+      }
+     }
+    },
+    "lead_pre": {
+     "vs": "prompt",
+     "diff": -6.5,
+     "lo": -13.4,
+     "hi": 0.0,
+     "n": 261
+    },
+    "lead": {
+     "vs": "steer",
+     "diff": -8.4,
+     "lo": -14.6,
+     "hi": -2.7,
+     "n": 261
+    }
+   },
+   "attack-zh": {
+    "cells": {
+     "all": {
+      "unsteered": {
+       "v": 60.8,
+       "n": 536
+      },
+      "mask": {
+       "v": 61.8,
+       "n": 537
+      },
+      "liemask": {
+       "v": 60.9,
+       "n": 537
+      },
+      "steer": {
+       "v": 64.9,
+       "n": 536
+      },
+      "prompt": {
+       "v": 66.7,
+       "n": 535
+      }
+     },
+     "test": {
+      "unsteered": {
+       "v": 60.3,
+       "n": 262
+      },
+      "mask": {
+       "v": 61.8,
+       "n": 262
+      },
+      "liemask": {
+       "v": 60.7,
+       "n": 262
+      },
+      "steer": {
+       "v": 66.7,
+       "n": 261
+      },
+      "prompt": {
+       "v": 67.3,
+       "n": 260
+      }
+     }
+    },
+    "lead_pre": {
+     "vs": "prompt",
+     "diff": -5.0,
+     "lo": -10.8,
+     "hi": 0.8,
+     "n": 260
+    },
+    "lead": {
+     "vs": "prompt",
+     "diff": -5.0,
+     "lo": -10.8,
+     "hi": 0.8,
+     "n": 260
+    }
+   }
+  },
+  "plain": {
+   "mask": 60.7,
+   "liemask": 57.3,
+   "steer": 54.2,
+   "prompt": 61.1,
+   "unsteered": 50.4
+  },
+  "plain_lead": {
+   "vs": "prompt",
+   "diff": -0.4,
+   "lo": -6.5,
+   "hi": 5.3,
+   "n": 262
+  }
+ },
+ {
+  "model": "Qwen2.5-3B",
+  "splits": {
+   "attack-manyshot": {
+    "cells": {
+     "all": {
+      "unsteered": {
+       "v": 88.5,
+       "n": 537
+      },
+      "mask": {
+       "v": 89.4,
+       "n": 537
+      },
+      "liemask": {
+       "v": 88.8,
+       "n": 537
+      },
+      "steer": {
+       "v": 88.3,
+       "n": 537
+      },
+      "prompt": {
+       "v": 88.8,
+       "n": 537
+      }
+     },
+     "test": {
+      "unsteered": {
+       "v": 88.5,
+       "n": 262
+      },
+      "mask": {
+       "v": 87.8,
+       "n": 262
+      },
+      "liemask": {
+       "v": 88.9,
+       "n": 262
+      },
+      "steer": {
+       "v": 88.5,
+       "n": 262
+      },
+      "prompt": {
+       "v": 88.9,
+       "n": 262
+      }
+     }
+    },
+    "lead_pre": {
+     "vs": "prompt",
+     "diff": -1.1,
+     "lo": -3.8,
+     "hi": 1.5,
+     "n": 262
+    },
+    "lead": {
+     "vs": "liemask",
+     "diff": -1.1,
+     "lo": -4.6,
+     "hi": 1.9,
+     "n": 262
+    }
+   },
+   "attack-es": {
+    "cells": {
+     "all": {
+      "unsteered": {
+       "v": 79.9,
+       "n": 536
+      },
+      "mask": {
+       "v": 89.9,
+       "n": 537
+      },
+      "liemask": {
+       "v": 86.4,
+       "n": 537
+      },
+      "steer": {
+       "v": 89.0,
+       "n": 537
+      },
+      "prompt": {
+       "v": 91.8,
+       "n": 537
+      }
+     },
+     "test": {
+      "unsteered": {
+       "v": 78.9,
+       "n": 261
+      },
+      "mask": {
+       "v": 90.8,
+       "n": 262
+      },
+      "liemask": {
+       "v": 88.5,
+       "n": 262
+      },
+      "steer": {
+       "v": 89.3,
+       "n": 262
+      },
+      "prompt": {
+       "v": 93.9,
+       "n": 262
+      }
+     }
+    },
+    "lead_pre": {
+     "vs": "prompt",
+     "diff": -3.1,
+     "lo": -6.1,
+     "hi": -0.4,
+     "n": 262
+    },
+    "lead": {
+     "vs": "prompt",
+     "diff": -3.1,
+     "lo": -6.1,
+     "hi": -0.4,
+     "n": 262
+    }
+   },
+   "attack-zh": {
+    "cells": {
+     "all": {
+      "unsteered": {
+       "v": 79.1,
+       "n": 537
+      },
+      "mask": {
+       "v": 86.4,
+       "n": 537
+      },
+      "liemask": {
+       "v": 90.7,
+       "n": 537
+      },
+      "steer": {
+       "v": 83.2,
+       "n": 536
+      },
+      "prompt": {
+       "v": 90.9,
+       "n": 537
+      }
+     },
+     "test": {
+      "unsteered": {
+       "v": 79.8,
+       "n": 262
+      },
+      "mask": {
+       "v": 87.4,
+       "n": 262
+      },
+      "liemask": {
+       "v": 91.2,
+       "n": 262
+      },
+      "steer": {
+       "v": 84.0,
+       "n": 262
+      },
+      "prompt": {
+       "v": 90.8,
+       "n": 262
+      }
+     }
+    },
+    "lead_pre": {
+     "vs": "prompt",
+     "diff": -3.4,
+     "lo": -6.9,
+     "hi": 0.0,
+     "n": 262
+    },
+    "lead": {
+     "vs": "liemask",
+     "diff": -3.8,
+     "lo": -7.6,
+     "hi": -0.4,
+     "n": 262
+    }
+   }
+  },
+  "plain": {
+   "mask": 94.7,
+   "liemask": 92.0,
+   "steer": 90.5,
+   "prompt": 92.0,
+   "unsteered": 81.7
+  },
+  "plain_lead": {
+   "vs": "prompt",
+   "diff": 2.7,
+   "lo": 0.0,
+   "hi": 5.7,
+   "n": 262
+  }
+ }
+]
