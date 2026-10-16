@@ -1,0 +1,1627 @@
+[
+ {
+  "model": "Llama-3.1-8B",
+  "arms": {
+   "unsteered": "unsteered",
+   "random": "weight:magmatch a=-1.0",
+   "mask": "weight:fiction a=-1.25",
+   "liemask": "weight:ours a=-1.125",
+   "steer": "actsteer:L8 r=-0.5 (c=-2.8)",
+   "prompt": "prompt:honest2"
+  },
+  "tasks": {
+   "sandbag": {
+    "cells": {
+     "unsteered": {
+      "v": 43.8,
+      "n": 258
+     },
+     "random": {
+      "v": 36.4,
+      "n": 258
+     },
+     "mask": {
+      "v": 59.7,
+      "n": 258
+     },
+     "liemask": {
+      "v": 70.2,
+      "n": 258
+     },
+     "steer": {
+      "v": 63.2,
+      "n": 258
+     },
+     "prompt": {
+      "v": 53.9,
+      "n": 258
+     }
+    },
+    "lead": {
+     "vs": "liemask",
+     "diff": -10.5,
+     "lo": -17.1,
+     "hi": -4.3,
+     "n": 258
+    },
+    "lead_pre": {
+     "vs": "liemask",
+     "diff": -10.5,
+     "lo": -17.1,
+     "hi": -4.3,
+     "n": 258
+    }
+   },
+   "inject": {
+    "cells": {
+     "unsteered": {
+      "v": 63.2,
+      "n": 372
+     },
+     "random": {
+      "v": 56.2,
+      "n": 372
+     },
+     "mask": {
+      "v": 82.5,
+      "n": 372
+     },
+     "liemask": {
+      "v": 76.1,
+      "n": 372
+     },
+     "steer": {
+      "v": 73.7,
+      "n": 372
+     },
+     "prompt": {
+      "v": 67.7,
+      "n": 372
+     }
+    },
+    "lead": {
+     "vs": "liemask",
+     "diff": 6.5,
+     "lo": 2.4,
+     "hi": 10.8,
+     "n": 372
+    },
+    "lead_pre": {
+     "vs": "liemask",
+     "diff": 6.5,
+     "lo": 2.4,
+     "hi": 10.8,
+     "n": 372
+    }
+   },
+   "mask_instructed": {
+    "cells": {
+     "unsteered": {
+      "v": 22.3,
+      "n": 179
+     },
+     "random": {
+      "v": 22.2,
+      "n": 180
+     },
+     "mask": {
+      "v": 15.9,
+      "n": 182
+     },
+     "liemask": {
+      "v": 19.7,
+      "n": 178
+     },
+     "steer": {
+      "v": 33.9,
+      "n": 177
+     },
+     "prompt": {
+      "v": 16.3,
+      "n": 184
+     }
+    },
+    "lead": {
+     "vs": "steer",
+     "diff": -17.8,
+     "lo": -25.9,
+     "hi": -9.8,
+     "n": 174
+    },
+    "lead_pre": {
+     "vs": "liemask",
+     "diff": -3.4,
+     "lo": -8.5,
+     "hi": 1.7,
+     "n": 176
+    }
+   },
+   "amgot": {
+    "cells": {
+     "unsteered": {
+      "v": 40.5,
+      "n": 1100
+     },
+     "random": {
+      "v": 42.4,
+      "n": 1100
+     },
+     "mask": {
+      "v": 81.8,
+      "n": 1100
+     },
+     "liemask": {
+      "v": 74.9,
+      "n": 1100
+     },
+     "steer": {
+      "v": 78.5,
+      "n": 1100
+     },
+     "prompt": {
+      "v": 65.7,
+      "n": 1100
+     }
+    },
+    "lead": {
+     "vs": "steer",
+     "diff": 3.3,
+     "lo": 0.4,
+     "hi": 6.2,
+     "n": 1100
+    },
+    "lead_pre": {
+     "vs": "liemask",
+     "diff": 6.9,
+     "lo": 4.2,
+     "hi": 9.6,
+     "n": 1100
+    }
+   },
+   "multiturn": {
+    "cells": {
+     "unsteered": {
+      "v": 59.8,
+      "n": 326
+     },
+     "random": {
+      "v": 59.8,
+      "n": 326
+     },
+     "mask": {
+      "v": 67.2,
+      "n": 326
+     },
+     "liemask": {
+      "v": 83.4,
+      "n": 326
+     },
+     "steer": {
+      "v": 88.3,
+      "n": 326
+     },
+     "prompt": {
+      "v": 67.5,
+      "n": 326
+     }
+    },
+    "lead": {
+     "vs": "steer",
+     "diff": -21.2,
+     "lo": -27.0,
+     "hi": -15.0,
+     "n": 326
+    },
+    "lead_pre": {
+     "vs": "liemask",
+     "diff": -16.3,
+     "lo": -21.8,
+     "hi": -11.0,
+     "n": 326
+    }
+   },
+   "mask_incentive": {
+    "cells": {
+     "unsteered": {
+      "v": 31.5,
+      "n": 200
+     },
+     "random": {
+      "v": 31.8,
+      "n": 201
+     },
+     "mask": {
+      "v": 56.2,
+      "n": 203
+     },
+     "liemask": {
+      "v": 44.8,
+      "n": 201
+     },
+     "steer": {
+      "v": 76.0,
+      "n": 200
+     },
+     "prompt": {
+      "v": 49.5,
+      "n": 202
+     }
+    },
+    "lead": {
+     "vs": "steer",
+     "diff": -19.0,
+     "lo": -26.5,
+     "hi": -11.5,
+     "n": 200
+    },
+    "lead_pre": {
+     "vs": "liemask",
+     "diff": 11.9,
+     "lo": 4.0,
+     "hi": 19.4,
+     "n": 201
+    }
+   },
+   "inject_control": {
+    "cells": {
+     "unsteered": {
+      "v": 73.5,
+      "n": 136
+     },
+     "random": {
+      "v": 58.8,
+      "n": 136
+     },
+     "mask": {
+      "v": 89.0,
+      "n": 136
+     },
+     "liemask": {
+      "v": 64.7,
+      "n": 136
+     },
+     "steer": {
+      "v": 72.1,
+      "n": 136
+     },
+     "prompt": {
+      "v": 73.5,
+      "n": 136
+     }
+    },
+    "lead": null,
+    "lead_pre": null
+   },
+   "mmlu_plain": {
+    "cells": {
+     "unsteered": {
+      "v": 92.4,
+      "n": 119
+     },
+     "random": {
+      "v": 91.6,
+      "n": 119
+     },
+     "mask": {
+      "v": 60.5,
+      "n": 119
+     },
+     "liemask": {
+      "v": 82.4,
+      "n": 119
+     },
+     "steer": {
+      "v": 66.4,
+      "n": 119
+     },
+     "prompt": {
+      "v": 89.9,
+      "n": 119
+     }
+    },
+    "lead": null,
+    "lead_pre": null
+   }
+  }
+ },
+ {
+  "model": "Phi-4-mini",
+  "arms": {
+   "unsteered": "unsteered",
+   "random": "weight:magmatch a=-1.0",
+   "mask": "weight:pooled a=-1.125",
+   "liemask": "weight:ours a=-0.5",
+   "steer": "actsteer:L16 r=-0.18 (c=-10.4)",
+   "prompt": "prompt:honest2"
+  },
+  "tasks": {
+   "sandbag": {
+    "cells": {
+     "unsteered": {
+      "v": 42.8,
+      "n": 264
+     },
+     "random": {
+      "v": 43.6,
+      "n": 264
+     },
+     "mask": {
+      "v": 57.6,
+      "n": 264
+     },
+     "liemask": {
+      "v": 50.8,
+      "n": 264
+     },
+     "steer": {
+      "v": 60.6,
+      "n": 264
+     },
+     "prompt": {
+      "v": 63.3,
+      "n": 264
+     }
+    },
+    "lead": {
+     "vs": "prompt",
+     "diff": -5.7,
+     "lo": -12.5,
+     "hi": 1.5,
+     "n": 264
+    },
+    "lead_pre": {
+     "vs": "prompt",
+     "diff": -5.7,
+     "lo": -12.5,
+     "hi": 1.5,
+     "n": 264
+    }
+   },
+   "inject": {
+    "cells": {
+     "unsteered": {
+      "v": 59.8,
+      "n": 400
+     },
+     "random": {
+      "v": 62.0,
+      "n": 400
+     },
+     "mask": {
+      "v": 68.8,
+      "n": 400
+     },
+     "liemask": {
+      "v": 60.2,
+      "n": 400
+     },
+     "steer": {
+      "v": 64.8,
+      "n": 400
+     },
+     "prompt": {
+      "v": 61.8,
+      "n": 400
+     }
+    },
+    "lead": {
+     "vs": "steer",
+     "diff": 4.0,
+     "lo": -0.2,
+     "hi": 8.2,
+     "n": 400
+    },
+    "lead_pre": {
+     "vs": "prompt",
+     "diff": 7.0,
+     "lo": 3.0,
+     "hi": 11.2,
+     "n": 400
+    }
+   },
+   "mask_instructed": {
+    "cells": {
+     "unsteered": {
+      "v": 15.0,
+      "n": 200
+     },
+     "random": {
+      "v": 12.3,
+      "n": 204
+     },
+     "mask": {
+      "v": 8.4,
+      "n": 202
+     },
+     "liemask": {
+      "v": 13.4,
+      "n": 202
+     },
+     "steer": {
+      "v": 12.6,
+      "n": 198
+     },
+     "prompt": {
+      "v": 13.7,
+      "n": 205
+     }
+    },
+    "lead": {
+     "vs": "unsteered",
+     "diff": -6.6,
+     "lo": -11.6,
+     "hi": -1.5,
+     "n": 198
+    },
+    "lead_pre": {
+     "vs": "prompt",
+     "diff": -5.6,
+     "lo": -10.7,
+     "hi": -0.5,
+     "n": 197
+    }
+   },
+   "amgot": {
+    "cells": {
+     "unsteered": {
+      "v": 79.5,
+      "n": 1100
+     },
+     "random": {
+      "v": 74.6,
+      "n": 1100
+     },
+     "mask": {
+      "v": 78.5,
+      "n": 1100
+     },
+     "liemask": {
+      "v": 79.2,
+      "n": 1100
+     },
+     "steer": {
+      "v": 83.2,
+      "n": 1100
+     },
+     "prompt": {
+      "v": 87.3,
+      "n": 1100
+     }
+    },
+    "lead": {
+     "vs": "prompt",
+     "diff": -8.8,
+     "lo": -11.5,
+     "hi": -6.1,
+     "n": 1100
+    },
+    "lead_pre": {
+     "vs": "prompt",
+     "diff": -8.8,
+     "lo": -11.5,
+     "hi": -6.1,
+     "n": 1100
+    }
+   },
+   "multiturn": {
+    "cells": {
+     "unsteered": {
+      "v": 62.4,
+      "n": 335
+     },
+     "random": {
+      "v": 59.1,
+      "n": 335
+     },
+     "mask": {
+      "v": 48.4,
+      "n": 335
+     },
+     "liemask": {
+      "v": 55.5,
+      "n": 335
+     },
+     "steer": {
+      "v": 58.2,
+      "n": 335
+     },
+     "prompt": {
+      "v": 74.0,
+      "n": 335
+     }
+    },
+    "lead": {
+     "vs": "prompt",
+     "diff": -25.7,
+     "lo": -31.3,
+     "hi": -19.7,
+     "n": 335
+    },
+    "lead_pre": {
+     "vs": "prompt",
+     "diff": -25.7,
+     "lo": -31.3,
+     "hi": -19.7,
+     "n": 335
+    }
+   },
+   "mask_incentive": {
+    "cells": {
+     "unsteered": {
+      "v": 36.2,
+      "n": 188
+     },
+     "random": {
+      "v": 39.5,
+      "n": 185
+     },
+     "mask": {
+      "v": 40.2,
+      "n": 189
+     },
+     "liemask": {
+      "v": 33.5,
+      "n": 191
+     },
+     "steer": {
+      "v": 45.2,
+      "n": 186
+     },
+     "prompt": {
+      "v": 37.8,
+      "n": 193
+     }
+    },
+    "lead": {
+     "vs": "steer",
+     "diff": -4.3,
+     "lo": -11.9,
+     "hi": 3.2,
+     "n": 185
+    },
+    "lead_pre": {
+     "vs": "prompt",
+     "diff": 1.6,
+     "lo": -5.9,
+     "hi": 9.2,
+     "n": 185
+    }
+   },
+   "inject_control": {
+    "cells": {
+     "unsteered": {
+      "v": 83.3,
+      "n": 150
+     },
+     "random": {
+      "v": 86.0,
+      "n": 150
+     },
+     "mask": {
+      "v": 82.7,
+      "n": 150
+     },
+     "liemask": {
+      "v": 84.7,
+      "n": 150
+     },
+     "steer": {
+      "v": 90.0,
+      "n": 150
+     },
+     "prompt": {
+      "v": 87.3,
+      "n": 150
+     }
+    },
+    "lead": null,
+    "lead_pre": null
+   },
+   "mmlu_plain": {
+    "cells": {
+     "unsteered": {
+      "v": 88.5,
+      "n": 131
+     },
+     "random": {
+      "v": 87.0,
+      "n": 131
+     },
+     "mask": {
+      "v": 77.9,
+      "n": 131
+     },
+     "liemask": {
+      "v": 85.5,
+      "n": 131
+     },
+     "steer": {
+      "v": 88.5,
+      "n": 131
+     },
+     "prompt": {
+      "v": 87.0,
+      "n": 131
+     }
+    },
+    "lead": null,
+    "lead_pre": null
+   }
+  }
+ },
+ {
+  "model": "Falcon3-3B",
+  "arms": {
+   "unsteered": "unsteered",
+   "random": "weight:magmatch a=-1.0",
+   "mask": "weight:poolmix a=-1.25",
+   "liemask": "weight:ours a=-0.15",
+   "steer": "actsteer:L5 r=-0.3 (c=-21.7)",
+   "prompt": "prompt:honest5"
+  },
+  "tasks": {
+   "sandbag": {
+    "cells": {
+     "unsteered": {
+      "v": 42.6,
+      "n": 202
+     },
+     "random": {
+      "v": 41.6,
+      "n": 202
+     },
+     "mask": {
+      "v": 53.5,
+      "n": 202
+     },
+     "liemask": {
+      "v": 40.1,
+      "n": 202
+     },
+     "steer": {
+      "v": 45.0,
+      "n": 202
+     },
+     "prompt": {
+      "v": 45.5,
+      "n": 202
+     }
+    },
+    "lead": {
+     "vs": "prompt",
+     "diff": 7.9,
+     "lo": -1.5,
+     "hi": 17.3,
+     "n": 202
+    },
+    "lead_pre": {
+     "vs": "steer",
+     "diff": 8.4,
+     "lo": -0.5,
+     "hi": 16.8,
+     "n": 202
+    }
+   },
+   "inject": {
+    "cells": {
+     "unsteered": {
+      "v": 80.8,
+      "n": 400
+     },
+     "random": {
+      "v": 80.8,
+      "n": 400
+     },
+     "mask": {
+      "v": 90.5,
+      "n": 400
+     },
+     "liemask": {
+      "v": 82.0,
+      "n": 400
+     },
+     "steer": {
+      "v": 80.8,
+      "n": 400
+     },
+     "prompt": {
+      "v": 85.8,
+      "n": 400
+     }
+    },
+    "lead": {
+     "vs": "prompt",
+     "diff": 4.8,
+     "lo": 0.8,
+     "hi": 8.8,
+     "n": 400
+    },
+    "lead_pre": {
+     "vs": "steer",
+     "diff": 9.8,
+     "lo": 5.2,
+     "hi": 14.0,
+     "n": 400
+    }
+   },
+   "mask_instructed": {
+    "cells": {
+     "unsteered": {
+      "v": 11.1,
+      "n": 171
+     },
+     "random": {
+      "v": 11.1,
+      "n": 171
+     },
+     "mask": {
+      "v": 13.6,
+      "n": 169
+     },
+     "liemask": {
+      "v": 12.4,
+      "n": 170
+     },
+     "steer": {
+      "v": 9.3,
+      "n": 172
+     },
+     "prompt": {
+      "v": 16.9,
+      "n": 172
+     }
+    },
+    "lead": {
+     "vs": "prompt",
+     "diff": -3.6,
+     "lo": -8.3,
+     "hi": 0.6,
+     "n": 168
+    },
+    "lead_pre": {
+     "vs": "steer",
+     "diff": 4.1,
+     "lo": 0.0,
+     "hi": 8.9,
+     "n": 169
+    }
+   },
+   "amgot": {
+    "cells": {
+     "unsteered": {
+      "v": 74.8,
+      "n": 1100
+     },
+     "random": {
+      "v": 77.5,
+      "n": 1100
+     },
+     "mask": {
+      "v": 79.7,
+      "n": 1100
+     },
+     "liemask": {
+      "v": 76.2,
+      "n": 1100
+     },
+     "steer": {
+      "v": 77.4,
+      "n": 1100
+     },
+     "prompt": {
+      "v": 72.0,
+      "n": 1100
+     }
+    },
+    "lead": {
+     "vs": "steer",
+     "diff": 2.4,
+     "lo": -0.3,
+     "hi": 5.1,
+     "n": 1100
+    },
+    "lead_pre": {
+     "vs": "steer",
+     "diff": 2.4,
+     "lo": -0.3,
+     "hi": 5.1,
+     "n": 1100
+    }
+   },
+   "multiturn": {
+    "cells": {
+     "unsteered": {
+      "v": 60.1,
+      "n": 253
+     },
+     "random": {
+      "v": 62.8,
+      "n": 253
+     },
+     "mask": {
+      "v": 35.2,
+      "n": 253
+     },
+     "liemask": {
+      "v": 62.1,
+      "n": 253
+     },
+     "steer": {
+      "v": 64.8,
+      "n": 253
+     },
+     "prompt": {
+      "v": 67.6,
+      "n": 253
+     }
+    },
+    "lead": {
+     "vs": "prompt",
+     "diff": -32.4,
+     "lo": -38.7,
+     "hi": -26.1,
+     "n": 253
+    },
+    "lead_pre": {
+     "vs": "steer",
+     "diff": -29.6,
+     "lo": -35.6,
+     "hi": -23.7,
+     "n": 253
+    }
+   },
+   "mask_incentive": {
+    "cells": {
+     "unsteered": {
+      "v": 55.4,
+      "n": 168
+     },
+     "random": {
+      "v": 50.3,
+      "n": 167
+     },
+     "mask": {
+      "v": 53.0,
+      "n": 168
+     },
+     "liemask": {
+      "v": 57.7,
+      "n": 168
+     },
+     "steer": {
+      "v": 52.1,
+      "n": 167
+     },
+     "prompt": {
+      "v": 51.5,
+      "n": 171
+     }
+    },
+    "lead": {
+     "vs": "liemask",
+     "diff": -4.8,
+     "lo": -12.0,
+     "hi": 2.4,
+     "n": 167
+    },
+    "lead_pre": {
+     "vs": "steer",
+     "diff": 1.2,
+     "lo": -6.0,
+     "hi": 8.4,
+     "n": 167
+    }
+   },
+   "inject_control": {
+    "cells": {
+     "unsteered": {
+      "v": 92.0,
+      "n": 150
+     },
+     "random": {
+      "v": 92.7,
+      "n": 150
+     },
+     "mask": {
+      "v": 86.7,
+      "n": 150
+     },
+     "liemask": {
+      "v": 92.7,
+      "n": 150
+     },
+     "steer": {
+      "v": 87.3,
+      "n": 150
+     },
+     "prompt": {
+      "v": 91.3,
+      "n": 150
+     }
+    },
+    "lead": null,
+    "lead_pre": null
+   },
+   "mmlu_plain": {
+    "cells": {
+     "unsteered": {
+      "v": 96.7,
+      "n": 90
+     },
+     "random": {
+      "v": 91.1,
+      "n": 90
+     },
+     "mask": {
+      "v": 85.6,
+      "n": 90
+     },
+     "liemask": {
+      "v": 91.1,
+      "n": 90
+     },
+     "steer": {
+      "v": 81.1,
+      "n": 90
+     },
+     "prompt": {
+      "v": 94.4,
+      "n": 90
+     }
+    },
+    "lead": null,
+    "lead_pre": null
+   }
+  }
+ },
+ {
+  "model": "OLMo-2-1B",
+  "arms": {
+   "unsteered": "unsteered",
+   "random": "weight:magmatch a=-1.0",
+   "mask": "weight:pooled a=-1.25",
+   "liemask": "weight:ours a=-1.25",
+   "steer": "actsteer:L12 r=-0.1 (c=-2.1)",
+   "prompt": "prompt:honest"
+  },
+  "tasks": {
+   "sandbag": {
+    "cells": {
+     "unsteered": {
+      "v": 40.8,
+      "n": 142
+     },
+     "random": {
+      "v": 36.6,
+      "n": 142
+     },
+     "mask": {
+      "v": 38.0,
+      "n": 142
+     },
+     "liemask": {
+      "v": 40.8,
+      "n": 142
+     },
+     "steer": {
+      "v": 43.0,
+      "n": 142
+     },
+     "prompt": {
+      "v": 33.1,
+      "n": 142
+     }
+    },
+    "lead": {
+     "vs": "steer",
+     "diff": -4.9,
+     "lo": -14.1,
+     "hi": 4.2,
+     "n": 142
+    },
+    "lead_pre": {
+     "vs": "prompt",
+     "diff": 4.9,
+     "lo": -4.2,
+     "hi": 14.1,
+     "n": 142
+    }
+   },
+   "inject": {
+    "cells": {
+     "unsteered": {
+      "v": 54.2,
+      "n": 400
+     },
+     "random": {
+      "v": 52.2,
+      "n": 400
+     },
+     "mask": {
+      "v": 62.5,
+      "n": 400
+     },
+     "liemask": {
+      "v": 54.2,
+      "n": 400
+     },
+     "steer": {
+      "v": 56.0,
+      "n": 400
+     },
+     "prompt": {
+      "v": 50.0,
+      "n": 400
+     }
+    },
+    "lead": {
+     "vs": "steer",
+     "diff": 6.5,
+     "lo": 1.2,
+     "hi": 11.8,
+     "n": 400
+    },
+    "lead_pre": {
+     "vs": "prompt",
+     "diff": 12.5,
+     "lo": 7.0,
+     "hi": 17.8,
+     "n": 400
+    }
+   },
+   "mask_instructed": {
+    "cells": {
+     "unsteered": {
+      "v": 18.2,
+      "n": 176
+     },
+     "random": {
+      "v": 21.6,
+      "n": 176
+     },
+     "mask": {
+      "v": 16.5,
+      "n": 176
+     },
+     "liemask": {
+      "v": 22.6,
+      "n": 177
+     },
+     "steer": {
+      "v": 19.0,
+      "n": 174
+     },
+     "prompt": {
+      "v": 21.7,
+      "n": 175
+     }
+    },
+    "lead": {
+     "vs": "liemask",
+     "diff": -6.2,
+     "lo": -11.9,
+     "hi": -0.6,
+     "n": 176
+    },
+    "lead_pre": {
+     "vs": "prompt",
+     "diff": -5.1,
+     "lo": -10.9,
+     "hi": 1.1,
+     "n": 175
+    }
+   },
+   "amgot": {
+    "cells": {
+     "unsteered": {
+      "v": 49.1,
+      "n": 1100
+     },
+     "random": {
+      "v": 47.7,
+      "n": 1100
+     },
+     "mask": {
+      "v": 57.1,
+      "n": 1100
+     },
+     "liemask": {
+      "v": 52.8,
+      "n": 1100
+     },
+     "steer": {
+      "v": 54.4,
+      "n": 1100
+     },
+     "prompt": {
+      "v": 61.1,
+      "n": 1100
+     }
+    },
+    "lead": {
+     "vs": "prompt",
+     "diff": -4.0,
+     "lo": -7.2,
+     "hi": -0.6,
+     "n": 1100
+    },
+    "lead_pre": {
+     "vs": "prompt",
+     "diff": -4.0,
+     "lo": -7.2,
+     "hi": -0.6,
+     "n": 1100
+    }
+   },
+   "multiturn": {
+    "cells": {
+     "unsteered": {
+      "v": 43.3,
+      "n": 224
+     },
+     "random": {
+      "v": 46.4,
+      "n": 224
+     },
+     "mask": {
+      "v": 46.0,
+      "n": 224
+     },
+     "liemask": {
+      "v": 40.2,
+      "n": 224
+     },
+     "steer": {
+      "v": 48.7,
+      "n": 224
+     },
+     "prompt": {
+      "v": 44.2,
+      "n": 224
+     }
+    },
+    "lead": {
+     "vs": "steer",
+     "diff": -2.7,
+     "lo": -8.0,
+     "hi": 2.7,
+     "n": 224
+    },
+    "lead_pre": {
+     "vs": "prompt",
+     "diff": 1.8,
+     "lo": -4.0,
+     "hi": 7.6,
+     "n": 224
+    }
+   },
+   "mask_incentive": {
+    "cells": {
+     "unsteered": {
+      "v": 52.9,
+      "n": 172
+     },
+     "random": {
+      "v": 52.6,
+      "n": 173
+     },
+     "mask": {
+      "v": 48.6,
+      "n": 173
+     },
+     "liemask": {
+      "v": 47.7,
+      "n": 172
+     },
+     "steer": {
+      "v": 54.7,
+      "n": 172
+     },
+     "prompt": {
+      "v": 46.5,
+      "n": 172
+     }
+    },
+    "lead": {
+     "vs": "steer",
+     "diff": -5.8,
+     "lo": -12.8,
+     "hi": 0.6,
+     "n": 172
+    },
+    "lead_pre": {
+     "vs": "prompt",
+     "diff": 2.3,
+     "lo": -4.1,
+     "hi": 8.7,
+     "n": 172
+    }
+   },
+   "inject_control": {
+    "cells": {
+     "unsteered": {
+      "v": 76.7,
+      "n": 150
+     },
+     "random": {
+      "v": 74.7,
+      "n": 150
+     },
+     "mask": {
+      "v": 80.7,
+      "n": 150
+     },
+     "liemask": {
+      "v": 73.3,
+      "n": 150
+     },
+     "steer": {
+      "v": 82.7,
+      "n": 150
+     },
+     "prompt": {
+      "v": 80.0,
+      "n": 150
+     }
+    },
+    "lead": null,
+    "lead_pre": null
+   },
+   "mmlu_plain": {
+    "cells": {
+     "unsteered": {
+      "v": 65.6,
+      "n": 61
+     },
+     "random": {
+      "v": 65.6,
+      "n": 61
+     },
+     "mask": {
+      "v": 60.7,
+      "n": 61
+     },
+     "liemask": {
+      "v": 62.3,
+      "n": 61
+     },
+     "steer": {
+      "v": 70.5,
+      "n": 61
+     },
+     "prompt": {
+      "v": 60.7,
+      "n": 61
+     }
+    },
+    "lead": null,
+    "lead_pre": null
+   }
+  }
+ },
+ {
+  "model": "Qwen2.5-3B",
+  "arms": {
+   "unsteered": "unsteered",
+   "random": "weight:magmatch a=-1.0",
+   "mask": "weight:pooltf a=-1.125",
+   "liemask": "weight:ours a=-1.0",
+   "steer": "actsteer:L27 r=-0.18 (c=-18.7)",
+   "prompt": "prompt:honest"
+  },
+  "tasks": {
+   "sandbag": {
+    "cells": {
+     "unsteered": {
+      "v": 46.4,
+      "n": 278
+     },
+     "random": {
+      "v": 54.3,
+      "n": 278
+     },
+     "mask": {
+      "v": 62.2,
+      "n": 278
+     },
+     "liemask": {
+      "v": 77.3,
+      "n": 278
+     },
+     "steer": {
+      "v": 47.5,
+      "n": 278
+     },
+     "prompt": {
+      "v": 50.0,
+      "n": 278
+     }
+    },
+    "lead": {
+     "vs": "liemask",
+     "diff": -15.1,
+     "lo": -20.5,
+     "hi": -9.7,
+     "n": 278
+    },
+    "lead_pre": {
+     "vs": "prompt",
+     "diff": 12.2,
+     "lo": 6.5,
+     "hi": 17.6,
+     "n": 278
+    }
+   },
+   "inject": {
+    "cells": {
+     "unsteered": {
+      "v": 78.2,
+      "n": 400
+     },
+     "random": {
+      "v": 75.0,
+      "n": 400
+     },
+     "mask": {
+      "v": 79.2,
+      "n": 400
+     },
+     "liemask": {
+      "v": 70.5,
+      "n": 400
+     },
+     "steer": {
+      "v": 81.8,
+      "n": 400
+     },
+     "prompt": {
+      "v": 79.0,
+      "n": 400
+     }
+    },
+    "lead": {
+     "vs": "steer",
+     "diff": -2.5,
+     "lo": -6.8,
+     "hi": 1.8,
+     "n": 400
+    },
+    "lead_pre": {
+     "vs": "prompt",
+     "diff": 0.2,
+     "lo": -2.8,
+     "hi": 3.5,
+     "n": 400
+    }
+   },
+   "mask_instructed": {
+    "cells": {
+     "unsteered": {
+      "v": 18.4,
+      "n": 201
+     },
+     "random": {
+      "v": 15.0,
+      "n": 200
+     },
+     "mask": {
+      "v": 19.9,
+      "n": 201
+     },
+     "liemask": {
+      "v": 17.4,
+      "n": 201
+     },
+     "steer": {
+      "v": 21.5,
+      "n": 200
+     },
+     "prompt": {
+      "v": 22.8,
+      "n": 202
+     }
+    },
+    "lead": {
+     "vs": "prompt",
+     "diff": -3.0,
+     "lo": -8.0,
+     "hi": 2.5,
+     "n": 201
+    },
+    "lead_pre": {
+     "vs": "prompt",
+     "diff": -3.0,
+     "lo": -8.0,
+     "hi": 2.5,
+     "n": 201
+    }
+   },
+   "amgot": {
+    "cells": {
+     "unsteered": {
+      "v": 78.1,
+      "n": 1100
+     },
+     "random": {
+      "v": 75.8,
+      "n": 1100
+     },
+     "mask": {
+      "v": 88.9,
+      "n": 1100
+     },
+     "liemask": {
+      "v": 92.7,
+      "n": 1100
+     },
+     "steer": {
+      "v": 78.6,
+      "n": 1100
+     },
+     "prompt": {
+      "v": 84.6,
+      "n": 1100
+     }
+    },
+    "lead": {
+     "vs": "liemask",
+     "diff": -3.8,
+     "lo": -5.9,
+     "hi": -1.8,
+     "n": 1100
+    },
+    "lead_pre": {
+     "vs": "prompt",
+     "diff": 4.3,
+     "lo": 2.3,
+     "hi": 6.4,
+     "n": 1100
+    }
+   },
+   "multiturn": {
+    "cells": {
+     "unsteered": {
+      "v": 67.8,
+      "n": 307
+     },
+     "random": {
+      "v": 56.0,
+      "n": 307
+     },
+     "mask": {
+      "v": 70.0,
+      "n": 307
+     },
+     "liemask": {
+      "v": 74.3,
+      "n": 307
+     },
+     "steer": {
+      "v": 66.4,
+      "n": 307
+     },
+     "prompt": {
+      "v": 72.0,
+      "n": 307
+     }
+    },
+    "lead": {
+     "vs": "liemask",
+     "diff": -4.2,
+     "lo": -9.1,
+     "hi": 0.7,
+     "n": 307
+    },
+    "lead_pre": {
+     "vs": "prompt",
+     "diff": -2.0,
+     "lo": -7.8,
+     "hi": 4.2,
+     "n": 307
+    }
+   },
+   "mask_incentive": {
+    "cells": {
+     "unsteered": {
+      "v": 50.8,
+      "n": 193
+     },
+     "random": {
+      "v": 43.5,
+      "n": 193
+     },
+     "mask": {
+      "v": 48.4,
+      "n": 192
+     },
+     "liemask": {
+      "v": 48.2,
+      "n": 193
+     },
+     "steer": {
+      "v": 53.4,
+      "n": 193
+     },
+     "prompt": {
+      "v": 53.1,
+      "n": 194
+     }
+    },
+    "lead": {
+     "vs": "steer",
+     "diff": -5.2,
+     "lo": -12.0,
+     "hi": 1.6,
+     "n": 192
+    },
+    "lead_pre": {
+     "vs": "prompt",
+     "diff": -5.2,
+     "lo": -11.5,
+     "hi": 1.0,
+     "n": 192
+    }
+   },
+   "inject_control": {
+    "cells": {
+     "unsteered": {
+      "v": 77.3,
+      "n": 150
+     },
+     "random": {
+      "v": 68.0,
+      "n": 150
+     },
+     "mask": {
+      "v": 79.3,
+      "n": 150
+     },
+     "liemask": {
+      "v": 69.3,
+      "n": 150
+     },
+     "steer": {
+      "v": 72.7,
+      "n": 150
+     },
+     "prompt": {
+      "v": 74.7,
+      "n": 150
+     }
+    },
+    "lead": null,
+    "lead_pre": null
+   },
+   "mmlu_plain": {
+    "cells": {
+     "unsteered": {
+      "v": 98.3,
+      "n": 120
+     },
+     "random": {
+      "v": 89.2,
+      "n": 120
+     },
+     "mask": {
+      "v": 92.5,
+      "n": 120
+     },
+     "liemask": {
+      "v": 93.3,
+      "n": 120
+     },
+     "steer": {
+      "v": 97.5,
+      "n": 120
+     },
+     "prompt": {
+      "v": 93.3,
+      "n": 120
+     }
+    },
+    "lead": null,
+    "lead_pre": null
+   }
+  }
+ }
+]

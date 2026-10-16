@@ -1083,8 +1083,13 @@ def main():
     wl()
     w("## 7  References")
     wl()
-    w("Stolfo, A., et al. (2025). *Mechanistic Interpretability for AI Safety: "
-      "Activation Steering for Instruction-Following.* ICLR 2025.")
+    w("Stolfo, A., Balachandran, V., Yousefi, S., Horvitz, E., & Nushi, B. (2025). "
+      "*Improving Instruction-Following in Language Models through Activation "
+      "Steering.* ICLR 2025. arXiv:2410.12877.")
+    wl()
+    w("Rimsky, N., Gabrieli, N., Schulz, J., Tong, M., Hubinger, E., & Turner, A. M. "
+      "(2024). *Steering Llama 2 via Contrastive Activation Addition.* ACL 2024. "
+      "arXiv:2312.06681.")
     wl()
     w("Sun, M., et al. (2023). *Wanda: Pruning by Weights and Activations.* arXiv:2306.11695.")
     wl()

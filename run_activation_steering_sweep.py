@@ -2,7 +2,8 @@
 """
 Activation-steering sweep: layer 0-31 × coefficient [5, 10, 20, 40, 80].
 
-Implements Stolfo et al. (ICLR 2025) difference-in-means approach applied to
+Implements the difference-in-means approach of Stolfo et al., ICLR 2025
+(arXiv:2410.12877), applied to
 the lie/truth axis, for direct comparison with LieNeuro weight steering.
 
 Usage

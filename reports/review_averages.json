@@ -1,0 +1,139 @@
+{
+ "variants": {
+  "lb": {
+   "vpad": {
+    "mean": 65.1,
+    "usable": 5,
+    "ours_minus": {
+     "diff": 19.8,
+     "lo": 17.2,
+     "hi": 22.6
+    }
+   },
+   "vpos": {
+    "mean": 85.0,
+    "usable": 5,
+    "ours_minus": {
+     "diff": -0.0,
+     "lo": -1.8,
+     "hi": 1.7
+    }
+   },
+   "vr020": {
+    "mean": 71.3,
+    "usable": 4,
+    "ours_minus": {
+     "diff": 13.6,
+     "lo": 11.1,
+     "hi": 16.1
+    }
+   },
+   "vr060": {
+    "mean": 79.5,
+    "usable": 4,
+    "ours_minus": {
+     "diff": 5.5,
+     "lo": 3.4,
+     "hi": 7.5
+    }
+   },
+   "vrat": {
+    "mean": 85.5,
+    "usable": 5,
+    "ours_minus": {
+     "diff": -0.5,
+     "lo": -2.3,
+     "hi": 1.1
+    }
+   },
+   "vtok": {
+    "mean": 83.1,
+    "usable": 5,
+    "ours_minus": {
+     "diff": 1.8,
+     "lo": 0.1,
+     "hi": 3.7
+    }
+   },
+   "vz": {
+    "mean": 66.3,
+    "usable": 3,
+    "ours_minus": {
+     "diff": 18.7,
+     "lo": 16.2,
+     "hi": 21.2
+    }
+   },
+   "ours": {
+    "mean": 85.0
+   }
+  },
+  "ail": {
+   "vpad": {
+    "mean": 55.4,
+    "usable": 5,
+    "ours_minus": {
+     "diff": 23.9,
+     "lo": 21.4,
+     "hi": 26.2
+    }
+   },
+   "vpos": {
+    "mean": 77.1,
+    "usable": 5,
+    "ours_minus": {
+     "diff": 2.2,
+     "lo": 0.2,
+     "hi": 4.1
+    }
+   },
+   "vtok": {
+    "mean": 74.4,
+    "usable": 5,
+    "ours_minus": {
+     "diff": 4.8,
+     "lo": 2.7,
+     "hi": 7.0
+    }
+   },
+   "vz": {
+    "mean": 55.7,
+    "usable": 5,
+    "ours_minus": {
+     "diff": 23.5,
+     "lo": 21.1,
+     "hi": 26.1
+    }
+   },
+   "ours": {
+    "mean": 79.3
+   }
+  }
+ },
+ "mlsteer": {
+  "lb": {
+   "mean": {
+    "mask": 85.0,
+    "steer": 78.3,
+    "mlsteer": 80.7
+   },
+   "ours_minus_mlsteer": {
+    "diff": 4.2,
+    "lo": 2.1,
+    "hi": 6.4
+   }
+  },
+  "ail": {
+   "mean": {
+    "mask": 79.3,
+    "steer": 74.5,
+    "mlsteer": 73.9
+   },
+   "ours_minus_mlsteer": {
+    "diff": 5.3,
+    "lo": 3.1,
+    "hi": 7.5
+   }
+  }
+ }
+}

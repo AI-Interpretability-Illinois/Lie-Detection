@@ -25,6 +25,7 @@ Usage
 
 import argparse
 import hashlib
+import os
 import json
 import re
 from pathlib import Path
@@ -33,7 +34,7 @@ import numpy as np
 import pandas as pd
 
 REPO      = "Cadenza-Labs/liars-bench"
-CACHE_DIR = "/scratch/aebrahim/hf_cache"
+CACHE_DIR = os.environ.get("HF_CACHE_DIR", "/scratch/aebrahim/hf_cache")
 LETTERS   = ["A", "B", "C", "D"]
 
 NEUTRAL_SYSTEM = "You are a helpful AI assistant."

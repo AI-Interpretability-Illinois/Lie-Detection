@@ -1,0 +1,60 @@
+[
+ {
+  "model": "Qwen2.5-32B",
+  "source": "converted from reports/qwen32b_ali.json (owner, 2026-10-10)",
+  "grader": {
+   "lb": "as given by the co-author",
+   "ail": "keyword"
+  },
+  "lb": {
+   "cells": {
+    "mask": {
+     "v": 97.4
+    },
+    "liemask": {
+     "v": 96.4
+    },
+    "steer": {
+     "v": 81.8
+    },
+    "prompt": {
+     "v": 99.0
+    },
+    "unsteered": {
+     "v": 21.9
+    }
+   },
+   "lead": {
+    "vs": "prompt",
+    "diff": -1.6,
+    "lo": -4.2,
+    "hi": 1.0
+   }
+  },
+  "ail": {
+   "cells": {
+    "mask": {
+     "v": 83.0
+    },
+    "liemask": {
+     "v": 86.7
+    },
+    "steer": {
+     "v": 58.0
+    },
+    "prompt": {
+     "v": 32.9
+    },
+    "unsteered": {
+     "v": 21.7
+    }
+   },
+   "lead": {
+    "vs": "liemask",
+    "diff": -3.7,
+    "lo": null,
+    "hi": null
+   }
+  }
+ }
+]

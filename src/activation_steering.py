@@ -1,7 +1,9 @@
 """
 Activation steering for the lie/truth axis.
 
-Implements the difference-in-means method from Stolfo et al. (ICLR 2025):
+Implements the difference-in-means method of Stolfo et al., "Improving
+Instruction-Following in Language Models through Activation Steering", ICLR 2025
+(arXiv:2410.12877):
   u_l = normalize( mean_i( h_lie_{i,l} - h_truth_{i,l} ) )
 
 At inference time the vector is added to the residual stream at a chosen layer:
@@ -62,7 +64,8 @@ class ActivationSteering:
         last input token for every transformer layer.
         Returns {layer_idx: tensor of shape (n_prompts, d_model)} on CPU.
         """
-        n_layers = len(self.model.model.layers)
+        from did_estimators import decoder_layers
+        n_layers = len(decoder_layers(self.model))
         buf: Dict[int, List[torch.Tensor]] = {i: [] for i in range(n_layers)}
 
         for raw in prompts:
@@ -79,11 +82,14 @@ class ActivationSteering:
                         layer_out[idx] = output[0].detach().cpu()
                 return _h
 
-            for i, layer in enumerate(self.model.model.layers):
+            for i, layer in enumerate(decoder_layers(self.model)):
                 hooks.append(layer.register_forward_hook(_make_hook(i)))
 
             # With device_map="auto" the embedding lives on the first shard's device
-            input_device = next(self.model.model.embed_tokens.parameters()).device
+            # get_input_embeddings() is defined for every HF model; reaching
+            # for model.model.embed_tokens breaks on wrappers such as
+            # Gemma3ForConditionalGeneration, where it sits one level deeper.
+            input_device = next(self.model.get_input_embeddings().parameters()).device
             enc = self.tokenizer(
                 prompt,
                 return_tensors="pt",
@@ -205,7 +211,9 @@ class ActivationSteering:
         Call remove_steering() when generation is done.
         """
         # Each layer may live on a different GPU with device_map="auto"
-        layer_device = next(self.model.model.layers[layer_idx].parameters()).device
+        from did_estimators import decoder_layers
+        _blocks = decoder_layers(self.model)
+        layer_device = next(_blocks[layer_idx].parameters()).device
         vec = self.steering_vectors[layer_idx].to(layer_device)  # (d,)
 
         def _hook(module, inp, output):
@@ -214,7 +222,7 @@ class ActivationSteering:
             modified = output[0] + coeff * vec
             return (modified,) + output[1:]
 
-        h = self.model.model.layers[layer_idx].register_forward_hook(_hook)
+        h = _blocks[layer_idx].register_forward_hook(_hook)
         self._hooks.append(h)
 
     def remove_steering(self) -> None:

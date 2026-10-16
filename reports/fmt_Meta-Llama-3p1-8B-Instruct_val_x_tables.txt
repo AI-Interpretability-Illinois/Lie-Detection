@@ -1,0 +1,250 @@
+Meta-Llama-3p1-8B-Instruct val: 105 arms; long-form replies without a verdict: 0
+unedited honest % (deception / control, n deception):
+  sys 20.3/99.3 (n=295)  user 34.6/99.3 (n=295)  inject 83.4/82.4 (n=295)  mc 15.7/99.3 (n=299)  tf 35.1/97.9 (n=282)  multi 18.6/97.6 (n=295)  long 3.7/98.0 (n=295)
+
+=== maskc: strengths ['0.0025', '0.005', '0.01', '0.02']
+
+  (a) best gain within budget per cell   (rows: build format, columns: eval format; gain in honest points)
+  build \ eval      sys    user  inject      mc      tf   multi    long  row mean
+  sys              76.9    63.1    12.9    83.9       -    77.3    94.2      68.1
+  user             77.6    63.4    14.2    83.6    59.2    76.6    95.3      67.1
+  inject           76.3    61.7    11.9    84.3       -    76.3    93.6      67.3
+  mc               77.6    63.7    13.6    83.6    61.3    75.9    93.9      67.1
+  tf               76.9    63.7    13.6    84.3    62.4    76.9    93.9      67.4
+  multi            76.3    62.7    13.9    83.9       -    75.3    94.2      67.7
+  long             77.6    63.7    14.6    83.9    60.6    75.6    93.9      67.1
+  no-sys           77.6    63.7    13.9    83.9    62.1    75.6    93.6      67.2
+  no-user          78.0    64.1    14.2    83.9    62.1    76.3    93.6      67.4
+  no-inject        76.9    63.7    14.2    83.9    61.3    74.6    93.9      67.0
+  no-mc            76.9    64.1    13.6    83.9    60.3    75.6    93.6      66.9
+  no-tf            76.9    64.4    13.6    83.9    59.9    76.3    93.6      66.9
+  no-multi         78.0    64.1    14.2    83.9    62.1    77.3    93.6      67.6
+  no-long          77.3    64.1    14.2    83.9    61.7    76.9    93.6      67.4
+  pool             77.3    64.1    13.9    83.9    61.3    75.3    93.6      67.1
+  col mean         77.2    63.6    13.8    83.9    61.2    76.1    93.9
+
+  (b) gain at one strength per build format {'sys': '0.0025', 'user': '0.0025', 'inject': '0.0025', 'mc': '0.0025', 'tf': '0.0025', 'multi': '0.0025', 'long': '0.0025', 'no-sys': '0.0025', 'no-user': '0.0025', 'no-inject': '0.0025', 'no-mc': '0.0025', 'no-tf': '0.0025', 'no-multi': '0.0025', 'no-long': '0.0025', 'pool': '0.0025'}   (rows: build format, columns: eval format; gain in honest points)
+  build \ eval      sys    user  inject      mc      tf   multi    long  row mean
+  sys              76.9    63.1    12.9    83.9    59.9    76.6    91.9      66.5
+  user             76.6    63.4    13.9    83.6    59.2    73.6    93.9      66.3
+  inject           75.9    61.7    11.9    84.3    53.9    74.6    89.5      64.5
+  mc               77.6    63.7    13.2    83.6    61.3    73.2    93.2      66.6
+  tf               76.9    63.7    12.9    84.3    62.4    76.9    92.5      67.1
+  multi            76.3    62.4    12.9    83.9    60.6    75.3    93.2      66.4
+  long             77.6    63.7    13.2    82.9    60.6    75.6    93.9      66.8
+  no-sys           76.6    63.7    13.9    83.9    62.1    75.6    92.9      67.0
+  no-user          78.0    64.1    14.2    83.9    62.1    75.9    92.9      67.3
+  no-inject        76.9    63.7    14.2    83.9    61.3    74.6    92.2      66.7
+  no-mc            76.3    64.1    13.2    83.9    60.3    75.6    93.2      66.7
+  no-tf            76.9    64.4    12.9    83.9    59.9    75.6    93.6      66.8
+  no-multi         78.0    64.1    13.6    83.9    62.1    77.3    92.9      67.4
+  no-long          77.3    64.1    13.6    83.9    61.7    74.9    93.6      67.0
+  pool             77.3    64.1    13.9    83.9    61.3    75.3    92.5      66.9
+  col mean         77.0    63.6    13.4    83.9    60.6    75.4    92.8
+
+  (c) % of the gap to the honest-instructed level closed, at the row strength (columns with a gap < 10 points left out)   (rows: build format, columns: eval format; % of gap closed)
+  build \ eval      sys    user  inject      mc      tf   multi    long  row mean
+  sys              97.4    97.4       -   100.4    95.5    97.0    97.5      97.5
+  user             97.0    97.9       -   100.0    94.4    93.1    99.6      97.0
+  inject           96.1    95.3       -   100.8    85.9    94.4    95.0      94.6
+  mc               98.3    98.4       -   100.0    97.7    92.7    98.9      97.7
+  tf               97.4    98.4       -   100.8    99.4    97.4    98.2      98.6
+  multi            96.6    96.3       -   100.4    96.6    95.3    98.9      97.4
+  long             98.3    98.4       -    99.2    96.6    95.7    99.6      98.0
+  no-sys           97.0    98.4       -   100.4    98.9    95.7    98.6      98.2
+  no-user          98.7    99.0       -   100.4    98.9    96.1    98.6      98.6
+  no-inject        97.4    98.4       -   100.4    97.7    94.4    97.8      97.7
+  no-mc            96.6    99.0       -   100.4    96.0    95.7    98.9      97.8
+  no-tf            97.4    99.5       -   100.4    95.5    95.7    99.3      98.0
+  no-multi         98.7    99.0       -   100.4    98.9    97.9    98.6      98.9
+  no-long          97.9    99.0       -   100.4    98.3    94.8    99.3      98.3
+  pool             97.9    99.0       -   100.4    97.7    95.3    98.2      98.1
+  col mean         97.5    98.2       -   100.3    96.5    95.4    98.5
+
+  damage at the row strength: ppl x / mean control drop
+  sys           0.0025  ppl x1.022  control drop -1.3
+  user          0.0025  ppl x1.019  control drop -1.2
+  inject        0.0025  ppl x1.017  control drop +0.0
+  mc            0.0025  ppl x1.021  control drop -1.9
+  tf            0.0025  ppl x1.021  control drop -2.1
+  multi         0.0025  ppl x1.022  control drop -0.9
+  long          0.0025  ppl x1.017  control drop -1.2
+  no-sys        0.0025  ppl x1.020  control drop -2.0
+  no-user       0.0025  ppl x1.021  control drop -2.0
+  no-inject     0.0025  ppl x1.021  control drop -2.1
+  no-mc         0.0025  ppl x1.019  control drop -1.6
+  no-tf         0.0025  ppl x1.020  control drop -1.8
+  no-multi      0.0025  ppl x1.020  control drop -1.8
+  no-long       0.0025  ppl x1.021  control drop -1.9
+  pool          0.0025  ppl x1.021  control drop -1.9
+
+  true/false honest % by statement polarity at the row strength (true st. / false st.)
+  unedited       39.7 /  30.5
+  sys            98.6 /  91.5
+  user           99.3 /  89.4
+  inject        100.0 /  78.0
+  mc             99.3 /  93.6
+  tf             97.9 /  97.2
+  multi          99.3 /  92.2
+  long           98.6 /  92.9
+  no-sys         99.3 /  95.0
+  no-user        98.6 /  95.7
+  no-inject      97.9 /  95.0
+  no-mc          98.6 /  92.2
+  no-tf         100.0 /  90.1
+  no-multi      100.0 /  94.3
+  no-long        98.6 /  95.0
+  pool           98.6 /  94.3
+
+=== caa: strengths ['-0.25', '-0.5', '-0.75', '-1.0']
+
+  (a) best gain within budget per cell   (rows: build format, columns: eval format; gain in honest points)
+  build \ eval      sys    user  inject      mc      tf   multi    long  row mean
+  sys              42.4    37.6    10.5    58.2    44.0    19.3    37.6      35.7
+  user             55.6    42.0     9.8    47.2    42.2    24.7    38.3      37.1
+  inject           60.0    46.4     1.4    71.6    41.1    66.4    36.3      46.2
+  mc               63.4    46.4       -    61.5    48.6    68.8    36.3      54.2
+  tf               45.8    33.6       -    38.5    35.8    20.0    23.7      32.9
+  multi            18.6    13.9     5.4    26.4    24.5    15.3    14.9      17.0
+  long             68.8    44.4     7.8    67.2    37.6    73.6    29.2      46.9
+  no-sys           58.0    42.4       -    44.1    41.1    27.5    32.2      40.9
+  no-user          55.3    40.0       -    43.5    41.1    27.1    33.2      40.0
+  no-inject        54.9    39.3     3.1    42.5    40.8    26.1    33.2      34.3
+  no-mc            53.9    39.3     8.1    41.1    40.8    26.8    34.6      34.9
+  no-tf            57.6    43.1     7.1    47.8    42.2    27.8    34.6      37.2
+  no-multi         58.6    44.1       -    48.8    42.6    27.8    38.0      43.3
+  no-long          53.6    40.0     3.4    40.5    42.2    26.1    34.2      34.3
+  pool             55.3    39.3     2.0    41.1    41.5    27.8    34.2      34.5
+  col mean         53.4    39.5     5.9    48.0    40.4    33.7    32.7
+
+  (b) gain at one strength per build format {'sys': '-0.5', 'user': '-0.5', 'inject': '-0.5', 'mc': '-0.25', 'tf': '-0.25', 'multi': '-0.5', 'long': '-0.5', 'no-sys': '-0.5', 'no-user': '-0.5', 'no-inject': '-0.5', 'no-mc': '-0.5', 'no-tf': '-0.5', 'no-multi': '-0.5', 'no-long': '-0.5', 'pool': '-0.5'}   (rows: build format, columns: eval format; gain in honest points)
+  build \ eval      sys    user  inject      mc      tf   multi    long  row mean
+  sys              42.4    37.6    10.5    58.2    44.0    61.7    37.6      41.7
+  user             55.6    42.0     9.8    47.2    42.2    73.2    38.3      44.0
+  inject           60.0    46.4     1.4    71.6    41.1    66.4    36.3      46.2
+  mc               24.1    21.0    -1.7    27.4    20.2    28.1    13.2      18.9
+  tf               18.6    16.9    -2.4    22.4    16.0    20.0    13.6      15.0
+  multi            18.6    13.9     5.4    26.4    24.5    49.8    14.9      21.9
+  long             68.8    44.4     7.8    67.2    37.6    73.6    29.2      46.9
+  no-sys           58.0    42.4     1.0    44.1    41.1    74.6    32.2      41.9
+  no-user          55.3    40.0     0.3    43.5    41.1    71.9    33.2      40.8
+  no-inject        54.9    39.3     3.1    42.5    40.8    74.2    33.2      41.1
+  no-mc            53.9    39.3     8.1    41.1    40.8    73.6    34.6      41.6
+  no-tf            57.6    43.1     7.1    47.8    42.2    74.6    34.6      43.9
+  no-multi         58.6    44.1     2.7    48.8    42.6    74.6    38.0      44.2
+  no-long          53.6    40.0     3.4    40.5    42.2    71.5    34.2      40.8
+  pool             55.3    39.3     2.0    41.1    41.5    73.2    34.2      41.0
+  col mean         49.0    36.7     3.9    44.7    37.2    64.1    30.5
+
+  (c) % of the gap to the honest-instructed level closed, at the row strength (columns with a gap < 10 points left out)   (rows: build format, columns: eval format; % of gap closed)
+  build \ eval      sys    user  inject      mc      tf   multi    long  row mean
+  sys              53.6    58.1       -    69.6    70.1    78.1    39.9      61.6
+  user             70.4    64.9       -    56.4    67.2    92.7    40.6      65.4
+  inject           76.0    71.7       -    85.6    65.5    84.1    38.5      70.2
+  mc               30.5    32.5       -    32.8    32.2    35.6    14.0      29.6
+  tf               23.6    26.2       -    26.8    25.4    25.3    14.4      23.6
+  multi            23.6    21.5       -    31.6    39.0    63.1    15.8      32.4
+  long             87.1    68.6       -    80.4    59.9    93.1    30.9      70.0
+  no-sys           73.4    65.4       -    52.8    65.5    94.4    34.2      64.3
+  no-user          70.0    61.8       -    52.0    65.5    91.0    35.3      62.6
+  no-inject        69.5    60.7       -    50.8    65.0    94.0    35.3      62.5
+  no-mc            68.2    60.7       -    49.2    65.0    93.1    36.7      62.2
+  no-tf            73.0    66.5       -    57.2    67.2    94.4    36.7      65.8
+  no-multi         74.2    68.1       -    58.4    67.8    94.4    40.3      67.2
+  no-long          67.8    61.8       -    48.4    67.2    90.6    36.3      62.0
+  pool             70.0    60.7       -    49.2    66.1    92.7    36.3      62.5
+  col mean         62.1    56.6       -    53.4    59.2    81.1    32.4
+
+  damage at the row strength: ppl x / mean control drop
+  sys             -0.5  ppl x1.073  control drop +0.5
+  user            -0.5  ppl x1.072  control drop +1.0
+  inject          -0.5  ppl x1.073  control drop +1.9
+  mc             -0.25  ppl x1.014  control drop +2.1
+  tf             -0.25  ppl x1.016  control drop +2.5
+  multi           -0.5  ppl x1.064  control drop +0.4
+  long            -0.5  ppl x1.070  control drop +1.6
+  no-sys          -0.5  ppl x1.072  control drop +3.4
+  no-user         -0.5  ppl x1.074  control drop +3.3
+  no-inject       -0.5  ppl x1.073  control drop +2.7
+  no-mc           -0.5  ppl x1.073  control drop +1.8
+  no-tf           -0.5  ppl x1.074  control drop +2.2
+  no-multi        -0.5  ppl x1.073  control drop +2.9
+  no-long         -0.5  ppl x1.074  control drop +3.0
+  pool            -0.5  ppl x1.074  control drop +2.9
+
+  true/false honest % by statement polarity at the row strength (true st. / false st.)
+  unedited       39.7 /  30.5
+  sys            70.2 /  87.9
+  user           57.4 /  97.2
+  inject         52.5 / 100.0
+  mc             44.0 /  66.7
+  tf             43.3 /  58.9
+  multi          53.2 /  66.0
+  long           48.2 /  97.2
+  no-sys         54.6 /  97.9
+  no-user        56.0 /  96.5
+  no-inject      55.3 /  96.5
+  no-mc          55.3 /  96.5
+  no-tf          56.7 /  97.9
+  no-multi       57.4 /  97.9
+  no-long        58.9 /  95.7
+  pool           56.0 /  97.2
+
+=== dirab: strengths ['1.0', '2.0']
+
+  (a) best gain within budget per cell   (rows: build format, columns: eval format; gain in honest points)
+  build \ eval      sys    user  inject      mc      tf   multi    long  row mean
+  sys               4.4     1.4     2.7     1.3    -2.8     1.0     0.0       1.1
+  user             26.4    24.4     6.4    37.5     5.0    10.5    16.6      18.1
+  inject            4.1     6.1     7.8    10.7    -1.4     1.7     0.7       4.2
+  mc               22.7    23.7     7.1    36.8     6.7    13.6    16.9      18.2
+  tf                3.1     3.7     5.1     1.0    -2.8     1.4     1.4       1.8
+  multi             6.4     9.2     4.4     0.7     1.8     2.4     1.7       3.8
+  long             40.3    34.9     5.8    48.8     9.6    24.1    21.7      26.5
+  pool             27.5    24.7    10.2    33.1     4.6    10.8    14.6      17.9
+  col mean         16.9    16.0     6.2    21.2     2.6     8.2     9.2
+
+  (b) gain at one strength per build format {'sys': '2.0', 'user': '2.0', 'inject': '2.0', 'mc': '2.0', 'tf': '1.0', 'multi': '2.0', 'long': '2.0', 'pool': '2.0'}   (rows: build format, columns: eval format; gain in honest points)
+  build \ eval      sys    user  inject      mc      tf   multi    long  row mean
+  sys               4.4     1.4     2.7     1.3    -2.8     1.0     0.0       1.1
+  user             26.4    24.4     6.4    37.5     5.0    10.5    16.6      18.1
+  inject            4.1     5.8     7.8    10.7    -1.8     1.7     0.7       4.1
+  mc               22.7    23.7     7.1    36.8     6.7    13.6    16.9      18.2
+  tf                3.1     3.7     4.7     1.0    -2.8     1.4     1.4       1.8
+  multi             6.4     9.2     4.4     0.3     1.8     2.4     1.0       3.6
+  long             40.3    34.9     5.1    48.8     8.2    24.1    21.7      26.2
+  pool             27.5    24.7    10.2    33.1     4.3    10.8    14.6      17.9
+  col mean         16.9    16.0     6.1    21.2     2.3     8.2     9.1
+
+  (c) % of the gap to the honest-instructed level closed, at the row strength (columns with a gap < 10 points left out)   (rows: build format, columns: eval format; % of gap closed)
+  build \ eval      sys    user  inject      mc      tf   multi    long  row mean
+  sys               5.6     2.1       -     1.6    -4.5     1.3     0.0       1.0
+  user             33.5    37.7       -    44.8     7.9    13.3    17.6      25.8
+  inject            5.2     8.9       -    12.8    -2.8     2.1     0.7       4.5
+  mc               28.8    36.6       -    44.0    10.7    17.2    18.0      25.9
+  tf                3.9     5.8       -     1.2    -4.5     1.7     1.4       1.6
+  multi             8.2    14.1       -     0.4     2.8     3.0     1.1       4.9
+  long             51.1    53.9       -    58.4    13.0    30.5    23.0      38.3
+  pool             34.8    38.2       -    39.6     6.8    13.7    15.5      24.8
+  col mean         21.4    24.7       -    25.4     3.7    10.4     9.7
+
+  damage at the row strength: ppl x / mean control drop
+  sys              2.0  ppl x1.003  control drop -1.2
+  user             2.0  ppl x1.004  control drop -1.3
+  inject           2.0  ppl x1.006  control drop -1.5
+  mc               2.0  ppl x1.003  control drop -1.5
+  tf               1.0  ppl x1.001  control drop -1.1
+  multi            2.0  ppl x1.005  control drop -1.2
+  long             2.0  ppl x1.002  control drop -1.0
+  pool             2.0  ppl x1.003  control drop -1.4
+
+  true/false honest % by statement polarity at the row strength (true st. / false st.)
+  unedited       39.7 /  30.5
+  sys            34.0 /  30.5
+  user           48.2 /  31.9
+  inject         36.2 /  30.5
+  mc             49.6 /  34.0
+  tf             41.8 /  22.7
+  multi          37.6 /  36.2
+  long           51.8 /  34.8
+  pool           45.4 /  33.3

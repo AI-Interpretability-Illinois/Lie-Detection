@@ -21,6 +21,30 @@ truthful* contrastive axis:
 
 No gradient computation, no behavioural data, no fine-tuning.
 
+### What the contrast turned out to isolate
+
+The controls run in September 2026 changed the reading of this method, and the
+headline above is kept only because it is what the original work set out to do.
+
+**It is not a deception circuit.** Replacing the lie instructions in the treatment
+arm with instructions to assert a falsehood *without* intent to deceive — inside a
+fiction frame, or framed as a forgetful mistake — produces a mask that works as
+well or better, on all five models tested. A truthful-paraphrase treatment arm with
+matched phrasing diversity produces a mask that does nothing at all. The axis is
+**being instructed to assert a falsehood**. See `reports/placebo_contrast_report.md`.
+
+**The useful direction is damping, not amplification.** On Llama-3.1-8B, ablating
+the mask (α = −1.0) takes held-out lying under pressure from 59.6% to 7.2% at 1.01×
+perplexity and 95.0% neutral accuracy, beating the best of fifteen swept
+activation-steering configurations by 21 points. Amplification buys 11 points of
+extra lying for 1.21× perplexity and is not competitive with simply asking the model
+to lie. See `reports/head_to_head_llama8b_report.md`.
+
+**The specificity is real but narrow.** A random mask matched to the real mask's
+per-layer magnitude deciles does nothing at the same α, and so does the truthful
+arm's mask, which shares 91% of the same weights. Whatever the method does lives in
+the small part of the selection the truthful contrast declines to pick.
+
 ### Contrastive prompts
 
 Prompt design mirrors Table 1 of the paper.  Two exemplar categories:

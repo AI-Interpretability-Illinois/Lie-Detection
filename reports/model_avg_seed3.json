@@ -1,0 +1,48 @@
+{
+ "table1": {
+  "lb": {
+   "mean": {
+    "mask": 84.88,
+    "liemask": 76.42,
+    "steer": 78.66,
+    "prompt": 77.4,
+    "unsteered": 63.04
+   },
+   "lead": {
+    "vs": "steer",
+    "diff": 6.2,
+    "lo": 4.6,
+    "hi": 7.9
+   }
+  },
+  "ail": {
+   "mean": {
+    "mask": 79.4,
+    "liemask": 73.78,
+    "steer": 74.84,
+    "prompt": 53.76,
+    "unsteered": 54.52
+   },
+   "lead": {
+    "vs": "steer",
+    "diff": 4.5,
+    "lo": 2.9,
+    "hi": 6.2
+   }
+  }
+ },
+ "wins": {
+  "lb": {
+   "liemask": 5,
+   "steer": 5,
+   "prompt": 4,
+   "unsteered": 5
+  },
+  "ail": {
+   "liemask": 4,
+   "steer": 5,
+   "prompt": 5,
+   "unsteered": 5
+  }
+ }
+}

@@ -1,0 +1,764 @@
+{
+ "Llama-3.1-8B": {
+  "lb": {
+   "family": "fiction",
+   "cells": {
+    "ours": {
+     "arm": "weight:fiction a=-1.25",
+     "v": 87.4,
+     "ppl": 1.134,
+     "mmlu_drop": -8.4
+    },
+    "vpos": {
+     "arm": "weight:vposfiction a=-1.0",
+     "v": 90.8,
+     "ppl": 1.07,
+     "mmlu_drop": -6.4,
+     "ours_minus": {
+      "diff": -3.4,
+      "lo": -7.3,
+      "hi": 0.8,
+      "n": 261
+     }
+    },
+    "vpad": {
+     "arm": "weight:vpadfiction a=-1.125",
+     "v": 39.1,
+     "ppl": 1.0,
+     "mmlu_drop": -0.5,
+     "ours_minus": {
+      "diff": 48.3,
+      "lo": 40.6,
+      "hi": 55.9,
+      "n": 261
+     }
+    },
+    "vtok": {
+     "arm": "weight:vtokfiction a=-1.25",
+     "v": 90.0,
+     "ppl": 1.052,
+     "mmlu_drop": -5.7,
+     "ours_minus": {
+      "diff": -2.7,
+      "lo": -6.9,
+      "hi": 1.1,
+      "n": 261
+     }
+    },
+    "vrat": {
+     "arm": "weight:vratfiction a=-1.125",
+     "v": 90.4,
+     "ppl": 1.1,
+     "mmlu_drop": -7.1,
+     "ours_minus": {
+      "diff": -3.1,
+      "lo": -7.3,
+      "hi": 1.1,
+      "n": 261
+     }
+    },
+    "vr020": {
+     "arm": "weight:vr020fiction a=-1.0",
+     "v": 66.3,
+     "ppl": 1.008,
+     "mmlu_drop": -1.4,
+     "ours_minus": {
+      "diff": 21.1,
+      "lo": 14.6,
+      "hi": 28.0,
+      "n": 261
+     }
+    },
+    "vr060": {
+     "arm": "weight:vr060fiction a=-0.5",
+     "v": 84.7,
+     "ppl": 1.128,
+     "mmlu_drop": -6.2,
+     "ours_minus": {
+      "diff": 2.7,
+      "lo": -2.7,
+      "hi": 8.0,
+      "n": 261
+     }
+    },
+    "vz": {
+     "v": null,
+     "fails": [
+      "control",
+      "perplexity",
+      "polarity"
+     ]
+    }
+   }
+  },
+  "ail": {
+   "family": "pooled",
+   "cells": {
+    "ours": {
+     "arm": "weight:pooled a=-1.0",
+     "v": 89.7,
+     "ppl": 1.03,
+     "mmlu_drop": -2.5
+    },
+    "vpos": {
+     "arm": "weight:vpospooled a=-1.0",
+     "v": 89.4,
+     "ppl": 1.03,
+     "mmlu_drop": -2.9,
+     "ours_minus": {
+      "diff": 0.2,
+      "lo": -2.9,
+      "hi": 3.4,
+      "n": 417
+     }
+    },
+    "vpad": {
+     "arm": "weight:vpadpooled a=-1.125",
+     "v": 30.7,
+     "ppl": 1.0,
+     "mmlu_drop": -0.0,
+     "ours_minus": {
+      "diff": 59.0,
+      "lo": 53.7,
+      "hi": 64.3,
+      "n": 417
+     }
+    },
+    "vz": {
+     "arm": "weight:vzpooled a=-0.05",
+     "v": 29.7,
+     "ppl": 1.011,
+     "mmlu_drop": 0.0,
+     "ours_minus": {
+      "diff": 60.0,
+      "lo": 54.7,
+      "hi": 65.0,
+      "n": 417
+     }
+    },
+    "vtok": {
+     "arm": "weight:vtokpooled a=-1.125",
+     "v": 86.3,
+     "ppl": 1.009,
+     "mmlu_drop": -2.9,
+     "ours_minus": {
+      "diff": 3.4,
+      "lo": -0.5,
+      "hi": 7.2,
+      "n": 417
+     }
+    }
+   }
+  }
+ },
+ "Phi-4-mini": {
+  "lb": {
+   "family": "pooled",
+   "cells": {
+    "ours": {
+     "arm": "weight:pooled a=-1.125",
+     "v": 90.5,
+     "ppl": 1.077,
+     "mmlu_drop": -3.0
+    },
+    "vpos": {
+     "arm": "weight:vpospooled a=-1.125",
+     "v": 89.7,
+     "ppl": 1.07,
+     "mmlu_drop": -2.9,
+     "ours_minus": {
+      "diff": 0.8,
+      "lo": -2.7,
+      "hi": 4.2,
+      "n": 262
+     }
+    },
+    "vpad": {
+     "arm": "weight:vpadpooled a=-1.125",
+     "v": 68.3,
+     "ppl": 1.004,
+     "mmlu_drop": 0.3,
+     "ours_minus": {
+      "diff": 22.1,
+      "lo": 16.8,
+      "hi": 27.9,
+      "n": 262
+     }
+    },
+    "vz": {
+     "arm": "weight:vzpooled a=-0.1",
+     "v": 71.8,
+     "ppl": 1.081,
+     "mmlu_drop": -2.0,
+     "ours_minus": {
+      "diff": 18.7,
+      "lo": 13.0,
+      "hi": 24.0,
+      "n": 262
+     }
+    },
+    "vtok": {
+     "arm": "weight:vtokpooled a=-1.125",
+     "v": 81.3,
+     "ppl": 1.041,
+     "mmlu_drop": -1.7,
+     "ours_minus": {
+      "diff": 9.2,
+      "lo": 4.6,
+      "hi": 13.4,
+      "n": 262
+     }
+    },
+    "vrat": {
+     "arm": "weight:vratpooled a=-1.125",
+     "v": 92.0,
+     "ppl": 1.104,
+     "mmlu_drop": -4.3,
+     "ours_minus": {
+      "diff": -1.5,
+      "lo": -5.3,
+      "hi": 2.3,
+      "n": 262
+     }
+    },
+    "vr020": {
+     "arm": "weight:vr020pooled a=-1.25",
+     "v": 67.9,
+     "ppl": 1.023,
+     "mmlu_drop": 0.3,
+     "ours_minus": {
+      "diff": 22.5,
+      "lo": 16.8,
+      "hi": 28.2,
+      "n": 262
+     }
+    },
+    "vr060": {
+     "arm": "weight:vr060pooled a=-0.25",
+     "v": 80.2,
+     "ppl": 1.047,
+     "mmlu_drop": -0.3,
+     "ours_minus": {
+      "diff": 10.3,
+      "lo": 5.7,
+      "hi": 15.3,
+      "n": 262
+     }
+    }
+   }
+  },
+  "ail": {
+   "family": "fiction",
+   "cells": {
+    "ours": {
+     "arm": "weight:fiction a=-1.0",
+     "v": 78.7,
+     "ppl": 1.132,
+     "mmlu_drop": -2.7
+    },
+    "vpos": {
+     "arm": "weight:vposfiction a=-1.0",
+     "v": 75.4,
+     "ppl": 1.13,
+     "mmlu_drop": -2.8,
+     "ours_minus": {
+      "diff": 3.3,
+      "lo": -0.7,
+      "hi": 7.3,
+      "n": 427
+     }
+    },
+    "vpad": {
+     "arm": "weight:vpadfiction a=-0.25",
+     "v": 47.5,
+     "ppl": 1.001,
+     "mmlu_drop": 0.1,
+     "ours_minus": {
+      "diff": 31.1,
+      "lo": 25.5,
+      "hi": 36.8,
+      "n": 427
+     }
+    },
+    "vz": {
+     "arm": "weight:vzfiction a=-0.1",
+     "v": 50.8,
+     "ppl": 1.076,
+     "mmlu_drop": -3.5,
+     "ours_minus": {
+      "diff": 27.9,
+      "lo": 22.2,
+      "hi": 33.5,
+      "n": 427
+     }
+    },
+    "vtok": {
+     "arm": "weight:vtokfiction a=-1.25",
+     "v": 70.0,
+     "ppl": 1.083,
+     "mmlu_drop": -1.9,
+     "ours_minus": {
+      "diff": 8.7,
+      "lo": 4.0,
+      "hi": 13.1,
+      "n": 427
+     }
+    }
+   }
+  }
+ },
+ "Falcon3-3B": {
+  "lb": {
+   "family": "poolmix",
+   "cells": {
+    "ours": {
+     "arm": "weight:poolmix a=-1.25",
+     "v": 91.6,
+     "ppl": 1.019,
+     "mmlu_drop": -2.6
+    },
+    "vpos": {
+     "arm": "weight:vpospoolmix a=-1.25",
+     "v": 90.8,
+     "ppl": 1.012,
+     "mmlu_drop": -2.0,
+     "ours_minus": {
+      "diff": 0.8,
+      "lo": -3.1,
+      "hi": 4.6,
+      "n": 262
+     }
+    },
+    "vpad": {
+     "arm": "weight:vpadpoolmix a=-1.0",
+     "v": 80.9,
+     "ppl": 1.002,
+     "mmlu_drop": -0.8,
+     "ours_minus": {
+      "diff": 10.7,
+      "lo": 5.0,
+      "hi": 16.4,
+      "n": 262
+     }
+    },
+    "vz": {
+     "arm": "weight:vzpoolmix a=-0.1",
+     "v": 82.8,
+     "ppl": 1.018,
+     "mmlu_drop": -0.9,
+     "ours_minus": {
+      "diff": 8.8,
+      "lo": 3.4,
+      "hi": 14.5,
+      "n": 262
+     }
+    },
+    "vtok": {
+     "arm": "weight:vtokpoolmix a=-1.25",
+     "v": 89.7,
+     "ppl": 1.017,
+     "mmlu_drop": -1.7,
+     "ours_minus": {
+      "diff": 1.9,
+      "lo": -1.5,
+      "hi": 5.7,
+      "n": 262
+     }
+    },
+    "vrat": {
+     "arm": "weight:vratpoolmix a=-1.25",
+     "v": 89.7,
+     "ppl": 1.006,
+     "mmlu_drop": -2.7,
+     "ours_minus": {
+      "diff": 1.9,
+      "lo": -1.9,
+      "hi": 5.7,
+      "n": 262
+     }
+    },
+    "vr020": {
+     "arm": "weight:vr020poolmix a=-1.25",
+     "v": 85.9,
+     "ppl": 1.015,
+     "mmlu_drop": -0.7,
+     "ours_minus": {
+      "diff": 5.7,
+      "lo": 1.1,
+      "hi": 10.7,
+      "n": 262
+     }
+    },
+    "vr060": {
+     "arm": "weight:vr060poolmix a=-0.5",
+     "v": 93.9,
+     "ppl": 0.958,
+     "mmlu_drop": -2.7,
+     "ours_minus": {
+      "diff": -2.3,
+      "lo": -6.1,
+      "hi": 1.1,
+      "n": 262
+     }
+    }
+   }
+  },
+  "ail": {
+   "family": "poolmix",
+   "cells": {
+    "ours": {
+     "arm": "weight:poolmix a=-1.125",
+     "v": 79.5,
+     "ppl": 1.007,
+     "mmlu_drop": -2.1
+    },
+    "vpos": {
+     "arm": "weight:vpospoolmix a=-1.0",
+     "v": 76.2,
+     "ppl": 0.992,
+     "mmlu_drop": -1.5,
+     "ours_minus": {
+      "diff": 3.2,
+      "lo": -1.2,
+      "hi": 7.3,
+      "n": 341
+     }
+    },
+    "vpad": {
+     "arm": "weight:vpadpoolmix a=-0.5",
+     "v": 71.3,
+     "ppl": 1.001,
+     "mmlu_drop": 0.1,
+     "ours_minus": {
+      "diff": 8.2,
+      "lo": 2.6,
+      "hi": 13.5,
+      "n": 341
+     }
+    },
+    "vz": {
+     "arm": "weight:vzpoolmix a=-0.1",
+     "v": 76.0,
+     "ppl": 1.018,
+     "mmlu_drop": -0.9,
+     "ours_minus": {
+      "diff": 3.5,
+      "lo": -1.5,
+      "hi": 8.5,
+      "n": 341
+     }
+    },
+    "vtok": {
+     "arm": "weight:vtokpoolmix a=-1.25",
+     "v": 78.6,
+     "ppl": 1.017,
+     "mmlu_drop": -1.7,
+     "ours_minus": {
+      "diff": 0.9,
+      "lo": -3.8,
+      "hi": 5.6,
+      "n": 341
+     }
+    }
+   }
+  }
+ },
+ "OLMo-2-1B": {
+  "lb": {
+   "family": "pooled",
+   "cells": {
+    "ours": {
+     "arm": "weight:pooled a=-1.25",
+     "v": 60.7,
+     "ppl": 1.015,
+     "mmlu_drop": -2.2
+    },
+    "vpos": {
+     "arm": "weight:vpospooled a=-1.25",
+     "v": 58.4,
+     "ppl": 1.014,
+     "mmlu_drop": -1.7,
+     "ours_minus": {
+      "diff": 2.3,
+      "lo": -3.8,
+      "hi": 8.0,
+      "n": 262
+     }
+    },
+    "vpad": {
+     "arm": "weight:vpadpooled a=-1.0",
+     "v": 55.7,
+     "ppl": 1.001,
+     "mmlu_drop": -1.3,
+     "ours_minus": {
+      "diff": 5.0,
+      "lo": -1.1,
+      "hi": 11.1,
+      "n": 262
+     }
+    },
+    "vtok": {
+     "arm": "weight:vtokpooled a=-1.25",
+     "v": 61.8,
+     "ppl": 1.006,
+     "mmlu_drop": -1.3,
+     "ours_minus": {
+      "diff": -1.1,
+      "lo": -7.3,
+      "hi": 4.6,
+      "n": 262
+     }
+    },
+    "vrat": {
+     "arm": "weight:vratpooled a=-1.25",
+     "v": 59.5,
+     "ppl": 1.015,
+     "mmlu_drop": -1.8,
+     "ours_minus": {
+      "diff": 1.1,
+      "lo": -4.6,
+      "hi": 6.5,
+      "n": 262
+     }
+    },
+    "vz": {
+     "v": null,
+     "fails": [
+      "control",
+      "perplexity",
+      "polarity"
+     ]
+    },
+    "vr020": {
+     "v": null,
+     "fails": [
+      "polarity"
+     ]
+    },
+    "vr060": {
+     "v": null,
+     "fails": [
+      "control",
+      "perplexity",
+      "polarity"
+     ]
+    }
+   }
+  },
+  "ail": {
+   "family": "pooled",
+   "cells": {
+    "ours": {
+     "arm": "weight:pooled a=-1.25",
+     "v": 67.1,
+     "ppl": 1.015,
+     "mmlu_drop": -2.2
+    },
+    "vpos": {
+     "arm": "weight:vpospooled a=-1.5",
+     "v": 68.4,
+     "ppl": 1.019,
+     "mmlu_drop": -2.2,
+     "ours_minus": {
+      "diff": -1.3,
+      "lo": -7.3,
+      "hi": 4.7,
+      "n": 301
+     }
+    },
+    "vpad": {
+     "arm": "weight:vpadpooled a=-0.5",
+     "v": 60.8,
+     "ppl": 1.001,
+     "mmlu_drop": -0.5,
+     "ours_minus": {
+      "diff": 6.3,
+      "lo": 0.3,
+      "hi": 12.3,
+      "n": 301
+     }
+    },
+    "vz": {
+     "arm": "weight:vzpooled a=-0.05",
+     "v": 59.1,
+     "ppl": 1.016,
+     "mmlu_drop": -0.6,
+     "ours_minus": {
+      "diff": 8.0,
+      "lo": 1.7,
+      "hi": 14.3,
+      "n": 301
+     }
+    },
+    "vtok": {
+     "arm": "weight:vtokpooled a=-0.75",
+     "v": 64.1,
+     "ppl": 1.002,
+     "mmlu_drop": -0.9,
+     "ours_minus": {
+      "diff": 3.0,
+      "lo": -3.7,
+      "hi": 9.3,
+      "n": 301
+     }
+    }
+   }
+  }
+ },
+ "Qwen2.5-3B": {
+  "lb": {
+   "family": "pooltf",
+   "cells": {
+    "ours": {
+     "arm": "weight:pooltf a=-1.125",
+     "v": 94.7,
+     "ppl": 1.045,
+     "mmlu_drop": -0.7
+    },
+    "vpos": {
+     "arm": "weight:vpospooltf a=-1.0",
+     "v": 95.0,
+     "ppl": 1.031,
+     "mmlu_drop": -0.7,
+     "ours_minus": {
+      "diff": -0.4,
+      "lo": -1.9,
+      "hi": 0.8,
+      "n": 262
+     }
+    },
+    "vpad": {
+     "arm": "weight:vpadpooltf a=-0.5",
+     "v": 81.7,
+     "ppl": 0.998,
+     "mmlu_drop": -0.1,
+     "ours_minus": {
+      "diff": 13.0,
+      "lo": 8.8,
+      "hi": 17.6,
+      "n": 262
+     }
+    },
+    "vz": {
+     "arm": "weight:vzpooltf a=-0.1",
+     "v": 89.3,
+     "ppl": 1.027,
+     "mmlu_drop": -0.8,
+     "ours_minus": {
+      "diff": 5.3,
+      "lo": 2.3,
+      "hi": 8.4,
+      "n": 262
+     }
+    },
+    "vtok": {
+     "arm": "weight:vtokpooltf a=-1.25",
+     "v": 92.7,
+     "ppl": 1.025,
+     "mmlu_drop": -0.4,
+     "ours_minus": {
+      "diff": 1.9,
+      "lo": -0.8,
+      "hi": 5.0,
+      "n": 262
+     }
+    },
+    "vrat": {
+     "arm": "weight:vratpooltf a=-1.25",
+     "v": 95.8,
+     "ppl": 1.059,
+     "mmlu_drop": -0.9,
+     "ours_minus": {
+      "diff": -1.1,
+      "lo": -3.1,
+      "hi": 0.8,
+      "n": 262
+     }
+    },
+    "vr020": {
+     "arm": "weight:vr020pooltf a=-1.25",
+     "v": 86.3,
+     "ppl": 1.01,
+     "mmlu_drop": 0.2,
+     "ours_minus": {
+      "diff": 8.4,
+      "lo": 4.6,
+      "hi": 12.6,
+      "n": 262
+     }
+    },
+    "vr060": {
+     "arm": "weight:vr060pooltf a=-0.5",
+     "v": 88.2,
+     "ppl": 1.05,
+     "mmlu_drop": -0.5,
+     "ours_minus": {
+      "diff": 6.5,
+      "lo": 3.1,
+      "hi": 10.3,
+      "n": 262
+     }
+    }
+   }
+  },
+  "ail": {
+   "family": "poolmix",
+   "cells": {
+    "ours": {
+     "arm": "weight:poolmix a=-1.125",
+     "v": 81.3,
+     "ppl": 1.051,
+     "mmlu_drop": -1.4
+    },
+    "vpos": {
+     "arm": "weight:vpospoolmix a=-1.0",
+     "v": 76.0,
+     "ppl": 1.037,
+     "mmlu_drop": -0.7,
+     "ours_minus": {
+      "diff": 5.4,
+      "lo": 1.3,
+      "hi": 9.7,
+      "n": 391
+     }
+    },
+    "vpad": {
+     "arm": "weight:vpadpoolmix a=-1.125",
+     "v": 66.5,
+     "ppl": 0.999,
+     "mmlu_drop": 0.1,
+     "ours_minus": {
+      "diff": 14.8,
+      "lo": 9.5,
+      "hi": 19.9,
+      "n": 391
+     }
+    },
+    "vz": {
+     "arm": "weight:vzpoolmix a=-0.05",
+     "v": 62.9,
+     "ppl": 1.009,
+     "mmlu_drop": -0.1,
+     "ours_minus": {
+      "diff": 18.4,
+      "lo": 13.3,
+      "hi": 23.8,
+      "n": 391
+     }
+    },
+    "vtok": {
+     "arm": "weight:vtokpoolmix a=-1.125",
+     "v": 73.1,
+     "ppl": 1.043,
+     "mmlu_drop": -0.6,
+     "ours_minus": {
+      "diff": 8.2,
+      "lo": 3.8,
+      "hi": 12.3,
+      "n": 391
+     }
+    }
+   }
+  }
+ }
+}

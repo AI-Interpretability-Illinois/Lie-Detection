@@ -1,0 +1,884 @@
+[
+{
+"fam": "mask",
+"star": false,
+"gate_ok": true,
+"panel": "lb",
+"ppl": 1.0047,
+"dishonest": 52.6,
+"honest": 47.4
+},
+{
+"fam": "mask",
+"star": false,
+"gate_ok": true,
+"panel": "lb",
+"ppl": 1.0244,
+"dishonest": 32.29,
+"honest": 67.71
+},
+{
+"fam": "mask",
+"star": false,
+"gate_ok": true,
+"panel": "lb",
+"ppl": 1.0658,
+"dishonest": 14.06,
+"honest": 85.94
+},
+{
+"fam": "mask",
+"star": false,
+"gate_ok": true,
+"panel": "lb",
+"ppl": 1.1342,
+"dishonest": 2.08,
+"honest": 97.92
+},
+{
+"fam": "mask",
+"star": false,
+"gate_ok": true,
+"panel": "lb",
+"ppl": 1.0112,
+"dishonest": 51.04,
+"honest": 48.96
+},
+{
+"fam": "mask",
+"star": false,
+"gate_ok": true,
+"panel": "lb",
+"ppl": 1.0626,
+"dishonest": 22.92,
+"honest": 77.08
+},
+{
+"fam": "mask",
+"star": false,
+"gate_ok": true,
+"panel": "lb",
+"ppl": 1.1738,
+"dishonest": 3.65,
+"honest": 96.35
+},
+{
+"fam": "mask",
+"star": false,
+"gate_ok": true,
+"panel": "lb",
+"ppl": 1.3634,
+"dishonest": 7.29,
+"honest": 92.71
+},
+{
+"fam": "mask",
+"star": false,
+"gate_ok": true,
+"panel": "lb",
+"ppl": 1.0092,
+"dishonest": 48.96,
+"honest": 51.04
+},
+{
+"fam": "mask",
+"star": false,
+"gate_ok": true,
+"panel": "lb",
+"ppl": 1.0385,
+"dishonest": 22.92,
+"honest": 77.08
+},
+{
+"fam": "mask",
+"star": false,
+"gate_ok": true,
+"panel": "lb",
+"ppl": 1.1018,
+"dishonest": 3.13,
+"honest": 96.87
+},
+{
+"fam": "mask",
+"star": false,
+"gate_ok": true,
+"panel": "lb",
+"ppl": 1.2021,
+"dishonest": 5.21,
+"honest": 94.79
+},
+{
+"fam": "mask",
+"star": false,
+"gate_ok": true,
+"panel": "lb",
+"ppl": 1.0038,
+"dishonest": 51.04,
+"honest": 48.96
+},
+{
+"fam": "mask",
+"star": false,
+"gate_ok": true,
+"panel": "lb",
+"ppl": 1.0168,
+"dishonest": 30.73,
+"honest": 69.27
+},
+{
+"fam": "mask",
+"star": false,
+"gate_ok": true,
+"panel": "lb",
+"ppl": 1.0456,
+"dishonest": 9.37,
+"honest": 90.63
+},
+{
+"fam": "mask",
+"star": false,
+"gate_ok": true,
+"panel": "lb",
+"ppl": 1.0835,
+"dishonest": 2.6,
+"honest": 97.4
+},
+{
+"fam": "mask",
+"star": false,
+"gate_ok": true,
+"panel": "lb",
+"ppl": 1.1091,
+"dishonest": 2.08,
+"honest": 97.92
+},
+{
+"fam": "mask",
+"star": false,
+"gate_ok": true,
+"panel": "lb",
+"ppl": 1.1428,
+"dishonest": 2.08,
+"honest": 97.92
+},
+{
+"fam": "mask",
+"star": false,
+"gate_ok": true,
+"panel": "lb",
+"ppl": 1.0017,
+"dishonest": 53.12,
+"honest": 46.88
+},
+{
+"fam": "mask",
+"star": false,
+"gate_ok": true,
+"panel": "lb",
+"ppl": 1.0116,
+"dishonest": 35.42,
+"honest": 64.58
+},
+{
+"fam": "mask",
+"star": false,
+"gate_ok": true,
+"panel": "lb",
+"ppl": 1.0335,
+"dishonest": 26.56,
+"honest": 73.44
+},
+{
+"fam": "mask",
+"star": false,
+"gate_ok": true,
+"panel": "lb",
+"ppl": 1.0647,
+"dishonest": 4.69,
+"honest": 95.31
+},
+{
+"fam": "liemask",
+"star": false,
+"gate_ok": true,
+"panel": "lb",
+"ppl": 1.0051,
+"dishonest": 49.48,
+"honest": 50.52
+},
+{
+"fam": "liemask",
+"star": false,
+"gate_ok": true,
+"panel": "lb",
+"ppl": 1.0242,
+"dishonest": 26.56,
+"honest": 73.44
+},
+{
+"fam": "liemask",
+"star": false,
+"gate_ok": true,
+"panel": "lb",
+"ppl": 1.0649,
+"dishonest": 3.65,
+"honest": 96.35
+},
+{
+"fam": "liemask",
+"star": false,
+"gate_ok": true,
+"panel": "lb",
+"ppl": 1.1371,
+"dishonest": 4.17,
+"honest": 95.83
+},
+{
+"fam": "liemask",
+"star": false,
+"gate_ok": true,
+"panel": "lb",
+"ppl": 1.197,
+"dishonest": 5.21,
+"honest": 94.79
+},
+{
+"fam": "liemask",
+"star": false,
+"gate_ok": true,
+"panel": "lb",
+"ppl": 1.2757,
+"dishonest": 4.17,
+"honest": 95.83
+},
+{
+"fam": "steer",
+"star": false,
+"gate_ok": true,
+"panel": "lb",
+"ppl": 1.0,
+"dishonest": 80.73,
+"honest": 19.27
+},
+{
+"fam": "steer",
+"star": false,
+"gate_ok": true,
+"panel": "lb",
+"ppl": 1.0033,
+"dishonest": 82.81,
+"honest": 17.19
+},
+{
+"fam": "steer",
+"star": false,
+"gate_ok": true,
+"panel": "lb",
+"ppl": 1.0567,
+"dishonest": 79.17,
+"honest": 20.83
+},
+{
+"fam": "steer",
+"star": false,
+"gate_ok": true,
+"panel": "lb",
+"ppl": 1.0,
+"dishonest": 71.87,
+"honest": 28.13
+},
+{
+"fam": "steer",
+"star": false,
+"gate_ok": true,
+"panel": "lb",
+"ppl": 1.006,
+"dishonest": 55.73,
+"honest": 44.27
+},
+{
+"fam": "steer",
+"star": false,
+"gate_ok": true,
+"panel": "lb",
+"ppl": 1.0748,
+"dishonest": 23.96,
+"honest": 76.04
+},
+{
+"fam": "steer",
+"star": false,
+"gate_ok": true,
+"panel": "lb",
+"ppl": 1.0003,
+"dishonest": 70.31,
+"honest": 29.69
+},
+{
+"fam": "steer",
+"star": false,
+"gate_ok": true,
+"panel": "lb",
+"ppl": 1.0163,
+"dishonest": 52.6,
+"honest": 47.4
+},
+{
+"fam": "steer",
+"star": false,
+"gate_ok": true,
+"panel": "lb",
+"ppl": 1.1674,
+"dishonest": 13.54,
+"honest": 86.46
+},
+{
+"fam": "steer",
+"star": false,
+"gate_ok": true,
+"panel": "lb",
+"ppl": 1.0081,
+"dishonest": 57.81,
+"honest": 42.19
+},
+{
+"fam": "steer",
+"star": false,
+"gate_ok": true,
+"panel": "lb",
+"ppl": 1.0694,
+"dishonest": 18.23,
+"honest": 81.77
+},
+{
+"fam": "steer",
+"star": false,
+"gate_ok": true,
+"panel": "lb",
+"ppl": 1.6242,
+"dishonest": 6.77,
+"honest": 93.23
+},
+{
+"fam": "steer",
+"star": false,
+"gate_ok": false,
+"panel": "lb",
+"ppl": 1.0134,
+"dishonest": 82.81,
+"honest": 17.19
+},
+{
+"fam": "steer",
+"star": false,
+"gate_ok": false,
+"panel": "lb",
+"ppl": 1.0968,
+"dishonest": 89.06,
+"honest": 10.94
+},
+{
+"fam": "steer",
+"star": false,
+"gate_ok": false,
+"panel": "lb",
+"ppl": 1.9445,
+"dishonest": 90.1,
+"honest": 9.9
+},
+{
+"fam": "prompt",
+"star": false,
+"gate_ok": true,
+"panel": "lb",
+"ppl": 1.0,
+"dishonest": 5.73,
+"honest": 94.27
+},
+{
+"fam": "prompt",
+"star": false,
+"gate_ok": true,
+"panel": "lb",
+"ppl": 1.0,
+"dishonest": 1.04,
+"honest": 98.96
+},
+{
+"fam": "prompt",
+"star": false,
+"gate_ok": true,
+"panel": "lb",
+"ppl": 1.0,
+"dishonest": 15.62,
+"honest": 84.38
+},
+{
+"fam": "mask",
+"star": true,
+"gate_ok": true,
+"panel": "lb",
+"ppl": 1.0835,
+"dishonest": 2.99,
+"honest": 97.01
+},
+{
+"fam": "liemask",
+"star": true,
+"gate_ok": true,
+"panel": "lb",
+"ppl": 1.0649,
+"dishonest": 4.03,
+"honest": 95.97
+},
+{
+"fam": "steer",
+"star": true,
+"gate_ok": true,
+"panel": "lb",
+"ppl": 1.0694,
+"dishonest": 18.61,
+"honest": 81.39
+},
+{
+"fam": "mask",
+"star": false,
+"gate_ok": true,
+"panel": "ail",
+"ppl": 1.0047,
+"dishonest": 75.06,
+"honest": 24.94
+},
+{
+"fam": "mask",
+"star": false,
+"gate_ok": true,
+"panel": "ail",
+"ppl": 1.0244,
+"dishonest": 68.07,
+"honest": 31.93
+},
+{
+"fam": "mask",
+"star": false,
+"gate_ok": true,
+"panel": "ail",
+"ppl": 1.0658,
+"dishonest": 58.28,
+"honest": 41.72
+},
+{
+"fam": "mask",
+"star": false,
+"gate_ok": true,
+"panel": "ail",
+"ppl": 1.1342,
+"dishonest": 43.82,
+"honest": 56.18
+},
+{
+"fam": "mask",
+"star": false,
+"gate_ok": true,
+"panel": "ail",
+"ppl": 1.0112,
+"dishonest": 69.46,
+"honest": 30.54
+},
+{
+"fam": "mask",
+"star": false,
+"gate_ok": true,
+"panel": "ail",
+"ppl": 1.0626,
+"dishonest": 53.38,
+"honest": 46.62
+},
+{
+"fam": "mask",
+"star": false,
+"gate_ok": true,
+"panel": "ail",
+"ppl": 1.1738,
+"dishonest": 29.14,
+"honest": 70.86
+},
+{
+"fam": "mask",
+"star": false,
+"gate_ok": true,
+"panel": "ail",
+"ppl": 1.3634,
+"dishonest": 16.32,
+"honest": 83.68
+},
+{
+"fam": "mask",
+"star": false,
+"gate_ok": true,
+"panel": "ail",
+"ppl": 1.0092,
+"dishonest": 71.56,
+"honest": 28.44
+},
+{
+"fam": "mask",
+"star": false,
+"gate_ok": true,
+"panel": "ail",
+"ppl": 1.0385,
+"dishonest": 58.97,
+"honest": 41.03
+},
+{
+"fam": "mask",
+"star": false,
+"gate_ok": true,
+"panel": "ail",
+"ppl": 1.1018,
+"dishonest": 36.36,
+"honest": 63.64
+},
+{
+"fam": "mask",
+"star": false,
+"gate_ok": true,
+"panel": "ail",
+"ppl": 1.2021,
+"dishonest": 11.42,
+"honest": 88.58
+},
+{
+"fam": "mask",
+"star": false,
+"gate_ok": true,
+"panel": "ail",
+"ppl": 1.0038,
+"dishonest": 75.52,
+"honest": 24.48
+},
+{
+"fam": "mask",
+"star": false,
+"gate_ok": true,
+"panel": "ail",
+"ppl": 1.0168,
+"dishonest": 68.76,
+"honest": 31.24
+},
+{
+"fam": "mask",
+"star": false,
+"gate_ok": true,
+"panel": "ail",
+"ppl": 1.0456,
+"dishonest": 57.34,
+"honest": 42.66
+},
+{
+"fam": "mask",
+"star": false,
+"gate_ok": true,
+"panel": "ail",
+"ppl": 1.0835,
+"dishonest": 34.5,
+"honest": 65.5
+},
+{
+"fam": "mask",
+"star": false,
+"gate_ok": true,
+"panel": "ail",
+"ppl": 1.1091,
+"dishonest": 26.81,
+"honest": 73.19
+},
+{
+"fam": "mask",
+"star": false,
+"gate_ok": true,
+"panel": "ail",
+"ppl": 1.1428,
+"dishonest": 17.02,
+"honest": 82.98
+},
+{
+"fam": "mask",
+"star": false,
+"gate_ok": true,
+"panel": "ail",
+"ppl": 1.0017,
+"dishonest": 77.16,
+"honest": 22.84
+},
+{
+"fam": "mask",
+"star": false,
+"gate_ok": true,
+"panel": "ail",
+"ppl": 1.0116,
+"dishonest": 73.89,
+"honest": 26.11
+},
+{
+"fam": "mask",
+"star": false,
+"gate_ok": true,
+"panel": "ail",
+"ppl": 1.0335,
+"dishonest": 67.13,
+"honest": 32.87
+},
+{
+"fam": "mask",
+"star": false,
+"gate_ok": true,
+"panel": "ail",
+"ppl": 1.0647,
+"dishonest": 58.28,
+"honest": 41.72
+},
+{
+"fam": "liemask",
+"star": false,
+"gate_ok": true,
+"panel": "ail",
+"ppl": 1.0051,
+"dishonest": 74.36,
+"honest": 25.64
+},
+{
+"fam": "liemask",
+"star": false,
+"gate_ok": true,
+"panel": "ail",
+"ppl": 1.0242,
+"dishonest": 64.57,
+"honest": 35.43
+},
+{
+"fam": "liemask",
+"star": false,
+"gate_ok": true,
+"panel": "ail",
+"ppl": 1.0649,
+"dishonest": 40.33,
+"honest": 59.67
+},
+{
+"fam": "liemask",
+"star": false,
+"gate_ok": true,
+"panel": "ail",
+"ppl": 1.1371,
+"dishonest": 13.29,
+"honest": 86.71
+},
+{
+"fam": "liemask",
+"star": false,
+"gate_ok": true,
+"panel": "ail",
+"ppl": 1.197,
+"dishonest": 10.02,
+"honest": 89.98
+},
+{
+"fam": "liemask",
+"star": false,
+"gate_ok": true,
+"panel": "ail",
+"ppl": 1.2757,
+"dishonest": 8.39,
+"honest": 91.61
+},
+{
+"fam": "steer",
+"star": false,
+"gate_ok": true,
+"panel": "ail",
+"ppl": 1.0,
+"dishonest": 77.16,
+"honest": 22.84
+},
+{
+"fam": "steer",
+"star": false,
+"gate_ok": true,
+"panel": "ail",
+"ppl": 1.0033,
+"dishonest": 78.09,
+"honest": 21.91
+},
+{
+"fam": "steer",
+"star": false,
+"gate_ok": true,
+"panel": "ail",
+"ppl": 1.0567,
+"dishonest": 73.19,
+"honest": 26.81
+},
+{
+"fam": "steer",
+"star": false,
+"gate_ok": true,
+"panel": "ail",
+"ppl": 1.0,
+"dishonest": 76.22,
+"honest": 23.78
+},
+{
+"fam": "steer",
+"star": false,
+"gate_ok": true,
+"panel": "ail",
+"ppl": 1.006,
+"dishonest": 74.83,
+"honest": 25.17
+},
+{
+"fam": "steer",
+"star": false,
+"gate_ok": true,
+"panel": "ail",
+"ppl": 1.0748,
+"dishonest": 64.8,
+"honest": 35.2
+},
+{
+"fam": "steer",
+"star": false,
+"gate_ok": true,
+"panel": "ail",
+"ppl": 1.0003,
+"dishonest": 76.22,
+"honest": 23.78
+},
+{
+"fam": "steer",
+"star": false,
+"gate_ok": true,
+"panel": "ail",
+"ppl": 1.0163,
+"dishonest": 69.0,
+"honest": 31.0
+},
+{
+"fam": "steer",
+"star": false,
+"gate_ok": true,
+"panel": "ail",
+"ppl": 1.1674,
+"dishonest": 26.81,
+"honest": 73.19
+},
+{
+"fam": "steer",
+"star": false,
+"gate_ok": true,
+"panel": "ail",
+"ppl": 1.0081,
+"dishonest": 72.26,
+"honest": 27.74
+},
+{
+"fam": "steer",
+"star": false,
+"gate_ok": true,
+"panel": "ail",
+"ppl": 1.0694,
+"dishonest": 41.96,
+"honest": 58.04
+},
+{
+"fam": "steer",
+"star": false,
+"gate_ok": true,
+"panel": "ail",
+"ppl": 1.6242,
+"dishonest": 2.8,
+"honest": 97.2
+},
+{
+"fam": "steer",
+"star": false,
+"gate_ok": false,
+"panel": "ail",
+"ppl": 1.0134,
+"dishonest": 75.52,
+"honest": 24.48
+},
+{
+"fam": "steer",
+"star": false,
+"gate_ok": false,
+"panel": "ail",
+"ppl": 1.0968,
+"dishonest": 70.86,
+"honest": 29.14
+},
+{
+"fam": "steer",
+"star": false,
+"gate_ok": false,
+"panel": "ail",
+"ppl": 1.9445,
+"dishonest": 66.9,
+"honest": 33.1
+},
+{
+"fam": "prompt",
+"star": false,
+"gate_ok": true,
+"panel": "ail",
+"ppl": 1.0,
+"dishonest": 71.56,
+"honest": 28.44
+},
+{
+"fam": "prompt",
+"star": false,
+"gate_ok": true,
+"panel": "ail",
+"ppl": 1.0,
+"dishonest": 67.13,
+"honest": 32.87
+},
+{
+"fam": "prompt",
+"star": false,
+"gate_ok": true,
+"panel": "ail",
+"ppl": 1.0,
+"dishonest": 70.4,
+"honest": 29.6
+},
+{
+"fam": "mask",
+"star": true,
+"gate_ok": true,
+"panel": "ail",
+"ppl": 1.1428,
+"dishonest": 17.4,
+"honest": 82.6
+},
+{
+"fam": "liemask",
+"star": true,
+"gate_ok": true,
+"panel": "ail",
+"ppl": 1.1371,
+"dishonest": 13.67,
+"honest": 86.33
+},
+{
+"fam": "steer",
+"star": true,
+"gate_ok": true,
+"panel": "ail",
+"ppl": 1.0694,
+"dishonest": 42.34,
+"honest": 57.66
+}
+]

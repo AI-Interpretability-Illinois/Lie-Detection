@@ -1,0 +1,9 @@
+{
+ "model": "Qwen2.5-32B",
+ "params": 32763876352,
+ "params_source": "HF safetensors metadata, Qwen/Qwen2.5-32B-Instruct (2026-10-10)",
+ "source": "co-author's separate run (Ali E.), values as typed into tables/main.tex in Overleaf commit 210d0f8 (2026-10-09 17:44 CDT); no response files on our side, so not re-graded; grader not recorded in the row",
+ "note": "an earlier version of the same row (f077eed, 2026-10-09 00:29 CDT, commented out, with a dagger) had AI Liar ours 63.6 and lead -23.1 [-27.5, -18.6]; every other cell is identical. The later values are used here.",
+ "lb":  {"mask": 97.4, "liemask": 96.4, "steer": 81.8, "prompt": 99.0, "unsteered": 21.9, "lead": {"diff": -1.6, "lo": -4.2, "hi": 1.0, "vs": "prompt"}},
+ "ail": {"mask": 83.0, "liemask": 86.7, "steer": 58.0, "prompt": 32.9, "unsteered": 21.7, "lead": {"diff": -3.7, "lo": null, "hi": null, "vs": "liemask"}}
+}

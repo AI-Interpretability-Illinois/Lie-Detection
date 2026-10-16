@@ -694,7 +694,7 @@ python reports/generate_as_report.py
 
 ## 7  References
 
-Stolfo, A., et al. (2025). *Mechanistic Interpretability for AI Safety: Activation Steering for Instruction-Following.* ICLR 2025.
+Stolfo, A., Balachandran, V., Yousefi, S., Horvitz, E., & Nushi, B. (2025). *Improving Instruction-Following in Language Models through Activation Steering.* ICLR 2025. arXiv:2410.12877.
 
 Sun, M., et al. (2023). *Wanda: Pruning by Weights and Activations.* arXiv:2306.11695.
 
